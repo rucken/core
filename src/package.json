@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "0.0.8",
+  "version": "1.0.0",
   "dependencies": {
     "moment": "*",
     "@ngx-translate/core": "^6.0.0",
