@@ -13,7 +13,7 @@ import { UtilsService } from './shared/utils.service';
 import { FontawesomesService } from './shared/fontawesomes.service';
 import { GroupsService } from './shared/groups.service';
 import { ContentTypesService } from './shared/content-types.service';
-const CoreServices = [
+const RuckenServices = [
   /**
    * Services
    */
@@ -30,4 +30,4 @@ const CoreServices = [
   GroupsService,
   ContentTypesService
 ];
-export { CoreServices };
+export { RuckenServices };

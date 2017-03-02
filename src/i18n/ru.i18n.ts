@@ -1,4 +1,4 @@
-export const CoreRuI18n = {
+export const RuckenRuI18n = {
     "": {
         "project-id-version": "",
         "pot-creation-date": "",
@@ -15,6 +15,7 @@ export const CoreRuI18n = {
     "Error": "Ошибка",
     "Close": "Закрыть",
     "Info": "Информация",
+    "ОК": "Ок",
     "Edit": "Редактировать",
     "Remove": "Удалить",
     "Search": "Поиск",

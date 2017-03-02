@@ -13,6 +13,9 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
+msgid "ОК"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 

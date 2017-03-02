@@ -42,7 +42,7 @@ import { GroupsGridComponent } from './grids/groups-grid/groups-grid.component';
 import { NavbarComponent } from './controls/navbar/navbar.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RadiosInputComponent } from './controls/radios-input/radios-input.component';
-const CoreComponents = [
+const RuckenComponents = [
   /**
    * Pages
    */
@@ -101,4 +101,4 @@ const CoreComponents = [
   GroupsGridComponent
 ];
 
-export { CoreComponents };
+export { RuckenComponents };

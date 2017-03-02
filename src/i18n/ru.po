@@ -22,6 +22,9 @@ msgstr "Закрыть"
 msgid "Info"
 msgstr "Информация"
 
+msgid "ОК"
+msgstr "Ок"
+
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -294,9 +297,6 @@ msgstr "Да"
 
 msgid "Update"
 msgstr "Изменить"
-
-#~ msgid "ОК"
-#~ msgstr "Ок"
 
 #~ msgid "Searching..."
 #~ msgstr "Поиск..."

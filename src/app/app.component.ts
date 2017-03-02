@@ -1,7 +1,7 @@
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
 import { AppService } from '../shared/app.service';
-import { CoreRuI18n } from '../i18n/ru.i18n';
+import { RuckenRuI18n } from '../i18n/ru.i18n';
 import { AlertModalComponent } from '../modals/alert-modal/alert-modal.component';
 import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   loadLang() {
     this.translateService.addLangs(["en", "ru"]);
     this.translateService.setDefaultLang('en');
-    this.translateService.setTranslation('ru', _.merge(CoreRuI18n));
+    this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
     let browserLang: string = this.translateService.getBrowserLang();
     this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }

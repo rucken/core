@@ -1,8 +1,8 @@
-export { CoreComponents } from './components';
-export { CoreRoutingModule } from './routing.module';
-export { CoreServices } from './services';
+export { RuckenComponents } from './components';
+export { RuckenRoutingModule } from './routing.module';
+export { RuckenServices } from './services';
 export { AppComponent } from './app/app.component';
-export { CoreRuI18n } from './i18n/ru.i18n';
+export { RuckenRuI18n } from './i18n/ru.i18n';
 export { GridRowButtonsComponent } from './controls/grid-row-buttons/grid-row-buttons.component';
 export { CheckboxesInputComponent } from './controls/checkboxes-input/checkboxes-input.component';
 export { GridSearchPanelComponent } from './controls/grid-search-panel/grid-search-panel.component';
