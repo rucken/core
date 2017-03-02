@@ -1,0 +1,103 @@
+{
+  "name": "rucken",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "EndyKaufman <admin@site15.ru>",
+  "bugs": {
+    "url": "https://github.com/site15/rucken/issues"
+  },
+  "description": "Core with Admin UI for web application maked on Angular2+",
+  "homepage": "https://github.com/site15/rucken",
+  "main": "dist/bundles/@site15/rucken.umd.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "keywords": [
+    "ng",
+    "angular 2",
+    "admin ui",
+    "web application",
+    "seed",
+    "i18n",
+    "bootstrap",
+    "twitter-bootstrap",
+    "ng-bootstap"
+  ],
+  "maintainers": [
+    {
+      "name": "EndyKaufman",
+      "email": "admin@site15.ru"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/site15/rucken.git"
+  },
+  "scripts": {
+    "_preinstall": "npm install -g gulp @angular/cli gh-pages npm-run-all @biesbjerg/ng2-translate-extract lite-server srcgen po2json recursive-readdirs --save-dev",
+    "build": "gulp && ngm build -p src-inline --clean",
+    "ng": "ng",
+    "start": "ng serve",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "extract-demo": "ng2-translate-extract --dir ./demo/src --output ./demo/src/assets/i18n --format=pot --clean",
+    "extract": "ng2-translate-extract --dir ./src --output ./src/i18n --format=pot --clean",
+    "link": "ngm link -p src --here",
+    "lite-server": "lite-server -c demo/bs-config.json",
+    "demo.serve": "npm-run-all build link demo.build lite-server",
+    "demo.gh-pages": "npm-run-all build demo.build demo.deploy",
+    "demo.build": "ng build --base-href https://rucken.github.io/core/ --e prod",
+    "demo.deploy": "gh-pages -d demo/dist"
+  },
+  "dependencies": {
+    "@angular/common": "^2.4.0",
+    "@angular/compiler": "^2.4.0",
+    "@angular/core": "^2.4.0",
+    "@angular/forms": "^2.4.0",
+    "@angular/http": "^2.4.0",
+    "@angular/platform-browser": "^2.4.0",
+    "@angular/platform-browser-dynamic": "^2.4.0",
+    "@angular/router": "^3.4.0",
+    "@biesbjerg/ng2-translate-po-loader": "^0.2.1",
+    "@ngx-translate/core": "^6.0.0",
+    "@types/lodash": "ts2.0",
+    "@types/node": "^6.0.63",
+    "@types/requirejs": "^2.1.28",
+    "angular2-jwt": "^0.1.28",
+    "awesome-typescript-loader": "^3.0.8",
+    "core-js": "^2.4.1",
+    "lodash": "^4.17.4",
+    "ng2-bootstrap": "^1.3.3",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.7.6"
+  },
+  "devDependencies": {
+    "@angular/cli": "1.0.0-beta.32.3",
+    "@angular/compiler-cli": "^2.4.0",
+    "@biesbjerg/ng2-translate-extract": "git+https://github.com/EndyKaufman/ng2-translate-extract.git",
+    "@types/jasmine": "2.5.38",
+    "@types/lodash": "^4.14.52",
+    "@types/node": "~6.0.60",
+    "angular2-template-loader": "^0.6.2",
+    "codelyzer": "~2.0.0-beta.4",
+    "gh-pages": "^0.12.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-inline-ng2-template": "^4.0.0",
+    "gulp-tsc": "^1.3.0",
+    "jasmine-core": "~2.5.2",
+    "jasmine-spec-reporter": "~3.2.0",
+    "karma": "~1.4.1",
+    "karma-chrome-launcher": "~2.0.0",
+    "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
+    "karma-jasmine": "~1.1.0",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "lite-server": "^2.2.2",
+    "npm-run-all": "^4.0.2",
+    "protractor": "~5.1.0",
+    "ts-node": "~2.0.0",
+    "tslint": "~4.4.2",
+    "typescript": "~2.0.0"
+  }
+}

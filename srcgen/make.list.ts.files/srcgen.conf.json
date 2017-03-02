@@ -1,0 +1,5 @@
+{
+    "name": "make.list.ts.files",
+    "version": "0.0.1",
+    "description": "Make index.ts with all used typescript objects"
+}

@@ -1,0 +1,59 @@
+<button class="pixel" #focusElement></button>
+<div class="app-grid permissions-grid" *ngIf="account">
+  <div class="app-grid__toolbar--header">
+    <div class="row">
+      <div class="col-md-3">
+        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="account.checkPermissions(['add_permission'])">
+					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
+				</button>
+      </div>
+      <div class="col-md-9">
+        <div class="pull-right">
+          <grid-search-panel [(searchText)]="searchText" (onSearch)="search(true)"></grid-search-panel>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="app-grid__table table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{modelMeta.titles.id | translate}}</th>
+        <th class="app-grid__table__col-contentType">{{modelMeta.titles.contentType | translate}}</th>
+        <th class="app-grid__table__col-codename">{{modelMeta.titles.codename | translate}}</th>
+        <th class="app-grid__table__col-name">{{modelMeta.titles.name | translate}}</th>
+        <th class="app-grid__table__col-action" *ngIf="account.checkPermissions(['change_permission','delete_permission'])" translate>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="statusListMessage">
+        <td class="app-grid__table__col-status-message" [attr.colspan]="4+(account.checkPermissions(['change_permission','delete_permission'])?1:0)">
+          {{statusListMessage | translate}}
+        </td>
+      </tr>
+      <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}"
+        (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
+        <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
+        <td class="app-grid__table__col-contentType">{{item.contentTypeAsString}}</td>
+        <td class="app-grid__table__col-codename">{{item.codename}}</td>
+        <td class="app-grid__table__col-name">{{item.name}}</td>
+        <td class="app-grid__table__col-action" *ngIf="account.checkPermissions(['change_permission','delete_permission'])">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="account.checkPermissions(['change_permission'])"
+            [showRemove]="account.checkPermissions(['delete_permission'])"></grid-row-buttons>
+        </td>
+        </tr>
+    </tbody>
+  </table>
+  <div class="app-grid__toolbar--footer" [hidden]="statusListMessage">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-9">
+        <div class="pull-right" *ngIf="meta.totalPages>1 || meta.totalResults>meta.perPage">
+          <pagination [directionLinks]="false" (pageChanged)="pageChanged($event)" [boundaryLinks]="true" [totalItems]="meta.totalResults"
+            [rotate]="false" [maxSize]="5" [(ngModel)]="meta.curPage" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed"
+            firstText="&laquo;" lastText="&raquo;"></pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

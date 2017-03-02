@@ -1,0 +1,14 @@
+<div class="form-group" [ngClass]="{'has-error':errorsValue && errorsValue[name]}">
+  <label class="control-label" [attr.for]="'input'+name">{{title | translate}}</label>
+  <div [ngClass]="{'input-group':!readonly}">
+    <input [attr.type]="type" class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
+      [(ngModel)]="valueAsString" [readonly]="readonly || inputReadonly" #inputElement>
+    <span class="input-group-btn" *ngIf="!readonly">
+      <button class="btn btn-success" type="button" (click)="onLookup()"
+              tooltip="{{lookupTooltip}}" placement="left" container="body">
+          <span [ngClass]="[lookupIcon]"></span>
+    </button>
+    </span>
+  </div>
+  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ')}}</span>
+</div>

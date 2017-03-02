@@ -1,0 +1,9 @@
+<div class="form-group radios-input" [ngClass]="{'has-error':errorsValue && errorsValue[name]}">
+  <label class="control-label">{{title | translate}}</label>
+  <div class="form-control form-radio-controls">
+    <label class="control-label checkbox-inline" *ngFor="let key of keys(values)" [hidden]="!radiosTitles[key]">
+        <input type="radio" [attr.id]="'input'+key" [(ngModel)]="value" (change)="updateModel()" [value]="values[key]" name="{{name}}" [disabled]="readonly"> {{ radiosTitles[key] | translate }}
+    </label>
+  </div>
+  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ')}}</span>
+</div>

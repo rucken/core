@@ -1,0 +1,54 @@
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AccountService } from './../../shared/account.service';
+import { AppService } from './../../shared/app.service';
+import { TranslateService } from '@ngx-translate/core';
+
+@Component({
+  selector: 'grid-row-buttons',
+  templateUrl: './grid-row-buttons.component.html',
+  styleUrls: ['./grid-row-buttons.component.scss']
+})
+
+export class GridRowButtonsComponent implements OnInit {
+  @Input()
+  editTitle?: string;
+  @Input()
+  removeTitle?: string;
+  @Input()
+  editIcon?: string = 'fa fa-pencil-square-o';
+  @Input()
+  removeIcon?: string = 'fa fa-remove';
+  @Input()
+  editIconColor?: string = ''; // text-primary';
+  @Input()
+  removeIconColor?: string = ''; // 'text-warning';
+  @Output()
+  onEdit: EventEmitter<boolean | any> = new EventEmitter();
+  @Output()
+  onRemove: EventEmitter<boolean | any> = new EventEmitter();
+  @Input()
+  showEdit?: boolean = true;
+  @Input()
+  showRemove?: boolean = true;
+
+  constructor(public translateService: TranslateService) {
+    if (this.editTitle === undefined) {
+      this.editTitle = this.translateService.instant('Edit');
+    }
+    if (this.removeTitle === undefined) {
+      this.removeTitle = this.translateService.instant('Remove');
+    }
+  }
+  ngOnInit() {
+  }
+
+  edit() {
+    this.onEdit.emit(true);
+    return false;
+  }
+
+  remove() {
+    this.onRemove.emit(true);
+    return false;
+  }
+}

@@ -1,0 +1,302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.12\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Error"
+msgstr "Ошибка"
+
+msgid "Close"
+msgstr "Закрыть"
+
+msgid "Info"
+msgstr "Информация"
+
+msgid "Edit"
+msgstr "Редактировать"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Search"
+msgstr "Поиск"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Logout"
+msgstr "Выйти"
+
+msgid "Do you really want to leave?"
+msgstr "Вы действительно хотите выйти?"
+
+msgid "Authorization"
+msgstr "Авторизация"
+
+msgid "Select"
+msgstr "Выбрать"
+
+msgid "Content types"
+msgstr "Тип содержимого"
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Create new content type"
+msgstr "Создание типа содержимого"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Edit content type"
+msgstr "Редактирование типа содержимого"
+
+msgid "Content type info"
+msgstr "Информация о типе содержимом"
+
+msgid "Are you sure you want to remove a content type?"
+msgstr "Вы уверены, что хотите удалить тип содкржимого?"
+
+msgid "Fontawesomes"
+msgstr "Иконки"
+
+msgid "Create new fontawesome"
+msgstr "Создание новой иконки"
+
+msgid "Edit fontawesome"
+msgstr "Редактирование иконки"
+
+msgid "Fontawesome info"
+msgstr "Информация об иконке"
+
+msgid "Are you sure you want to remove a fontawesome?"
+msgstr "Вы уверены, что хотите удалить иконку?"
+
+msgid "Append"
+msgstr "Добавить"
+
+msgid "Select permissions for append to group"
+msgstr "Выберите разрешение для добавления в группу"
+
+msgid "Edit permission"
+msgstr "Редактирование разрешения"
+
+msgid "Permission info"
+msgstr "Информация о разрешении"
+
+msgid "Are you sure you want to remove a group permission?"
+msgstr "Вы уверены, что хотите удалить разрешение у группы?"
+
+msgid "Groups"
+msgstr "Группы"
+
+msgid "Create new group"
+msgstr "Создание новой группы"
+
+msgid "Edit group"
+msgstr "Редактирование группы"
+
+msgid "Group info"
+msgstr "Информация о группе"
+
+msgid "Are you sure you want to remove a group?"
+msgstr "Вы уверены, что хотите удалить группу?"
+
+msgid "Permissions"
+msgstr "Разрешения"
+
+msgid "Create new permission"
+msgstr "Создание нового разрешения"
+
+msgid "Are you sure you want to remove a permission?"
+msgstr "Вы уверены, что хотите удалить разрешения?"
+
+msgid "Select groups for append to user"
+msgstr "Выберите группы для добавления"
+
+msgid "Are you sure you want to remove a user group?"
+msgstr "Вы уверены, что хотите удалить группу пользователей?"
+
+msgid "Create new user"
+msgstr "Добавление нового пользователя"
+
+msgid "Edit user"
+msgstr "Редактирование пользователя"
+
+msgid "User info"
+msgstr "Информация о пользователе"
+
+msgid "Are you sure you want to remove a user?"
+msgstr "Вы уверены, что хотите удалить пользователя?"
+
+msgid "Account"
+msgstr "Личный кабинет"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Admin"
+msgstr "Администрирование"
+
+msgid "Users"
+msgstr "Пользователи"
+
+msgid "Home"
+msgstr "Домашняя страница"
+
+msgid "Themes"
+msgstr "Темы"
+
+msgid "Id"
+msgstr "Ид."
+
+msgid "Model"
+msgstr "Модель"
+
+msgid "Icon"
+msgstr "Иконка"
+
+msgid "Code"
+msgstr "Код"
+
+msgid "Class"
+msgstr "Класс"
+
+msgid "Group"
+msgstr "Группа"
+
+msgid "Permission"
+msgstr "Разрешения"
+
+msgid "Name"
+msgstr "Наименование"
+
+msgid "Total results"
+msgstr "Всего записей"
+
+msgid "Current page"
+msgstr "Текущ. стр."
+
+msgid "Total pages"
+msgstr "Всего стр."
+
+msgid "Per page"
+msgstr "Кол-во стр."
+
+msgid "Content type"
+msgstr "Тип содержимого"
+
+msgid "Codename"
+msgstr "Код"
+
+msgid "Url"
+msgstr "Адрес"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Repeat password"
+msgstr "Пароль (повторно)"
+
+msgid "Username/Email"
+msgstr "Имя пользователя/ Эл. почта"
+
+msgid "Roles"
+msgstr "Роли"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "Administrator"
+msgstr "Администратор"
+
+msgid "Full name"
+msgstr "Полное имя"
+
+msgid "First name"
+msgstr "Имя"
+
+msgid "Last name"
+msgstr "Фамилия"
+
+msgid "Email"
+msgstr "Эл. почта"
+
+msgid "Last login"
+msgstr "Дата последнего входа"
+
+msgid "Date joined"
+msgstr "Дата регистрации"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Not found"
+msgstr "Нет данных"
+
+msgid "Error, you not set perPage count"
+msgstr "Ошибка, вы не установили текущую страницу"
+
+msgid "Error in creating"
+msgstr "Ошибка при создании"
+
+msgid "Creating..."
+msgstr "Создание..."
+
+msgid "Updating..."
+msgstr "Изменение..."
+
+msgid "Error in updating"
+msgstr "Ошибка при изменении"
+
+msgid "Removing..."
+msgstr "Удаление..."
+
+msgid "OK"
+msgstr "Ок"
+
+msgid "Error on deleting"
+msgstr "Ошибка при удалении"
+
+msgid "Menu"
+msgstr "Меню"
+
+msgid "Site name"
+msgstr "Название сайта"
+
+msgid "Login"
+msgstr "Вход"
+
+msgid "Actions"
+msgstr "Действия"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Update"
+msgstr "Изменить"
+
+#~ msgid "ОК"
+#~ msgstr "Ок"
+
+#~ msgid "Searching..."
+#~ msgstr "Поиск..."

@@ -1,0 +1,25 @@
+<div bsModal #modal="bs-modal" class="modal fade permission-modal" [ngClass]="[class]" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        <h4 class="modal-title">{{title | translate}}</h4>
+      </div>
+      <form (ngSubmit)="save()">
+        <div class="modal-body">
+          <text-input [errors]="errors" [info]="info" name="codename" [(model)]="item.codename" [title]="modelMeta.titles.codename" [readonly]="readonly"
+            [focused]="true" #focusElement></text-input>
+            <text-input [errors]="errors" [info]="info" name="name" [(model)]="item.name" [title]="modelMeta.titles.name" [readonly]="readonly"></text-input>
+            <content-type-select-input [errors]="errors" [info]="info" name="contentType" [(model)]="item.contentType" [title]="modelMeta.titles.contentType"
+              [readonly]="readonly"></content-type-select-input>
+        </div>
+        <div class="modal-footer">
+          <modal-footer-buttons (onClose)="close()" [readonly]="readonly" [okTitle]="text"></modal-footer-buttons>
+        </div>
+      </form>
+    </div>
+  </div>
+  </div>

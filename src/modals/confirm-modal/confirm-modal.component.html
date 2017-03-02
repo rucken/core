@@ -1,0 +1,22 @@
+<div bsModal #modal="bs-modal" class="modal fade confirm-modal" [ngClass]="[class]" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+	aria-hidden="true">
+	<div class="modal-dialog" [ngClass]="['modal-'+size]">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" aria-label="Close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+				<h4 class="modal-title">{{title | translate}}</h4>
+			</div>
+			<form (ngSubmit)="yes()">
+				<div class="modal-body">
+					{{message | translate}}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" (click)="close()" translate>No</button>
+					<button type="submit" #focusElement class="btn btn-primary" translate>Yes</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

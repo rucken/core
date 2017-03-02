@@ -1,0 +1,2 @@
+<button type="button" class="btn btn-default" (click)="close()">{{(readonly?'Close':cancelTitle) | translate}}</button>
+<button type="submit" class="btn btn-primary" *ngIf="!readonly">{{okTitle | translate}}</button>
