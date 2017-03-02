@@ -121,6 +121,9 @@ msgstr ""
 msgid "Are you sure you want to remove a user group?"
 msgstr ""
 
+msgid "Users"
+msgstr ""
+
 msgid "Create new user"
 msgstr ""
 
@@ -140,9 +143,6 @@ msgid "Profile"
 msgstr ""
 
 msgid "Admin"
-msgstr ""
-
-msgid "Users"
 msgstr ""
 
 msgid "Home"

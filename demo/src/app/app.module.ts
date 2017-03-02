@@ -5,7 +5,7 @@ import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig, PaginationConfig, TabsetConfig } from 'ng2-bootstrap';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import {
-  CoreComponents, CoreServices, CoreRoutingModule,
+  RuckenComponents, RuckenServices, RuckenRoutingModule,
   ResponseService, HttpService, AccountService, AuthHttpFactory
 } from '../../../dist';
 import { DemoAppComponent } from './app.component';
@@ -22,7 +22,7 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     DemoAppComponent,
-    CoreComponents
+    RuckenComponents
   ],
   imports: [
     BrowserModule,
@@ -36,7 +36,7 @@ export function createTranslateLoader(http: Http) {
       }
     }*/),
     Ng2BootstrapModule,
-    CoreRoutingModule
+    RuckenRoutingModule
   ],
   providers: [
     ComponentLoaderFactory,
@@ -44,7 +44,7 @@ export function createTranslateLoader(http: Http) {
     TooltipConfig,
     PaginationConfig,
     TabsetConfig,
-    CoreServices,
+    RuckenServices,
     { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
     { provide: ResponseService, useClass: DemoResponseService },
     { provide: HttpService, useClass: DemoHttpService },
