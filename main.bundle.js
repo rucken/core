@@ -281,7 +281,7 @@ var GroupModalComponent = (function () {
         this.account = null;
         this.title = '';
         this.item = new __WEBPACK_IMPORTED_MODULE_1__shared_models_group_model__["a" /* Group */]();
-        this.modelMeta = __WEBPACK_IMPORTED_MODULE_2__shared_models_group_permission_model__["a" /* GroupPermission */].meta;
+        this.modelMeta = __WEBPACK_IMPORTED_MODULE_1__shared_models_group_model__["a" /* Group */].meta;
         this.onClose = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.onSave = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.errors = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
@@ -838,10 +838,10 @@ var GroupPermission = (function (_super) {
         configurable: true
     });
     GroupPermission.prototype.parse = function (obj) {
-        this.parseByFields(obj, GroupPermission.titles);
+        this.parseByFields(obj, GroupPermission.meta);
     };
     GroupPermission.prototype.format = function () {
-        var result = this.formatByFields(GroupPermission.titles);
+        var result = this.formatByFields(GroupPermission.meta);
         return result;
     };
     Object.defineProperty(GroupPermission.prototype, "asString", {
@@ -868,6 +868,7 @@ var GroupPermission = (function (_super) {
         group: 'Group',
         permission: 'Permission',
     };
+    GroupPermission.fields = ['id', 'group', 'permission'];
     return GroupPermission;
 }(__WEBPACK_IMPORTED_MODULE_1__shared_models_resource_model__["a" /* ResourceModel */]));
 
@@ -906,10 +907,10 @@ var UserGroup = (function (_super) {
         configurable: true
     });
     UserGroup.prototype.parse = function (obj) {
-        this.parseByFields(obj, UserGroup.titles);
+        this.parseByFields(obj, UserGroup.meta);
     };
     UserGroup.prototype.format = function () {
-        var result = this.formatByFields(UserGroup.titles);
+        var result = this.formatByFields(UserGroup.meta);
         return result;
     };
     Object.defineProperty(UserGroup.prototype, "asString", {
@@ -934,8 +935,9 @@ var UserGroup = (function (_super) {
     UserGroup.titles = {
         id: 'Id',
         user: 'User',
-        group: 'Group',
+        group: 'Group' //translate
     };
+    UserGroup.fields = ['id', 'user', 'group'];
     return UserGroup;
 }(__WEBPACK_IMPORTED_MODULE_0__shared_models_resource_model__["a" /* ResourceModel */]));
 
@@ -1590,6 +1592,9 @@ var UserModalComponent = (function () {
         this.info = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     UserModalComponent.prototype.ngOnInit = function () {
+        this.init();
+    };
+    UserModalComponent.prototype.init = function () {
         var _this = this;
         this.modal.onHidden.subscribe(function () { return _this.close(); });
         this.modal.onShown.subscribe(function () {
@@ -2429,10 +2434,10 @@ var MetaModel = (function (_super) {
         configurable: true
     });
     MetaModel.prototype.parse = function (obj) {
-        this.parseByFields(obj, MetaModel.titles, MetaModel.dateFields);
+        this.parseByFields(obj, MetaModel.meta);
     };
     MetaModel.prototype.format = function () {
-        var result = this.formatByFields(MetaModel.titles, MetaModel.dateFields);
+        var result = this.formatByFields(MetaModel.meta);
         return result;
     };
     MetaModel.titles = {
@@ -2441,7 +2446,7 @@ var MetaModel = (function (_super) {
         totalPages: 'Total pages',
         perPage: 'Per page' //translate
     };
-    MetaModel.dateFields = [];
+    MetaModel.fields = ['totalResults', 'curPage', 'totalPages', 'perPage'];
     return MetaModel;
 }(__WEBPACK_IMPORTED_MODULE_0__resource_model__["a" /* ResourceModel */]));
 
@@ -2708,12 +2713,12 @@ var Group = (function (_super) {
         configurable: true
     });
     Group.prototype.parse = function (obj) {
-        this.parseByFields(obj, Group.titles);
+        this.parseByFields(obj, Group.meta);
         this.permissions = obj.permissions && obj.permissions.length ?
             obj.permissions.map(function (permission) { return new __WEBPACK_IMPORTED_MODULE_1__permission_model__["a" /* Permission */](permission); }) : [];
     };
     Group.prototype.format = function () {
-        var result = this.formatByFields(Group.titles);
+        var result = this.formatByFields(Group.meta);
         result.permissions = result.permissions && result.permissions.length ?
             result.permissions.map(function (permission) { return permission.pk; }) : [];
         return result;
@@ -2755,6 +2760,7 @@ var Group = (function (_super) {
         name: 'Name',
         permissions: 'Permissions' //translate
     };
+    Group.fields = ['id', 'name', 'permission'];
     return Group;
 }(__WEBPACK_IMPORTED_MODULE_0__resource_model__["a" /* ResourceModel */]));
 
@@ -2814,20 +2820,20 @@ var ResourceModel = (function () {
     });
     ResourceModel.prototype.parse = function (obj) {
     };
-    ResourceModel.prototype.parseByFields = function (obj, fields, dateFields) {
-        if (dateFields === void 0) { dateFields = []; }
+    ResourceModel.prototype.parseByFields = function (obj, meta) {
         var key;
-        for (key in obj) {
-            if (fields.hasOwnProperty(key) && key[0] !== '_') {
-                try {
-                    this[key] = obj[key];
-                }
-                catch (err) {
+        var fields = meta.fields ? meta.fields : [];
+        var dateFields = meta.dateFields ? meta.dateFields : [];
+        if (fields.length > 0) {
+            for (key in obj) {
+                if (fields.indexOf(key) !== -1) {
+                    try {
+                        this[key] = obj[key];
+                    }
+                    catch (err) {
+                    }
                 }
             }
-        }
-        if (this._pkIsNumber) {
-            this[this._pkFieldName] = +obj[this._pkFieldName];
         }
         if (dateFields.length > 0) {
             for (key in obj) {
@@ -2840,19 +2846,25 @@ var ResourceModel = (function () {
                 }
             }
         }
+        if (this._pkIsNumber) {
+            this[this._pkFieldName] = +obj[this._pkFieldName];
+        }
     };
     ResourceModel.prototype.format = function () {
     };
-    ResourceModel.prototype.formatByFields = function (fields, dateFields) {
-        if (dateFields === void 0) { dateFields = []; }
+    ResourceModel.prototype.formatByFields = function (meta) {
         var obj = {};
         var key;
-        for (key in this) {
-            if (fields.hasOwnProperty(key) && key[0] !== '_') {
-                try {
-                    obj[key] = this[key];
-                }
-                catch (err) {
+        var fields = meta.fields ? meta.fields : [];
+        var dateFields = meta.dateFields ? meta.dateFields : [];
+        if (fields.length > 0) {
+            for (key in this) {
+                if (fields.indexOf(key) !== -1) {
+                    try {
+                        obj[key] = this[key];
+                    }
+                    catch (err) {
+                    }
                 }
             }
         }
@@ -2924,7 +2936,7 @@ var User = (function (_super) {
         configurable: true
     });
     User.prototype.parse = function (obj) {
-        this.parseByFields(obj, User.titles, User.dateFields);
+        this.parseByFields(obj, User.meta);
         this.groups = obj.groups && obj.groups.length ?
             obj.groups.map(function (group) { return new __WEBPACK_IMPORTED_MODULE_1__group_model__["a" /* Group */](group); }) : [];
         this.rePassword = this.password;
@@ -2942,7 +2954,7 @@ var User = (function (_super) {
         return result;
     };
     User.prototype.format = function () {
-        var result = this.formatByFields(User.titles, User.dateFields);
+        var result = this.formatByFields(User.meta);
         result.groups = result.groups && result.groups.length ?
             result.groups.map(function (group) { return group.pk; }) : [];
         return result;
@@ -3059,6 +3071,10 @@ var User = (function (_super) {
         dateJoined: 'Date joined',
         groups: 'Groups' //translate
     };
+    User.dateFields = ['lastLogin', 'dateJoined'];
+    User.fields = ['id', 'username', 'password', 'isSuperuser',
+        'isStaff', 'isActive', 'firstName', 'lastName', 'email',
+        'lastLogin', 'dateJoined', 'groups'];
     return User;
 }(__WEBPACK_IMPORTED_MODULE_0__resource_model__["a" /* ResourceModel */]));
 
@@ -3093,11 +3109,11 @@ var Permission = (function (_super) {
         configurable: true
     });
     Permission.prototype.parse = function (obj) {
-        this.parseByFields(obj, Permission.titles);
+        this.parseByFields(obj, Permission.meta);
         this.contentType = obj.contentType ? new __WEBPACK_IMPORTED_MODULE_1__content_type_model__["a" /* ContentType */](obj.contentType) : null;
     };
     Permission.prototype.format = function () {
-        var result = this.formatByFields(Permission.titles);
+        var result = this.formatByFields(Permission.meta);
         result.contentType = result.contentType ? result.contentType.pk : null;
         return result;
     };
@@ -3126,6 +3142,7 @@ var Permission = (function (_super) {
         codename: 'Codename',
         name: 'Name' //translate
     };
+    Permission.fields = ['id', 'contentType', 'codename', 'name'];
     return Permission;
 }(__WEBPACK_IMPORTED_MODULE_0__shared_models_resource_model__["a" /* ResourceModel */]));
 
@@ -5802,7 +5819,6 @@ var UserGroupsGridComponent = (function (_super) {
         itemModal.account = this.accountService.account;
         itemModal.readonly = this.readonly;
         itemModal.text = this.translateService.instant('Append');
-        ;
         itemModal.title = this.translateService.instant('Select groups for append to user');
         itemModal.onSave.subscribe(function ($event) { return _this.save($event); });
         itemModal.onClose.subscribe(function () { return _this.focus(); });
@@ -5831,6 +5847,7 @@ var UserGroupsGridComponent = (function (_super) {
         itemModal.onClose.subscribe(function () { return _this.focus(); });
         itemModal.item = item.group;
         itemModal.modal.show();
+        //this.selectedItems = [itemModal.item];
     };
     UserGroupsGridComponent.prototype.saveGroup = function (itemModal) {
         var _this = this;
@@ -9027,23 +9044,16 @@ var Theme = (function (_super) {
         configurable: true
     });
     Theme.prototype.parse = function (obj) {
-        this.parseByFields(obj, Theme.titles);
-    };
-    Theme.prototype.validate = function () {
-        var result = {};
-        var valid = true;
-        if (valid === true) {
-            return valid;
-        }
-        return result;
+        this.parseByFields(obj, Theme.meta);
     };
     Theme.prototype.format = function () {
-        return this.formatByFields(Theme.titles);
+        return this.formatByFields(Theme.meta);
     };
     Theme.titles = {
         url: 'Url',
         name: 'Name' //translate
     };
+    Theme.fields = ['url', 'name'];
     return Theme;
 }(__WEBPACK_IMPORTED_MODULE_0__resource_model__["a" /* ResourceModel */]));
 
@@ -9449,10 +9459,10 @@ var ContentType = (function (_super) {
         configurable: true
     });
     ContentType.prototype.parse = function (obj) {
-        this.parseByFields(obj, ContentType.titles);
+        this.parseByFields(obj, ContentType.meta);
     };
     ContentType.prototype.format = function () {
-        var result = this.formatByFields(ContentType.titles);
+        var result = this.formatByFields(ContentType.meta);
         return result;
     };
     Object.defineProperty(ContentType.prototype, "asString", {
@@ -9466,6 +9476,7 @@ var ContentType = (function (_super) {
         id: 'Id',
         model: 'Model',
     };
+    ContentType.fields = ['id', 'model'];
     return ContentType;
 }(__WEBPACK_IMPORTED_MODULE_0__resource_model__["a" /* ResourceModel */]));
 
@@ -9641,7 +9652,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var DemoAccountService = (function () {
     function DemoAccountService(http, 
-        //public http: AuthHttp,
+        //public authHttp: AuthHttp,
         authHttp, response) {
         this.http = http;
         this.authHttp = authHttp;
@@ -10512,10 +10523,10 @@ var Fontawesome = (function (_super) {
         configurable: true
     });
     Fontawesome.prototype.parse = function (obj) {
-        this.parseByFields(obj, Fontawesome.titles);
+        this.parseByFields(obj, Fontawesome.meta);
     };
     Fontawesome.prototype.format = function () {
-        var result = this.formatByFields(Fontawesome.titles);
+        var result = this.formatByFields(Fontawesome.meta);
         return result;
     };
     Object.defineProperty(Fontawesome.prototype, "asString", {
@@ -10542,6 +10553,7 @@ var Fontawesome = (function (_super) {
         code: 'Code',
         class: 'Class' //translate
     };
+    Fontawesome.fields = ['code', 'class'];
     return Fontawesome;
 }(__WEBPACK_IMPORTED_MODULE_0__resource_model__["a" /* ResourceModel */]));
 
