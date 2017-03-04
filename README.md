@@ -5,8 +5,17 @@
   </p>
 </p>
 
-[![NPM version][npm-image]][npm-url]]
-[![Join the chat at telegram][telegram-image]][telegram-url]]
+[![NPM version][npm-image]][npm-url]
+[![Join the chat at telegram][telegram-image]][telegram-url]
+
+Status: Beta
+
+## What is Rucken?
+
+- **Core** - Base core for create web applications on `Angular2`.
+- **Admin** - Include work with admin, user groups and permissions.
+- **DI** - With dependency injection you can change base service.
+- **Extends** - Write components with extends from core `rucken` components.
 
 #### Quick links
 
