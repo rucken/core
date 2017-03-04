@@ -25,8 +25,10 @@ export class User extends ResourceModel {
     dateJoined: 'Date joined',//translate
     groups: 'Groups'//translate
   };
-  static dateFields: ['lastLogin', 'dateJoined'];
-
+  static dateFields: any = ['lastLogin', 'dateJoined'];
+  static fields: any = ['id', 'username', 'password', 'isSuperuser',
+    'isStaff', 'isActive', 'firstName', 'lastName', 'email',
+    'lastLogin', 'dateJoined', 'groups'];
   id: number;
   username: string;
   password: string;
@@ -58,7 +60,7 @@ export class User extends ResourceModel {
     this.isSuperuser = roles['isSuperuser'];
   }
   parse(obj: any) {
-    this.parseByFields(obj, User.titles, User.dateFields);
+    this.parseByFields(obj, User.meta);
     this.groups = obj.groups && obj.groups.length ?
       obj.groups.map((group: any) => new Group(group)) : [];
     this.rePassword = this.password;
@@ -76,7 +78,7 @@ export class User extends ResourceModel {
     return result;
   }
   format() {
-    let result = this.formatByFields(User.titles, User.dateFields);
+    let result = this.formatByFields(User.meta);
     result.groups = result.groups && result.groups.length ?
       result.groups.map((group: Group) => group.pk) : [];
     return result;

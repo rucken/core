@@ -6,6 +6,7 @@ export class ContentType extends ResourceModel {
     model: 'Model',//translate
 
   };
+  static fields: any = ['id', 'model'];
 
   id: number;
   model: string;
@@ -18,10 +19,10 @@ export class ContentType extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, ContentType.titles);
+    this.parseByFields(obj, ContentType.meta);
   }
   format() {
-    let result = this.formatByFields(ContentType.titles);
+    let result = this.formatByFields(ContentType.meta);
     return result;
   }
   get asString() {

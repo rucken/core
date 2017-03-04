@@ -6,6 +6,7 @@ export class Fontawesome extends ResourceModel {
     code: 'Code',//translate
     class: 'Class'//translate
   };
+  static fields: any = ['code', 'class'];
 
   code: string;
   class: string;
@@ -18,10 +19,10 @@ export class Fontawesome extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, Fontawesome.titles);
+    this.parseByFields(obj, Fontawesome.meta);
   }
   format() {
-    let result = this.formatByFields(Fontawesome.titles);
+    let result = this.formatByFields(Fontawesome.meta);
     return result;
   }
   get asString() {

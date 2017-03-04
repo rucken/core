@@ -8,6 +8,7 @@ export class Group extends ResourceModel {
     name: 'Name',//translate
     permissions: 'Permissions'//translate
   };
+  static fields: any = ['id', 'name', 'permission'];
 
   id: number;
   name: string;
@@ -21,12 +22,12 @@ export class Group extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, Group.titles);
+    this.parseByFields(obj, Group.meta);
     this.permissions = obj.permissions && obj.permissions.length ?
       obj.permissions.map((permission: any) => new Permission(permission)) : [];
   }
   format() {
-    let result = this.formatByFields(Group.titles);
+    let result = this.formatByFields(Group.meta);
     result.permissions = result.permissions && result.permissions.length ?
       result.permissions.map((permission: Permission) => permission.pk) : [];
     return result;

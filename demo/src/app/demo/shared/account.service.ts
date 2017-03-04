@@ -14,7 +14,7 @@ export class DemoAccountService {
   private _account: User;
   constructor(
     public http: HttpService,
-    //public http: AuthHttp,
+    //public authHttp: AuthHttp,
     public authHttp: Http,
     public response: ResponseService) {
     this.account$ = <Subject<User>>new Subject();

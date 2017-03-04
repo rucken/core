@@ -54,11 +54,11 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   public items: User[];
   public cachedResourcesService: UsersService;
   constructor(
-    private app: AppService,
-    private accountService: AccountService,
-    private usersService: UsersService,
-    private resolver: ComponentFactoryResolver,
-    private translateService: TranslateService
+    public app: AppService,
+    public accountService: AccountService,
+    public usersService: UsersService,
+    public resolver: ComponentFactoryResolver,
+    public translateService: TranslateService
   ) {
     super();
     if (this.lookupTooltip === undefined) {

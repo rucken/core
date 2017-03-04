@@ -8,6 +8,7 @@ export class Permission extends ResourceModel {
     codename: 'Codename',//translate
     name: 'Name'//translate
   };
+  static fields: any = ['id', 'contentType', 'codename', 'name'];
 
   id: number;
   contentType: ContentType;
@@ -22,11 +23,11 @@ export class Permission extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, Permission.titles);
+    this.parseByFields(obj, Permission.meta);
     this.contentType = obj.contentType ? new ContentType(obj.contentType) : null;
   }
   format() {
-    let result = this.formatByFields(Permission.titles);
+    let result = this.formatByFields(Permission.meta);
     result.contentType = result.contentType ? result.contentType.pk : null;
     return result;
   }

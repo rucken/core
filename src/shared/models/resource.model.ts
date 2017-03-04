@@ -38,19 +38,20 @@ export class ResourceModel {
   parse(obj: any) {
 
   }
-  parseByFields(obj: any, fields: any, dateFields: string[] = []) {
+  parseByFields(obj: any, meta: any) {
     let key: any;
-    for (key in obj) {
-      if (fields.hasOwnProperty(key) && key[0] !== '_') {
-        try {
-          this[key] = obj[key];
-        } catch (err) {
+    let fields: string[] = meta.fields ? meta.fields : [];
+    let dateFields: string[] = meta.dateFields ? meta.dateFields : [];
+    if (fields.length > 0) {
+      for (key in obj) {
+        if (fields.indexOf(key) !== -1) {
+          try {
+            this[key] = obj[key];
+          } catch (err) {
 
+          }
         }
       }
-    }
-    if (this._pkIsNumber) {
-      this[this._pkFieldName] = +obj[this._pkFieldName];
     }
     if (dateFields.length > 0) {
       for (key in obj) {
@@ -63,17 +64,24 @@ export class ResourceModel {
         }
       }
     }
+    if (this._pkIsNumber) {
+      this[this._pkFieldName] = +obj[this._pkFieldName];
+    }
   }
   format() {
   }
-  formatByFields(fields: any, dateFields: string[] = []): any {
+  formatByFields(meta: any): any {
     let obj: any = {};
     let key: any;
-    for (key in this) {
-      if (fields.hasOwnProperty(key) && key[0] !== '_') {
-        try {
-          obj[key] = this[key];
-        } catch (err) {
+    let fields: string[] = meta.fields ? meta.fields : [];
+    let dateFields: string[] = meta.dateFields ? meta.dateFields : [];
+    if (fields.length > 0) {
+      for (key in this) {
+        if (fields.indexOf(key) !== -1) {
+          try {
+            obj[key] = this[key];
+          } catch (err) {
+          }
         }
       }
     }

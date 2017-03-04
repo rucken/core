@@ -5,6 +5,7 @@ export class Theme extends ResourceModel {
     url: 'Url',//translate
     name: 'Name'//translate
   };
+  static fields: any = ['url', 'name'];
   url: string;
   name: string;
   constructor(obj?: any) {
@@ -15,17 +16,9 @@ export class Theme extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, Theme.titles);
-  }
-  validate() {
-    let result: any = {};
-    let valid: boolean = true;
-    if (valid === true) {
-      return valid;
-    }
-    return result;
+    this.parseByFields(obj, Theme.meta);
   }
   format() {
-    return this.formatByFields(Theme.titles);
+    return this.formatByFields(Theme.meta);
   }
 }

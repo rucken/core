@@ -53,6 +53,9 @@ export class UserModalComponent implements OnInit {
   public info: EventEmitter<any> = new EventEmitter();
 
   ngOnInit() {
+    this.init();
+  }
+  init() {
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => {
       this.focus();

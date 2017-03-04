@@ -6,10 +6,9 @@ export class UserGroup extends ResourceModel {
   static titles: any = {
     id: 'Id',//translate
     user: 'User',//translate
-    group: 'Group',//translate
-
+    group: 'Group'//translate
   };
-
+  static fields: any = ['id', 'user', 'group'];
   id: number;
   user: User;
   group: Group;
@@ -24,10 +23,10 @@ export class UserGroup extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, UserGroup.titles);
+    this.parseByFields(obj, UserGroup.meta);
   }
   format() {
-    let result = this.formatByFields(UserGroup.titles);
+    let result = this.formatByFields(UserGroup.meta);
     return result;
   }
   get asString() {

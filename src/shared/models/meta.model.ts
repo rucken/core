@@ -6,7 +6,7 @@ export class MetaModel extends ResourceModel {
     totalPages: 'Total pages',//translate
     perPage: 'Per page'//translate
   };
-  static dateFields: string[] = [];
+  static fields: any = ['totalResults', 'curPage', 'totalPages', 'perPage'];
 
   totalResults: number;
   curPage: number;
@@ -21,10 +21,10 @@ export class MetaModel extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, MetaModel.titles, MetaModel.dateFields);
+    this.parseByFields(obj, MetaModel.meta);
   }
   format() {
-    let result = this.formatByFields(MetaModel.titles, MetaModel.dateFields);
+    let result = this.formatByFields(MetaModel.meta);
     return result;
   }
 }

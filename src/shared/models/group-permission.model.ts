@@ -7,8 +7,8 @@ export class GroupPermission extends ResourceModel {
     id: 'Id',//translate
     group: 'Group',//translate
     permission: 'Permission',//translate
-
   };
+  static fields: any = ['id', 'group', 'permission'];
 
   id: number;
   group: Group;
@@ -24,10 +24,10 @@ export class GroupPermission extends ResourceModel {
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, GroupPermission.titles);
+    this.parseByFields(obj, GroupPermission.meta);
   }
   format() {
-    let result = this.formatByFields(GroupPermission.titles);
+    let result = this.formatByFields(GroupPermission.meta);
     return result;
   }
   get asString() {

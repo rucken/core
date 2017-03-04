@@ -62,9 +62,9 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     itemModal.groups.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.readonly;
-    itemModal.text = this.translateService.instant('Append');;
+    itemModal.text = this.translateService.instant('Append');
     itemModal.title = this.translateService.instant('Select groups for append to user');
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Group();
     itemModal.modal.show();
@@ -86,10 +86,11 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Group info');
     }
-    itemModal.onSave.subscribe(($event:any) => this.saveGroup($event));
+    itemModal.onSave.subscribe(($event: any) => this.saveGroup($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = item.group;
     itemModal.modal.show();
+    //this.selectedItems = [itemModal.item];
   }
   saveGroup(itemModal: GroupModalComponent) {
     this.groupsService.save(itemModal.item).subscribe(
@@ -115,7 +116,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a user group?');
-    confirm.onYes.subscribe(($event:any) => this.remove($event));
+    confirm.onYes.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();

@@ -29,8 +29,8 @@ export class CheckboxesInputComponent implements OnInit {
   errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   info: EventEmitter<any> = new EventEmitter<any>();
-  private errorsValue: any;
-  private infoValue: any;
+  public errorsValue: any;
+  public infoValue: any;
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
