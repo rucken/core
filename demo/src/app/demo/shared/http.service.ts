@@ -9,8 +9,8 @@ export class DemoHttpService {
 
   public withCredentials: boolean = false;
   constructor(
-    //public http: AuthHttp
-    public http: Http
+    public http: AuthHttp
+    //public http: Http
   ) {
 
   }

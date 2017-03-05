@@ -1,21 +1,35 @@
 {
   "compilerOptions": {
+    "skipLibCheck": true,
     "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "inlineSources": true,
+    "noEmitHelpers": false,
+    "stripInternal": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "typeRoots": [
+      "../node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ],
     "lib": [
-      "es2016",
-      "dom"
+      "dom",
+      "es2016"
     ],
     "mapRoot": "./",
     "module": "es2015",
     "moduleResolution": "node",
-    "outDir": "../dist/out-tsc",
+    "outDir": "../dist",
     "sourceMap": true,
-    "target": "es5",
-    "typeRoots": [
-      "../node_modules/@types"
-    ]
+    "target": "es5"
+  },
+  "angularCompilerOptions": {
+    "genDir": "../dist",
+    "strictMetadataEmit": true
   }
 }

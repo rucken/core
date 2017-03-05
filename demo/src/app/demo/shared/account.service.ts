@@ -14,8 +14,8 @@ export class DemoAccountService {
   private _account: User;
   constructor(
     public http: HttpService,
-    //public authHttp: AuthHttp,
-    public authHttp: Http,
+    public authHttp: AuthHttp,
+    //public authHttp: Http,
     public response: ResponseService) {
     this.account$ = <Subject<User>>new Subject();
   }
@@ -35,8 +35,8 @@ export class DemoAccountService {
       this.account = null;
       return result;
     }
-    //this.authHttp.post(`${this.apiUrl}${environment.accountInfoAction}`, { 'token': localStorage.getItem('token') })
-    this.authHttp.get(`${this.apiUrl}${environment.accountInfoAction}`)
+    this.authHttp.post(`${this.apiUrl}${environment.accountInfoAction}`, { 'token': localStorage.getItem('token') })
+    //this.authHttp.get(`${this.apiUrl}${environment.accountInfoAction}`)
       .map(response => {
         if (response.json().token) {
           localStorage.setItem('token', response.json().token);
@@ -53,8 +53,8 @@ export class DemoAccountService {
   }
   public login(account: User) {
     let result = new EventEmitter();
-    //this.authHttp.post(`${this.apiUrl}${environment.accountLoginAction}`, account.AsLoginUser)
-    this.authHttp.get(`${this.apiUrl}${environment.accountLoginAction}`)
+    this.authHttp.post(`${this.apiUrl}${environment.accountLoginAction}`, account.AsLoginUser)
+    //this.authHttp.get(`${this.apiUrl}${environment.accountLoginAction}`)
       .map(response => {
         if (response.json().token) {
           localStorage.setItem('token', response.json().token);

@@ -2,13 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
-import { Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig, PaginationConfig, TabsetConfig } from 'ng2-bootstrap';
+import {
+  //Ng2BootstrapModule,
+  ComponentLoaderFactory,
+  PositioningService, TooltipConfig, PaginationConfig, TabsetConfig
+} from 'ng2-bootstrap';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import {
-  RuckenComponents, RuckenServices, RuckenRoutingModule,
+  RoutingModule,
+  ModalsModule, RuckenServices,
   ResponseService, HttpService, AccountService, AuthHttpFactory
 } from '../../../dist';
 import { DemoAppComponent } from './app.component';
+import { DemoNavbarComponent } from './demo/controls/navbar/navbar.component';
 import { DemoResponseService } from './demo/shared/response.service';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 //import { TranslatePoLoader } from '@biesbjerg/ng2-translate-po-loader';
@@ -22,7 +28,7 @@ export function createTranslateLoader(http: Http) {
 @NgModule({
   declarations: [
     DemoAppComponent,
-    RuckenComponents
+    DemoNavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,8 +41,8 @@ export function createTranslateLoader(http: Http) {
         deps: [Http]
       }
     }*/),
-    Ng2BootstrapModule,
-    RuckenRoutingModule
+    ModalsModule.forRoot(),
+    RoutingModule.forRoot()
   ],
   providers: [
     ComponentLoaderFactory,
