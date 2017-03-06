@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ThemesPageComponent } from './pages/themes-page/themes-page.component';
 import { AdminPageComponent } from './pages/admin-page/admin-page.component';
@@ -32,4 +32,9 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: []
 })
-export class RuckenRoutingModule { }
+export class RuckenRoutingModule {
+  public static routes: any = routes;
+  public static forRoot(): ModuleWithProviders {
+    return {ngModule: RuckenRoutingModule};
+  }
+}

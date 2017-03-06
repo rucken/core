@@ -4,8 +4,8 @@ import * as _ from 'lodash';
 
 
 export class ResourceModel {
-  private _pkFieldName: string;
-  private _pkIsNumber: boolean;
+  public _pkFieldName: string;
+  public _pkIsNumber: boolean;
   [key: string]: any;
 
   constructor(obj?: any, pkFieldName?: string, pkIsNumber?: boolean) {
@@ -59,7 +59,10 @@ export class ResourceModel {
           try {
             this[key] = moment(obj[key]).toDate();
           } catch (err) {
-
+            this[key] = null;
+          }
+          if (this[key] === 'Invalid date') {
+            this[key] = null;
           }
         }
       }
@@ -88,14 +91,59 @@ export class ResourceModel {
     if (dateFields.length > 0) {
       for (key in this) {
         if (dateFields.indexOf(key) !== -1) {
-          try {
-            obj[key] = moment(this[key]).toISOString();
-          } catch (err) {
+          if (obj[key]) {
+            try {
+              obj[key] = moment(this[key]).toISOString();
+            } catch (err) {
+              this[key] = null;
+            }
+            if (obj[key] === 'Invalid date') {
+              obj[key] = null;
+            }
+          } else {
+            obj[key] = null;
           }
         }
       }
     }
     return obj;
+  }
+  dateAsString(fieldName: string) {
+    let text: string = '';
+    if (this[fieldName]) {
+      try {
+        text = moment(this[fieldName]).format('DD.MM.YYYY');
+      } catch (err) {
+        text = '';
+      }
+      if (text === 'Invalid date') {
+        text = '';
+      }
+    }
+    return text;
+  }
+  getDateInput(fieldName: string) {
+    let value: string = '';
+    try {
+      value = moment(this[fieldName]).format('YYYY-MM-DD');
+    } catch (err) {
+      value = '';
+    }
+    if (value === 'Invalid date') {
+      value = '';
+    }
+    return value;
+  }
+  setDateInput(fieldName: string, value: any) {
+    try {
+      value = moment(value, 'YYYY-MM-DD').toDate();
+    } catch (err) {
+      value = null;
+    }
+    if (value === 'Invalid date') {
+      value = null;
+    }
+    this[fieldName] = value;
   }
   validate() {
     let result: any = {};

@@ -31,31 +31,4 @@ export class UtilsService {
     }
     return true;
   }
-  static extractError(error: any, message?: string): any {
-    if (message === undefined) {
-      message = 'Unknown error';
-    }
-    if (!error._body || !UtilsService.isJson(error._body) || error.json().type === 'error') {
-      console.log(error);
-      return { message: [error.statusText ? error.statusText : message] };
-    } else {
-      let errorBody = error.json();
-      if (errorBody.errors !== undefined) {
-        return { message: [errorBody.errors] };
-      }
-      if (errorBody.detail !== undefined) {
-        return { message: [errorBody.detail] };
-      }
-      if (errorBody.nonFieldErrors !== undefined) {
-        return { message: [errorBody.nonFieldErrors] };
-      }
-      let key: any;
-      for (key in errorBody) {
-        if (errorBody.hasOwnProperty(key)) {
-          errorBody[_.camelCase(key)] = errorBody[key];
-        }
-      }
-      return errorBody;
-    }
-  }
 }

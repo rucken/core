@@ -3,6 +3,7 @@ import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angul
 import { Observable } from 'rxjs/Observable';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MetaModel } from './models/meta.model';
+import { UtilsService } from '../shared/utils.service';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -42,5 +43,32 @@ export class ResponseService {
   };
   getResourceItemResponse(resoureService: any, response: any) {
     return response.json()[_.camelCase(resoureService.resourceName)];
+  }
+  extractError(error: any, message?: string): any {
+    if (message === undefined) {
+      message = 'Unknown error'; //translate
+    }
+    if (!error._body || !UtilsService.isJson(error._body) || error.json().type === 'error') {
+      console.log(error);
+      return { message: [error.statusText ? error.statusText : message] };
+    } else {
+      let errorBody = error.json();
+      if (errorBody.errors !== undefined) {
+        return { message: [errorBody.errors] };
+      }
+      if (errorBody.detail !== undefined) {
+        return { message: [errorBody.detail] };
+      }
+      if (errorBody.nonFieldErrors !== undefined) {
+        return { message: [errorBody.nonFieldErrors] };
+      }
+      let key: any;
+      for (key in errorBody) {
+        if (errorBody.hasOwnProperty(key)) {
+          errorBody[_.camelCase(key)] = errorBody[key];
+        }
+      }
+      return errorBody;
+    }
   }
 }

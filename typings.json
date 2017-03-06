@@ -1,7 +1,8 @@
 {
-  "name": "umbrella",
+  "name": "rucken",
   "dependencies": {},
   "globalDependencies": {
-    "moment": "registry:dt/moment#2.11.1+20160829143156"
+    "moment": "registry:dt/moment#2.11.1+20160829143156",
+    "node": "registry:dt/node#7.0.0+20170204020307"
   }
 }

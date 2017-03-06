@@ -4,7 +4,6 @@ import { AuthHttp } from 'angular2-jwt';
 import { User } from './models/user.model';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { UtilsService } from './utils.service';
 import { ResponseService } from './response.service';
 @Injectable()
 export class AccountService {
@@ -43,7 +42,7 @@ export class AccountService {
         result.emit(this.account);
       }, error => {
         this.account = null;
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
       });
     return result;
   }
@@ -60,7 +59,7 @@ export class AccountService {
         result.emit(this.account);
       }, error => {
         this.account = null;
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
       });
     return result;
   }
@@ -80,7 +79,7 @@ export class AccountService {
         this.account = user;
         result.emit(this.account);
       }, error => {
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
       });
     return result;
   }

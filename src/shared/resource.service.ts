@@ -131,6 +131,9 @@ export class ResourceService {
     if (!filter.perPage && this.meta.perPage) {
       filter.perPage = this.meta.perPage;
     }
+    if (filter.ignoreCache) {
+      filter.curPage = 1;
+    }
     /* TODO: move cache to http service, current cash use for local update items cloned from root service
     if (!this.ignoreCache) {
       let cachedItems = this.getFromCachedItems(filter);
@@ -164,7 +167,7 @@ export class ResourceService {
           this.loadAll(q, filter);
         } else {
           this.items$.next([]);
-          result.error(UtilsService.extractError(error));
+          result.error(this.response.extractError(error));
           this.setStatusList(ResouceEnumStatus.NotFound,
             'Not found'//translate
           );
@@ -251,7 +254,7 @@ export class ResourceService {
         result.emit(loadedItem);
         this.setStatusItem(ResouceEnumStatus.Ok);
       }, error => {
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
         this.setStatusItem(ResouceEnumStatus.NotFound,
           'Not found'//translate
         );
@@ -289,7 +292,7 @@ export class ResourceService {
         this.setStatusItem(ResouceEnumStatus.Ok);
         this.setStatusList(ResouceEnumStatus.Ok);
       }, error => {
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
         this.setStatusItem(ResouceEnumStatus.Invalid,
           'Error in creating'//translate
         );
@@ -353,7 +356,7 @@ export class ResourceService {
     if (this.mockedItems !== null) {
       return this.mockUpdate(item);
     }
-    this.setStatusItem(ResouceEnumStatus.Creating,
+    this.setStatusItem(ResouceEnumStatus.Updating,
       'Updating...'//translate
     );
     this.http.put(this.response.getResourceItemUrl(this, item.pk), item)
@@ -364,7 +367,7 @@ export class ResourceService {
         this.setStatusItem(ResouceEnumStatus.Ok);
         this.setStatusList(ResouceEnumStatus.Ok);
       }, error => {
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
         this.setStatusItem(ResouceEnumStatus.Invalid,
           'Error in updating'//translate
         );
@@ -372,7 +375,7 @@ export class ResourceService {
     return result;
   }
   private mockUpdate(item: any) {
-    this.setStatusItem(ResouceEnumStatus.Creating,
+    this.setStatusItem(ResouceEnumStatus.Updating,
       'Updating...'//translate
     );
     let result = new EventEmitter();
@@ -421,7 +424,7 @@ export class ResourceService {
     }
     let result = new EventEmitter();
     let ids = items.map(d => d.pk);
-    this.setStatusItem(ResouceEnumStatus.Creating,
+    this.setStatusItem(ResouceEnumStatus.Removing,
       'Removing...'//translate
     );
     this.http.delete(this.response.getResourceItemUrl(this, ids.join('|'))).subscribe(response => {
@@ -450,7 +453,7 @@ export class ResourceService {
         }
       }
     }, error => {
-      result.error(UtilsService.extractError(error));
+      result.error(this.response.extractError(error));
       this.setStatusItem(ResouceEnumStatus.Invalid,
         'Error on deleting'//translate
       );
@@ -458,7 +461,7 @@ export class ResourceService {
     return result;
   }
   private mockRemove(items: any[]) {
-    this.setStatusItem(ResouceEnumStatus.Creating,
+    this.setStatusItem(ResouceEnumStatus.Removing,
       'Removing...'//translate
     );
     let result = new EventEmitter();

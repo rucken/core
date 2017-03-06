@@ -4,7 +4,6 @@ import { AuthHttp } from 'angular2-jwt';
 import { User } from '../../../../../dist';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { UtilsService } from '../../../../../dist';
 import { ResponseService } from '../../../../../dist';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
@@ -47,7 +46,7 @@ export class DemoAccountService {
         result.emit(this.account);
       }, error => {
         this.account = null;
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
       });
     return result;
   }
@@ -65,7 +64,7 @@ export class DemoAccountService {
         result.emit(this.account);
       }, error => {
         this.account = null;
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
       });
     return result;
   }
@@ -85,7 +84,7 @@ export class DemoAccountService {
         this.account = user;
         result.emit(this.account);
       }, error => {
-        result.error(UtilsService.extractError(error));
+        result.error(this.response.extractError(error));
       });
     return result;
   }

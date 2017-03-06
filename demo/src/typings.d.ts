@@ -2,7 +2,7 @@
 // https://www.typescriptlang.org/docs/handbook/writing-declaration-files.html
 
 // tslint:disable
-
+declare var require: any;
 declare const System: any;
 declare var module: any;
 declare const ENV: string;
