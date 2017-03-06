@@ -77,28 +77,28 @@ export class ResourceService {
     return this._statusList;
   }
   setStatusList(status: ResouceEnumStatus, message?: string) {
+    this._statusList = status;
     setTimeout((out: any) => {
-      this._statusList = status;
-      this.changeStatusList$.next(status);
       if (message) {
         this.statusListMessage = message;
       } else {
         this.statusListMessage = '';
       }
+      this.changeStatusList$.next(status);
     });
   }
   get statusItem() {
     return this._statusItem;
   }
   setStatusItem(status: ResouceEnumStatus, message?: string) {
+    this._statusItem = status;
     setTimeout((out: any) => {
-      this._statusItem = status;
-      this.changeStatusItem$.next(status);
       if (message) {
         this.statusItemMessage = message;
       } else {
         this.statusItemMessage = '';
       }
+      this.changeStatusItem$.next(status);
     });
   }
   transformModel(item: any) {

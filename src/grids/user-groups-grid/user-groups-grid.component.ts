@@ -90,7 +90,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = item.group;
     itemModal.modal.show();
-    //this.selectedItems = [itemModal.item];
+    this.selectedItems = [item];
   }
   saveGroup(itemModal: GroupModalComponent) {
     this.groupsService.save(itemModal.item).subscribe(

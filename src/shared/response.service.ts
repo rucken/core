@@ -53,6 +53,9 @@ export class ResponseService {
       return { message: [error.statusText ? error.statusText : message] };
     } else {
       let errorBody = error.json();
+      if (errorBody.description !== undefined) {
+        return { message: [errorBody.description] };
+      }
       if (errorBody.message !== undefined) {
         return { message: [errorBody.message] };
       }
