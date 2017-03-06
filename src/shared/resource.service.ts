@@ -131,7 +131,7 @@ export class ResourceService {
     if (!filter.perPage && this.meta.perPage) {
       filter.perPage = this.meta.perPage;
     }
-    if (filter.ignoreCache) {
+    if (this.ignoreCache) {
       filter.curPage = 1;
     }
     /* TODO: move cache to http service, current cash use for local update items cloned from root service
