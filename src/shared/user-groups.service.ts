@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { UserGroup } from './models/user-group.model';
-import { ResourceService } from './resource.service';
-import { HttpService } from './http.service';
-import { ResponseService } from './response.service';
+import { RepositoryService } from './repository.service';
+import { HttpHelper } from './helpers/http.helper';
+import { EndpointHelper } from './helpers/endpoint.helper';
 @Injectable()
-export class UserGroupsService extends ResourceService {
+export class UserGroupsService extends RepositoryService {
   public items$: Subject<UserGroup[]>;
   public items: UserGroup[];
   public apiUrl: string;
 
-  constructor(public http: HttpService, public response: ResponseService) {
-    super(http, response);
-    this.resourcesName = 'user_groups';
-    this.resourceName = 'user_group';
-    this.apiUrl = `${response.apiUrl}/${this.resourcesName}`;
+  constructor(public httpHelper: HttpHelper, public endpointHelper: EndpointHelper) {
+    super(httpHelper, endpointHelper);
+    this.pluralName = 'user_groups';
+    this.mame = 'user_group';
+    this.apiUrl = `${endpointHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<UserGroup[]>>new Subject();
     this.meta.perPage = 10;
   }
@@ -23,6 +23,6 @@ export class UserGroupsService extends ResourceService {
     return new UserGroup(item);
   }
   newCache() {
-    return new UserGroupsService(this.http, this.response);
+    return new UserGroupsService(this.httpHelper, this.endpointHelper);
   }
 }

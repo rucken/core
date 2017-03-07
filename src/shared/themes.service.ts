@@ -1,23 +1,23 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd, Event, Event as NavigationEvent } from '@angular/router';
 import { Theme } from './models/theme.model';
-import { ResourceService } from '../shared/resource.service';
+import { RepositoryService } from '../shared/repository.service';
 import { Subject } from 'rxjs/Subject';
-import { HttpService } from '../shared/http.service';
+import { HttpHelper } from '../shared/helpers/http.helper';
 import { ThemeItemsMock } from './mocks/theme-items.mock';
-import { ResponseService } from './response.service';
+import { EndpointHelper } from './helpers/endpoint.helper';
 @Injectable()
-export class ThemesService extends ResourceService {
+export class ThemesService extends RepositoryService {
   public viewContainerRef: ViewContainerRef;
   public items$: Subject<Theme[]>;
   public items: Theme[];
   public apiUrl: string;
 
-  constructor(public http: HttpService, public response: ResponseService) {
-    super(http, response);
-    this.resourcesName = 'themes';
-    this.resourceName = 'theme';
-    this.apiUrl = `${response.apiUrl}/${this.resourcesName}`;
+  constructor(public httpHelper: HttpHelper, public endpointHelper: EndpointHelper) {
+    super(httpHelper, endpointHelper);
+    this.pluralName = 'themes';
+    this.mame = 'theme';
+    this.apiUrl = `${endpointHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<Theme[]>>new Subject();
     this.mockedItems = ThemeItemsMock;
     this.meta.perPage = 100;
@@ -26,7 +26,7 @@ export class ThemesService extends ResourceService {
     return new Theme(item);
   }
   newCache() {
-    return new ThemesService(this.http, this.response);
+    return new ThemesService(this.httpHelper, this.endpointHelper);
   }
   setTheme(theme: Theme) {
     if (!theme.url) {

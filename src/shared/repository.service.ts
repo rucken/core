@@ -5,16 +5,16 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { ResouceEnumStatus } from '../shared/enums/resource.enums';
 import { User } from '../shared/models/user.model';
-import { HttpService } from './http.service';
-import { ResponseService } from './response.service';
+import { HttpHelper } from './helpers/http.helper';
+import { EndpointHelper } from './helpers/endpoint.helper';
 import { UtilsService } from '../shared/utils.service';
 import { MetaModel } from '../shared/models/meta.model';
 import * as _ from 'lodash';
 
 @Injectable()
-export class ResourceService {
-  public resourcesName: string;
-  public resourceName: string;
+export class RepositoryService {
+  public pluralName: string;
+  public mame: string;
   public items$: Subject<any[]>;
   public items: any[];
   public mockedItems: any[];
@@ -35,7 +35,7 @@ export class ResourceService {
   private _statusItem: ResouceEnumStatus;
   public changeStatusItem$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
 
-  constructor(public http: HttpService, public response: ResponseService) {
+  constructor(public httpHelper: HttpHelper, public endpointHelper: EndpointHelper) {
     this.items = [];
     this.mockedItems = null;
     this.cached = [];
@@ -44,7 +44,7 @@ export class ResourceService {
     this.parent = null;
   }
   newCache(): any {
-    return new ResourceService(this.http, this.response);
+    return new RepositoryService(this.httpHelper, this.endpointHelper);
   }
   createCache(): any {
     let cache = this.newCache();
@@ -57,13 +57,13 @@ export class ResourceService {
       return this.parent.getFromCachedItems(filter);
     } else {
       for (let i = 0; i < this.cached.length; i++) {
-        console.log(this.resourcesName, filter, this.cached[i].queryProps);
+        console.log(this.pluralName, filter, this.cached[i].queryProps);
         if (_.isEqual(filter, this.cached[i].queryProps) && this.cached[i].items.length > 0) {
           return this.cached[i].items;
         }
       }
     }
-    console.log(this.resourcesName, filter, this.queryProps);
+    console.log(this.pluralName, filter, this.queryProps);
     if (_.isEqual(filter, this.queryProps) && this.items.length > 0) {
       return this.items;
     }
@@ -147,8 +147,8 @@ export class ResourceService {
     this.setStatusList(ResouceEnumStatus.Loading,
       'Loading...'//translate
     );
-    this.http.get(this.response.getResourcesListUrl(this))
-      .map(response => this.response.getResourcesListResponse(this, response).map((item: any) => this.transformModel(item)))
+    this.httpHelper.get(this.endpointHelper.getResourcesListUrl(this))
+      .map(endpointHelper => this.endpointHelper.getResourcesListResponse(this, endpointHelper).map((item: any) => this.transformModel(item)))
       .subscribe((loadedItems: any[]) => {
         this.loadAllItems(loadedItems);
         if (this.items.length > 0) {
@@ -167,7 +167,7 @@ export class ResourceService {
           this.loadAll(q, filter);
         } else {
           this.items$.next([]);
-          result.error(this.response.extractError(error));
+          result.error(this.endpointHelper.extractError(error));
           this.setStatusList(ResouceEnumStatus.NotFound,
             'Not found'//translate
           );
@@ -248,13 +248,13 @@ export class ResourceService {
     this.setStatusItem(ResouceEnumStatus.Loading,
       'Loading...'//translate
     );
-    this.http.get(this.response.getResourceItemUrl(this, key)).map(response => this.transformModel(this.response.getResourceItemResponse(this, response)))
+    this.httpHelper.get(this.endpointHelper.getResourceItemUrl(this, key)).map(endpointHelper => this.transformModel(this.endpointHelper.getResourceItemResponse(this, endpointHelper)))
       .subscribe((loadedItem: any) => {
         this.loadItem(loadedItem);
         result.emit(loadedItem);
         this.setStatusItem(ResouceEnumStatus.Ok);
       }, error => {
-        result.error(this.response.extractError(error));
+        result.error(this.endpointHelper.extractError(error));
         this.setStatusItem(ResouceEnumStatus.NotFound,
           'Not found'//translate
         );
@@ -284,15 +284,15 @@ export class ResourceService {
     this.setStatusItem(ResouceEnumStatus.Creating,
       'Creating...'//translate
     );
-    this.http.post(this.response.getResourceItemUrl(this), item)
-      .map(response => this.transformModel(this.response.getResourceItemResponse(this, response)))
+    this.httpHelper.post(this.endpointHelper.getResourceItemUrl(this), item)
+      .map(endpointHelper => this.transformModel(this.endpointHelper.getResourceItemResponse(this, endpointHelper)))
       .subscribe((createdItem: any) => {
         this.createItem(createdItem);
         result.emit(createdItem);
         this.setStatusItem(ResouceEnumStatus.Ok);
         this.setStatusList(ResouceEnumStatus.Ok);
       }, error => {
-        result.error(this.response.extractError(error));
+        result.error(this.endpointHelper.extractError(error));
         this.setStatusItem(ResouceEnumStatus.Invalid,
           'Error in creating'//translate
         );
@@ -359,15 +359,15 @@ export class ResourceService {
     this.setStatusItem(ResouceEnumStatus.Updating,
       'Updating...'//translate
     );
-    this.http.put(this.response.getResourceItemUrl(this, item.pk), item)
-      .map(response => this.transformModel(this.response.getResourceItemResponse(this, response)))
+    this.httpHelper.put(this.endpointHelper.getResourceItemUrl(this, item.pk), item)
+      .map(endpointHelper => this.transformModel(this.endpointHelper.getResourceItemResponse(this, endpointHelper)))
       .subscribe((updatedItem: any) => {
         this.updateItem(updatedItem);
         result.emit(updatedItem);
         this.setStatusItem(ResouceEnumStatus.Ok);
         this.setStatusList(ResouceEnumStatus.Ok);
       }, error => {
-        result.error(this.response.extractError(error));
+        result.error(this.endpointHelper.extractError(error));
         this.setStatusItem(ResouceEnumStatus.Invalid,
           'Error in updating'//translate
         );
@@ -427,7 +427,7 @@ export class ResourceService {
     this.setStatusItem(ResouceEnumStatus.Removing,
       'Removing...'//translate
     );
-    this.http.delete(this.response.getResourceItemUrl(this, ids.join('|'))).subscribe(response => {
+    this.httpHelper.delete(this.endpointHelper.getResourceItemUrl(this, ids.join('|'))).subscribe(endpointHelper => {
       let prevLength = this.items.length;
       this.removeItems(items);
       if (prevLength === 0 && this.items.length === 0) {
@@ -453,7 +453,7 @@ export class ResourceService {
         }
       }
     }, error => {
-      result.error(this.response.extractError(error));
+      result.error(this.endpointHelper.extractError(error));
       this.setStatusItem(ResouceEnumStatus.Invalid,
         'Error on deleting'//translate
       );

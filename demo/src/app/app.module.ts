@@ -8,11 +8,11 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
   RuckenComponents, RuckenServices, RuckenRoutingModule,
-  ResponseService, HttpService, AccountService, AuthHttpFactory
-} from '../../../dist';
+  EndpointHelper, HttpHelper, AccountService, AuthHttpFactory
+} from '../../../src';
 import { DemoAppComponent } from './app.component';
-import { DemoResponseService } from './demo/shared/response.service';
-import { DemoHttpService } from './demo/shared/http.service';
+import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
+import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
 import { DemoAccountService } from './demo/shared/account.service';
 //import { TranslatePoLoader } from '@biesbjerg/ng2-translate-po-loader';
 /*
@@ -48,8 +48,8 @@ export function createTranslateLoader(http: Http) {
     TabsetConfig,
     RuckenServices,
     { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
-    { provide: ResponseService, useClass: DemoResponseService },
-    { provide: HttpService, useClass: DemoHttpService },
+    { provide: EndpointHelper, useClass: DemoEndpointHelper },
+    { provide: HttpHelper, useClass: DemoHttpHelper },
     { provide: AccountService, useClass: DemoAccountService }
   ],
   bootstrap: [DemoAppComponent]

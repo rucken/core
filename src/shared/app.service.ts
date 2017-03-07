@@ -1,6 +1,6 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { Router, NavigationEnd, Event } from '@angular/router';
-import { ResponseService } from './response.service';
+import { EndpointHelper } from './helpers/endpoint.helper';
 import { TranslateService } from '@ngx-translate/core';
 @Injectable()
 export class AppService {
@@ -8,7 +8,7 @@ export class AppService {
   public viewContainerRef: ViewContainerRef;
   public currentPageName: string;
   public currentPageTitle: string;
-  public response: ResponseService
+  public endpointHelper: EndpointHelper
   public translate: TranslateService
   private createdModals: any = {};
   constructor(public _router: Router) {

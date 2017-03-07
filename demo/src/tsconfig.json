@@ -11,7 +11,7 @@
     "mapRoot": "./",
     "module": "es2015",
     "moduleResolution": "node",
-    "outDir": "../dist/out-tsc",
+    "outDir": "../src/out-tsc",
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [

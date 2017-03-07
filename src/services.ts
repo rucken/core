@@ -8,7 +8,7 @@ import { AppService } from './shared/app.service';
 import { AccountService } from './shared/account.service';
 import { UsersService } from './shared/users.service';
 import { ThemesService } from './shared/themes.service';
-import { HttpService } from './shared/http.service';
+import { HttpHelper } from './shared/helpers/http.helper';
 import { UtilsService } from './shared/utils.service';
 import { FontawesomesService } from './shared/fontawesomes.service';
 import { GroupsService } from './shared/groups.service';
@@ -21,7 +21,7 @@ const RuckenServices = [
   GroupPermissionsService,
   PermissionsService,
   FontawesomesService,
-  HttpService,
+  HttpHelper,
   AppService,
   AccountService,
   UsersService,

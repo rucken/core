@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { MetaModel } from './models/meta.model';
-import { UtilsService } from '../shared/utils.service';
+import { MetaModel } from '../models/meta.model';
+import { UtilsService } from '../utils.service';
 import * as _ from 'lodash';
 
 @Injectable()
-export class ResponseService {
+export class EndpointHelper {
   get apiUrl() {
     return '/api';
   }
@@ -36,13 +36,13 @@ export class ResponseService {
     }
     return apiUrl + `?${uri.toString()}`;
   };
-  getResourcesListResponse(resoureService: any, response: any) {
-    let data = response.json();
+  getResourcesListResponse(resoureService: any, endpointHelper: any) {
+    let data = endpointHelper.json();
     resoureService.meta = new MetaModel(data['meta']);
-    return data[_.camelCase(resoureService.resourcesName)];
+    return data[_.camelCase(resoureService.pluralName)];
   };
-  getResourceItemResponse(resoureService: any, response: any) {
-    return response.json()[_.camelCase(resoureService.resourceName)];
+  getResourceItemResponse(resoureService: any, endpointHelper: any) {
+    return endpointHelper.json()[_.camelCase(resoureService.mame)];
   }
   extractError(error: any, message?: string): any {
     if (message === undefined) {
