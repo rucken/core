@@ -3,7 +3,7 @@
   <div class="app-grid__toolbar--header">
     <div class="row">
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="account.checkPermissions(['add_user'])">
+        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="account && account.checkPermissions(['add_user'])">
 					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
 				</button>
       </div>
@@ -22,7 +22,7 @@
         <th class="app-grid__table__col-asString">{{modelMeta.titles.asString | translate}}</th>
         <th class="app-grid__table__col-roles">{{modelMeta.titles.roles | translate}}</th>
         <th class="app-grid__table__col-groups">{{modelMeta.titles.groups | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="account.checkPermissions(['change_user','delete_user'])" translate>Actions</th>
+        <th class="app-grid__table__col-action" *ngIf="account && account.checkPermissions(['change_user','delete_user'])" translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -38,9 +38,9 @@
         <td class="app-grid__table__col-asString">{{item.asString}}</td>
         <td class="app-grid__table__col-roles">{{item.rolesAsString}}</td>
         <td class="app-grid__table__col-groups">{{item.groupsAsString}}</td>
-        <td class="app-grid__table__col-action" *ngIf="account.checkPermissions(['change_user','delete_user'])">
-          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="account.checkPermissions(['change_user'])"
-            [showRemove]="account.checkPermissions(['delete_user'])"></grid-row-buttons>
+        <td class="app-grid__table__col-action" *ngIf="account && account.checkPermissions(['change_user','delete_user'])">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="account && account.checkPermissions(['change_user'])"
+            [showRemove]="account && account.checkPermissions(['delete_user'])"></grid-row-buttons>
         </td>
         </tr>
     </tbody>

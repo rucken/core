@@ -80,7 +80,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     this.modalIsOpened = true;
     let itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account.checkPermissions(['change_group']) || this.readonly;
+    itemModal.readonly = !this.account || !this.account.checkPermissions(['change_group']) || this.readonly;
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit group');
     if (itemModal.readonly) {

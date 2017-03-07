@@ -46,7 +46,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     return this.accountService.account;
   }
   get readonly() {
-    return !this.account.checkPermissions(['add_user', 'change_user', 'delete_user']);
+    return !this.account || !this.account.checkPermissions(['add_user', 'change_user', 'delete_user']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -55,7 +55,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     this.modalIsOpened = true;
     let itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account.checkPermissions(['add_user']);
+    itemModal.readonly = !this.account || !this.account.checkPermissions(['add_user']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new user');
     itemModal.onSave.subscribe(($event:any) => this.save($event));
@@ -71,7 +71,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     this.modalIsOpened = true;
     let itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account.checkPermissions(['change_user']);
+    itemModal.readonly = !this.account || !this.account.checkPermissions(['change_user']);
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit user');
     if (itemModal.readonly) {

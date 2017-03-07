@@ -47,7 +47,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     return this.accountService.account;
   }
   get readonly() {
-    return !this.account.checkPermissions(['add_group', 'change_group', 'delete_group']);
+    return !this.account || !this.account.checkPermissions(['add_group', 'change_group', 'delete_group']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -56,7 +56,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     this.modalIsOpened = true;
     let itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account.checkPermissions(['add_group']);
+    itemModal.readonly = !this.account || !this.account.checkPermissions(['add_group']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new group');
     itemModal.onSave.subscribe(($event:any) => this.save($event));
@@ -72,7 +72,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     this.modalIsOpened = true;
     let itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account.checkPermissions(['change_group']);
+    itemModal.readonly = !this.account || !this.account.checkPermissions(['change_group']);
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit group');
     if (itemModal.readonly) {
