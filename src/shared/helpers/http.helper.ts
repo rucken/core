@@ -7,13 +7,14 @@ import { AuthHttp } from 'angular2-jwt';
 export class HttpHelper {
 
   public withCredentials: boolean = false;
-  constructor(public http: AuthHttp) {
+
+  constructor(public authHttp: AuthHttp, public http: Http) {
   }
 
   get(url: string): Observable<Response> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    return this.http.get(url, options);
+    return this.authHttp.get(url, options);
   }
 
   post(url: string, data?: any): Observable<Response> {
@@ -26,7 +27,7 @@ export class HttpHelper {
     let bodyString = JSON.stringify(data);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    return this.http.post(url, bodyString, options);
+    return this.authHttp.post(url, bodyString, options);
   }
 
   put(url: string, data?: any): Observable<Response> {
@@ -39,12 +40,12 @@ export class HttpHelper {
     let bodyString = JSON.stringify(data);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    return this.http.put(url, bodyString, options);
+    return this.authHttp.put(url, bodyString, options);
   }
 
   delete(url: string): Observable<Response> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    return this.http.delete(url, options);
+    return this.authHttp.delete(url, options);
   }
 }

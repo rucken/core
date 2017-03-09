@@ -3,9 +3,8 @@ import { Router, NavigationStart, NavigationEnd, Event, Event as NavigationEvent
 import { Theme } from './models/theme.model';
 import { RepositoryService } from '../shared/repository.service';
 import { Subject } from 'rxjs/Subject';
-import { HttpHelper } from '../shared/helpers/http.helper';
 import { ThemeItemsMock } from './mocks/theme-items.mock';
-import { EndpointHelper } from './helpers/endpoint.helper';
+import { RepositoryHelper } from './helpers/repository.helper';
 @Injectable()
 export class ThemesService extends RepositoryService {
   public viewContainerRef: ViewContainerRef;
@@ -13,11 +12,11 @@ export class ThemesService extends RepositoryService {
   public items: Theme[];
   public apiUrl: string;
 
-  constructor(public httpHelper: HttpHelper, public endpointHelper: EndpointHelper) {
-    super(httpHelper, endpointHelper);
+  constructor(public repositoryHelper: RepositoryHelper) {
+    super(repositoryHelper);
     this.pluralName = 'themes';
-    this.mame = 'theme';
-    this.apiUrl = `${endpointHelper.apiUrl}/${this.pluralName}`;
+    this.name = 'theme';
+    this.apiUrl = `${repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<Theme[]>>new Subject();
     this.mockedItems = ThemeItemsMock;
     this.meta.perPage = 100;
@@ -26,7 +25,7 @@ export class ThemesService extends RepositoryService {
     return new Theme(item);
   }
   newCache() {
-    return new ThemesService(this.httpHelper, this.endpointHelper);
+    return new ThemesService(this.repositoryHelper);
   }
   setTheme(theme: Theme) {
     if (!theme.url) {

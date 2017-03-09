@@ -130,6 +130,9 @@ msgstr "Выберите группы для добавления"
 msgid "Are you sure you want to remove a user group?"
 msgstr "Вы уверены, что хотите удалить группу пользователей?"
 
+msgid "Users"
+msgstr "Пользователи"
+
 msgid "Create new user"
 msgstr "Добавление нового пользователя"
 
@@ -151,14 +154,20 @@ msgstr "Профиль"
 msgid "Admin"
 msgstr "Администрирование"
 
-msgid "Users"
-msgstr "Пользователи"
-
 msgid "Home"
 msgstr "Домашняя страница"
 
 msgid "Themes"
 msgstr "Темы"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Updating..."
+msgstr "Изменение..."
+
+msgid "Unknown error"
+msgstr "Неизвестная ошибка"
 
 msgid "Id"
 msgstr "Ид."
@@ -247,9 +256,6 @@ msgstr "Дата последнего входа"
 msgid "Date joined"
 msgstr "Дата регистрации"
 
-msgid "Loading..."
-msgstr "Загрузка..."
-
 msgid "Not found"
 msgstr "Нет данных"
 
@@ -261,9 +267,6 @@ msgstr "Ошибка при создании"
 
 msgid "Creating..."
 msgstr "Создание..."
-
-msgid "Updating..."
-msgstr "Изменение..."
 
 msgid "Error in updating"
 msgstr "Ошибка при изменении"

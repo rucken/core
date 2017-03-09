@@ -151,6 +151,15 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
+msgid "Loading..."
+msgstr ""
+
+msgid "Updating..."
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""
+
 msgid "Id"
 msgstr ""
 
@@ -238,9 +247,6 @@ msgstr ""
 msgid "Date joined"
 msgstr ""
 
-msgid "Loading..."
-msgstr ""
-
 msgid "Not found"
 msgstr ""
 
@@ -251,9 +257,6 @@ msgid "Error in creating"
 msgstr ""
 
 msgid "Creating..."
-msgstr ""
-
-msgid "Updating..."
 msgstr ""
 
 msgid "Error in updating"

@@ -13,6 +13,8 @@ import { UtilsService } from './shared/utils.service';
 import { FontawesomesService } from './shared/fontawesomes.service';
 import { GroupsService } from './shared/groups.service';
 import { ContentTypesService } from './shared/content-types.service';
+import { RepositoryHelper } from './shared/helpers/repository.helper';
+import { EndpointHelper } from './shared/helpers/endpoint.helper';
 const RuckenServices = [
   /**
    * Services
@@ -28,6 +30,8 @@ const RuckenServices = [
   ThemesService,
   UtilsService,
   GroupsService,
-  ContentTypesService
+  ContentTypesService,
+  RepositoryHelper,
+  EndpointHelper
 ];
 export { RuckenServices };

@@ -1,49 +1,49 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { MetaModel } from '../models/meta.model';
 import { UtilsService } from '../utils.service';
 import * as _ from 'lodash';
+import { HttpHelper } from './http.helper';
+import { User } from '../models/user.model';
 
 @Injectable()
 export class EndpointHelper {
+  constructor(public httpHelper: HttpHelper) {
+  }
   get apiUrl() {
     return '/api';
   }
-  getResourceItemUrl(resoureService: any, key?: any) {
-    if (key === undefined) {
-      return resoureService.apiUrl;
+  actionUrl(endpointService: any, action?: any) {
+    if (action === undefined) {
+      return endpointService.apiUrl;
     } else {
-      return `${resoureService.apiUrl}/${key}`;
+      return `${endpointService.apiUrl}/${action}`;
     }
   };
-  getResourcesListUrl(resoureService: any) {
-    let uri = new URLSearchParams();
-    for (let queryProp in resoureService.queryProps) {
-      if (resoureService.queryProps.hasOwnProperty(queryProp)) {
-        uri.append(_.snakeCase(queryProp), resoureService.queryProps[queryProp]);
+  actionRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
+    if (endpointService.name === 'account') {
+      if (action === 'info') {
+        return this.httpHelper.authHttp.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
+      }
+      if (action === 'update') {
+        return this.httpHelper.put(this.actionUrl(endpointService), data);
       }
     }
-    let apiUrl = resoureService.apiUrl;
-    if (resoureService.props !== null) {
-      apiUrl = resoureService.apiUrlWithProps;
-      for (let propKey in resoureService.props) {
-        if (resoureService.props.hasOwnProperty(propKey)) {
-          apiUrl = apiUrl.replace(`{${propKey}}`, resoureService.props[propKey]);
+    return this.httpHelper.post(this.actionUrl(endpointService, action), data);
+  };
+  actionResponse(endpointService: any, action?: any, response?: Response) {
+    if (endpointService.name === 'account') {
+      if (action === 'info' || action === 'login') {
+        if (response.json().token) {
+          localStorage.setItem('token', response.json().token);
         }
+        return new User(response.json().user);
+      }
+      if (action === 'update') {
+        return new User(response.json().user);
       }
     }
-    return apiUrl + `?${uri.toString()}`;
   };
-  getResourcesListResponse(resoureService: any, endpointHelper: any) {
-    let data = endpointHelper.json();
-    resoureService.meta = new MetaModel(data['meta']);
-    return data[_.camelCase(resoureService.pluralName)];
-  };
-  getResourceItemResponse(resoureService: any, endpointHelper: any) {
-    return endpointHelper.json()[_.camelCase(resoureService.mame)];
-  }
   extractError(error: any, message?: string): any {
     if (message === undefined) {
       message = 'Unknown error'; //translate

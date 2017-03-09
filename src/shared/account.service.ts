@@ -1,29 +1,23 @@
-import { HttpHelper } from '../shared/helpers/http.helper';
 import { Injectable, EventEmitter } from '@angular/core';
-import { AuthHttp } from 'angular2-jwt';
 import { User } from './models/user.model';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { EndpointHelper } from './helpers/endpoint.helper';
-import { ResouceEnumStatus } from '../../src/shared/enums/resource.enums';
+import { ResouceEnumStatus } from './enums/resource.enums';
 @Injectable()
 export class AccountService {
-  public mame: string;
-  public account$: Subject<User>;
-  private _account: User;
+  public name: string;
+  public account$: Subject<any | User>;
+  public _account: any | User;
   public apiUrl: string;
 
   public statusMessage: string;
-  private _status: ResouceEnumStatus;
+  public _status: ResouceEnumStatus;
   public changeStatus$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
 
-  constructor(
-    public httpHelper: HttpHelper,
-    public authHttp: AuthHttp,
-    public endpointHelper: EndpointHelper) {
-    this.mame = 'account';
-    this.apiUrl = `${endpointHelper.apiUrl}/${this.mame}`;
-    this.account$ = <Subject<User>>new Subject();
+  constructor(public endpointHelper: EndpointHelper) {
+    this.name = 'account';
+    this.apiUrl = `${endpointHelper.apiUrl}/${this.name}`;
   }
   get statusList() {
     return this._status;
@@ -39,33 +33,25 @@ export class AccountService {
       this.changeStatus$.next(status);
     });
   }
-  public set account(user: User) {
+  public set account(user: any | User) {
     this._account = user;
     this.account$.next(this._account);
   }
-  public get account(): User {
+  public get account(): any | User {
     return this._account;
   }
   public info() {
     let result = new EventEmitter();
-    if (localStorage.getItem('token') === null) {
-      this.account = null;
-      return result;
-    }
     this.setStatus(ResouceEnumStatus.Loading,
       'Loading...'//translate
     );
-    this.authHttp.post(this.endpointHelper.getResourceItemUrl(this, 'info'), { 'token': localStorage.getItem('token') })
-      .map(endpointHelper => {
-        if (endpointHelper.json().token) {
-          localStorage.setItem('token', endpointHelper.json().token);
-        }
-        return new User(endpointHelper.json().user);
-      }).subscribe((user: User) => {
+    this.endpointHelper.actionRequest(this, 'info').map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
+      subscribe((user: any | User) => {
         this.account = user;
         result.emit(this.account);
         this.setStatus(ResouceEnumStatus.Ok);
-      }, error => {
+      }, (error: any) => {
         this.account = null;
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(ResouceEnumStatus.Error,
@@ -79,17 +65,13 @@ export class AccountService {
     this.setStatus(ResouceEnumStatus.Loading,
       'Loading...'//translate
     );
-    this.authHttp.post(this.endpointHelper.getResourceItemUrl(this, 'login'), account.AsLoginUser)
-      .map(endpointHelper => {
-        if (endpointHelper.json().token) {
-          localStorage.setItem('token', endpointHelper.json().token);
-        }
-        return new User(endpointHelper.json().user);
-      }).subscribe((user: User) => {
+    this.endpointHelper.actionRequest(this, 'login', account.AsLoginUser).map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
+      subscribe((user: any | User) => {
         this.account = user;
         result.emit(this.account);
         this.setStatus(ResouceEnumStatus.Ok);
-      }, error => {
+      }, (error: any) => {
         this.account = null;
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(ResouceEnumStatus.Error,
@@ -100,7 +82,6 @@ export class AccountService {
   }
   public logout() {
     let result = new EventEmitter();
-    localStorage.removeItem('token');
     setTimeout((out: any) => {
       this.account = null;
       result.emit({ message: 'OK' });
@@ -112,12 +93,13 @@ export class AccountService {
     this.setStatus(ResouceEnumStatus.Updating,
       'Updating...'//translate
     );
-    this.httpHelper.put(this.endpointHelper.getResourceItemUrl(this), account)
-      .map(endpointHelper => new User(endpointHelper.json().user)).subscribe((user: User) => {
+    this.endpointHelper.actionRequest(this, 'update', account).map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'update', response))
+      .subscribe((user: any | User) => {
         this.account = user;
         result.emit(this.account);
         this.setStatus(ResouceEnumStatus.Ok);
-      }, error => {
+      }, (error: any) => {
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(ResouceEnumStatus.Error,
           'Error'//translate

@@ -3,20 +3,19 @@ import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { Fontawesome } from './models/fontawesome.model';
 import { RepositoryService } from './repository.service';
-import { HttpHelper } from './helpers/http.helper';
 import { FontawesomeItemsMock } from './mocks/fontawesome-items.mock';
-import { EndpointHelper } from './helpers/endpoint.helper';
+import { RepositoryHelper } from './helpers/repository.helper';
 @Injectable()
 export class FontawesomesService extends RepositoryService {
   public items$: Subject<Fontawesome[]>;
   public items: Fontawesome[];
   public apiUrl: string;
 
-  constructor(public httpHelper: HttpHelper, public endpointHelper: EndpointHelper) {
-    super(httpHelper, endpointHelper);
+  constructor(public repositoryHelper: RepositoryHelper) {
+    super(repositoryHelper);
     this.pluralName = 'fontawesomes';
-    this.mame = 'fontawesome';
-    this.apiUrl = `${endpointHelper.apiUrl}/${this.pluralName}`;
+    this.name = 'fontawesome';
+    this.apiUrl = `${repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<Fontawesome[]>>new Subject();
     this.mockedItems = FontawesomeItemsMock;
     this.meta.perPage = 10;
@@ -25,6 +24,6 @@ export class FontawesomesService extends RepositoryService {
     return new Fontawesome(item);
   }
   newCache() {
-    return new FontawesomesService(this.httpHelper, this.endpointHelper);
+    return new FontawesomesService(this.repositoryHelper);
   }
 }
