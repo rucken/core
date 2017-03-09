@@ -103,7 +103,7 @@ export class RepositoryService {
   transformModel(item: any) {
     return item;
   }
-  private loadAllItems(loadedItems: any[]) {
+  loadAllItems(loadedItems: any[]) {
     this.items = loadedItems;
     this.items$.next(this.items);
   }
@@ -174,7 +174,7 @@ export class RepositoryService {
       });
     return result;
   }
-  private mockLoadAll(filter: any, mockedItems: any[]) {
+  mockLoadAll(filter: any, mockedItems: any[]) {
     let result = new EventEmitter();
     this.setStatusList(ResouceEnumStatus.Loading,
       'Loading...'//translate
@@ -210,7 +210,7 @@ export class RepositoryService {
     });
     return result;
   }
-  private cacheLoadAll(cachedItems: any[]) {
+  cacheLoadAll(cachedItems: any[]) {
     let result = new EventEmitter();
     this.setStatusList(ResouceEnumStatus.Loading,
       'Loading...'//translate
@@ -229,7 +229,7 @@ export class RepositoryService {
     });
     return result;
   }
-  private loadItem(loadedItem: any) {
+  loadItem(loadedItem: any) {
     let notFound = true;
     this.items.forEach((item, index) => {
       if (item.pk === loadedItem.pk) {
@@ -261,8 +261,8 @@ export class RepositoryService {
       });
     return result;
   }
-  private createItem(createdItem: any) {
-    this.calcMeta(this.meta.totalResults + 1);
+  createItem(createdItem: any) {
+    this.calcMeta(_.toNumber(this.meta.totalResults) + 1);
     if (this.mockedItems !== null) {
       this.mockedItems.unshift(createdItem);
     }
@@ -299,7 +299,7 @@ export class RepositoryService {
       });
     return result;
   }
-  private mockCreate(item: any) {
+  mockCreate(item: any) {
     this.setStatusItem(ResouceEnumStatus.Creating,
       'Creating...'//translate
     );
@@ -318,7 +318,7 @@ export class RepositoryService {
     });
     return result;
   }
-  private updateItem(updatedItem: any) {
+  updateItem(updatedItem: any) {
     let founded = false;
     if (this.mockedItems !== null) {
       this.mockedItems.forEach((eachItem: any, i: number) => {
@@ -339,7 +339,7 @@ export class RepositoryService {
       }
     });
     if (!founded) {
-      this.calcMeta(this.meta.totalResults + 1);
+      this.calcMeta(_.toNumber(this.meta.totalResults) + 1);
       this.items.unshift(updatedItem);
     }
     this.items$.next(this.items);
@@ -374,7 +374,7 @@ export class RepositoryService {
       });
     return result;
   }
-  private mockUpdate(item: any) {
+  mockUpdate(item: any) {
     this.setStatusItem(ResouceEnumStatus.Updating,
       'Updating...'//translate
     );
@@ -394,7 +394,7 @@ export class RepositoryService {
       return this.create(item);
     }
   }
-  private removeItems(items: any[]) {
+  removeItems(items: any[]) {
     if (this.mockedItems !== null) {
       let keys = items.map(d => d.pk);
       this.mockedItems.forEach((t, i) => {
@@ -415,7 +415,7 @@ export class RepositoryService {
       this.loadAll();
       return;
     }
-    this.calcMeta(this.meta.totalResults - 1);
+    this.calcMeta(_.toNumber(this.meta.totalResults) - 1);
     this.items$.next(this.items);
   }
   remove(items: any[]) {
@@ -460,7 +460,7 @@ export class RepositoryService {
       });
     return result;
   }
-  private mockRemove(items: any[]) {
+  mockRemove(items: any[]) {
     this.setStatusItem(ResouceEnumStatus.Removing,
       'Removing...'//translate
     );

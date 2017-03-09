@@ -5,6 +5,6 @@ npm install recursive-readdir -g
 ```
 # VARIABLES
 ```
-<prompt name="po.input.dir">./src/i18n</prompt>
-<prompt name="ts.output.dir">./src/i18n</prompt>
+<prompt name="po.input.dir">./frontend/src/app/appname/i18n</prompt>
+<prompt name="ts.output.dir">./frontend/src/app/appname/i18n</prompt>
 ```

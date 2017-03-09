@@ -4,6 +4,7 @@ export { RuckenRoutingModule } from './routing.module';
 export { RuckenServices } from './services';
 export { AppComponent } from './app/app.component';
 export { RuckenRuI18n } from './i18n/ru.i18n';
+export { ErrorFrameComponent } from './frames/error-frame/error-frame.component';
 export { CheckboxesInputComponent } from './controls/checkboxes-input/checkboxes-input.component';
 export { GridRowButtonsComponent } from './controls/grid-row-buttons/grid-row-buttons.component';
 export { GridSearchPanelComponent } from './controls/grid-search-panel/grid-search-panel.component';
@@ -14,7 +15,6 @@ export { PageSubHeaderComponent } from './controls/page-sub-header/page-sub-head
 export { RadiosInputComponent } from './controls/radios-input/radios-input.component';
 export { SelectInputComponent } from './controls/select-input/select-input.component';
 export { TextInputComponent } from './controls/text-input/text-input.component';
-export { ErrorFrameComponent } from './frames/error-frame/error-frame.component';
 export { AlertModalComponent } from './modals/alert-modal/alert-modal.component';
 export { AuthModalComponent } from './modals/auth-modal/auth-modal.component';
 export { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.component';
