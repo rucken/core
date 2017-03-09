@@ -27,9 +27,9 @@ export class UsersGridComponent extends ResourcesGridComponent {
   focusElement: ElementRef;
 
   public modelMeta: any = User.meta;
-  public items: User[];
+  public items: User[] | any[];
   public searchText: string = '';
-  public selectedItems: User[];
+  public selectedItems: User[] | any[];
   public cachedResourcesService: UsersService;
 
   constructor(
@@ -42,7 +42,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = usersService.createCache();
   }
-  get account(): User {
+  get account(): User | any {
     return this.accountService.account;
   }
   get readonly() {
@@ -58,7 +58,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     itemModal.readonly = !this.account || !this.account.checkPermissions(['add_user']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new user');
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new User();
     itemModal.modal.show();
@@ -77,7 +77,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('User info');
     }
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new User(item);
     itemModal.modal.show();
@@ -92,14 +92,14 @@ export class UsersGridComponent extends ResourcesGridComponent {
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a user?');
-    confirm.onYes.subscribe(($event:any) => this.remove($event));
+    confirm.onYes.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
   }
   save(itemModal: UserModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(
-      (user: User) => {
+      (user: User | any) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {

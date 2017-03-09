@@ -38,7 +38,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   model: User = new User();
   @Output()
-  modelChange: EventEmitter<User> = new EventEmitter<User>();
+  modelChange: EventEmitter<User | any> = new EventEmitter<User | any>();
 
   @Input()
   modelAsString: string = '';
@@ -51,7 +51,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
-  public items: User[];
+  public items: User[] | any[];
   public cachedResourcesService: UsersService;
   constructor(
     public app: AppService,
@@ -66,7 +66,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
     }
     this.cachedResourcesService = usersService.createCache();
   }
-  get account(): User {
+  get account(): User | any {
     return this.accountService.account;
   }
   onLookup() {
