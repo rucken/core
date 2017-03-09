@@ -47,7 +47,7 @@
     "lite-server": "lite-server -c demo/bs-config.json",
     "demo.serve": "npm-run-all build link demo.build lite-server",
     "demo.gh-pages": "npm-run-all build demo.build demo.deploy",
-    "demo.build": "ng build --prod --aot=false",
+    "demo.build": "ng build --base-href https://site15.github.io/rucken/ --prod --aot=false",
     "demo.deploy": "gh-pages -d demo/dist"
   },
   "dependencies": {
