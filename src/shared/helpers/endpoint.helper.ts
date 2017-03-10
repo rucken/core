@@ -26,7 +26,7 @@ export class EndpointHelper {
         return this.httpHelper.authHttp.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
       }
       if (action === 'update') {
-        return this.httpHelper.put(this.actionUrl(endpointService), data);
+        return this.httpHelper.post(this.actionUrl(endpointService), data);
       }
     }
     return this.httpHelper.post(this.actionUrl(endpointService, action), data);
