@@ -22,7 +22,7 @@ export class DemoEndpointHelper extends EndpointHelper {
             replace('account/', 'account-'));
         }
       }
-      return this.httpHelper.get(this.actionUrl(endpointService, action).
+      return this.httpHelper.authHttp.get(this.actionUrl(endpointService, action).
         replace('account/', 'account-'));
     }
     return super.actionRequest(endpointService, action, data);
