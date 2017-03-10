@@ -21,10 +21,6 @@ export class DemoEndpointHelper extends EndpointHelper {
           return this.httpHelper.authHttp.get(this.actionUrl(endpointService, action).
             replace('account/', 'account-'));
         }
-        if (action === 'update') {
-          return this.httpHelper.get(this.actionUrl(endpointService).
-            replace('account/', 'account-'));
-        }
       }
       return this.httpHelper.get(this.actionUrl(endpointService, action).
         replace('account/', 'account-'));
