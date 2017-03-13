@@ -2,7 +2,7 @@ import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
 import { AdminPageComponent, AppService, AuthModalComponent, NavbarComponent,
   AccountService, User, ConfirmModalComponent
-} from '../../../../../../dist';
+} from '../../../../../../src';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

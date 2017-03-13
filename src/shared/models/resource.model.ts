@@ -145,6 +145,13 @@ export class ResourceModel {
     }
     this[fieldName] = value;
   }
+  booleanAsString(value: boolean) {
+    if (value) {
+      return 'Yes';//translate
+    } else {
+      return 'No';//translate
+    }
+  }
   validate() {
     let result: any = {};
     let valid: boolean = true;
