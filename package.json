@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "bugs": {
@@ -33,16 +33,15 @@
     "url": "git+https://github.com/site15/rucken.git"
   },
   "scripts": {
-    "_preinstall": "npm install -g gulp @angular/cli gh-pages npm-run-all @biesbjerg/ng2-translate-extract lite-server srcgen po2json recursive-readdirs --save-dev",
+    "__preinstall": "npm install -g gulp @angular/cli gh-pages npm-run-all @biesbjerg/ng2-translate-extract lite-server srcgen po2json recursive-readdirs --save-dev",
     "build": "gulp inline-templates && ngm build -p ./src-inline --clean",
     "ng": "ng",
-    "start": "ng serve --aot --host 0.0.0.0",
+    "start": "ng serve --aot=false --host 0.0.0.0",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "extract": "ng2-translate-extract --dir ./src --output ./src/i18n --format=pot --clean",
-    "link": "ngm link -p src --here",
     "lite-server": "lite-server -c demo/bs-config.json",
+    "link": "ngm link -p src --here",
     "demo.serve": "npm-run-all build link demo.build lite-server",
     "demo.gh-pages": "npm-run-all build demo.build demo.deploy",
     "demo.build": "ng build --base-href https://site15.github.io/rucken/ --prod --aot=false",

@@ -47,7 +47,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     return this.accountService.account;
   }
   get readonly() {
-    return !this.account || !this.account.checkPermissions(['add_group', 'change_group', 'delete_group']);
+    return this.hardReadonly !== true || !this.account || !this.account.checkPermissions(['add_group', 'change_group', 'delete_group']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {

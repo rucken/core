@@ -47,7 +47,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
     return this.accountService.account;
   }
   get readonly() {
-    return !this.account || !this.account.checkPermissions(['add_permission', 'change_permission', 'delete_permission']);
+    return this.hardReadonly !== true || !this.account || !this.account.checkPermissions(['add_permission', 'change_permission', 'delete_permission']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {

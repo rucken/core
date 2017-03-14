@@ -23,10 +23,7 @@ export class EndpointHelper {
   actionRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
     if (endpointService.name === 'account') {
       if (action === 'info') {
-        return this.httpHelper.authHttp.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
-      }
-      if (action === 'update') {
-        return this.httpHelper.put(this.actionUrl(endpointService), data);
+        return this.httpHelper.http.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
       }
     }
     return this.httpHelper.post(this.actionUrl(endpointService, action), data);
@@ -40,7 +37,7 @@ export class EndpointHelper {
         return new User(response.json().user);
       }
       if (action === 'update') {
-        return new User(response.json().user);
+        return new User(response.json());
       }
     }
   };

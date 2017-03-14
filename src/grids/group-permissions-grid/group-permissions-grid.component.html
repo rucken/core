@@ -6,7 +6,7 @@
         <h4>{{modelMeta.group.titles.permissions | translate}}</h4>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-success pull-right" aria-label="Create" (click)="showCreateModal()" *ngIf="account && account.checkPermissions(['change_group']) && !readonly">
+        <button type="button" class="btn btn-success pull-right" aria-label="Append" (click)="showCreateModal()" *ngIf="account && account.checkPermissions(['change_group']) && !readonly">
 					<span class="fa fa-plus"></span> {{ 'Append' | translate }}
 				</button>
       </div>
@@ -17,7 +17,7 @@
       <tr>
         <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{modelMeta.permission.titles.id | translate}}</th>
         <th class="app-grid__table__col-permission">{{modelMeta.permission.titles.name | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="account && account.checkPermissions(['change_permission','change_group']) && !readonly" translate>Actions</th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_permission','change_group']) && !readonly" translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -30,9 +30,9 @@
         (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
         <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
         <td class="app-grid__table__col-permission">{{item.permissionAsString}}</td>
-        <td class="app-grid__table__col-action" *ngIf="account && account.checkPermissions(['change_permission','change_group']) && !readonly">
-          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="account && account.checkPermissions(['change_permission']) && !readonly"
-            [showRemove]="account && account.checkPermissions(['change_group'])"></grid-row-buttons>
+        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_permission','change_group']) && !readonly">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_permission']) && !readonly"
+            [showRemove]="hardReadonly !== true && account && account.checkPermissions(['change_group'])"></grid-row-buttons>
         </td>
         </tr>
     </tbody>

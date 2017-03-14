@@ -18,6 +18,8 @@ export class ResourceSelectInputComponent implements OnInit {
   @Input()
   readonly: boolean = false;
   @Input()
+  hardReadonly: boolean = false;
+  @Input()
   inputReadonly: boolean = true;
   @Input()
   name: string;
