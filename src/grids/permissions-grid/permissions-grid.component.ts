@@ -56,7 +56,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
     this.modalIsOpened = true;
     let itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account || !this.account.checkPermissions(['add_permission']);
+    itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['add_permission']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new permission');
     itemModal.onSave.subscribe(($event:any) => this.save($event));
@@ -72,7 +72,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
     this.modalIsOpened = true;
     let itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account || !this.account.checkPermissions(['change_permission']);
+    itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_permission']);
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit permission');
     if (itemModal.readonly) {
