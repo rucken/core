@@ -24,7 +24,7 @@
     </thead>
     <tbody>
       <tr *ngIf="statusListMessage">
-        <td class="app-grid__table__col-status-message" [attr.colspan]="2+(account.checkPermissions(['change_contenttype','delete_contenttype'])?1:0)">
+        <td class="app-grid__table__col-status-message" [attr.colspan]="2+(hardReadonly !== true account.checkPermissions(['change_contenttype','delete_contenttype'])?1:0)">
           {{statusListMessage | translate}}
         </td>
       </tr>
