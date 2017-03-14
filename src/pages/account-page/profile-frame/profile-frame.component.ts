@@ -25,7 +25,7 @@ export class ProfileFrameComponent implements OnInit {
     this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Profile')}`;
   }
   get readonly() {
-    return this.hardReadonly!==true || !this.account || !this.account.checkPermissions(['change_profile']);
+    return !this.account || !this.account.checkPermissions(['change_profile']);
   }
   get account(): User {
     return this.accountService.account;

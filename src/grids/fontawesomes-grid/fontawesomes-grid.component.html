@@ -3,7 +3,7 @@
   <div class="app-grid__toolbar--header">
     <div class="row">
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="hardReadonly!==true && account && account.checkPermissions(['add_fontawesome'])">
+        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="hardReadonly !== true && account && account.checkPermissions(['add_fontawesome'])">
 					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
 				</button>
       </div>
@@ -20,7 +20,7 @@
         <th class="app-grid__table__col-icon">{{modelMeta.titles.icon | translate}}</th>
         <th class="app-grid__table__col-code">{{modelMeta.titles.code | translate}}</th>
         <th class="app-grid__table__col-class">{{modelMeta.titles.class | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly!==true && account && account.checkPermissions(['change_fontawesome','delete_fontawesome'])" translate>Actions</th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_fontawesome','delete_fontawesome'])" translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -34,9 +34,9 @@
         <td class="app-grid__table__col-icon" [innerHtml]="safeHtml(item.iconAsHtml)"></td>
         <td class="app-grid__table__col-code">{{item.code}}</td>
         <td class="app-grid__table__col-class">{{item.class}}</td>
-        <td class="app-grid__table__col-action" *ngIf="hardReadonly!==true && account && account.checkPermissions(['change_fontawesome','delete_fontawesome'])">
-          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly!==true && account && account.checkPermissions(['change_fontawesome'])"
-            [showRemove]="hardReadonly!==true && account && account.checkPermissions(['delete_fontawesome'])"></grid-row-buttons>
+        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_fontawesome','delete_fontawesome'])">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_fontawesome'])"
+            [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_fontawesome'])"></grid-row-buttons>
         </td>
         </tr>
     </tbody>
