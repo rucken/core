@@ -52,7 +52,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     return this.accountService.account;
   }
   get readonly() {
-    return !this.account.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
+    return this.hardReadonly!==true || !this.account.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {

@@ -47,7 +47,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
     return this.accountService.account;
   }
   get readonly() {
-    return !this.account.checkPermissions(['add_contenttype', 'change_contenttype', 'delete_contenttype']);
+    return this.hardReadonly!==true || !this.account.checkPermissions(['add_contenttype', 'change_contenttype', 'delete_contenttype']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {

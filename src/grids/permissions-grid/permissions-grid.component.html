@@ -3,7 +3,7 @@
   <div class="app-grid__toolbar--header">
     <div class="row">
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="account && account.checkPermissions(['add_permission'])">
+        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="hardReadonly!==true && account && account.checkPermissions(['add_permission'])">
 					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
 				</button>
       </div>
@@ -21,7 +21,7 @@
         <th class="app-grid__table__col-contentType">{{modelMeta.titles.contentType | translate}}</th>
         <th class="app-grid__table__col-codename">{{modelMeta.titles.codename | translate}}</th>
         <th class="app-grid__table__col-name">{{modelMeta.titles.name | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="account && account.checkPermissions(['change_permission','delete_permission'])" translate>Actions</th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly!==true && account && account.checkPermissions(['change_permission','delete_permission'])" translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -36,9 +36,9 @@
         <td class="app-grid__table__col-contentType">{{item.contentTypeAsString}}</td>
         <td class="app-grid__table__col-codename">{{item.codename}}</td>
         <td class="app-grid__table__col-name">{{item.name}}</td>
-        <td class="app-grid__table__col-action" *ngIf="account && account.checkPermissions(['change_permission','delete_permission'])">
-          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="account && account.checkPermissions(['change_permission'])"
-            [showRemove]="account && account.checkPermissions(['delete_permission'])"></grid-row-buttons>
+        <td class="app-grid__table__col-action" *ngIf="hardReadonly!==true && account && account.checkPermissions(['change_permission','delete_permission'])">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly!==true && account && account.checkPermissions(['change_permission'])"
+            [showRemove]="hardReadonly!==true && account && account.checkPermissions(['delete_permission'])"></grid-row-buttons>
         </td>
         </tr>
     </tbody>

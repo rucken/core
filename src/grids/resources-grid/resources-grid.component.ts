@@ -15,6 +15,8 @@ export class ResourcesGridComponent implements OnInit {
   focusElement: ElementRef;
   @Input()
   public readonly: boolean;
+  @Input()
+  public hardReadonly: boolean = false;
 
   public modelMeta: any;
   public items: any[];
