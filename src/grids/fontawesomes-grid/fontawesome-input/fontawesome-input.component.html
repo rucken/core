@@ -5,7 +5,7 @@
       [(ngModel)]="valueAsString" [readonly]="readonly || inputReadonly" #inputElement>
     <span class="input-group-btn" *ngIf="!readonly">
       <button class="btn btn-success" type="button" (click)="onLookup()"
-              tooltip="{{lookupTooltip}}" placement="left" container="body">
+              tooltip="{{lookupTooltip}}" placement="left"  container="body">
           <span [ngClass]="[lookupIcon]"></span>
     </button>
     </span>
