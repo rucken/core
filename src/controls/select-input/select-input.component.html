@@ -8,5 +8,5 @@
 </div>
 <select class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder" [(ngModel)]="value"
   [disabled]="readonly" (change)="updateModel()" *ngIf="!inFormGroup" #inputElement>
-    <option *ngFor="let item of items" [value]="getValue(item)">{{getTitle(item)}}</option>
+    <option *ngFor="let item of items" [value]="getValue(item)" [hidden]="getValue(initedHardValue)===getValue(item)" [innerHtml]="getTitle(item)"></option>
 </select>

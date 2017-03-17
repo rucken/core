@@ -85,13 +85,13 @@ export class User extends ResourceModel {
   }
   get asString() {
     let arr: string[] = [];
-    if (this.firstName !== undefined) {
+    if (this.firstName) {
       arr.push(this.firstName);
     }
-    if (this.lastName !== undefined) {
+    if (this.lastName) {
       arr.push(this.lastName);
     }
-    if (arr.length === 0 && this.username !== undefined) {
+    if (arr.length === 0 && this.username) {
       arr.push(this.username);
     }
     return arr.join(' ');

@@ -23,6 +23,8 @@ export class TextInputComponent implements OnInit {
   title: string = '';
   @Input()
   model: string = '';
+  @Input()
+  hardValue: string = null;
   @Output()
   modelChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
@@ -58,6 +60,9 @@ export class TextInputComponent implements OnInit {
     this.inputElement.nativeElement.focus();
   }
   get value() {
+    if (this.hardValue !== null) {
+      return this.hardValue;
+    }
     return this.model;
   }
   set value(val) {

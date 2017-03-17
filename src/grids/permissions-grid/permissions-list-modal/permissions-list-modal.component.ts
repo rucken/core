@@ -18,6 +18,8 @@ export class PermissionsListModalComponent implements OnInit {
   class: string;
   @Input()
   readonly: boolean;
+  @Input()
+  hardReadonly: boolean = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
@@ -54,6 +56,7 @@ export class PermissionsListModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.permissions.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

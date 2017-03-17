@@ -30,6 +30,8 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   inputReadonly: boolean = true;
   @Input()
+  hardReadonly: boolean = false;
+  @Input()
   name: string = 'user';
   @Input()
   placeholder: string = '';
@@ -44,6 +46,8 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   modelAsString: string = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
+  @Input()
+  hardValue: any = null;
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -72,6 +76,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   onLookup() {
     let itemModal: UsersListModalComponent =
       this.app.modals(this.resolver).create(UsersListModalComponent);
+    itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Users');

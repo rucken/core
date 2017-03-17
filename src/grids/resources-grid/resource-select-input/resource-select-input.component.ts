@@ -36,6 +36,8 @@ export class ResourceSelectInputComponent implements OnInit {
   modelAsString: string = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
+  @Input()
+  hardValue: any = null;
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -46,6 +48,7 @@ export class ResourceSelectInputComponent implements OnInit {
   public items: any[];
   public cachedResourcesService: any;
   ngOnInit() {
+    this.inputElement.hardValue = this.hardValue;
     this.cachedResourcesService.items$.subscribe(
       (pageTypes: any[]) => {
         this.items = pageTypes;

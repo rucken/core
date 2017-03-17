@@ -18,6 +18,8 @@ export class ContentTypesListModalComponent implements OnInit {
   class: string;
   @Input()
   readonly: boolean;
+  @Input()
+  hardReadonly: boolean = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
@@ -54,6 +56,7 @@ export class ContentTypesListModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.contentTypes.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

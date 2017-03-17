@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'select-input',
@@ -28,6 +29,8 @@ export class SelectInputComponent implements OnInit {
   @Input()
   model: any;
   @Input()
+  hardValue: any = null;
+  @Input()
   titleField: string = 'title';
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
@@ -39,6 +42,7 @@ export class SelectInputComponent implements OnInit {
   info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
+  private initedHardValue: any = null;
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
@@ -57,6 +61,14 @@ export class SelectInputComponent implements OnInit {
     this.init();
   }
   init() {
+    if (this.items && this.hardValue !== null) {
+      if (this.items.filter(item => this.getValue(item) === this.getValue(this.hardValue)).length === 0) {
+        this.initedHardValue = _.cloneDeep(this.hardValue);
+        this.items.push(this.hardValue);
+      } else {
+        this.hardValue = null;
+      }
+    }
     if (this.model) {
       this.value = this.getValue(this.model);
     } else {
