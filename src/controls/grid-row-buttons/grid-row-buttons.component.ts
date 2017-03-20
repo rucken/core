@@ -11,25 +11,25 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class GridRowButtonsComponent implements OnInit {
   @Input()
-  editTitle?: string;
+  public editTitle?: string;
   @Input()
-  removeTitle?: string;
+  public removeTitle?: string;
   @Input()
-  editIcon?: string = 'fa fa-pencil-square-o';
+  public editIcon?: string = 'fa fa-pencil-square-o';
   @Input()
-  removeIcon?: string = 'fa fa-remove';
+  public removeIcon?: string = 'fa fa-remove';
   @Input()
-  editIconColor?: string = ''; // text-primary';
+  public editIconColor?: string = ''; // text-primary';
   @Input()
-  removeIconColor?: string = ''; // 'text-warning';
+  public removeIconColor?: string = ''; // 'text-warning';
   @Output()
-  onEdit: EventEmitter<boolean | any> = new EventEmitter();
+  public onEdit: EventEmitter<boolean | any> = new EventEmitter();
   @Output()
-  onRemove: EventEmitter<boolean | any> = new EventEmitter();
+  public onRemove: EventEmitter<boolean | any> = new EventEmitter();
   @Input()
-  showEdit?: boolean = true;
+  public showEdit?: boolean = true;
   @Input()
-  showRemove?: boolean = true;
+  public showRemove?: boolean = true;
 
   constructor(public translateService: TranslateService) {
     if (this.editTitle === undefined) {

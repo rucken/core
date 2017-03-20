@@ -17,6 +17,8 @@ export class UsersListModalComponent implements OnInit {
   class: string;
   @Input()
   readonly: boolean;
+  @Input()
+  hardReadonly: boolean = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
@@ -53,6 +55,7 @@ export class UsersListModalComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.users.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

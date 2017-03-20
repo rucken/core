@@ -9,13 +9,15 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class GridSearchPanelComponent implements OnInit {
   @Input()
-  searchText: string;
+  public searchText: string;
   @Output()
-  searchTextChange: EventEmitter<string> = new EventEmitter<string>();
+  public searchTextChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  searchTitle?: string;
+  public searchTitle?: string;
   @Output()
-  onSearch: EventEmitter<string> = new EventEmitter<string>();
+  public onSearch: EventEmitter<string> = new EventEmitter<string>();
+  @Input()
+  public maxlength: number = 250;
   constructor(public translateService: TranslateService) {
     if (this.searchTitle === undefined) {
       this.searchTitle = this.translateService.instant('Search');

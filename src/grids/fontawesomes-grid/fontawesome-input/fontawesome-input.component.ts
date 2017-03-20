@@ -29,6 +29,8 @@ export class FontawesomeInputComponent extends ResourceInputComponent {
   @Input()
   readonly: boolean = false;
   @Input()
+  hardReadonly: boolean = false;
+  @Input()
   inputReadonly: boolean = true;
   @Input()
   name: string = 'fontawesome';
@@ -74,6 +76,7 @@ export class FontawesomeInputComponent extends ResourceInputComponent {
   onLookup() {
     let itemModal: FontawesomesListModalComponent =
       this.app.modals(this.resolver).create(FontawesomesListModalComponent);
+    itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Fontawesomes');

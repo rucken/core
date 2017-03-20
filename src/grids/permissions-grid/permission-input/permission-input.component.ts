@@ -29,6 +29,8 @@ export class PermissionInputComponent extends ResourceInputComponent {
   @Input()
   readonly: boolean = false;
   @Input()
+  hardReadonly: boolean = false;
+  @Input()
   inputReadonly: boolean = true;
   @Input()
   name: string = 'permission';
@@ -74,6 +76,7 @@ export class PermissionInputComponent extends ResourceInputComponent {
   onLookup() {
     let itemModal: PermissionsListModalComponent =
       this.app.modals(this.resolver).create(PermissionsListModalComponent);
+    itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Permissions');

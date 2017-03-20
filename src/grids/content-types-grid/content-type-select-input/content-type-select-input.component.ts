@@ -30,6 +30,8 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   @Input()
   readonly: boolean = false;
   @Input()
+  hardReadonly: boolean = false;
+  @Input()
   inputReadonly: boolean = true;
   @Input()
   name: string = 'contentType';
@@ -46,6 +48,8 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   modelAsString: string = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
+  @Input()
+  hardValue: any = null;
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -74,6 +78,7 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   onLookup() {
     let itemModal: ContentTypesListModalComponent =
       this.app.modals(this.resolver).create(ContentTypesListModalComponent);
+    itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Content types');

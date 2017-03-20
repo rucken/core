@@ -34,6 +34,8 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
   group: Group;
   @Input()
   public readonly: boolean;
+  @Input()
+  public hardReadonly: boolean = false;
 
   public modelMeta: any = GroupPermission.meta;
   public items: GroupPermission[];
@@ -61,6 +63,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     let itemModal: PermissionsListModalComponent = this.app.modals(this.resolver).create(PermissionsListModalComponent);
+    itemModal.hardReadonly = this.hardReadonly;
     itemModal.permissions.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.readonly;

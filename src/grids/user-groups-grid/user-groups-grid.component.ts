@@ -33,6 +33,8 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
   focusElement: ElementRef;
   @Input()
   public readonly: boolean;
+  @Input()
+  public hardReadonly: boolean = false;
 
   public modelMeta: any = UserGroup.meta;
   public items: UserGroup[];
@@ -59,6 +61,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     let itemModal: GroupsListModalComponent = this.app.modals(this.resolver).create(GroupsListModalComponent);
+    itemModal.hardReadonly = this.hardReadonly;
     itemModal.groups.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.readonly;

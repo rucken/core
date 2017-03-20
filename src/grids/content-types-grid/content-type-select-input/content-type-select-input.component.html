@@ -1,7 +1,7 @@
 <div class="form-group" [ngClass]="{'has-error':errorsValue && errorsValue[name]}">
   <label class="control-label" [attr.for]="'input'+name">{{title | translate}}</label>
   <div [ngClass]="{'input-group':!readonly}">
-    <input *ngIf="statusListMessage" [(ngModel)]="statusListMessage" class="form-control" disabled/>
+    <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" class="form-control" disabled/>
     <!--input *ngIf="!statusListMessage" [(ngModel)]="value && value.asString" class="form-control" disabled/-->
     <select-input *ngIf="!statusListMessage" [(model)]="value" [title]="title" titleField="model" [readonly]="readonly" [items]="items"
       [inFormGroup]="false" #inputElement></select-input>
@@ -12,5 +12,5 @@
       </button>
       </span>
   </div>
-  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ')}}</span>
+  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ') | translate}}</span>
 </div>
