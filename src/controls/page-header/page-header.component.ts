@@ -10,7 +10,7 @@ import { User } from '../../shared/models/user.model';
 
 export class PageHeaderComponent implements OnInit {
   @Input()
-  title: string;
+  public title: string;
 
   constructor(public accountService: AccountService) { }
 

@@ -5,5 +5,5 @@
         <input type="checkbox" [attr.id]="'input'+key" [(ngModel)]="values[key]" (change)="updateModels()" [disabled]="readonly" [ngModelOptions]="{standalone: true}"> {{ checkboxesTitles[key] | translate }}
     </label>
   </div>
-  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ')}}</span>
+  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ') | translate}}</span>
 </div>

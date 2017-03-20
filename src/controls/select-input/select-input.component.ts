@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import * as _ from 'lodash';
 
 @Component({
@@ -9,40 +10,49 @@ import * as _ from 'lodash';
 
 export class SelectInputComponent implements OnInit {
   @ViewChild('inputElement')
-  inputElement: ElementRef;
+  public inputElement: ElementRef;
   @Input()
-  inFormGroup: boolean = true;
+  public inFormGroup: boolean = true;
   @Input()
-  focused: boolean = false;
+  public focused: boolean = false;
   @Input()
-  items: any[] = [];
+  public items: any[] = [];
   @Input()
-  readonly: boolean = false;
+  public readonly: boolean = false;
   @Input()
-  name: string = 'select';
+  public name: string = 'select';
   @Input()
-  placeholder: string = '';
+  public placeholder: string = '';
   @Input()
-  valueField: string = 'id';
+  public valueField: string = 'id';
   @Input()
-  title: string;
+  public title: string;
   @Input()
-  model: any;
+  public model: any;
   @Input()
-  hardValue: any = null;
+  public hardValue: any = null;
   @Input()
-  titleField: string = 'title';
+  public titleField: string = 'title';
   @Output()
-  modelChange: EventEmitter<any> = new EventEmitter<any>();
+  public modelChange: EventEmitter<any> = new EventEmitter<any>();
 
   public value: any;
   @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
+  public errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
+  public info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
   private initedHardValue: any = null;
+
+  constructor(
+    public sanitizer: DomSanitizer
+  ) {
+  }
+
+  safeHtml(html: string) {
+    return this.sanitizer.bypassSecurityTrustHtml(html);
+  }
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
@@ -86,7 +96,9 @@ export class SelectInputComponent implements OnInit {
     }, 700);
   }
   focus() {
-    this.inputElement.nativeElement.focus();
+    if (this.inputElement) {
+      this.inputElement.nativeElement.focus();
+    }
   }
   getValue(item: any) {
     if (item !== null && item[this.valueField]) {
@@ -97,7 +109,7 @@ export class SelectInputComponent implements OnInit {
   }
   getTitle(item: any) {
     if (item !== null && item[this.titleField]) {
-      return item[this.titleField];
+      return this.safeHtml(item[this.titleField]);
     } else {
       return null;
     }

@@ -4,7 +4,7 @@
     [disabled]="readonly" (change)="updateModel()" #inputElement>
     <option *ngFor="let item of items" [value]="getValue(item)">{{getTitle(item) | translate}}</option>
   </select>
-  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ')}}</span>
+  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ') | translate}}</span>
 </div>
 <select class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder" [(ngModel)]="value"
   [disabled]="readonly" (change)="updateModel()" *ngIf="!inFormGroup" #inputElement>

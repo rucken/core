@@ -8,29 +8,29 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef }
 
 export class RadiosInputComponent implements OnInit {
   @ViewChild('inputElement')
-  inputElement: ElementRef;
+  public inputElement: ElementRef;
   @Input()
-  focused: boolean = false;
+  public focused: boolean = false;
   @Input()
-  readonly: boolean = false;
+  public readonly: boolean = false;
   @Input()
-  name: string = 'radios';
+  public name: string = 'radios';
   @Input()
-  title: string = '';
+  public title: string = '';
   @Input()
-  values: { [key: string]: string; } = {};
+  public values: { [key: string]: string; } = {};
   @Input()
-  model: string;
+  public model: string;
   @Input()
-  radiosTitles: { [key: string]: string; } = {};
+  public radiosTitles: { [key: string]: string; } = {};
   @Output()
-  modelChange: EventEmitter<string> = new EventEmitter<string>();
+  public modelChange: EventEmitter<string> = new EventEmitter<string>();
 
   public value: string;
   @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
+  public errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
+  public info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
   ngOnInit() {
@@ -63,7 +63,9 @@ export class RadiosInputComponent implements OnInit {
     }, 700);
   }
   focus() {
-    this.inputElement.nativeElement.focus();
+    if (this.inputElement) {
+      this.inputElement.nativeElement.focus();
+    }
   }
   keys(object: {}) {
     return Object.keys(object);

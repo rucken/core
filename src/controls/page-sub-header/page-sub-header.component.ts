@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 
 export class PageSubHeaderComponent implements OnInit {
   @Input()
-  title: string;
+  public title: string;
 
   ngOnInit() { }
 }

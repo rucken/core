@@ -8,29 +8,31 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef }
 
 export class TextInputComponent implements OnInit {
   @ViewChild('inputElement')
-  inputElement: ElementRef;
+  public inputElement: ElementRef;
   @Input()
-  focused: boolean = false;
+  public focused: boolean = false;
   @Input()
-  type: string = 'text';
+  public type: string = 'text';
   @Input()
-  readonly: boolean = false;
+  public readonly: boolean = false;
   @Input()
-  name: string = 'text';
+  public name: string = 'text';
   @Input()
-  placeholder: string = '';
+  public placeholder: string = '';
   @Input()
-  title: string = '';
+  public title: string = '';
   @Input()
-  model: string = '';
+  public model: string = '';
   @Input()
-  hardValue: string = null;
+  public hardValue: string = null;
   @Output()
-  modelChange: EventEmitter<string> = new EventEmitter<string>();
+  public modelChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
+  public errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
+  public info: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  public maxlength: number = 250;
   public errorsValue: any;
   public infoValue: any;
   ngOnInit() {
@@ -57,7 +59,9 @@ export class TextInputComponent implements OnInit {
     }, 700);
   }
   focus() {
-    this.inputElement.nativeElement.focus();
+    if (this.inputElement) {
+      this.inputElement.nativeElement.focus();
+    }
   }
   get value() {
     if (this.hardValue !== null) {

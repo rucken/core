@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.2.4",
+  "version": "1.2.7",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "bugs": {
@@ -52,14 +52,14 @@
     "prepare": "npm-run-all extract_translate po2ts make_ts_list"
   },
   "dependencies": {
-    "@angular/common": "^2.4.9",
-    "@angular/compiler": "^2.4.9",
-    "@angular/core": "^2.4.9",
-    "@angular/forms": "^2.4.9",
-    "@angular/http": "^2.4.9",
-    "@angular/platform-browser": "^2.4.9",
-    "@angular/platform-browser-dynamic": "^2.4.9",
-    "@angular/router": "^3.4.9",
+    "@angular/common": "^2.4.10",
+    "@angular/compiler": "^2.4.10",
+    "@angular/core": "^2.4.10",
+    "@angular/forms": "^2.4.10",
+    "@angular/http": "^2.4.10",
+    "@angular/platform-browser": "^2.4.10",
+    "@angular/platform-browser-dynamic": "^2.4.10",
+    "@angular/router": "^3.4.10",
     "@biesbjerg/ng2-translate-po-loader": "^0.2.1",
     "@ngx-translate/core": "^6.0.0",
     "@types/lodash": "ts2.0",
@@ -69,15 +69,15 @@
     "awesome-typescript-loader": "^3.1.2",
     "core-js": "^2.4.1",
     "lodash": "^4.17.4",
-    "ng2-bootstrap": "^1.4.0",
+    "ng2-bootstrap": "^1.4.1",
     "rxjs": "^5.2.0",
-    "zone.js": "^0.8.1"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@angular/cli": "1.0.0-rc.2",
-    "@angular/compiler-cli": "^2.4.9",
+    "@angular/compiler-cli": "^2.4.10",
     "@biesbjerg/ng2-translate-extract": "git+https://github.com/EndyKaufman/ng2-translate-extract.git",
-    "@types/jasmine": "2.5.45",
+    "@types/jasmine": "2.5.46",
     "@types/lodash": "^4.14.55",
     "@types/node": "^7.0.8",
     "angular2-template-loader": "^0.6.2",

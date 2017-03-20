@@ -48,7 +48,9 @@ export class ResourceSelectInputComponent implements OnInit {
   public items: any[];
   public cachedResourcesService: any;
   ngOnInit() {
-    this.inputElement.hardValue = this.hardValue;
+    if (this.inputElement) {
+      this.inputElement.hardValue = this.hardValue;
+    }
     this.cachedResourcesService.items$.subscribe(
       (pageTypes: any[]) => {
         this.items = pageTypes;

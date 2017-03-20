@@ -8,27 +8,27 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef }
 
 export class CheckboxesInputComponent implements OnInit {
   @ViewChild('inputElement')
-  inputElement: ElementRef;
+  public inputElement: ElementRef;
   @Input()
-  focused: boolean = false;
+  public focused: boolean = false;
   @Input()
-  readonly: boolean = false;
+  public readonly: boolean = false;
   @Input()
-  name: string = 'checkboxes';
+  public name: string = 'checkboxes';
   @Input()
-  title: string = '';
+  public title: string = '';
   @Input()
-  models: { [key: string]: boolean; } = {};
+  public models: { [key: string]: boolean; } = {};
   @Input()
-  checkboxesTitles: { [key: string]: string; } = {};
+  public checkboxesTitles: { [key: string]: string; } = {};
   @Output()
-  modelsChange: EventEmitter<{ [key: string]: boolean; }> = new EventEmitter<{ [key: string]: boolean; }>();
+  public modelsChange: EventEmitter<{ [key: string]: boolean; }> = new EventEmitter<{ [key: string]: boolean; }>();
 
   public values: { [key: string]: boolean; } = {};
   @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
+  public errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
+  public info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
   ngOnInit() {
@@ -57,7 +57,9 @@ export class CheckboxesInputComponent implements OnInit {
     }, 700);
   }
   focus() {
-    this.inputElement.nativeElement.focus();
+    if (this.inputElement) {
+      this.inputElement.nativeElement.focus();
+    }
   }
   updateModels() {
     setTimeout((out: any) => {

@@ -10,13 +10,13 @@ import { TranslateService } from '@ngx-translate/core';
 export class ModalFooterButtonsComponent implements OnInit {
 
   @Input()
-  cancelTitle?: string;
+  public cancelTitle?: string;
   @Input()
-  okTitle?: string;
+  public okTitle?: string;
   @Input()
-  readonly: boolean;
+  public readonly: boolean;
   @Output()
-  onClose: EventEmitter<boolean | any> = new EventEmitter();
+  public onClose: EventEmitter<boolean | any> = new EventEmitter();
 
   constructor(public translateService: TranslateService) {
     if (this.cancelTitle === undefined) {

@@ -5,5 +5,5 @@
         <input type="radio" [attr.id]="'input'+key" [(ngModel)]="value" (change)="updateModel()" [value]="values[key]" name="{{name}}" [disabled]="readonly"> {{ radiosTitles[key] | translate }}
     </label>
   </div>
-  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ')}}</span>
+  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ') | translate}}</span>
 </div>
