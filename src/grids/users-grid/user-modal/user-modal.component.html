@@ -10,15 +10,17 @@
       </div>
       <form (ngSubmit)="save()">
         <div class="modal-body">
+          <group-select-input [model]="group" [select]="true"></group-select-input>
           <div class="row">
             <div class="col-md-6">
               <div class="row">
                 <div class="col-md-6">
-                  <text-input [errors]="errors" [info]="info" name="username" [(model)]="item.username" [title]="modelMeta.titles.username" [focused]="true"
-                    [readonly]="readonly" #focusElement></text-input>
+                  <text-input [errors]="errors" [info]="info" name="username" [(model)]="item.username" [title]="modelMeta.titles.username"
+                    [focused]="true" [readonly]="readonly" #focusElement></text-input>
                 </div>
                 <div class="col-md-6">
-                  <text-input [errors]="errors" [info]="info" type="email" name="email" [(model)]="item.email" [title]="modelMeta.titles.email" [readonly]="readonly"></text-input>
+                  <text-input [errors]="errors" [info]="info" type="email" name="email" [(model)]="item.email" [title]="modelMeta.titles.email"
+                    [readonly]="readonly"></text-input>
                 </div>
                 <div class="col-md-6">
                   <text-input [errors]="errors" [info]="info" type="password" name="password" [(model)]="item.password" [title]="modelMeta.titles.password"
@@ -29,16 +31,18 @@
                     [readonly]="readonly"></text-input>
                 </div>
                 <div class="col-md-6">
-                  <text-input [errors]="errors" [info]="info" name="lastName" [(model)]="item.lastName" [title]="modelMeta.titles.lastName" [readonly]="readonly"></text-input>
+                  <text-input [errors]="errors" [info]="info" name="lastName" [(model)]="item.lastName" [title]="modelMeta.titles.lastName"
+                    [readonly]="readonly"></text-input>
                 </div>
                 <div class="col-md-6">
-                  <text-input [errors]="errors" [info]="info" name="firstName" [(model)]="item.firstName" [title]="modelMeta.titles.firstName" [readonly]="readonly"></text-input>
+                  <text-input [errors]="errors" [info]="info" name="firstName" [(model)]="item.firstName" [title]="modelMeta.titles.firstName"
+                    [readonly]="readonly"></text-input>
                 </div>
               </div>
             </div>
             <div class="col-md-6">
-              <checkboxes-input [errors]="errors" name="roles" [(models)]="item.roles" [checkboxesTitles]="modelMeta.titles.rolesTitles" [title]="modelMeta.titles.roles"
-                [readonly]="readonly"></checkboxes-input>
+              <checkboxes-input [errors]="errors" name="roles" [(models)]="item.roles" [checkboxesTitles]="modelMeta.titles.rolesTitles"
+                [title]="modelMeta.titles.roles" [readonly]="readonly"></checkboxes-input>
             </div>
             <div class="col-md-6">
               <user-groups-grid [loadAll]="false" #userGroups [readonly]="readonly"></user-groups-grid>
@@ -51,4 +55,4 @@
       </form>
     </div>
   </div>
-  </div>
+</div>

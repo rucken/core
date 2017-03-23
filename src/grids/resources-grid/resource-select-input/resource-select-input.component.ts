@@ -38,6 +38,10 @@ export class ResourceSelectInputComponent implements OnInit {
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
   hardValue: any = null;
+  @Input()
+  select: boolean = false;
+  @Input()
+  width: string = null;
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -83,7 +87,9 @@ export class ResourceSelectInputComponent implements OnInit {
         this.focus();
       }
     }, 700);
-    this.cachedResourcesService.loadAll();
+    if (this.select) {
+      this.cachedResourcesService.loadAll();
+    }
   }
   focus() {
     if (this.inputElement) {

@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.2.7",
+  "version": "1.2.9",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "bugs": {
@@ -69,17 +69,18 @@
     "awesome-typescript-loader": "^3.1.2",
     "core-js": "^2.4.1",
     "lodash": "^4.17.4",
+    "ng2-auto-complete": "^0.12.0",
     "ng2-bootstrap": "^1.4.2",
     "rxjs": "^5.2.0",
-    "zone.js": "^0.8.4"
+    "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-rc.2",
+    "@angular/cli": "1.0.0-rc.4",
     "@angular/compiler-cli": "^2.4.10",
     "@biesbjerg/ng2-translate-extract": "git+https://github.com/EndyKaufman/ng2-translate-extract.git",
     "@types/jasmine": "2.5.46",
-    "@types/lodash": "^4.14.55",
-    "@types/node": "^7.0.8",
+    "@types/lodash": "^4.14.57",
+    "@types/node": "^7.0.10",
     "angular2-template-loader": "^0.6.2",
     "codelyzer": "~3.0.0-beta.4",
     "es6-promise-loader": "^1.0.2",
@@ -93,14 +94,15 @@
     "karma": "~1.5.0",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^0.3.0",
+    "karma-coverage-istanbul-reporter": "^1.0.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "lite-server": "^2.3.0",
+    "node-sass": "^4.5.1",
     "npm-run-all": "^4.0.2",
     "protractor": "~5.1.1",
     "srcgen": "^0.2.12",
-    "ts-node": "~2.1.0",
+    "ts-node": "~3.0.2",
     "tslint": "~4.5.1",
     "typescript": "~2.2.1",
     "typings": "^2.1.0"

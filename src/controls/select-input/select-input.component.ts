@@ -1,14 +1,20 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { Ng2AutoCompleteComponent } from 'ng2-auto-complete';
 import * as _ from 'lodash';
 
 @Component({
   selector: 'select-input',
   templateUrl: './select-input.component.html',
-  styleUrls: ['./select-input.component.scss']
+  styleUrls: ['./select-input.component.scss'],
+  encapsulation: ViewEncapsulation.None  // Enable dynamic HTML styles
 })
 
 export class SelectInputComponent implements OnInit {
+  @Input()
+  public width: string = null;
+  @ViewChild('autoComplete')
+  public autoComplete: Ng2AutoCompleteComponent;
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @Input()
@@ -33,23 +39,37 @@ export class SelectInputComponent implements OnInit {
   public hardValue: any = null;
   @Input()
   public titleField: string = 'title';
+  @Input()
+  public inputTitleField: string = 'title';
   @Output()
   public modelChange: EventEmitter<any> = new EventEmitter<any>();
-
-  public value: any;
   @Input()
   public errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   public info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
-  private initedHardValue: any = null;
+  private _showMe: boolean = false;
 
+  public getTitle: any;
   constructor(
     public sanitizer: DomSanitizer
   ) {
   }
-
+  get showMe() {
+    return this._showMe;
+  }
+  set showMe(val: any) {
+    this.resizeList();
+    this._showMe = val;
+  }
+  get value() {
+    return this.model;
+  }
+  set value(val: any) {
+    this.model = val;
+    this.modelChange.emit(this.model);
+  }
   safeHtml(html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
@@ -71,23 +91,14 @@ export class SelectInputComponent implements OnInit {
     this.init();
   }
   init() {
-    if (this.items && this.hardValue !== null) {
-      if (this.items.filter(item => this.getValue(item) === this.getValue(this.hardValue)).length === 0) {
-        this.initedHardValue = _.cloneDeep(this.hardValue);
-        this.items.push(this.hardValue);
-      } else {
-        this.hardValue = null;
+    this.getTitle = (item: any) => {
+      if (item && item[this.titleField]) {
+        return this.safeHtml(item[this.titleField]);
       }
-    }
-    if (this.model) {
-      this.value = this.getValue(this.model);
-    } else {
-      if (this.items && this.items.length > 0) {
-        this.value = this.getValue(this.items[0]);
-        this.updateModel();
-      } else {
-        this.value = this.getValue(null);
-      }
+      return '';
+    };
+    if (this.hardValue) {
+      this.value = this.hardValue;
     }
     setTimeout((out: any) => {
       if (this.focused === true) {
@@ -95,34 +106,34 @@ export class SelectInputComponent implements OnInit {
       }
     }, 700);
   }
-  focus() {
-    if (this.inputElement) {
-      this.inputElement.nativeElement.focus();
-    }
-  }
-  getValue(item: any) {
-    if (item !== null && item[this.valueField]) {
-      return item[this.valueField];
-    } else {
-      return null;
-    }
-  }
-  getTitle(item: any) {
-    if (item !== null && item[this.titleField]) {
-      return this.safeHtml(item[this.titleField]);
-    } else {
-      return null;
-    }
-  }
-  updateModel() {
-    setTimeout((out: any) => {
-      let items = this.items.filter(item => this.getValue(item) === this.value);
-      if (this.items && items.length > 0) {
-        this.model = items[0];
-      } else {
-        this.model = null;
+  resizeList() {
+    if (this.autoComplete && this.autoComplete.el &&
+      this.autoComplete.el.children[0] && this.autoComplete.el.children[0].children[0] &&
+      this.inputElement && this.inputElement.nativeElement) {
+      let options: any = this.autoComplete.el.children[0].children[0].children;
+      let select: any = this.autoComplete.el.children[0];
+      if (options.length === this.items.length) {
+        for (let i = 0; i < options.length; i++) {
+          if (this.width === null) {
+            options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
+          } else {
+            options[i].style.width = this.width;
+          }
+        }
+        select.style.display = '';
       }
-      this.modelChange.emit(this.model);
-    }, 700);
+    }
+  }
+  focus() {
+    this.showMe = true;
+  }
+  getInputTitle(item: any) {
+    if (item && item[this.inputTitleField]) {
+      return item[this.inputTitleField];
+    }
+    if (item && item[this.titleField]) {
+      return item[this.titleField];
+    }
+    return '';
   }
 }

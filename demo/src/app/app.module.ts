@@ -4,6 +4,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import { Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig, PaginationConfig, TabsetConfig } from 'ng2-bootstrap';
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
@@ -32,6 +33,7 @@ export function createTranslateLoader(http: Http) {
     FormsModule,
     HttpModule,
     Ng2BootstrapModule,
+    Ng2AutoCompleteModule,
     TranslateModule.forRoot(/*{
       loader: {
         provide: TranslateLoader,
