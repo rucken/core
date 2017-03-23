@@ -10,7 +10,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
   RuckenComponents, RuckenServices, RuckenRoutingModule, RepositoryHelper,
   EndpointHelper, HttpHelper, AccountService, AuthHttpFactory
-} from '../../../src';
+} from '../../../dist';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';

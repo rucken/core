@@ -1,13 +1,13 @@
 {
   "name": "rucken",
-  "version": "1.2.9",
+  "version": "1.2.11",
   "dependencies": {
     "moment": "*",
-    "@ngx-translate/core": "^6.0.0",
-    "@types/lodash": "ts2.0",
-    "angular2-jwt": "^0.1.28",
-    "ng2-auto-complete": "^0.12.0",
-    "ng2-bootstrap": "^1.4.2"
+    "@ngx-translate/core": "*",
+    "@types/lodash": "*",
+    "angular2-jwt": "*",
+    "ng2-auto-complete": "*",
+    "ng2-bootstrap": "*"
   },
   "peerDependencies": {
     "@angular/common": "*",

@@ -25,7 +25,7 @@ import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
   ],
   providers: [],
   exports: [
-    TranslateModule
+    RuckenComponents
   ]
 })
 export class RuckenModule {
