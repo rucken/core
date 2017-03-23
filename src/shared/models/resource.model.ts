@@ -123,6 +123,9 @@ export class ResourceModel {
     return text;
   }
   getDateInput(fieldName: string) {
+    if (!this[fieldName]) {
+      return '';
+    }
     let value: string = '';
     try {
       value = moment(this[fieldName]).format('YYYY-MM-DD');
@@ -135,6 +138,10 @@ export class ResourceModel {
     return value;
   }
   setDateInput(fieldName: string, value: any) {
+    if (!this[fieldName]) {
+      this[fieldName] = null;
+      return;
+    }
     try {
       value = moment(value, 'YYYY-MM-DD').toDate();
     } catch (err) {

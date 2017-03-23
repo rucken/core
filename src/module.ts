@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 import { RuckenComponents } from './components';
 
@@ -18,13 +17,15 @@ import { RuckenComponents } from './components';
     BrowserModule,
     FormsModule,
     HttpModule,
-    Ng2BootstrapModule,
     TranslateModule.forRoot()
   ],
-  providers: []
+  providers: [],
+  exports: [
+    TranslateModule
+  ]
 })
 export class RuckenModule {
   public static forRoot(): ModuleWithProviders {
-    return {ngModule: RuckenModule};
+    return { ngModule: RuckenModule };
   }
 }
