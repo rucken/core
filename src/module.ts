@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { RuckenComponents } from './components';
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { RuckenComponents } from './components';
     BrowserModule,
     FormsModule,
     HttpModule,
+    Ng2BootstrapModule,
+    Ng2AutoCompleteModule,
     TranslateModule.forRoot()
   ],
   providers: [],
