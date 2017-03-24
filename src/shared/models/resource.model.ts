@@ -1,4 +1,3 @@
-import { isMoment } from 'moment';
 import * as moment from 'moment/moment';
 import * as _ from 'lodash';
 
@@ -42,6 +41,9 @@ export class ResourceModel {
     let key: any;
     let fields: string[] = meta.fields ? meta.fields : [];
     let dateFields: string[] = meta.dateFields ? meta.dateFields : [];
+    for (let i = 0; i < fields.length; i++) {
+      this[fields[i]] = null;
+    }
     if (fields.length > 0) {
       for (key in obj) {
         if (fields.indexOf(key) !== -1) {
