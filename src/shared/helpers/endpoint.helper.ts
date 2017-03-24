@@ -21,6 +21,9 @@ export class EndpointHelper {
     }
   };
   actionRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
+    if (data && data.format) {
+      data = data.format();
+    }
     if (endpointService.name === 'account') {
       if (action === 'info') {
         return this.httpHelper.http.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
