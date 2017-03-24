@@ -112,7 +112,7 @@ export class ResourceModel {
   }
   dateAsString(fieldName: string) {
     let text: string = '';
-    if (this[fieldName]) {
+    if (this[fieldName] !== undefined) {
       try {
         text = moment(this[fieldName]).format('DD.MM.YYYY');
       } catch (err) {
@@ -125,7 +125,7 @@ export class ResourceModel {
     return text;
   }
   getDateInput(fieldName: string) {
-    if (!this[fieldName]) {
+    if (this[fieldName] === undefined) {
       return '';
     }
     let value: string = '';
@@ -140,7 +140,7 @@ export class ResourceModel {
     return value;
   }
   setDateInput(fieldName: string, value: any) {
-    if (!this[fieldName]) {
+    if (this[fieldName] === undefined) {
       this[fieldName] = null;
       return;
     }
