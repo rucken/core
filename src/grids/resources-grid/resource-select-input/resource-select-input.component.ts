@@ -42,6 +42,8 @@ export class ResourceSelectInputComponent implements OnInit {
   select: boolean = false;
   @Input()
   width: string = null;
+  @Input()
+  loadAll: boolean = true;
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -87,7 +89,7 @@ export class ResourceSelectInputComponent implements OnInit {
         this.focus();
       }
     }, 700);
-    if (this.select) {
+    if (this.select && this.loadAll) {
       this.cachedResourcesService.loadAll();
     }
   }

@@ -21,6 +21,9 @@ export class EndpointHelper {
     }
   };
   actionRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
+    if (data && data.format) {
+      data = data.format();
+    }
     if (endpointService.name === 'account') {
       if (action === 'info') {
         return this.httpHelper.http.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
@@ -29,15 +32,21 @@ export class EndpointHelper {
     return this.httpHelper.post(this.actionUrl(endpointService, action), data);
   };
   actionResponse(endpointService: any, action?: any, response?: Response) {
+    let data: any;
+    if (response.json && _.isFunction(response.json)) {
+      data = response.json();
+    } else {
+      data = response;
+    }
     if (endpointService.name === 'account') {
       if (action === 'info' || action === 'login') {
-        if (response.json().token) {
-          localStorage.setItem('token', response.json().token);
+        if (data.token) {
+          localStorage.setItem('token', data.token);
         }
-        return new User(response.json().user);
+        return new User(data.user);
       }
       if (action === 'update') {
-        return new User(response.json());
+        return new User(data);
       }
     }
   };

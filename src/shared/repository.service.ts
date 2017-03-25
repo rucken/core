@@ -180,7 +180,8 @@ export class RepositoryService {
       'Loading...'//translate
     );
     setTimeout((out: any) => {
-      let constItems = mockedItems.filter((item) => UtilsService.inValues(item, filter.q)).map(item => this.transformModel(item));
+      let constItems = mockedItems.filter((item: any) => UtilsService.inValues(item, filter.q)).
+        map((item: any) => this.transformModel(item));
       this.calcMeta(constItems.length);
       let count = 0;
       if (this.meta.perPage === undefined) {
@@ -197,7 +198,7 @@ export class RepositoryService {
           return false;
         };
       });
-      this.loadAllItems(items);
+      this.loadAllItems(this.repositoryHelper.itemsResponse(this, items));
       if (this.items.length > 0) {
         result.emit(this.items);
         this.setStatusList(ResouceEnumStatus.Ok);
@@ -216,7 +217,7 @@ export class RepositoryService {
       'Loading...'//translate
     );
     setTimeout((out: any) => {
-      this.loadAllItems(cachedItems);
+      this.loadAllItems(this.repositoryHelper.itemsResponse(this, cachedItems));
       if (this.items.length > 0) {
         result.emit(this.items);
         this.setStatusList(ResouceEnumStatus.Ok);

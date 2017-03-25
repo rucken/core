@@ -1,4 +1,3 @@
-import { isMoment } from 'moment';
 import * as moment from 'moment/moment';
 import * as _ from 'lodash';
 
@@ -42,6 +41,9 @@ export class ResourceModel {
     let key: any;
     let fields: string[] = meta.fields ? meta.fields : [];
     let dateFields: string[] = meta.dateFields ? meta.dateFields : [];
+    for (let i = 0; i < fields.length; i++) {
+      this[fields[i]] = null;
+    }
     if (fields.length > 0) {
       for (key in obj) {
         if (fields.indexOf(key) !== -1) {
@@ -110,7 +112,7 @@ export class ResourceModel {
   }
   dateAsString(fieldName: string) {
     let text: string = '';
-    if (this[fieldName]) {
+    if (this[fieldName] !== undefined) {
       try {
         text = moment(this[fieldName]).format('DD.MM.YYYY');
       } catch (err) {
@@ -123,7 +125,7 @@ export class ResourceModel {
     return text;
   }
   getDateInput(fieldName: string) {
-    if (!this[fieldName]) {
+    if (this[fieldName] === undefined) {
       return '';
     }
     let value: string = '';
@@ -138,7 +140,7 @@ export class ResourceModel {
     return value;
   }
   setDateInput(fieldName: string, value: any) {
-    if (!this[fieldName]) {
+    if (this[fieldName] === undefined) {
       this[fieldName] = null;
       return;
     }
