@@ -38,12 +38,23 @@ export class RepositoryHelper extends EndpointHelper {
     return apiUrl + `?${uri.toString()}`;
   };
   itemsResponse(repositoryService: any, response: any) {
-    let data = response.json();
+    let data: any;
+    if (response.json && _.isFunction(response.json)) {
+      data = response.json();
+    } else {
+      data = response;
+    }
     repositoryService.meta = new MetaModel(data['meta']);
     return data[_.camelCase(repositoryService.pluralName)];
   };
   itemResponse(repositoryService: any, response: any) {
-    return response.json()[_.camelCase(repositoryService.name)];
+    let data: any;
+    if (response.json && _.isFunction(response.json)) {
+      data = response.json();
+    } else {
+      data = response;
+    }
+    return data[_.camelCase(repositoryService.name)];
   };
   readItemRequest(repositoryService: any, key: any): Observable<Response> {
     return this.httpHelper.get(
