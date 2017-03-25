@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.2.11",
+  "version": "1.2.12",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "bugs": {
@@ -75,7 +75,7 @@
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "@angular/cli": "1.0.0-rc.1",
+    "@angular/cli": "1.0.0-rc.2",
     "@angular/compiler-cli": "^2.4.9",
     "@biesbjerg/ng2-translate-extract": "git+https://github.com/EndyKaufman/ng2-translate-extract.git",
     "@types/jasmine": "2.5.43",
