@@ -55,7 +55,9 @@ export class ResourcesGridComponent implements OnInit {
     this.cachedResourcesService.items$.subscribe(
       (resources: any[]) => {
         this.items = resources;
-        this.selectItem(this.items[0], null, true);
+        if (this.items) {
+          this.selectItem(this.items[0], null, true);
+        }
       }, (errors: any) => {
         this.items = [];
         this.selectItem(null);

@@ -150,7 +150,7 @@ export class RepositoryService {
       .map((response: any) => this.repositoryHelper.itemsResponse(this, response).map((item: any) => this.transformModel(item)))
       .subscribe((loadedItems: any[]) => {
         this.loadAllItems(loadedItems);
-        if (this.items.length > 0) {
+        if (this.items && this.items.length > 0) {
           result.emit(this.items);
           this.setStatusList(ResouceEnumStatus.Ok);
         } else {
@@ -199,7 +199,7 @@ export class RepositoryService {
         };
       });
       this.loadAllItems(this.repositoryHelper.itemsResponse(this, items));
-      if (this.items.length > 0) {
+      if (this.items && this.items.length > 0) {
         result.emit(this.items);
         this.setStatusList(ResouceEnumStatus.Ok);
       } else {
@@ -218,7 +218,7 @@ export class RepositoryService {
     );
     setTimeout((out: any) => {
       this.loadAllItems(this.repositoryHelper.itemsResponse(this, cachedItems));
-      if (this.items.length > 0) {
+      if (this.items && this.items.length > 0) {
         result.emit(this.items);
         this.setStatusList(ResouceEnumStatus.Ok);
       } else {

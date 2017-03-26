@@ -2,6 +2,8 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, 
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Ng2AutoCompleteComponent } from 'ng2-auto-complete';
 import * as _ from 'lodash';
+import { TranslateService } from '@ngx-translate/core';
+import { TooltipDirective } from 'ng2-bootstrap/tooltip';
 
 @Component({
   selector: 'select-input',
@@ -11,8 +13,8 @@ import * as _ from 'lodash';
 })
 
 export class SelectInputComponent implements OnInit {
-  @Input()
-  public width: string = null;
+  @ViewChild('tooltip')
+  public tooltip: TooltipDirective;
   @ViewChild('autoComplete')
   public autoComplete: Ng2AutoCompleteComponent;
   @ViewChild('inputElement')
@@ -47,14 +49,56 @@ export class SelectInputComponent implements OnInit {
   public errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   public info: EventEmitter<any> = new EventEmitter<any>();
+  @Input()
+  public width: string = null;
+  @Input()
+  public tooltipEnable: boolean = true;
+  @Input()
+  public tooltipText: string = '';
+  @Input()
+  public tooltipPlacement: string = 'bottom';
+  @Input()
+  public tooltipTriggers: string = 'hover focus';
+
   public errorsValue: any;
   public infoValue: any;
   private _showMe: boolean = false;
 
   public getTitle: any;
   constructor(
-    public sanitizer: DomSanitizer
+    public sanitizer: DomSanitizer,
+    public translateService: TranslateService
   ) {
+  }
+  ngOnInit() {
+    this.errors.subscribe((data: any) => {
+      this.errorsValue = data;
+      let keys = Object.keys(data);
+      if (keys[0] === this.name) {
+        this.focus();
+      }
+      this.tooltipText = this.errorMessage;
+    });
+    this.info.subscribe((data: any) => {
+      this.infoValue = data;
+      let keys = Object.keys(data);
+      if (keys[0] === this.name) {
+        this.focus();
+      }
+      this.tooltipText = this.infoMessage;
+    });
+    this.init();
+  }
+  showTooltip() {
+    let tooltip: any = this.tooltip;
+    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef._nativeElement) {
+      return;
+    }
+    let tooltipInner: any = tooltip._tooltip._componentRef._nativeElement.getElementsByClassName('tooltip-inner')[0];
+    let tooltipArrow: any = tooltip._tooltip._componentRef._nativeElement.getElementsByClassName('tooltip-arrow')[0];
+    tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
+    tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
+    tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
   }
   get showMe() {
     return this._showMe;
@@ -70,25 +114,40 @@ export class SelectInputComponent implements OnInit {
     this.model = val;
     this.modelChange.emit(this.model);
   }
-  safeHtml(html: string) {
+  safeHtml(html: string): any {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
-  ngOnInit() {
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      let keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
+  get errorMessage(): any {
+    let arr: string[] = [];
+    let text: string = '';
+    if (this.errorsValue && this.errorsValue[this.name]) {
+      for (let i = 0; i < this.errorsValue[this.name].length; i++) {
+        if (this.errorsValue[this.name][i]) {
+          text = this.translateService.instant(this.errorsValue[this.name][i]);
+          arr.push(text);
+        }
       }
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      let keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
+    }
+    if (arr.length > 0) {
+      return arr.join(', ');
+    }
+    return false;
+  }
+  get infoMessage(): any {
+    let arr: string[] = [];
+    let text: string = '';
+    if (this.infoValue && this.infoValue[this.name]) {
+      for (let i = 0; i < this.infoValue[this.name].length; i++) {
+        if (this.infoValue[this.name][i]) {
+          text = this.translateService.instant(this.infoValue[this.name][i]);
+          arr.push(text);
+        }
       }
-    });
-    this.init();
+    }
+    if (arr.length > 0) {
+      return arr.join(', ');
+    }
+    return false;
   }
   init() {
     this.getTitle = (item: any) => {
@@ -112,7 +171,7 @@ export class SelectInputComponent implements OnInit {
       this.inputElement && this.inputElement.nativeElement) {
       let options: any = this.autoComplete.el.children[0].children[0].children;
       let select: any = this.autoComplete.el.children[0];
-      if (options.length === this.items.length) {
+      if (this.items && options.length === this.items.length) {
         for (let i = 0; i < options.length; i++) {
           if (this.width === null) {
             options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
@@ -125,7 +184,7 @@ export class SelectInputComponent implements OnInit {
     }
   }
   focus() {
-    this.showMe = true;
+    this.autoComplete.dropdownVisible = true;
   }
   getInputTitle(item: any) {
     if (item && item[this.inputTitleField]) {

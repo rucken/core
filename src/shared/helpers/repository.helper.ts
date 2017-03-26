@@ -45,7 +45,11 @@ export class RepositoryHelper extends EndpointHelper {
       data = response;
     }
     repositoryService.meta = new MetaModel(data['meta']);
-    return data[_.camelCase(repositoryService.pluralName)];
+    if (data[_.camelCase(repositoryService.pluralName)]) {
+      return data[_.camelCase(repositoryService.pluralName)];
+    } else {
+      return data;
+    }
   };
   itemResponse(repositoryService: any, response: any) {
     let data: any;
@@ -54,7 +58,11 @@ export class RepositoryHelper extends EndpointHelper {
     } else {
       data = response;
     }
-    return data[_.camelCase(repositoryService.name)];
+    if (data[_.camelCase(repositoryService.name)]) {
+      return data[_.camelCase(repositoryService.name)];
+    } else {
+      return data;
+    }
   };
   readItemRequest(repositoryService: any, key: any): Observable<Response> {
     return this.httpHelper.get(

@@ -25,6 +25,7 @@ export class ThemesPageComponent implements OnInit {
     this.app.currentPageTitle = this.title;
     this.themesService.items$.subscribe(
       (themes: Theme[]) => {
+        console.log(themes);
         this.items = themes;
       }, (errors: any) => {
         this.items = [];
