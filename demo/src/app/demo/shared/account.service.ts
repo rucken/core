@@ -1,10 +1,10 @@
-import { HttpHelper } from '../../../../../dist';
+import { HttpHelper } from '../../../../../src';
 import { Injectable, EventEmitter } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
-import { User } from '../../../../../dist';
+import { User } from '../../../../../src';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { EndpointHelper, AccountService } from '../../../../../dist';
+import { EndpointHelper, AccountService } from '../../../../../src';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
 @Injectable()

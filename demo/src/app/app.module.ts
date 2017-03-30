@@ -9,8 +9,9 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
   RuckenComponents, RuckenServices, RuckenRoutingModule, RepositoryHelper,
-  EndpointHelper, HttpHelper, AccountService, AuthHttpFactory
-} from '../../../dist';
+  EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, ResourceSelectInputConfig,
+  TextInputConfig, SelectInputConfig,
+} from '../../../src';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
@@ -50,6 +51,9 @@ export function createTranslateLoader(http: Http) {
     PaginationConfig,
     TabsetConfig,
     RuckenServices,
+    ResourceSelectInputConfig,
+    TextInputConfig,
+    SelectInputConfig,
     { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
     { provide: RepositoryHelper, useClass: DemoRepositoryHelper },
     { provide: EndpointHelper, useClass: DemoEndpointHelper },

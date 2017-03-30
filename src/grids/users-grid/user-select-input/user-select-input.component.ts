@@ -8,6 +8,9 @@ import { SelectInputComponent } from '../../../controls/select-input/select-inpu
 import { User } from '../../../shared/models/user.model';
 import { AppService } from '../../../shared/app.service';
 import { AccountService } from '../../../shared/account.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-input/resource-select-input.config';
+import { TooltipDirective } from 'ng2-bootstrap/tooltip';
 
 @Component({
   selector: 'user-select-input',
@@ -49,6 +52,17 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   hardValue: any = null;
 
+  @ViewChild('tooltip')
+  public tooltip: TooltipDirective;
+  @Input()
+  public tooltipEnable: boolean;
+  @Input()
+  public tooltipText: string = '';
+  @Input()
+  public tooltipPlacement: string = 'bottom';
+  @Input()
+  public tooltipTriggers: string = 'hover focus';
+
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
@@ -62,9 +76,11 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
     public accountService: AccountService,
     public usersService: UsersService,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public sanitizer: DomSanitizer,
+    public translateService: TranslateService,
+    public config: ResourceSelectInputConfig
   ) {
-    super();
+    super(sanitizer, translateService, config);
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
     }

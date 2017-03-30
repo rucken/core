@@ -56,13 +56,11 @@ export class RepositoryService {
       return this.parent.getFromCachedItems(filter);
     } else {
       for (let i = 0; i < this.cached.length; i++) {
-        console.log(this.pluralName, filter, this.cached[i].queryProps);
         if (_.isEqual(filter, this.cached[i].queryProps) && this.cached[i].items.length > 0) {
           return this.cached[i].items;
         }
       }
     }
-    console.log(this.pluralName, filter, this.queryProps);
     if (_.isEqual(filter, this.queryProps) && this.items.length > 0) {
       return this.items;
     }
@@ -150,7 +148,7 @@ export class RepositoryService {
       .map((response: any) => this.repositoryHelper.itemsResponse(this, response).map((item: any) => this.transformModel(item)))
       .subscribe((loadedItems: any[]) => {
         this.loadAllItems(loadedItems);
-        if (this.items.length > 0) {
+        if (this.items && this.items.length > 0) {
           result.emit(this.items);
           this.setStatusList(ResouceEnumStatus.Ok);
         } else {
@@ -199,7 +197,7 @@ export class RepositoryService {
         };
       });
       this.loadAllItems(this.repositoryHelper.itemsResponse(this, items));
-      if (this.items.length > 0) {
+      if (this.items && this.items.length > 0) {
         result.emit(this.items);
         this.setStatusList(ResouceEnumStatus.Ok);
       } else {
@@ -218,7 +216,7 @@ export class RepositoryService {
     );
     setTimeout((out: any) => {
       this.loadAllItems(this.repositoryHelper.itemsResponse(this, cachedItems));
-      if (this.items.length > 0) {
+      if (this.items && this.items.length > 0) {
         result.emit(this.items);
         this.setStatusList(ResouceEnumStatus.Ok);
       } else {
