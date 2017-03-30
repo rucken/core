@@ -40,9 +40,9 @@ export class SelectInputComponent implements OnInit {
   @Input()
   public hardValue: any = null;
   @Input()
-  public titleField: string = 'title';
+  public titleField: string = 'asString';
   @Input()
-  public inputTitleField: string = 'title';
+  public inputTitleField: string = 'asString';
   @Output()
   public modelChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
@@ -105,7 +105,9 @@ export class SelectInputComponent implements OnInit {
   }
   set showMe(val: any) {
     this.resizeList();
-    this._showMe = val;
+    setTimeout(() => {
+      this._showMe = val;
+    }, 300);
   }
   get value() {
     return this.model;
@@ -154,6 +156,9 @@ export class SelectInputComponent implements OnInit {
       if (item && item[this.titleField]) {
         return this.safeHtml(item[this.titleField]);
       }
+      if (item && item[this.inputTitleField]) {
+        return this.safeHtml(item[this.inputTitleField]);
+      }
       return '';
     };
     if (this.hardValue) {
@@ -166,6 +171,13 @@ export class SelectInputComponent implements OnInit {
     }, 700);
   }
   resizeList() {
+    if (this.value && this.value.pk) {
+      this.items.map((item: any, index: number) => {
+        if (item && this.value && item.pk === this.value.pk) {
+          this.autoComplete.itemIndex = index;
+        }
+      });
+    }
     if (this.autoComplete && this.autoComplete.el &&
       this.autoComplete.el.children[0] && this.autoComplete.el.children[0].children[0] &&
       this.inputElement && this.inputElement.nativeElement) {
