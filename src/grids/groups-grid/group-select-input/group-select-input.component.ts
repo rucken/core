@@ -10,6 +10,9 @@ import { User } from '../../../shared/models/user.model';
 import { ResouceEnumStatus } from '../../../shared/enums/resource.enums';
 import { ResourceSelectInputComponent } from '../../resources-grid/resource-select-input/resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-input/resource-select-input.config';
+import { TooltipDirective } from 'ng2-bootstrap/tooltip';
 
 @Component({
   selector: 'group-select-input',
@@ -51,6 +54,17 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   hardValue: any = null;
 
+  @ViewChild('tooltip')
+  public tooltip: TooltipDirective;
+  @Input()
+  public tooltipEnable: boolean;
+  @Input()
+  public tooltipText: string = '';
+  @Input()
+  public tooltipPlacement: string = 'bottom';
+  @Input()
+  public tooltipTriggers: string = 'hover focus';
+
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
@@ -64,9 +78,11 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
     public accountService: AccountService,
     public groupsService: GroupsService,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public sanitizer: DomSanitizer,
+    public translateService: TranslateService,
+    public config: ResourceSelectInputConfig
   ) {
-    super();
+    super(sanitizer, translateService, config);
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
     }
@@ -82,7 +98,7 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Groups');
-    itemModal.onSave.subscribe(($event:any) => {
+    itemModal.onSave.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputElement) {
         this.inputElement.value = this.value.pk;

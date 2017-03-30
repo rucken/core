@@ -10,8 +10,9 @@
       </div>
       <form (ngSubmit)="save()">
         <div class="modal-body">
-          <text-input [errors]="errors" [info]="info" name="model" [(model)]="item.model" [title]="modelMeta.titles.model" [readonly]="readonly" [focused]="true" #focusElement></text-input>
-</div>
+          <text-input [errors]="errors" [info]="info" name="model" [(model)]="item.model" [title]="modelMeta.titles.model" [readonly]="readonly"
+            [focused]="true" #focusElement></text-input>
+        </div>
         <div class="modal-footer">
           <modal-footer-buttons (onClose)="close()" [readonly]="readonly" [okTitle]="text"></modal-footer-buttons>
         </div>

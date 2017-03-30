@@ -4,6 +4,7 @@ import { Ng2AutoCompleteComponent } from 'ng2-auto-complete';
 import * as _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirective } from 'ng2-bootstrap/tooltip';
+import { SelectInputConfig } from './select-input.config';
 
 @Component({
   selector: 'select-input',
@@ -32,7 +33,7 @@ export class SelectInputComponent implements OnInit {
   @Input()
   public placeholder: string = '';
   @Input()
-  public valueField: string = 'id';
+  public valueField: string
   @Input()
   public title: string;
   @Input()
@@ -40,9 +41,9 @@ export class SelectInputComponent implements OnInit {
   @Input()
   public hardValue: any = null;
   @Input()
-  public titleField: string = 'asString';
+  public titleField: string;
   @Input()
-  public inputTitleField: string = 'asString';
+  public inputTitleField: string;
   @Output()
   public modelChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
@@ -52,7 +53,7 @@ export class SelectInputComponent implements OnInit {
   @Input()
   public width: string = null;
   @Input()
-  public tooltipEnable: boolean = true;
+  public tooltipEnable: boolean;
   @Input()
   public tooltipText: string = '';
   @Input()
@@ -67,8 +68,21 @@ export class SelectInputComponent implements OnInit {
   public getTitle: any;
   constructor(
     public sanitizer: DomSanitizer,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public config: SelectInputConfig
   ) {
+    if (this.tooltipEnable === undefined) {
+      this.tooltipEnable = config.errorInTooltip;
+    }
+    if (this.valueField === undefined) {
+      this.valueField = config.valueField;
+    }
+    if (this.titleField === undefined) {
+      this.titleField = config.titleField;
+    }
+    if (this.inputTitleField === undefined) {
+      this.inputTitleField = config.inputTitleField;
+    }
   }
   ngOnInit() {
     this.errors.subscribe((data: any) => {
@@ -113,6 +127,9 @@ export class SelectInputComponent implements OnInit {
     return this.model;
   }
   set value(val: any) {
+    if (this.errorsValue && this.errorsValue[this.name]) {
+      delete this.errorsValue[this.name];
+    }
     this.model = val;
     this.modelChange.emit(this.model);
   }

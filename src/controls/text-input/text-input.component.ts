@@ -2,6 +2,7 @@ import { TooltipDirective } from 'ng2-bootstrap/tooltip';
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
+import { TextInputConfig } from './text-input.config';
 
 @Component({
   selector: 'text-input',
@@ -37,15 +38,15 @@ export class TextInputComponent implements OnInit {
   @Input()
   public info: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  public maxlength: number = 250;
+  public maxlength: number;
   @Input()
-  public step: string = 'any';
+  public step: string;
   @Input()
   public min: string = '';
   @Input()
   public max: string = '';
   @Input()
-  public tooltipEnable: boolean = true;
+  public tooltipEnable: boolean;
   @Input()
   public tooltipText: string = '';
   @Input()
@@ -57,8 +58,18 @@ export class TextInputComponent implements OnInit {
   public infoValue: any;
   constructor(
     public sanitizer: DomSanitizer,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public config: TextInputConfig
   ) {
+    if (this.tooltipEnable === undefined) {
+      this.tooltipEnable = config.errorInTooltip;
+    }
+    if (this.maxlength === undefined) {
+      this.maxlength = config.maxlength;
+    }
+    if (this.step === undefined) {
+      this.step = config.step;
+    }
   }
   ngOnInit() {
     this.errors.subscribe((data: any) => {
@@ -143,6 +154,9 @@ export class TextInputComponent implements OnInit {
     return this.model;
   }
   set value(val) {
+    if (this.errorsValue && this.errorsValue[this.name]) {
+      delete this.errorsValue[this.name];
+    }
     this.model = val;
     this.modelChange.emit(this.model);
   }

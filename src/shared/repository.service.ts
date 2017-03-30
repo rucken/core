@@ -56,13 +56,11 @@ export class RepositoryService {
       return this.parent.getFromCachedItems(filter);
     } else {
       for (let i = 0; i < this.cached.length; i++) {
-        console.log(this.pluralName, filter, this.cached[i].queryProps);
         if (_.isEqual(filter, this.cached[i].queryProps) && this.cached[i].items.length > 0) {
           return this.cached[i].items;
         }
       }
     }
-    console.log(this.pluralName, filter, this.queryProps);
     if (_.isEqual(filter, this.queryProps) && this.items.length > 0) {
       return this.items;
     }
