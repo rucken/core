@@ -1,7 +1,7 @@
 <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}">
   <label *ngIf="title" class="control-label" [attr.for]="'input'+name">{{title | translate}}</label>
   <div [ngClass]="{'input-group':!readonly && !select}" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
-    [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip">
+    container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip">
     <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" class="form-control" disabled/>
     <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" class="form-control" #inputElement disabled/>
     <select-input *ngIf="!statusListMessage && select" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"

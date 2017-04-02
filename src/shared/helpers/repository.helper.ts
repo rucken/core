@@ -35,6 +35,18 @@ export class RepositoryHelper extends EndpointHelper {
         }
       }
     }
+    for (let key in repositoryService.columns) {
+      if (repositoryService.columns.hasOwnProperty(key)) {
+        if (repositoryService.columns[key]['sort']) {
+          if (repositoryService.columns[key]['sort'] === 'asc') {
+            uri.append('sort[]', key);
+          }
+          if (repositoryService.columns[key]['sort'] === 'desc') {
+            uri.append('sort[]', `-${key}`);
+          }
+        }
+      }
+    }
     return apiUrl + `?${uri.toString()}`;
   };
   itemsResponse(repositoryService: any, response: any) {

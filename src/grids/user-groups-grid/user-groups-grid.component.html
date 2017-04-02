@@ -15,9 +15,14 @@
   <table class="app-grid__table table table-bordered table-hover">
     <thead>
       <tr>
-        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{modelMeta.group.titles.id | translate}}</th>
-        <th class="app-grid__table__col-group">{{modelMeta.group.titles.name | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_group','change_user']) && !readonly" translate>Actions</th>
+        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">
+          <table-column [title]="modelMeta.titles.id" name="id" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-group">
+          <table-column [title]="modelMeta.titles.name" name="name" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_group','change_user']) && !readonly"
+          translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -34,7 +39,7 @@
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_group']) && !readonly"
             [showRemove]="hardReadonly !== true && account && account.checkPermissions(['change_user'])"></grid-row-buttons>
         </td>
-        </tr>
+      </tr>
     </tbody>
   </table>
   <div class="app-grid__toolbar--footer" [hidden]="statusListMessage">

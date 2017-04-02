@@ -44,6 +44,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { RadiosInputComponent } from './controls/radios-input/radios-input.component';
 import { UsersListModalComponent } from './grids/users-grid/users-list-modal/users-list-modal.component';
 import { UserSelectInputComponent } from './grids/users-grid/user-select-input/user-select-input.component';
+import { TableColumnComponent } from './controls/table-column/table-column.component';
 const RuckenComponents = [
   /**
    * Pages
@@ -77,6 +78,7 @@ const RuckenComponents = [
   /**
    * Controls
    */
+  TableColumnComponent,
   NavbarComponent,
   PermissionInputComponent,
   ContentTypeSelectInputComponent,

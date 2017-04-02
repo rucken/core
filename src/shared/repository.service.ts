@@ -12,6 +12,7 @@ import * as _ from 'lodash';
 
 @Injectable()
 export class RepositoryService {
+  public columns: any;
   public pluralName: string;
   public name: string;
   public items$: Subject<any[]>;
