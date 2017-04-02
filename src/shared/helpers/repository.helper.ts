@@ -56,7 +56,9 @@ export class RepositoryHelper extends EndpointHelper {
     } else {
       data = response;
     }
-    repositoryService.meta = new MetaModel(data['meta']);
+    if (data['meta']) {
+      repositoryService.meta = new MetaModel(data['meta']);
+    }
     if (data[_.camelCase(repositoryService.pluralName)]) {
       return data[_.camelCase(repositoryService.pluralName)];
     } else {
