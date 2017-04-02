@@ -19,7 +19,7 @@
           <table-column [title]="modelMeta.titles.id" name="id" [(columns)]="columns"></table-column>
         </th>
         <th class="app-grid__table__col-permission">
-          <table-column [title]="modelMeta.titles.name" name="name" [(columns)]="columns"></table-column>
+          <table-column [title]="modelMeta.titles.permission" name="permission" [(columns)]="columns"></table-column>
         </th>
         <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_permission','change_group']) && !readonly"
           translate>Actions</th>

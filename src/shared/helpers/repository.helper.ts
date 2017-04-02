@@ -39,10 +39,10 @@ export class RepositoryHelper extends EndpointHelper {
       if (repositoryService.columns.hasOwnProperty(key)) {
         if (repositoryService.columns[key]['sort']) {
           if (repositoryService.columns[key]['sort'] === 'asc') {
-            uri.append('sort[]', key);
+            uri.append('sort[]', _.snakeCase(key));
           }
           if (repositoryService.columns[key]['sort'] === 'desc') {
-            uri.append('sort[]', `-${key}`);
+            uri.append('sort[]', `-${_.snakeCase(key)}`);
           }
         }
       }

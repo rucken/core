@@ -66,12 +66,14 @@
     "@types/node": "^6.0.63",
     "@types/requirejs": "^2.1.29",
     "angular2-jwt": "^0.2.0",
+    "angular2-text-mask": "^8.0.0",
     "awesome-typescript-loader": "^3.1.2",
     "core-js": "^2.4.1",
     "lodash": "^4.17.4",
     "ng2-auto-complete": "^0.12.0",
     "ng2-bootstrap": "^1.6.1",
     "rxjs": "^5.2.0",
+    "text-mask-addons": "^3.5.0",
     "zone.js": "^0.8.5"
   },
   "devDependencies": {

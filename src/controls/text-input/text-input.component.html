@@ -1,11 +1,12 @@
 <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}">
   <label class="control-label" [attr.for]="'input'+name">{{title | translate}}</label>
-  <input *ngIf="type!=='textarea'" [attr.type]="type" class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name"
+  <input [textMask]="mask" *ngIf="type!=='textarea'" [attr.type]="type" class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name"
     [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
     [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
     container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
-  <textarea *ngIf="type==='textarea'" class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
-    [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
-    triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement></textarea>
+  <textarea [textMask]="mask" *ngIf="type==='textarea'" class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name"
+    [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText"
+    placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)"
+    #tooltip="bs-tooltip" #inputElement></textarea>
   <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
 </div>

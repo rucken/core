@@ -10,6 +10,7 @@ import {
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TextMaskModule } from 'angular2-text-mask';
 import {
   RuckenComponents, RuckenServices, RuckenRoutingModule, RepositoryHelper,
   EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, ResourceSelectInputConfig,
@@ -35,6 +36,7 @@ export function createTranslateLoader(http: Http) {
     CommonModule,
     BrowserModule,
     FormsModule,
+    TextMaskModule,
     HttpModule,
     Ng2BootstrapModule,
     Ng2AutoCompleteModule,
