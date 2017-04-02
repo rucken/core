@@ -3,15 +3,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
-import { Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig, PaginationConfig, TabsetConfig } from 'ng2-bootstrap';
+import {
+  Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig,
+  PaginationConfig, TabsetConfig, PopoverConfig
+} from 'ng2-bootstrap';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TextMaskModule } from 'angular2-text-mask';
 import {
   RuckenComponents, RuckenServices, RuckenRoutingModule, RepositoryHelper,
   EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, ResourceSelectInputConfig,
-  TextInputConfig, SelectInputConfig,
-} from '../../../src';
+  TextInputConfig, SelectInputConfig, TableColumnConfig
+} from '../../../dist';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
@@ -32,6 +36,7 @@ export function createTranslateLoader(http: Http) {
     CommonModule,
     BrowserModule,
     FormsModule,
+    TextMaskModule,
     HttpModule,
     Ng2BootstrapModule,
     Ng2AutoCompleteModule,
@@ -50,10 +55,12 @@ export function createTranslateLoader(http: Http) {
     TooltipConfig,
     PaginationConfig,
     TabsetConfig,
+    PopoverConfig,
     RuckenServices,
     ResourceSelectInputConfig,
     TextInputConfig,
     SelectInputConfig,
+    TableColumnConfig,
     { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
     { provide: RepositoryHelper, useClass: DemoRepositoryHelper },
     { provide: EndpointHelper, useClass: DemoEndpointHelper },

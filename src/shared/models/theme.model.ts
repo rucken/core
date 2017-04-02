@@ -11,14 +11,14 @@ export class Theme extends ResourceModel {
   constructor(obj?: any) {
     super(obj, 'url', false);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = Theme;
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, Theme.meta);
+    this.parseByFields(obj, Theme.meta());
   }
   format() {
-    return this.formatByFields(Theme.meta);
+    return this.formatByFields(Theme.meta());
   }
 }

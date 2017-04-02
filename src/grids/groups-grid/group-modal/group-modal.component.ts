@@ -44,7 +44,7 @@ export class GroupModalComponent implements OnInit {
   @Input()
   item: any | Group = new Group();
   @Input()
-  public modelMeta: any = Group.meta;
+  public modelMeta: any = Group.meta();
   @Output()
   onClose: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
   @Output()

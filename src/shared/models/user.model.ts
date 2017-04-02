@@ -46,7 +46,7 @@ export class User extends ResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = User;
     meta.group = Group;
     return meta;
@@ -60,7 +60,7 @@ export class User extends ResourceModel {
     this.isSuperuser = roles['isSuperuser'];
   }
   parse(obj: any) {
-    this.parseByFields(obj, User.meta);
+    this.parseByFields(obj, User.meta());
     this.groups = obj.groups && obj.groups.length ?
       obj.groups.map((group: any) => new Group(group)) : [];
     this.rePassword = this.password;
@@ -78,7 +78,7 @@ export class User extends ResourceModel {
     return result;
   }
   format() {
-    let result = this.formatByFields(User.meta);
+    let result = this.formatByFields(User.meta());
     result.groups = result.groups && result.groups.length ?
       result.groups.map((group: Group) => group.pk) : [];
     return result;

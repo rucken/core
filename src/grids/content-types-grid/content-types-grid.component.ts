@@ -27,7 +27,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = ContentType.meta;
+  public modelMeta: any = ContentType.meta();
   public items: ContentType[];
   public searchText: string = '';
   public selectedItems: ContentType[];

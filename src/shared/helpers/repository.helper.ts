@@ -35,6 +35,18 @@ export class RepositoryHelper extends EndpointHelper {
         }
       }
     }
+    for (let key in repositoryService.columns) {
+      if (repositoryService.columns.hasOwnProperty(key)) {
+        if (repositoryService.columns[key]['sort']) {
+          if (repositoryService.columns[key]['sort'] === 'asc') {
+            uri.append('sort[]', _.snakeCase(key));
+          }
+          if (repositoryService.columns[key]['sort'] === 'desc') {
+            uri.append('sort[]', `-${_.snakeCase(key)}`);
+          }
+        }
+      }
+    }
     return apiUrl + `?${uri.toString()}`;
   };
   itemsResponse(repositoryService: any, response: any) {
@@ -44,7 +56,9 @@ export class RepositoryHelper extends EndpointHelper {
     } else {
       data = response;
     }
-    repositoryService.meta = new MetaModel(data['meta']);
+    if (data['meta']) {
+      repositoryService.meta = new MetaModel(data['meta']);
+    }
     if (data[_.camelCase(repositoryService.pluralName)]) {
       return data[_.camelCase(repositoryService.pluralName)];
     } else {

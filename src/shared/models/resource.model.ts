@@ -23,7 +23,7 @@ export class ResourceModel {
     }
     this.parse(obj ? obj : {});
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = ResourceModel;
     return meta;
   }

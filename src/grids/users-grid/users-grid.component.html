@@ -17,12 +17,23 @@
   <table class="app-grid__table table table-bordered table-hover">
     <thead>
       <tr>
-        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{modelMeta.titles.id | translate}}</th>
-        <th class="app-grid__table__col-username">{{modelMeta.titles.username | translate}}</th>
-        <th class="app-grid__table__col-asString">{{modelMeta.titles.asString | translate}}</th>
-        <th class="app-grid__table__col-roles">{{modelMeta.titles.roles | translate}}</th>
-        <th class="app-grid__table__col-groups">{{modelMeta.titles.groups | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_user','delete_user'])" translate>Actions</th>
+        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">
+          <table-column [title]="modelMeta.titles.id" name="id" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-username">
+          <table-column [title]="modelMeta.titles.username" name="username" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-asString">
+          <table-column [title]="modelMeta.titles.asString" name="username" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-roles">
+          <table-column [title]="modelMeta.titles.roles" name="roles" [(columns)]="columns" [sortEnabled]="false"></table-column>
+        </th>
+        <th class="app-grid__table__col-groups">
+          <table-column [title]="modelMeta.titles.groups" name="groups" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_user','delete_user'])"
+          translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -31,8 +42,8 @@
           {{statusListMessage | translate}}
         </td>
       </tr>
-      <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}" (dblclick)="showEditModal(item)"
-        [hidden]="statusListMessage">
+      <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}"
+        (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
         <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
         <td class="app-grid__table__col-username">{{item.username}}</td>
         <td class="app-grid__table__col-asString">{{item.asString}}</td>
@@ -42,7 +53,7 @@
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_user'])"
             [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_user'])"></grid-row-buttons>
         </td>
-        </tr>
+      </tr>
     </tbody>
   </table>
   <div class="app-grid__toolbar--footer" [hidden]="statusListMessage">
