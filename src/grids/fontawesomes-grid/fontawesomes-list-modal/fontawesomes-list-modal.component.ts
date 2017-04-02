@@ -41,7 +41,7 @@ export class FontawesomesListModalComponent implements OnInit {
 
   item: Fontawesome;
   items: Fontawesome[];
-  modelMeta: any = Fontawesome.meta;
+  modelMeta: any = Fontawesome.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
   public info: EventEmitter<any> = new EventEmitter();

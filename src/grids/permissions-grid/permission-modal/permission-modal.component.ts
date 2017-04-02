@@ -39,7 +39,7 @@ export class PermissionModalComponent implements OnInit {
   @Input()
   item: any | Permission = new Permission();
   @Input()
-  public modelMeta: any = Permission.meta;
+  public modelMeta: any = Permission.meta();
   @Output()
   onClose: EventEmitter<PermissionModalComponent> = new EventEmitter<PermissionModalComponent>();
   @Output()

@@ -34,7 +34,7 @@ export class AuthModalComponent implements OnInit {
   public errors: EventEmitter<any> = new EventEmitter();
   public info: EventEmitter<any> = new EventEmitter();
 
-  public modelMeta: any = User.meta;
+  public modelMeta: any = User.meta();
 
   ngOnInit() {
     this.modal.onHidden.subscribe(() => this.close());

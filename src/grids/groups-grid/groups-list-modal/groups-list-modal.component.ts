@@ -41,7 +41,7 @@ export class GroupsListModalComponent implements OnInit {
 
   item: any | Group;
   items: Group[];
-  public modelMeta: any = Group.meta;
+  public modelMeta: any = Group.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
   public info: EventEmitter<any> = new EventEmitter();

@@ -40,7 +40,7 @@ export class UsersListModalComponent implements OnInit {
 
   item: User | any;
   items: User[] | any[];
-  public modelMeta: any = User.meta;
+  public modelMeta: any = User.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
   public info: EventEmitter<any> = new EventEmitter();

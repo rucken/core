@@ -39,7 +39,7 @@ export class ContentTypeModalComponent implements OnInit {
   @Input()
   item: any | ContentType = new ContentType();
   @Input()
-  modelMeta: any = ContentType.meta;
+  modelMeta: any = ContentType.meta();
   @Output()
   onClose: EventEmitter<ContentTypeModalComponent> = new EventEmitter<ContentTypeModalComponent>();
   @Output()

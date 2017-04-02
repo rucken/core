@@ -28,7 +28,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = Fontawesome.meta;
+  public modelMeta: any = Fontawesome.meta();
   public items: Fontawesome[];
   public searchText: string = '';
   public selectedItems: Fontawesome[];

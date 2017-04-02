@@ -36,7 +36,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
   @Input()
   public hardReadonly: boolean = false;
 
-  public modelMeta: any = UserGroup.meta;
+  public modelMeta: any = UserGroup.meta();
   public items: UserGroup[];
   public selectedItems: UserGroup[];
   public cachedResourcesService: UserGroupsService;
