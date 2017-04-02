@@ -26,7 +26,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = User.meta;
+  public modelMeta: any = User.meta();
   public items: User[] | any[];
   public searchText: string = '';
   public selectedItems: User[] | any[];

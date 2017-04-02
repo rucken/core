@@ -3,9 +3,9 @@
   <input *ngIf="type!=='textarea'" [attr.type]="type" class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name"
     [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
     [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
-    [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
+    container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
   <textarea *ngIf="type==='textarea'" class="form-control" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
     [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
-    triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement></textarea>
+    triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement></textarea>
   <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
 </div>

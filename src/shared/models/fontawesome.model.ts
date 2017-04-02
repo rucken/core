@@ -14,15 +14,15 @@ export class Fontawesome extends ResourceModel {
   constructor(obj?: any) {
     super(obj, 'class', false);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = Fontawesome;
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, Fontawesome.meta);
+    this.parseByFields(obj, Fontawesome.meta());
   }
   format() {
-    let result = this.formatByFields(Fontawesome.meta);
+    let result = this.formatByFields(Fontawesome.meta());
     return result;
   }
   get asString() {

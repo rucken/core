@@ -37,7 +37,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
   @Input()
   public hardReadonly: boolean = false;
 
-  public modelMeta: any = GroupPermission.meta;
+  public modelMeta: any = GroupPermission.meta();
   public items: GroupPermission[];
   public searchText: string = '';
   public selectedItems: GroupPermission[];

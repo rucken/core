@@ -16,17 +16,17 @@ export class UserGroup extends ResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = UserGroup;
     meta.user = User;
     meta.group = Group;
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, UserGroup.meta);
+    this.parseByFields(obj, UserGroup.meta());
   }
   format() {
-    let result = this.formatByFields(UserGroup.meta);
+    let result = this.formatByFields(UserGroup.meta());
     return result;
   }
   get asString() {

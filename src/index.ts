@@ -14,6 +14,8 @@ export { PageSubHeaderComponent } from './controls/page-sub-header/page-sub-head
 export { RadiosInputComponent } from './controls/radios-input/radios-input.component';
 export { SelectInputComponent } from './controls/select-input/select-input.component';
 export { SelectInputConfig } from './controls/select-input/select-input.config';
+export { TableColumnComponent } from './controls/table-column/table-column.component';
+export { TableColumnConfig } from './controls/table-column/table-column.config';
 export { TextInputComponent } from './controls/text-input/text-input.component';
 export { TextInputConfig } from './controls/text-input/text-input.config';
 export { ErrorFrameComponent } from './frames/error-frame/error-frame.component';
@@ -68,9 +70,9 @@ export { PermissionInputComponent } from './grids/permissions-grid/permission-in
 export { PermissionModalComponent } from './grids/permissions-grid/permission-modal/permission-modal.component';
 export { PermissionsListModalComponent } from './grids/permissions-grid/permissions-list-modal/permissions-list-modal.component';
 export { ResourcesGridComponent } from './grids/resources-grid/resources-grid.component';
+export { ResourceInputComponent } from './grids/resources-grid/resource-input/resource-input.component';
 export { ResourceSelectInputComponent } from './grids/resources-grid/resource-select-input/resource-select-input.component';
 export { ResourceSelectInputConfig } from './grids/resources-grid/resource-select-input/resource-select-input.config';
-export { ResourceInputComponent } from './grids/resources-grid/resource-input/resource-input.component';
 export { UsersGridComponent } from './grids/users-grid/users-grid.component';
 export { UserModalComponent } from './grids/users-grid/user-modal/user-modal.component';
 export { UserSelectInputComponent } from './grids/users-grid/user-select-input/user-select-input.component';

@@ -17,10 +17,17 @@
   <table class="app-grid__table table table-bordered table-hover">
     <thead>
       <tr>
-        <th class="app-grid__table__col-icon">{{modelMeta.titles.icon | translate}}</th>
-        <th class="app-grid__table__col-code">{{modelMeta.titles.code | translate}}</th>
-        <th class="app-grid__table__col-class">{{modelMeta.titles.class | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_fontawesome','delete_fontawesome'])" translate>Actions</th>
+        <th class="app-grid__table__col-icon">
+          <table-column [title]="modelMeta.titles.icon" name="icon" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-code">
+          <table-column [title]="modelMeta.titles.code" name="code" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-class">
+          <table-column [title]="modelMeta.titles.class" name="class" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_fontawesome','delete_fontawesome'])"
+          translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -29,8 +36,8 @@
           {{statusListMessage | translate}}
         </td>
       </tr>
-      <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}" (dblclick)="showEditModal(item)"
-        [hidden]="statusListMessage">
+      <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}"
+        (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
         <td class="app-grid__table__col-icon" [innerHtml]="safeHtml(item.iconAsHtml)"></td>
         <td class="app-grid__table__col-code">{{item.code}}</td>
         <td class="app-grid__table__col-class">{{item.class}}</td>
@@ -38,7 +45,7 @@
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_fontawesome'])"
             [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_fontawesome'])"></grid-row-buttons>
         </td>
-        </tr>
+      </tr>
     </tbody>
   </table>
   <div class="app-grid__toolbar--footer" [hidden]="statusListMessage">

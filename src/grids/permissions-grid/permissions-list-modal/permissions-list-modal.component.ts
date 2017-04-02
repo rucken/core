@@ -41,7 +41,7 @@ export class PermissionsListModalComponent implements OnInit {
 
   item: any | Permission;
   items: Permission[];
-  public modelMeta: any = Permission.meta;
+  public modelMeta: any = Permission.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
   public info: EventEmitter<any> = new EventEmitter();

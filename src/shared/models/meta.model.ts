@@ -16,15 +16,15 @@ export class MetaModel extends ResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = MetaModel;
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, MetaModel.meta);
+    this.parseByFields(obj, MetaModel.meta());
   }
   format() {
-    let result = this.formatByFields(MetaModel.meta);
+    let result = this.formatByFields(MetaModel.meta());
     return result;
   }
 }

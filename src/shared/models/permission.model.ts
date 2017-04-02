@@ -18,16 +18,16 @@ export class Permission extends ResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = Permission;
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, Permission.meta);
+    this.parseByFields(obj, Permission.meta());
     this.contentType = obj.contentType ? new ContentType(obj.contentType) : null;
   }
   format() {
-    let result = this.formatByFields(Permission.meta);
+    let result = this.formatByFields(Permission.meta());
     result.contentType = result.contentType ? result.contentType.pk : null;
     return result;
   }

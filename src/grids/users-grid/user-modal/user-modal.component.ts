@@ -43,7 +43,7 @@ export class UserModalComponent implements OnInit {
   @Input()
   item: any | User = new User();
   @Input()
-  public modelMeta: any = User.meta;
+  public modelMeta: any = User.meta();
   @Output()
   onClose: EventEmitter<UserModalComponent | any> = new EventEmitter();
   @Output()

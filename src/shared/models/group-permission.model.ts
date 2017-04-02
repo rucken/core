@@ -17,17 +17,17 @@ export class GroupPermission extends ResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = GroupPermission;
     meta.group = Group;
     meta.permission = Permission;
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, GroupPermission.meta);
+    this.parseByFields(obj, GroupPermission.meta());
   }
   format() {
-    let result = this.formatByFields(GroupPermission.meta);
+    let result = this.formatByFields(GroupPermission.meta());
     return result;
   }
   get asString() {

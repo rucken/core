@@ -17,10 +17,17 @@
   <table class="app-grid__table table table-bordered table-hover">
     <thead>
       <tr>
-        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{modelMeta.titles.id | translate}}</th>
-        <th class="app-grid__table__col-name">{{modelMeta.titles.name | translate}}</th>
-        <th class="app-grid__table__col-permissions">{{modelMeta.titles.permissions | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_group','delete_group'])" translate>Actions</th>
+        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">
+          <table-column [title]="modelMeta.titles.id" name="id" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-name">
+          <table-column [title]="modelMeta.titles.name" name="name" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-permissions">
+          <table-column [title]="modelMeta.titles.permissions" name="permissions" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_group','delete_group'])"
+          translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -29,12 +36,12 @@
           {{statusListMessage | translate}}
         </td>
       </tr>
-      <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}" (dblclick)="showEditModal(item)"
-        [hidden]="statusListMessage">
+      <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}"
+        (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
         <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
         <td class="app-grid__table__col-name">{{item.name}}</td>
         <td class="app-grid__table__col-permissions">{{item.permissionsAsString}}</td>
-          <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_group','delete_group'])">
+        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_group','delete_group'])">
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_group'])"
             [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_group'])"></grid-row-buttons>
         </td>

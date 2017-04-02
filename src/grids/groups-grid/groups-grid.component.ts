@@ -27,7 +27,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = Group.meta;
+  public modelMeta: any = Group.meta();
   public items: Group[];
   public searchText: string = '';
   public selectedItems: Group[];

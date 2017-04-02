@@ -98,11 +98,11 @@ export class TextInputComponent implements OnInit {
   }
   showTooltip() {
     let tooltip: any = this.tooltip;
-    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef._nativeElement) {
+    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
       return;
     }
-    let tooltipInner: any = tooltip._tooltip._componentRef._nativeElement.getElementsByClassName('tooltip-inner')[0];
-    let tooltipArrow: any = tooltip._tooltip._componentRef._nativeElement.getElementsByClassName('tooltip-arrow')[0];
+    let tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
+    let tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
     tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
@@ -156,6 +156,7 @@ export class TextInputComponent implements OnInit {
   set value(val) {
     if (this.errorsValue && this.errorsValue[this.name]) {
       delete this.errorsValue[this.name];
+      this.tooltipText='';
     }
     this.model = val;
     this.modelChange.emit(this.model);

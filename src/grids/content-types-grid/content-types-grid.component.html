@@ -17,9 +17,14 @@
   <table class="app-grid__table table table-bordered table-hover">
     <thead>
       <tr>
-        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{modelMeta.titles.id | translate}}</th>
-        <th class="app-grid__table__col-model">{{modelMeta.titles.model | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_contenttype','delete_contenttype'])" translate>Actions</th>
+        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">
+          <table-column [title]="modelMeta.titles.id" name="id" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-model">
+          <table-column [title]="modelMeta.titles.model" name="model" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_contenttype','delete_contenttype'])"
+          translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -36,7 +41,7 @@
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_contenttype'])"
             [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_contenttype'])"></grid-row-buttons>
         </td>
-        </tr>
+      </tr>
     </tbody>
   </table>
   <div class="app-grid__toolbar--footer" [hidden]="statusListMessage">

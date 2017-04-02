@@ -27,7 +27,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = Permission.meta;
+  public modelMeta: any = Permission.meta();
   public items: Permission[];
   public searchText: string = '';
   public selectedItems: Permission[];

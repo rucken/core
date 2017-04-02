@@ -14,15 +14,15 @@ export class ContentType extends ResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  static get meta(): any {
+  static meta(): any {
     let meta: any = ContentType;
     return meta;
   }
   parse(obj: any) {
-    this.parseByFields(obj, ContentType.meta);
+    this.parseByFields(obj, ContentType.meta());
   }
   format() {
-    let result = this.formatByFields(ContentType.meta);
+    let result = this.formatByFields(ContentType.meta());
     return result;
   }
   get asString() {

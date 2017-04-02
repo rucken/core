@@ -17,11 +17,20 @@
   <table class="app-grid__table table table-bordered table-hover">
     <thead>
       <tr>
-        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{modelMeta.titles.id | translate}}</th>
-        <th class="app-grid__table__col-contentType">{{modelMeta.titles.contentType | translate}}</th>
-        <th class="app-grid__table__col-codename">{{modelMeta.titles.codename | translate}}</th>
-        <th class="app-grid__table__col-name">{{modelMeta.titles.name | translate}}</th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_permission','delete_permission'])" translate>Actions</th>
+        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">
+          <table-column [title]="modelMeta.titles.id" name="id" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-contentType">
+          <table-column [title]="modelMeta.titles.contentType" name="contentType" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-codename">
+          <table-column [title]="modelMeta.titles.codename" name="codename" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-name">
+          <table-column [title]="modelMeta.titles.name" name="name" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_permission','delete_permission'])"
+          translate>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -40,7 +49,7 @@
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_permission'])"
             [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_permission'])"></grid-row-buttons>
         </td>
-        </tr>
+      </tr>
     </tbody>
   </table>
   <div class="app-grid__toolbar--footer" [hidden]="statusListMessage">

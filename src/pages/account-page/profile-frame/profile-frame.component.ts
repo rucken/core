@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ProfileFrameComponent implements OnInit {
   public title: string;
-  public modelMeta: any = User.meta;
+  public modelMeta: any = User.meta();
   public rePassword: string;
 
   public errors: EventEmitter<any> = new EventEmitter();

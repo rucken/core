@@ -30,6 +30,18 @@ export class ResourcesGridComponent implements OnInit {
   constructor() {
     this.onSelectItems = new EventEmitter();
   }
+  set columns(columns) {
+    if (JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
+      this.cachedResourcesService.columns = columns;
+      this.search(true);
+    }
+  }
+  get columns(): any {
+    if (this.cachedResourcesService.columns === undefined) {
+      this.cachedResourcesService.columns = { id: { sort: 'desc' } };
+    }
+    return this.cachedResourcesService.columns;
+  }
   set mockedItems(items) {
     this.cachedResourcesService.mockedItems = items;
   }

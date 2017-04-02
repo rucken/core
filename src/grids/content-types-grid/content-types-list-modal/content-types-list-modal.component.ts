@@ -41,7 +41,7 @@ export class ContentTypesListModalComponent implements OnInit {
 
   item: any | ContentType;
   items: ContentType[];
-  modelMeta: any = ContentType.meta;
+  modelMeta: any = ContentType.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
   public info: EventEmitter<any> = new EventEmitter();

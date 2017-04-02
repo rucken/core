@@ -39,7 +39,7 @@ export class FontawesomeModalComponent implements OnInit {
   @Input()
   item: Fontawesome = new Fontawesome();
   @Input()
-  modelMeta: any = Fontawesome.meta;
+  modelMeta: any = Fontawesome.meta();
   @Output()
   onClose: EventEmitter<FontawesomeModalComponent> = new EventEmitter<FontawesomeModalComponent>();
   @Output()
