@@ -41,7 +41,12 @@ body
         margin-bottom: 0px;
 
         tr{
-            cursor:pointer;
+            td{
+                cursor:pointer;
+            }
+            th{
+                vertical-align: top!important;
+            }
         }
         &__col-key
         {
