@@ -18,6 +18,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class NavbarComponent implements OnInit {
 
+  public isCollapsed:boolean = true;
+
   constructor(
     public app: AppService,
     public accountService: AccountService,

@@ -14,6 +14,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class DemoNavbarComponent extends NavbarComponent {
 
+  public isCollapsed:boolean = true;
+
   constructor(
     public app: AppService,
     public accountService: AccountService,
