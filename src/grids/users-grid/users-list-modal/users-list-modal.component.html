@@ -9,7 +9,7 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <users-grid #users (onSelectItems)="selectUser($event)"></users-grid>
+        <users-grid #users (onEnter)="select()" (onSelectItems)="selectUser($event)"></users-grid>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import {
   Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig,
-  PaginationConfig, TabsetConfig, PopoverConfig
+  PaginationConfig, TabsetConfig, PopoverConfig, CollapseModule
 } from 'ng2-bootstrap';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -39,6 +39,7 @@ export function createTranslateLoader(http: Http) {
     TextMaskModule,
     HttpModule,
     Ng2BootstrapModule,
+    CollapseModule.forRoot(),
     Ng2AutoCompleteModule,
     TranslateModule.forRoot(/*{
       loader: {

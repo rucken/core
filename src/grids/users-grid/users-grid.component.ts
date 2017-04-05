@@ -23,6 +23,8 @@ export class UsersGridComponent extends ResourcesGridComponent {
   loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<User[] | any>;
+  @Output()
+  onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 

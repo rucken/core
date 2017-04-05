@@ -24,6 +24,8 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
   loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<Permission[] | any>;
+  @Output()
+  onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 

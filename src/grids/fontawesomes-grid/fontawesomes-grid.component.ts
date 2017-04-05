@@ -25,6 +25,8 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
   loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<Fontawesome[] | any>;
+  @Output()
+  onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 

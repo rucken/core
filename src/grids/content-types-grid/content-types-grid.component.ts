@@ -24,6 +24,8 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
   loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<ContentType[] | any>;
+  @Output()
+  onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
