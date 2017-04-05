@@ -28,6 +28,8 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
   loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<GroupPermission[] | any>;
+  @Output()
+  onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Input()

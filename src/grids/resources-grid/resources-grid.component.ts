@@ -11,6 +11,8 @@ export class ResourcesGridComponent implements OnInit {
   loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<any[] | any>;
+  @Output()
+  onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Input()
@@ -29,6 +31,10 @@ export class ResourcesGridComponent implements OnInit {
 
   constructor() {
     this.onSelectItems = new EventEmitter();
+    this.onEnter = new EventEmitter();
+  }
+  enter() {
+    this.onEnter.emit(true);
   }
   set columns(columns) {
     if (JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
@@ -102,6 +108,7 @@ export class ResourcesGridComponent implements OnInit {
       }
     }
     this.onSelectItems.emit(this.selectedItems);
+    this.focus();
   }
   isSelectedItem(item: any) {
     return this.selectedItems && this.selectedItems.filter(i => i && i.pk === item.pk).length > 0;
