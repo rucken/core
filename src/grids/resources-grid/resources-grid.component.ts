@@ -11,6 +11,8 @@ export class ResourcesGridComponent implements OnInit {
   loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<any[] | any>;
+  @Input()
+  onEnterEnabled?: boolean = false;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
@@ -108,7 +110,9 @@ export class ResourcesGridComponent implements OnInit {
       }
     }
     this.onSelectItems.emit(this.selectedItems);
-    this.focus();
+    if (this.onEnterEnabled) {
+      this.focus();
+    }
   }
   isSelectedItem(item: any) {
     return this.selectedItems && this.selectedItems.filter(i => i && i.pk === item.pk).length > 0;
