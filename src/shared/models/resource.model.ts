@@ -91,11 +91,12 @@ export class ResourceModel {
       }
     }
     if (dateFields.length > 0) {
+      var tzoffset = (new Date()).getTimezoneOffset() * 60000;
       for (key in this) {
         if (dateFields.indexOf(key) !== -1) {
           if (obj[key]) {
             try {
-              obj[key] = moment(this[key]).toISOString();
+              obj[key] = moment(+moment(this[key]).toDate() - tzoffset).toISOString().slice(0, -1);
             } catch (err) {
               this[key] = null;
             }
