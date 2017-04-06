@@ -19,61 +19,16 @@ Status: Beta
 
 #### Quick links
 
+[Source](https://github.com/site15/rucken) - Source code.
+
 [Demo](https://site15.github.io/rucken) - Demo application with mock data worked.
 
-[Demo source](https://github.com/site15/rucken/tree/master/demo) - Source code of dmo application.
+[Demo source](https://github.com/site15/rucken/tree/master/demo) - Source code of demo application.
 
 ## Install
 
 ```bash
 npm install rucken --save
-```
-
-## Example use:
-
-```ts
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule, Http, RequestOptions } from '@angular/http';
-import {
-  RuckenComponents, RuckenServices, RuckenRoutingModule,
-  ResponseService, HttpService, AccountService, AuthHttpFactory
-} from 'rucken';
-import { DemoAppComponent } from './app.component';
-import { DemoResponseService } from './demo/shared/response.service';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { DemoHttpService } from './demo/shared/http.service';
-import { DemoAccountService } from './demo/shared/account.service';
-
-@NgModule({
-  declarations: [
-    DemoAppComponent,
-    RuckenComponents
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpModule,
-    TranslateModule.forRoot(),
-    Ng2BootstrapModule,
-    RuckenRoutingModule
-  ],
-  providers: [
-    ComponentLoaderFactory,
-    PositioningService,
-    TooltipConfig,
-    PaginationConfig,
-    TabsetConfig,
-    RuckenServices,
-    { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
-    { provide: ResponseService, useClass: DemoResponseService },
-    { provide: HttpService, useClass: DemoHttpService },
-    { provide: AccountService, useClass: DemoAccountService }
-  ],
-  bootstrap: [DemoAppComponent]
-})
-export class AppModule { }
 ```
 
 ## License
