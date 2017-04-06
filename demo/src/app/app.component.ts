@@ -20,4 +20,11 @@ export class DemoAppComponent extends AppComponent {
   ) {
     super(viewContainerRef, app, resolver, translateService);
   }
+  init() {
+    if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
+      window['loading_screen'].finish();
+    } else {
+      window['loading_screen'] = false;
+    }
+  }
 }

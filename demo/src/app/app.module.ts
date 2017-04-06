@@ -22,6 +22,7 @@ import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
 import { DemoAccountService } from './demo/shared/account.service';
 //import { TranslatePoLoader } from '@biesbjerg/ng2-translate-po-loader';
 import { DemoRepositoryHelper } from './demo/shared/helpers/repository.helper';
+import { DemoNavbarComponent } from './demo/controls/navbar/navbar.component';
 /*
 export function createTranslateLoader(http: Http) {
   return new TranslatePoLoader(http, 'assets/i18n', '.po');
@@ -29,6 +30,7 @@ export function createTranslateLoader(http: Http) {
 
 @NgModule({
   declarations: [
+    DemoNavbarComponent,
     DemoAppComponent,
     RuckenComponents
   ],

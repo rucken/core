@@ -18,7 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class NavbarComponent implements OnInit {
 
-  public isCollapsed:boolean = true;
+  public isCollapsed: boolean = true;
 
   constructor(
     public app: AppService,
@@ -28,18 +28,22 @@ export class NavbarComponent implements OnInit {
     public translateService: TranslateService
   ) {
   }
-
   ngOnInit() {
     this.init();
   }
-  init(){
+  init() {
     this.accountService.info();
   }
-
+  get version() {
+    return this.app.version;
+  }
+  go(commands: any[]) {
+    this.isCollapsed = true;
+    this.router.navigate(commands);
+  }
   get account(): User {
     return this.accountService.account;
   }
-
   showLogoutModal() {
     if (this.app.modals(this.resolver).exists('loginModal') || this.app.modals(this.resolver).exists('logoutModal')) {
       return;
@@ -47,15 +51,14 @@ export class NavbarComponent implements OnInit {
     let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent, 'logoutModal');
     confirm.title = this.translateService.instant('Logout');
     confirm.message = this.translateService.instant('Do you really want to leave?');
-    confirm.onYes.subscribe(($event:any) => this.logout($event));
+    confirm.onYes.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
   }
-
   logout(itemModal: ConfirmModalComponent) {
     this.accountService.logout().subscribe(
       () => {
         itemModal.modal.hide();
-        this.router.navigate(['/']);
+        this.go(['/']);
       },
       (errors: any) => {
         if (errors.message) {
@@ -64,17 +67,15 @@ export class NavbarComponent implements OnInit {
       }
     );
   }
-
   showLoginModal() {
     if (this.app.modals(this.resolver).exists('loginModal') || this.app.modals(this.resolver).exists('logoutModal')) {
       return;
     }
     let itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'loginModal');
     itemModal.title = this.translateService.instant('Authorization');
-    itemModal.onLogin.subscribe(($event:any) => this.login($event));
+    itemModal.onLogin.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
   }
-
   login(itemModal: AuthModalComponent) {
     this.accountService.login(itemModal.account).subscribe(
       (account: any | User) => {

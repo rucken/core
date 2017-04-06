@@ -3,9 +3,9 @@ import * as _ from 'lodash';
 import { AppService } from '../shared/app.service';
 import { RuckenRuI18n } from '../i18n/ru.i18n';
 import { AlertModalComponent } from '../modals/alert-modal/alert-modal.component';
-import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
+import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit } from '@angular/core';
 
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   @Input()
   autoLoadLang?: boolean;
   public constructor(
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
     // You need this small hack in order to catch application root view container ref
     app.viewContainerRef = viewContainerRef;
     app.component = this;
+    app.translate = translateService;
   }
   loadLang() {
     this.translateService.addLangs(["en", "ru"]);
@@ -29,6 +30,16 @@ export class AppComponent implements OnInit {
     if (this.autoLoadLang === undefined || this.autoLoadLang === true) {
       this.loadLang();
     }
+    this.init();
+  }
+  ngAfterViewInit() {
+
+  }
+  afterInit() {
+
+  }
+  init() {
+
   }
   showErrorModal(message: string, title?: string): EventEmitter<any> {
     if (title === undefined) {

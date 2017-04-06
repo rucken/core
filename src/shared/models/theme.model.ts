@@ -1,6 +1,8 @@
 import { ResourceModel } from './resource.model';
 
 export class Theme extends ResourceModel {
+  public _pkFieldName: string = 'url';
+  public _pkIsNumber: boolean = false;
   static titles: any = {
     url: 'Url',//translate
     name: 'Name'//translate

@@ -52,7 +52,7 @@ export class DemoNavbarComponent extends NavbarComponent {
     this.accountService.logout().subscribe(
       () => {
         itemModal.modal.hide();
-        this.router.navigate(['/']);
+        this.go(['/']);
       },
       (errors: any) => {
         if (errors.message) {
