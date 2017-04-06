@@ -1,4 +1,4 @@
-import { AppService, AlertModalComponent, AppComponent } from '../../../src';
+import { AppService, AlertModalComponent, AppComponent } from '../../../dist';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';

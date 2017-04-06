@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var replace = require('gulp-replace');
 var typescript = require('gulp-tsc');
 var clean = require('gulp-clean');
 var inlineNg2Template = require('gulp-inline-ng2-template');
