@@ -20,6 +20,9 @@ export class ThemesService extends RepositoryService {
     this.items$ = <Subject<Theme[]>>new Subject();
     this.mockedItems = ThemeItemsMock;
     this.meta.perPage = 100;
+    if (localStorage.getItem('theme')) {
+      this.setTheme(new Theme({ url: localStorage.getItem('theme'), name: 'User theme' }));
+    }
   }
   transformModel(item: any) {
     return new Theme(item);
@@ -28,7 +31,7 @@ export class ThemesService extends RepositoryService {
     return new ThemesService(this.repositoryHelper);
   }
   setTheme(theme: Theme) {
-    if (!theme.url) {
+    if (!theme.url || theme.pk === this.getCurrentTheme().pk) {
       return;
     }
     let links = document.getElementsByTagName('link');
@@ -37,6 +40,7 @@ export class ThemesService extends RepositoryService {
       if (link.getAttribute('rel').indexOf('style') !== -1 && link.getAttribute('title')
         && link.getAttribute('title') === 'bootstrap') {
         link.setAttribute('href', theme.url);
+        localStorage.setItem('theme', theme.url);
       }
     }
   }

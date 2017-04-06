@@ -1,29 +1,38 @@
 <!-- Fixed navbar -->
 <nav class="app-navbar navbar navbar-default navbar-fixed-top">
-	<div class="container-fluid">
-		<div class="navbar-header">
-			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-				aria-controls="navbar" (click)="isCollapsed = !isCollapsed">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed pointer" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+        aria-controls="navbar" (click)="isCollapsed = !isCollapsed">
 				<span class="sr-only" translate>Menu</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" routerLink="/" translate>Site name</a>
-		</div>
-		<div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
-			<ul class="nav navbar-nav navbar-right">
-				<li [class.active]="router.isActive('/admin')" *ngIf="account && account.checkRole('admin')" class="app-navbar__item"><a routerLink="/admin" translate>Admin</a></li>
-				<li [class.active]="router.isActive('/account')" *ngIf="account && account.checkPermissions(['read_accountpage'])" class="app-navbar__item"><a routerLink="/account" translate>Account</a></li>
-				<li [class.active]="router.isActive('/themes')" *ngIf="account" class="app-navbar__item"><a routerLink="/themes" translate>Themes</a></li>
-				<li *ngIf="account" class="pointer">
-					<a (click)="showLogoutModal()" translate>Logout</a>
-				</li>
+      <a class="navbar-brand pointer" (click)="go(['/'])">
+        <span translate>Site name</span>
+        <span class="badge">{{version}}</span>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
+      <ul class="nav navbar-nav navbar-right">
+        <li [class.active]="router.isActive('/admin')" *ngIf="account && account.checkRole('admin')" class="app-navbar__item pointer">
+          <a (click)="go(['/admin'])" translate>Admin</a>
+        </li>
+        <li [class.active]="router.isActive('/account')" *ngIf="account && account.checkPermissions(['read_accountpage'])" class="app-navbar__item pointer">
+          <a (click)="go(['/account'])" translate>Account</a>
+        </li>
+        <li [class.active]="router.isActive('/themes')" *ngIf="account" class="app-navbar__item pointer">
+          <a (click)="go(['/themes'])" translate>Themes</a>
+        </li>
+        <li *ngIf="account" class="pointer">
+          <a (click)="showLogoutModal()" translate>Logout</a>
+        </li>
         <li *ngIf="!account" class="pointer">
-					<a (click)="showLoginModal()" translate>Login</a>
-				</li>
-			</ul>
-		</div>
-		<!--/.nav-collapse -->
-	</div>
+          <a (click)="showLoginModal()" translate>Login</a>
+        </li>
+      </ul>
+    </div>
+    <!--/.nav-collapse -->
+  </div>
 </nav>

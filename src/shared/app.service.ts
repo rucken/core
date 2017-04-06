@@ -19,6 +19,17 @@ export class AppService {
       document.body.scrollTop = 0;
     });
   }
+  get version() {
+    let ver = 'none';
+    let metaList = document.getElementsByTagName('meta');
+    for (let i = 0; i < metaList.length; i++) {
+      let meta = metaList[i];
+      if (meta.getAttribute('name') !== null && meta.getAttribute('name').indexOf('version') === 0) {
+        ver = meta.getAttribute('content');
+      }
+    }
+    return `${this.translate.instant('Version')}: ${ver}`;
+  }
   modals(resolver: ComponentFactoryResolver): any {
     let vm = this;
     return {

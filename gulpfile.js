@@ -1,7 +1,16 @@
 var gulp = require('gulp');
+var replace = require('gulp-replace');
 var typescript = require('gulp-tsc');
 var clean = require('gulp-clean');
 var inlineNg2Template = require('gulp-inline-ng2-template');
+var package = require('./package.json');
+var angularCli = require('./.angular-cli.json');
+
+gulp.task('add-version', function () {
+    return gulp.src(angularCli.apps[0].outDir + '/index.html')
+        .pipe(replace('<%VERSION%>', package.version))
+        .pipe(gulp.dest(angularCli.apps[0].outDir));
+});
 
 gulp.task('clean-src-inline', function () {
   return gulp.src('./src-inline', {read: false})
