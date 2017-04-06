@@ -157,6 +157,9 @@ msgstr ""
 msgid "Updating..."
 msgstr ""
 
+msgid "Version"
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
