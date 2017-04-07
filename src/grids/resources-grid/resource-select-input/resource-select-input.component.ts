@@ -178,10 +178,10 @@ export class ResourceSelectInputComponent implements OnInit {
     }
   }
   focus() {
-    if (this.inputElement.inputElement) {
+    if (this.inputElement && this.inputElement.inputElement) {
       this.inputElement.inputElement.focus();
     } else {
-      if (this.inputElement) {
+      if (this.inputElement && this.inputElement.nativeElement) {
         this.inputElement.nativeElement.focus();
       }
     }
