@@ -16,13 +16,13 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">
       <ul class="nav navbar-nav navbar-right">
-        <li [class.active]="router.isActive('/admin')" *ngIf="account && account.checkRole('admin')" class="app-navbar__item pointer">
+        <li [class.active]="router.isActive('/admin')" *ngIf="account && account.checkPermissions(['read_admin-page'])" class="app-navbar__item pointer">
           <a (click)="go(['/admin'])" translate>Admin</a>
         </li>
-        <li [class.active]="router.isActive('/account')" *ngIf="account && account.checkPermissions(['read_accountpage'])" class="app-navbar__item pointer">
+        <li [class.active]="router.isActive('/account')" *ngIf="account && account.checkPermissions(['read_account-page'])" class="app-navbar__item pointer">
           <a (click)="go(['/account'])" translate>Account</a>
         </li>
-        <li [class.active]="router.isActive('/themes')" *ngIf="account" class="app-navbar__item pointer">
+        <li [class.active]="router.isActive('/themes')" *ngIf="account && account.checkPermissions(['read_themes-page'])" class="app-navbar__item pointer">
           <a (click)="go(['/themes'])" translate>Themes</a>
         </li>
         <li *ngIf="account" class="pointer">

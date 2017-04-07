@@ -63,6 +63,7 @@ export const RuckenRuI18n = {
     "Themes": "Темы",
     "Loading...": "Загрузка...",
     "Updating...": "Изменение...",
+    "Version": "Версия",
     "Unknown error": "Неизвестная ошибка",
     "Id": "Ид.",
     "Model": "Модель",
@@ -78,6 +79,8 @@ export const RuckenRuI18n = {
     "Per page": "Кол-во стр.",
     "Content type": "Тип содержимого",
     "Codename": "Код",
+    "Yes": "Да",
+    "No": "Нет",
     "Url": "Адрес",
     "User": "Пользователь",
     "Username": "Имя пользователя",
@@ -105,7 +108,5 @@ export const RuckenRuI18n = {
     "Site name": "Название сайта",
     "Login": "Вход",
     "Actions": "Действия",
-    "No": "Нет",
-    "Yes": "Да",
     "Update": "Изменить"
 };

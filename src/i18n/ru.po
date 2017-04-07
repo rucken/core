@@ -166,6 +166,9 @@ msgstr "Загрузка..."
 msgid "Updating..."
 msgstr "Изменение..."
 
+msgid "Version"
+msgstr "Версия"
+
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
@@ -210,6 +213,12 @@ msgstr "Тип содержимого"
 
 msgid "Codename"
 msgstr "Код"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
 
 msgid "Url"
 msgstr "Адрес"
@@ -291,12 +300,6 @@ msgstr "Вход"
 
 msgid "Actions"
 msgstr "Действия"
-
-msgid "No"
-msgstr "Нет"
-
-msgid "Yes"
-msgstr "Да"
 
 msgid "Update"
 msgstr "Изменить"

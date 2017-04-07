@@ -105,11 +105,6 @@ export class TextInputComponent implements OnInit {
         this.type = 'text';
         this.mask.mask = numberMask;
       }
-      if (this.type === 'number') {
-        const numberMask = createNumberMask(this.config.numberMask);
-        this.type = 'text';
-        this.mask.mask = numberMask;
-      }
       if (this.type === 'phone') {
         this.type = 'text';
         this.mask.mask = ['+', /\d/, '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];

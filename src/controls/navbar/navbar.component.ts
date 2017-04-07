@@ -48,6 +48,7 @@ export class NavbarComponent implements OnInit {
     if (this.app.modals(this.resolver).exists('loginModal') || this.app.modals(this.resolver).exists('logoutModal')) {
       return;
     }
+    this.isCollapsed = true;
     let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent, 'logoutModal');
     confirm.title = this.translateService.instant('Logout');
     confirm.message = this.translateService.instant('Do you really want to leave?');
@@ -71,6 +72,7 @@ export class NavbarComponent implements OnInit {
     if (this.app.modals(this.resolver).exists('loginModal') || this.app.modals(this.resolver).exists('logoutModal')) {
       return;
     }
+    this.isCollapsed = true;
     let itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'loginModal');
     itemModal.title = this.translateService.instant('Authorization');
     itemModal.onLogin.subscribe(($event: any) => this.login($event));

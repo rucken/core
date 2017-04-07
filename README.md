@@ -1,10 +1,3 @@
-<p align="center">
-  <h1 align="center">Rucken</h1>
-  <p align="center">
-  Core with Admin UI for web application maked on Angular2+
-  </p>
-</p>
-
 [![NPM version][npm-image]][npm-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
