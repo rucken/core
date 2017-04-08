@@ -13,6 +13,9 @@ export class EndpointHelper {
   get apiUrl() {
     return '/api';
   }
+  get mockApiUrl() {
+    return '/api';
+  }
   actionUrl(endpointService: any, action?: any) {
     if (action === undefined) {
       return endpointService.apiUrl;
