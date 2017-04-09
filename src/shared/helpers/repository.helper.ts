@@ -65,7 +65,7 @@ export class RepositoryHelper extends EndpointHelper {
       return data;
     }
   };
-  itemResponse(repositoryService: any, response: any) {
+  itemResponse(repositoryService: any, response: any, requestData?: any) {
     let data: any;
     if (response.json && _.isFunction(response.json)) {
       data = response.json();
@@ -96,11 +96,12 @@ export class RepositoryHelper extends EndpointHelper {
     );
   };
   updateItemRequest(repositoryService: any, item: any): Observable<Response> {
+    let pkValue = item.pk;
     if (item && item.format) {
       item = item.format();
     }
     return this.httpHelper.put(
-      this.itemUrl(repositoryService, item.pk),
+      this.itemUrl(repositoryService, pkValue),
       item
     );
   };

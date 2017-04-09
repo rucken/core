@@ -14,6 +14,10 @@ export class HttpHelper {
   get(url: string): Observable<Response> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
+    if (url.indexOf('mockapi.io') !== -1) {
+      options = new RequestOptions({ headers: headers });
+      return this.http.get(url, options);
+    }
     return this.authHttp.get(url, options);
   }
 
@@ -27,6 +31,10 @@ export class HttpHelper {
     let bodyString = JSON.stringify(data);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
+    if (url.indexOf('mockapi.io') !== -1) {
+      options = new RequestOptions({ headers: headers });
+      return this.http.post(url, bodyString, options);
+    }
     return this.authHttp.post(url, bodyString, options);
   }
 
@@ -40,12 +48,20 @@ export class HttpHelper {
     let bodyString = JSON.stringify(data);
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
+    if (url.indexOf('mockapi.io') !== -1) {
+      options = new RequestOptions({ headers: headers });
+      return this.http.put(url, bodyString, options);
+    }
     return this.authHttp.put(url, bodyString, options);
   }
 
   delete(url: string): Observable<Response> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
+    if (url.indexOf('mockapi.io') !== -1) {
+      options = new RequestOptions({ headers: headers });
+      return this.http.delete(url, options);
+    }
     return this.authHttp.delete(url, options);
   }
 }

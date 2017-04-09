@@ -1,4 +1,6 @@
 [![NPM version][npm-image]][npm-url]
+[![dependencies Status][dependencies-image]][dependencies-url]
+[![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
 Status: Beta
@@ -29,7 +31,11 @@ npm install rucken --save
 MIT
 
 
+[gitter-image]: https://img.shields.io/gitter/room/nwjs/nw.js.svg
+[gitter-url]: https://gitter.im/site15-ru/rucken
 [npm-image]: https://badge.fury.io/js/rucken.svg
 [npm-url]: https://npmjs.org/package/rucken
+[dependencies-image]: https://david-dm.org/site15/rucken/status.svg
+[dependencies-url]: https://david-dm.org/site15/rucken
 [telegram-image]: https://img.shields.io/badge/chat-telegram-blue.svg?maxAge=2592000
 [telegram-url]: https://t.me/joinchat/AAAAAAtLpXFkn1XWDUFCFA

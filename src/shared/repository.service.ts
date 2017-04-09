@@ -285,7 +285,7 @@ export class RepositoryService {
       'Creating...'//translate
     );
     this.repositoryHelper.createItemRequest(this, item)
-      .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response)))
+      .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
       .subscribe((createdItem: any) => {
         this.createItem(createdItem);
         result.emit(createdItem);
@@ -360,7 +360,7 @@ export class RepositoryService {
       'Updating...'//translate
     );
     this.repositoryHelper.updateItemRequest(this, item)
-      .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response)))
+      .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
       .subscribe((updatedItem: any) => {
         this.updateItem(updatedItem);
         result.emit(updatedItem);
