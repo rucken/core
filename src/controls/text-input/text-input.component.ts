@@ -13,6 +13,10 @@ import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 })
 
 export class TextInputComponent implements OnInit {
+  @Input()
+  labelClass?: string = 'control-label';
+  @Input()
+  inputClass?: string = 'form-control';
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @ViewChild('tooltip')

@@ -22,6 +22,10 @@ import { TooltipDirective } from 'ng2-bootstrap/tooltip';
 })
 
 export class GroupSelectInputComponent extends ResourceSelectInputComponent {
+  @Input()
+  labelClass?: string = 'control-label';
+  @Input()
+  inputClass?: string;
   @ViewChild('inputElement')
   inputElement: SelectInputComponent;
   @Input()

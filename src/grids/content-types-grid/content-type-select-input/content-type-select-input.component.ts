@@ -22,6 +22,10 @@ import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-
 })
 
 export class ContentTypeSelectInputComponent extends ResourceSelectInputComponent {
+  @Input()
+  labelClass?: string = 'control-label';
+  @Input()
+  inputClass?: string;
   @ViewChild('inputElement')
   inputElement: any;
   @Input()
