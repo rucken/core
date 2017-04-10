@@ -45,6 +45,7 @@ import { RadiosInputComponent } from './controls/radios-input/radios-input.compo
 import { UsersListModalComponent } from './grids/users-grid/users-list-modal/users-list-modal.component';
 import { UserSelectInputComponent } from './grids/users-grid/user-select-input/user-select-input.component';
 import { TableColumnComponent } from './controls/table-column/table-column.component';
+import { AccountProfileFormComponent } from './grids/users-grid/account-profile-form/account-profile-form.component';
 const RuckenComponents = [
   /**
    * Pages
@@ -104,7 +105,11 @@ const RuckenComponents = [
   FontawesomesGridComponent,
   UsersGridComponent,
   UserModalComponent,
-  GroupsGridComponent
+  GroupsGridComponent,
+  /**
+   * Forms
+   */
+  AccountProfileFormComponent
 ];
 
 export { RuckenComponents };
