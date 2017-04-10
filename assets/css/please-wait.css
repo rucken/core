@@ -1,9 +1,9 @@
-/* line 17, ../dist/please-wait.scss */
+/* line 17, ../src/please-wait.scss */
 body.pg-loading {
   overflow: hidden;
 }
 
-/* line 21, ../dist/please-wait.scss */
+/* line 21, ../src/please-wait.scss */
 .pg-loading-screen {
   position: fixed;
   bottom: 0;
@@ -19,7 +19,7 @@ body.pg-loading {
   -o-transition: background-color 0.6s ease-in-out 0s;
   transition: background-color 0.6s ease-in-out 0s;
 }
-/* line 32, ../dist/please-wait.scss */
+/* line 32, ../src/please-wait.scss */
 .pg-loading-screen.pg-loaded {
   opacity: 0;
   -webkit-animation: pgAnimLoaded 0.5s cubic-bezier(0.7, 0, 0.3, 1) both;
@@ -28,11 +28,11 @@ body.pg-loading {
   -o-animation: pgAnimLoaded 0.5s cubic-bezier(0.7, 0, 0.3, 1) both;
   animation: pgAnimLoaded 0.5s cubic-bezier(0.7, 0, 0.3, 1) both;
 }
-/* line 38, ../dist/please-wait.scss */
+/* line 38, ../src/please-wait.scss */
 .pg-loading-screen.pg-loading .pg-loading-logo-header, .pg-loading-screen.pg-loading .pg-loading-html {
   opacity: 1;
 }
-/* line 42, ../dist/please-wait.scss */
+/* line 42, ../src/please-wait.scss */
 .pg-loading-screen.pg-loading .pg-loading-logo-header, .pg-loading-screen.pg-loading .pg-loading-html:not(.pg-loaded) {
   -webkit-animation: pgAnimLoading 1s cubic-bezier(0.7, 0, 0.3, 1) both;
   -moz-animation: pgAnimLoading 1s cubic-bezier(0.7, 0, 0.3, 1) both;
@@ -40,7 +40,7 @@ body.pg-loading {
   -o-animation: pgAnimLoading 1s cubic-bezier(0.7, 0, 0.3, 1) both;
   animation: pgAnimLoading 1s cubic-bezier(0.7, 0, 0.3, 1) both;
 }
-/* line 46, ../dist/please-wait.scss */
+/* line 46, ../src/please-wait.scss */
 .pg-loading-screen.pg-loading .pg-loading-html:not(.pg-loaded) {
   -webkit-animation-delay: 0.3s;
   -moz-animation-delay: 0.3s;
@@ -48,7 +48,7 @@ body.pg-loading {
   -o-animation-delay: 0.3s;
   animation-delay: 0.3s;
 }
-/* line 51, ../dist/please-wait.scss */
+/* line 51, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-inner {
   height: 100%;
   width: 100%;
@@ -56,7 +56,7 @@ body.pg-loading {
   padding: 0;
   position: static;
 }
-/* line 59, ../dist/please-wait.scss */
+/* line 59, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-center-outer {
   width: 100%;
   padding: 0;
@@ -67,7 +67,7 @@ body.pg-loading {
   left: 0;
   margin: 0;
 }
-/* line 70, ../dist/please-wait.scss */
+/* line 70, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-center-middle {
   padding: 0;
   vertical-align: middle;
@@ -75,24 +75,24 @@ body.pg-loading {
   margin: 0;
   text-align: center;
 }
-/* line 78, ../dist/please-wait.scss */
+/* line 78, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-logo-header, .pg-loading-screen .pg-loading-html {
   width: 100%;
   opacity: 0;
 }
-/* line 83, ../dist/please-wait.scss */
+/* line 83, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-logo-header {
   text-align: center;
 }
-/* line 86, ../dist/please-wait.scss */
+/* line 86, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-logo-header img {
   display: inline-block !important;
 }
-/* line 91, ../dist/please-wait.scss */
+/* line 91, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-html {
   margin-top: 90px;
 }
-/* line 94, ../dist/please-wait.scss */
+/* line 94, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-html.pg-loaded {
   -webkit-transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1);
   -moz-transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1);
@@ -100,11 +100,11 @@ body.pg-loading {
   -o-transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1);
   transition: opacity 0.5s cubic-bezier(0.7, 0, 0.3, 1);
 }
-/* line 97, ../dist/please-wait.scss */
+/* line 97, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-html.pg-loaded.pg-removing {
   opacity: 0;
 }
-/* line 101, ../dist/please-wait.scss */
+/* line 101, ../src/please-wait.scss */
 .pg-loading-screen .pg-loading-html.pg-loaded.pg-loading {
   opacity: 1;
 }
