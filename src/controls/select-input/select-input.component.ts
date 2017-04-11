@@ -14,6 +14,10 @@ import { SelectInputConfig } from './select-input.config';
 })
 
 export class SelectInputComponent implements OnInit {
+  @Input()
+  labelClass?: string = 'control-label';
+  @Input()
+  inputClass?: string = 'form-control';
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @ViewChild('autoComplete')

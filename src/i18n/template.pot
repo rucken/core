@@ -121,6 +121,9 @@ msgstr ""
 msgid "Are you sure you want to remove a user group?"
 msgstr ""
 
+msgid "Update"
+msgstr ""
+
 msgid "Users"
 msgstr ""
 
@@ -290,7 +293,4 @@ msgid "Login"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
-
-msgid "Update"
 msgstr ""

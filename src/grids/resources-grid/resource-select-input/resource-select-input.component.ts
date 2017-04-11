@@ -11,6 +11,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { ResourceSelectInputConfig } from './resource-select-input.config';
 
 export class ResourceSelectInputComponent implements OnInit {
+  @Input()
+  labelClass?: string = 'control-label';
+  @Input()
+  inputClass?: string;
   @ViewChild('inputElement')
   inputElement: any;
   @Input()

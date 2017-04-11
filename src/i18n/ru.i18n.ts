@@ -9,7 +9,7 @@ export const RuckenRuI18n = {
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
-        "x-generator": "Poedit 1.8.12",
+        "x-generator": "Poedit 2.0.1",
         "plural-forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);"
     },
     "Error": "Ошибка",
@@ -51,6 +51,7 @@ export const RuckenRuI18n = {
     "Are you sure you want to remove a permission?": "Вы уверены, что хотите удалить разрешения?",
     "Select groups for append to user": "Выберите группы для добавления",
     "Are you sure you want to remove a user group?": "Вы уверены, что хотите удалить группу пользователей?",
+    "Update": "Изменить",
     "Users": "Пользователи",
     "Create new user": "Добавление нового пользователя",
     "Edit user": "Редактирование пользователя",
@@ -107,6 +108,5 @@ export const RuckenRuI18n = {
     "Menu": "Меню",
     "Site name": "Название сайта",
     "Login": "Вход",
-    "Actions": "Действия",
-    "Update": "Изменить"
+    "Actions": "Действия"
 };

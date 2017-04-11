@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Location } from "@angular/common";
 import { User } from './../../../shared/models/user.model';
 import { AccountService } from './../../../shared/account.service';
 import { AppService } from '../../../shared/app.service';
@@ -18,7 +19,8 @@ export class ProfileFrameComponent implements OnInit {
   public info: EventEmitter<any> = new EventEmitter();
 
   constructor(public accountService: AccountService, public app: AppService,
-    public translateService: TranslateService) {
+    public translateService: TranslateService,
+    public location: Location) {
   }
 
   ngOnInit() {
@@ -33,8 +35,8 @@ export class ProfileFrameComponent implements OnInit {
   set account(val) {
     this.accountService.account = val;
   }
-  update() {
-    this.accountService.update(this.account).subscribe(
+  update(account: User) {
+    this.accountService.update(account).subscribe(
       (user: User) => {
         this.account = user;
       },
@@ -49,5 +51,8 @@ export class ProfileFrameComponent implements OnInit {
         }
       }
     );
+  }
+  cancel() {
+    this.location.back();
   }
 }
