@@ -23,6 +23,7 @@ import { DemoAccountService } from './demo/shared/account.service';
 //import { TranslatePoLoader } from '@biesbjerg/ng2-translate-po-loader';
 import { DemoRepositoryHelper } from './demo/shared/helpers/repository.helper';
 import { DemoNavbarComponent } from './demo/controls/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 /*
 export function createTranslateLoader(http: Http) {
   return new TranslatePoLoader(http, 'assets/i18n', '.po');
@@ -50,7 +51,7 @@ export function createTranslateLoader(http: Http) {
         deps: [Http]
       }
     }*/),
-    RuckenRoutingModule.forRoot()
+    RouterModule.forRoot(RuckenRoutingModule.routes, { useHash: true })
   ],
   providers: [
     ComponentLoaderFactory,
