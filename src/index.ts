@@ -34,8 +34,8 @@ export { ThemesService } from './shared/themes.service';
 export { UserGroupsService } from './shared/user-groups.service';
 export { UsersService } from './shared/users.service';
 export { UtilsService } from './shared/utils.service';
-export { AuthHttpFactory } from './shared/factories/auth-http.factory';
 export { ResouceEnumStatus } from './shared/enums/resource.enums';
+export { AuthHttpFactory } from './shared/factories/auth-http.factory';
 export { EndpointHelper } from './shared/helpers/endpoint.helper';
 export { HttpHelper } from './shared/helpers/http.helper';
 export { RepositoryHelper } from './shared/helpers/repository.helper';
@@ -77,6 +77,7 @@ export { ResourceInputComponent } from './grids/resources-grid/resource-input/re
 export { ResourceSelectInputComponent } from './grids/resources-grid/resource-select-input/resource-select-input.component';
 export { ResourceSelectInputConfig } from './grids/resources-grid/resource-select-input/resource-select-input.config';
 export { UsersGridComponent } from './grids/users-grid/users-grid.component';
+export { AccountProfileFormComponent } from './grids/users-grid/account-profile-form/account-profile-form.component';
 export { UserModalComponent } from './grids/users-grid/user-modal/user-modal.component';
 export { UserSelectInputComponent } from './grids/users-grid/user-select-input/user-select-input.component';
 export { UsersListModalComponent } from './grids/users-grid/users-list-modal/users-list-modal.component';
