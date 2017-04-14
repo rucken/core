@@ -92,6 +92,11 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
     }
     this.cachedResourcesService = contentTypesService.createCache();
   }
+  changeInputValue(value: string) {
+    let filter: any = {};
+    this.cachedResourcesService.ignoreCache = true;
+    this.cachedResourcesService.loadAll(value, filter);
+  }
   get account(): User {
     return this.accountService.account;
   }
@@ -115,5 +120,8 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
+  }
+  get statusListMessage() {
+    return '';
   }
 }
