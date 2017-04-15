@@ -20,6 +20,7 @@ export const RuckenRuI18n = {
     "Remove": "Удалить",
     "Search": "Поиск",
     "Cancel": "Отмена",
+    "Change log": "Журнал изменений",
     "Logout": "Выйти",
     "Do you really want to leave?": "Вы действительно хотите выйти?",
     "Authorization": "Авторизация",

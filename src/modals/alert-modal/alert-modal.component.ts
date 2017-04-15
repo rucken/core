@@ -31,12 +31,18 @@ export class AlertModalComponent implements OnInit {
   hideButton?: boolean = false;
   @Input()
   message: string = '';
+  @Input()
+  content: any = false;
   @Output()
   onClose: EventEmitter<AlertModalComponent | any> = new EventEmitter();
 
   ngOnInit() {
     this.modal.onHidden.subscribe(() => this.close());
-    this.modal.onShown.subscribe(() => this.focus());
+    this.modal.onShown.subscribe(() => {
+      if (!this.content) {
+        this.focus();
+      }
+    });
     this.init();
   }
   init() {

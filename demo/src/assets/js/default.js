@@ -89,7 +89,7 @@ function showPleaseWait() {
     logo: '',
     loadingHtml: loadingHtml.join(''),
     onLoadedCallback: function () {
-      setLocalVersion(version);
+      //setLocalVersion(version);
     }
   });
 }

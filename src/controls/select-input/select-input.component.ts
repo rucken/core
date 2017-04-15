@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { Ng2AutoCompleteComponent } from 'ng2-auto-complete';
+import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import * as _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirective } from 'ng2-bootstrap/tooltip';
 import { SelectInputConfig } from './select-input.config';
+import { Observable } from 'rxjs/Observable';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'select-input',
@@ -14,22 +16,22 @@ import { SelectInputConfig } from './select-input.config';
 })
 
 export class SelectInputComponent implements OnInit {
+  @Output()
+  public onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  labelClass?: string = 'control-label';
+  public labelClass?: string = 'control-label';
   @Input()
-  inputClass?: string = 'form-control';
+  public inputClass?: string = 'form-control';
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @ViewChild('autoComplete')
-  public autoComplete: Ng2AutoCompleteComponent;
+  public autoComplete: NguiAutoCompleteComponent;
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @Input()
   public inFormGroup: boolean = true;
   @Input()
   public focused: boolean = false;
-  @Input()
-  public items: any[] = [];
   @Input()
   public readonly: boolean = false;
   @Input()
@@ -64,11 +66,37 @@ export class SelectInputComponent implements OnInit {
   public tooltipPlacement: string = 'bottom';
   @Input()
   public tooltipTriggers: string = 'hover focus';
-
+  @Input()
+  public set items(items: any[]) {
+    this._items = items;
+    if (this.autoComplete) {
+      if (JSON.stringify(this.autoComplete.source) === JSON.stringify(items)) {
+        return;
+      }
+      this.autoComplete.source = items;
+      if (this.showMe) {
+        this._showMe = false;
+        this.autoComplete.reloadList('');
+        setTimeout(() => {
+          this.resizeList();
+          this._showMe = true;
+        }, 300);
+      } else {
+        this.autoComplete.reloadList('');
+        setTimeout(() => {
+          this.resizeList();
+        }, 300);
+      }
+    }
+  }
+  public get items() {
+    return this._items;
+  }
+  private _items: any[] = [];
   public errorsValue: any;
   public infoValue: any;
   private _showMe: boolean = false;
-
+  private debouncer: Subject<string> = new Subject<string>();
   public getTitle: any;
   constructor(
     public sanitizer: DomSanitizer,
@@ -87,6 +115,9 @@ export class SelectInputComponent implements OnInit {
     if (this.inputTitleField === undefined) {
       this.inputTitleField = config.inputTitleField;
     }
+    this.debouncer
+      .debounceTime(300)
+      .subscribe((value: string) => this.onChangeInputValue.emit(value));
   }
   ngOnInit() {
     this.errors.subscribe((data: any) => {
@@ -107,6 +138,15 @@ export class SelectInputComponent implements OnInit {
     });
     this.init();
   }
+  get inputReadonly() {
+    return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length == 0;
+  }
+  onKey(value: string) {
+    if (!value && !this.inputReadonly) {
+      this.value = null;
+    }
+    this.debouncer.next(value);
+  }
   showTooltip() {
     let tooltip: any = this.tooltip;
     if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
@@ -122,8 +162,8 @@ export class SelectInputComponent implements OnInit {
     return this._showMe;
   }
   set showMe(val: any) {
-    this.resizeList();
     setTimeout(() => {
+      this.resizeList();
       this._showMe = val;
     }, 300);
   }
@@ -133,7 +173,7 @@ export class SelectInputComponent implements OnInit {
   set value(val: any) {
     if (this.errorsValue && this.errorsValue[this.name]) {
       delete this.errorsValue[this.name];
-      this.tooltipText='';
+      this.tooltipText = '';
     }
     this.model = val;
     this.modelChange.emit(this.model);
@@ -205,20 +245,26 @@ export class SelectInputComponent implements OnInit {
       this.inputElement && this.inputElement.nativeElement) {
       let options: any = this.autoComplete.el.children[0].children[0].children;
       let select: any = this.autoComplete.el.children[0];
-      if (this.items && options.length === this.items.length) {
-        for (let i = 0; i < options.length; i++) {
-          if (this.width === null) {
-            options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
-          } else {
-            options[i].style.width = this.width;
-          }
+      //if (this.items && options.length >= this.items.length) {
+      for (let i = 0; i < options.length; i++) {
+        if (this.width === null) {
+          options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
+        } else {
+          options[i].style.width = this.width;
         }
-        select.style.display = '';
       }
+      select.style.display = '';
+      //}
+    } else {
+      setTimeout(() => {
+        this.resizeList();
+      }, 200);
     }
   }
   focus() {
-    this.autoComplete.dropdownVisible = true;
+    if (this.autoComplete) {
+      this.autoComplete.dropdownVisible = true;
+    }
   }
   getInputTitle(item: any) {
     if (item && item[this.inputTitleField]) {

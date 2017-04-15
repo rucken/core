@@ -3,26 +3,26 @@
     <label [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
     <div [ngClass]="{'inner-addon right-addon':!readonly}">
       <i *ngIf="!readonly" class="fa fa-chevron-down"></i>
-      <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe"
-        [disabled]="readonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder" [tooltip]="tooltipText"
-        placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)"
-        #tooltip="bs-tooltip" #inputElement/>
+      <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
+        [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
+        [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable"
+        (onShown)="showTooltip($event)" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
     </div>
-    <ng2-auto-complete *ngIf="!readonly && items && items.length>0" [hidden]="!showMe" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
+    <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
       [show-input-tag]="false" [list-formatter]="getTitle" [source]="items" #autoComplete>
-    </ng2-auto-complete>
+    </ngui-auto-complete>
     <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
   </div>
   <div *ngIf="!inFormGroup">
     <div [ngClass]="{'inner-addon right-addon':!readonly}">
       <i *ngIf="!readonly" class="fa fa-chevron-down"></i>
-      <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe"
-        [disabled]="readonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder" [tooltip]="tooltipText"
-        placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)"
-        #tooltip="bs-tooltip" #inputElement/>
+      <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
+        [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
+        [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable"
+        (onShown)="showTooltip($event)" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
     </div>
-    <ng2-auto-complete *ngIf="!readonly && items && items.length>0" [hidden]="!showMe" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
+    <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
       [show-input-tag]="false" [list-formatter]="getTitle" [source]="items" #autoComplete>
-    </ng2-auto-complete>
+    </ngui-auto-complete>
   </div>
 </div>

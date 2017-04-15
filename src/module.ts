@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { TranslateModule } from '@ngx-translate/core';
 import { RuckenComponents } from './components';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
@@ -22,7 +22,7 @@ import { TextMaskModule } from 'angular2-text-mask';
     TextMaskModule,
     HttpModule,
     Ng2BootstrapModule,
-    Ng2AutoCompleteModule,
+    NguiAutoCompleteModule,
     TranslateModule.forRoot()
   ],
   providers: [],

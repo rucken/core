@@ -65,4 +65,18 @@ export class AppComponent implements OnInit, AfterViewInit {
     alert.modal.show();
     return alert.onClose;
   }
+  showContentModal(content: string, title?: string): EventEmitter<any> {
+    if (title === undefined) {
+      title = this.translateService.instant('Info');
+    }
+    let alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    alert.text = title;
+    alert.content = content;
+    alert.messageClass = '';
+    alert.size = 'md';
+    alert.buttonClass = 'btn-primary';
+    alert.buttonText = this.translateService.instant('ОК');
+    alert.modal.show();
+    return alert.onClose;
+  }
 }

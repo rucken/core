@@ -1,10 +1,10 @@
-.select-input .ng2-auto-complete {
+.select-input .ngui-auto-complete {
     cursor: pointer;
     position: absolute;
     z-index: 10000;
     white-space: nowrap;
 }
-.select-input .ng2-auto-complete .no-match-found{
+.select-input .ngui-auto-complete .no-match-found{
   display: none;
 }
 .select-input .inner-addon {
