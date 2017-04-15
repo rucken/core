@@ -30,7 +30,7 @@
     "node_modules"
   ],
   "files": [
-    "../scripts/typings.d.ts",
+    "../typings.d.ts",
     "./index.ts"
   ],
   "angularCompilerOptions": {
