@@ -10,7 +10,8 @@
       </div>
       <form (ngSubmit)="close()">
         <div class="modal-body" [ngClass]="[messageClass]">
-          {{message | translate}}
+          <span *ngIf="content" [innerHTML]="content"></span>
+          <span *ngIf="!content">{{message | translate}}</span>
         </div>
         <div class="modal-footer">
           <button type="submit" #focusElement class="btn" [ngClass]="[buttonClass]">{{buttonText}}</button>

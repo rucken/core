@@ -9,6 +9,7 @@ import { AppService } from '../../shared/app.service';
 import { AuthModalComponent } from '../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';
 
+
 @Component({
   selector: 'navbar',
   templateUrl: './navbar.component.html',
@@ -19,7 +20,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class NavbarComponent implements OnInit {
 
   public isCollapsed: boolean = true;
-
+  public changelog: string = '';//require('html-loader!markdown-loader!./../../../CHANGELOG.md');
   constructor(
     public app: AppService,
     public accountService: AccountService,
@@ -31,8 +32,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.init();
   }
+  showChangeLog() {
+    if (this.changelog) {
+      this.app.component.showContentModal(
+        this.changelog,
+        this.translateService.instant('Change log')
+      );
+    }
+  }
   init() {
     this.accountService.info();
+    if (this.app.localVersion !== this.app.currentVersion) {
+      this.app.localVersion = this.app.currentVersion;
+    }
   }
   get version() {
     return this.app.version;

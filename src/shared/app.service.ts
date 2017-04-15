@@ -19,7 +19,16 @@ export class AppService {
       document.body.scrollTop = 0;
     });
   }
-  get version() {
+  set localVersion(value: string) {
+    localStorage.setItem('version', value);
+  }
+  get localVersion(): string {
+    if (localStorage.getItem('version')) {
+      return localStorage.getItem('version');
+    }
+    return '';
+  }
+  get currentVersion() {
     let ver = 'none';
     let metaList = document.getElementsByTagName('meta');
     for (let i = 0; i < metaList.length; i++) {
@@ -28,7 +37,10 @@ export class AppService {
         ver = meta.getAttribute('content');
       }
     }
-    return `${this.translate.instant('Version')}: ${ver}`;
+    return ver;
+  }
+  get version() {
+    return `${this.translate.instant('Version')}: ${this.currentVersion}`;
   }
   modals(resolver: ComponentFactoryResolver): any {
     let vm = this;

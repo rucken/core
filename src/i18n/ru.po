@@ -37,6 +37,9 @@ msgstr "Поиск"
 msgid "Cancel"
 msgstr "Отмена"
 
+msgid "Change log"
+msgstr "Журнал изменений"
+
 msgid "Logout"
 msgstr "Выйти"
 
