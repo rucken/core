@@ -7,7 +7,7 @@ import {
   Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig,
   PaginationConfig, TabsetConfig, PopoverConfig, CollapseModule
 } from 'ng2-bootstrap';
-import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TextMaskModule } from 'angular2-text-mask';
@@ -43,7 +43,7 @@ export function createTranslateLoader(http: Http) {
     HttpModule,
     Ng2BootstrapModule,
     CollapseModule.forRoot(),
-    Ng2AutoCompleteModule,
+    NguiAutoCompleteModule,
     TranslateModule.forRoot(/*{
       loader: {
         provide: TranslateLoader,
