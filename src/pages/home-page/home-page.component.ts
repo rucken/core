@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../shared/app.service';
 import { TranslateService } from '@ngx-translate/core';
 
+let readme = require('html-loader!markdown-loader!./../../../README.md');
+
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
@@ -11,7 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class HomePageComponent implements OnInit {
 
   public title: string;
-
+  public readme: string = readme;
   constructor(public app: AppService,
     public translateService: TranslateService) {
     this.title = this.translateService.instant('Home');
