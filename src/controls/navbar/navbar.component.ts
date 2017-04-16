@@ -43,6 +43,7 @@ export class NavbarComponent implements OnInit {
   init() {
     this.accountService.info();
     if (this.app.localVersion !== this.app.currentVersion) {
+      this.showChangeLog();
       this.app.localVersion = this.app.currentVersion;
     }
   }
