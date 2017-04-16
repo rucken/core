@@ -50,7 +50,11 @@
     "extract_translate": "ng2-translate-extract --dir ./src --output ./src/i18n --format=pot --clean",
     "po2ts": "srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
     "make_ts_list": "srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
-    "prepare": "npm-run-all extract_translate po2ts make_ts_list"
+    "prepare": "npm-run-all extract_translate po2ts make_ts_list",
+    "_demo-build": "./node_modules/.bin/ngc -p ./demo/src/tsconfig.aot.json",
+    "_build": "npm run build",
+    "_serve": "ng serve --aot",
+    "_test": "npm-run-all _build _serve"
   },
   "dependencies": {
     "@angular/common": "^4.0.2",
@@ -74,7 +78,7 @@
     "core-js": "^2.4.1",
     "intl": "^1.2.5",
     "lodash": "^4.17.4",
-    "ng2-bootstrap": "^1.6.3",
+    "ngx-bootstrap": "^1.6.6",
     "rxjs": "^5.3.0",
     "text-mask-addons": "^3.5.0",
     "zone.js": "^0.8.5"
@@ -98,11 +102,11 @@
     "gulp-replace": "^0.5.4",
     "gulp-tsc": "^1.3.2",
     "jasmine-core": "~2.5.2",
-    "jasmine-spec-reporter": "~3.3.0",
+    "jasmine-spec-reporter": "~4.0.0",
     "karma": "~1.6.0",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
-    "karma-coverage-istanbul-reporter": "^1.1.0",
+    "karma-coverage-istanbul-reporter": "^1.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "lite-server": "^2.3.0",

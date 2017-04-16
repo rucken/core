@@ -28,12 +28,4 @@ export class DemoNavbarComponent extends NavbarComponent {
   ) {
     super(app, accountService, router, resolver, translateService);
   }
-  //todo: remove update rucken
-  init() {
-    this.accountService.info();
-    if (this.app.localVersion !== this.app.currentVersion) {
-      this.showChangeLog();
-      this.app.localVersion = this.app.currentVersion;
-    }
-  }
 }

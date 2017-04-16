@@ -46,44 +46,50 @@ import { UsersListModalComponent } from './grids/users-grid/users-list-modal/use
 import { UserSelectInputComponent } from './grids/users-grid/user-select-input/user-select-input.component';
 import { TableColumnComponent } from './controls/table-column/table-column.component';
 import { AccountProfileFormComponent } from './grids/users-grid/account-profile-form/account-profile-form.component';
-const RuckenComponents = [
+const RuckenComponents: any[] = [
   /**
    * Pages
    */
+  /*
   HomePageComponent,
+  */
+  /*
   ThemesPageComponent,
   AdminPageComponent,
   AccountPageComponent,
+  */
   /**
    * Frames
    */
+  /*
   ErrorFrameComponent,
   UsersFrameComponent,
   ProfileFrameComponent,
   GroupsFrameComponent,
+  */
   /**
    * Modals
    */
+  /*
+  AuthModalComponent,
+  AlertModalComponent,
+  ConfirmModalComponent,
   PermissionsListModalComponent,
   PermissionModalComponent,
   ContentTypesListModalComponent,
   ContentTypeModalComponent,
   FontawesomesListModalComponent,
   FontawesomeModalComponent,
-  AuthModalComponent,
-  AlertModalComponent,
-  ConfirmModalComponent,
   GroupModalComponent,
   GroupsListModalComponent,
   UsersListModalComponent,
+  */
   /**
    * Controls
    */
+  /*
   TableColumnComponent,
   NavbarComponent,
-  PermissionInputComponent,
-  ContentTypeSelectInputComponent,
-  FontawesomeInputComponent,
   CheckboxesInputComponent,
   RadiosInputComponent,
   TextInputComponent,
@@ -93,23 +99,31 @@ const RuckenComponents = [
   GridRowButtonsComponent,
   ModalFooterButtonsComponent,
   SelectInputComponent,
+  PermissionInputComponent,
+  ContentTypeSelectInputComponent,
+  FontawesomeInputComponent,
   GroupSelectInputComponent,
   UserSelectInputComponent,
+  */
   /**
    * Grids
    */
+  /*
+  PermissionsGridComponent,
+  */
+  /*
   UserGroupsGridComponent,
   GroupPermissionsGridComponent,
-  PermissionsGridComponent,
   ContentTypesGridComponent,
   FontawesomesGridComponent,
   UsersGridComponent,
   UserModalComponent,
   GroupsGridComponent,
+  */
   /**
    * Forms
    */
-  AccountProfileFormComponent
+  /*AccountProfileFormComponent*/
 ];
 
 export { RuckenComponents };
