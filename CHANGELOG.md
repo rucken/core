@@ -1,3 +1,13 @@
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/site15/rucken/compare/1.3.0...v1.3.1) (2017-04-17)
+
+
+### Bug Fixes
+
+* **home-page:** Remove include README.md on home page ([9678199](https://github.com/site15/rucken/commit/9678199))
+
+
+
 <a name="1.3.0"></a>
 # [1.3.0](https://github.com/site15/rucken/compare/1.2.21...v1.3.0) (2017-04-15)
 
