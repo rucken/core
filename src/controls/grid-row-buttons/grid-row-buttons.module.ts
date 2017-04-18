@@ -1,12 +1,12 @@
-import { TooltipModule } from 'ng2-bootstrap/tooltip';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GridRowButtonsComponent } from './grid-row-buttons.component';
-import { SharedModule } from '../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
-    CommonModule, SharedModule.forRoot(), TooltipModule.forRoot()
+    CommonModule, TranslateModule.forChild(), TooltipModule.forRoot()
   ],
   declarations: [GridRowButtonsComponent],
   exports: [GridRowButtonsComponent],

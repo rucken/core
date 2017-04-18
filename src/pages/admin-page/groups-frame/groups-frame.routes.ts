@@ -3,6 +3,7 @@ import { GroupsFrameComponent } from './groups-frame.component';
 
 export const GroupsFrameRoutes: Routes = [
   {
-    path: '', component: GroupsFrameComponent
+    path: '',
+    component: GroupsFrameComponent
   }
 ];

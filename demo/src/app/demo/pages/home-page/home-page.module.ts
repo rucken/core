@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { HomePageRoutes } from './home-page.routes';
-import { PageHeaderModule, SharedModule } from '../../../../../../dist';
+import { PageHeaderModule } from '../../../../../../dist';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule.forRoot(),
+    TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
     RouterModule.forChild(HomePageRoutes)
   ],

@@ -3,7 +3,7 @@ import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser
 import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import * as _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
-import { TooltipDirective } from 'ng2-bootstrap/tooltip';
+import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { SelectInputConfig } from './select-input.config';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -16,6 +16,8 @@ import { Subject } from 'rxjs/Subject';
 })
 
 export class SelectInputComponent implements OnInit {
+  @Input()
+  public debounceTime?: number = 300;
   @Output()
   public onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Input()
@@ -116,7 +118,7 @@ export class SelectInputComponent implements OnInit {
       this.inputTitleField = config.inputTitleField;
     }
     this.debouncer
-      .debounceTime(300)
+      .debounceTime(this.debounceTime)
       .subscribe((value: string) => this.onChangeInputValue.emit(value));
   }
   ngOnInit() {

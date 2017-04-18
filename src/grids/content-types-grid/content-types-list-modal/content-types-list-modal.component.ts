@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { ContentType } from './../../../shared/models/content-type.model';
 import { User } from '././../../../shared/models/user.model';
-import { ModalDirective } from 'ng2-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap';
 import { ContentTypesGridComponent } from '../content-types-grid.component';
 
 @Component({

@@ -2,11 +2,11 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GridSearchPanelComponent } from './grid-search-panel.component';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModule.forRoot()
+    CommonModule, FormsModule, TranslateModule.forChild()
   ],
   declarations: [GridSearchPanelComponent],
   exports: [GridSearchPanelComponent],

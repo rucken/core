@@ -5,7 +5,7 @@ import { AppService } from './../../../shared/app.service';
 import { AccountService } from './../../../shared/account.service';
 import { User } from './../../../shared/models/user.model';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
-import { TooltipDirective } from 'ng2-bootstrap/tooltip';
+import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { ResourceSelectInputConfig } from './resource-select-input.config';

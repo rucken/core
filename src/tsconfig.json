@@ -21,7 +21,7 @@
       "../node_modules/@types"
     ],
     "types": [
-      "node"
+      "jasmine"
     ]
   },
   "exclude": [
@@ -29,7 +29,6 @@
   ],
   "files": [
     "../typings.d.ts",
-    "./module.ts",
     "./index.ts"
   ],
   "angularCompilerOptions": {

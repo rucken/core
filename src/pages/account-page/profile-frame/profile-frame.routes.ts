@@ -3,6 +3,8 @@ import { ProfileFrameComponent } from './profile-frame.component';
 
 export const ProfileFrameRoutes: Routes = [
   {
-    path: '', component: ProfileFrameComponent
+    path: '',
+    pathMatch: 'full',
+    component: ProfileFrameComponent
   }
 ];

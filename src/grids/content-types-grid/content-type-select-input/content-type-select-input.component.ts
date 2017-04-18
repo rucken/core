@@ -11,7 +11,7 @@ import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 import { ResourceSelectInputComponent } from '../../resources-grid/resource-select-input/resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TooltipDirective } from 'ng2-bootstrap/tooltip';
+import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-input/resource-select-input.config';
 
 @Component({

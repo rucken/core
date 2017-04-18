@@ -1,14 +1,16 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GroupSelectInputComponent } from './group-select-input.component';
-import { TooltipModule } from 'ng2-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { SelectInputModule } from '../../../controls/select-input/select-input.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { GroupsListModalModule } from '../../../grids/groups-grid/groups-list-modal/groups-list-modal.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModule.forRoot(), TooltipModule.forRoot(),
+    CommonModule, FormsModule, TranslateModule.forChild(), TooltipModule.forRoot(),
+    GroupsListModalModule.forRoot(),
     SelectInputModule.forRoot()
   ],
   declarations: [

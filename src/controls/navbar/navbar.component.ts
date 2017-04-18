@@ -4,7 +4,6 @@ import { AccountService } from '../../shared/account.service';
 import { User } from '../../shared/models/user.model';
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
-import { AdminPageComponent } from '../../pages/admin-page/admin-page.component';
 import { AppService } from '../../shared/app.service';
 import { AuthModalComponent } from '../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';

@@ -7,7 +7,7 @@ import {
   OnInit
 } from '@angular/core';
 import { Permission } from './../../../shared/models/permission.model';
-import { ModalDirective } from 'ng2-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap';
 import { AccountService } from './../../../shared/account.service';
 import { User } from './../../../shared/models/user.model';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';

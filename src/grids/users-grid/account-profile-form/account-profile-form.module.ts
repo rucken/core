@@ -5,11 +5,13 @@ import { UserGroupsGridModule } from '../../user-groups-grid/user-groups-grid.mo
 import { TextInputModule } from '../../../controls/text-input/text-input.module';
 import { CheckboxesInputModule } from '../../../controls/checkboxes-input/checkboxes-input.module';
 import { ModalFooterButtonsModule } from '../../../controls/modal-footer-buttons/modal-footer-buttons.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
-    CommonModule, UserGroupsGridModule.forRoot(), TextInputModule.forRoot(),
-    CheckboxesInputModule.forRoot(), ModalFooterButtonsModule.forRoot()
+    CommonModule, FormsModule, TextInputModule.forRoot(),
+    CheckboxesInputModule.forRoot(), ModalFooterButtonsModule.forRoot(),
+    UserGroupsGridModule.forRoot()
   ],
   declarations: [
     AccountProfileFormComponent

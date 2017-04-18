@@ -22,7 +22,7 @@
         <li [class.active]="router.isActive('/account')" *ngIf="account && account.checkPermissions(['read_account-page'])" class="app-navbar__item pointer">
           <a (click)="go(['/account'])" translate>Account</a>
         </li>
-        <li [class.active]="router.isActive('/themes')" *ngIf="account && account.checkPermissions(['themes-page'])" class="app-navbar__item pointer">
+        <li [class.active]="router.isActive('/themes')" *ngIf="account && account.checkPermissions(['read_themes-page'])" class="app-navbar__item pointer">
           <a (click)="go(['/themes'])" translate>Themes</a>
         </li>
         <li *ngIf="account" class="pointer">

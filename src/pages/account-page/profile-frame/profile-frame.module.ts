@@ -1,19 +1,19 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProfileFrameComponent } from './profile-frame.component';
-import { PageHeaderModule } from '../../../controls/page-header/page-header.module';
-import { AccountProfileFormModule } from '../../../grids/users-grid/account-profile-form/account-profile-form.module';
 import { ProfileFrameRoutes } from './profile-frame.routes';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { PageHeaderModule } from '../../../controls/page-header/page-header.module';
+import { AccountProfileFormModule } from '../../../grids/users-grid/account-profile-form/account-profile-form.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule.forRoot(),
+    TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
-    RouterModule.forChild(ProfileFrameRoutes),
-    AccountProfileFormModule.forRoot()
+    AccountProfileFormModule.forRoot(),
+    //RouterModule.forChild(ProfileFrameRoutes)
   ],
   declarations: [
     ProfileFrameComponent

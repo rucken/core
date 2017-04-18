@@ -7,7 +7,7 @@
     "@types/lodash": "*",
     "angular2-jwt": "*",
     "ng2-auto-complete": "*",
-    "ng2-bootstrap": "*"
+    "ngx-bootstrap": "*"
   },
   "peerDependencies": {
     "@angular/common": "*",

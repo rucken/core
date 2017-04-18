@@ -1,19 +1,19 @@
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-3 col-md-2">
-			<div class="app-sidebar" *ngIf="account">
-				<ul class="nav nav-sidebar">
-					<li [class.active]="router.isActive('/admin/users')" *ngIf="account && account.checkPermissions(['read_user'])" class="app-sidebar__item">
-						<a routerLink="/admin/users" translate>Users</a>
-					</li>
-					<li [class.active]="router.isActive('/admin/groups')" *ngIf="account && account.checkPermissions(['read_group'])" class="app-sidebar__item">
-						<a routerLink="/admin/groups" translate>Groups</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="col-sm-9 col-md-10">
-			<router-outlet></router-outlet>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-sm-3 col-md-2">
+      <div class="app-sidebar" *ngIf="account">
+        <ul class="nav nav-sidebar">
+          <li [class.active]="router.isActive('/admin/users')" *ngIf="account && account.checkPermissions(['read_user'])" class="app-sidebar__item">
+            <a routerLink="./users" translate>Users</a>
+          </li>
+          <li [class.active]="router.isActive('/admin/groups')" *ngIf="account && account.checkPermissions(['read_group'])" class="app-sidebar__item">
+            <a routerLink="./groups" translate>Groups</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-9 col-md-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

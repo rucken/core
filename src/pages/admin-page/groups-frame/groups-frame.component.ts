@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { User } from '../../../shared/models/user.model';
 import { AccountService } from '../../../shared/account.service';
 import { AppService } from '../../../shared/app.service';
-import { User } from '../../../shared/models/user.model';
-import { Group } from '../../../shared/models/group.model';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'groups-frame',

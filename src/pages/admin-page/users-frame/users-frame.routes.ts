@@ -3,6 +3,7 @@ import { UsersFrameComponent } from './users-frame.component';
 
 export const UsersFrameRoutes: Routes = [
   {
-    path: '', component: UsersFrameComponent
+    path: '',
+    component: UsersFrameComponent
   }
 ];

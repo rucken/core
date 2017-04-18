@@ -24,11 +24,9 @@ import { RouterModule } from '@angular/router';
 import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
 
-
 @NgModule({
   declarations: [
-    DemoAppComponent,
-    RuckenComponents
+    DemoAppComponent
   ],
   imports: [
     CommonModule,
@@ -61,8 +59,8 @@ import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
   ],
   bootstrap: [DemoAppComponent]
 })
-export class AppModule {
+export class DemoAppModule {
   public static forRoot(): ModuleWithProviders {
-    return { ngModule: AppModule };
+    return { ngModule: DemoAppModule };
   }
 }

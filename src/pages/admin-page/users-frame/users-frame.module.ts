@@ -1,19 +1,19 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersFrameComponent } from './users-frame.component';
-import { UsersGridModule } from '../../../grids/users-grid/users-grid.module';
-import { PageHeaderModule } from '../../../controls/page-header/page-header.module';
 import { RouterModule } from '@angular/router';
 import { UsersFrameRoutes } from './users-frame.routes';
-import { SharedModule } from '../../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
+import { PageHeaderModule } from '../../../controls/page-header/page-header.module';
+import { UsersGridModule } from '../../../grids/users-grid/users-grid.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule.forRoot(),
+    TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
-    RouterModule.forChild(UsersFrameRoutes),
-    UsersGridModule.forRoot()
+    UsersGridModule.forRoot(),
+    //RouterModule.forChild(UsersFrameRoutes)
   ],
   declarations: [
     UsersFrameComponent

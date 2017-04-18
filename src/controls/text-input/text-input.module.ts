@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { TextInputComponent } from './text-input.component';
 import { TextInputConfig } from './text-input.config';
 import { TextMaskModule } from 'angular2-text-mask';
-import { TooltipModule } from 'ng2-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModule.forRoot(),
+    CommonModule, FormsModule, TranslateModule.forChild(),
     TextMaskModule, TooltipModule.forRoot()
   ],
   declarations: [TextInputComponent],

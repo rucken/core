@@ -50,11 +50,7 @@
     "extract_translate": "ng2-translate-extract --dir ./src --output ./src/i18n --format=pot --clean",
     "po2ts": "srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
     "make_ts_list": "srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
-    "prepare": "npm-run-all extract_translate po2ts make_ts_list",
-    "_demo-build": "./node_modules/.bin/ngc -p ./demo/src/tsconfig.aot.json",
-    "_build": "npm run build",
-    "_serve": "ng serve --aot",
-    "_test": "npm-run-all _build _serve"
+    "prepare": "npm-run-all extract_translate po2ts make_ts_list"
   },
   "dependencies": {
     "@angular/common": "^4.0.2",
@@ -70,6 +66,9 @@
     "@ngx-translate/core": "^6.0.1",
     "@types/lodash": "^4.14.62",
     "@types/node": "7.0.12",
+    "@types/jasmine": "2.5.41",
+    "@types/marked": "0.0.28",
+    "@types/webpack": "^2.2.15",
     "@types/requirejs": "^2.1.29",
     "angular2-jwt": "^0.2.2",
     "angular2-text-mask": "^8.0.0",

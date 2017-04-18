@@ -2,13 +2,13 @@ import { ContentTypesGridModule } from '../content-types-grid.module';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentTypesListModalComponent } from './content-types-list-modal.component';
-import { ModalModule } from 'ng2-bootstrap';
+import { ModalModule } from 'ngx-bootstrap';
 import { ModalFooterButtonsModule } from '../../../controls/modal-footer-buttons/modal-footer-buttons.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
-    CommonModule, ModalModule.forRoot(), SharedModule.forRoot(),
+    CommonModule, ModalModule.forRoot(), TranslateModule.forChild(),
     ModalFooterButtonsModule.forRoot(), ContentTypesGridModule.forRoot()
   ],
   declarations: [

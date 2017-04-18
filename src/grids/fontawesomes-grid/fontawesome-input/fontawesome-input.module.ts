@@ -1,13 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontawesomeInputComponent } from './fontawesome-input.component';
-import { TooltipModule } from 'ng2-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModule.forRoot(), TooltipModule.forRoot()
+    CommonModule, FormsModule, TranslateModule.forChild(), TooltipModule.forRoot()
   ],
   declarations: [
     FontawesomeInputComponent

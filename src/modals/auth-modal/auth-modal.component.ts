@@ -1,5 +1,5 @@
 import { Component, Output, Input, ViewChild, EventEmitter, ElementRef, OnInit } from '@angular/core';
-import { ModalDirective } from 'ng2-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap';
 import { User } from './../../shared/models/user.model';
 import { AppService } from '../../shared/app.service';
 import { TextInputComponent } from '../../controls/text-input/text-input.component';

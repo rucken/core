@@ -6,8 +6,6 @@ import {
 } from '../../../../../../dist';
 import { TranslateService } from '@ngx-translate/core';
 
-let changelog = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
-
 @Component({
   selector: 'demo-navbar',
   templateUrl: './navbar.component.html',
@@ -17,7 +15,7 @@ let changelog = require('html-loader!markdown-loader!./../../../../../../CHANGEL
 
 export class DemoNavbarComponent extends NavbarComponent {
 
-  public changelog: string = changelog;
+  public changelog: string = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
 
   constructor(
     public app: AppService,

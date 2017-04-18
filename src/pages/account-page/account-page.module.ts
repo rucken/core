@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { AccountPageComponent } from './account-page.component';
 import { RouterModule } from '@angular/router';
 import { AccountPageRoutes } from './account-page.routes';
+import { TranslateModule } from '@ngx-translate/core';
 import { PageHeaderModule } from '../../controls/page-header/page-header.module';
-import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    SharedModule.forRoot(),
+    RouterModule,
+    TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
-    RouterModule.forChild(AccountPageRoutes)
+    //RouterModule.forChild(AccountPageRoutes)
   ],
   declarations: [
     AccountPageComponent
