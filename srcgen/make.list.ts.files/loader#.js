@@ -45,16 +45,23 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
             }
             if (classFile.replace('.' + entities[e], '') !== classFile) {
               founded = true;
-              if (moduleName + _.upperFirst(entities[e] + 's') !== className && className!=='AppComponent') {
-                exportEntities[entities[e]].push(className);
+              if (moduleName + _.upperFirst(entities[e] + 's') !== className && className !== 'AppComponent') {
+                if (entities[e] === 'component') {
+                  var templateFile = path.resolve(scanPath, '.' + replaceExt(classFile, '.component.html'));
+                  if (srcgen.utils.exists(templateFile)) {
+                    exportEntities[entities[e]].push(className);
+                  }
+                } else {
+                  exportEntities[entities[e]].push(className);
+                }
               }
             }
           }
           if (!founded) {
             founded = false;
             for (var e = 0; e < entities.length; e++) {
-              if (moduleName + _.upperFirst(entities[e] + 's')===className) {
-                founded=true;
+              if (moduleName + _.upperFirst(entities[e] + 's') === className) {
+                founded = true;
               }
             }
             if (!founded) {
@@ -63,15 +70,15 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
           }
           founded = false;
           for (var e = 0; e < entities.length; e++) {
-            if (moduleName + _.upperFirst(entities[e] + 's')===className) {
-              founded=true;
+            if (moduleName + _.upperFirst(entities[e] + 's') === className) {
+              founded = true;
             }
           }
-          if (!founded){
-              var importLine = 'import { ' + className + ' } from \'.' + classFile + '\';';
-              exportArray.push(importLine);
-              var exportLine = 'export { ' + className + ' } from \'.' + classFile + '\';';
-              exportArray.push(exportLine);
+          if (!founded) {
+            var importLine = 'import { ' + className + ' } from \'.' + classFile + '\';';
+            exportArray.push(importLine);
+            var exportLine = 'export { ' + className + ' } from \'.' + classFile + '\';';
+            exportArray.push(exportLine);
           }
         }
       }

@@ -1,3 +1,12 @@
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/site15/rucken/compare/1.4.0...v1.4.1) (2017-04-18)
+
+
+### Bug Fixes
+
+* **srcgen:** Remove extendable components from list of components ([feda93e](https://github.com/site15/rucken/commit/feda93e))
+
+
 <a name="1.4.0"></a>
 # [1.4.0](https://github.com/site15/rucken/compare/1.3.0...v1.4.0) (2017-04-18)
 
