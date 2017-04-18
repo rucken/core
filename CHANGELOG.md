@@ -1,3 +1,19 @@
+<a name="1.4.0"></a>
+# [1.4.0](https://github.com/site15/rucken/compare/1.3.0...v1.4.0) (2017-04-18)
+
+
+### Bug Fixes
+
+* **home-page:** Remove include README.md on home page ([9678199](https://github.com/site15/rucken/commit/9678199))
+
+
+### Features
+
+* **AoT:** Add lazy load to pages and frames ([673fe54](https://github.com/site15/rucken/commit/673fe54))
+* **modules:** Move all components to modules, for AoT ([1e2ffb5](https://github.com/site15/rucken/commit/1e2ffb5))
+
+
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/site15/rucken/compare/1.3.0...v1.3.1) (2017-04-17)
 

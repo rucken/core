@@ -12,7 +12,7 @@ import { ResourceSelectInputComponent } from '../../resources-grid/resource-sele
 import { TranslateService } from '@ngx-translate/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-input/resource-select-input.config';
-import { TooltipDirective } from 'ng2-bootstrap/tooltip';
+import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 @Component({
   selector: 'group-select-input',

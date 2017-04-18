@@ -4,54 +4,40 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, Http, RequestOptions } from '@angular/http';
 import {
-  Ng2BootstrapModule, ComponentLoaderFactory, PositioningService, TooltipConfig,
-  PaginationConfig, TabsetConfig, PopoverConfig, CollapseModule
+  ComponentLoaderFactory, PositioningService, TooltipConfig,
+  PaginationConfig, TabsetConfig, PopoverConfig
 } from 'ng2-bootstrap';
-import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TextMaskModule } from 'angular2-text-mask';
 import {
-  RuckenComponents, RuckenServices, RuckenRoutingModule, RepositoryHelper,
+  RuckenComponents, RuckenServices, RepositoryHelper,
   EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, ResourceSelectInputConfig,
-  TextInputConfig, SelectInputConfig, TableColumnConfig
+  TextInputConfig, SelectInputConfig, TableColumnConfig,
+  TextInputModule, ModalFooterButtonsModule, AuthModalModule, AlertModalModule
 } from '../../../dist';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
 import { DemoAccountService } from './demo/shared/account.service';
-//import { TranslatePoLoader } from '@biesbjerg/ng2-translate-po-loader';
 import { DemoRepositoryHelper } from './demo/shared/helpers/repository.helper';
-import { DemoNavbarComponent } from './demo/controls/navbar/navbar.component';
 import { RouterModule } from '@angular/router';
-/*
-export function createTranslateLoader(http: Http) {
-  return new TranslatePoLoader(http, 'assets/i18n', '.po');
-}*/
+import { DemoRoutes } from './app.routes';
+import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
 
 @NgModule({
   declarations: [
-    DemoNavbarComponent,
-    DemoAppComponent,
-    RuckenComponents
+    DemoAppComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     FormsModule,
-    TextMaskModule,
     HttpModule,
-    Ng2BootstrapModule,
-    CollapseModule.forRoot(),
-    NguiAutoCompleteModule,
-    TranslateModule.forRoot(/*{
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [Http]
-      }
-    }*/),
-    RouterModule.forRoot(RuckenRoutingModule.routes, { useHash: true })
+    AlertModalModule.forRoot(),
+    DemoNavbarModule.forRoot(),
+    AuthModalModule.forRoot(),
+    TranslateModule.forRoot(),
+    RouterModule.forRoot(DemoRoutes, { useHash: true })
   ],
   providers: [
     ComponentLoaderFactory,
@@ -73,8 +59,8 @@ export function createTranslateLoader(http: Http) {
   ],
   bootstrap: [DemoAppComponent]
 })
-export class AppModule {
+export class DemoAppModule {
   public static forRoot(): ModuleWithProviders {
-    return { ngModule: AppModule };
+    return { ngModule: DemoAppModule };
   }
 }

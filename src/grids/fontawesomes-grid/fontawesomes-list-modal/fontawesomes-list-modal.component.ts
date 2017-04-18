@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { Fontawesome } from './../../../shared/models/fontawesome.model';
 import { User } from './../../../shared/models/user.model';
-import { ModalDirective } from 'ng2-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap';
 import { FontawesomesGridComponent } from '../fontawesomes-grid.component';
 
 @Component({

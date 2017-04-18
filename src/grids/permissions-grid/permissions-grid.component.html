@@ -59,8 +59,9 @@
       <div class="col-md-9">
         <div class="pull-right" *ngIf="meta.totalPages>1 || meta.totalResults>meta.perPage">
           <pagination [directionLinks]="false" (pageChanged)="pageChanged($event)" [boundaryLinks]="true" [totalItems]="meta.totalResults"
-            [rotate]="false" [maxSize]="5" [(ngModel)]="meta.curPage" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed"
+            [rotate]="false" [maxSize]="5" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed"
             firstText="&laquo;" lastText="&raquo;"></pagination>
+            <!--fix:[(ngModel)]="meta.curPage"-->
         </div>
       </div>
     </div>

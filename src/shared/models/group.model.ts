@@ -8,7 +8,7 @@ export class Group extends ResourceModel {
     name: 'Name',//translate
     permissions: 'Permissions'//translate
   };
-  static fields: any = ['id', 'name', 'permission'];
+  static fields: any = ['id', 'name', 'permissions'];
 
   id: number;
   name: string;

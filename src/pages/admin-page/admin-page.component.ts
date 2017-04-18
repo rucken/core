@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountService } from './../../shared/account.service';
-import { AppService } from '../../shared/app.service';
-import { User } from '../../shared/models/user.model';
 import { TranslateService } from '@ngx-translate/core';
+import { User } from '../../shared/models/user.model';
+import { AccountService } from '../../shared/account.service';
+import { AppService } from '../../shared/app.service';
 
 @Component({
   selector: 'admin-page',

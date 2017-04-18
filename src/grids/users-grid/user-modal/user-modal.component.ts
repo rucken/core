@@ -7,7 +7,7 @@ import {
   OnInit
 } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
-import { ModalDirective } from 'ng2-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap';
 import { AccountService } from '../../../shared/account.service';
 import { TextInputComponent } from '../../../controls/text-input/text-input.component';
 import { UserGroupsGridComponent } from '../../user-groups-grid/user-groups-grid.component';

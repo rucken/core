@@ -1,8 +1,8 @@
-import { Theme } from '../../shared/models/theme.model';
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '../../shared/app.service';
 import { ThemesService } from '../../shared/themes.service';
-import { TranslateService } from '@ngx-translate/core';
+import { Theme } from '../../shared/models/theme.model';
 
 @Component({
   selector: 'themes-page',
