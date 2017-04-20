@@ -7,6 +7,13 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, 
 })
 
 export class CheckboxesInputComponent implements OnInit {
+  @Input()
+  labelClass?: string = 'control-label';
+  @Input()
+  inputClass?: string = 'control-label checkbox-inline';
+  @Input()
+  inputFrameClass?: string = 'form-control form-checkbox-controls';
+
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @Input()

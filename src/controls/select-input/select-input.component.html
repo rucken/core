@@ -1,7 +1,7 @@
 <div class="select-input" [ngClass]="{'auto-width':autoWidth}">
   <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}" *ngIf="inFormGroup">
     <label [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
-    <div [ngClass]="{'inner-addon right-addon':!readonly}">
+    <div [ngClass]="{'inner-addon right-addon':!readonly}" class="{{inputFrameClass}}">
       <i *ngIf="!readonly" class="fa fa-chevron-down"></i>
       <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
         [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
@@ -14,7 +14,7 @@
     <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
   </div>
   <div *ngIf="!inFormGroup">
-    <div [ngClass]="{'inner-addon right-addon':!readonly}">
+    <div [ngClass]="{'inner-addon right-addon':!readonly}" class="{{inputFrameClass}}">
       <i *ngIf="!readonly" class="fa fa-chevron-down"></i>
       <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
         [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"

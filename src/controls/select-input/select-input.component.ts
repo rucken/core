@@ -17,13 +17,15 @@ import { Subject } from 'rxjs/Subject';
 
 export class SelectInputComponent implements OnInit {
   @Input()
-  public debounceTime?: number = 300;
+  public debounceTime?: number;
   @Output()
   public onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Input()
   public labelClass?: string = 'control-label';
   @Input()
   public inputClass?: string = 'form-control';
+  @Input()
+  inputFrameClass?: string = '';
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @ViewChild('autoComplete')
@@ -116,6 +118,9 @@ export class SelectInputComponent implements OnInit {
     }
     if (this.inputTitleField === undefined) {
       this.inputTitleField = config.inputTitleField;
+    }
+    if (this.debounceTime === undefined) {
+      this.debounceTime = config.debounceTime;
     }
     this.debouncer
       .debounceTime(this.debounceTime)

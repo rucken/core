@@ -17,6 +17,9 @@ export class TextInputComponent implements OnInit {
   labelClass?: string = 'control-label';
   @Input()
   inputClass?: string = 'form-control';
+  @Input()
+  inputFrameClass?: string = '';
+
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @ViewChild('tooltip')
