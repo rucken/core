@@ -1,8 +1,8 @@
 <div class="form-group" [ngClass]="{'has-error':errorsValue && errorsValue[name]}">
-  <label *ngIf="title" class="control-label" [attr.for]="'input'+name">{{title | translate}}</label>
-  <div [ngClass]="{'input-group':!readonly && !select}">
-    <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" class="form-control" disabled/>
-    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" class="form-control" disabled/>
+  <label *ngIf="title" [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
+  <div [ngClass]="{'input-group':!readonly && !select}" [ngClass]="inputFrameClass">
+    <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" [ngClass]="inputClass" disabled/>
+    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" disabled/>
     <select-input *ngIf="!statusListMessage && select" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
       [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">

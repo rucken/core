@@ -25,7 +25,10 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   @Input()
   labelClass?: string = 'control-label';
   @Input()
-  inputClass?: string;
+  inputClass?: string = 'form-control';
+  @Input()
+  inputFrameClass?: string = '';
+
   @ViewChild('inputElement')
   inputElement: any;
   @Input()

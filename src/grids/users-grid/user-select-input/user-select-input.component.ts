@@ -23,7 +23,10 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   labelClass?: string = 'control-label';
   @Input()
-  inputClass?: string;
+  inputClass?: string = 'form-control';
+  @Input()
+  inputFrameClass?: string = '';
+
   @ViewChild('inputElement')
   inputElement: SelectInputComponent;
   @Input()
