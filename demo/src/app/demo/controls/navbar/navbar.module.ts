@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DemoNavbarComponent } from './navbar.component';
-import { ConfirmModalModule, AuthModalModule } from '../../../../../../dist';
+import { ConfirmModalModule, AuthModalModule } from '../../../../../../src';
 import { CollapseModule } from 'ng2-bootstrap';
 import { TranslateModule } from '@ngx-translate/core';
 @NgModule({

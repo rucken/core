@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { ProfileFrameComponent } from '../../../../../../../dist';
+import { ProfileFrameComponent } from '../../../../../../../src';
 
 export const ProfileFrameRoutes: Routes = [
   {

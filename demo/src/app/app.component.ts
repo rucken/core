@@ -1,13 +1,24 @@
-import { AppService, AlertModalComponent, AppComponent, RuckenRuI18n } from '../../../dist';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Input } from '@angular/core';
+import { AppService, AlertModalComponent, AppComponent, RuckenRuI18n } from '../../../src';
+import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { trigger, animate, style, group, transition, query } from '@angular/animations';
 import * as _ from 'lodash';
 
 @Component({
   selector: 'demo-app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  entryComponents: [AlertModalComponent]
+  entryComponents: [AlertModalComponent],
+  encapsulation: ViewEncapsulation.None, animations: [
+    trigger('routerAnimations', [
+      transition('* => *', [
+        group([
+          query(':leave', style({ zIndex: 100 })),
+          query(':enter', style({ transform: 'translateY(100%)' }))
+        ])
+      ])
+    ])
+  ]
 })
 export class DemoAppComponent extends AppComponent {
   @Input()
@@ -33,5 +44,9 @@ export class DemoAppComponent extends AppComponent {
     this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
     let browserLang: string = this.translateService.getBrowserLang();
     this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'ru');
+  }
+  prepareRouteTransition(outlet) {
+    const animationData = outlet.activeRouteData['animation'];
+    return animationData ? animationData['value'] : null;
   }
 }

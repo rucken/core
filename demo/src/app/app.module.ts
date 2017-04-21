@@ -14,7 +14,7 @@ import {
   EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, ResourceSelectInputConfig,
   TextInputConfig, SelectInputConfig, TableColumnConfig,
   TextInputModule, ModalFooterButtonsModule, AuthModalModule, AlertModalModule
-} from '../../../dist';
+} from '../../../src';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';

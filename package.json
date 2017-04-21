@@ -53,6 +53,7 @@
     "prepare": "npm-run-all extract_translate po2ts make_ts_list"
   },
   "dependencies": {
+    "@angular/animations": "^4.0.2",
     "@angular/common": "^4.0.2",
     "@angular/compiler": "^4.0.2",
     "@angular/core": "^4.0.2",
@@ -64,12 +65,12 @@
     "@biesbjerg/ng2-translate-po-loader": "^0.2.1",
     "@ngui/auto-complete": "^0.13.2",
     "@ngx-translate/core": "^6.0.1",
-    "@types/lodash": "^4.14.62",
-    "@types/node": "7.0.12",
     "@types/jasmine": "2.5.41",
+    "@types/lodash": "^4.14.62",
     "@types/marked": "0.0.28",
-    "@types/webpack": "^2.2.15",
+    "@types/node": "7.0.12",
     "@types/requirejs": "^2.1.29",
+    "@types/webpack": "^2.2.15",
     "angular2-jwt": "^0.2.2",
     "angular2-text-mask": "^8.0.0",
     "awesome-typescript-loader": "^3.1.2",
