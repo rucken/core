@@ -33,7 +33,7 @@ export class DemoAppComponent extends AppComponent {
               return;
             }
             window['showPleaseWait'](this.translateService.instant('Loading...'));
-          }, 200);
+          }, 300);
         }
       }
       if (evt instanceof NavigationEnd) {
@@ -41,8 +41,6 @@ export class DemoAppComponent extends AppComponent {
         document.body.scrollTop = 0;
         if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
           window['loading_screen'].finish();
-        } else {
-          window['loading_screen'] = false;
         }
       }
     });
@@ -51,8 +49,7 @@ export class DemoAppComponent extends AppComponent {
   init() {
     if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
       window['loading_screen'].finish();
-    } else {
-      window['loading_screen'] = false;
+      this.pleaseWaitVisible = false;
     }
   }
   loadLang() {

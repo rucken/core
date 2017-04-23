@@ -75,9 +75,7 @@ var __bind = function (fn, me) { return function () { return fn.apply(me, argume
       logo: null,
       loadingHtml: null,
       template: "<div class='pg-loading-inner'>\n  <div class='pg-loading-center-outer'>\n    <div class='pg-loading-center-middle'>\n      <h1 class='pg-loading-logo-header'>\n        <img class='pg-loading-logo'></img>\n      </h1>\n      <div class='pg-loading-html'>\n      </div>\n    </div>\n  </div>\n</div>",
-      onLoadedCallback: null,
-      target: document.body,
-      absolute: false
+      onLoadedCallback: null
     };
     function PleaseWait(options) {
       var defaultOptions, k, listener, v;
@@ -91,9 +89,9 @@ var __bind = function (fn, me) { return function () { return fn.apply(me, argume
       }
       this._loadingElem = document.createElement("div");
       this._loadingHtmlToDisplay = [];
-      if (this.options.absolute){
+      if (this.options.absolute) {
         this._loadingElem.className = "pg-loading-screen pg-loading-screen-absolute";
-      }else{
+      } else {
         this._loadingElem.className = "pg-loading-screen";
       }
       if (this.options.backgroundColor != null) {
@@ -109,9 +107,9 @@ var __bind = function (fn, me) { return function () { return fn.apply(me, argume
       if (this._logoElem != null) {
         this._logoElem.src = this.options.logo;
       }
-      removeClass("pg-loaded", this.options.target);
-      addClass("pg-loading", this.options.target);
-      this.options.target.appendChild(this._loadingElem);
+      removeClass("pg-loaded", document.body);
+      addClass("pg-loading", document.body);
+      document.body.appendChild(this._loadingElem);
       addClass("pg-loading", this._loadingElem);
       this._onLoadedCallback = this.options.onLoadedCallback;
       listener = __bind(function (evt) {
@@ -239,13 +237,16 @@ var __bind = function (fn, me) { return function () { return fn.apply(me, argume
       if (this._loadingElem == null) {
         return;
       }
-      addClass("pg-loaded", this.options.target);
+      addClass("pg-loaded", document.body);
       if (typeof this._onLoadedCallback === "function") {
         this._onLoadedCallback.apply(this);
       }
       listener = __bind(function () {
-        this.options.target.removeChild(this._loadingElem);
-        removeClass("pg-loading", this.options.target);
+        if (this._loadingElem == null) {
+          return;
+        }
+        document.body.removeChild(this._loadingElem);
+        removeClass("pg-loading", document.body);
         if (animationSupport) {
           this._loadingElem.removeEventListener(animationEvent, listener);
         }

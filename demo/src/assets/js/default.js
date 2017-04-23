@@ -26,7 +26,7 @@ function setTheme(themeUrl) {
   for (var i = 0; i < links.length; i++) {
     var link = links[i];
     if (link.getAttribute('rel').indexOf('style') !== -1 && link.getAttribute('title')
-      && link.getAttribute('title') === 'bootstrap') {
+      && link.getAttribute('title') === 'bootstrap' && link.getAttribute('href') !== themeUrl) {
       link.setAttribute('href', themeUrl);
     }
   }
@@ -64,7 +64,6 @@ function getVersion() {
   return false;
 }
 function showPleaseWait(message) {
-  console.log(message);
   if (window.loading_screen === false) {
     return;
   }
@@ -92,10 +91,7 @@ function showPleaseWait(message) {
   window.loading_screen = window.pleaseWait({
     backgroundColor: style.backgroundColor,
     logo: '',
-    loadingHtml: loadingHtml.join(''),
-    onLoadedCallback: function () {
-      //setLocalVersion(version);
-    }
+    loadingHtml: loadingHtml.join('')
   });
 }
 var theme = getLocalTheme();
