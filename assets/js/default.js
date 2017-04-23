@@ -26,7 +26,7 @@ function setTheme(themeUrl) {
   for (var i = 0; i < links.length; i++) {
     var link = links[i];
     if (link.getAttribute('rel').indexOf('style') !== -1 && link.getAttribute('title')
-      && link.getAttribute('title') === 'bootstrap') {
+      && link.getAttribute('title') === 'bootstrap' && link.getAttribute('href') !== themeUrl) {
       link.setAttribute('href', themeUrl);
     }
   }
@@ -63,7 +63,7 @@ function getVersion() {
   }
   return false;
 }
-function showPleaseWait() {
+function showPleaseWait(message) {
   if (window.loading_screen === false) {
     return;
   }
@@ -73,24 +73,25 @@ function showPleaseWait() {
   var spinner = getRandomSpinner();
   var loadingHtml = [];
   loadingHtml.push('<h1 style="color:' + style.color + '">' + document.title + '</h1>');
-  if (version !== false && localVersion === false) {
-    loadingHtml.push('<h5 style="color:' + style.color + '">Version: ' + version + '</h5>');
-  }
-  if (version !== false && localVersion !== false && version === localVersion) {
-    loadingHtml.push('<h5 style="color:' + style.color + '">Version: ' + version + '</h5>');
-  }
-  if (version !== false && localVersion !== false && version !== localVersion) {
-    loadingHtml.push('<h5 style="color:' + style.color + '">Updating...</h5>');
+  if (!message) {
+    if (version !== false && localVersion === false) {
+      loadingHtml.push('<h5 style="color:' + style.color + '">Version: ' + version + '</h5>');
+    }
+    if (version !== false && localVersion !== false && version === localVersion) {
+      loadingHtml.push('<h5 style="color:' + style.color + '">Version: ' + version + '</h5>');
+    }
+    if (version !== false && localVersion !== false && version !== localVersion) {
+      loadingHtml.push('<h5 style="color:' + style.color + '">Updating...</h5>');
+    }
+  } else {
+    loadingHtml.push('<h5 style="color:' + style.color + '">' + message + '</h5>');
   }
   loadingHtml.push('<br/>');
   loadingHtml.push(spinner);
   window.loading_screen = window.pleaseWait({
     backgroundColor: style.backgroundColor,
     logo: '',
-    loadingHtml: loadingHtml.join(''),
-    onLoadedCallback: function () {
-      //setLocalVersion(version);
-    }
+    loadingHtml: loadingHtml.join('')
   });
 }
 var theme = getLocalTheme();
