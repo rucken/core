@@ -1,7 +1,7 @@
 <div class="form-group checkboxes-input" [ngClass]="{'has-error':errorsValue && errorsValue[name]}">
-  <label class="control-label">{{title | translate}}</label>
-  <div class="form-control form-checkbox-controls">
-    <label class="control-label checkbox-inline" *ngFor="let key of keys(values)" [hidden]="!checkboxesTitles[key]">
+  <label [ngClass]="labelClass">{{title | translate}}</label>
+  <div [ngClass]="inputFrameClass">
+    <label [ngClass]="inputClass" *ngFor="let key of keys(values)" [hidden]="!checkboxesTitles[key]">
         <input type="checkbox" [attr.id]="'input'+key" [(ngModel)]="values[key]" (change)="updateModels()" [disabled]="readonly" [ngModelOptions]="{standalone: true}"> {{ checkboxesTitles[key] | translate }}
     </label>
   </div>

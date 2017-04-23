@@ -1,3 +1,16 @@
+<a name="1.4.2"></a>
+## [1.4.2](https://github.com/site15/rucken/compare/1.4.0...v1.4.2) (2017-04-23)
+
+
+### Bug Fixes
+
+* **grid-select-inputs:** Change properties names and extend it ([bc0eb68](https://github.com/site15/rucken/commit/bc0eb68))
+* **inputs:** Change properties names and extend it ([425364d](https://github.com/site15/rucken/commit/425364d))
+* **route:** Add please wait on lazy route changes as on first load application ([48f37f9](https://github.com/site15/rucken/commit/48f37f9))
+* **srcgen:** Remove extendable components from list of components ([feda93e](https://github.com/site15/rucken/commit/feda93e))
+
+
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/site15/rucken/compare/1.4.0...v1.4.1) (2017-04-18)
 

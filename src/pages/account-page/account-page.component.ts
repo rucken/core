@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router/router';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '../../shared/models/user.model';
@@ -8,7 +9,8 @@ import { AppService } from '../../shared/app.service';
 @Component({
   selector: 'account-page',
   templateUrl: './account-page.component.html',
-  styleUrls: ['./account-page.component.scss']
+  styleUrls: ['./account-page.component.scss'],
+  encapsulation: ViewEncapsulation.None  // Enable dynamic HTML styles
 })
 
 export class AccountPageComponent implements OnInit {

@@ -1,5 +1,4 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
-import { Router, NavigationEnd, Event } from '@angular/router';
 import { EndpointHelper } from './helpers/endpoint.helper';
 import { TranslateService } from '@ngx-translate/core';
 @Injectable()
@@ -11,14 +10,7 @@ export class AppService {
   public endpointHelper: EndpointHelper
   public translate: TranslateService
   private createdModals: any = {};
-  constructor(public _router: Router) {
-    _router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
-      }
-      document.body.scrollTop = 0;
-    });
-  }
+
   set localVersion(value: string) {
     localStorage.setItem('version', value);
   }

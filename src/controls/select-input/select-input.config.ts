@@ -6,4 +6,5 @@ export class SelectInputConfig {
   valueField = 'id';
   titleField = 'asString';
   inputTitleField = 'asString';
+  debounceTime = 300;
 }

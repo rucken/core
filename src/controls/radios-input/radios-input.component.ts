@@ -7,6 +7,13 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, 
 })
 
 export class RadiosInputComponent implements OnInit {
+  @Input()
+  labelClass?: string = 'control-label';
+  @Input()
+  inputClass?: string = 'control-label checkbox-inline';
+  @Input()
+  inputFrameClass?: string = 'form-control form-radio-controls';
+
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @Input()
