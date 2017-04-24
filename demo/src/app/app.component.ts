@@ -14,7 +14,9 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 export class DemoAppComponent extends AppComponent {
   @Input()
   autoLoadLang?: boolean = true;
+
   public pleaseWaitVisible: boolean = false;
+
   public constructor(
     public viewContainerRef: ViewContainerRef,
     public app: AppService,
@@ -45,7 +47,6 @@ export class DemoAppComponent extends AppComponent {
       }
     });
   }
-
   init() {
     if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
       window['loading_screen'].finish();
@@ -58,9 +59,5 @@ export class DemoAppComponent extends AppComponent {
     this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
     let browserLang: string = this.translateService.getBrowserLang();
     this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'ru');
-  }
-  prepareRouteTransition(outlet) {
-    const animationData = outlet.activeRouteData['animation'];
-    return animationData ? animationData['value'] : null;
   }
 }
