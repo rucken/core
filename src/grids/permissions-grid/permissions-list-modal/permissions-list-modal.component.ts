@@ -56,7 +56,6 @@ export class PermissionsListModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.permissions.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

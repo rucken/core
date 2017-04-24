@@ -56,7 +56,6 @@ export class FontawesomesListModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fontawesomes.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

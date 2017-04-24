@@ -56,7 +56,6 @@ export class GroupsListModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.groups.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

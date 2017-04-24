@@ -56,7 +56,6 @@ export class ContentTypesListModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contentTypes.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }
