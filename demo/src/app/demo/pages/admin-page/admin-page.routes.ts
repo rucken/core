@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AdminPageComponent } from '../../../../../../dist';
+import { AdminPageComponent } from '../../../../../../src';
 
 export const AdminPageRoutes: Routes = [
   {

@@ -1,4 +1,4 @@
-import { AppService, AlertModalComponent, AppComponent, RuckenRuI18n } from '../../../dist';
+import { AppService, AlertModalComponent, AppComponent, RuckenRuI18n } from '../../../src';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
@@ -13,9 +13,9 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 })
 export class DemoAppComponent extends AppComponent {
   @Input()
-  autoLoadLang?: boolean = true;
+  autoLoadLang? = true;
 
-  public pleaseWaitVisible: boolean = false;
+  public pleaseWaitVisible = false;
 
   public constructor(
     public viewContainerRef: ViewContainerRef,
@@ -35,7 +35,7 @@ export class DemoAppComponent extends AppComponent {
               return;
             }
             window['showPleaseWait'](this.translateService.instant('Loading...'));
-          }, 300);
+          }, 500);
         }
       }
       if (evt instanceof NavigationEnd) {
@@ -54,10 +54,10 @@ export class DemoAppComponent extends AppComponent {
     }
   }
   loadLang() {
-    this.translateService.addLangs(["en", "ru"]);
+    this.translateService.addLangs(['en', 'ru']);
     this.translateService.setDefaultLang('en');
     this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
-    let browserLang: string = this.translateService.getBrowserLang();
+    const browserLang: string = this.translateService.getBrowserLang();
     this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'ru');
   }
 }

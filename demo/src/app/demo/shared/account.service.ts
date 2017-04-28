@@ -1,12 +1,12 @@
-import { HttpHelper } from '../../../../../dist';
+import { HttpHelper } from '../../../../../src';
 import { Injectable, EventEmitter } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
-import { User } from '../../../../../dist';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { EndpointHelper, AccountService } from '../../../../../dist';
+import { EndpointHelper, AccountService } from '../../../../../src';
 import { environment } from '../../../environments/environment';
 import { Http } from '@angular/http';
+import { User } from '../../../../../src/shared/models/user.model';
 @Injectable()
 export class DemoAccountService extends AccountService {
   public account$: Subject<User>;

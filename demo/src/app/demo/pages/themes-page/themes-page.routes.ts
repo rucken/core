@@ -1,4 +1,4 @@
-import { ThemesPageComponent } from '../../../../../../dist';
+import { ThemesPageComponent } from '../../../../../../src';
 export const ThemesPageRoutes = [{
   path: '',
   pathMatch: 'full',

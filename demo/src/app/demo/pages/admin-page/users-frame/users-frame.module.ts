@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UsersFrameRoutes } from './users-frame.routes';
-import { UsersFrameModule } from '../../../../../../../dist';
+import { UsersFrameModule } from '../../../../../../../src';
 
 @NgModule({
   imports: [
