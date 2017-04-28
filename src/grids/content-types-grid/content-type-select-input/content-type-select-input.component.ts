@@ -23,39 +23,39 @@ import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-
 
 export class ContentTypeSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
-  labelClass?: string = 'control-label';
+  labelClass? = 'control-label';
   @Input()
-  inputClass?: string = 'form-control';
+  inputClass? = 'form-control';
   @Input()
-  inputFrameClass?: string = '';
+  inputFrameClass? = '';
 
   @ViewChild('inputElement')
   inputElement: any;
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon?: string = 'fa fa-search';
+  lookupIcon? = 'fa fa-search';
   @Input()
-  focused: boolean = false;
+  focused = false;
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @Input()
-  inputReadonly: boolean = true;
+  inputReadonly = true;
   @Input()
-  name: string = 'contentType';
+  name = 'contentType';
   @Input()
-  placeholder: string = '';
+  placeholder = '';
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   model: ContentType = new ContentType();
   @Output()
   modelChange: EventEmitter<ContentType> = new EventEmitter<ContentType>();
 
   @Input()
-  modelAsString: string = '';
+  modelAsString = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
@@ -66,11 +66,11 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   @Input()
   public tooltipEnable: boolean;
   @Input()
-  public tooltipText: string = '';
+  public tooltipText = '';
   @Input()
-  public tooltipPlacement: string = 'bottom';
+  public tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers: string = 'hover focus';
+  public tooltipTriggers = 'hover focus';
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -96,7 +96,7 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
     this.cachedResourcesService = contentTypesService.createCache();
   }
   changeInputValue(value: string) {
-    let filter: any = {};
+    const filter: any = {};
     this.cachedResourcesService.ignoreCache = true;
     this.cachedResourcesService.loadAll(value, filter);
   }
@@ -104,7 +104,7 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
     return this.accountService.account;
   }
   onLookup() {
-    let itemModal: ContentTypesListModalComponent =
+    const itemModal: ContentTypesListModalComponent =
       this.app.modals(this.resolver).create(ContentTypesListModalComponent);
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;

@@ -38,7 +38,6 @@ export class ThemesPageComponent implements OnInit {
     return this.themesService.getCurrentTheme();
   }
   search(ignoreCache?: boolean) {
-    let filter: any = {};
     this.themesService.ignoreCache = ignoreCache;
     this.themesService.loadAll();
   }

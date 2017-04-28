@@ -1,12 +1,13 @@
 import { Permission } from './permission.model';
 import { ResourceModel } from '../../shared/models/resource.model';
 import { Group } from './group.model';
+import { translate } from '../utils';
 
 export class GroupPermission extends ResourceModel {
   static titles: any = {
-    id: 'Id',//translate
-    group: 'Group',//translate
-    permission: 'Permission',//translate
+    id: translate('Id'),
+    group: translate('Group'),
+    permission: translate('Permission'),
   };
   static fields: any = ['id', 'group', 'permission'];
 
@@ -14,20 +15,21 @@ export class GroupPermission extends ResourceModel {
   group: Group;
   permission: Permission;
 
-  constructor(obj?: any) {
-    super(obj);
-  }
   static meta(): any {
-    let meta: any = GroupPermission;
+    const meta: any = GroupPermission;
     meta.group = Group;
     meta.permission = Permission;
     return meta;
+  }
+
+  constructor(obj?: any) {
+    super(obj);
   }
   parse(obj: any) {
     this.parseByFields(obj, GroupPermission.meta());
   }
   format() {
-    let result = this.formatByFields(GroupPermission.meta());
+    const result = this.formatByFields(GroupPermission.meta());
     return result;
   }
   get asString() {

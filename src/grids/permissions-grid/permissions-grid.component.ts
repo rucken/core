@@ -31,7 +31,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
 
   public modelMeta: any = Permission.meta();
   public items: Permission[];
-  public searchText: string = '';
+  public searchText = '';
   public selectedItems: Permission[];
   public cachedResourcesService: PermissionsService;
 
@@ -56,12 +56,12 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
+    const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['add_permission']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new permission');
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Permission();
     itemModal.modal.show();
@@ -72,7 +72,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
+    const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_permission']);
     itemModal.text = this.translateService.instant('Save');
@@ -80,7 +80,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Permission info');
     }
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Permission(item);
     itemModal.modal.show();
@@ -91,11 +91,11 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a permission?');
-    confirm.onYes.subscribe(($event:any) => this.remove($event));
+    confirm.onYes.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();

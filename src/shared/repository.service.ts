@@ -6,9 +6,9 @@ import 'rxjs/add/operator/map';
 import { ResouceEnumStatus } from '../shared/enums/resource.enums';
 import { User } from '../shared/models/user.model';
 import { RepositoryHelper } from './helpers/repository.helper';
-import { UtilsService } from '../shared/utils.service';
 import { MetaModel } from '../shared/models/meta.model';
 import * as _ from 'lodash';
+import { inValues, translate } from './utils';
 
 @Injectable()
 export class RepositoryService {
@@ -47,7 +47,7 @@ export class RepositoryService {
     return new RepositoryService(this.repositoryHelper);
   }
   createCache(): any {
-    let cache = this.newCache();
+    const cache = this.newCache();
     cache.parent = this;
     this.cached.push(cache);
     return cache;
@@ -122,7 +122,7 @@ export class RepositoryService {
     if (this.mockedItems !== null) {
       return this.mockLoadAll(filter, this.mockedItems);
     }
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     if (!filter.curPage && this.meta.curPage) {
       filter.curPage = this.meta.curPage;
     }
@@ -143,7 +143,7 @@ export class RepositoryService {
     */
     this.queryProps = _.cloneDeep(filter);
     this.setStatusList(ResouceEnumStatus.Loading,
-      'Loading...'//translate
+      translate('Loading...')
     );
     this.repositoryHelper.readItemsRequest(this)
       .map((response: any) => this.repositoryHelper.itemsResponse(this, response).map((item: any) => this.transformModel(item)))
@@ -155,7 +155,7 @@ export class RepositoryService {
         } else {
           result.error(this.items);
           this.setStatusList(ResouceEnumStatus.NotFound,
-            'Not found'//translate
+            translate('Not found')
           );
         }
       }, (error: any) => {
@@ -167,29 +167,29 @@ export class RepositoryService {
           this.items$.next([]);
           result.error(this.repositoryHelper.extractError(error));
           this.setStatusList(ResouceEnumStatus.NotFound,
-            'Not found'//translate
+            translate('Not found')
           );
         }
       });
     return result;
   }
   mockLoadAll(filter: any, mockedItems: any[]) {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     this.setStatusList(ResouceEnumStatus.Loading,
-      'Loading...'//translate
+      translate('Loading...')
     );
     setTimeout((out: any) => {
-      let constItems = mockedItems.filter((item: any) => UtilsService.inValues(item, filter.q)).
+      const constItems = mockedItems.filter((item: any) => inValues(item, filter.q)).
         map((item: any) => this.transformModel(item));
       this.calcMeta(constItems.length);
       let count = 0;
       if (this.meta.perPage === undefined) {
         console.error(
-          'Error, you not set perPage count'//translate
+          translate('Error, you not set perPage count')
         );
       }
-      let startIndex = ((this.meta.curPage <= 1 ? 0 : this.meta.curPage - 1) * this.meta.perPage) + 1;
-      let items = constItems.filter((item: any, index: number) => {
+      const startIndex = ((this.meta.curPage <= 1 ? 0 : this.meta.curPage - 1) * this.meta.perPage) + 1;
+      const items = constItems.filter((item: any, index: number) => {
         if (index + 1 >= startIndex && count < this.meta.perPage) {
           count++;
           return true;
@@ -204,16 +204,16 @@ export class RepositoryService {
       } else {
         result.error(this.items);
         this.setStatusList(ResouceEnumStatus.NotFound,
-          'Not found'//translate
+          translate('Not found')
         );
       }
     });
     return result;
   }
   cacheLoadAll(cachedItems: any[]) {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     this.setStatusList(ResouceEnumStatus.Loading,
-      'Loading...'//translate
+      translate('Loading...')
     );
     setTimeout((out: any) => {
       this.loadAllItems(this.repositoryHelper.itemsResponse(this, cachedItems));
@@ -223,7 +223,7 @@ export class RepositoryService {
       } else {
         result.error(this.items);
         this.setStatusList(ResouceEnumStatus.NotFound,
-          'Not found'//translate
+          translate('Not found')
         );
       }
     });
@@ -243,9 +243,9 @@ export class RepositoryService {
     this.items$.next(this.items);
   }
   load(key: string | number) {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     this.setStatusItem(ResouceEnumStatus.Loading,
-      'Loading...'//translate
+      translate('Loading...')
     );
     this.repositoryHelper.readItemRequest(this, key)
       .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response)))
@@ -256,7 +256,7 @@ export class RepositoryService {
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
         this.setStatusItem(ResouceEnumStatus.NotFound,
-          'Not found'//translate
+          translate('Not found')
         );
       });
     return result;
@@ -270,11 +270,11 @@ export class RepositoryService {
     this.items$.next(this.items);
   }
   create(item: any) {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     if (item.validate && item.validate() !== true) {
       result.error(item.validate());
       this.setStatusItem(ResouceEnumStatus.Invalid,
-        'Error in creating'//translate
+        translate('Error in creating')
       );
       return result;
     }
@@ -282,7 +282,7 @@ export class RepositoryService {
       return this.mockCreate(item);
     }
     this.setStatusItem(ResouceEnumStatus.Creating,
-      'Creating...'//translate
+      translate('Creating...')
     );
     this.repositoryHelper.createItemRequest(this, item)
       .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
@@ -294,16 +294,16 @@ export class RepositoryService {
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
         this.setStatusItem(ResouceEnumStatus.Invalid,
-          'Error in creating'//translate
+          translate('Error in creating')
         );
       });
     return result;
   }
   mockCreate(item: any) {
     this.setStatusItem(ResouceEnumStatus.Creating,
-      'Creating...'//translate
+      translate('Creating...')
     );
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     setTimeout((out: any) => {
       if (item.length) {
         for (let i = 0; i < item.length; i++) {
@@ -345,11 +345,11 @@ export class RepositoryService {
     this.items$.next(this.items);
   }
   update(item: any) {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     if (item.validate() !== true) {
       result.error(item.validate());
       this.setStatusItem(ResouceEnumStatus.Invalid,
-        'Error in creating'//translate
+        translate('Error in creating')
       );
       return result;
     }
@@ -357,7 +357,7 @@ export class RepositoryService {
       return this.mockUpdate(item);
     }
     this.setStatusItem(ResouceEnumStatus.Updating,
-      'Updating...'//translate
+      translate('Updating...')
     );
     this.repositoryHelper.updateItemRequest(this, item)
       .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
@@ -369,16 +369,16 @@ export class RepositoryService {
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
         this.setStatusItem(ResouceEnumStatus.Invalid,
-          'Error in updating'//translate
+          translate('Error in updating')
         );
       });
     return result;
   }
   mockUpdate(item: any) {
     this.setStatusItem(ResouceEnumStatus.Updating,
-      'Updating...'//translate
+      translate('Updating...')
     );
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     setTimeout((out: any) => {
       this.updateItem(item);
       result.emit(item);
@@ -396,12 +396,12 @@ export class RepositoryService {
   }
   removeItems(items: any[]) {
     if (this.mockedItems !== null) {
-      let keys = items.map(d => d.pk);
+      const keys = items.map(d => d.pk);
       this.mockedItems.forEach((t, i) => {
         if (keys.indexOf(t.pk) !== -1) { this.mockedItems.splice(i, 1); }
       });
     }
-    let keys = items.map(d => d.pk);
+    const keys = items.map(d => d.pk);
     this.items.forEach((t, i) => {
       if (keys.indexOf(t.pk) !== -1) { this.items.splice(i, 1); }
     });
@@ -422,32 +422,32 @@ export class RepositoryService {
     if (this.mockedItems !== null) {
       return this.mockRemove(items);
     }
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     this.setStatusItem(ResouceEnumStatus.Removing,
-      'Removing...'//translate
+      translate('Removing...')
     );
     this.repositoryHelper.deleteItemsRequest(this, items)
       .subscribe((response: any) => {
-        let prevLength = this.items.length;
+        const prevLength = this.items.length;
         this.removeItems(items);
         if (prevLength === 0 && this.items.length === 0) {
           result.error({
-            error: 'Not found'//translate
+            error: translate('Not found')
           });
           this.setStatusList(ResouceEnumStatus.NotFound,
-            'Not found'//translate
+            translate('Not found')
           );
         } else {
           if (this.items.length === 0) {
             result.emit({
-              message: 'OK'//translate
+              message: translate('OK')
             });
             this.setStatusList(ResouceEnumStatus.NotFound,
-              'Not found'//translate
+              translate('Not found')
             );
           } else {
             result.emit({
-              message: 'OK'//translate
+              message: translate('OK')
             });
             this.setStatusItem(ResouceEnumStatus.Ok);
           }
@@ -455,37 +455,37 @@ export class RepositoryService {
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
         this.setStatusItem(ResouceEnumStatus.Invalid,
-          'Error on deleting'//translate
+          translate('Error on deleting')
         );
       });
     return result;
   }
   mockRemove(items: any[]) {
     this.setStatusItem(ResouceEnumStatus.Removing,
-      'Removing...'//translate
+      translate('Removing...')
     );
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     setTimeout((out: any) => {
-      let prevLength = this.items.length;
+      const prevLength = this.items.length;
       this.removeItems(items);
       if (prevLength === 0 && this.items.length === 0) {
         result.error({
-          error: 'Not found'//translate
+          error: translate('Not found')
         });
         this.setStatusList(ResouceEnumStatus.NotFound,
-          'Not found'//translate
+          translate('Not found')
         );
       } else {
         if (this.items.length === 0) {
           result.emit({
-            message: 'OK'//translate
+            message: translate('OK')
           });
           this.setStatusList(ResouceEnumStatus.NotFound,
-            'Not found'//translate
+            translate('Not found')
           );
         } else {
           result.emit({
-            message: 'OK'//translate
+            message: translate('OK')
           });
           this.setStatusItem(ResouceEnumStatus.Ok);
         }

@@ -12,28 +12,28 @@ export class ResourceInputComponent implements OnInit {
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon?: string = 'fa fa-search';
+  lookupIcon? = 'fa fa-search';
   @Input()
-  focused: boolean = false;
+  focused = false;
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @Input()
-  inputReadonly: boolean = true;
+  inputReadonly = true;
   @Input()
-  name: string = 'resource';
+  name = 'resource';
   @Input()
-  placeholder: string = '';
+  placeholder = '';
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   model: any = {};
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
 
   @Input()
-  modelAsString: string = '';
+  modelAsString = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
@@ -49,14 +49,14 @@ export class ResourceInputComponent implements OnInit {
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
     });
     this.info.subscribe((data: any) => {
       this.infoValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }

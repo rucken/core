@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { UtilsService } from '../utils.service';
 import * as _ from 'lodash';
 import { EndpointHelper } from './endpoint.helper';
 import { HttpHelper } from './http.helper';
@@ -20,8 +19,8 @@ export class RepositoryHelper extends EndpointHelper {
     }
   };
   itemsUrl(repositoryService: any) {
-    let uri = new URLSearchParams();
-    for (let queryProp in repositoryService.queryProps) {
+    const uri = new URLSearchParams();
+    for (const queryProp in repositoryService.queryProps) {
       if (repositoryService.queryProps.hasOwnProperty(queryProp)) {
         uri.append(_.snakeCase(queryProp), repositoryService.queryProps[queryProp]);
       }
@@ -29,13 +28,13 @@ export class RepositoryHelper extends EndpointHelper {
     let apiUrl = repositoryService.apiUrl;
     if (repositoryService.props !== null) {
       apiUrl = repositoryService.apiUrlWithProps;
-      for (let propKey in repositoryService.props) {
+      for (const propKey in repositoryService.props) {
         if (repositoryService.props.hasOwnProperty(propKey)) {
           apiUrl = apiUrl.replace(`{${propKey}}`, repositoryService.props[propKey]);
         }
       }
     }
-    for (let key in repositoryService.columns) {
+    for (const key in repositoryService.columns) {
       if (repositoryService.columns.hasOwnProperty(key)) {
         if (repositoryService.columns[key]['sort']) {
           if (repositoryService.columns[key]['sort'] === 'asc') {
@@ -96,7 +95,7 @@ export class RepositoryHelper extends EndpointHelper {
     );
   };
   updateItemRequest(repositoryService: any, item: any): Observable<Response> {
-    let pkValue = item.pk;
+    const pkValue = item.pk;
     if (item && item.format) {
       item = item.format();
     }
@@ -106,7 +105,7 @@ export class RepositoryHelper extends EndpointHelper {
     );
   };
   deleteItemsRequest(repositoryService: any, items: any): Observable<Response> {
-    let ids = items.map((item: any) => item.pk);
+    const ids = items.map((item: any) => item.pk);
     return this.httpHelper.delete(this.itemUrl(repositoryService, ids.join('|')));
   };
 }

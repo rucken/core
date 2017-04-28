@@ -13,6 +13,7 @@ import { TextInputComponent } from '../../../controls/text-input/text-input.comp
 import { UserGroupsGridComponent } from '../../user-groups-grid/user-groups-grid.component';
 import { Group } from '../../../shared/models/group.model';
 import { UserGroup } from '../../../shared/models/user-group.model';
+import { translate } from '../../../shared/utils';
 
 @Component({
   selector: 'account-profile-form',
@@ -27,17 +28,17 @@ export class AccountProfileFormComponent implements OnInit {
   @ViewChild('userGroups')
   userGroups: UserGroupsGridComponent;
   @Input()
-  text: string = 'Update';//translate
+  text = translate('Update');
   @Input()
-  class: string = '';
+  class = '';
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  hideOnClose?: boolean = true;
+  hideOnClose? = true;
   @Input()
   account: any | User = null;
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   item: any | User = new User();
   @Input()

@@ -30,7 +30,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
 
   public modelMeta: any = User.meta();
   public items: User[] | any[];
-  public searchText: string = '';
+  public searchText = '';
   public selectedItems: User[] | any[];
   public cachedResourcesService: UsersService;
 
@@ -55,7 +55,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
+    const itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['add_user']);
     itemModal.text = this.translateService.instant('Create');
@@ -71,7 +71,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
+    const itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_user']);
     itemModal.text = this.translateService.instant('Save');
@@ -90,7 +90,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a user?');

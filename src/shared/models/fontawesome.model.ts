@@ -1,28 +1,33 @@
 import { ResourceModel } from './resource.model';
+import { translate } from '../utils';
 
 export class Fontawesome extends ResourceModel {
   static titles: any = {
-    icon: 'Icon',//translate
-    code: 'Code',//translate
-    class: 'Class'//translate
+    icon: translate('Icon'),
+    code: translate('Code'),
+    class: translate('Class')
   };
   static fields: any = ['code', 'class'];
+
+  public _pkFieldName = 'class';
+  public _pkIsNumber = false;
 
   code: string;
   class: string;
 
-  constructor(obj?: any) {
-    super(obj, 'class', false);
-  }
   static meta(): any {
-    let meta: any = Fontawesome;
+    const meta: any = Fontawesome;
     return meta;
+  }
+
+  constructor(obj?: any) {
+    super(obj);
   }
   parse(obj: any) {
     this.parseByFields(obj, Fontawesome.meta());
   }
   format() {
-    let result = this.formatByFields(Fontawesome.meta());
+    const result = this.formatByFields(Fontawesome.meta());
     return result;
   }
   get asString() {

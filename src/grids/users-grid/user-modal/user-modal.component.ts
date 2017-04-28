@@ -29,17 +29,17 @@ export class UserModalComponent implements OnInit {
   @ViewChild('userGroups')
   userGroups: UserGroupsGridComponent;
   @Input()
-  text: string = '';
+  text = '';
   @Input()
-  class: string = '';
+  class = '';
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  hideOnClose?: boolean = true;
+  hideOnClose? = true;
   @Input()
   account: any | User = null;
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   item: any | User = new User();
   @Input()

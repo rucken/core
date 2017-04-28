@@ -23,28 +23,28 @@ export class PermissionInputComponent extends ResourceInputComponent {
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon?: string = 'fa fa-search';
+  lookupIcon? = 'fa fa-search';
   @Input()
-  focused: boolean = false;
+  focused = false;
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @Input()
-  inputReadonly: boolean = true;
+  inputReadonly = true;
   @Input()
-  name: string = 'permission';
+  name = 'permission';
   @Input()
-  placeholder: string = '';
+  placeholder = '';
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   model: Permission = new Permission();
   @Output()
   modelChange: EventEmitter<Permission> = new EventEmitter<Permission>();
 
   @Input()
-  modelAsString: string = '';
+  modelAsString = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
@@ -74,13 +74,13 @@ export class PermissionInputComponent extends ResourceInputComponent {
     return this.accountService.account;
   }
   onLookup() {
-    let itemModal: PermissionsListModalComponent =
+    const itemModal: PermissionsListModalComponent =
       this.app.modals(this.resolver).create(PermissionsListModalComponent);
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Permissions');
-    itemModal.onSave.subscribe(($event:any) => {
+    itemModal.onSave.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputReadonly === false) {
         this.valueAsString = '';

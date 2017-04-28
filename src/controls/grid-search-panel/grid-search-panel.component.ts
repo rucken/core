@@ -17,7 +17,7 @@ export class GridSearchPanelComponent implements OnInit {
   @Output()
   public onSearch: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  public maxlength: number = 250;
+  public maxlength = 250;
   constructor(public translateService: TranslateService) {
     if (this.searchTitle === undefined) {
       this.searchTitle = this.translateService.instant('Search');

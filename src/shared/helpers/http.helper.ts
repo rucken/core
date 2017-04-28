@@ -1,3 +1,4 @@
+import { TriggerListenerTuple } from '@angular/animations/browser/src/render/dom_animation_engine';
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -6,13 +7,13 @@ import { AuthHttp } from 'angular2-jwt';
 @Injectable()
 export class HttpHelper {
 
-  public withCredentials: boolean = false;
+  public withCredentials = false;
 
   constructor(public authHttp: AuthHttp, public http: Http) {
   }
 
   get(url: string): Observable<Response> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
     if (url.indexOf('mockapi.io') !== -1) {
       options = new RequestOptions({ headers: headers });
@@ -28,8 +29,8 @@ export class HttpHelper {
     if (data.format !== undefined) {
       data = data.format();
     }
-    let bodyString = JSON.stringify(data);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    const bodyString = JSON.stringify(data);
+    const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
     if (url.indexOf('mockapi.io') !== -1) {
       options = new RequestOptions({ headers: headers });
@@ -45,8 +46,8 @@ export class HttpHelper {
     if (data.format !== undefined) {
       data = data.format();
     }
-    let bodyString = JSON.stringify(data);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    const bodyString = JSON.stringify(data);
+    const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
     if (url.indexOf('mockapi.io') !== -1) {
       options = new RequestOptions({ headers: headers });
@@ -62,8 +63,8 @@ export class HttpHelper {
     if (data.format !== undefined) {
       data = data.format();
     }
-    let bodyString = JSON.stringify(data);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    const bodyString = JSON.stringify(data);
+    const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
     if (url.indexOf('mockapi.io') !== -1) {
       options = new RequestOptions({ headers: headers });
@@ -73,7 +74,7 @@ export class HttpHelper {
   }
 
   delete(url: string): Observable<Response> {
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+    const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
     if (url.indexOf('mockapi.io') !== -1) {
       options = new RequestOptions({ headers: headers });

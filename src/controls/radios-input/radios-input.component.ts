@@ -8,22 +8,22 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, 
 
 export class RadiosInputComponent implements OnInit {
   @Input()
-  labelClass?: string = 'control-label';
+  labelClass? = 'control-label';
   @Input()
-  inputClass?: string = 'control-label checkbox-inline';
+  inputClass? = 'control-label checkbox-inline';
   @Input()
-  inputFrameClass?: string = 'form-control form-radio-controls';
+  inputFrameClass? = 'form-control form-radio-controls';
 
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @Input()
-  public focused: boolean = false;
+  public focused = false;
   @Input()
-  public readonly: boolean = false;
+  public readonly = false;
   @Input()
-  public name: string = 'radios';
+  public name = 'radios';
   @Input()
-  public title: string = '';
+  public title = '';
   @Input()
   public values: { [key: string]: string; } = {};
   @Input()
@@ -43,14 +43,14 @@ export class RadiosInputComponent implements OnInit {
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
     });
     this.info.subscribe((data: any) => {
       this.infoValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }

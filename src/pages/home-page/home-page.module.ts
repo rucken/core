@@ -11,7 +11,7 @@ import { PageHeaderModule } from '../../controls/page-header/page-header.module'
     CommonModule,
     TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
-    //RouterModule.forChild(HomePageRoutes)
+    // RouterModule.forChild(HomePageRoutes)
   ],
   declarations: [HomePageComponent],
   exports: [HomePageComponent],

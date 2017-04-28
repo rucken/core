@@ -1,32 +1,34 @@
 import { ResourceModel } from '../../shared/models/resource.model';
 import { User } from './user.model';
 import { Group } from './group.model';
+import { translate } from '../utils';
 
 export class UserGroup extends ResourceModel {
   static titles: any = {
-    id: 'Id',//translate
-    user: 'User',//translate
-    group: 'Group'//translate
+    id: translate('Id'),
+    user: translate('User'),
+    group: translate('Group')
   };
   static fields: any = ['id', 'user', 'group'];
   id: number;
   user: User;
   group: Group;
 
-  constructor(obj?: any) {
-    super(obj);
-  }
   static meta(): any {
-    let meta: any = UserGroup;
+    const meta: any = UserGroup;
     meta.user = User;
     meta.group = Group;
     return meta;
+  }
+
+  constructor(obj?: any) {
+    super(obj);
   }
   parse(obj: any) {
     this.parseByFields(obj, UserGroup.meta());
   }
   format() {
-    let result = this.formatByFields(UserGroup.meta());
+    const result = this.formatByFields(UserGroup.meta());
     return result;
   }
   get asString() {

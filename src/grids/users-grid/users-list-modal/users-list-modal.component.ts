@@ -18,7 +18,7 @@ export class UsersListModalComponent implements OnInit {
   @Input()
   readonly: boolean;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')

@@ -30,17 +30,17 @@ export class GroupModalComponent implements OnInit {
   @ViewChild('groupPermissions')
   groupPermissions: GroupPermissionsGridComponent;
   @Input()
-  text: string = '';
+  text = '';
   @Input()
-  class: string = '';
+  class = '';
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  hideOnClose?: boolean = true;
+  hideOnClose? = true;
   @Input()
   account: any | User = null;
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   item: any | Group = new Group();
   @Input()

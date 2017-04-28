@@ -31,7 +31,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
 
   public modelMeta: any = Group.meta();
   public items: Group[];
-  public searchText: string = '';
+  public searchText = '';
   public selectedItems: Group[];
   public cachedResourcesService: GroupsService;
 
@@ -56,12 +56,12 @@ export class GroupsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
+    const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['add_group']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new group');
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Group();
     itemModal.modal.show();
@@ -72,7 +72,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
+    const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_group']);
     itemModal.text = this.translateService.instant('Save');
@@ -80,7 +80,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Group info');
     }
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Group(item);
     itemModal.modal.show();
@@ -91,11 +91,11 @@ export class GroupsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a group?');
-    confirm.onYes.subscribe(($event:any) => this.remove($event));
+    confirm.onYes.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();

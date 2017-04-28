@@ -10,10 +10,9 @@
       </div>
       <form (ngSubmit)="login()">
         <div class="modal-body">
-          <text-input [errors]="errors" [info]="info" name="username" [(model)]="account.username" [title]="modelMeta.titles.usernameOrEmail" [focused]="true"
-            [readonly]="readonly" #focusElement></text-input>
-          <text-input [errors]="errors" [info]="info" type="password" name="password" [(model)]="account.password" [title]="modelMeta.titles.password"
-            [readonly]="readonly"></text-input>
+          <text-input [errors]="errors" [info]="info" name="username" [(model)]="account.username" [title]="modelMeta.titles.usernameOrEmail"
+            [focused]="true" #focusElement></text-input>
+          <text-input [errors]="errors" [info]="info" type="password" name="password" [(model)]="account.password" [title]="modelMeta.titles.password"></text-input>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" (click)="close()" translate>Cancel</button>

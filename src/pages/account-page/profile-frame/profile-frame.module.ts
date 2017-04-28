@@ -13,7 +13,7 @@ import { AccountProfileFormModule } from '../../../grids/users-grid/account-prof
     TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
     AccountProfileFormModule.forRoot(),
-    //RouterModule.forChild(ProfileFrameRoutes)
+    // RouterModule.forChild(ProfileFrameRoutes)
   ],
   declarations: [
     ProfileFrameComponent

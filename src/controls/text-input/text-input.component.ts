@@ -14,30 +14,30 @@ import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 
 export class TextInputComponent implements OnInit {
   @Input()
-  labelClass?: string = 'control-label';
+  labelClass? = 'control-label';
   @Input()
-  inputClass?: string = 'form-control';
+  inputClass? = 'form-control';
   @Input()
-  inputFrameClass?: string = '';
+  inputFrameClass? = '';
 
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @Input()
-  public focused: boolean = false;
+  public focused = false;
   @Input()
-  public type: string = 'text';
+  public type = 'text';
   @Input()
-  public readonly: boolean = false;
+  public readonly = false;
   @Input()
-  public name: string = 'text';
+  public name = 'text';
   @Input()
-  public placeholder: string = '';
+  public placeholder = '';
   @Input()
-  public title: string = '';
+  public title = '';
   @Input()
-  public model: string = '';
+  public model = '';
   @Input()
   public hardValue: string = null;
   @Output()
@@ -53,17 +53,17 @@ export class TextInputComponent implements OnInit {
   @Input()
   public step: string;
   @Input()
-  public min: string = '';
+  public min = '';
   @Input()
-  public max: string = '';
+  public max = '';
   @Input()
   public tooltipEnable: boolean;
   @Input()
-  public tooltipText: string = '';
+  public tooltipText = '';
   @Input()
-  public tooltipPlacement: string = 'bottom';
+  public tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers: string = 'hover focus';
+  public tooltipTriggers = 'hover focus';
 
   public errorsValue: any;
   public infoValue: any;
@@ -85,7 +85,7 @@ export class TextInputComponent implements OnInit {
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
@@ -93,7 +93,7 @@ export class TextInputComponent implements OnInit {
     });
     this.info.subscribe((data: any) => {
       this.infoValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
@@ -124,12 +124,12 @@ export class TextInputComponent implements OnInit {
     }, 700);
   }
   showTooltip() {
-    let tooltip: any = this.tooltip;
+    const tooltip: any = this.tooltip;
     if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
       return;
     }
-    let tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    let tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
+    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
+    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
     tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
@@ -138,8 +138,8 @@ export class TextInputComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
   get errorMessage(): any {
-    let arr: string[] = [];
-    let text: string = '';
+    const arr: string[] = [];
+    let text = '';
     if (this.errorsValue && this.errorsValue[this.name]) {
       for (let i = 0; i < this.errorsValue[this.name].length; i++) {
         if (this.errorsValue[this.name][i]) {
@@ -154,8 +154,8 @@ export class TextInputComponent implements OnInit {
     return false;
   }
   get infoMessage(): any {
-    let arr: string[] = [];
-    let text: string = '';
+    const arr: string[] = [];
+    let text = '';
     if (this.infoValue && this.infoValue[this.name]) {
       for (let i = 0; i < this.infoValue[this.name].length; i++) {
         if (this.infoValue[this.name][i]) {

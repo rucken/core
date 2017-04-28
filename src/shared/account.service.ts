@@ -1,9 +1,11 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { User } from './models/user.model';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { EndpointHelper } from './helpers/endpoint.helper';
 import { ResouceEnumStatus } from './enums/resource.enums';
+import { translate } from './utils';
+import { User } from './models/user.model';
+
 @Injectable()
 export class AccountService {
   public name: string;
@@ -41,9 +43,9 @@ export class AccountService {
     return this._account;
   }
   public info() {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     this.setStatus(ResouceEnumStatus.Loading,
-      'Loading...'//translate
+      translate('Loading...')
     );
     this.endpointHelper.actionRequest(this, 'info').map(
       (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
@@ -55,15 +57,15 @@ export class AccountService {
         this.account = null;
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(ResouceEnumStatus.Error,
-          'Error'//translate
+          translate('Error')
         );
       });
     return result;
   }
   public login(account: any | User) {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     this.setStatus(ResouceEnumStatus.Loading,
-      'Loading...'//translate
+      translate('Loading...')
     );
     this.endpointHelper.actionRequest(this, 'login', account.AsLoginUser).map(
       (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
@@ -75,13 +77,13 @@ export class AccountService {
         this.account = null;
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(ResouceEnumStatus.Error,
-          'Error'//translate
+          translate('Error')
         );
       });
     return result;
   }
   public logout() {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     setTimeout((out: any) => {
       this.account = null;
       result.emit({ message: 'OK' });
@@ -89,9 +91,9 @@ export class AccountService {
     return result;
   }
   public update(account: any | User) {
-    let result = new EventEmitter();
+    const result = new EventEmitter();
     this.setStatus(ResouceEnumStatus.Updating,
-      'Updating...'//translate
+      translate('Updating...')
     );
     this.endpointHelper.actionRequest(this, 'update', account).map(
       (response: any) => this.endpointHelper.actionResponse(this, 'update', response))
@@ -102,7 +104,7 @@ export class AccountService {
       }, (error: any) => {
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(ResouceEnumStatus.Error,
-          'Error'//translate
+          translate('Error')
         );
       });
     return result;

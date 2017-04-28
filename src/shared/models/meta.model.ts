@@ -1,10 +1,12 @@
 import { ResourceModel } from './resource.model';
+import { translate } from '../utils';
+
 export class MetaModel extends ResourceModel {
   static titles: any = {
-    totalResults: 'Total results',//translate
-    curPage: 'Current page',//translate
-    totalPages: 'Total pages',//translate
-    perPage: 'Per page'//translate
+    totalResults: translate('Total results'),
+    curPage: translate('Current page'),
+    totalPages: translate('Total pages'),
+    perPage: translate('Per page')
   };
   static fields: any = ['totalResults', 'curPage', 'totalPages', 'perPage'];
 
@@ -13,18 +15,18 @@ export class MetaModel extends ResourceModel {
   totalPages: number;
   perPage: number;
 
+  static meta(): any {
+    const meta: any = MetaModel;
+    return meta;
+  }
   constructor(obj?: any) {
     super(obj);
-  }
-  static meta(): any {
-    let meta: any = MetaModel;
-    return meta;
   }
   parse(obj: any) {
     this.parseByFields(obj, MetaModel.meta());
   }
   format() {
-    let result = this.formatByFields(MetaModel.meta());
+    const result = this.formatByFields(MetaModel.meta());
     return result;
   }
 }
