@@ -12,7 +12,7 @@ import { PageHeaderModule } from '../../controls/page-header/page-header.module'
     RouterModule,
     TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
-    //RouterModule.forChild(AdminPageRoutes)
+    // RouterModule.forChild(AdminPageRoutes)
   ],
   declarations: [
     AdminPageComponent

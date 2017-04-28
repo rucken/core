@@ -1,12 +1,13 @@
 import { ResourceModel } from './resource.model';
 import { Permission } from './permission.model';
 import * as _ from 'lodash';
+import { translate } from '../utils';
 
 export class Group extends ResourceModel {
   static titles: any = {
-    id: 'Id',//translate
-    name: 'Name',//translate
-    permissions: 'Permissions'//translate
+    id: translate('Id'),
+    name: translate('Name'),
+    permissions: translate('Permissions')
   };
   static fields: any = ['id', 'name', 'permissions'];
 
@@ -14,12 +15,12 @@ export class Group extends ResourceModel {
   name: string;
   permissions: Permission[];
 
+  static meta(): any {
+    const meta: any = Group;
+    return meta;
+  }
   constructor(obj?: any) {
     super(obj);
-  }
-  static meta(): any {
-    let meta: any = Group;
-    return meta;
   }
   parse(obj: any) {
     this.parseByFields(obj, Group.meta());
@@ -27,13 +28,13 @@ export class Group extends ResourceModel {
       obj.permissions.map((permission: any) => new Permission(permission)) : [];
   }
   format() {
-    let result = this.formatByFields(Group.meta());
+    const result = this.formatByFields(Group.meta());
     result.permissions = result.permissions && result.permissions.length ?
       result.permissions.map((permission: Permission) => permission.pk) : [];
     return result;
   }
   checkPermissions(permissionNames: string[]) {
-    let result = this.permissions && this.permissions.filter(
+    const result = this.permissions && this.permissions.filter(
       permission => permissionNames.filter(
         permissionName => _.camelCase(permission.codename).toLowerCase() === _.camelCase(permissionName).toLowerCase()
       ).length > 0

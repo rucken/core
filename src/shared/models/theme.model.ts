@@ -1,21 +1,27 @@
 import { ResourceModel } from './resource.model';
+import { translate } from '../utils';
 
 export class Theme extends ResourceModel {
-  public _pkFieldName: string = 'url';
-  public _pkIsNumber: boolean = false;
   static titles: any = {
-    url: 'Url',//translate
-    name: 'Name'//translate
+    url: translate('Url'),
+    name: translate('Name')
   };
+
   static fields: any = ['url', 'name'];
-  url: string;
-  name: string;
-  constructor(obj?: any) {
-    super(obj, 'url', false);
-  }
+
+  public _pkFieldName = 'url';
+  public _pkIsNumber = false;
+
+  public url: string;
+  public name: string;
+
   static meta(): any {
-    let meta: any = Theme;
+    const meta: any = Theme;
     return meta;
+  }
+
+  constructor(obj?: any) {
+    super(obj);
   }
   parse(obj: any) {
     this.parseByFields(obj, Theme.meta());

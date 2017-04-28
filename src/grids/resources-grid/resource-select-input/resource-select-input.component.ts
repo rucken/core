@@ -12,7 +12,7 @@ import { ResourceSelectInputConfig } from './resource-select-input.config';
 
 export class ResourceSelectInputComponent implements OnInit {
   @Input()
-  labelClass?: string = 'control-label';
+  labelClass?= 'control-label';
   @Input()
   inputClass?: string;
   @ViewChild('inputElement')
@@ -22,26 +22,26 @@ export class ResourceSelectInputComponent implements OnInit {
   @Input()
   lookupIcon?: string;
   @Input()
-  focused: boolean = false;
+  focused = false;
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @Input()
-  inputReadonly: boolean = true;
+  inputReadonly = true;
   @Input()
   name: string;
   @Input()
-  placeholder: string = '';
+  placeholder = '';
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   model: any = {};
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
 
   @Input()
-  modelAsString: string = '';
+  modelAsString = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
@@ -51,18 +51,18 @@ export class ResourceSelectInputComponent implements OnInit {
   @Input()
   width: string = null;
   @Input()
-  loadAll: boolean = true;
+  loadAll = true;
 
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @Input()
   public tooltipEnable: boolean;
   @Input()
-  public tooltipText: string = '';
+  public tooltipText = '';
   @Input()
-  public tooltipPlacement: string = 'bottom';
+  public tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers: string = 'hover focus';
+  public tooltipTriggers = 'hover focus';
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -88,12 +88,12 @@ export class ResourceSelectInputComponent implements OnInit {
     }
   }
   showTooltip() {
-    let tooltip: any = this.tooltip;
+    const tooltip: any = this.tooltip;
     if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
       return;
     }
-    let tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    let tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
+    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
+    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
     if (this.inputElement.inputElement) {
       tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
       tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
@@ -108,8 +108,8 @@ export class ResourceSelectInputComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
   get errorMessage(): any {
-    let arr: string[] = [];
-    let text: string = '';
+    const arr: string[] = [];
+    let text = '';
     if (this.errorsValue && this.errorsValue[this.name]) {
       for (let i = 0; i < this.errorsValue[this.name].length; i++) {
         if (this.errorsValue[this.name][i]) {
@@ -124,8 +124,8 @@ export class ResourceSelectInputComponent implements OnInit {
     return false;
   }
   get infoMessage(): any {
-    let arr: string[] = [];
-    let text: string = '';
+    const arr: string[] = [];
+    let text = '';
     if (this.infoValue && this.infoValue[this.name]) {
       for (let i = 0; i < this.infoValue[this.name].length; i++) {
         if (this.infoValue[this.name][i]) {
@@ -155,7 +155,7 @@ export class ResourceSelectInputComponent implements OnInit {
       });
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
@@ -163,7 +163,7 @@ export class ResourceSelectInputComponent implements OnInit {
     });
     this.info.subscribe((data: any) => {
       this.infoValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
@@ -196,7 +196,7 @@ export class ResourceSelectInputComponent implements OnInit {
   set value(val) {
     if (this.errorsValue && this.errorsValue[this.name]) {
       delete this.errorsValue[this.name];
-      this.tooltipText='';
+      this.tooltipText = '';
     }
     this.model = val;
     this.modelChange.emit(this.model);

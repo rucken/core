@@ -21,11 +21,11 @@ export class SelectInputComponent implements OnInit {
   @Output()
   public onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  public labelClass?: string = 'control-label';
+  public labelClass? = 'control-label';
   @Input()
-  public inputClass?: string = 'form-control';
+  public inputClass? = 'form-control';
   @Input()
-  inputFrameClass?: string = '';
+  inputFrameClass? = '';
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @ViewChild('autoComplete')
@@ -33,15 +33,15 @@ export class SelectInputComponent implements OnInit {
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @Input()
-  public inFormGroup: boolean = true;
+  public inFormGroup = true;
   @Input()
-  public focused: boolean = false;
+  public focused = false;
   @Input()
-  public readonly: boolean = false;
+  public readonly = false;
   @Input()
-  public name: string = 'select';
+  public name = 'select';
   @Input()
-  public placeholder: string = '';
+  public placeholder = '';
   @Input()
   public valueField: string
   @Input()
@@ -65,11 +65,11 @@ export class SelectInputComponent implements OnInit {
   @Input()
   public tooltipEnable: boolean;
   @Input()
-  public tooltipText: string = '';
+  public tooltipText = '';
   @Input()
-  public tooltipPlacement: string = 'bottom';
+  public tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers: string = 'hover focus';
+  public tooltipTriggers = 'hover focus';
   @Input()
   public set items(items: any[]) {
     this._items = items;
@@ -99,7 +99,7 @@ export class SelectInputComponent implements OnInit {
   private _items: any[] = [];
   public errorsValue: any;
   public infoValue: any;
-  private _showMe: boolean = false;
+  private _showMe = false;
   private debouncer: Subject<string> = new Subject<string>();
   public getTitle: any;
   constructor(
@@ -129,7 +129,7 @@ export class SelectInputComponent implements OnInit {
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
@@ -137,7 +137,7 @@ export class SelectInputComponent implements OnInit {
     });
     this.info.subscribe((data: any) => {
       this.infoValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
@@ -146,7 +146,7 @@ export class SelectInputComponent implements OnInit {
     this.init();
   }
   get inputReadonly() {
-    return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length == 0;
+    return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length === 0;
   }
   onKey(value: string) {
     if (!value && !this.inputReadonly) {
@@ -155,12 +155,12 @@ export class SelectInputComponent implements OnInit {
     this.debouncer.next(value);
   }
   showTooltip() {
-    let tooltip: any = this.tooltip;
+    const tooltip: any = this.tooltip;
     if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
       return;
     }
-    let tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    let tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
+    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
+    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
     tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
@@ -189,8 +189,8 @@ export class SelectInputComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
   get errorMessage(): any {
-    let arr: string[] = [];
-    let text: string = '';
+    const arr: string[] = [];
+    let text = '';
     if (this.errorsValue && this.errorsValue[this.name]) {
       for (let i = 0; i < this.errorsValue[this.name].length; i++) {
         if (this.errorsValue[this.name][i]) {
@@ -205,8 +205,8 @@ export class SelectInputComponent implements OnInit {
     return false;
   }
   get infoMessage(): any {
-    let arr: string[] = [];
-    let text: string = '';
+    const arr: string[] = [];
+    let text = '';
     if (this.infoValue && this.infoValue[this.name]) {
       for (let i = 0; i < this.infoValue[this.name].length; i++) {
         if (this.infoValue[this.name][i]) {
@@ -250,9 +250,9 @@ export class SelectInputComponent implements OnInit {
     if (this.autoComplete && this.autoComplete.el &&
       this.autoComplete.el.children[0] && this.autoComplete.el.children[0].children[0] &&
       this.inputElement && this.inputElement.nativeElement) {
-      let options: any = this.autoComplete.el.children[0].children[0].children;
-      let select: any = this.autoComplete.el.children[0];
-      //if (this.items && options.length >= this.items.length) {
+      const options: any = this.autoComplete.el.children[0].children[0].children;
+      const select: any = this.autoComplete.el.children[0];
+      // if (this.items && options.length >= this.items.length) {
       for (let i = 0; i < options.length; i++) {
         if (this.width === null) {
           options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
@@ -261,7 +261,7 @@ export class SelectInputComponent implements OnInit {
         }
       }
       select.style.display = '';
-      //}
+      // }
     } else {
       setTimeout(() => {
         this.resizeList();

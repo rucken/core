@@ -1,9 +1,10 @@
 import { ResourceModel } from './resource.model';
+import { translate } from '../utils';
 
 export class ContentType extends ResourceModel {
   static titles: any = {
-    id: 'Id',//translate
-    model: 'Model',//translate
+    id: translate('Id'),
+    model: translate('Model'),
 
   };
   static fields: any = ['id', 'model'];
@@ -11,18 +12,19 @@ export class ContentType extends ResourceModel {
   id: number;
   model: string;
 
+  static meta(): any {
+    const meta: any = ContentType;
+    return meta;
+  }
+
   constructor(obj?: any) {
     super(obj);
-  }
-  static meta(): any {
-    let meta: any = ContentType;
-    return meta;
   }
   parse(obj: any) {
     this.parseByFields(obj, ContentType.meta());
   }
   format() {
-    let result = this.formatByFields(ContentType.meta());
+    const result = this.formatByFields(ContentType.meta());
     return result;
   }
   get asString() {

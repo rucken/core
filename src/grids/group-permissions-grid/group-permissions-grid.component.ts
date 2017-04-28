@@ -37,11 +37,11 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
   @Input()
   public readonly: boolean;
   @Input()
-  public hardReadonly: boolean = false;
+  public hardReadonly = false;
 
   public modelMeta: any = GroupPermission.meta();
   public items: GroupPermission[];
-  public searchText: string = '';
+  public searchText = '';
   public selectedItems: GroupPermission[];
   public cachedResourcesService: GroupPermissionsService;
 
@@ -64,14 +64,14 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: PermissionsListModalComponent = this.app.modals(this.resolver).create(PermissionsListModalComponent);
+    const itemModal: PermissionsListModalComponent = this.app.modals(this.resolver).create(PermissionsListModalComponent);
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.permissions.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.readonly;
-    itemModal.text = this.translateService.instant('Append');;
+    itemModal.text = this.translateService.instant('Append');
     itemModal.title = this.translateService.instant('Select permissions for append to group');
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Permission();
     itemModal.modal.show();
@@ -85,7 +85,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
+    const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['change_permission']) || this.readonly;
     itemModal.text = this.translateService.instant('Save');
@@ -93,7 +93,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Permission info');
     }
-    itemModal.onSave.subscribe(($event:any) => this.savePermission($event));
+    itemModal.onSave.subscribe(($event: any) => this.savePermission($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = item.permission;
     itemModal.modal.show();
@@ -118,11 +118,11 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a group permission?');
-    confirm.onYes.subscribe(($event:any) => this.remove($event));
+    confirm.onYes.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();

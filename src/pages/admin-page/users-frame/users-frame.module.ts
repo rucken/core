@@ -13,7 +13,7 @@ import { UsersGridModule } from '../../../grids/users-grid/users-grid.module';
     TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
     UsersGridModule.forRoot(),
-    //RouterModule.forChild(UsersFrameRoutes)
+    // RouterModule.forChild(UsersFrameRoutes)
   ],
   declarations: [
     UsersFrameComponent

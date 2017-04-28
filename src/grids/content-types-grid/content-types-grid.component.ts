@@ -31,7 +31,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
 
   public modelMeta: any = ContentType.meta();
   public items: ContentType[];
-  public searchText: string = '';
+  public searchText = '';
   public selectedItems: ContentType[];
   public cachedResourcesService: ContentTypesService;
 
@@ -56,12 +56,12 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
+    const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['add_content-type']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new content type');
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new ContentType();
     itemModal.modal.show();
@@ -72,7 +72,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
+    const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['change_content-type']);
     itemModal.text = this.translateService.instant('Save');
@@ -80,7 +80,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Content type info');
     }
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new ContentType(item);
     itemModal.modal.show();
@@ -91,11 +91,11 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a content type?');
-    confirm.onYes.subscribe(($event:any) => this.remove($event));
+    confirm.onYes.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();

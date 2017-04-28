@@ -172,9 +172,6 @@ msgstr "Загрузка..."
 msgid "Updating..."
 msgstr "Изменение..."
 
-msgid "Version"
-msgstr "Версия"
-
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
@@ -306,6 +303,9 @@ msgstr "Вход"
 
 msgid "Actions"
 msgstr "Действия"
+
+#~ msgid "Version"
+#~ msgstr "Версия"
 
 #~ msgid "Searching..."
 #~ msgstr "Поиск..."

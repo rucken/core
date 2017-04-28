@@ -20,10 +20,10 @@ export class AppComponent implements OnInit, AfterViewInit {
     app.translate = translateService;
   }
   loadLang() {
-    this.translateService.addLangs(["en", "ru"]);
+    this.translateService.addLangs(['en', 'ru']);
     this.translateService.setDefaultLang('en');
     this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
-    let browserLang: string = this.translateService.getBrowserLang();
+    const browserLang: string = this.translateService.getBrowserLang();
     this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
   ngOnInit() {
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (title === undefined) {
       title = this.translateService.instant('Error');
     }
-    let alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
     alert.text = title;
     alert.message = message;
     alert.buttonText = this.translateService.instant('Close');
@@ -56,7 +56,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (title === undefined) {
       title = this.translateService.instant('Info');
     }
-    let alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
     alert.text = title;
     alert.message = message;
     alert.messageClass = '';
@@ -69,7 +69,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     if (title === undefined) {
       title = this.translateService.instant('Info');
     }
-    let alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
     alert.text = title;
     alert.content = content;
     alert.messageClass = '';

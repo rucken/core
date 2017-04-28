@@ -18,8 +18,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class NavbarComponent implements OnInit {
 
-  public isCollapsed: boolean = true;
-  public changelog: string = '';//require('html-loader!markdown-loader!./../../../CHANGELOG.md');
+  public isCollapsed = true;
+  public changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
   constructor(
     public app: AppService,
     public accountService: AccountService,
@@ -61,7 +61,7 @@ export class NavbarComponent implements OnInit {
       return;
     }
     this.isCollapsed = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent, 'logoutModal');
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent, 'logoutModal');
     confirm.title = this.translateService.instant('Logout');
     confirm.message = this.translateService.instant('Do you really want to leave?');
     confirm.onYes.subscribe(($event: any) => this.logout($event));
@@ -85,7 +85,7 @@ export class NavbarComponent implements OnInit {
       return;
     }
     this.isCollapsed = true;
-    let itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'loginModal');
+    const itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'loginModal');
     itemModal.title = this.translateService.instant('Authorization');
     itemModal.onLogin.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();

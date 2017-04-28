@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { UtilsService } from '../utils.service';
 import * as _ from 'lodash';
 import { HttpHelper } from './http.helper';
 import { User } from '../models/user.model';
+import { isJson, translate } from '../utils';
 
 @Injectable()
 export class EndpointHelper {
@@ -55,13 +55,13 @@ export class EndpointHelper {
   };
   extractError(error: any, message?: string): any {
     if (message === undefined) {
-      message = 'Unknown error'; //translate
+      message = translate('Unknown error');
     }
-    if (!error._body || !UtilsService.isJson(error._body) || error.json().type === 'error') {
+    if (!error._body || !isJson(error._body) || error.json().type === 'error') {
       console.log(error);
       return { message: [error.statusText ? error.statusText : message] };
     } else {
-      let errorBody = error.json();
+      const errorBody = error.json();
       if (errorBody.description !== undefined) {
         return { message: [errorBody.description] };
       }
@@ -77,8 +77,7 @@ export class EndpointHelper {
       if (errorBody.nonFieldErrors !== undefined) {
         return { message: [errorBody.nonFieldErrors] };
       }
-      let key: any;
-      for (key in errorBody) {
+      for (const key in errorBody) {
         if (errorBody.hasOwnProperty(key)) {
           errorBody[_.camelCase(key)] = errorBody[key];
         }

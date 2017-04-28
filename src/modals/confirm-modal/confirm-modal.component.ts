@@ -14,19 +14,19 @@ export class ConfirmModalComponent implements OnInit {
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Input()
-  text: string = '';
+  text = '';
   @Input()
-  class: string = '';
+  class = '';
   @Input()
   hideOnClose?: boolean;
   @Input()
-  size?: string = 'sm';
+  size?= 'sm';
   @Input()
-  title?: string = '';
+  title?= '';
   @Input()
   hideButton?: boolean;
   @Input()
-  message: string = '';
+  message = '';
   @Output()
   onClose: EventEmitter<ConfirmModalComponent | any> = new EventEmitter();
   @Output()

@@ -14,23 +14,23 @@ export class AlertModalComponent implements OnInit {
   @ViewChild('modal')
   modal: ModalDirective;
   @Input()
-  text: string = '';
+  text = '';
   @Input()
-  messageClass: string = 'text-danger';
+  messageClass = 'text-danger';
   @Input()
-  buttonClass: string = 'btn-default';
+  buttonClass = 'btn-default';
   @Input()
   buttonText: string;
   @Input()
-  hideOnClose?: boolean = true;
+  hideOnClose? = true;
   @Input()
-  size?: string = 'sm';
+  size? = 'sm';
   @Input()
-  title?: string = '';
+  title? = '';
   @Input()
-  hideButton?: boolean = false;
+  hideButton? = false;
   @Input()
-  message: string = '';
+  message = '';
   @Input()
   content: any = false;
   @Output()

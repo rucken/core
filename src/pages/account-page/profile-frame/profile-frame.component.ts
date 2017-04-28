@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Location } from "@angular/common";
+import { Location } from '@angular/common';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '../../../shared/models/user.model';
 import { AccountService } from '../../../shared/account.service';

@@ -32,7 +32,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
 
   public modelMeta: any = Fontawesome.meta();
   public items: Fontawesome[];
-  public searchText: string = '';
+  public searchText = '';
   public selectedItems: Fontawesome[];
   public cachedResourcesService: FontawesomesService;
 
@@ -61,12 +61,12 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
+    const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['add_fontawesome']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new fontawesome');
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Fontawesome();
     itemModal.modal.show();
@@ -77,7 +77,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
+    const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['change_fontawesome']);
     itemModal.text = this.translateService.instant('Save');
@@ -85,7 +85,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Fontawesome info');
     }
-    itemModal.onSave.subscribe(($event:any) => this.save($event));
+    itemModal.onSave.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Fontawesome(item);
     itemModal.modal.show();
@@ -96,11 +96,11 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a fontawesome?');
-    confirm.onYes.subscribe(($event:any) => this.remove($event));
+    confirm.onYes.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();

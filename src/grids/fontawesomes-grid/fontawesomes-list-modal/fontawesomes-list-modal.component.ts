@@ -19,7 +19,7 @@ export class FontawesomesListModalComponent implements OnInit {
   @Input()
   readonly: boolean;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
@@ -56,7 +56,6 @@ export class FontawesomesListModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.fontawesomes.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

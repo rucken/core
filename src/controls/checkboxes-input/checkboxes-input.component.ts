@@ -8,22 +8,22 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, 
 
 export class CheckboxesInputComponent implements OnInit {
   @Input()
-  labelClass?: string = 'control-label';
+  labelClass? = 'control-label';
   @Input()
-  inputClass?: string = 'control-label checkbox-inline';
+  inputClass? = 'control-label checkbox-inline';
   @Input()
-  inputFrameClass?: string = 'form-control form-checkbox-controls';
+  inputFrameClass? = 'form-control form-checkbox-controls';
 
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @Input()
-  public focused: boolean = false;
+  public focused = false;
   @Input()
-  public readonly: boolean = false;
+  public readonly = false;
   @Input()
-  public name: string = 'checkboxes';
+  public name = 'checkboxes';
   @Input()
-  public title: string = '';
+  public title = '';
   @Input()
   public models: { [key: string]: boolean; } = {};
   @Input()
@@ -41,14 +41,14 @@ export class CheckboxesInputComponent implements OnInit {
   ngOnInit() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }
     });
     this.info.subscribe((data: any) => {
       this.infoValue = data;
-      let keys = Object.keys(data);
+      const keys = Object.keys(data);
       if (keys[0] === this.name) {
         this.focus();
       }

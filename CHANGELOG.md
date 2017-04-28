@@ -1,3 +1,18 @@
+<a name="1.4.3"></a>
+## [1.4.3](https://github.com/site15/rucken/compare/1.4.2...v1.4.3) (2017-04-28)
+
+
+### Bug Fixes
+
+* **demo:** Fix errors founded with ng lint ([c10ce96](https://github.com/site15/rucken/commit/c10ce96))
+* **deps:** Update dependencies ([05e5a45](https://github.com/site15/rucken/commit/05e5a45))
+* **deps:** Update dependencies, remove noused code from app.component ([f3fee28](https://github.com/site15/rucken/commit/f3fee28))
+* **lint:** Change tslint for this project ([8e098c9](https://github.com/site15/rucken/commit/8e098c9))
+* **lint:** Fix all errors founded with ng lint ([6886641](https://github.com/site15/rucken/commit/6886641))
+* **srcgen:** Fix scripts for gen list of ts files and po2ts converter ([dfafdf6](https://github.com/site15/rucken/commit/dfafdf6))
+
+
+
 <a name="1.4.2"></a>
 ## [1.4.2](https://github.com/site15/rucken/compare/1.4.0...v1.4.2) (2017-04-23)
 

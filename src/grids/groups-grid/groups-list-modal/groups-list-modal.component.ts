@@ -19,7 +19,7 @@ export class GroupsListModalComponent implements OnInit {
   @Input()
   readonly: boolean;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
@@ -56,7 +56,6 @@ export class GroupsListModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.groups.hardReadonly = this.hardReadonly;
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

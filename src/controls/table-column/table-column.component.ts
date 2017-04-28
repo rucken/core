@@ -12,7 +12,7 @@ import { TableColumnConfig } from './table-column.config';
 
 export class TableColumnComponent implements OnInit {
   @Input()
-  public sortEnabled: boolean = true;
+  public sortEnabled = true;
   @Input()
   public name: string;
   @Input()

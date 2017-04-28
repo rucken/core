@@ -1,34 +1,32 @@
 import * as moment from 'moment/moment';
 import * as _ from 'lodash';
-
+import { translate } from '../utils';
 
 export class ResourceModel {
   public _pkFieldName: string;
   public _pkIsNumber: boolean;
   [key: string]: any;
 
-  constructor(obj?: any, pkFieldName?: string, pkIsNumber?: boolean) {
-    if (pkFieldName === undefined) {
-      pkFieldName = 'id';
+  static meta(): any {
+    const meta: any = ResourceModel;
+    return meta;
+  }
+  constructor(obj?: any) {
+    if (this._pkFieldName === undefined) {
+      this._pkFieldName = 'id';
     }
-    if (pkIsNumber === undefined) {
-      pkIsNumber = true;
+    if (this._pkIsNumber === undefined) {
+      this._pkIsNumber = true;
     }
-    this._pkFieldName = pkFieldName;
-    this._pkIsNumber = pkIsNumber;
     if (obj && (_.isNumber(obj) || _.isString(obj))) {
-      let newObj: any = {};
+      const newObj: any = {};
       newObj[this._pkFieldName] = obj;
       obj = newObj;
     }
     this.parse(obj ? obj : {});
   }
-  static meta(): any {
-    let meta: any = ResourceModel;
-    return meta;
-  }
   get pk(): string | number {
-    let key = this._pkFieldName;
+    const key = this._pkFieldName;
     return this[key];
   }
   get pkFieldName() {
@@ -38,14 +36,13 @@ export class ResourceModel {
 
   }
   parseByFields(obj: any, meta: any) {
-    let key: any;
-    let fields: string[] = meta.fields ? meta.fields : [];
-    let dateFields: string[] = meta.dateFields ? meta.dateFields : [];
+    const fields: string[] = meta.fields ? meta.fields : [];
+    const dateFields: string[] = meta.dateFields ? meta.dateFields : [];
     for (let i = 0; i < fields.length; i++) {
       this[fields[i]] = null;
     }
     if (fields.length > 0) {
-      for (key in obj) {
+      for (const key in obj) {
         if (fields.indexOf(key) !== -1) {
           try {
             this[key] = obj[key];
@@ -56,7 +53,7 @@ export class ResourceModel {
       }
     }
     if (dateFields.length > 0) {
-      for (key in obj) {
+      for (const key in obj) {
         if (dateFields.indexOf(key) !== -1) {
           try {
             this[key] = moment(obj[key]).toDate();
@@ -76,12 +73,11 @@ export class ResourceModel {
   format() {
   }
   formatByFields(meta: any): any {
-    let obj: any = {};
-    let key: any;
-    let fields: string[] = meta.fields ? meta.fields : [];
-    let dateFields: string[] = meta.dateFields ? meta.dateFields : [];
+    const obj: any = {};
+    const fields: string[] = meta.fields ? meta.fields : [];
+    const dateFields: string[] = meta.dateFields ? meta.dateFields : [];
     if (fields.length > 0) {
-      for (key in this) {
+      for (const key in this) {
         if (fields.indexOf(key) !== -1) {
           try {
             obj[key] = this[key];
@@ -91,8 +87,8 @@ export class ResourceModel {
       }
     }
     if (dateFields.length > 0) {
-      var tzoffset = (new Date()).getTimezoneOffset() * 60000;
-      for (key in this) {
+      const tzoffset = (new Date()).getTimezoneOffset() * 60000;
+      for (const key in this) {
         if (dateFields.indexOf(key) !== -1) {
           if (obj[key]) {
             try {
@@ -112,7 +108,8 @@ export class ResourceModel {
     return obj;
   }
   dateAsString(fieldName: string) {
-    let text: string = '';
+    let text: string;
+    text = '';
     if (this[fieldName] !== undefined) {
       try {
         text = moment(this[fieldName]).format('DD.MM.YYYY');
@@ -129,7 +126,8 @@ export class ResourceModel {
     if (this[fieldName] === undefined) {
       return '';
     }
-    let value: string = '';
+    let value: string;
+    value = '';
     try {
       value = moment(this[fieldName]).format('YYYY-MM-DD');
     } catch (err) {
@@ -157,14 +155,15 @@ export class ResourceModel {
   }
   booleanAsString(value: boolean) {
     if (value) {
-      return 'Yes';//translate
+      return translate('Yes');
     } else {
-      return 'No';//translate
+      return translate('No');
     }
   }
   validate() {
-    let result: any = {};
-    let valid: boolean = true;
+    const result: any = {};
+    let valid: boolean;
+    valid = true;
     if (valid === true) {
       return valid;
     }

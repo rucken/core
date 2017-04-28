@@ -36,7 +36,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
   @Input()
   public readonly: boolean;
   @Input()
-  public hardReadonly: boolean = false;
+  public hardReadonly = false;
 
   public modelMeta: any = UserGroup.meta();
   public items: UserGroup[];
@@ -62,7 +62,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: GroupsListModalComponent = this.app.modals(this.resolver).create(GroupsListModalComponent);
+    const itemModal: GroupsListModalComponent = this.app.modals(this.resolver).create(GroupsListModalComponent);
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.groups.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
@@ -83,7 +83,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
+    const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_group']) || this.readonly;
     itemModal.text = this.translateService.instant('Save');
@@ -117,7 +117,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
       return;
     }
     this.modalIsOpened = true;
-    let confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a user group?');

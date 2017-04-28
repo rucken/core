@@ -9,7 +9,7 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <content-types-grid #contentTypes (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectContentType($event)"></content-types-grid>
+        <content-types-grid #contentTypes (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectContentType($event)" [hardReadonly]="hardReadonly"></content-types-grid>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>

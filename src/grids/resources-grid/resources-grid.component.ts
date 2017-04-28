@@ -12,7 +12,7 @@ export class ResourcesGridComponent implements OnInit {
   @Output()
   onSelectItems: EventEmitter<any[] | any>;
   @Input()
-  onEnterEnabled?: boolean = false;
+  onEnterEnabled?= false;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
@@ -20,17 +20,20 @@ export class ResourcesGridComponent implements OnInit {
   @Input()
   public readonly: boolean;
   @Input()
-  public hardReadonly: boolean = false;
+  public hardReadonly = false;
 
   public modelMeta: any;
   public items: any[];
-  public searchText: string = '';
+  public searchText = '';
   public selectedItems: any[];
   public cachedResourcesService: any;
-  public maxSelectCount: number = 1;
+  public maxSelectCount = 1;
 
   public modalIsOpened: boolean;
 
+  public get meta() {
+    return this.cachedResourcesService.meta;
+  }
   constructor() {
     this.onSelectItems = new EventEmitter();
     this.onEnter = new EventEmitter();
@@ -55,9 +58,6 @@ export class ResourcesGridComponent implements OnInit {
   }
   get mockedItems() {
     return this.cachedResourcesService.mockedItems;
-  }
-  get meta() {
-    return this.cachedResourcesService.meta;
   }
   pageChanged(event: any): void {
     this.cachedResourcesService.meta.curPage = event.page;
@@ -118,7 +118,7 @@ export class ResourcesGridComponent implements OnInit {
     return this.selectedItems && this.selectedItems.filter(i => i && i.pk === item.pk).length > 0;
   }
   search(ignoreCache?: boolean) {
-    let filter: any = {};
+    const filter: any = {};
     this.cachedResourcesService.ignoreCache = ignoreCache;
     this.cachedResourcesService.loadAll(this.searchText, filter);
   }

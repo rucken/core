@@ -15,21 +15,21 @@ export class GridRowButtonsComponent implements OnInit {
   @Input()
   public removeTitle?: string;
   @Input()
-  public editIcon?: string = 'fa fa-pencil-square-o';
+  public editIcon? = 'fa fa-pencil-square-o';
   @Input()
-  public removeIcon?: string = 'fa fa-remove';
+  public removeIcon? = 'fa fa-remove';
   @Input()
-  public editIconColor?: string = ''; // text-primary';
+  public editIconColor? = ''; // text-primary';
   @Input()
-  public removeIconColor?: string = ''; // 'text-warning';
+  public removeIconColor? = ''; // 'text-warning';
   @Output()
   public onEdit: EventEmitter<boolean | any> = new EventEmitter();
   @Output()
   public onRemove: EventEmitter<boolean | any> = new EventEmitter();
   @Input()
-  public showEdit?: boolean = true;
+  public showEdit? = true;
   @Input()
-  public showRemove?: boolean = true;
+  public showRemove? = true;
 
   constructor(public translateService: TranslateService) {
     if (this.editTitle === undefined) {

@@ -21,39 +21,39 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
-  labelClass?: string = 'control-label';
+  labelClass? = 'control-label';
   @Input()
-  inputClass?: string = 'form-control';
+  inputClass? = 'form-control';
   @Input()
-  inputFrameClass?: string = '';
+  inputFrameClass? = '';
 
   @ViewChild('inputElement')
   inputElement: SelectInputComponent;
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon?: string = 'fa fa-search';
+  lookupIcon? = 'fa fa-search';
   @Input()
-  focused: boolean = false;
+  focused = false;
   @Input()
-  readonly: boolean = false;
+  readonly = false;
   @Input()
-  inputReadonly: boolean = true;
+  inputReadonly = true;
   @Input()
-  hardReadonly: boolean = false;
+  hardReadonly = false;
   @Input()
-  name: string = 'user';
+  name = 'user';
   @Input()
-  placeholder: string = '';
+  placeholder = '';
   @Input()
-  title: string = '';
+  title = '';
   @Input()
   model: User = new User();
   @Output()
   modelChange: EventEmitter<User | any> = new EventEmitter<User | any>();
 
   @Input()
-  modelAsString: string = '';
+  modelAsString = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
@@ -64,11 +64,11 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   public tooltipEnable: boolean;
   @Input()
-  public tooltipText: string = '';
+  public tooltipText = '';
   @Input()
-  public tooltipPlacement: string = 'bottom';
+  public tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers: string = 'hover focus';
+  public tooltipTriggers = 'hover focus';
 
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
@@ -97,7 +97,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
     return this.accountService.account;
   }
   onLookup() {
-    let itemModal: UsersListModalComponent =
+    const itemModal: UsersListModalComponent =
       this.app.modals(this.resolver).create(UsersListModalComponent);
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;

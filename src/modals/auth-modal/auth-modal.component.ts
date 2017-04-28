@@ -17,13 +17,13 @@ export class AuthModalComponent implements OnInit {
   @ViewChild('focusElement')
   focusElement: TextInputComponent;
   @Input()
-  title: string = '';
+  title = '';
   @Input()
-  class: string = '';
+  class = '';
   @Input()
-  hideOnClose?: boolean = true;
+  hideOnClose? = true;
   @Input()
-  hideButton?: boolean = false;
+  hideButton? = false;
   @Input()
   account: any | User = null;
   @Output()

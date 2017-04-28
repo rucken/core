@@ -1,34 +1,36 @@
 import { ResourceModel } from './resource.model';
 import { Group } from './group.model';
+import { translate } from '../utils';
 
 export class User extends ResourceModel {
   static titles: any = {
-    id: 'Id',//translate
-    username: 'Username',//translate
-    password: 'Password',//translate
-    rePassword: 'Repeat password',//translate
-    usernameOrEmail: 'Username/Email',//translate
-    roles: 'Roles',//translate
+    id: translate('Id'),
+    username: translate('Username'),
+    password: translate('Password'),
+    rePassword: translate('Repeat password'),
+    usernameOrEmail: translate('Username/Email'),
+    roles: translate('Roles'),
     rolesTitles: {
-      isActive: 'User',//translate
-      isStaff: 'Staff',//translate
-      isSuperuser: 'Administrator'//translate
+      isActive: translate('User'),
+      isStaff: translate('Staff'),
+      isSuperuser: translate('Administrator')
     },
-    isSuperuser: 'Administrator',//translate
-    isStaff: 'Staff',//translate
-    isActive: 'User',//translate
-    asString: 'Full name',//translate
-    firstName: 'First name',//translate
-    lastName: 'Last name',//translate
-    email: 'Email',//translate
-    lastLogin: 'Last login',//translate
-    dateJoined: 'Date joined',//translate
-    groups: 'Groups'//translate
+    isSuperuser: translate('Administrator'),
+    isStaff: translate('Staff'),
+    isActive: translate('User'),
+    asString: translate('Full name'),
+    firstName: translate('First name'),
+    lastName: translate('Last name'),
+    email: translate('Email'),
+    lastLogin: translate('Last login'),
+    dateJoined: translate('Date joined'),
+    groups: translate('Groups')
   };
   static dateFields: any = ['lastLogin', 'dateJoined'];
   static fields: any = ['id', 'username', 'password', 'isSuperuser',
     'isStaff', 'isActive', 'firstName', 'lastName', 'email',
     'lastLogin', 'dateJoined', 'groups'];
+
   id: number;
   username: string;
   password: string;
@@ -43,13 +45,13 @@ export class User extends ResourceModel {
   dateJoined: Date;
   groups: Group[];
 
-  constructor(obj?: any) {
-    super(obj);
-  }
   static meta(): any {
-    let meta: any = User;
+    const meta: any = User;
     meta.group = Group;
     return meta;
+  }
+  constructor(obj?: any) {
+    super(obj);
   }
   get roles(): any {
     return { isActive: this.isActive, isStaff: this.isStaff, isSuperuser: this.isSuperuser };
@@ -66,8 +68,8 @@ export class User extends ResourceModel {
     this.rePassword = this.password;
   }
   validate() {
-    let result: any = {};
-    let valid: boolean = true;
+    const result: any = {};
+    let valid = true;
     if (this.password !== undefined && this.password !== this.rePassword) {
       result.rePassword = ['Password does not match the repeat password'];
       valid = false;
@@ -78,13 +80,13 @@ export class User extends ResourceModel {
     return result;
   }
   format() {
-    let result = this.formatByFields(User.meta());
+    const result = this.formatByFields(User.meta());
     result.groups = result.groups && result.groups.length ?
       result.groups.map((group: Group) => group.pk) : [];
     return result;
   }
   get asString() {
-    let arr: string[] = [];
+    const arr: string[] = [];
     if (this.firstName) {
       arr.push(this.firstName);
     }
@@ -126,7 +128,7 @@ export class User extends ResourceModel {
     }
   }
   get rolesAsString() {
-    let roles: string[] = [];
+    const roles: string[] = [];
     if (this.isActive) {
       if (this.isSuperuser) {
         roles.push('Admin');

@@ -11,7 +11,7 @@ import { AppService } from '../../shared/app.service';
 export class HomePageComponent implements OnInit {
 
   public title: string;
-  public readme: string = '';//require('html-loader!markdown-loader!./../../../README.md');
+  public readme = ''; // require('html-loader!markdown-loader!./../../../README.md');
   constructor(public app: AppService,
     public translateService: TranslateService) {
     this.title = this.translateService.instant('Home');
