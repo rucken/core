@@ -91,7 +91,7 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
     }
   }
   if (exportArray.length > 0) {
-    var out = exportArray.join('\n');
+    var out = exportArray.join('\n')+'\n';
     require("fs").writeFileSync(path.resolve(scanPath, 'index.ts'), out);
     console.log('Objects count included in index.ts:' + exportArray.length);
   }
