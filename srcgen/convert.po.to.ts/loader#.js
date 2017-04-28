@@ -21,7 +21,15 @@ recursive(path.resolve(__srcdir, '../../', po.input.dir), ['!*.po'], function (e
         moduleName = _.upperFirst(path.basename(path.dirname(path.dirname(path.dirname(file)))));
       }
       var langName = _.upperFirst(_.camelCase(fileName));
-      var out = 'export const ' + moduleName + langName + 'I18n = ' + JSON.stringify(jsonData, null, 4) + ';';
+      var out = 'export const ' + moduleName + langName + 'I18n = ' +
+        JSON.stringify(jsonData, null, 4)
+          .replace(new RegExp('\\\\\"', 'g'), 'QQQQQQ2')
+          .replace(new RegExp('\\\\\'', 'g'), 'QQQQQQ1')
+          .replace(new RegExp('\'', 'g'), 'QQQQQQ1')
+          .replace(new RegExp('\"', 'g'), '\'')
+          .replace(new RegExp('QQQQQQ2', 'g'), '\\\"')
+          .replace(new RegExp('QQQQQQ1', 'g'), '\\\'')
+        + ';\n';
       var outPath = path.resolve(__destdir, ts.output.dir, fileName + '.i18n.ts');
       fs.writeFileSync(outPath, out);
       console.log('Created: ' + outPath);

@@ -13,7 +13,8 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
     { prefix: 'class ', postfix: ' ' },
     { prefix: 'const ', postfix: ' ' },
     { prefix: 'enum ', postfix: ' ' },
-    { prefix: 'interface ', postfix: ' ' }
+    { prefix: 'interface ', postfix: ' ' },
+    { prefix: 'export function ', postfix: '(', var: true }
   ];
   var entities = [
     'module',
@@ -34,7 +35,7 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
       var items = srcgen.between.get(content, delmitter.prefix, delmitter.postfix);
       for (var j = 0; j < items.length; j++) {
         var className = items[j].trim();
-        if (_.camelCase(className).toLowerCase() === className.toLowerCase() && className.toLowerCase()[0] !== className[0]) {
+        if (delmitter.var || _.camelCase(className).toLowerCase() === className.toLowerCase() && className.toLowerCase()[0] !== className[0]) {
           var classFile = replaceExt(
             file.replace(scanPath, '').replace(new RegExp('\\' + path.sep, 'g'), '/'),
             '').split(path.sep).join("/");
