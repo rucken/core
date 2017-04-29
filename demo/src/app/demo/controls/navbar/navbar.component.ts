@@ -3,7 +3,7 @@ import { Router, NavigationStart, Event as NavigationEvent } from '@angular/rout
 import {
   AdminPageComponent, AppService, AuthModalComponent, NavbarComponent,
   AccountService, User, ConfirmModalComponent
-} from '../../../../../../src';
+} from '../../../../../../dist';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

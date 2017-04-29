@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '../../../../../../src';
+import { AppService } from '../../../../../../dist';
 
 @Component({
   selector: 'home-page',

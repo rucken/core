@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AccountPageRoutes } from './account-page.routes';
-import { AccountPageModule } from '../../../../../../src';
+import { AccountPageModule } from '../../../../../../dist';
 
 @NgModule({
   imports: [
