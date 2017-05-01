@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { UsersFrameComponent } from '../../../../../../../src';
+import { UsersFrameComponent } from '../../../../../../../dist';
 
 export const UsersFrameRoutes: Routes = [
   {

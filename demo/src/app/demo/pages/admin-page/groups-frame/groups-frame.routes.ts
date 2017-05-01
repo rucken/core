@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { GroupsFrameComponent } from '../../../../../../../src';
+import { GroupsFrameComponent } from '../../../../../../../dist';
 
 export const GroupsFrameRoutes: Routes = [
   {
