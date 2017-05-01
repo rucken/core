@@ -58,6 +58,6 @@ export class DemoAppComponent extends AppComponent {
     this.translateService.setDefaultLang('en');
     this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
     const browserLang: string = this.translateService.getBrowserLang();
-    this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'ru');
+    this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 }
