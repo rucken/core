@@ -5,30 +5,45 @@ var clean = require('gulp-clean');
 var inlineNg2Template = require('gulp-inline-ng2-template');
 var package = require('./package.json');
 var angularCli = require('./.angular-cli.json');
+var path = require('path');
+var fs = require('fs');
+
+gulp.task('change-src-version', function (done) {
+  var srcPackage = require('./src/package.json');
+  srcPackage.version = package.version;
+  srcPackage.name = package.name;
+  try {
+    fileName = path.resolve('./src/package.json');
+    fs.writeFileSync(fileName, JSON.stringify(srcPackage, null, 4));
+  } catch (error) {
+    console.error(error);
+  }
+  done();
+});
 
 gulp.task('add-version', function () {
-    return gulp.src(angularCli.apps[0].outDir + '/index.html')
-        .pipe(replace('<%VERSION%>', package.version))
-        .pipe(gulp.dest(angularCli.apps[0].outDir));
+  return gulp.src(angularCli.apps[0].outDir + '/index.html')
+    .pipe(replace('<%VERSION%>', package.version))
+    .pipe(gulp.dest(angularCli.apps[0].outDir));
 });
 
 gulp.task('clean-src-inline', function () {
-  return gulp.src('./src-inline', {read: false})
+  return gulp.src('./src-inline', { read: false })
     .pipe(clean());
 });
 
-gulp.task('urls-to-inlines', ['clean-src-inline'], function() {
+gulp.task('urls-to-inlines', ['clean-src-inline'], function () {
   var result = gulp.src(['./src/**/*.ts', './src/**/*.json'])
     .pipe(inlineNg2Template({ useRelativePaths: true }))
     .pipe(gulp.dest('./src-inline/'))
 });
 
 gulp.task('clean-src-inline-demo', function () {
-  return gulp.src('./demo/src-inline', {read: false})
+  return gulp.src('./demo/src-inline', { read: false })
     .pipe(clean());
 });
 
-gulp.task('urls-to-inlines-demo', ['clean-src-inline-demo'], function() {
+gulp.task('urls-to-inlines-demo', ['clean-src-inline-demo'], function () {
   var result = gulp.src(['./demo/src/**/*.ts', './demo/src/**/*.json'])
     .pipe(inlineNg2Template({ useRelativePaths: true }))
     .pipe(gulp.dest('./demo/src-inline/'))
