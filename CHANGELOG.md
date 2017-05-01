@@ -1,3 +1,14 @@
+<a name="1.4.4"></a>
+## [1.4.4](https://github.com/site15/rucken/compare/1.4.3...v1.4.4) (2017-05-01)
+
+
+### Bug Fixes
+
+* **demo:** Change path for rucken ([5eaedc1](https://github.com/site15/rucken/commit/5eaedc1))
+* **deps:** Update dependencies ([0b619f2](https://github.com/site15/rucken/commit/0b619f2))
+
+
+
 <a name="1.4.3"></a>
 ## [1.4.3](https://github.com/site15/rucken/compare/1.4.2...v1.4.3) (2017-04-28)
 
