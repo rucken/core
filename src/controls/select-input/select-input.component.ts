@@ -21,11 +21,11 @@ export class SelectInputComponent implements OnInit {
   @Output()
   public onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  public labelClass? = 'control-label';
+  public labelClass?= 'control-label';
   @Input()
-  public inputClass? = 'form-control';
+  public inputClass?= 'form-control';
   @Input()
-  inputFrameClass? = '';
+  inputFrameClass?= '';
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @ViewChild('autoComplete')
@@ -240,9 +240,9 @@ export class SelectInputComponent implements OnInit {
     }, 700);
   }
   resizeList() {
-    if (this.value && this.value.pk) {
+    if (this.value && this.value[this.valueField]) {
       this.items.map((item: any, index: number) => {
-        if (item && this.value && item.pk === this.value.pk) {
+        if (item && this.value && item[this.valueField] === this.value[this.valueField]) {
           this.autoComplete.itemIndex = index;
         }
       });

@@ -178,8 +178,13 @@ export class ResourceSelectInputComponent implements OnInit {
       }
     }, 700);
     if (this.select && this.loadAll) {
-      this.cachedResourcesService.loadAll();
+      this.search();
     }
+  }
+  search() {
+    const filter: any = {};
+    this.cachedResourcesService.ignoreCache = true;
+    this.cachedResourcesService.loadAll('', filter);
   }
   focus() {
     if (this.inputElement && this.inputElement.inputElement) {
