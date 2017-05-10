@@ -9,8 +9,9 @@ export class Fontawesome extends ResourceModel {
   };
   static fields: any = ['code', 'class'];
 
-  public _pkFieldName = 'class';
-  public _pkIsNumber = false;
+  public className = 'Fontawesome';
+  public pkFieldName = 'class';
+  public pkIsNumber = false;
 
   code: string;
   class: string;

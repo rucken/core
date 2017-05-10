@@ -11,6 +11,8 @@ export class Permission extends ResourceModel {
   };
   static fields: any = ['id', 'contentType', 'title', 'name'];
 
+  public className = 'Permission';
+
   id: number;
   contentType: ContentType;
   title: string;

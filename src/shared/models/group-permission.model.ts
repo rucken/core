@@ -11,6 +11,8 @@ export class GroupPermission extends ResourceModel {
   };
   static fields: any = ['id', 'group', 'permission'];
 
+  public className = 'GroupPermission';
+
   id: number;
   group: Group;
   permission: Permission;
