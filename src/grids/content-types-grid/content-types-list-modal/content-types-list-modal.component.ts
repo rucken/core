@@ -40,7 +40,7 @@ export class ContentTypesListModalComponent implements OnInit {
   onSave: EventEmitter<ContentTypesListModalComponent>;
 
   item: any | ContentType;
-  items: ContentType[];
+  items: any[] | ContentType[];
   modelMeta: any = ContentType.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
@@ -64,7 +64,7 @@ export class ContentTypesListModalComponent implements OnInit {
     this.contentTypes.focus();
   }
 
-  selectContentType(items: ContentType[]) {
+  selectContentType(items: any[] | ContentType[]) {
     this.item = items[0];
     this.items = items;
   }

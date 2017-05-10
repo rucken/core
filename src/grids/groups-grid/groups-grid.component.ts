@@ -23,16 +23,16 @@ export class GroupsGridComponent extends ResourcesGridComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<Group[] | any>;
+  onSelectItems: EventEmitter<any | Group[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
   public modelMeta: any = Group.meta();
-  public items: Group[];
+  public items: any[] | Group[];
   public searchText = '';
-  public selectedItems: Group[];
+  public selectedItems: any[] | Group[];
   public cachedResourcesService: GroupsService;
 
   constructor(
@@ -45,7 +45,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = groupsService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
@@ -102,7 +102,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
   }
   save(itemModal: GroupModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(
-      (group: Group) => {
+      (group: any | Group) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {

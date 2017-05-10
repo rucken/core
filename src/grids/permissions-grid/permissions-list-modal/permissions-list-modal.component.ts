@@ -40,7 +40,7 @@ export class PermissionsListModalComponent implements OnInit {
   onSave: EventEmitter<PermissionsListModalComponent>;
 
   item: any | Permission;
-  items: Permission[];
+  items: any[] | Permission[];
   public modelMeta: any = Permission.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
@@ -64,7 +64,7 @@ export class PermissionsListModalComponent implements OnInit {
     this.permissions.focus();
   }
 
-  selectPermission(items: Permission[]) {
+  selectPermission(items: any[] | Permission[]) {
     this.item = items[0];
     this.items = items;
   }

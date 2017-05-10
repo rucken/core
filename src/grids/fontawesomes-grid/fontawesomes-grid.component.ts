@@ -24,16 +24,16 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<Fontawesome[] | any>;
+  onSelectItems: EventEmitter<any[] | Fontawesome[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
   public modelMeta: any = Fontawesome.meta();
-  public items: Fontawesome[];
+  public items: any[] | Fontawesome[];
   public searchText = '';
-  public selectedItems: Fontawesome[];
+  public selectedItems: any[] | Fontawesome[];
   public cachedResourcesService: FontawesomesService;
 
   constructor(
@@ -50,7 +50,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
   safeHtml(html: string) {
     return this.sanitizer.bypassSecurityTrustHtml(html);
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
@@ -72,7 +72,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
   }
-  showEditModal(item: Fontawesome) {
+  showEditModal(item: any | Fontawesome) {
     if (this.modalIsOpened) {
       return;
     }
@@ -91,7 +91,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
   }
-  showRemoveModal(item: Fontawesome) {
+  showRemoveModal(item: any | Fontawesome) {
     if (this.modalIsOpened) {
       return;
     }
@@ -107,7 +107,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
   }
   save(itemModal: FontawesomeModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(
-      (fontawesome: Fontawesome) => {
+      (fontawesome: any | Fontawesome) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {

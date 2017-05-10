@@ -16,7 +16,7 @@ export class UsersFrameComponent implements OnInit {
   constructor(public accountService: AccountService, public app: AppService,
     public translateService: TranslateService) {
   }
-  get account(): User {
+  get account(): any |User {
     return this.accountService.account;
   }
   ngOnInit() {

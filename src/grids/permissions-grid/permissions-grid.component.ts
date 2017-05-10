@@ -23,16 +23,16 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<Permission[] | any>;
+  onSelectItems: EventEmitter<any[] | Permission[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
   public modelMeta: any = Permission.meta();
-  public items: Permission[];
+  public items: any[] | Permission[];
   public searchText = '';
-  public selectedItems: Permission[];
+  public selectedItems: any[] | Permission[];
   public cachedResourcesService: PermissionsService;
 
   constructor(
@@ -45,7 +45,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = permissionsService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
@@ -102,7 +102,7 @@ export class PermissionsGridComponent extends ResourcesGridComponent {
   }
   save(itemModal: PermissionModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(
-      (permission: Permission) => {
+      (permission: any | Permission) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {

@@ -37,7 +37,7 @@ export class FontawesomeModalComponent implements OnInit {
   @Input()
   title = '';
   @Input()
-  item: Fontawesome = new Fontawesome();
+  item: any | Fontawesome = new Fontawesome();
   @Input()
   modelMeta: any = Fontawesome.meta();
   @Output()

@@ -50,9 +50,9 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   @Input()
   title = '';
   @Input()
-  model: ContentType = new ContentType();
+  model: any | ContentType = new ContentType();
   @Output()
-  modelChange: EventEmitter<ContentType> = new EventEmitter<ContentType>();
+  modelChange: EventEmitter<any | ContentType> = new EventEmitter<any | ContentType>();
 
   @Input()
   modelAsString = '';
@@ -78,7 +78,7 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
-  public items: ContentType[];
+  public items: any[] | ContentType[];
   public cachedResourcesService: ContentTypesService;
   constructor(
     public app: AppService,
@@ -100,7 +100,7 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
     this.cachedResourcesService.ignoreCache = true;
     this.cachedResourcesService.loadAll(value, filter);
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   onLookup() {

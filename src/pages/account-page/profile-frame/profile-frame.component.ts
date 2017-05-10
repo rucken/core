@@ -29,15 +29,15 @@ export class ProfileFrameComponent implements OnInit {
   get readonly() {
     return !this.account || !this.account.checkPermissions(['change_profile']);
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   set account(val) {
     this.accountService.account = val;
   }
-  update(account: User) {
+  update(account: any | User) {
     this.accountService.update(account).subscribe(
-      (user: User) => {
+      (user: any | User) => {
         this.account = user;
       },
       (errors: any) => {

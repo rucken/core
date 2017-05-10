@@ -39,8 +39,8 @@ export class FontawesomesListModalComponent implements OnInit {
   @Output()
   onSave: EventEmitter<FontawesomesListModalComponent>;
 
-  item: Fontawesome;
-  items: Fontawesome[];
+  item: any | Fontawesome;
+  items: any[] | Fontawesome[];
   modelMeta: any = Fontawesome.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
@@ -64,7 +64,7 @@ export class FontawesomesListModalComponent implements OnInit {
     this.fontawesomes.focus();
   }
 
-  selectFontawesome(items: Fontawesome[]) {
+  selectFontawesome(items: any[] | Fontawesome[]) {
     this.item = items[0];
     this.items = items;
   }

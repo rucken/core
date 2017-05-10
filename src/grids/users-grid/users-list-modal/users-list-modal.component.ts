@@ -32,14 +32,14 @@ export class UsersListModalComponent implements OnInit {
   users: UsersGridComponent;
 
   @Input()
-  account: User | any;
+  account: any | User;
   @Input()
   title: string;
   @Output()
   onSave: EventEmitter<UsersListModalComponent>;
 
-  item: User | any;
-  items: User[] | any[];
+  item: any | User;
+  items: any[] | User[];
   public modelMeta: any = User.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
@@ -63,7 +63,7 @@ export class UsersListModalComponent implements OnInit {
     this.users.focus();
   }
 
-  selectUser(items: User[] | any[]) {
+  selectUser(items: any[] | User[]) {
     this.item = items[0];
     this.items = items;
   }

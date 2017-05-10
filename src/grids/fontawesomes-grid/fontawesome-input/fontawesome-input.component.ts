@@ -39,9 +39,9 @@ export class FontawesomeInputComponent extends ResourceInputComponent {
   @Input()
   title = '';
   @Input()
-  model: Fontawesome = new Fontawesome();
+  model: any | Fontawesome = new Fontawesome();
   @Output()
-  modelChange: EventEmitter<Fontawesome> = new EventEmitter<Fontawesome>();
+  modelChange: EventEmitter<any | Fontawesome> = new EventEmitter<any | Fontawesome>();
 
   @Input()
   modelAsString = '';
@@ -54,7 +54,7 @@ export class FontawesomeInputComponent extends ResourceInputComponent {
   info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
-  public items: Fontawesome[];
+  public items: any | Fontawesome[];
   public cachedResourcesService: FontawesomesService;
 
   constructor(
@@ -70,7 +70,7 @@ export class FontawesomeInputComponent extends ResourceInputComponent {
     }
     this.cachedResourcesService = fontawesomesService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   onLookup() {

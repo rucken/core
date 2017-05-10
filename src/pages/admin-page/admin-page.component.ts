@@ -15,7 +15,7 @@ export class AdminPageComponent implements OnInit {
 
   public title: string;
 
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   constructor(public router: Router, public accountService: AccountService, public app: AppService,

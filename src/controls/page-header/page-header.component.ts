@@ -16,7 +16,7 @@ export class PageHeaderComponent implements OnInit {
 
   ngOnInit() { }
 
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
 }

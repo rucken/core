@@ -53,7 +53,7 @@ export class NavbarComponent implements OnInit {
     this.isCollapsed = true;
     this.router.navigate(commands);
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   showLogoutModal() {

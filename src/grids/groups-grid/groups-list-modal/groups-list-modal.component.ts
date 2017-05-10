@@ -40,7 +40,7 @@ export class GroupsListModalComponent implements OnInit {
   onSave: EventEmitter<GroupsListModalComponent>;
 
   item: any | Group;
-  items: Group[];
+  items: any[] | Group[];
   public modelMeta: any = Group.meta();
 
   public errors: EventEmitter<any> = new EventEmitter();
@@ -64,7 +64,7 @@ export class GroupsListModalComponent implements OnInit {
     this.groups.focus();
   }
 
-  selectGroup(items: Group[]) {
+  selectGroup(items: any[] | Group[]) {
     this.item = items[0];
     this.items = items;
   }

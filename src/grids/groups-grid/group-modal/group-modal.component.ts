@@ -59,7 +59,7 @@ export class GroupModalComponent implements OnInit {
       this.focus();
       this.groupPermissions.group = this.item;
       this.groupPermissions.mockedItems =
-        this.item.permissions.map((permission: Permission) => {
+        this.item.permissions.map((permission: any | Permission) => {
           return new GroupPermission({
             id: permission.pk,
             permission: permission

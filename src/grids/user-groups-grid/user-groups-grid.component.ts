@@ -24,11 +24,11 @@ import { TranslateService } from '@ngx-translate/core';
 export class UserGroupsGridComponent extends ResourcesGridComponent {
 
   @Input()
-  user: User;
+  user: any | User;
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<UserGroup[] | UserGroup>;
+  onSelectItems: EventEmitter<any | UserGroup[] | UserGroup>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
@@ -39,8 +39,8 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
   public hardReadonly = false;
 
   public modelMeta: any = UserGroup.meta();
-  public items: UserGroup[];
-  public selectedItems: UserGroup[];
+  public items: any[] | UserGroup[];
+  public selectedItems: any[] | UserGroup[];
   public cachedResourcesService: UserGroupsService;
 
   constructor(
@@ -54,7 +54,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = userGroupsService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   showCreateModal() {
@@ -78,7 +78,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
       group: itemModal.item
     })];
   }
-  showEditModal(item: UserGroup) {
+  showEditModal(item: any | UserGroup) {
     if (this.modalIsOpened) {
       return;
     }
@@ -99,7 +99,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
   }
   saveGroup(itemModal: GroupModalComponent) {
     this.groupsService.save(itemModal.item).subscribe(
-      (group: Group) => {
+      (group: any | Group) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {
@@ -112,7 +112,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
         }
       });
   }
-  showRemoveModal(item: UserGroup) {
+  showRemoveModal(item: any | UserGroup) {
     if (this.modalIsOpened) {
       return;
     }

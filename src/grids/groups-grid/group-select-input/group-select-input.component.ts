@@ -50,9 +50,9 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   title = '';
   @Input()
-  model: Group = new Group();
+  model: any | Group = new Group();
   @Output()
-  modelChange: EventEmitter<Group> = new EventEmitter<Group>();
+  modelChange: EventEmitter<any | Group> = new EventEmitter<any | Group>();
 
   @Input()
   modelAsString = '';
@@ -78,7 +78,7 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
   info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
-  public items: Group[];
+  public items: any[] | Group[];
   public cachedResourcesService: GroupsService;
   constructor(
     public app: AppService,
@@ -95,7 +95,7 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
     }
     this.cachedResourcesService = groupsService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   onLookup() {

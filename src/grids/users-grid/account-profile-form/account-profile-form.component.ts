@@ -58,7 +58,7 @@ export class AccountProfileFormComponent implements OnInit {
     this.focus();
     this.userGroups.user = this.item;
     this.userGroups.mockedItems =
-      this.item.groups.map((group: Group) => {
+      this.item.groups.map((group: any | Group) => {
         return new UserGroup({
           id: group.pk,
           group: group
