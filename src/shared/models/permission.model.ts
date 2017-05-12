@@ -35,7 +35,7 @@ export class Permission extends ResourceModel {
     return result;
   }
   get asString() {
-    return this.name;
+    return this.title;
   }
   get contentTypeAsString() {
     if (this.contentType) {

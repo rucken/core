@@ -15,7 +15,7 @@ export class HttpHelper {
   get(url: string): Observable<Response> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi.io') !== -1) {
+    if (url.indexOf('mockapi') !== -1) {
       options = new RequestOptions({ headers: headers });
       return this.http.get(url, options);
     }
@@ -32,7 +32,7 @@ export class HttpHelper {
     const bodyString = JSON.stringify(data);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi.io') !== -1) {
+    if (url.indexOf('mockapi') !== -1) {
       options = new RequestOptions({ headers: headers });
       return this.http.post(url, bodyString, options);
     }
@@ -49,7 +49,7 @@ export class HttpHelper {
     const bodyString = JSON.stringify(data);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi.io') !== -1) {
+    if (url.indexOf('mockapi') !== -1) {
       options = new RequestOptions({ headers: headers });
       return this.http.post(url, bodyString, options);
     }
@@ -66,7 +66,7 @@ export class HttpHelper {
     const bodyString = JSON.stringify(data);
     const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi.io') !== -1) {
+    if (url.indexOf('mockapi') !== -1) {
       options = new RequestOptions({ headers: headers });
       return this.http.put(url, bodyString, options);
     }
@@ -76,7 +76,7 @@ export class HttpHelper {
   delete(url: string): Observable<Response> {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi.io') !== -1) {
+    if (url.indexOf('mockapi') !== -1) {
       options = new RequestOptions({ headers: headers });
       return this.http.delete(url, options);
     }

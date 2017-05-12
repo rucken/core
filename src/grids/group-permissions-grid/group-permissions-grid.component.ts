@@ -130,7 +130,8 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     confirm.modal.show();
   }
   save(itemModal: PermissionsListModalComponent) {
-    this.cachedResourcesService.save(itemModal.items.map(item => new GroupPermission({
+    const items: Permission[] = itemModal.items;
+    this.cachedResourcesService.save(items.map(item => new GroupPermission({
       id: item.pk,
       permission: item
     }))).subscribe(

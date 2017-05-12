@@ -178,8 +178,11 @@ msgstr "Неизвестная ошибка"
 msgid "Id"
 msgstr "Ид."
 
-msgid "Model"
-msgstr "Модель"
+msgid "Name"
+msgstr "Наименование"
+
+msgid "Title"
+msgstr "Заголовок"
 
 msgid "Icon"
 msgstr "Иконка"
@@ -196,9 +199,6 @@ msgstr "Группа"
 msgid "Permission"
 msgstr "Разрешения"
 
-msgid "Name"
-msgstr "Наименование"
-
 msgid "Total results"
 msgstr "Всего записей"
 
@@ -213,9 +213,6 @@ msgstr "Кол-во стр."
 
 msgid "Content type"
 msgstr "Тип содержимого"
-
-msgid "Codename"
-msgstr "Код"
 
 msgid "Yes"
 msgstr "Да"
@@ -303,6 +300,12 @@ msgstr "Вход"
 
 msgid "Actions"
 msgstr "Действия"
+
+#~ msgid "Model"
+#~ msgstr "Модель"
+
+#~ msgid "Codename"
+#~ msgstr "Код"
 
 #~ msgid "Version"
 #~ msgstr "Версия"

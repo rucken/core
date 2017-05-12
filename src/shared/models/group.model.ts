@@ -58,7 +58,7 @@ export class Group extends ResourceModel {
     }
   }
   get asString() {
-    return this.name;
+    return this.title;
   }
   get permissionsAsString() {
     if (this.permissions) {

@@ -169,7 +169,10 @@ msgstr ""
 msgid "Id"
 msgstr ""
 
-msgid "Model"
+msgid "Name"
+msgstr ""
+
+msgid "Title"
 msgstr ""
 
 msgid "Icon"
@@ -187,9 +190,6 @@ msgstr ""
 msgid "Permission"
 msgstr ""
 
-msgid "Name"
-msgstr ""
-
 msgid "Total results"
 msgstr ""
 
@@ -203,9 +203,6 @@ msgid "Per page"
 msgstr ""
 
 msgid "Content type"
-msgstr ""
-
-msgid "Codename"
 msgstr ""
 
 msgid "Yes"

@@ -93,7 +93,9 @@ export class ResourcesGridComponent implements OnInit {
   }
   focus() {
     this.modalIsOpened = false;
-    this.focusElement.nativeElement.focus();
+    if (this.focusElement && this.focusElement.nativeElement) {
+      this.focusElement.nativeElement.focus();
+    }
   }
   selectItem(item: any, event?: MouseEvent, checkFirst?: boolean) {
     if (event && event.toElement.classList.contains('select-col') && this.selectedItems && this.selectedItems.length > 0) {

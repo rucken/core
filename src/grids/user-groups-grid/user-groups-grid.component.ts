@@ -127,7 +127,8 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     confirm.modal.show();
   }
   save(itemModal: GroupsListModalComponent) {
-    this.cachedResourcesService.save(itemModal.items.map(item => new UserGroup({
+    const items: Group[] = itemModal.items;
+    this.cachedResourcesService.save(items.map(item => new UserGroup({
       id: item.pk,
       group: item
     }))).subscribe(

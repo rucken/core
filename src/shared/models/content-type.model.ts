@@ -31,6 +31,6 @@ export class ContentType extends ResourceModel {
     return result;
   }
   get asString() {
-    return this.model;
+    return this.title;
   }
 }

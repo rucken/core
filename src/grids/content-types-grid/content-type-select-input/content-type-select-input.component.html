@@ -4,8 +4,8 @@
     triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip">
     <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" [ngClass]="inputClass" disabled/>
     <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement disabled/>
-    <select-input *ngIf="!statusListMessage && select" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
-      [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" (onChangeInputValue)="changeInputValue($event)" #inputElement></select-input>
+    <select-input *ngIf="!statusListMessage && select && items && items.length" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
+      [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">
       <button class="btn btn-success" type="button" (click)="onLookup()"
               tooltip="{{lookupTooltip}}" placement="left"  container="body">
