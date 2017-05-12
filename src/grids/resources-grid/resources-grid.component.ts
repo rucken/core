@@ -1,6 +1,6 @@
 import { User } from '../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { HostListener, Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { AppService } from '../../shared/app.service';
 import { AccountService } from '../../shared/account.service';
 import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
@@ -33,6 +33,13 @@ export class ResourcesGridComponent implements OnInit {
 
   public get meta() {
     return this.cachedResourcesService.meta;
+  }
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key === 'Enter' && this.onEnterEnabled) {
+      this.enter();
+    }
   }
   constructor() {
     this.onSelectItems = new EventEmitter();
