@@ -7,12 +7,16 @@ export class Group extends ResourceModel {
   static titles: any = {
     id: translate('Id'),
     name: translate('Name'),
+    title: translate('Title'),
     permissions: translate('Permissions')
   };
-  static fields: any = ['id', 'name', 'permissions'];
+  static fields: any = ['id', 'name', 'title', 'permissions'];
+
+  public className = 'Group';
 
   id: number;
   name: string;
+  title: string;
   permissions: Permission[];
 
   static meta(): any {
@@ -36,7 +40,7 @@ export class Group extends ResourceModel {
   checkPermissions(permissionNames: string[]) {
     const result = this.permissions && this.permissions.filter(
       permission => permissionNames.filter(
-        permissionName => _.camelCase(permission.codename).toLowerCase() === _.camelCase(permissionName).toLowerCase()
+        permissionName => _.camelCase(permission.name).toLowerCase() === _.camelCase(permissionName).toLowerCase()
       ).length > 0
     ).length > 0;
     if (!result) {
@@ -46,7 +50,7 @@ export class Group extends ResourceModel {
       });
       return this.permissions && this.permissions.filter(
         permission => permissionNames.filter(
-          permissionName => _.camelCase(permission.codename).toLowerCase() === _.camelCase(permissionName).toLowerCase()
+          permissionName => _.camelCase(permission.name).toLowerCase() === _.camelCase(permissionName).toLowerCase()
         ).length > 0
       ).length > 0;
     } else {
@@ -54,7 +58,7 @@ export class Group extends ResourceModel {
     }
   }
   get asString() {
-    return this.name;
+    return this.title;
   }
   get permissionsAsString() {
     if (this.permissions) {

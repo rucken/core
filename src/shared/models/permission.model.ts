@@ -6,14 +6,16 @@ export class Permission extends ResourceModel {
   static titles: any = {
     id: translate('Id'),
     contentType: translate('Content type'),
-    codename: translate('Codename'),
+    title: translate('Title'),
     name: translate('Name')
   };
-  static fields: any = ['id', 'contentType', 'codename', 'name'];
+  static fields: any = ['id', 'contentType', 'title', 'name'];
+
+  public className = 'Permission';
 
   id: number;
   contentType: ContentType;
-  codename: string;
+  title: string;
   name: string;
 
   static meta(): any {
@@ -33,7 +35,7 @@ export class Permission extends ResourceModel {
     return result;
   }
   get asString() {
-    return this.name;
+    return this.title;
   }
   get contentTypeAsString() {
     if (this.contentType) {

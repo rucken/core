@@ -3,7 +3,7 @@
     <div class="col-sm-3 col-md-2">
       <div class="app-sidebar" *ngIf="account">
         <ul class="nav nav-sidebar">
-          <li [class.active]="router.isActive('/account/profile')" *ngIf="account && account.checkPermissions(['read_profile'])" class="app-sidebar__item">
+          <li [class.active]="router.isActive('/account/profile')" *ngIf="account.checkPermissions(['read_profile-frame'])" class="app-sidebar__item">
             <a routerLink="./profile" translate>Profile</a>
           </li>
         </ul>

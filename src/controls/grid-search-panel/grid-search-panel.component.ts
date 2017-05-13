@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'grid-search-panel',
@@ -7,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./grid-search-panel.component.scss']
 })
 
-export class GridSearchPanelComponent implements OnInit {
+export class GridSearchPanelComponent extends BaseComponent {
   @Input()
   public searchText: string;
   @Output()
@@ -19,11 +20,11 @@ export class GridSearchPanelComponent implements OnInit {
   @Input()
   public maxlength = 250;
   constructor(public translateService: TranslateService) {
+    super();
     if (this.searchTitle === undefined) {
       this.searchTitle = this.translateService.instant('Search');
     }
   }
-  ngOnInit() { }
   get searchTextValue() {
     return this.searchText;
   }

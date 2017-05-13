@@ -15,7 +15,7 @@ export class AdminPageComponent implements OnInit {
 
   public title: string;
 
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   constructor(public router: Router, public accountService: AccountService, public app: AppService,
@@ -23,9 +23,6 @@ export class AdminPageComponent implements OnInit {
     this.title = this.translateService.instant('Admin');
   }
   ngOnInit() {
-    this.init();
-  }
-  init() {
     this.app.currentPageName = 'admin';
     this.app.currentPageTitle = this.title;
   }

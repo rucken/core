@@ -10,6 +10,9 @@ export class UserGroup extends ResourceModel {
     group: translate('Group')
   };
   static fields: any = ['id', 'user', 'group'];
+
+  public className = 'UserGroup';
+
   id: number;
   user: User;
   group: Group;

@@ -14,6 +14,7 @@ import { TextInputComponent } from '../../../controls/text-input/text-input.comp
 import { GroupPermissionsGridComponent } from '../../group-permissions-grid/group-permissions-grid.component';
 import { Permission } from '../../../shared/models/permission.model';
 import { GroupPermission } from '../../../shared/models/group-permission.model';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'group-modal',
@@ -21,7 +22,7 @@ import { GroupPermission } from '../../../shared/models/group-permission.model';
   styleUrls: ['./group-modal.component.scss']
 })
 
-export class GroupModalComponent implements OnInit {
+export class GroupModalComponent extends BaseComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -50,16 +51,14 @@ export class GroupModalComponent implements OnInit {
   @Output()
   onSave: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => {
       this.focus();
       this.groupPermissions.group = this.item;
       this.groupPermissions.mockedItems =
-        this.item.permissions.map((permission: Permission) => {
+        this.item.permissions.map((permission: any | Permission) => {
           return new GroupPermission({
             id: permission.pk,
             permission: permission
@@ -67,9 +66,6 @@ export class GroupModalComponent implements OnInit {
         });
       this.groupPermissions.search();
     });
-  }
-  focus() {
-    this.focusElement.focus();
   }
 
   close() {

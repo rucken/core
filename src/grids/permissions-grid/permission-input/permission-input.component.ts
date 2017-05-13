@@ -25,8 +25,6 @@ export class PermissionInputComponent extends ResourceInputComponent {
   @Input()
   lookupIcon? = 'fa fa-search';
   @Input()
-  focused = false;
-  @Input()
   readonly = false;
   @Input()
   hardReadonly = false;
@@ -39,22 +37,16 @@ export class PermissionInputComponent extends ResourceInputComponent {
   @Input()
   title = '';
   @Input()
-  model: Permission = new Permission();
+  model: any | Permission = new Permission();
   @Output()
-  modelChange: EventEmitter<Permission> = new EventEmitter<Permission>();
+  modelChange: EventEmitter<any | Permission> = new EventEmitter<any | Permission>();
 
   @Input()
   modelAsString = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
-  @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
-  public items: Permission[];
+  public items: any[] | Permission[];
   public cachedResourcesService: PermissionsService;
 
   constructor(
@@ -70,7 +62,7 @@ export class PermissionInputComponent extends ResourceInputComponent {
     }
     this.cachedResourcesService = permissionsService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   onLookup() {

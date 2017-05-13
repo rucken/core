@@ -1,3 +1,23 @@
+<a name="1.5.0"></a>
+# [1.5.0](https://github.com/site15/rucken/compare/1.4.4...v1.5.0) (2017-05-13)
+
+
+### Bug Fixes
+
+* **any:** Add any type for all place where used models, for extends ([0a6c10e](https://github.com/site15/rucken/commit/0a6c10e))
+* **className:** Add class name to model, change props names for detect pk key in model ([e28266d](https://github.com/site15/rucken/commit/e28266d))
+* **demo:** Change default lang to "en" ([32b5146](https://github.com/site15/rucken/commit/32b5146))
+* **deps:** Update dependencies ([b84f44b](https://github.com/site15/rucken/commit/b84f44b))
+* **pixel:** Remove pixel element for hook enter on table, changed to  host hook ([02e9bb4](https://github.com/site15/rucken/commit/02e9bb4))
+
+
+### Features
+
+* **refactoring:** Add BaseComponent and extends all components from it ([2a9141c](https://github.com/site15/rucken/commit/2a9141c))
+* **refactoring:** Move show tooltip for error  and info to BaseComponent ([f4e8f3f](https://github.com/site15/rucken/commit/f4e8f3f))
+
+
+
 <a name="1.4.4"></a>
 ## [1.4.4](https://github.com/site15/rucken/compare/1.4.3...v1.4.4) (2017-05-01)
 

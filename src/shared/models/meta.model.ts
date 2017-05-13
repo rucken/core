@@ -10,6 +10,8 @@ export class MetaModel extends ResourceModel {
   };
   static fields: any = ['totalResults', 'curPage', 'totalPages', 'perPage'];
 
+  public className = 'MetaModel';
+
   totalResults: number;
   curPage: number;
   totalPages: number;

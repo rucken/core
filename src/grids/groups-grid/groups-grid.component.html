@@ -1,4 +1,3 @@
-<button class="pixel"  (click)="enter($event)" #focusElement></button>
 <div class="app-grid groups-grid" *ngIf="account">
   <div class="app-grid__toolbar--header">
     <div class="row">
@@ -23,6 +22,9 @@
         <th class="app-grid__table__col-name">
           <table-column [title]="modelMeta.titles.name" name="name" [(columns)]="columns"></table-column>
         </th>
+        <th class="app-grid__table__col-title">
+          <table-column [title]="modelMeta.titles.title" name="title" [(columns)]="columns"></table-column>
+        </th>
         <th class="app-grid__table__col-permissions">
           <table-column [title]="modelMeta.titles.permissions" name="permissions" [(columns)]="columns"></table-column>
         </th>
@@ -32,7 +34,7 @@
     </thead>
     <tbody>
       <tr *ngIf="statusListMessage">
-        <td class="app-grid__table__col-status-message" [attr.colspan]="3+(hardReadonly !== true && account.checkPermissions(['change_group','delete_group'])?1:0)">
+        <td class="app-grid__table__col-status-message" [attr.colspan]="4+(hardReadonly !== true && account.checkPermissions(['change_group','delete_group'])?1:0)">
           {{statusListMessage | translate}}
         </td>
       </tr>
@@ -40,6 +42,7 @@
         (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
         <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
         <td class="app-grid__table__col-name">{{item.name}}</td>
+        <td class="app-grid__table__col-title">{{item.title}}</td>
         <td class="app-grid__table__col-permissions">{{item.permissionsAsString}}</td>
         <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_group','delete_group'])">
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_group'])"

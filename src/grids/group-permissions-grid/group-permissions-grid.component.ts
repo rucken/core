@@ -15,6 +15,8 @@ import { PermissionModalComponent } from '../permissions-grid/permission-modal/p
 import { PermissionsService } from '../../shared/permissions.service';
 import { ResourcesGridComponent } from '../resources-grid/resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
+import 'rxjs/add/operator/map';
+
 @Component({
   selector: 'group-permissions-grid',
   templateUrl: './group-permissions-grid.component.html',
@@ -33,7 +35,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Input()
-  group: Group;
+  group: any | Group;
   @Input()
   public readonly: boolean;
   @Input()
@@ -56,7 +58,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = groupPermissionsService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   showCreateModal() {
@@ -100,7 +102,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
   }
   savePermission(itemModal: PermissionModalComponent) {
     this.permissionsService.save(itemModal.item).subscribe(
-      (permission: Permission) => {
+      (permission: any | Permission) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {
@@ -128,7 +130,8 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     confirm.modal.show();
   }
   save(itemModal: PermissionsListModalComponent) {
-    this.cachedResourcesService.save(itemModal.items.map(item => new GroupPermission({
+    const items: Permission[] = itemModal.items;
+    this.cachedResourcesService.save(items.map(item => new GroupPermission({
       id: item.pk,
       permission: item
     }))).subscribe(

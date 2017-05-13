@@ -11,6 +11,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 import { AccountService } from './../../../shared/account.service';
 import { User } from './../../../shared/models/user.model';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'content-type-modal',
@@ -18,7 +19,7 @@ import { TextInputComponent } from './../../../controls/text-input/text-input.co
   styleUrls: ['./content-type-modal.component.scss']
 })
 
-export class ContentTypeModalComponent implements OnInit {
+export class ContentTypeModalComponent extends BaseComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -45,17 +46,11 @@ export class ContentTypeModalComponent implements OnInit {
   @Output()
   onSave: EventEmitter<ContentTypeModalComponent> = new EventEmitter<ContentTypeModalComponent>();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }
-  focus() {
-    this.focusElement.focus();
-  }
-
   close() {
     if (this.hideOnClose && this.modal.isShown) {
       this.modal.hide();

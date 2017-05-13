@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
+import { BaseComponent } from '../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'confirm-modal',
@@ -7,7 +8,7 @@ import { ModalDirective } from 'ngx-bootstrap';
   styleUrls: ['./confirm-modal.component.scss']
 })
 
-export class ConfirmModalComponent implements OnInit {
+export class ConfirmModalComponent extends BaseComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -32,25 +33,18 @@ export class ConfirmModalComponent implements OnInit {
   @Output()
   onYes: EventEmitter<ConfirmModalComponent | any> = new EventEmitter();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   yes() {
     this.onYes.emit(this);
     return false;
   }
 
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
-  }
-  init() {
     if (!this.title) {
       this.title = this.text;
     }
-  }
-  focus() {
-    this.focusElement.nativeElement.focus();
   }
   close() {
     if (this.hideOnClose && this.modal.isShown) {

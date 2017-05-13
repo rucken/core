@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'modal-footer-buttons',
@@ -7,7 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./modal-footer-buttons.component.scss']
 })
 
-export class ModalFooterButtonsComponent implements OnInit {
+export class ModalFooterButtonsComponent extends BaseComponent {
 
   @Input()
   public cancelTitle?: string;
@@ -19,12 +20,11 @@ export class ModalFooterButtonsComponent implements OnInit {
   public onClose: EventEmitter<boolean | any> = new EventEmitter();
 
   constructor(public translateService: TranslateService) {
+    super();
     if (this.cancelTitle === undefined) {
       this.cancelTitle = this.translateService.instant('Cancel');
     }
   }
-  ngOnInit() { }
-
   close() {
     this.onClose.emit(true);
     return false;

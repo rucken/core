@@ -1,4 +1,3 @@
-<button class="pixel"  (click)="enter($event)" #focusElement></button>
 <div class="app-grid permissions-grid" *ngIf="account">
   <div class="app-grid__toolbar--header">
     <div class="row">
@@ -23,11 +22,11 @@
         <th class="app-grid__table__col-contentType">
           <table-column [title]="modelMeta.titles.contentType" name="contentType" [(columns)]="columns"></table-column>
         </th>
-        <th class="app-grid__table__col-codename">
-          <table-column [title]="modelMeta.titles.codename" name="codename" [(columns)]="columns"></table-column>
-        </th>
         <th class="app-grid__table__col-name">
           <table-column [title]="modelMeta.titles.name" name="name" [(columns)]="columns"></table-column>
+        </th>
+        <th class="app-grid__table__col-title">
+          <table-column [title]="modelMeta.titles.title" name="title" [(columns)]="columns"></table-column>
         </th>
         <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_permission','delete_permission'])"
           translate>Actions</th>
@@ -43,8 +42,8 @@
         (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
         <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
         <td class="app-grid__table__col-contentType">{{item.contentTypeAsString}}</td>
-        <td class="app-grid__table__col-codename">{{item.codename}}</td>
         <td class="app-grid__table__col-name">{{item.name}}</td>
+        <td class="app-grid__table__col-title">{{item.title}}</td>
         <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_permission','delete_permission'])">
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_permission'])"
             [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_permission'])"></grid-row-buttons>
@@ -59,9 +58,9 @@
       <div class="col-md-9">
         <div class="pull-right" *ngIf="meta.totalPages>1 || meta.totalResults>meta.perPage">
           <pagination [directionLinks]="false" (pageChanged)="pageChanged($event)" [boundaryLinks]="true" [totalItems]="meta.totalResults"
-            [rotate]="false" [maxSize]="5" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed"
-            firstText="&laquo;" lastText="&raquo;"></pagination>
-            <!--fix:[(ngModel)]="meta.curPage"-->
+            [rotate]="false" [maxSize]="5" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed" firstText="&laquo;"
+            lastText="&raquo;"></pagination>
+          <!--fix:[(ngModel)]="meta.curPage"-->
         </div>
       </div>
     </div>

@@ -13,6 +13,7 @@ import { TextInputComponent } from '../../../controls/text-input/text-input.comp
 import { UserGroupsGridComponent } from '../../user-groups-grid/user-groups-grid.component';
 import { Group } from '../../../shared/models/group.model';
 import { UserGroup } from '../../../shared/models/user-group.model';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'user-modal',
@@ -20,7 +21,7 @@ import { UserGroup } from '../../../shared/models/user-group.model';
   styleUrls: ['./user-modal.component.scss']
 })
 
-export class UserModalComponent implements OnInit {
+export class UserModalComponent extends BaseComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -49,19 +50,14 @@ export class UserModalComponent implements OnInit {
   @Output()
   onSave: EventEmitter<UserModalComponent | any> = new EventEmitter();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit() {
-    this.init();
-  }
   init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => {
       this.focus();
       this.userGroups.user = this.item;
       this.userGroups.mockedItems =
-        this.item.groups.map((group: Group) => {
+        this.item.groups.map((group: any | Group) => {
           return new UserGroup({
             id: group.pk,
             group: group
@@ -69,9 +65,6 @@ export class UserModalComponent implements OnInit {
         });
       this.userGroups.search();
     });
-  }
-  focus() {
-    this.focusElement.focus();
   }
 
   close() {

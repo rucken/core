@@ -3,8 +3,9 @@ import * as _ from 'lodash';
 import { translate } from '../utils';
 
 export class ResourceModel {
-  public _pkFieldName: string;
-  public _pkIsNumber: boolean;
+  public className = 'ResourceModel';
+  public pkFieldName: string;
+  public pkIsNumber: boolean;
   [key: string]: any;
 
   static meta(): any {
@@ -12,25 +13,22 @@ export class ResourceModel {
     return meta;
   }
   constructor(obj?: any) {
-    if (this._pkFieldName === undefined) {
-      this._pkFieldName = 'id';
+    if (this.pkFieldName === undefined) {
+      this.pkFieldName = 'id';
     }
-    if (this._pkIsNumber === undefined) {
-      this._pkIsNumber = true;
+    if (this.pkIsNumber === undefined) {
+      this.pkIsNumber = true;
     }
     if (obj && (_.isNumber(obj) || _.isString(obj))) {
       const newObj: any = {};
-      newObj[this._pkFieldName] = obj;
+      newObj[this.pkFieldName] = obj;
       obj = newObj;
     }
     this.parse(obj ? obj : {});
   }
   get pk(): string | number {
-    const key = this._pkFieldName;
+    const key = this.pkFieldName;
     return this[key];
-  }
-  get pkFieldName() {
-    return this._pkFieldName;
   }
   parse(obj: any) {
 
@@ -66,8 +64,8 @@ export class ResourceModel {
         }
       }
     }
-    if (this._pkIsNumber) {
-      this[this._pkFieldName] = +obj[this._pkFieldName];
+    if (this.pkIsNumber) {
+      this[this.pkFieldName] = +obj[this.pkFieldName];
     }
   }
   format() {

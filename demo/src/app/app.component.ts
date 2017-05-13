@@ -13,7 +13,7 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 })
 export class DemoAppComponent extends AppComponent {
   @Input()
-  autoLoadLang? = true;
+  autoLoadLang?= true;
 
   public pleaseWaitVisible = false;
 
@@ -48,6 +48,7 @@ export class DemoAppComponent extends AppComponent {
     });
   }
   init() {
+    super.init();
     if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
       window['loading_screen'].finish();
       this.pleaseWaitVisible = false;
@@ -58,6 +59,6 @@ export class DemoAppComponent extends AppComponent {
     this.translateService.setDefaultLang('en');
     this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
     const browserLang: string = this.translateService.getBrowserLang();
-    this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'ru');
+    this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'en');
   }
 }

@@ -22,16 +22,16 @@ export class UsersGridComponent extends ResourcesGridComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<User[] | any>;
+  onSelectItems: EventEmitter<any[] | User[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
   public modelMeta: any = User.meta();
-  public items: User[] | any[];
+  public items: any[] | User[];
   public searchText = '';
-  public selectedItems: User[] | any[];
+  public selectedItems: any[] | User[];
   public cachedResourcesService: UsersService;
 
   constructor(
@@ -44,7 +44,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = usersService.createCache();
   }
-  get account(): User | any {
+  get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
@@ -101,7 +101,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
   }
   save(itemModal: UserModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(
-      (user: User | any) => {
+      (user: any | User) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {

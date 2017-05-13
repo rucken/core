@@ -18,9 +18,6 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.init();
-  }
-  init() {
     this.app.currentPageName = 'home';
     this.app.currentPageTitle = this.title;
   }

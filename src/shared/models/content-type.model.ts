@@ -4,13 +4,16 @@ import { translate } from '../utils';
 export class ContentType extends ResourceModel {
   static titles: any = {
     id: translate('Id'),
-    model: translate('Model'),
-
+    name: translate('Name'),
+    title: translate('Title'),
   };
-  static fields: any = ['id', 'model'];
+  static fields: any = ['id', 'name', 'title'];
+
+  public className = 'ContentType';
 
   id: number;
-  model: string;
+  name: string;
+  title: string;
 
   static meta(): any {
     const meta: any = ContentType;
@@ -28,6 +31,6 @@ export class ContentType extends ResourceModel {
     return result;
   }
   get asString() {
-    return this.model;
+    return this.title;
   }
 }

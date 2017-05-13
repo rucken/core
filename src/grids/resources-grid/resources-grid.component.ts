@@ -1,12 +1,13 @@
 import { User } from '../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { HostListener, Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { AppService } from '../../shared/app.service';
 import { AccountService } from '../../shared/account.service';
 import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
 import { MetaModel } from '../../shared/models/meta.model';
+import { BaseComponent } from '../../controls/base-component/base-component.component';
 
-export class ResourcesGridComponent implements OnInit {
+export class ResourcesGridComponent extends BaseComponent {
   @Input()
   loadAll?: boolean;
   @Output()
@@ -34,7 +35,15 @@ export class ResourcesGridComponent implements OnInit {
   public get meta() {
     return this.cachedResourcesService.meta;
   }
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (event.key === 'Enter' && this.onEnterEnabled) {
+      this.enter();
+    }
+  }
   constructor() {
+    super();
     this.onSelectItems = new EventEmitter();
     this.onEnter = new EventEmitter();
   }
@@ -71,7 +80,7 @@ export class ResourcesGridComponent implements OnInit {
       return this.cachedResourcesService.statusListMessage;
     }
   }
-  ngOnInit() {
+  init() {
     this.cachedResourcesService.items$.subscribe(
       (resources: any[]) => {
         this.items = resources;
@@ -82,9 +91,7 @@ export class ResourcesGridComponent implements OnInit {
         this.items = [];
         this.selectItem(null);
       });
-    this.init();
-  }
-  init() {
+    super.init();
     this.loadAll = this.loadAll === undefined ? true : this.loadAll;
 
     if (this.loadAll) {
@@ -93,7 +100,7 @@ export class ResourcesGridComponent implements OnInit {
   }
   focus() {
     this.modalIsOpened = false;
-    this.focusElement.nativeElement.focus();
+    super.focus();
   }
   selectItem(item: any, event?: MouseEvent, checkFirst?: boolean) {
     if (event && event.toElement.classList.contains('select-col') && this.selectedItems && this.selectedItems.length > 0) {

@@ -34,8 +34,6 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   lookupIcon? = 'fa fa-search';
   @Input()
-  focused = false;
-  @Input()
   readonly = false;
   @Input()
   inputReadonly = true;
@@ -48,9 +46,9 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   title = '';
   @Input()
-  model: User = new User();
+  model: any | User = new User();
   @Output()
-  modelChange: EventEmitter<User | any> = new EventEmitter<User | any>();
+  modelChange: EventEmitter<any | User> = new EventEmitter<any | User>();
 
   @Input()
   modelAsString = '';
@@ -70,13 +68,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   @Input()
   public tooltipTriggers = 'hover focus';
 
-  @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
-  public items: User[] | any[];
+  public items: any[] | User[];
   public cachedResourcesService: UsersService;
   constructor(
     public app: AppService,
@@ -93,7 +85,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
     }
     this.cachedResourcesService = usersService.createCache();
   }
-  get account(): User | any {
+  get account(): any | User {
     return this.accountService.account;
   }
   onLookup() {

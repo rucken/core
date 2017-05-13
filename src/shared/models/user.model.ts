@@ -31,6 +31,8 @@ export class User extends ResourceModel {
     'isStaff', 'isActive', 'firstName', 'lastName', 'email',
     'lastLogin', 'dateJoined', 'groups'];
 
+  public className = 'User';
+
   id: number;
   username: string;
   password: string;
@@ -117,9 +119,6 @@ export class User extends ResourceModel {
     }
   }
   checkPermissions(permissionNames: string[]) {
-    if (permissionNames.indexOf('admin') === -1) {
-      permissionNames.push('admin');
-    }
     if (this.checkRoles(permissionNames)) {
       return true;
     } else {

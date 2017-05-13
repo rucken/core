@@ -23,16 +23,16 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<ContentType[] | any>;
+  onSelectItems: EventEmitter<any[] | ContentType[] | any>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
   public modelMeta: any = ContentType.meta();
-  public items: ContentType[];
+  public items: any[] | ContentType[];
   public searchText = '';
-  public selectedItems: ContentType[];
+  public selectedItems: any[] | ContentType[];
   public cachedResourcesService: ContentTypesService;
 
   constructor(
@@ -45,7 +45,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = contentTypesService.createCache();
   }
-  get account(): User {
+  get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
@@ -102,7 +102,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
   }
   save(itemModal: ContentTypeModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(
-      (contentType: ContentType) => {
+      (contentType: any | ContentType) => {
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {

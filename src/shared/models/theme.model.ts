@@ -9,8 +9,9 @@ export class Theme extends ResourceModel {
 
   static fields: any = ['url', 'name'];
 
-  public _pkFieldName = 'url';
-  public _pkIsNumber = false;
+  public className = 'Theme';
+  public pkFieldName = 'url';
+  public pkIsNumber = false;
 
   public url: string;
   public name: string;

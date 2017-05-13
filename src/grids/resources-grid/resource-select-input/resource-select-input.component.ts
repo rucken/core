@@ -9,8 +9,9 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { ResourceSelectInputConfig } from './resource-select-input.config';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
-export class ResourceSelectInputComponent implements OnInit {
+export class ResourceSelectInputComponent extends BaseComponent {
   @Input()
   labelClass?= 'control-label';
   @Input()
@@ -21,8 +22,6 @@ export class ResourceSelectInputComponent implements OnInit {
   lookupTooltip?: string;
   @Input()
   lookupIcon?: string;
-  @Input()
-  focused = false;
   @Input()
   readonly = false;
   @Input()
@@ -55,21 +54,7 @@ export class ResourceSelectInputComponent implements OnInit {
 
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
-  @Input()
-  public tooltipEnable: boolean;
-  @Input()
-  public tooltipText = '';
-  @Input()
-  public tooltipPlacement = 'bottom';
-  @Input()
-  public tooltipTriggers = 'hover focus';
 
-  @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
   public items: any[];
   public cachedResourcesService: any;
   constructor(
@@ -77,6 +62,7 @@ export class ResourceSelectInputComponent implements OnInit {
     public translateService: TranslateService,
     public config: ResourceSelectInputConfig
   ) {
+    super();
     if (this.select === undefined) {
       this.select = config.select;
     }
@@ -87,59 +73,7 @@ export class ResourceSelectInputComponent implements OnInit {
       this.tooltipEnable = config.errorInTooltip;
     }
   }
-  showTooltip() {
-    const tooltip: any = this.tooltip;
-    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
-      return;
-    }
-    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
-    if (this.inputElement.inputElement) {
-      tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
-    } else {
-      tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-    }
-  }
-  safeHtml(html: string): any {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-  get errorMessage(): any {
-    const arr: string[] = [];
-    let text = '';
-    if (this.errorsValue && this.errorsValue[this.name]) {
-      for (let i = 0; i < this.errorsValue[this.name].length; i++) {
-        if (this.errorsValue[this.name][i]) {
-          text = this.translateService.instant(this.errorsValue[this.name][i]);
-          arr.push(text);
-        }
-      }
-    }
-    if (arr.length > 0) {
-      return arr.join(', ');
-    }
-    return false;
-  }
-  get infoMessage(): any {
-    const arr: string[] = [];
-    let text = '';
-    if (this.infoValue && this.infoValue[this.name]) {
-      for (let i = 0; i < this.infoValue[this.name].length; i++) {
-        if (this.infoValue[this.name][i]) {
-          text = this.translateService.instant(this.infoValue[this.name][i]);
-          arr.push(text);
-        }
-      }
-    }
-    if (arr.length > 0) {
-      return arr.join(', ');
-    }
-    return false;
-  }
-  ngOnInit() {
+  init() {
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;
     }
@@ -153,42 +87,15 @@ export class ResourceSelectInputComponent implements OnInit {
       }, (errors: any) => {
         this.items = [];
       });
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.errorMessage;
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.infoMessage;
-    });
-    this.init();
-  }
-  init() {
-    setTimeout((out: any) => {
-      if (this.focused === true) {
-        this.focus();
-      }
-    }, 700);
+    super.init();
     if (this.select && this.loadAll) {
-      this.cachedResourcesService.loadAll();
+      this.search();
     }
   }
-  focus() {
-    if (this.inputElement && this.inputElement.inputElement) {
-      this.inputElement.inputElement.focus();
-    } else {
-      if (this.inputElement && this.inputElement.nativeElement) {
-        this.inputElement.nativeElement.focus();
-      }
-    }
+  search() {
+    const filter: any = {};
+    this.cachedResourcesService.ignoreCache = true;
+    this.cachedResourcesService.loadAll('', filter);
   }
   get value() {
     return this.model;

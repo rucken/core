@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef }
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { UsersGridComponent } from '../users-grid.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'users-list-modal',
@@ -9,7 +10,7 @@ import { UsersGridComponent } from '../users-grid.component';
   styleUrls: ['./users-list-modal.component.scss']
 })
 
-export class UsersListModalComponent implements OnInit {
+export class UsersListModalComponent extends BaseComponent {
 
   @Input()
   text: string;
@@ -32,20 +33,18 @@ export class UsersListModalComponent implements OnInit {
   users: UsersGridComponent;
 
   @Input()
-  account: User | any;
+  account: any | User;
   @Input()
   title: string;
   @Output()
   onSave: EventEmitter<UsersListModalComponent>;
 
-  item: User | any;
-  items: User[] | any[];
+  item: any | User;
+  items: any[] | User[];
   public modelMeta: any = User.meta();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   constructor() {
+    super();
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }
@@ -54,7 +53,8 @@ export class UsersListModalComponent implements OnInit {
     this.onSave = new EventEmitter<UsersListModalComponent>();
   }
 
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }
@@ -63,7 +63,7 @@ export class UsersListModalComponent implements OnInit {
     this.users.focus();
   }
 
-  selectUser(items: User[] | any[]) {
+  selectUser(items: any[] | User[]) {
     this.item = items[0];
     this.items = items;
   }

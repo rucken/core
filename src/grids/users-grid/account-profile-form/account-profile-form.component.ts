@@ -14,6 +14,7 @@ import { UserGroupsGridComponent } from '../../user-groups-grid/user-groups-grid
 import { Group } from '../../../shared/models/group.model';
 import { UserGroup } from '../../../shared/models/user-group.model';
 import { translate } from '../../../shared/utils';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'account-profile-form',
@@ -21,7 +22,7 @@ import { translate } from '../../../shared/utils';
   styleUrls: ['./account-profile-form.component.scss']
 })
 
-export class AccountProfileFormComponent implements OnInit {
+export class AccountProfileFormComponent extends BaseComponent {
 
   @ViewChild('focusElement')
   focusElement: TextInputComponent;
@@ -34,7 +35,7 @@ export class AccountProfileFormComponent implements OnInit {
   @Input()
   readonly = false;
   @Input()
-  hideOnClose? = true;
+  hideOnClose?= true;
   @Input()
   account: any | User = null;
   @Input()
@@ -48,26 +49,17 @@ export class AccountProfileFormComponent implements OnInit {
   @Output()
   onSave: EventEmitter<AccountProfileFormComponent | any> = new EventEmitter();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit() {
-    this.init();
-  }
   init() {
     this.focus();
     this.userGroups.user = this.item;
     this.userGroups.mockedItems =
-      this.item.groups.map((group: Group) => {
+      this.item.groups.map((group: any | Group) => {
         return new UserGroup({
           id: group.pk,
           group: group
         });
       });
     this.userGroups.search();
-  }
-  focus() {
-    this.focusElement.focus();
   }
 
   cancel() {

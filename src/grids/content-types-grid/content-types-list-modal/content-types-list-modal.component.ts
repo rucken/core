@@ -3,6 +3,7 @@ import { ContentType } from './../../../shared/models/content-type.model';
 import { User } from '././../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { ContentTypesGridComponent } from '../content-types-grid.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'content-types-list-modal',
@@ -10,7 +11,7 @@ import { ContentTypesGridComponent } from '../content-types-grid.component';
   styleUrls: ['./content-types-list-modal.component.scss']
 })
 
-export class ContentTypesListModalComponent implements OnInit {
+export class ContentTypesListModalComponent extends BaseComponent {
 
   @Input()
   text: string;
@@ -40,13 +41,11 @@ export class ContentTypesListModalComponent implements OnInit {
   onSave: EventEmitter<ContentTypesListModalComponent>;
 
   item: any | ContentType;
-  items: ContentType[];
+  items: any[] | ContentType[];
   modelMeta: any = ContentType.meta();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   constructor() {
+    super();
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }
@@ -54,8 +53,8 @@ export class ContentTypesListModalComponent implements OnInit {
     this.item = new ContentType();
     this.onSave = new EventEmitter<ContentTypesListModalComponent>();
   }
-
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }
@@ -64,7 +63,7 @@ export class ContentTypesListModalComponent implements OnInit {
     this.contentTypes.focus();
   }
 
-  selectContentType(items: ContentType[]) {
+  selectContentType(items: any[] | ContentType[]) {
     this.item = items[0];
     this.items = items;
   }

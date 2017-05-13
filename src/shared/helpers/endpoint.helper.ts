@@ -31,6 +31,9 @@ export class EndpointHelper {
       if (action === 'info') {
         return this.httpHelper.http.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
       }
+      if (action === 'login') {
+        return this.httpHelper.http.post(this.actionUrl(endpointService, action), data);
+      }
     }
     return this.httpHelper.post(this.actionUrl(endpointService, action), data);
   };
@@ -62,6 +65,9 @@ export class EndpointHelper {
       return { message: [error.statusText ? error.statusText : message] };
     } else {
       const errorBody = error.json();
+      if (_.isString(errorBody)) {
+        return { message: [errorBody] };
+      }
       if (errorBody.description !== undefined) {
         return { message: [errorBody.description] };
       }

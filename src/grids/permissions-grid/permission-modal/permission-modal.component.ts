@@ -11,6 +11,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 import { AccountService } from './../../../shared/account.service';
 import { User } from './../../../shared/models/user.model';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'permission-modal',
@@ -18,7 +19,7 @@ import { TextInputComponent } from './../../../controls/text-input/text-input.co
   styleUrls: ['./permission-modal.component.scss']
 })
 
-export class PermissionModalComponent implements OnInit {
+export class PermissionModalComponent extends BaseComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -43,17 +44,12 @@ export class PermissionModalComponent implements OnInit {
   @Output()
   onClose: EventEmitter<PermissionModalComponent> = new EventEmitter<PermissionModalComponent>();
   @Output()
-  onSave: EventEmitter<PermissionModalComponent> = new EventEmitter<PermissionModalComponent>();
+  onSave: EventEmitter<PermissionModalComponent> = new EventEmitter<PermissionModalComponent>()
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit() {
+  init() {
+    super.init()
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
-  }
-  focus() {
-    this.focusElement.focus();
   }
 
   close() {

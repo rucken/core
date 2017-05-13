@@ -7,6 +7,7 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { SelectInputConfig } from './select-input.config';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'select-input',
@@ -15,17 +16,17 @@ import { Subject } from 'rxjs/Subject';
   encapsulation: ViewEncapsulation.None  // Enable dynamic HTML styles
 })
 
-export class SelectInputComponent implements OnInit {
+export class SelectInputComponent extends BaseComponent {
   @Input()
   public debounceTime?: number;
   @Output()
   public onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  public labelClass? = 'control-label';
+  public labelClass?= 'control-label';
   @Input()
-  public inputClass? = 'form-control';
+  public inputClass?= 'form-control';
   @Input()
-  inputFrameClass? = '';
+  inputFrameClass?= '';
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
   @ViewChild('autoComplete')
@@ -34,8 +35,6 @@ export class SelectInputComponent implements OnInit {
   public inputElement: ElementRef;
   @Input()
   public inFormGroup = true;
-  @Input()
-  public focused = false;
   @Input()
   public readonly = false;
   @Input()
@@ -57,19 +56,7 @@ export class SelectInputComponent implements OnInit {
   @Output()
   public modelChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  public errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  public info: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
   public width: string = null;
-  @Input()
-  public tooltipEnable: boolean;
-  @Input()
-  public tooltipText = '';
-  @Input()
-  public tooltipPlacement = 'bottom';
-  @Input()
-  public tooltipTriggers = 'hover focus';
   @Input()
   public set items(items: any[]) {
     this._items = items;
@@ -97,8 +84,6 @@ export class SelectInputComponent implements OnInit {
     return this._items;
   }
   private _items: any[] = [];
-  public errorsValue: any;
-  public infoValue: any;
   private _showMe = false;
   private debouncer: Subject<string> = new Subject<string>();
   public getTitle: any;
@@ -107,6 +92,7 @@ export class SelectInputComponent implements OnInit {
     public translateService: TranslateService,
     public config: SelectInputConfig
   ) {
+    super();
     if (this.tooltipEnable === undefined) {
       this.tooltipEnable = config.errorInTooltip;
     }
@@ -126,25 +112,6 @@ export class SelectInputComponent implements OnInit {
       .debounceTime(this.debounceTime)
       .subscribe((value: string) => this.onChangeInputValue.emit(value));
   }
-  ngOnInit() {
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.errorMessage;
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.infoMessage;
-    });
-    this.init();
-  }
   get inputReadonly() {
     return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length === 0;
   }
@@ -153,17 +120,6 @@ export class SelectInputComponent implements OnInit {
       this.value = null;
     }
     this.debouncer.next(value);
-  }
-  showTooltip() {
-    const tooltip: any = this.tooltip;
-    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
-      return;
-    }
-    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
-    tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-    tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-    tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
   }
   get showMe() {
     return this._showMe;
@@ -185,41 +141,6 @@ export class SelectInputComponent implements OnInit {
     this.model = val;
     this.modelChange.emit(this.model);
   }
-  safeHtml(html: string): any {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-  get errorMessage(): any {
-    const arr: string[] = [];
-    let text = '';
-    if (this.errorsValue && this.errorsValue[this.name]) {
-      for (let i = 0; i < this.errorsValue[this.name].length; i++) {
-        if (this.errorsValue[this.name][i]) {
-          text = this.translateService.instant(this.errorsValue[this.name][i]);
-          arr.push(text);
-        }
-      }
-    }
-    if (arr.length > 0) {
-      return arr.join(', ');
-    }
-    return false;
-  }
-  get infoMessage(): any {
-    const arr: string[] = [];
-    let text = '';
-    if (this.infoValue && this.infoValue[this.name]) {
-      for (let i = 0; i < this.infoValue[this.name].length; i++) {
-        if (this.infoValue[this.name][i]) {
-          text = this.translateService.instant(this.infoValue[this.name][i]);
-          arr.push(text);
-        }
-      }
-    }
-    if (arr.length > 0) {
-      return arr.join(', ');
-    }
-    return false;
-  }
   init() {
     this.getTitle = (item: any) => {
       if (item && item[this.titleField]) {
@@ -233,16 +154,12 @@ export class SelectInputComponent implements OnInit {
     if (this.hardValue) {
       this.value = this.hardValue;
     }
-    setTimeout((out: any) => {
-      if (this.focused === true) {
-        this.focus();
-      }
-    }, 700);
+    super.init();
   }
   resizeList() {
-    if (this.value && this.value.pk) {
+    if (this.value && this.value[this.valueField]) {
       this.items.map((item: any, index: number) => {
-        if (item && this.value && item.pk === this.value.pk) {
+        if (item && this.value && item[this.valueField] === this.value[this.valueField]) {
           this.autoComplete.itemIndex = index;
         }
       });
