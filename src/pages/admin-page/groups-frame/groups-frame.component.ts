@@ -20,9 +20,6 @@ export class GroupsFrameComponent implements OnInit {
     return this.accountService.account;
   }
   ngOnInit() {
-    this.init();
-  }
-  init() {
-    this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Groups')}`;
+     this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Groups')}`;
   }
 }

@@ -7,6 +7,7 @@ import { Router, NavigationStart, Event as NavigationEvent } from '@angular/rout
 import { AppService } from '../../shared/app.service';
 import { AuthModalComponent } from '../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';
+import { BaseComponent } from '../base-component/base-component.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
   entryComponents: [ConfirmModalComponent, AuthModalComponent]
 })
 
-export class NavbarComponent implements OnInit {
+export class NavbarComponent extends BaseComponent {
 
   public isCollapsed = true;
   public changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
@@ -27,9 +28,7 @@ export class NavbarComponent implements OnInit {
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
-  }
-  ngOnInit() {
-    this.init();
+    super();
   }
   showChangeLog() {
     if (this.changelog) {
@@ -40,6 +39,7 @@ export class NavbarComponent implements OnInit {
     }
   }
   init() {
+    super.init();
     this.accountService.info();
     if (this.app.localVersion !== this.app.currentVersion) {
       this.showChangeLog();

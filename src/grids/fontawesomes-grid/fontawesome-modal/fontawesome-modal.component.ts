@@ -11,6 +11,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 import { AccountService } from '../../../shared/account.service';
 import { User } from '../../../shared/models/user.model';
 import { TextInputComponent } from '../../../controls/text-input/text-input.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'fontawesome-modal',
@@ -18,7 +19,7 @@ import { TextInputComponent } from '../../../controls/text-input/text-input.comp
   styleUrls: ['./fontawesome-modal.component.scss']
 })
 
-export class FontawesomeModalComponent implements OnInit {
+export class FontawesomeModalComponent extends BaseComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -45,17 +46,11 @@ export class FontawesomeModalComponent implements OnInit {
   @Output()
   onSave: EventEmitter<FontawesomeModalComponent> = new EventEmitter<FontawesomeModalComponent>();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }
-  focus() {
-    this.focusElement.focus();
-  }
-
   close() {
     if (this.hideOnClose && this.modal.isShown) {
       this.modal.hide();

@@ -16,13 +16,10 @@ export class UsersFrameComponent implements OnInit {
   constructor(public accountService: AccountService, public app: AppService,
     public translateService: TranslateService) {
   }
-  get account(): any |User {
+  get account(): any | User {
     return this.accountService.account;
   }
   ngOnInit() {
-    this.init();
-  }
-  init() {
     this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Users')}`;
   }
 }

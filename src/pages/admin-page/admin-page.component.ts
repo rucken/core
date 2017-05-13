@@ -23,9 +23,6 @@ export class AdminPageComponent implements OnInit {
     this.title = this.translateService.instant('Admin');
   }
   ngOnInit() {
-    this.init();
-  }
-  init() {
     this.app.currentPageName = 'admin';
     this.app.currentPageTitle = this.title;
   }

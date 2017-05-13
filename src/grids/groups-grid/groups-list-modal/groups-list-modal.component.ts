@@ -3,6 +3,7 @@ import { Group } from '../../../shared/models/group.model';
 import { User } from '../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { GroupsGridComponent } from '../groups-grid.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'groups-list-modal',
@@ -10,7 +11,7 @@ import { GroupsGridComponent } from '../groups-grid.component';
   styleUrls: ['./groups-list-modal.component.scss']
 })
 
-export class GroupsListModalComponent implements OnInit {
+export class GroupsListModalComponent extends BaseComponent {
 
   @Input()
   text: string;
@@ -43,10 +44,8 @@ export class GroupsListModalComponent implements OnInit {
   items: any[] | Group[];
   public modelMeta: any = Group.meta();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   constructor() {
+    super();
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }
@@ -55,7 +54,8 @@ export class GroupsListModalComponent implements OnInit {
     this.onSave = new EventEmitter<GroupsListModalComponent>();
   }
 
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

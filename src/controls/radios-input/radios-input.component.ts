@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'radios-input',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, 
   styleUrls: ['./radios-input.component.scss']
 })
 
-export class RadiosInputComponent implements OnInit {
+export class RadiosInputComponent extends BaseComponent {
   @Input()
   labelClass? = 'control-label';
   @Input()
@@ -16,8 +17,6 @@ export class RadiosInputComponent implements OnInit {
 
   @ViewChild('inputElement')
   public inputElement: ElementRef;
-  @Input()
-  public focused = false;
   @Input()
   public readonly = false;
   @Input()
@@ -34,48 +33,13 @@ export class RadiosInputComponent implements OnInit {
   public modelChange: EventEmitter<string> = new EventEmitter<string>();
 
   public value: string;
-  @Input()
-  public errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  public info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
-  ngOnInit() {
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-    });
-    this.init();
-  }
   init() {
     if (this.model) {
       this.value = this.model;
     } else {
       this.value = this.values[this.keys(this.values)[0]];
     }
-    setTimeout((out: any) => {
-      if (this.focused === true) {
-        this.focus();
-      }
-    }, 700);
-  }
-  focus() {
-    if (this.inputElement) {
-      this.inputElement.nativeElement.focus();
-    }
-  }
-  keys(object: {}) {
-    return Object.keys(object);
+    super.init();
   }
   updateModel() {
     setTimeout((out: any) => {

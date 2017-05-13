@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { TextInputConfig } from './text-input.config';
 import emailMask from 'text-mask-addons/dist/emailMask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'text-input',
@@ -12,20 +13,18 @@ import createNumberMask from 'text-mask-addons/dist/createNumberMask';
   styleUrls: ['./text-input.component.scss']
 })
 
-export class TextInputComponent implements OnInit {
+export class TextInputComponent extends BaseComponent {
   @Input()
-  labelClass? = 'control-label';
+  labelClass?= 'control-label';
   @Input()
-  inputClass? = 'form-control';
+  inputClass?= 'form-control';
   @Input()
-  inputFrameClass? = '';
+  inputFrameClass?= '';
 
   @ViewChild('inputElement')
   public inputElement: ElementRef;
   @ViewChild('tooltip')
   public tooltip: TooltipDirective;
-  @Input()
-  public focused = false;
   @Input()
   public type = 'text';
   @Input()
@@ -42,10 +41,6 @@ export class TextInputComponent implements OnInit {
   public hardValue: string = null;
   @Output()
   public modelChange: EventEmitter<string> = new EventEmitter<string>();
-  @Input()
-  public errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  public info: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   public maxlength: number;
   @Input()
@@ -65,13 +60,12 @@ export class TextInputComponent implements OnInit {
   @Input()
   public tooltipTriggers = 'hover focus';
 
-  public errorsValue: any;
-  public infoValue: any;
   constructor(
     public sanitizer: DomSanitizer,
     public translateService: TranslateService,
     public config: TextInputConfig
   ) {
+    super();
     if (this.tooltipEnable === undefined) {
       this.tooltipEnable = config.errorInTooltip;
     }
@@ -81,25 +75,6 @@ export class TextInputComponent implements OnInit {
     if (this.step === undefined) {
       this.step = config.step;
     }
-  }
-  ngOnInit() {
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.errorMessage;
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.infoMessage;
-    });
-    this.init();
   }
   init() {
     if (this.mask.mask === false) {
@@ -117,11 +92,13 @@ export class TextInputComponent implements OnInit {
         this.mask.mask = ['+', /\d/, '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
       }
     }
-    setTimeout((out: any) => {
-      if (this.focused === true) {
-        this.focus();
-      }
-    }, 700);
+    super.init();
+    this.errors.subscribe((data: any) => {
+      this.tooltipText = this.errorMessage;
+    });
+    this.info.subscribe((data: any) => {
+      this.tooltipText = this.infoMessage;
+    });
   }
   showTooltip() {
     const tooltip: any = this.tooltip;
@@ -133,46 +110,6 @@ export class TextInputComponent implements OnInit {
     tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-  }
-  safeHtml(html: string): any {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
-  get errorMessage(): any {
-    const arr: string[] = [];
-    let text = '';
-    if (this.errorsValue && this.errorsValue[this.name]) {
-      for (let i = 0; i < this.errorsValue[this.name].length; i++) {
-        if (this.errorsValue[this.name][i]) {
-          text = this.translateService.instant(this.errorsValue[this.name][i]);
-          arr.push(text);
-        }
-      }
-    }
-    if (arr.length > 0) {
-      return arr.join(', ');
-    }
-    return false;
-  }
-  get infoMessage(): any {
-    const arr: string[] = [];
-    let text = '';
-    if (this.infoValue && this.infoValue[this.name]) {
-      for (let i = 0; i < this.infoValue[this.name].length; i++) {
-        if (this.infoValue[this.name][i]) {
-          text = this.translateService.instant(this.infoValue[this.name][i]);
-          arr.push(text);
-        }
-      }
-    }
-    if (arr.length > 0) {
-      return arr.join(', ');
-    }
-    return false;
-  }
-  focus() {
-    if (this.inputElement) {
-      this.inputElement.nativeElement.focus();
-    }
   }
   get value() {
     if (this.hardValue !== null) {

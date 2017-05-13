@@ -3,6 +3,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 import { User } from './../../shared/models/user.model';
 import { AppService } from '../../shared/app.service';
 import { TextInputComponent } from '../../controls/text-input/text-input.component';
+import { BaseComponent } from '../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'auth-modal',
@@ -10,7 +11,7 @@ import { TextInputComponent } from '../../controls/text-input/text-input.compone
   styleUrls: ['./auth-modal.component.scss']
 })
 
-export class AuthModalComponent implements OnInit {
+export class AuthModalComponent extends BaseComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -21,9 +22,9 @@ export class AuthModalComponent implements OnInit {
   @Input()
   class = '';
   @Input()
-  hideOnClose? = true;
+  hideOnClose?= true;
   @Input()
-  hideButton? = false;
+  hideButton?= false;
   @Input()
   account: any | User = null;
   @Output()
@@ -31,21 +32,13 @@ export class AuthModalComponent implements OnInit {
   @Output()
   onLogin: EventEmitter<AuthModalComponent | any> = new EventEmitter();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   public modelMeta: any = User.meta();
 
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
-    this.init();
-  }
-  init() {
     this.account = new User();
-  }
-  focus() {
-    this.focusElement.focus();
   }
   close() {
     if (this.hideOnClose && this.modal.isShown) {

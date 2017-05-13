@@ -3,6 +3,7 @@ import { Fontawesome } from './../../../shared/models/fontawesome.model';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { FontawesomesGridComponent } from '../fontawesomes-grid.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'fontawesomes-list-modal',
@@ -10,7 +11,7 @@ import { FontawesomesGridComponent } from '../fontawesomes-grid.component';
   styleUrls: ['./fontawesomes-list-modal.component.scss']
 })
 
-export class FontawesomesListModalComponent implements OnInit {
+export class FontawesomesListModalComponent extends BaseComponent {
 
   @Input()
   text: string;
@@ -43,10 +44,8 @@ export class FontawesomesListModalComponent implements OnInit {
   items: any[] | Fontawesome[];
   modelMeta: any = Fontawesome.meta();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   constructor() {
+    super();
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }
@@ -55,7 +54,8 @@ export class FontawesomesListModalComponent implements OnInit {
     this.onSave = new EventEmitter<FontawesomesListModalComponent>();
   }
 
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

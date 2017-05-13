@@ -3,6 +3,7 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef }
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { TableColumnConfig } from './table-column.config';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'table-column',
@@ -10,7 +11,7 @@ import { TableColumnConfig } from './table-column.config';
   styleUrls: ['./table-column.component.scss']
 })
 
-export class TableColumnComponent implements OnInit {
+export class TableColumnComponent extends BaseComponent {
   @Input()
   public sortEnabled = true;
   @Input()
@@ -32,13 +33,13 @@ export class TableColumnComponent implements OnInit {
     public translateService: TranslateService,
     public config: TableColumnConfig
   ) {
+    super();
   }
-  ngOnInit() {
+  beforeInit() {
     this.columnsChange.subscribe((columns: any) => {
       this._columns = columns;
       this.init();
     });
-    this.init();
   }
   init() {
     if (this._columns[this.name] && this._columns[this.name]['title']) {

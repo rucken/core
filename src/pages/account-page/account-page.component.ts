@@ -24,9 +24,6 @@ export class AccountPageComponent implements OnInit {
     this.title = this.translateService.instant('Account');
   }
   ngOnInit() {
-    this.init();
-  }
-  init() {
     this.app.currentPageName = 'account';
     this.app.currentPageTitle = this.title;
   }

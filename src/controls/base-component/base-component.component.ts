@@ -1,44 +1,25 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { OnInit, Input, EventEmitter } from '@angular/core';
 
-@Component({
-  selector: 'checkboxes-input',
-  templateUrl: './checkboxes-input.component.html',
-  styleUrls: ['./checkboxes-input.component.scss']
-})
-
-export class CheckboxesInputComponent implements OnInit {
+export class BaseComponent implements OnInit {
   @Input()
-  labelClass? = 'control-label';
-  @Input()
-  inputClass? = 'control-label checkbox-inline';
-  @Input()
-  inputFrameClass? = 'form-control form-checkbox-controls';
-
-  @ViewChild('inputElement')
-  public inputElement: ElementRef;
+  public name = '';
   @Input()
   public focused = false;
-  @Input()
-  public readonly = false;
-  @Input()
-  public name = 'checkboxes';
-  @Input()
-  public title = '';
-  @Input()
-  public models: { [key: string]: boolean; } = {};
-  @Input()
-  public checkboxesTitles: { [key: string]: string; } = {};
-  @Output()
-  public modelsChange: EventEmitter<{ [key: string]: boolean; }> = new EventEmitter<{ [key: string]: boolean; }>();
-
-  public values: { [key: string]: boolean; } = {};
   @Input()
   public errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   public info: EventEmitter<any> = new EventEmitter<any>();
   public errorsValue: any;
   public infoValue: any;
+  [key: string]: any;
   ngOnInit() {
+    this.beforeInit();
+    this.init();
+    this.afterInit();
+  }
+  beforeInit() { }
+  afterInit() { }
+  init() {
     this.errors.subscribe((data: any) => {
       this.errorsValue = data;
       const keys = Object.keys(data);
@@ -53,28 +34,80 @@ export class CheckboxesInputComponent implements OnInit {
         this.focus();
       }
     });
-    this.init();
-  }
-  init() {
-    this.values = this.models;
     setTimeout((out: any) => {
       if (this.focused === true) {
         this.focus();
       }
-    }, 700);
+    }, 300);
   }
-  focus() {
-    if (this.inputElement) {
-      this.inputElement.nativeElement.focus();
+  get errorMessage(): any {
+    const arr: string[] = [];
+    let text = '';
+    if (this.errorsValue && this.errorsValue[this.name]) {
+      for (let i = 0; i < this.errorsValue[this.name].length; i++) {
+        if (this.errorsValue[this.name][i]) {
+          text = this.translate(this.errorsValue[this.name][i]);
+          arr.push(text);
+        }
+      }
+    }
+    if (arr.length > 0) {
+      return arr.join(', ');
+    }
+    return false;
+  }
+  get infoMessage(): any {
+    const arr: string[] = [];
+    let text = '';
+    if (this.infoValue && this.infoValue[this.name]) {
+      for (let i = 0; i < this.infoValue[this.name].length; i++) {
+        if (this.infoValue[this.name][i]) {
+          text = this.translate(this.infoValue[this.name][i]);
+          arr.push(text);
+        }
+      }
+    }
+    if (arr.length > 0) {
+      return arr.join(', ');
+    }
+    return false;
+  }
+  safeHtml(html: string): any {
+    if (this.sanitizer) {
+      return this.sanitizer.bypassSecurityTrustHtml(html);
+    } else {
+      return html;
     }
   }
-  updateModels() {
-    setTimeout((out: any) => {
-      this.models = this.values;
-      this.modelsChange.emit(this.models);
-    }, 700);
+  translate(text: string) {
+    if (this.translateService) {
+      return this.translateService.instant(text);
+    } else {
+      return text;
+    }
   }
   keys(object: {}) {
     return Object.keys(object);
+  }
+  focus() {
+    let inputElement: any = this.inputElement;
+    if (!inputElement) {
+      inputElement = this.focusElement;
+    }
+    while (inputElement) {
+      if (inputElement.focus) {
+        inputElement.focus();
+        break;
+      }
+      if (inputElement.nativeElement) {
+        inputElement = inputElement.nativeElement
+      } else {
+        if (inputElement.inputElement) {
+          inputElement = inputElement.inputElement
+        } else {
+          break;
+        }
+      }
+    }
   }
 }

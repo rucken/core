@@ -19,9 +19,6 @@ export class ThemesPageComponent implements OnInit {
     this.title = this.translateService.instant('Themes');
   }
   ngOnInit() {
-    this.init();
-  }
-  init() {
     this.app.currentPageName = 'themes';
     this.app.currentPageTitle = this.title;
     this.themesService.items$.subscribe(

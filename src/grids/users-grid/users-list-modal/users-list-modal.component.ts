@@ -2,6 +2,7 @@ import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef }
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { UsersGridComponent } from '../users-grid.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'users-list-modal',
@@ -9,7 +10,7 @@ import { UsersGridComponent } from '../users-grid.component';
   styleUrls: ['./users-list-modal.component.scss']
 })
 
-export class UsersListModalComponent implements OnInit {
+export class UsersListModalComponent extends BaseComponent {
 
   @Input()
   text: string;
@@ -42,10 +43,8 @@ export class UsersListModalComponent implements OnInit {
   items: any[] | User[];
   public modelMeta: any = User.meta();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   constructor() {
+    super();
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }
@@ -54,7 +53,8 @@ export class UsersListModalComponent implements OnInit {
     this.onSave = new EventEmitter<UsersListModalComponent>();
   }
 
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

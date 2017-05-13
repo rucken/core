@@ -47,9 +47,6 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     super();
     this.cachedResourcesService = fontawesomesService.createCache();
   }
-  safeHtml(html: string) {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
-  }
   get account(): any | User {
     return this.accountService.account;
   }

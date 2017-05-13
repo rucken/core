@@ -36,8 +36,6 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   @Input()
   lookupIcon? = 'fa fa-search';
   @Input()
-  focused = false;
-  @Input()
   readonly = false;
   @Input()
   hardReadonly = false;
@@ -72,12 +70,6 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   @Input()
   public tooltipTriggers = 'hover focus';
 
-  @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
   public items: any[] | ContentType[];
   public cachedResourcesService: ContentTypesService;
   constructor(

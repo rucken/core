@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AccountService } from './../../shared/account.service';
 import { User } from '../../shared/models/user.model';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'page-header',
@@ -8,13 +9,13 @@ import { User } from '../../shared/models/user.model';
   styleUrls: ['./page-header.component.scss']
 })
 
-export class PageHeaderComponent implements OnInit {
+export class PageHeaderComponent extends BaseComponent {
   @Input()
   public title: string;
 
-  constructor(public accountService: AccountService) { }
-
-  ngOnInit() { }
+  constructor(public accountService: AccountService) {
+    super();
+  }
 
   get account(): any | User {
     return this.accountService.account;

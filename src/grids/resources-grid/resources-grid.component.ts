@@ -5,8 +5,9 @@ import { AppService } from '../../shared/app.service';
 import { AccountService } from '../../shared/account.service';
 import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
 import { MetaModel } from '../../shared/models/meta.model';
+import { BaseComponent } from '../../controls/base-component/base-component.component';
 
-export class ResourcesGridComponent implements OnInit {
+export class ResourcesGridComponent extends BaseComponent {
   @Input()
   loadAll?: boolean;
   @Output()
@@ -42,6 +43,7 @@ export class ResourcesGridComponent implements OnInit {
     }
   }
   constructor() {
+    super();
     this.onSelectItems = new EventEmitter();
     this.onEnter = new EventEmitter();
   }
@@ -78,7 +80,7 @@ export class ResourcesGridComponent implements OnInit {
       return this.cachedResourcesService.statusListMessage;
     }
   }
-  ngOnInit() {
+  init() {
     this.cachedResourcesService.items$.subscribe(
       (resources: any[]) => {
         this.items = resources;
@@ -89,9 +91,7 @@ export class ResourcesGridComponent implements OnInit {
         this.items = [];
         this.selectItem(null);
       });
-    this.init();
-  }
-  init() {
+    super.init();
     this.loadAll = this.loadAll === undefined ? true : this.loadAll;
 
     if (this.loadAll) {
@@ -100,9 +100,7 @@ export class ResourcesGridComponent implements OnInit {
   }
   focus() {
     this.modalIsOpened = false;
-    if (this.focusElement && this.focusElement.nativeElement) {
-      this.focusElement.nativeElement.focus();
-    }
+    super.focus();
   }
   selectItem(item: any, event?: MouseEvent, checkFirst?: boolean) {
     if (event && event.toElement.classList.contains('select-col') && this.selectedItems && this.selectedItems.length > 0) {

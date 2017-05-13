@@ -3,6 +3,7 @@ import { Permission } from './../../../shared/models/permission.model';
 import { User } from '././../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { PermissionsGridComponent } from '../permissions-grid.component';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'permissions-list-modal',
@@ -10,7 +11,7 @@ import { PermissionsGridComponent } from '../permissions-grid.component';
   styleUrls: ['./permissions-list-modal.component.scss']
 })
 
-export class PermissionsListModalComponent implements OnInit {
+export class PermissionsListModalComponent extends BaseComponent {
 
   @Input()
   text: string;
@@ -43,10 +44,8 @@ export class PermissionsListModalComponent implements OnInit {
   items: any[] | Permission[];
   public modelMeta: any = Permission.meta();
 
-  public errors: EventEmitter<any> = new EventEmitter();
-  public info: EventEmitter<any> = new EventEmitter();
-
   constructor() {
+    super();
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }
@@ -55,7 +54,8 @@ export class PermissionsListModalComponent implements OnInit {
     this.onSave = new EventEmitter<PermissionsListModalComponent>();
   }
 
-  ngOnInit() {
+  init() {
+    super.init();
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => this.focus());
   }

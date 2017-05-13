@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
+import { BaseComponent } from '../../controls/base-component/base-component.component';
 
 @Component({
   selector: 'alert-modal',
@@ -7,7 +8,7 @@ import { ModalDirective } from 'ngx-bootstrap';
   styleUrls: ['./alert-modal.component.scss']
 })
 
-export class AlertModalComponent implements OnInit {
+export class AlertModalComponent extends BaseComponent {
 
   @ViewChild('focusElement')
   focusElement: ElementRef;
@@ -36,16 +37,13 @@ export class AlertModalComponent implements OnInit {
   @Output()
   onClose: EventEmitter<AlertModalComponent | any> = new EventEmitter();
 
-  ngOnInit() {
+  init() {
     this.modal.onHidden.subscribe(() => this.close());
     this.modal.onShown.subscribe(() => {
       if (!this.content) {
         this.focus();
       }
     });
-    this.init();
-  }
-  init() {
     if (this.message.length > 100) {
       this.size = 'md';
     }
@@ -56,10 +54,6 @@ export class AlertModalComponent implements OnInit {
       this.title = this.text;
     }
   }
-  focus() {
-    this.focusElement.nativeElement.focus();
-  }
-
   close() {
     if (this.hideOnClose && this.modal.isShown) {
       this.modal.hide();

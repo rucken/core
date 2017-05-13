@@ -4,17 +4,16 @@ import { AppService } from './../../../shared/app.service';
 import { AccountService } from './../../../shared/account.service';
 import { User } from './../../../shared/models/user.model';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
+import { BaseComponent } from '../../../controls/base-component/base-component.component';
 
 
-export class ResourceInputComponent implements OnInit {
+export class ResourceInputComponent extends BaseComponent {
   @ViewChild('inputElement')
   inputElement: ElementRef;
   @Input()
   lookupTooltip?: string;
   @Input()
   lookupIcon? = 'fa fa-search';
-  @Input()
-  focused = false;
   @Input()
   readonly = false;
   @Input()
@@ -37,44 +36,12 @@ export class ResourceInputComponent implements OnInit {
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
-  @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
   public items: any[];
   public cachedResourcesService: any;
 
-  ngOnInit() {
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-    });
-    this.init();
-  }
   init() {
-    setTimeout((out: any) => {
-      if (this.focused === true) {
-        this.focus();
-      }
-    }, 700);
+    super.init();
     this.cachedResourcesService.loadAll();
-  }
-  focus() {
-    if (this.inputElement) {
-      this.inputElement.nativeElement.focus();
-    }
   }
   get value() {
     return this.model;

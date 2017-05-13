@@ -25,8 +25,6 @@ export class FontawesomeInputComponent extends ResourceInputComponent {
   @Input()
   lookupIcon? = 'fa fa-search';
   @Input()
-  focused = false;
-  @Input()
   readonly = false;
   @Input()
   hardReadonly = false;
@@ -48,12 +46,6 @@ export class FontawesomeInputComponent extends ResourceInputComponent {
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
-  @Input()
-  errors: EventEmitter<any> = new EventEmitter<any>();
-  @Input()
-  info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
   public items: any | Fontawesome[];
   public cachedResourcesService: FontawesomesService;
 

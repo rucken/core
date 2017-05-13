@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BaseComponent } from '../base-component/base-component.component';
 
 @Component({
   selector: 'page-sub-header',
@@ -6,9 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./page-sub-header.component.scss']
 })
 
-export class PageSubHeaderComponent implements OnInit {
+export class PageSubHeaderComponent extends BaseComponent {
   @Input()
   public title: string;
-
-  ngOnInit() { }
 }
