@@ -15,15 +15,15 @@ export class DemoEndpointHelper extends EndpointHelper {
     return environment.apiUrl;
   }
   actionRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
-    if (environment.production) {
-      if (endpointService.name === 'account') {
-        if (action === 'info') {
-          return this.httpHelper.authHttp.get(this.actionUrl(endpointService, action).
-            replace('account/', 'account-'));
-        }
+    if (endpointService.name === 'account') {
+      const url = this.actionUrl(endpointService, action).replace('account/', 'account-');
+      if (action === 'info') {
+        return this.httpHelper.http.post(url, { 'token': localStorage.getItem('token') });
       }
-      return this.httpHelper.authHttp.get(this.actionUrl(endpointService, action).
-        replace('account/', 'account-'));
+      if (action === 'login') {
+        return this.httpHelper.http.post(url, data);
+      }
+      return this.httpHelper.http.post(url, data);
     }
     return super.actionRequest(endpointService, action, data);
   };
