@@ -51,14 +51,6 @@ export class TextInputComponent extends BaseComponent {
   public min = '';
   @Input()
   public max = '';
-  @Input()
-  public tooltipEnable: boolean;
-  @Input()
-  public tooltipText = '';
-  @Input()
-  public tooltipPlacement = 'bottom';
-  @Input()
-  public tooltipTriggers = 'hover focus';
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -93,23 +85,6 @@ export class TextInputComponent extends BaseComponent {
       }
     }
     super.init();
-    this.errors.subscribe((data: any) => {
-      this.tooltipText = this.errorMessage;
-    });
-    this.info.subscribe((data: any) => {
-      this.tooltipText = this.infoMessage;
-    });
-  }
-  showTooltip() {
-    const tooltip: any = this.tooltip;
-    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
-      return;
-    }
-    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
-    tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-    tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-    tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
   }
   get value() {
     if (this.hardValue !== null) {

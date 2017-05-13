@@ -1,6 +1,14 @@
-import { OnInit, Input, EventEmitter } from '@angular/core';
+import { OnInit, Input, EventEmitter, ElementRef } from '@angular/core';
 
 export class BaseComponent implements OnInit {
+  @Input()
+  public tooltipEnable: boolean;
+  @Input()
+  public tooltipText = '';
+  @Input()
+  public tooltipPlacement = 'bottom';
+  @Input()
+  public tooltipTriggers = 'hover focus';
   @Input()
   public name = '';
   @Input()
@@ -26,6 +34,7 @@ export class BaseComponent implements OnInit {
       if (keys[0] === this.name) {
         this.focus();
       }
+      this.tooltipText = this.errorMessage;
     });
     this.info.subscribe((data: any) => {
       this.infoValue = data;
@@ -33,6 +42,7 @@ export class BaseComponent implements OnInit {
       if (keys[0] === this.name) {
         this.focus();
       }
+      this.tooltipText = this.infoMessage;
     });
     setTimeout((out: any) => {
       if (this.focused === true) {
@@ -108,6 +118,23 @@ export class BaseComponent implements OnInit {
           break;
         }
       }
+    }
+  }
+  showTooltip() {
+    const tooltip: any = this.tooltip;
+    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
+      return;
+    }
+    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
+    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
+    if (this.inputElement.inputElement) {
+      tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
+      tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
+      tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
+    } else {
+      tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
+      tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
+      tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     }
   }
 }

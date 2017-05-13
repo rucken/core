@@ -58,14 +58,6 @@ export class SelectInputComponent extends BaseComponent {
   @Input()
   public width: string = null;
   @Input()
-  public tooltipEnable: boolean;
-  @Input()
-  public tooltipText = '';
-  @Input()
-  public tooltipPlacement = 'bottom';
-  @Input()
-  public tooltipTriggers = 'hover focus';
-  @Input()
   public set items(items: any[]) {
     this._items = items;
     if (this.autoComplete) {
@@ -129,17 +121,6 @@ export class SelectInputComponent extends BaseComponent {
     }
     this.debouncer.next(value);
   }
-  showTooltip() {
-    const tooltip: any = this.tooltip;
-    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
-      return;
-    }
-    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
-    tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-    tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-    tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-  }
   get showMe() {
     return this._showMe;
   }
@@ -174,12 +155,6 @@ export class SelectInputComponent extends BaseComponent {
       this.value = this.hardValue;
     }
     super.init();
-    this.errors.subscribe((data: any) => {
-      this.tooltipText = this.errorMessage;
-    });
-    this.info.subscribe((data: any) => {
-      this.tooltipText = this.infoMessage;
-    });
   }
   resizeList() {
     if (this.value && this.value[this.valueField]) {
