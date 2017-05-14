@@ -39,7 +39,6 @@ export class UserModalComponent extends BaseResourceModalComponent {
   onSave: EventEmitter<UserModalComponent | any> = new EventEmitter();
 
   afterOpen() {
-    this.focus();
     this.userGroups.user = this.item;
     this.userGroups.mockedItems =
       this.item.groups.map((group: any | Group) => {

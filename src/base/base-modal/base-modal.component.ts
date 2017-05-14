@@ -6,6 +6,8 @@ import * as _ from 'lodash';
 export class BaseModalComponent extends BaseComponent {
 
   @Input()
+  focused = true;
+  @Input()
   class = '';
   @Input()
   hideOnClose?= true;
@@ -32,7 +34,9 @@ export class BaseModalComponent extends BaseComponent {
     });
     this.modal.onShown.subscribe(() => {
       // todo: fix history.pushState(null, null, this.currentLocation + '/' + _.kebabCase(this.name));
-      this.focus();
+      if (this.focused) {
+        this.focus();
+      }
       this.afterOpen();
     });
     if (this.message.length > 100) {

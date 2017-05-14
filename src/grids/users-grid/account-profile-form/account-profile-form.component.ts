@@ -50,7 +50,6 @@ export class AccountProfileFormComponent extends BaseComponent {
   onSave: EventEmitter<AccountProfileFormComponent | any> = new EventEmitter();
 
   init() {
-    this.focus();
     this.userGroups.user = this.item;
     this.userGroups.mockedItems =
       this.item.groups.map((group: any | Group) => {

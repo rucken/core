@@ -64,6 +64,7 @@ export class AppComponent extends BaseComponent {
       title = this.translateService.instant('Info');
     }
     const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    alert.focused = false;
     alert.name = 'error';
     alert.text = title;
     alert.content = content;
