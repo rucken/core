@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '../../shared/app.service';
-import { ThemesService } from '../../shared/themes.service';
-import { Theme } from '../../shared/models/theme.model';
+import { AppService } from './../../shared/app.service';
+import { ThemesService } from './../../shared/themes.service';
+import { Theme } from './../../shared/models/theme.model';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -12,10 +12,13 @@ import 'rxjs/add/operator/map';
 })
 
 export class ThemesPageComponent implements OnInit {
-  public title: string;
-  public items: any[] | Theme[];
-  constructor(public app: AppService, public themesService: ThemesService,
-    public translateService: TranslateService) {
+  title: string;
+  items: any[] | Theme[];
+  constructor(
+    public app: AppService,
+    public themesService: ThemesService,
+    public translateService: TranslateService
+  ) {
     this.title = this.translateService.instant('Themes');
   }
   ngOnInit() {

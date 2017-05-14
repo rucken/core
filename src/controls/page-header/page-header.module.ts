@@ -10,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [PageHeaderComponent]
 })
 export class PageHeaderModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: PageHeaderModule,
       providers: []

@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AccountPageRoutes } from './account-page.routes';
-import { AccountPageModule } from '../../../../../../dist';
+import { AccountPageModule } from './../../../../../../dist';
 
 @NgModule({
   imports: [
@@ -10,7 +10,7 @@ import { AccountPageModule } from '../../../../../../dist';
   ]
 })
 export class DemoAccountPageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoAccountPageModule,
       providers: []

@@ -16,6 +16,42 @@ msgstr ""
 msgid "ОК"
 msgstr ""
 
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Not found"
+msgstr ""
+
+msgid "Error, you not set perPage count"
+msgstr ""
+
+msgid "Error in creating"
+msgstr ""
+
+msgid "Creating..."
+msgstr ""
+
+msgid "Updating..."
+msgstr ""
+
+msgid "Error in updating"
+msgstr ""
+
+msgid "Removing..."
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Error on deleting"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
@@ -157,12 +193,6 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-msgid "Loading..."
-msgstr ""
-
-msgid "Updating..."
-msgstr ""
-
 msgid "Unknown error"
 msgstr ""
 
@@ -203,12 +233,6 @@ msgid "Per page"
 msgstr ""
 
 msgid "Content type"
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "No"
 msgstr ""
 
 msgid "Url"
@@ -254,30 +278,6 @@ msgid "Last login"
 msgstr ""
 
 msgid "Date joined"
-msgstr ""
-
-msgid "Not found"
-msgstr ""
-
-msgid "Error, you not set perPage count"
-msgstr ""
-
-msgid "Error in creating"
-msgstr ""
-
-msgid "Creating..."
-msgstr ""
-
-msgid "Error in updating"
-msgstr ""
-
-msgid "Removing..."
-msgstr ""
-
-msgid "OK"
-msgstr ""
-
-msgid "Error on deleting"
 msgstr ""
 
 msgid "Menu"

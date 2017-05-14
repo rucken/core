@@ -10,7 +10,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [ModalFooterButtonsComponent]
 })
 export class ModalFooterButtonsModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ModalFooterButtonsModule,
       providers: []

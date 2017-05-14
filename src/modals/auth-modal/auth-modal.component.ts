@@ -1,9 +1,9 @@
 import { Component, Output, Input, ViewChild, EventEmitter, ElementRef, OnInit } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
 import { User } from './../../shared/models/user.model';
-import { AppService } from '../../shared/app.service';
-import { TextInputComponent } from '../../controls/text-input/text-input.component';
-import { BaseComponent } from '../../controls/base-component/base-component.component';
+import { AppService } from './../../shared/app.service';
+import { TextInputComponent } from './../../controls/text-input/text-input.component';
+import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
 
 @Component({
   selector: 'auth-modal',
@@ -11,20 +11,14 @@ import { BaseComponent } from '../../controls/base-component/base-component.comp
   styleUrls: ['./auth-modal.component.scss']
 })
 
-export class AuthModalComponent extends BaseComponent {
+export class AuthModalComponent extends BaseModalComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: TextInputComponent;
   @Input()
-  title = '';
-  @Input()
-  class = '';
-  @Input()
-  hideOnClose?= true;
-  @Input()
-  hideButton?= false;
+  name = 'auth';
   @Input()
   account: any | User = null;
   @Output()
@@ -32,20 +26,11 @@ export class AuthModalComponent extends BaseComponent {
   @Output()
   onLogin: EventEmitter<AuthModalComponent | any> = new EventEmitter();
 
-  public modelMeta: any = User.meta();
+  modelMeta: any = User.meta();
 
   init() {
     super.init();
-    this.modal.onHidden.subscribe(() => this.close());
-    this.modal.onShown.subscribe(() => this.focus());
     this.account = new User();
-  }
-  close() {
-    if (this.hideOnClose && this.modal.isShown) {
-      this.modal.hide();
-    }
-    this.onClose.emit(this);
-    return false;
   }
   login() {
     this.onLogin.emit(this);

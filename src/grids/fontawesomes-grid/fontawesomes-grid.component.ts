@@ -1,16 +1,16 @@
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { User } from '../..//shared/models/user.model';
+import { User } from './../..//shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { Fontawesome } from './../../shared/models/fontawesome.model';
 import { FontawesomeModalComponent } from './fontawesome-modal/fontawesome-modal.component';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
-import { FontawesomesService } from '../../shared/fontawesomes.service';
-import { AppService } from '../../shared/app.service';
-import { AccountService } from '../../shared/account.service';
-import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
-import { MetaModel } from '../../shared/models/meta.model';
-import { ResourcesGridComponent } from '../resources-grid/resources-grid.component';
+import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
+import { FontawesomesService } from './../../shared/fontawesomes.service';
+import { AppService } from './../../shared/app.service';
+import { AccountService } from './../../shared/account.service';
+import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { MetaModel } from './../../shared/models/meta.model';
+import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'fontawesomes-grid',
@@ -19,7 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
   entryComponents: [FontawesomeModalComponent, ConfirmModalComponent]
 })
 
-export class FontawesomesGridComponent extends ResourcesGridComponent {
+export class FontawesomesGridComponent extends BaseResourcesGridComponent {
 
   @Input()
   loadAll?: boolean;
@@ -30,11 +30,11 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = Fontawesome.meta();
-  public items: any[] | Fontawesome[];
-  public searchText = '';
-  public selectedItems: any[] | Fontawesome[];
-  public cachedResourcesService: FontawesomesService;
+  modelMeta: any = Fontawesome.meta();
+  items: any[] | Fontawesome[];
+  searchText = '';
+  selectedItems: any[] | Fontawesome[];
+  cachedResourcesService: FontawesomesService;
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -59,6 +59,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
+    itemModal.name = 'createFontawesome';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['add_fontawesome']);
     itemModal.text = this.translateService.instant('Create');
@@ -75,6 +76,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
+    itemModal.name = 'editFontawesome';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['change_fontawesome']);
     itemModal.text = this.translateService.instant('Save');
@@ -94,6 +96,7 @@ export class FontawesomesGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    confirm.name = 'removeFontawesome';
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a fontawesome?');

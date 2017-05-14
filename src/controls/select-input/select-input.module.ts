@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [SelectInputComponent]
 })
 export class SelectInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: SelectInputModule,
       providers: [SelectInputConfig]

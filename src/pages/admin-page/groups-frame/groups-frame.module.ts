@@ -4,8 +4,8 @@ import { GroupsFrameComponent } from './groups-frame.component';
 import { RouterModule } from '@angular/router';
 import { GroupsFrameRoutes } from './groups-frame.routes';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageHeaderModule } from '../../../controls/page-header/page-header.module';
-import { GroupsGridModule } from '../../../grids/groups-grid/groups-grid.module';
+import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
+import { GroupsGridModule } from './../../../grids/groups-grid/groups-grid.module';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { GroupsGridModule } from '../../../grids/groups-grid/groups-grid.module'
   entryComponents: [GroupsFrameComponent]
 })
 export class GroupsFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupsFrameModule,
       providers: []

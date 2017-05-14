@@ -2,8 +2,8 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { CollapseModule } from 'ngx-bootstrap';
-import { ConfirmModalModule } from '../../modals/confirm-modal/confirm-modal.module';
-import { AuthModalModule } from '../../modals/auth-modal/auth-modal.module';
+import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
+import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [NavbarComponent]
 })
 export class NavbarModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: NavbarModule,
       providers: []

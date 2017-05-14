@@ -1,4 +1,4 @@
-import { RepositoryService } from '../shared/repository.service';
+import { BaseRepositoryService } from './../base/base-services/base-repository.service';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
@@ -6,10 +6,10 @@ import { AppService } from './app.service';
 import { User } from './models/user.model';
 import { RepositoryHelper } from './helpers/repository.helper';
 @Injectable()
-export class UsersService extends RepositoryService {
-  public items$: Subject<User[]>;
-  public items: User[];
-  public apiUrl: string;
+export class UsersService extends BaseRepositoryService {
+  items$: Subject<User[]>;
+  items: User[];
+  apiUrl: string;
 
   constructor(public repositoryHelper: RepositoryHelper) {
     super(repositoryHelper);

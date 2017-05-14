@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountService } from '../../../shared/account.service';
-import { AppService } from '../../../shared/app.service';
-import { User } from '../../../shared/models/user.model';
+import { AccountService } from './../../../shared/account.service';
+import { AppService } from './../../../shared/app.service';
+import { User } from './../../../shared/models/user.model';
 
 @Component({
   selector: 'users-frame',
@@ -11,10 +11,13 @@ import { User } from '../../../shared/models/user.model';
 })
 
 export class UsersFrameComponent implements OnInit {
-  public title: string;
+  title: string;
 
-  constructor(public accountService: AccountService, public app: AppService,
-    public translateService: TranslateService) {
+  constructor(
+    public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService
+  ) {
   }
   get account(): any | User {
     return this.accountService.account;

@@ -1,7 +1,7 @@
-import { ResourceModel } from './resource.model';
-import { translate } from '../utils';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
+import { translate } from './../utils';
 
-export class ContentType extends ResourceModel {
+export class ContentType extends BaseResourceModel {
   static titles: any = {
     id: translate('Id'),
     name: translate('Name'),
@@ -9,7 +9,7 @@ export class ContentType extends ResourceModel {
   };
   static fields: any = ['id', 'name', 'title'];
 
-  public className = 'ContentType';
+  className = 'ContentType';
 
   id: number;
   name: string;

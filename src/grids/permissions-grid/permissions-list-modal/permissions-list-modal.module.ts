@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PermissionsListModalComponent } from './permissions-list-modal.component';
 import { ModalModule } from 'ngx-bootstrap';
-import { PermissionsGridModule } from '../permissions-grid.module';
+import { PermissionsGridModule } from './../permissions-grid.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [PermissionsListModalComponent]
 })
 export class PermissionsListModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: PermissionsListModalModule,
       providers: []

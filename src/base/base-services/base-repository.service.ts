@@ -1,39 +1,37 @@
-import { AppService } from '../shared/app.service';
-import { Injectable, EventEmitter } from '@angular/core';
-import { Headers, RequestOptions, URLSearchParams } from '@angular/http';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { ResouceEnumStatus } from '../shared/enums/resource.enums';
-import { User } from '../shared/models/user.model';
-import { RepositoryHelper } from './helpers/repository.helper';
-import { MetaModel } from '../shared/models/meta.model';
+import { Injectable, EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+import { MetaModel } from './../../shared/models/meta.model';
+import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { RepositoryHelper } from './../../shared/helpers/repository.helper';
+import { translate, inValues } from './../../shared/utils';
 import * as _ from 'lodash';
-import { inValues, translate } from './utils';
+
 
 @Injectable()
-export class RepositoryService {
-  public columns: any;
-  public pluralName: string;
-  public name: string;
-  public items$: Subject<any[]>;
-  public items: any[];
-  public mockedItems: any[];
-  public meta: MetaModel;
-  public props: any = null;
-  public apiUrlWithProps: string;
-  public apiUrl: string;
+export class BaseRepositoryService {
+  columns: any;
+  pluralName: string;
+  name: string;
+  items$: Subject<any[]>;
+  items: any[];
+  mockedItems: any[];
+  meta: MetaModel;
+  props: any = null;
+  apiUrlWithProps: string;
+  apiUrl: string;
 
-  public parent: any;
-  public cached: any;
-  public ignoreCache: boolean;
-  public queryProps: any;
-  public statusListMessage: string;
+  parent: any;
+  cached: any;
+  ignoreCache: boolean;
+  queryProps: any;
+  statusListMessage: string;
   private _statusList: ResouceEnumStatus;
-  public changeStatusList$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
+  changeStatusList$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
 
-  public statusItemMessage: string;
+  statusItemMessage: string;
   private _statusItem: ResouceEnumStatus;
-  public changeStatusItem$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
+  changeStatusItem$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
 
   constructor(public repositoryHelper: RepositoryHelper) {
     this.items = [];
@@ -44,7 +42,7 @@ export class RepositoryService {
     this.parent = null;
   }
   newCache(): any {
-    return new RepositoryService(this.repositoryHelper);
+    return new BaseRepositoryService(this.repositoryHelper);
   }
   createCache(): any {
     const cache = this.newCache();

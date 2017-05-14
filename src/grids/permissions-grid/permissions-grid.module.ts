@@ -1,12 +1,12 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PermissionsGridComponent } from './permissions-grid.component';
-import { GridSearchPanelModule } from '../../controls/grid-search-panel/grid-search-panel.module';
-import { TableColumnModule } from '../../controls/table-column/table-column.module';
-import { GridRowButtonsModule } from '../../controls/grid-row-buttons/grid-row-buttons.module';
+import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-search-panel.module';
+import { TableColumnModule } from './../../controls/table-column/table-column.module';
+import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TranslateModule } from '@ngx-translate/core';
-import { ConfirmModalModule } from '../../modals/confirm-modal/confirm-modal.module';
+import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { ConfirmModalModule } from '../../modals/confirm-modal/confirm-modal.mod
   entryComponents: [PermissionsGridComponent]
 })
 export class PermissionsGridModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: PermissionsGridModule,
       providers: []

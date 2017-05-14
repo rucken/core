@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
-import { UsersGridComponent } from '../users-grid.component';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { UsersGridComponent } from './../users-grid.component';
+import { BaseResourceListModalComponent } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 
 @Component({
   selector: 'users-list-modal',
@@ -10,74 +10,26 @@ import { BaseComponent } from '../../../controls/base-component/base-component.c
   styleUrls: ['./users-list-modal.component.scss']
 })
 
-export class UsersListModalComponent extends BaseComponent {
+export class UsersListModalComponent extends BaseResourceListModalComponent {
 
-  @Input()
-  text: string;
-  @Input()
-  class: string;
-  @Input()
-  readonly: boolean;
-  @Input()
-  hardReadonly = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Output()
-  onClose: EventEmitter<UsersListModalComponent>;
-  @Input()
-  hideOnClose?: boolean;
-
+  onClose: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
   @ViewChild('users')
   users: UsersGridComponent;
-
-  @Input()
-  account: any | User;
-  @Input()
-  title: string;
   @Output()
-  onSave: EventEmitter<UsersListModalComponent>;
-
-  item: any | User;
-  items: any[] | User[];
-  public modelMeta: any = User.meta();
-
-  constructor() {
-    super();
-    if (this.hideOnClose === undefined) {
-      this.hideOnClose = true;
-    }
-    this.onClose = new EventEmitter<UsersListModalComponent>();
-    this.item = new User();
-    this.onSave = new EventEmitter<UsersListModalComponent>();
-  }
-
-  init() {
-    super.init();
-    this.modal.onHidden.subscribe(() => this.close());
-    this.modal.onShown.subscribe(() => this.focus());
-  }
-
+  onSave: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
+  item: any | User = new User();
+  items: any[] | User[] = [];
+  modelMeta: any = User.meta();
   focus() {
     this.users.focus();
   }
-
   selectUser(items: any[] | User[]) {
     this.item = items[0];
     this.items = items;
-  }
-
-  close() {
-    if (this.hideOnClose && this.modal.isShown) {
-      this.modal.hide();
-    }
-    this.onClose.emit(this);
-    return false;
-  }
-
-  select() {
-    this.onSave.emit(this);
-    return false;
   }
 }

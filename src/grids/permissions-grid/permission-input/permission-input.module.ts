@@ -16,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [PermissionInputComponent]
 })
 export class PermissionInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: PermissionInputModule,
       providers: []

@@ -1,8 +1,8 @@
-import { ResourceModel } from '../../shared/models/resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { ContentType } from './content-type.model';
-import { translate } from '../utils';
+import { translate } from './../utils';
 
-export class Permission extends ResourceModel {
+export class Permission extends BaseResourceModel {
   static titles: any = {
     id: translate('Id'),
     contentType: translate('Content type'),
@@ -11,7 +11,7 @@ export class Permission extends ResourceModel {
   };
   static fields: any = ['id', 'contentType', 'title', 'name'];
 
-  public className = 'Permission';
+  className = 'Permission';
 
   id: number;
   contentType: ContentType;

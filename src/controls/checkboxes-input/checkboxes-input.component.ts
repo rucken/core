@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
+
 
 @Component({
   selector: 'checkboxes-input',
@@ -16,21 +17,21 @@ export class CheckboxesInputComponent extends BaseComponent {
   inputFrameClass?= 'form-control form-checkbox-controls';
 
   @ViewChild('inputElement')
-  public inputElement: ElementRef;
+  inputElement: ElementRef;
   @Input()
-  public readonly = false;
+  readonly = false;
   @Input()
-  public name = 'checkboxes';
+  name = 'checkboxes';
   @Input()
-  public title = '';
+  title = '';
   @Input()
-  public models: { [key: string]: boolean; } = {};
+  models: { [key: string]: boolean; } = {};
   @Input()
-  public checkboxesTitles: { [key: string]: string; } = {};
+  checkboxesTitles: { [key: string]: string; } = {};
   @Output()
-  public modelsChange: EventEmitter<{ [key: string]: boolean; }> = new EventEmitter<{ [key: string]: boolean; }>();
+  modelsChange: EventEmitter<{ [key: string]: boolean; }> = new EventEmitter<{ [key: string]: boolean; }>();
 
-  public values: { [key: string]: boolean; } = {};
+  values: { [key: string]: boolean; } = {};
 
   init() {
     this.values = this.models;

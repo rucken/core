@@ -4,7 +4,7 @@ import { HomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { HomePageRoutes } from './home-page.routes';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageHeaderModule } from '../../controls/page-header/page-header.module';
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { PageHeaderModule } from '../../controls/page-header/page-header.module'
   entryComponents: [HomePageComponent]
 })
 export class HomePageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: HomePageModule,
       providers: []

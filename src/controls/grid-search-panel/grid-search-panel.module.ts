@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [GridSearchPanelComponent]
 })
 export class GridSearchPanelModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GridSearchPanelModule,
       providers: []

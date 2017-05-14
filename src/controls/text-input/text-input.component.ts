@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { TextInputConfig } from './text-input.config';
 import emailMask from 'text-mask-addons/dist/emailMask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'text-input',
@@ -22,35 +22,35 @@ export class TextInputComponent extends BaseComponent {
   inputFrameClass?= '';
 
   @ViewChild('inputElement')
-  public inputElement: ElementRef;
+  inputElement: ElementRef;
   @ViewChild('tooltip')
-  public tooltip: TooltipDirective;
+  tooltip: TooltipDirective;
   @Input()
-  public type = 'text';
+  type = 'text';
   @Input()
-  public readonly = false;
+  readonly = false;
   @Input()
-  public name = 'text';
+  name = 'text';
   @Input()
-  public placeholder = '';
+  placeholder = '';
   @Input()
-  public title = '';
+  title = '';
   @Input()
-  public model = '';
+  model = '';
   @Input()
-  public hardValue: string = null;
+  hardValue: string = null;
   @Output()
-  public modelChange: EventEmitter<string> = new EventEmitter<string>();
+  modelChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  public maxlength: number;
+  maxlength: number;
   @Input()
-  public mask: any = { mask: false };
+  mask: any = { mask: false };
   @Input()
-  public step: string;
+  step: string;
   @Input()
-  public min = '';
+  min = '';
   @Input()
-  public max = '';
+  max = '';
 
   constructor(
     public sanitizer: DomSanitizer,

@@ -3,7 +3,7 @@ import { Router, NavigationStart, Event as NavigationEvent } from '@angular/rout
 import {
   AdminPageComponent, AppService, AuthModalComponent, NavbarComponent,
   AccountService, User, ConfirmModalComponent
-} from '../../../../../../dist';
+} from './../../../../../../dist';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -15,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class DemoNavbarComponent extends NavbarComponent {
 
-  public changelog: string = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
+  changelog: string = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
 
   constructor(
     public app: AppService,

@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { ContentType } from './models/content-type.model';
-import { RepositoryService } from './repository.service';
+import { BaseRepositoryService } from './../base/base-services/base-repository.service';
 import { RepositoryHelper } from './helpers/repository.helper';
 @Injectable()
-export class ContentTypesService extends RepositoryService {
-  public items$: Subject<ContentType[]>;
-  public items: ContentType[];
-  public apiUrl: string;
+export class ContentTypesService extends BaseRepositoryService {
+  items$: Subject<ContentType[]>;
+  items: ContentType[];
+  apiUrl: string;
 
   constructor(public repositoryHelper: RepositoryHelper) {
     super(repositoryHelper);

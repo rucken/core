@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProfileFrameRoutes } from './profile-frame.routes';
-import { ProfileFrameModule } from '../../../../../../../dist';
+import { ProfileFrameModule } from './../../../../../../../dist';
 
 @NgModule({
   imports: [
@@ -10,7 +10,7 @@ import { ProfileFrameModule } from '../../../../../../../dist';
   ]
 })
 export class DemoProfileFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoProfileFrameModule,
       providers: []

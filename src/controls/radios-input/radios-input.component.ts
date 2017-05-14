@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'radios-input',
@@ -16,23 +16,23 @@ export class RadiosInputComponent extends BaseComponent {
   inputFrameClass? = 'form-control form-radio-controls';
 
   @ViewChild('inputElement')
-  public inputElement: ElementRef;
+  inputElement: ElementRef;
   @Input()
-  public readonly = false;
+  readonly = false;
   @Input()
-  public name = 'radios';
+  name = 'radios';
   @Input()
-  public title = '';
+  title = '';
   @Input()
-  public values: { [key: string]: string; } = {};
+  values: { [key: string]: string; } = {};
   @Input()
-  public model: string;
+  model: string;
   @Input()
-  public radiosTitles: { [key: string]: string; } = {};
+  radiosTitles: { [key: string]: string; } = {};
   @Output()
-  public modelChange: EventEmitter<string> = new EventEmitter<string>();
+  modelChange: EventEmitter<string> = new EventEmitter<string>();
 
-  public value: string;
+  value: string;
   init() {
     if (this.model) {
       this.value = this.model;

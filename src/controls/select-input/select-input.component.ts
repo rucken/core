@@ -7,7 +7,7 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { SelectInputConfig } from './select-input.config';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'select-input',
@@ -18,47 +18,47 @@ import { BaseComponent } from '../base-component/base-component.component';
 
 export class SelectInputComponent extends BaseComponent {
   @Input()
-  public debounceTime?: number;
+  debounceTime?: number;
   @Output()
-  public onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
+  onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  public labelClass?= 'control-label';
+  labelClass?= 'control-label';
   @Input()
-  public inputClass?= 'form-control';
+  inputClass?= 'form-control';
   @Input()
   inputFrameClass?= '';
   @ViewChild('tooltip')
-  public tooltip: TooltipDirective;
+  tooltip: TooltipDirective;
   @ViewChild('autoComplete')
-  public autoComplete: NguiAutoCompleteComponent;
+  autoComplete: NguiAutoCompleteComponent;
   @ViewChild('inputElement')
-  public inputElement: ElementRef;
+  inputElement: ElementRef;
   @Input()
-  public inFormGroup = true;
+  inFormGroup = true;
   @Input()
-  public readonly = false;
+  readonly = false;
   @Input()
-  public name = 'select';
+  name = 'select';
   @Input()
-  public placeholder = '';
+  placeholder = '';
   @Input()
-  public valueField: string
+  valueField: string
   @Input()
-  public title: string;
+  title: string;
   @Input()
-  public model: any;
+  model: any;
   @Input()
-  public hardValue: any = null;
+  hardValue: any = null;
   @Input()
-  public titleField: string;
+  titleField: string;
   @Input()
-  public inputTitleField: string;
+  inputTitleField: string;
   @Output()
-  public modelChange: EventEmitter<any> = new EventEmitter<any>();
+  modelChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  public width: string = null;
+  width: string = null;
   @Input()
-  public set items(items: any[]) {
+  set items(items: any[]) {
     this._items = items;
     if (this.autoComplete) {
       if (JSON.stringify(this.autoComplete.source) === JSON.stringify(items)) {
@@ -80,13 +80,13 @@ export class SelectInputComponent extends BaseComponent {
       }
     }
   }
-  public get items() {
+  get items() {
     return this._items;
   }
   private _items: any[] = [];
   private _showMe = false;
   private debouncer: Subject<string> = new Subject<string>();
-  public getTitle: any;
+  getTitle: any;
   constructor(
     public sanitizer: DomSanitizer,
     public translateService: TranslateService,

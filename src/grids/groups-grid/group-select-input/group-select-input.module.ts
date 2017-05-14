@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { GroupSelectInputComponent } from './group-select-input.component';
 import { TooltipModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
-import { SelectInputModule } from '../../../controls/select-input/select-input.module';
+import { SelectInputModule } from './../../../controls/select-input/select-input.module';
 import { TranslateModule } from '@ngx-translate/core';
-import { GroupsListModalModule } from '../../../grids/groups-grid/groups-list-modal/groups-list-modal.module';
+import { GroupsListModalModule } from './../../../grids/groups-grid/groups-list-modal/groups-list-modal.module';
 
 @NgModule({
   imports: [
@@ -20,7 +20,7 @@ import { GroupsListModalModule } from '../../../grids/groups-grid/groups-list-mo
   entryComponents: [GroupSelectInputComponent]
 })
 export class GroupSelectInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupSelectInputModule,
       providers: []

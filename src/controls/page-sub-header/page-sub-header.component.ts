@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'page-sub-header',
@@ -9,5 +9,5 @@ import { BaseComponent } from '../base-component/base-component.component';
 
 export class PageSubHeaderComponent extends BaseComponent {
   @Input()
-  public title: string;
+  title: string;
 }

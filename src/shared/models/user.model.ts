@@ -1,8 +1,8 @@
-import { ResourceModel } from './resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { Group } from './group.model';
-import { translate } from '../utils';
+import { translate } from './../utils';
 
-export class User extends ResourceModel {
+export class User extends BaseResourceModel {
   static titles: any = {
     id: translate('Id'),
     username: translate('Username'),
@@ -31,7 +31,7 @@ export class User extends ResourceModel {
     'isStaff', 'isActive', 'firstName', 'lastName', 'email',
     'lastLogin', 'dateJoined', 'groups'];
 
-  public className = 'User';
+  className = 'User';
 
   id: number;
   username: string;

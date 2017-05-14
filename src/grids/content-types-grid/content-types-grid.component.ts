@@ -1,15 +1,15 @@
-import { User } from '../../shared/models/user.model';
+import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { ContentType } from './../../shared/models/content-type.model';
 import { ContentTypeModalComponent } from './content-type-modal/content-type-modal.component';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
-import { ContentTypesService } from '../../shared/content-types.service';
-import { AppService } from '../../shared/app.service';
-import { AccountService } from '../../shared/account.service';
-import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
-import { MetaModel } from '../../shared/models/meta.model';
-import { ResourcesGridComponent } from '../resources-grid/resources-grid.component';
+import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
+import { ContentTypesService } from './../../shared/content-types.service';
+import { AppService } from './../../shared/app.service';
+import { AccountService } from './../../shared/account.service';
+import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { MetaModel } from './../../shared/models/meta.model';
+import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'content-types-grid',
@@ -18,7 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
   entryComponents: [ContentTypeModalComponent, ConfirmModalComponent]
 })
 
-export class ContentTypesGridComponent extends ResourcesGridComponent {
+export class ContentTypesGridComponent extends BaseResourcesGridComponent {
 
   @Input()
   loadAll?: boolean;
@@ -29,11 +29,11 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = ContentType.meta();
-  public items: any[] | ContentType[];
-  public searchText = '';
-  public selectedItems: any[] | ContentType[];
-  public cachedResourcesService: ContentTypesService;
+  modelMeta: any = ContentType.meta();
+  items: any[] | ContentType[];
+  searchText = '';
+  selectedItems: any[] | ContentType[];
+  cachedResourcesService: ContentTypesService;
 
   constructor(
     public contentTypesService: ContentTypesService,
@@ -57,6 +57,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
+    itemModal.name = 'createContentType';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['add_content-type']);
     itemModal.text = this.translateService.instant('Create');
@@ -73,6 +74,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
+    itemModal.name = 'editContentType';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['change_content-type']);
     itemModal.text = this.translateService.instant('Save');
@@ -92,6 +94,7 @@ export class ContentTypesGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    confirm.name = 'removeContentType';
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a content type?');

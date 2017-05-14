@@ -1,15 +1,15 @@
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
-import { AppService } from '../shared/app.service';
-import { RuckenRuI18n } from '../i18n/ru.i18n';
-import { AlertModalComponent } from '../modals/alert-modal/alert-modal.component';
+import { AppService } from './../shared/app.service';
+import { RuckenRuI18n } from './../i18n/ru.i18n';
+import { AlertModalComponent } from './../modals/alert-modal/alert-modal.component';
 import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit } from '@angular/core';
-import { BaseComponent } from '../controls/base-component/base-component.component';
+import { BaseComponent } from './../base/base-component/base-component.component';
 
 export class AppComponent extends BaseComponent {
   @Input()
   autoLoadLang?: boolean;
-  public constructor(
+  constructor(
     public viewContainerRef: ViewContainerRef,
     public app: AppService,
     public resolver: ComponentFactoryResolver,
@@ -38,6 +38,7 @@ export class AppComponent extends BaseComponent {
       title = this.translateService.instant('Error');
     }
     const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    alert.name = 'error';
     alert.text = title;
     alert.message = message;
     alert.buttonText = this.translateService.instant('Close');
@@ -49,6 +50,7 @@ export class AppComponent extends BaseComponent {
       title = this.translateService.instant('Info');
     }
     const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    alert.name = 'error';
     alert.text = title;
     alert.message = message;
     alert.messageClass = '';
@@ -62,6 +64,8 @@ export class AppComponent extends BaseComponent {
       title = this.translateService.instant('Info');
     }
     const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
+    alert.focused = false;
+    alert.name = 'error';
     alert.text = title;
     alert.content = content;
     alert.messageClass = '';

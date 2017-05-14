@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UsersFrameRoutes } from './users-frame.routes';
-import { UsersFrameModule } from '../../../../../../../dist';
+import { UsersFrameModule } from './../../../../../../../dist';
 
 @NgModule({
   imports: [
@@ -10,7 +10,7 @@ import { UsersFrameModule } from '../../../../../../../dist';
   ]
 })
 export class DemoUsersFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoUsersFrameModule,
       providers: []

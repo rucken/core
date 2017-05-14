@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ThemesPageRoutes } from './themes-page.routes';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageHeaderModule } from '../../controls/page-header/page-header.module';
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { PageHeaderModule } from '../../controls/page-header/page-header.module'
   entryComponents: [ThemesPageComponent]
 })
 export class ThemesPageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ThemesPageModule,
       providers: []

@@ -2,23 +2,23 @@ import { OnInit, Input, EventEmitter, ElementRef } from '@angular/core';
 
 export class BaseComponent implements OnInit {
   @Input()
-  public tooltipEnable: boolean;
+  tooltipEnable: boolean;
   @Input()
-  public tooltipText = '';
+  tooltipText = '';
   @Input()
-  public tooltipPlacement = 'bottom';
+  tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers = 'hover focus';
+  tooltipTriggers = 'hover focus';
   @Input()
-  public name = '';
+  name = '';
   @Input()
-  public focused = false;
+  focused = false;
   @Input()
-  public errors: EventEmitter<any> = new EventEmitter<any>();
+  errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  public info: EventEmitter<any> = new EventEmitter<any>();
-  public errorsValue: any;
-  public infoValue: any;
+  info: EventEmitter<any> = new EventEmitter<any>();
+  errorsValue: any;
+  infoValue: any;
   [key: string]: any;
   ngOnInit() {
     this.beforeInit();

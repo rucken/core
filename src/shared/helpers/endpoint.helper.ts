@@ -3,8 +3,8 @@ import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angul
 import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { HttpHelper } from './http.helper';
-import { User } from '../models/user.model';
-import { isJson, translate } from '../utils';
+import { User } from './../models/user.model';
+import { isJson, translate } from './../utils';
 
 @Injectable()
 export class EndpointHelper {

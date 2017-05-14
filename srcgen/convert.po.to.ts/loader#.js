@@ -3,8 +3,9 @@ var po2json = require('po2json'),
   path = require('path'),
   _ = require('lodash'),
   recursive = require('recursive-readdir');
-
-recursive(path.resolve(__srcdir, '../../', po.input.dir), ['!*.po'], function (err, files) {
+var folder = path.resolve(__srcdir, '../../', po.input.dir);
+console.log('Scan folder: ' + folder);
+recursive(folder, ['!*.po'], function (err, files) {
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
     var fileName = _.kebabCase(path.basename(file, '.po'));

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { HomePageRoutes } from './home-page.routes';
-import { PageHeaderModule } from '../../../../../../dist';
+import { PageHeaderModule } from './../../../../../../dist';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [HomePageComponent]
 })
 export class HomePageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: HomePageModule,
       providers: []

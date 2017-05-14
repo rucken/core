@@ -8,13 +8,13 @@ import {
 } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
-import { AccountService } from '../../../shared/account.service';
-import { TextInputComponent } from '../../../controls/text-input/text-input.component';
-import { UserGroupsGridComponent } from '../../user-groups-grid/user-groups-grid.component';
-import { Group } from '../../../shared/models/group.model';
-import { UserGroup } from '../../../shared/models/user-group.model';
-import { translate } from '../../../shared/utils';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { AccountService } from './../../../shared/account.service';
+import { TextInputComponent } from './../../../controls/text-input/text-input.component';
+import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
+import { Group } from './../../../shared/models/group.model';
+import { UserGroup } from './../../../shared/models/user-group.model';
+import { translate } from './../../../shared/utils';
+import { BaseComponent } from './../../../base/base-component/base-component.component';
 
 @Component({
   selector: 'account-profile-form',
@@ -43,14 +43,13 @@ export class AccountProfileFormComponent extends BaseComponent {
   @Input()
   item: any | User = new User();
   @Input()
-  public modelMeta: any = User.meta();
+  modelMeta: any = User.meta();
   @Output()
   onCancel: EventEmitter<AccountProfileFormComponent | any> = new EventEmitter();
   @Output()
   onSave: EventEmitter<AccountProfileFormComponent | any> = new EventEmitter();
 
   init() {
-    this.focus();
     this.userGroups.user = this.item;
     this.userGroups.mockedItems =
       this.item.groups.map((group: any | Group) => {

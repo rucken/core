@@ -1,13 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentTypesGridComponent } from './content-types-grid.component';
-import { GridSearchPanelModule } from '../../controls/grid-search-panel/grid-search-panel.module';
-import { TableColumnModule } from '../../controls/table-column/table-column.module';
-import { GridRowButtonsModule } from '../../controls/grid-row-buttons/grid-row-buttons.module';
+import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-search-panel.module';
+import { TableColumnModule } from './../../controls/table-column/table-column.module';
+import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TranslateModule } from '@ngx-translate/core';
-import { ContentTypeModalModule } from '../../grids/content-types-grid/content-type-modal/content-type-modal.module';
-import { ConfirmModalModule } from '../..//modals/confirm-modal/confirm-modal.module';
+import { ContentTypeModalModule } from './../../grids/content-types-grid/content-type-modal/content-type-modal.module';
+import { ConfirmModalModule } from './../..//modals/confirm-modal/confirm-modal.module';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { ConfirmModalModule } from '../..//modals/confirm-modal/confirm-modal.mo
   entryComponents: [ContentTypesGridComponent]
 })
 export class ContentTypesGridModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ContentTypesGridModule,
       providers: []

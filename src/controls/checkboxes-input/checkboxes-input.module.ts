@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [CheckboxesInputComponent]
 })
 export class CheckboxesInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: CheckboxesInputModule,
       providers: []

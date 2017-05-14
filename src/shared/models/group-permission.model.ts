@@ -1,9 +1,9 @@
 import { Permission } from './permission.model';
-import { ResourceModel } from '../../shared/models/resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { Group } from './group.model';
-import { translate } from '../utils';
+import { translate } from './../utils';
 
-export class GroupPermission extends ResourceModel {
+export class GroupPermission extends BaseResourceModel {
   static titles: any = {
     id: translate('Id'),
     group: translate('Group'),
@@ -11,7 +11,7 @@ export class GroupPermission extends ResourceModel {
   };
   static fields: any = ['id', 'group', 'permission'];
 
-  public className = 'GroupPermission';
+  className = 'GroupPermission';
 
   id: number;
   group: Group;

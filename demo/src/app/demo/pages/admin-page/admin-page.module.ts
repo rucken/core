@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AdminPageRoutes } from './admin-page.routes';
-import { AdminPageModule } from '../../../../../../dist';
+import { AdminPageModule } from './../../../../../../dist';
 
 @NgModule({
   imports: [
@@ -10,7 +10,7 @@ import { AdminPageModule } from '../../../../../../dist';
   ]
 })
 export class DemoAdminPageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoAdminPageModule,
       providers: []

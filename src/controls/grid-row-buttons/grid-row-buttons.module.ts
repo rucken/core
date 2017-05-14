@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [GridRowButtonsComponent]
 })
 export class GridRowButtonsModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GridRowButtonsModule,
       providers: []

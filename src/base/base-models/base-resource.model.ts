@@ -1,15 +1,15 @@
 import * as moment from 'moment/moment';
 import * as _ from 'lodash';
-import { translate } from '../utils';
+import { translate } from './../../shared/utils';
 
-export class ResourceModel {
-  public className = 'ResourceModel';
-  public pkFieldName: string;
-  public pkIsNumber: boolean;
+export class BaseResourceModel {
+  className = 'ResourceModel';
+  pkFieldName: string;
+  pkIsNumber: boolean;
   [key: string]: any;
 
   static meta(): any {
-    const meta: any = ResourceModel;
+    const meta: any = BaseResourceModel;
     return meta;
   }
   constructor(obj?: any) {

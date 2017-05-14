@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import * as _ from 'lodash';
 import { EndpointHelper } from './endpoint.helper';
 import { HttpHelper } from './http.helper';
-import { MetaModel } from '../models/meta.model';
+import { MetaModel } from './../models/meta.model';
 
 @Injectable()
 export class RepositoryHelper extends EndpointHelper {

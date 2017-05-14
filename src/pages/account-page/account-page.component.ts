@@ -2,9 +2,9 @@ import { RouterOutlet } from '@angular/router/router';
 import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from '../../shared/models/user.model';
-import { AccountService } from '../../shared/account.service';
-import { AppService } from '../../shared/app.service';
+import { User } from './../../shared/models/user.model';
+import { AccountService } from './../../shared/account.service';
+import { AppService } from './../../shared/app.service';
 
 @Component({
   selector: 'account-page',
@@ -14,13 +14,17 @@ import { AppService } from '../../shared/app.service';
 })
 
 export class AccountPageComponent implements OnInit {
-  public title: string;
+  title: string;
 
   get account(): any | User {
     return this.accountService.account;
   }
-  constructor(public router: Router, public accountService: AccountService, public app: AppService,
-    public translateService: TranslateService) {
+  constructor(
+    public router: Router,
+    public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService
+  ) {
     this.title = this.translateService.instant('Account');
   }
   ngOnInit() {

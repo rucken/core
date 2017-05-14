@@ -11,10 +11,10 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import {
   RuckenComponents, RuckenServices, RepositoryHelper,
-  EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, ResourceSelectInputConfig,
+  EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, BaseResourceSelectInputConfig,
   TextInputConfig, SelectInputConfig, TableColumnConfig,
   TextInputModule, ModalFooterButtonsModule, AuthModalModule, AlertModalModule
-} from '../../../dist';
+} from './../../../dist';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
@@ -47,7 +47,7 @@ import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
     TabsetConfig,
     PopoverConfig,
     RuckenServices,
-    ResourceSelectInputConfig,
+    BaseResourceSelectInputConfig,
     TextInputConfig,
     SelectInputConfig,
     TableColumnConfig,
@@ -60,7 +60,7 @@ import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
   bootstrap: [DemoAppComponent]
 })
 export class DemoAppModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return { ngModule: DemoAppModule };
   }
 }

@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemesPageRoutes } from './themes-page.routes';
-import { ThemesPageModule } from '../../../../../../dist';
+import { ThemesPageModule } from './../../../../../../dist';
 
 @NgModule({
   imports: [
@@ -10,7 +10,7 @@ import { ThemesPageModule } from '../../../../../../dist';
   ]
 })
 export class DemoThemesPageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoThemesPageModule,
       providers: []

@@ -5,10 +5,10 @@ import { UserModalComponent } from './user-modal/user-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
 import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
-import { UsersService } from '../../shared/users.service';
-import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
-import { MetaModel } from '../../shared/models/meta.model';
-import { ResourcesGridComponent } from '../resources-grid/resources-grid.component';
+import { UsersService } from './../../shared/users.service';
+import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { MetaModel } from './../../shared/models/meta.model';
+import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'users-grid',
@@ -17,7 +17,7 @@ import { TranslateService } from '@ngx-translate/core';
   entryComponents: [UserModalComponent, ConfirmModalComponent]
 })
 
-export class UsersGridComponent extends ResourcesGridComponent {
+export class UsersGridComponent extends BaseResourcesGridComponent {
 
   @Input()
   loadAll?: boolean;
@@ -28,11 +28,11 @@ export class UsersGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = User.meta();
-  public items: any[] | User[];
-  public searchText = '';
-  public selectedItems: any[] | User[];
-  public cachedResourcesService: UsersService;
+  modelMeta: any = User.meta();
+  items: any[] | User[];
+  searchText = '';
+  selectedItems: any[] | User[];
+  cachedResourcesService: UsersService;
 
   constructor(
     public usersService: UsersService,
@@ -56,6 +56,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
+    itemModal.name = 'createUser';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['add_user']);
     itemModal.text = this.translateService.instant('Create');
@@ -72,6 +73,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
+    itemModal.name = 'editUser';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_user']);
     itemModal.text = this.translateService.instant('Save');
@@ -91,6 +93,7 @@ export class UsersGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    confirm.name = 'removeUser';
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a user?');
