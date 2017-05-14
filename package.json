@@ -49,10 +49,10 @@
     "demo.build": "ng build --base-href https://site15.github.io/rucken/ --prod --aot=false",
     "demo.add-version": "gulp add-version",
     "demo.deploy": "gh-pages -d demo/dist",
-    "extract_translate": "ngx-translate-extract --input ./src --output ./src/i18n/template.pot --format=pot --marker translate --clean",
-    "po2ts": "srcgen -x -t convert.po.to.ts -f srcgen/convert.po.to.ts.json",
-    "make_ts_list": "srcgen -x -t make.list.ts.files -f srcgen/make.list.ts.files.json",
-    "prepare": "npm-run-all extract_translate po2ts make_ts_list"
+    "_extract_translate": "ngx-translate-extract --input ./src --output ./src/i18n/template.pot --format=pot --marker translate --clean",
+    "_po2ts": "srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
+    "_make_ts_list": "srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
+    "_prepare": "npm-run-all _extract_translate _po2ts _make_ts_list"
   },
   "dependencies": {
     "@angular/animations": "^4.1.2",
