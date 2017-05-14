@@ -50,8 +50,8 @@
     "demo.add-version": "gulp add-version",
     "demo.deploy": "gh-pages -d demo/dist",
     "_extract_translate": "ngx-translate-extract --input ./src --output ./src/i18n/template.pot --format=pot --marker translate --clean",
-    "_po2ts": "srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
-    "_make_ts_list": "srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
+    "_po2ts": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
+    "_make_ts_list": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
     "_prepare": "npm-run-all _extract_translate _po2ts _make_ts_list"
   },
   "dependencies": {
