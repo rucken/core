@@ -1,3 +1,18 @@
+<a name="1.6.0"></a>
+# [1.6.0](https://github.com/site15/rucken/compare/1.5.0...v1.6.0) (2017-05-14)
+
+
+### Bug Fixes
+
+* **contentModal:** Remove default focus from button ([a619f48](https://github.com/site15/rucken/commit/a619f48))
+
+
+### Features
+
+* **refactoring:** Create base folder for base class of components, services and etc., change all places where it usage ([144d722](https://github.com/site15/rucken/commit/144d722))
+
+
+
 <a name="1.5.0"></a>
 # [1.5.0](https://github.com/site15/rucken/compare/1.4.4...v1.5.0) (2017-05-13)
 
