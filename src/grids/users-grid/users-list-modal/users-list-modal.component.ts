@@ -1,8 +1,8 @@
 import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
-import { UsersGridComponent } from '../users-grid.component';
-import { BaseResourceListModalComponent } from '../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
+import { UsersGridComponent } from './../users-grid.component';
+import { BaseResourceListModalComponent } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 
 @Component({
   selector: 'users-list-modal',

@@ -1,9 +1,9 @@
-import { GroupsGridModule } from '../groups-grid.module';
+import { GroupsGridModule } from './../groups-grid.module';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GroupsListModalComponent } from './groups-list-modal.component';
 import { ModalModule } from 'ngx-bootstrap';
-import { ModalFooterButtonsModule } from '../../../controls/modal-footer-buttons/modal-footer-buttons.module';
+import { ModalFooterButtonsModule } from './../../../controls/modal-footer-buttons/modal-footer-buttons.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({

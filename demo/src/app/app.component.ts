@@ -1,4 +1,4 @@
-import { AppService, AlertModalComponent, AppComponent, RuckenRuI18n } from '../../../dist';
+import { AppService, AlertModalComponent, AppComponent, RuckenRuI18n } from './../../../dist';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';

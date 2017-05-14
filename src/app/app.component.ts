@@ -1,10 +1,10 @@
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
-import { AppService } from '../shared/app.service';
-import { RuckenRuI18n } from '../i18n/ru.i18n';
-import { AlertModalComponent } from '../modals/alert-modal/alert-modal.component';
+import { AppService } from './../shared/app.service';
+import { RuckenRuI18n } from './../i18n/ru.i18n';
+import { AlertModalComponent } from './../modals/alert-modal/alert-modal.component';
 import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit } from '@angular/core';
-import { BaseComponent } from '../base/base-component/base-component.component';
+import { BaseComponent } from './../base/base-component/base-component.component';
 
 export class AppComponent extends BaseComponent {
   @Input()

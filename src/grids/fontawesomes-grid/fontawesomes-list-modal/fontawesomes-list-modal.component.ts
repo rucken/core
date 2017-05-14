@@ -2,8 +2,8 @@ import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef }
 import { Fontawesome } from './../../../shared/models/fontawesome.model';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
-import { FontawesomesGridComponent } from '../fontawesomes-grid.component';
-import { BaseResourceListModalComponent } from '../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
+import { FontawesomesGridComponent } from './../fontawesomes-grid.component';
+import { BaseResourceListModalComponent } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 
 @Component({
   selector: 'fontawesomes-list-modal',

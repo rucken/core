@@ -1,6 +1,6 @@
-import { BaseModalComponent } from '../../base-modal/base-modal.component';
+import { BaseModalComponent } from './../../base-modal/base-modal.component';
 import { Input, Output, EventEmitter } from '@angular/core';
-import { User } from '../../../shared/models/user.model';
+import { User } from './../../../shared/models/user.model';
 
 export class BaseResourceModalComponent extends BaseModalComponent {
 

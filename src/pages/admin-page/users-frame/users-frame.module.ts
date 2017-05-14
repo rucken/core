@@ -4,8 +4,8 @@ import { UsersFrameComponent } from './users-frame.component';
 import { RouterModule } from '@angular/router';
 import { UsersFrameRoutes } from './users-frame.routes';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageHeaderModule } from '../../../controls/page-header/page-header.module';
-import { UsersGridModule } from '../../../grids/users-grid/users-grid.module';
+import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
+import { UsersGridModule } from './../../../grids/users-grid/users-grid.module';
 
 @NgModule({
   imports: [

@@ -1,6 +1,6 @@
 import { HostListener, Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
-import { BaseModalComponent } from '../../base/base-modal/base-modal.component';
+import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
 
 @Component({
   selector: 'confirm-modal',

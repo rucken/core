@@ -1,15 +1,15 @@
-import { User } from '../../shared/models/user.model';
+import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit, Input, Output, HostListener, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { Permission } from './../../shared/models/permission.model';
 import { PermissionModalComponent } from './permission-modal/permission-modal.component';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
-import { PermissionsService } from '../../shared/permissions.service';
-import { AppService } from '../../shared/app.service';
-import { AccountService } from '../../shared/account.service';
-import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
-import { MetaModel } from '../../shared/models/meta.model';
-import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
+import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
+import { PermissionsService } from './../../shared/permissions.service';
+import { AppService } from './../../shared/app.service';
+import { AccountService } from './../../shared/account.service';
+import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { MetaModel } from './../../shared/models/meta.model';
+import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'permissions-grid',

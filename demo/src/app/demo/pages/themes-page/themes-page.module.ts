@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ThemesPageRoutes } from './themes-page.routes';
-import { ThemesPageModule } from '../../../../../../dist';
+import { ThemesPageModule } from './../../../../../../dist';
 
 @NgModule({
   imports: [

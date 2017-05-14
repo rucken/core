@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { TextInputConfig } from './text-input.config';
 import emailMask from 'text-mask-addons/dist/emailMask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-import { BaseComponent } from '../../base/base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'text-input',

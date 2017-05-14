@@ -1,13 +1,13 @@
 import { isSimpleTemplateString } from 'codelyzer/util/utils';
-import { Permission } from '../../../shared/models/permission.model';
+import { Permission } from './../../../shared/models/permission.model';
 import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
-import { PermissionsListModalComponent } from '../permissions-list-modal/permissions-list-modal.component';
+import { PermissionsListModalComponent } from './../permissions-list-modal/permissions-list-modal.component';
 import { AppService } from './../../../shared/app.service';
 import { AccountService } from './../../../shared/account.service';
-import { PermissionsService } from '../../../shared/permissions.service';
+import { PermissionsService } from './../../../shared/permissions.service';
 import { User } from './../../../shared/models/user.model';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
-import { BaseResourceInputComponent } from '../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
+import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

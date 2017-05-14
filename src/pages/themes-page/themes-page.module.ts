@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ThemesPageRoutes } from './themes-page.routes';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageHeaderModule } from '../../controls/page-header/page-header.module';
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 
 @NgModule({
   imports: [

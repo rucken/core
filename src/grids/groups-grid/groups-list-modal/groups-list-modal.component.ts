@@ -1,11 +1,11 @@
 import {
   BaseResourceListModalComponent
-} from '../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
+} from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
-import { Group } from '../../../shared/models/group.model';
-import { User } from '../../../shared/models/user.model';
+import { Group } from './../../../shared/models/group.model';
+import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
-import { GroupsGridComponent } from '../groups-grid.component';
+import { GroupsGridComponent } from './../groups-grid.component';
 
 @Component({
   selector: 'groups-list-modal',

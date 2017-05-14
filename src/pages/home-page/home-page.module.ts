@@ -4,7 +4,7 @@ import { HomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { HomePageRoutes } from './home-page.routes';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageHeaderModule } from '../../controls/page-header/page-header.module';
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 
 @NgModule({
   imports: [

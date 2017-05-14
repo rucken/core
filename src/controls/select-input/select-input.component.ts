@@ -7,7 +7,7 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { SelectInputConfig } from './select-input.config';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
-import { BaseComponent } from '../../base/base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'select-input',

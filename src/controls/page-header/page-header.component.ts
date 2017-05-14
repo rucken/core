@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AccountService } from './../../shared/account.service';
-import { User } from '../../shared/models/user.model';
-import { BaseComponent } from '../../base/base-component/base-component.component';
+import { User } from './../../shared/models/user.model';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'page-header',

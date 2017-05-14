@@ -4,7 +4,7 @@ import { AdminPageComponent } from './admin-page.component';
 import { RouterModule } from '@angular/router';
 import { AdminPageRoutes } from './admin-page.routes';
 import { TranslateModule } from '@ngx-translate/core';
-import { PageHeaderModule } from '../../controls/page-header/page-header.module';
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 
 @NgModule({
   imports: [

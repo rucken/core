@@ -2,7 +2,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AlertModalComponent } from './alert-modal.component';
 import { ModalModule } from 'ngx-bootstrap';
-import { ModalFooterButtonsModule } from '../../controls/modal-footer-buttons/modal-footer-buttons.module';
+import { ModalFooterButtonsModule } from './../../controls/modal-footer-buttons/modal-footer-buttons.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 

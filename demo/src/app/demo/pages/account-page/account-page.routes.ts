@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AccountPageComponent } from '../../../../../../dist';
+import { AccountPageComponent } from './../../../../../../dist';
 
 export const AccountPageRoutes: Routes = [
   {

@@ -1,13 +1,13 @@
 import { RouterConfigLoader } from '@angular/router/src/router_config_loader';
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
-import { AccountService } from '../../shared/account.service';
-import { User } from '../../shared/models/user.model';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
+import { AccountService } from './../../shared/account.service';
+import { User } from './../../shared/models/user.model';
+import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
 import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
-import { AppService } from '../../shared/app.service';
-import { AuthModalComponent } from '../../modals/auth-modal/auth-modal.component';
+import { AppService } from './../../shared/app.service';
+import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';
-import { BaseComponent } from '../../base/base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 
 @Component({

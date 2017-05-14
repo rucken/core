@@ -8,13 +8,13 @@ import {
 } from '@angular/core';
 import { Group } from './../../../shared/models/group.model';
 import { ModalDirective } from 'ngx-bootstrap';
-import { AccountService } from '../../../shared/account.service';
-import { User } from '../../../shared/models/user.model';
-import { TextInputComponent } from '../../../controls/text-input/text-input.component';
-import { GroupPermissionsGridComponent } from '../../group-permissions-grid/group-permissions-grid.component';
-import { Permission } from '../../../shared/models/permission.model';
-import { GroupPermission } from '../../../shared/models/group-permission.model';
-import { BaseResourceModalComponent } from '../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
+import { AccountService } from './../../../shared/account.service';
+import { User } from './../../../shared/models/user.model';
+import { TextInputComponent } from './../../../controls/text-input/text-input.component';
+import { GroupPermissionsGridComponent } from './../../group-permissions-grid/group-permissions-grid.component';
+import { Permission } from './../../../shared/models/permission.model';
+import { GroupPermission } from './../../../shared/models/group-permission.model';
+import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 
 @Component({
   selector: 'group-modal',

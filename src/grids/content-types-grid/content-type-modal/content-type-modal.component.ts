@@ -11,7 +11,7 @@ import { ModalDirective } from 'ngx-bootstrap';
 import { AccountService } from './../../../shared/account.service';
 import { User } from './../../../shared/models/user.model';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
-import { BaseResourceModalComponent } from '../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
+import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 
 @Component({
   selector: 'content-type-modal',

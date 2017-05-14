@@ -1,18 +1,18 @@
-import { User } from '../../shared/models/user.model';
+import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
 import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { UserGroup } from './../../shared/models/user-group.model';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
-import { UserGroupsService } from '../../shared/user-groups.service';
-import { AppService } from '../../shared/app.service';
-import { AccountService } from '../../shared/account.service';
-import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
-import { MetaModel } from '../../shared/models/meta.model';
-import { GroupsListModalComponent } from '../groups-grid/groups-list-modal/groups-list-modal.component';
-import { Group } from '../../shared/models/group.model';
-import { GroupModalComponent } from '../groups-grid/group-modal/group-modal.component';
-import { GroupsService } from '../../shared/groups.service';
-import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
+import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
+import { UserGroupsService } from './../../shared/user-groups.service';
+import { AppService } from './../../shared/app.service';
+import { AccountService } from './../../shared/account.service';
+import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { MetaModel } from './../../shared/models/meta.model';
+import { GroupsListModalComponent } from './../groups-grid/groups-list-modal/groups-list-modal.component';
+import { Group } from './../../shared/models/group.model';
+import { GroupModalComponent } from './../groups-grid/group-modal/group-modal.component';
+import { GroupsService } from './../../shared/groups.service';
+import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'user-groups-grid',

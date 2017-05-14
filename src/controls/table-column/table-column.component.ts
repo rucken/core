@@ -3,7 +3,7 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef }
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { TableColumnConfig } from './table-column.config';
-import { BaseComponent } from '../../base/base-component/base-component.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'table-column',

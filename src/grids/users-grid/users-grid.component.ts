@@ -5,10 +5,10 @@ import { UserModalComponent } from './user-modal/user-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
 import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
-import { UsersService } from '../../shared/users.service';
-import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
-import { MetaModel } from '../../shared/models/meta.model';
-import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
+import { UsersService } from './../../shared/users.service';
+import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { MetaModel } from './../../shared/models/meta.model';
+import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'users-grid',

@@ -1,5 +1,5 @@
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
-import { BaseComponent } from '../../../base/base-component/base-component.component';
+import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
 
 

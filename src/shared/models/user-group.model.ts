@@ -1,7 +1,7 @@
-import { BaseResourceModel } from '../../base/base-models/base-resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { User } from './user.model';
 import { Group } from './group.model';
-import { translate } from '../utils';
+import { translate } from './../utils';
 
 export class UserGroup extends BaseResourceModel {
   static titles: any = {

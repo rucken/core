@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '../../shared/app.service';
-import { ThemesService } from '../../shared/themes.service';
-import { Theme } from '../../shared/models/theme.model';
+import { AppService } from './../../shared/app.service';
+import { ThemesService } from './../../shared/themes.service';
+import { Theme } from './../../shared/models/theme.model';
 import 'rxjs/add/operator/map';
 
 @Component({
