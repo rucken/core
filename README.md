@@ -1,5 +1,6 @@
 [![NPM version][npm-image]][npm-url]
 [![dependencies Status][dependencies-image]][dependencies-url]
+[![Build Status][travis-image]][travis-url]
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
@@ -20,6 +21,12 @@ Status: Beta
 
 [Demo source](https://github.com/site15/rucken/tree/master/demo) - Source code of demo application.
 
+#### Projects based on Rucken
+
+[Rucken: Todo](https://github.com/site15/rucken-todo) - Simple todo application with: projects, tasks, statuses (backend: http://mockapi.io).
+
+[Rucken: Todo (Django)](https://github.com/site15/rucken-todo-django-example) - Simple todo application with: auth, groups, permissions, projects, tasks, statuses (backend: Django + plugins).
+
 ## Install
 
 ```bash
@@ -30,7 +37,8 @@ npm install rucken --save
 
 MIT
 
-
+[travis-image]: https://travis-ci.org/site15/rucken.svg?branch=develop
+[travis-url]: https://travis-ci.org/site15/rucken
 [gitter-image]: https://img.shields.io/gitter/room/nwjs/nw.js.svg
 [gitter-url]: https://gitter.im/site15-ru/rucken
 [npm-image]: https://badge.fury.io/js/rucken.svg
