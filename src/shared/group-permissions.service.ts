@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { GroupPermission } from './models/group-permission.model';
-import { RepositoryService } from './repository.service';
+import { BaseRepositoryService } from './../base/base-services/base-repository.service';
 import { RepositoryHelper } from './helpers/repository.helper';
 @Injectable()
-export class GroupPermissionsService extends RepositoryService {
-  public items$: Subject<GroupPermission[]>;
-  public items: GroupPermission[];
-  public apiUrl: string;
+export class GroupPermissionsService extends BaseRepositoryService {
+  items$: Subject<GroupPermission[]>;
+  items: GroupPermission[];
+  apiUrl: string;
 
   constructor(public repositoryHelper: RepositoryHelper) {
     super(repositoryHelper);

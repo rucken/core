@@ -18,7 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [GroupsListModalComponent]
 })
 export class GroupsListModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupsListModalModule,
       providers: []

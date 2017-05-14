@@ -20,7 +20,7 @@ import { GroupsListModalModule } from '../../../grids/groups-grid/groups-list-mo
   entryComponents: [GroupSelectInputComponent]
 })
 export class GroupSelectInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupSelectInputModule,
       providers: []

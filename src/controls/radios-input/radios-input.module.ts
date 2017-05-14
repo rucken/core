@@ -13,7 +13,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [RadiosInputComponent]
 })
 export class RadiosInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: RadiosInputModule,
       providers: []

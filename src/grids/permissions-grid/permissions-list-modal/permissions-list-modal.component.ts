@@ -3,7 +3,7 @@ import { Permission } from './../../../shared/models/permission.model';
 import { User } from '././../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { PermissionsGridComponent } from '../permissions-grid.component';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { BaseResourceListModalComponent } from '../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 
 @Component({
   selector: 'permissions-list-modal',
@@ -11,74 +11,27 @@ import { BaseComponent } from '../../../controls/base-component/base-component.c
   styleUrls: ['./permissions-list-modal.component.scss']
 })
 
-export class PermissionsListModalComponent extends BaseComponent {
+export class PermissionsListModalComponent extends BaseResourceListModalComponent {
 
-  @Input()
-  text: string;
-  @Input()
-  class: string;
-  @Input()
-  readonly: boolean;
-  @Input()
-  hardReadonly = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Output()
-  onClose: EventEmitter<PermissionsListModalComponent>;
-  @Input()
-  hideOnClose?: boolean;
-
+  onClose: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
   @ViewChild('permissions')
   permissions: PermissionsGridComponent;
-
-  @Input()
-  account: any | User;
-  @Input()
-  title: string;
   @Output()
-  onSave: EventEmitter<PermissionsListModalComponent>;
+  onSave: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
 
-  item: any | Permission;
-  items: any[] | Permission[];
-  public modelMeta: any = Permission.meta();
-
-  constructor() {
-    super();
-    if (this.hideOnClose === undefined) {
-      this.hideOnClose = true;
-    }
-    this.onClose = new EventEmitter<PermissionsListModalComponent>();
-    this.item = new Permission();
-    this.onSave = new EventEmitter<PermissionsListModalComponent>();
-  }
-
-  init() {
-    super.init();
-    this.modal.onHidden.subscribe(() => this.close());
-    this.modal.onShown.subscribe(() => this.focus());
-  }
-
+  item: any | Permission = new Permission();
+  items: any[] | Permission[] = [];
+  modelMeta: any = Permission.meta();
   focus() {
     this.permissions.focus();
   }
-
   selectPermission(items: any[] | Permission[]) {
     this.item = items[0];
     this.items = items;
-  }
-
-  close() {
-    if (this.hideOnClose && this.modal.isShown) {
-      this.modal.hide();
-    }
-    this.onClose.emit(this);
-    return false;
-  }
-
-  select() {
-    this.onSave.emit(this);
-    return false;
   }
 }

@@ -1,38 +1,32 @@
-import { User } from '../../shared/models/user.model';
-import { Subscription } from 'rxjs/Rx';
-import { HostListener, Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
-import { AppService } from '../../shared/app.service';
-import { AccountService } from '../../shared/account.service';
 import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
 import { MetaModel } from '../../shared/models/meta.model';
-import { BaseComponent } from '../../controls/base-component/base-component.component';
+import { BaseComponent } from '../../base/base-component/base-component.component';
+import { Input, Output, EventEmitter, HostListener } from '@angular/core';
 
-export class ResourcesGridComponent extends BaseComponent {
+export class BaseResourcesGridComponent extends BaseComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<any[] | any>;
+  onSelectItems: EventEmitter<any[] | any> = new EventEmitter();
   @Input()
   onEnterEnabled?= false;
   @Output()
-  onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
+  onEnter: EventEmitter<any[] | any> = new EventEmitter();
   @Input()
-  public readonly: boolean;
+  readonly: boolean;
   @Input()
-  public hardReadonly = false;
+  hardReadonly = false;
 
-  public modelMeta: any;
-  public items: any[];
-  public searchText = '';
-  public selectedItems: any[];
-  public cachedResourcesService: any;
-  public maxSelectCount = 1;
+  modelMeta: any;
+  items: any[];
+  searchText = '';
+  selectedItems: any[];
+  cachedResourcesService: any;
+  maxSelectCount = 1;
 
-  public modalIsOpened: boolean;
+  modalIsOpened: boolean;
 
-  public get meta() {
+  get meta() {
     return this.cachedResourcesService.meta;
   }
 
@@ -41,11 +35,6 @@ export class ResourcesGridComponent extends BaseComponent {
     if (event.key === 'Enter' && this.onEnterEnabled) {
       this.enter();
     }
-  }
-  constructor() {
-    super();
-    this.onSelectItems = new EventEmitter();
-    this.onEnter = new EventEmitter();
   }
   enter() {
     this.onEnter.emit(true);
@@ -82,8 +71,8 @@ export class ResourcesGridComponent extends BaseComponent {
   }
   init() {
     this.cachedResourcesService.items$.subscribe(
-      (resources: any[]) => {
-        this.items = resources;
+      (items: any[]) => {
+        this.items = items;
         if (this.items) {
           this.selectItem(this.items[0], null, true);
         }

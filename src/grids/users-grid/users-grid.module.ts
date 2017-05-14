@@ -22,7 +22,7 @@ import { ConfirmModalModule } from '../../modals/confirm-modal/confirm-modal.mod
   entryComponents: [UsersGridComponent]
 })
 export class UsersGridModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: UsersGridModule,
       providers: []

@@ -11,15 +11,18 @@ import { AppService } from '../../../shared/app.service';
 })
 
 export class GroupsFrameComponent implements OnInit {
-  public title: string;
+  title: string;
 
-  constructor(public accountService: AccountService, public app: AppService,
-    public translateService: TranslateService) {
+  constructor(
+    public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService
+  ) {
   }
   get account(): any | User {
     return this.accountService.account;
   }
   ngOnInit() {
-     this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Groups')}`;
+    this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Groups')}`;
   }
 }

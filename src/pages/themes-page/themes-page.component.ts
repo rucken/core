@@ -12,10 +12,13 @@ import 'rxjs/add/operator/map';
 })
 
 export class ThemesPageComponent implements OnInit {
-  public title: string;
-  public items: any[] | Theme[];
-  constructor(public app: AppService, public themesService: ThemesService,
-    public translateService: TranslateService) {
+  title: string;
+  items: any[] | Theme[];
+  constructor(
+    public app: AppService,
+    public themesService: ThemesService,
+    public translateService: TranslateService
+  ) {
     this.title = this.translateService.instant('Themes');
   }
   ngOnInit() {

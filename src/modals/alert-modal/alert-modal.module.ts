@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [AlertModalComponent]
 })
 export class AlertModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: AlertModalModule,
       providers: []

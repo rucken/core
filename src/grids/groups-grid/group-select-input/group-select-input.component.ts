@@ -8,10 +8,10 @@ import { AccountService } from '../../../shared/account.service';
 import { GroupsService } from '../../../shared/groups.service';
 import { User } from '../../../shared/models/user.model';
 import { ResouceEnumStatus } from '../../../shared/enums/resource.enums';
-import { ResourceSelectInputComponent } from '../../resources-grid/resource-select-input/resource-select-input.component';
+import { BaseResourceSelectInputComponent } from '../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-input/resource-select-input.config';
+import { BaseResourceSelectInputConfig } from '../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 @Component({
@@ -21,7 +21,7 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
   entryComponents: [GroupsListModalComponent]
 })
 
-export class GroupSelectInputComponent extends ResourceSelectInputComponent {
+export class GroupSelectInputComponent extends BaseResourceSelectInputComponent {
   @Input()
   labelClass? = 'control-label';
   @Input()
@@ -60,18 +60,18 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
   hardValue: any = null;
 
   @ViewChild('tooltip')
-  public tooltip: TooltipDirective;
+  tooltip: TooltipDirective;
   @Input()
-  public tooltipEnable: boolean;
+  tooltipEnable: boolean;
   @Input()
-  public tooltipText = '';
+  tooltipText = '';
   @Input()
-  public tooltipPlacement = 'bottom';
+  tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers = 'hover focus';
+  tooltipTriggers = 'hover focus';
 
-  public items: any[] | Group[];
-  public cachedResourcesService: GroupsService;
+  items: any[] | Group[];
+  cachedResourcesService: GroupsService;
   constructor(
     public app: AppService,
     public accountService: AccountService,
@@ -79,7 +79,7 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
     public resolver: ComponentFactoryResolver,
     public sanitizer: DomSanitizer,
     public translateService: TranslateService,
-    public config: ResourceSelectInputConfig
+    public config: BaseResourceSelectInputConfig
   ) {
     super(sanitizer, translateService, config);
     if (this.lookupTooltip === undefined) {
@@ -93,6 +93,7 @@ export class GroupSelectInputComponent extends ResourceSelectInputComponent {
   onLookup() {
     const itemModal: GroupsListModalComponent =
       this.app.modals(this.resolver).create(GroupsListModalComponent);
+    itemModal.name = 'selectGroups';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');

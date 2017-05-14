@@ -7,7 +7,7 @@ import { Router, NavigationStart, Event as NavigationEvent } from '@angular/rout
 import { AppService } from '../../shared/app.service';
 import { AuthModalComponent } from '../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from '../../base/base-component/base-component.component';
 
 
 @Component({
@@ -19,8 +19,8 @@ import { BaseComponent } from '../base-component/base-component.component';
 
 export class NavbarComponent extends BaseComponent {
 
-  public isCollapsed = true;
-  public changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
+  isCollapsed = true;
+  changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
   constructor(
     public app: AppService,
     public accountService: AccountService,
@@ -57,11 +57,12 @@ export class NavbarComponent extends BaseComponent {
     return this.accountService.account;
   }
   showLogoutModal() {
-    if (this.app.modals(this.resolver).exists('loginModal') || this.app.modals(this.resolver).exists('logoutModal')) {
+    if (this.app.modals(this.resolver).exists('login') || this.app.modals(this.resolver).exists('logout')) {
       return;
     }
     this.isCollapsed = true;
-    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent, 'logoutModal');
+    const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent, 'logout');
+    confirm.name = 'logout';
     confirm.title = this.translateService.instant('Logout');
     confirm.message = this.translateService.instant('Do you really want to leave?');
     confirm.onYes.subscribe(($event: any) => this.logout($event));
@@ -81,11 +82,11 @@ export class NavbarComponent extends BaseComponent {
     );
   }
   showLoginModal() {
-    if (this.app.modals(this.resolver).exists('loginModal') || this.app.modals(this.resolver).exists('logoutModal')) {
+    if (this.app.modals(this.resolver).exists('login') || this.app.modals(this.resolver).exists('logout')) {
       return;
     }
     this.isCollapsed = true;
-    const itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'loginModal');
+    const itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'login');
     itemModal.title = this.translateService.instant('Authorization');
     itemModal.onLogin.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();

@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [FontawesomeModalComponent]
 })
 export class FontawesomeModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: FontawesomeModalModule,
       providers: []

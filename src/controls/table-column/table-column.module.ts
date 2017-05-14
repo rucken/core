@@ -11,7 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [TableColumnComponent]
 })
 export class TableColumnModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: TableColumnModule,
       providers: [TableColumnConfig]

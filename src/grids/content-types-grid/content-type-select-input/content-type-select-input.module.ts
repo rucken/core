@@ -23,7 +23,7 @@ import { ContentTypesListModalModule } from '../../../grids/content-types-grid/c
   entryComponents: [ContentTypeSelectInputComponent]
 })
 export class ContentTypeSelectInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ContentTypeSelectInputModule,
       providers: []

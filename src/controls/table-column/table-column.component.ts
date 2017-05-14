@@ -3,7 +3,7 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef }
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { TableColumnConfig } from './table-column.config';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from '../../base/base-component/base-component.component';
 
 @Component({
   selector: 'table-column',
@@ -13,20 +13,20 @@ import { BaseComponent } from '../base-component/base-component.component';
 
 export class TableColumnComponent extends BaseComponent {
   @Input()
-  public sortEnabled = true;
+  sortEnabled = true;
   @Input()
-  public name: string;
+  name: string;
   @Input()
-  public title: string;
+  title: string;
   @Input()
-  public set columns(columns: any) {
+  set columns(columns: any) {
     this.columnsChange.emit(columns);
   };
   @Output()
-  public columnsChange: EventEmitter<any> = new EventEmitter<any>();
+  columnsChange: EventEmitter<any> = new EventEmitter<any>();
 
-  public sortIcon: string;
-  public _columns: any = {};
+  sortIcon: string;
+  _columns: any = {};
 
   constructor(
     public sanitizer: DomSanitizer,

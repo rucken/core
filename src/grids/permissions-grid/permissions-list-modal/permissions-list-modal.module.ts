@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [PermissionsListModalComponent]
 })
 export class PermissionsListModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: PermissionsListModalModule,
       providers: []

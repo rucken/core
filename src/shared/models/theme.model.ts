@@ -1,7 +1,7 @@
-import { ResourceModel } from './resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { translate } from '../utils';
 
-export class Theme extends ResourceModel {
+export class Theme extends BaseResourceModel {
   static titles: any = {
     url: translate('Url'),
     name: translate('Name')
@@ -9,12 +9,12 @@ export class Theme extends ResourceModel {
 
   static fields: any = ['url', 'name'];
 
-  public className = 'Theme';
-  public pkFieldName = 'url';
-  public pkIsNumber = false;
+  className = 'Theme';
+  pkFieldName = 'url';
+  pkIsNumber = false;
 
-  public url: string;
-  public name: string;
+  url: string;
+  name: string;
 
   static meta(): any {
     const meta: any = Theme;

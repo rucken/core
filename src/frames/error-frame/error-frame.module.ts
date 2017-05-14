@@ -15,7 +15,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [ErrorFrameComponent]
 })
 export class ErrorFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ErrorFrameModule,
       providers: []

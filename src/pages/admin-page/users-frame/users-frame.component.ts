@@ -11,10 +11,13 @@ import { User } from '../../../shared/models/user.model';
 })
 
 export class UsersFrameComponent implements OnInit {
-  public title: string;
+  title: string;
 
-  constructor(public accountService: AccountService, public app: AppService,
-    public translateService: TranslateService) {
+  constructor(
+    public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService
+  ) {
   }
   get account(): any | User {
     return this.accountService.account;

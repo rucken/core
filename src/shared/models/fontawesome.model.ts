@@ -1,7 +1,7 @@
-import { ResourceModel } from './resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { translate } from '../utils';
 
-export class Fontawesome extends ResourceModel {
+export class Fontawesome extends BaseResourceModel {
   static titles: any = {
     icon: translate('Icon'),
     code: translate('Code'),
@@ -9,9 +9,9 @@ export class Fontawesome extends ResourceModel {
   };
   static fields: any = ['code', 'class'];
 
-  public className = 'Fontawesome';
-  public pkFieldName = 'class';
-  public pkIsNumber = false;
+  className = 'Fontawesome';
+  pkFieldName = 'class';
+  pkIsNumber = false;
 
   code: string;
   class: string;

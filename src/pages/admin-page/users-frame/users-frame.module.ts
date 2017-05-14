@@ -22,7 +22,7 @@ import { UsersGridModule } from '../../../grids/users-grid/users-grid.module';
   entryComponents: [UsersFrameComponent]
 })
 export class UsersFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: UsersFrameModule,
       providers: []

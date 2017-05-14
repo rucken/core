@@ -2,7 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
 import { TranslateService } from '@ngx-translate/core';
-import { BaseComponent } from '../base-component/base-component.component';
+import { BaseComponent } from '../../base/base-component/base-component.component';
 
 @Component({
   selector: 'grid-row-buttons',
@@ -12,25 +12,25 @@ import { BaseComponent } from '../base-component/base-component.component';
 
 export class GridRowButtonsComponent extends BaseComponent {
   @Input()
-  public editTitle?: string;
+  editTitle?: string;
   @Input()
-  public removeTitle?: string;
+  removeTitle?: string;
   @Input()
-  public editIcon?= 'fa fa-pencil-square-o';
+  editIcon?= 'fa fa-pencil-square-o';
   @Input()
-  public removeIcon?= 'fa fa-remove';
+  removeIcon?= 'fa fa-remove';
   @Input()
-  public editIconColor?= ''; // text-primary';
+  editIconColor?= ''; // text-primary';
   @Input()
-  public removeIconColor?= ''; // 'text-warning';
+  removeIconColor?= ''; // 'text-warning';
   @Output()
-  public onEdit: EventEmitter<boolean | any> = new EventEmitter();
+  onEdit: EventEmitter<boolean | any> = new EventEmitter();
   @Output()
-  public onRemove: EventEmitter<boolean | any> = new EventEmitter();
+  onRemove: EventEmitter<boolean | any> = new EventEmitter();
   @Input()
-  public showEdit?= true;
+  showEdit?= true;
   @Input()
-  public showRemove?= true;
+  showRemove?= true;
 
   constructor(public translateService: TranslateService) {
     super();

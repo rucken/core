@@ -22,7 +22,7 @@ import { ConfirmModalModule } from '../..//modals/confirm-modal/confirm-modal.mo
   entryComponents: [ContentTypesGridComponent]
 })
 export class ContentTypesGridModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ContentTypesGridModule,
       providers: []

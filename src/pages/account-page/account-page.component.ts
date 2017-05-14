@@ -14,13 +14,17 @@ import { AppService } from '../../shared/app.service';
 })
 
 export class AccountPageComponent implements OnInit {
-  public title: string;
+  title: string;
 
   get account(): any | User {
     return this.accountService.account;
   }
-  constructor(public router: Router, public accountService: AccountService, public app: AppService,
-    public translateService: TranslateService) {
+  constructor(
+    public router: Router,
+    public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService
+  ) {
     this.title = this.translateService.instant('Account');
   }
   ngOnInit() {

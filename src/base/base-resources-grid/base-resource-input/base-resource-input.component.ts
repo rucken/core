@@ -1,13 +1,9 @@
-import { isSimpleTemplateString } from 'codelyzer/util/utils';
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
-import { AppService } from './../../../shared/app.service';
-import { AccountService } from './../../../shared/account.service';
-import { User } from './../../../shared/models/user.model';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { BaseComponent } from '../../../base/base-component/base-component.component';
+import { ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
 
 
-export class ResourceInputComponent extends BaseComponent {
+export class BaseResourceInputComponent extends BaseComponent {
   @ViewChild('inputElement')
   inputElement: ElementRef;
   @Input()
@@ -21,7 +17,7 @@ export class ResourceInputComponent extends BaseComponent {
   @Input()
   inputReadonly = true;
   @Input()
-  name = 'resource';
+  name = 'base-resource';
   @Input()
   placeholder = '';
   @Input()
@@ -36,8 +32,8 @@ export class ResourceInputComponent extends BaseComponent {
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
-  public items: any[];
-  public cachedResourcesService: any;
+  items: any[];
+  cachedResourcesService: any;
 
   init() {
     super.init();

@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [AuthModalComponent]
 })
 export class AuthModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: AuthModalModule,
       providers: []

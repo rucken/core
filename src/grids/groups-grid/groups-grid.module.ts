@@ -22,7 +22,7 @@ import { ConfirmModalModule } from '../../modals/confirm-modal/confirm-modal.mod
   entryComponents: [GroupsGridComponent]
 })
 export class GroupsGridModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupsGridModule,
       providers: []

@@ -13,7 +13,7 @@ import { Permission } from '../../shared/models/permission.model';
 import { Group } from '../../shared/models/group.model';
 import { PermissionModalComponent } from '../permissions-grid/permission-modal/permission-modal.component';
 import { PermissionsService } from '../../shared/permissions.service';
-import { ResourcesGridComponent } from '../resources-grid/resources-grid.component';
+import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 import 'rxjs/add/operator/map';
 
@@ -24,7 +24,7 @@ import 'rxjs/add/operator/map';
   entryComponents: [PermissionModalComponent, PermissionsListModalComponent, ConfirmModalComponent]
 })
 
-export class GroupPermissionsGridComponent extends ResourcesGridComponent {
+export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
 
   @Input()
   loadAll?: boolean;
@@ -37,15 +37,15 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
   @Input()
   group: any | Group;
   @Input()
-  public readonly: boolean;
+  readonly: boolean;
   @Input()
-  public hardReadonly = false;
+  hardReadonly = false;
 
-  public modelMeta: any = GroupPermission.meta();
-  public items: GroupPermission[];
-  public searchText = '';
-  public selectedItems: GroupPermission[];
-  public cachedResourcesService: GroupPermissionsService;
+  modelMeta: any = GroupPermission.meta();
+  items: GroupPermission[];
+  searchText = '';
+  selectedItems: GroupPermission[];
+  cachedResourcesService: GroupPermissionsService;
 
   constructor(
     public groupPermissionsService: GroupPermissionsService,
@@ -67,6 +67,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: PermissionsListModalComponent = this.app.modals(this.resolver).create(PermissionsListModalComponent);
+    itemModal.name = 'createGroupPermission';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.permissions.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
@@ -88,6 +89,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
+    itemModal.name = 'editGroupPermission';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.account.checkPermissions(['change_permission']) || this.readonly;
     itemModal.text = this.translateService.instant('Save');
@@ -121,6 +123,7 @@ export class GroupPermissionsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    confirm.name = 'removeGroupPermission';
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a group permission?');

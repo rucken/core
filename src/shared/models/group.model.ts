@@ -1,9 +1,9 @@
-import { ResourceModel } from './resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { Permission } from './permission.model';
 import * as _ from 'lodash';
 import { translate } from '../utils';
 
-export class Group extends ResourceModel {
+export class Group extends BaseResourceModel {
   static titles: any = {
     id: translate('Id'),
     name: translate('Name'),
@@ -12,7 +12,7 @@ export class Group extends ResourceModel {
   };
   static fields: any = ['id', 'name', 'title', 'permissions'];
 
-  public className = 'Group';
+  className = 'Group';
 
   id: number;
   name: string;

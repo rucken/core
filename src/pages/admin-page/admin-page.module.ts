@@ -21,7 +21,7 @@ import { PageHeaderModule } from '../../controls/page-header/page-header.module'
   entryComponents: [AdminPageComponent]
 })
 export class AdminPageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: AdminPageModule,
       providers: []

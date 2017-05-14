@@ -1,16 +1,19 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { EndpointHelper } from './helpers/endpoint.helper';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 @Injectable()
 export class AppService {
-  public component: any;
-  public viewContainerRef: ViewContainerRef;
-  public currentPageName: string;
-  public currentPageTitle: string;
-  public endpointHelper: EndpointHelper
-  public translate: TranslateService
+  component: any;
+  viewContainerRef: ViewContainerRef;
+  currentPageName: string;
+  currentPageTitle: string;
+  endpointHelper: EndpointHelper
+  translate: TranslateService
   private createdModals: any = {};
+  constructor(public location: Location) {
 
+  }
   set localVersion(value: string) {
     localStorage.setItem('version', value);
   }
@@ -46,7 +49,9 @@ export class AppService {
         const ref = vm.viewContainerRef.createComponent(factory);
         if (name !== undefined) {
           vm.createdModals[name] = ref;
+          ref.instance.name = name;
         }
+        ref.instance.currentLocation = location.href.replace(location.host, '').replace(location.protocol, '').replace('///', '');
         ref.instance.onClose.subscribe(() => {
           ref.destroy();
           if (name !== undefined) {

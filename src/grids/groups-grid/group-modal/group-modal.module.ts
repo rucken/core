@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [GroupModalComponent]
 })
 export class GroupModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupModalModule,
       providers: []

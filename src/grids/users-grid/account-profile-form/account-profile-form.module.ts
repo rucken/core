@@ -20,7 +20,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [AccountProfileFormComponent]
 })
 export class AccountProfileFormModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: AccountProfileFormModule,
       providers: []

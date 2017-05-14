@@ -20,7 +20,7 @@ import { ConfirmModalModule } from '../../modals/confirm-modal/confirm-modal.mod
   entryComponents: [FontawesomesGridComponent]
 })
 export class FontawesomesGridModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: FontawesomesGridModule,
       providers: []

@@ -9,7 +9,7 @@ import { AppService } from '../../shared/app.service';
 import { AccountService } from '../../shared/account.service';
 import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
 import { MetaModel } from '../../shared/models/meta.model';
-import { ResourcesGridComponent } from '../resources-grid/resources-grid.component';
+import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'groups-grid',
@@ -18,7 +18,7 @@ import { TranslateService } from '@ngx-translate/core';
   entryComponents: [GroupModalComponent, ConfirmModalComponent]
 })
 
-export class GroupsGridComponent extends ResourcesGridComponent {
+export class GroupsGridComponent extends BaseResourcesGridComponent {
 
   @Input()
   loadAll?: boolean;
@@ -29,11 +29,11 @@ export class GroupsGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
 
-  public modelMeta: any = Group.meta();
-  public items: any[] | Group[];
-  public searchText = '';
-  public selectedItems: any[] | Group[];
-  public cachedResourcesService: GroupsService;
+  modelMeta: any = Group.meta();
+  items: any[] | Group[];
+  searchText = '';
+  selectedItems: any[] | Group[];
+  cachedResourcesService: GroupsService;
 
   constructor(
     public groupsService: GroupsService,
@@ -57,6 +57,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
+    itemModal.name = 'createGroup';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['add_group']);
     itemModal.text = this.translateService.instant('Create');
@@ -73,6 +74,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
+    itemModal.name = 'editGroup';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_group']);
     itemModal.text = this.translateService.instant('Save');
@@ -92,6 +94,7 @@ export class GroupsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    confirm.name = 'removeGroup';
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a group?');

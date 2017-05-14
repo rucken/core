@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [PermissionModalComponent]
 })
 export class PermissionModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: PermissionModalModule,
       providers: []

@@ -14,7 +14,7 @@ import { UserGroupsGridComponent } from '../../user-groups-grid/user-groups-grid
 import { Group } from '../../../shared/models/group.model';
 import { UserGroup } from '../../../shared/models/user-group.model';
 import { translate } from '../../../shared/utils';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { BaseComponent } from '../../../base/base-component/base-component.component';
 
 @Component({
   selector: 'account-profile-form',
@@ -43,7 +43,7 @@ export class AccountProfileFormComponent extends BaseComponent {
   @Input()
   item: any | User = new User();
   @Input()
-  public modelMeta: any = User.meta();
+  modelMeta: any = User.meta();
   @Output()
   onCancel: EventEmitter<AccountProfileFormComponent | any> = new EventEmitter();
   @Output()

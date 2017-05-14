@@ -1,23 +1,15 @@
-import { isSimpleTemplateString } from 'codelyzer/util/utils';
-import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
-import { AppService } from './../../../shared/app.service';
-import { AccountService } from './../../../shared/account.service';
-import { User } from './../../../shared/models/user.model';
-import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
-import { TooltipDirective } from 'ngx-bootstrap/tooltip';
-import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { BaseResourceSelectInputConfig } from './base-resource-select-input.config';
+import { BaseComponent } from '../../../base/base-component/base-component.component';
+import { Input, Output, EventEmitter } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { ResourceSelectInputConfig } from './resource-select-input.config';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { ResouceEnumStatus } from '../../../shared/enums/resource.enums';
 
-export class ResourceSelectInputComponent extends BaseComponent {
+export class BaseResourceSelectInputComponent extends BaseComponent {
   @Input()
   labelClass?= 'control-label';
   @Input()
   inputClass?: string;
-  @ViewChild('inputElement')
-  inputElement: any;
   @Input()
   lookupTooltip?: string;
   @Input()
@@ -38,7 +30,6 @@ export class ResourceSelectInputComponent extends BaseComponent {
   model: any = {};
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
-
   @Input()
   modelAsString = '';
   @Output()
@@ -51,16 +42,12 @@ export class ResourceSelectInputComponent extends BaseComponent {
   width: string = null;
   @Input()
   loadAll = true;
-
-  @ViewChild('tooltip')
-  public tooltip: TooltipDirective;
-
-  public items: any[];
-  public cachedResourcesService: any;
+  items: any[];
+  cachedResourcesService: any;
   constructor(
     public sanitizer: DomSanitizer,
     public translateService: TranslateService,
-    public config: ResourceSelectInputConfig
+    public config: BaseResourceSelectInputConfig
   ) {
     super();
     if (this.select === undefined) {

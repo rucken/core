@@ -22,7 +22,7 @@ import { AccountProfileFormModule } from '../../../grids/users-grid/account-prof
   entryComponents: [ProfileFrameComponent]
 })
 export class ProfileFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ProfileFrameModule,
       providers: []

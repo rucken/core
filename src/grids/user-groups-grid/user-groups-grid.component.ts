@@ -12,7 +12,7 @@ import { GroupsListModalComponent } from '../groups-grid/groups-list-modal/group
 import { Group } from '../../shared/models/group.model';
 import { GroupModalComponent } from '../groups-grid/group-modal/group-modal.component';
 import { GroupsService } from '../../shared/groups.service';
-import { ResourcesGridComponent } from '../resources-grid/resources-grid.component';
+import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'user-groups-grid',
@@ -21,7 +21,7 @@ import { TranslateService } from '@ngx-translate/core';
   entryComponents: [GroupsListModalComponent, GroupModalComponent, ConfirmModalComponent]
 })
 
-export class UserGroupsGridComponent extends ResourcesGridComponent {
+export class UserGroupsGridComponent extends BaseResourcesGridComponent {
 
   @Input()
   user: any | User;
@@ -34,14 +34,14 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Input()
-  public readonly: boolean;
+  readonly: boolean;
   @Input()
-  public hardReadonly = false;
+  hardReadonly = false;
 
-  public modelMeta: any = UserGroup.meta();
-  public items: any[] | UserGroup[];
-  public selectedItems: any[] | UserGroup[];
-  public cachedResourcesService: UserGroupsService;
+  modelMeta: any = UserGroup.meta();
+  items: any[] | UserGroup[];
+  selectedItems: any[] | UserGroup[];
+  cachedResourcesService: UserGroupsService;
 
   constructor(
     public userGroupsService: UserGroupsService,
@@ -63,6 +63,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: GroupsListModalComponent = this.app.modals(this.resolver).create(GroupsListModalComponent);
+    itemModal.name = 'selectGroups';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.groups.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
@@ -84,6 +85,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
+    itemModal.name = 'editUserGroup';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_group']) || this.readonly;
     itemModal.text = this.translateService.instant('Save');
@@ -118,6 +120,7 @@ export class UserGroupsGridComponent extends ResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
+    confirm.name = 'removeUserGroup';
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a user group?');

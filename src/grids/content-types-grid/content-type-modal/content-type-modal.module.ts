@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [ContentTypeModalComponent]
 })
 export class ContentTypeModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ContentTypeModalModule,
       providers: []

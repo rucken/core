@@ -1,7 +1,7 @@
-import { ResourceModel } from './resource.model';
+import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { translate } from '../utils';
 
-export class MetaModel extends ResourceModel {
+export class MetaModel extends BaseResourceModel {
   static titles: any = {
     totalResults: translate('Total results'),
     curPage: translate('Current page'),
@@ -10,7 +10,7 @@ export class MetaModel extends ResourceModel {
   };
   static fields: any = ['totalResults', 'curPage', 'totalPages', 'perPage'];
 
-  public className = 'MetaModel';
+  className = 'MetaModel';
 
   totalResults: number;
   curPage: number;

@@ -22,7 +22,7 @@ import { GroupsGridModule } from '../../../grids/groups-grid/groups-grid.module'
   entryComponents: [GroupsFrameComponent]
 })
 export class GroupsFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupsFrameModule,
       providers: []

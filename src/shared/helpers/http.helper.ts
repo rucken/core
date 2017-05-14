@@ -7,7 +7,7 @@ import { AuthHttp } from 'angular2-jwt';
 @Injectable()
 export class HttpHelper {
 
-  public withCredentials = false;
+  withCredentials = false;
 
   constructor(public authHttp: AuthHttp, public http: Http) {
   }

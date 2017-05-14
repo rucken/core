@@ -3,13 +3,13 @@ import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, 
 import { UsersListModalComponent } from '../users-list-modal/users-list-modal.component';
 import { UsersService } from '../../../shared/users.service';
 import { TranslateService } from '@ngx-translate/core';
-import { ResourceSelectInputComponent } from '../../resources-grid/resource-select-input/resource-select-input.component';
+import { BaseResourceSelectInputComponent } from '../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { SelectInputComponent } from '../../../controls/select-input/select-input.component';
 import { User } from '../../../shared/models/user.model';
 import { AppService } from '../../../shared/app.service';
 import { AccountService } from '../../../shared/account.service';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-input/resource-select-input.config';
+import { BaseResourceSelectInputConfig } from '../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 @Component({
@@ -19,7 +19,7 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
   entryComponents: [UsersListModalComponent]
 })
 
-export class UserSelectInputComponent extends ResourceSelectInputComponent {
+export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
   @Input()
   labelClass? = 'control-label';
   @Input()
@@ -58,18 +58,18 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   hardValue: any = null;
 
   @ViewChild('tooltip')
-  public tooltip: TooltipDirective;
+  tooltip: TooltipDirective;
   @Input()
-  public tooltipEnable: boolean;
+  tooltipEnable: boolean;
   @Input()
-  public tooltipText = '';
+  tooltipText = '';
   @Input()
-  public tooltipPlacement = 'bottom';
+  tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers = 'hover focus';
+  tooltipTriggers = 'hover focus';
 
-  public items: any[] | User[];
-  public cachedResourcesService: UsersService;
+  items: any[] | User[];
+  cachedResourcesService: UsersService;
   constructor(
     public app: AppService,
     public accountService: AccountService,
@@ -77,7 +77,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
     public resolver: ComponentFactoryResolver,
     public sanitizer: DomSanitizer,
     public translateService: TranslateService,
-    public config: ResourceSelectInputConfig
+    public config: BaseResourceSelectInputConfig
   ) {
     super(sanitizer, translateService, config);
     if (this.lookupTooltip === undefined) {
@@ -91,6 +91,7 @@ export class UserSelectInputComponent extends ResourceSelectInputComponent {
   onLookup() {
     const itemModal: UsersListModalComponent =
       this.app.modals(this.resolver).create(UsersListModalComponent);
+    itemModal.name = 'selectUsers';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');

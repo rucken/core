@@ -17,7 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [TextInputComponent]
 })
 export class TextInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: TextInputModule,
       providers: [TextInputConfig]

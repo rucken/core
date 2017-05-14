@@ -8,14 +8,14 @@ import { User } from './models/user.model';
 
 @Injectable()
 export class AccountService {
-  public name: string;
-  public account$: Subject<any | User>;
-  public _account: any | User;
-  public apiUrl: string;
+  name: string;
+  account$: Subject<any | User>;
+  _account: any | User;
+  apiUrl: string;
 
-  public statusMessage: string;
-  public _status: ResouceEnumStatus;
-  public changeStatus$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
+  statusMessage: string;
+  _status: ResouceEnumStatus;
+  changeStatus$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
 
   constructor(public endpointHelper: EndpointHelper) {
     this.name = 'account';
@@ -35,14 +35,14 @@ export class AccountService {
       this.changeStatus$.next(status);
     });
   }
-  public set account(user: any | User) {
+  set account(user: any | User) {
     this._account = user;
     this.account$.next(this._account);
   }
-  public get account(): any | User {
+  get account(): any | User {
     return this._account;
   }
-  public info() {
+  info() {
     const result = new EventEmitter();
     this.setStatus(ResouceEnumStatus.Loading,
       translate('Loading...')
@@ -62,7 +62,7 @@ export class AccountService {
       });
     return result;
   }
-  public login(account: any | User) {
+  login(account: any | User) {
     const result = new EventEmitter();
     this.setStatus(ResouceEnumStatus.Loading,
       translate('Loading...')
@@ -82,7 +82,7 @@ export class AccountService {
       });
     return result;
   }
-  public logout() {
+  logout() {
     const result = new EventEmitter();
     setTimeout((out: any) => {
       this.account = null;
@@ -90,7 +90,7 @@ export class AccountService {
     }, 700);
     return result;
   }
-  public update(account: any | User) {
+  update(account: any | User) {
     const result = new EventEmitter();
     this.setStatus(ResouceEnumStatus.Updating,
       translate('Updating...')

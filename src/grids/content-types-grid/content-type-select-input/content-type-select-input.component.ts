@@ -8,11 +8,11 @@ import { AccountService } from './../../../shared/account.service';
 import { ContentTypesService } from '../../../shared/content-types.service';
 import { User } from './../../../shared/models/user.model';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
-import { ResourceSelectInputComponent } from '../../resources-grid/resource-select-input/resource-select-input.component';
+import { BaseResourceSelectInputComponent } from '../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
-import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-input/resource-select-input.config';
+import { BaseResourceSelectInputConfig } from '../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 
 @Component({
   selector: 'content-type-select-input',
@@ -21,7 +21,7 @@ import { ResourceSelectInputConfig } from '../../resources-grid/resource-select-
   entryComponents: [ContentTypesListModalComponent]
 })
 
-export class ContentTypeSelectInputComponent extends ResourceSelectInputComponent {
+export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComponent {
   @Input()
   labelClass? = 'control-label';
   @Input()
@@ -60,18 +60,18 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   hardValue: any = null;
 
   @ViewChild('tooltip')
-  public tooltip: TooltipDirective;
+  tooltip: TooltipDirective;
   @Input()
-  public tooltipEnable: boolean;
+  tooltipEnable: boolean;
   @Input()
-  public tooltipText = '';
+  tooltipText = '';
   @Input()
-  public tooltipPlacement = 'bottom';
+  tooltipPlacement = 'bottom';
   @Input()
-  public tooltipTriggers = 'hover focus';
+  tooltipTriggers = 'hover focus';
 
-  public items: any[] | ContentType[];
-  public cachedResourcesService: ContentTypesService;
+  items: any[] | ContentType[];
+  cachedResourcesService: ContentTypesService;
   constructor(
     public app: AppService,
     public accountService: AccountService,
@@ -79,7 +79,7 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
     public resolver: ComponentFactoryResolver,
     public sanitizer: DomSanitizer,
     public translateService: TranslateService,
-    public config: ResourceSelectInputConfig
+    public config: BaseResourceSelectInputConfig
   ) {
     super(sanitizer, translateService, config);
     if (this.lookupTooltip === undefined) {
@@ -98,6 +98,7 @@ export class ContentTypeSelectInputComponent extends ResourceSelectInputComponen
   onLookup() {
     const itemModal: ContentTypesListModalComponent =
       this.app.modals(this.resolver).create(ContentTypesListModalComponent);
+    itemModal.name = 'selectContentTypes';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');

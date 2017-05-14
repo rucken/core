@@ -16,7 +16,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [FontawesomeInputComponent]
 })
 export class FontawesomeInputModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: FontawesomeInputModule,
       providers: []

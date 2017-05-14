@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [UserModalComponent]
 })
 export class UserModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: UserModalModule,
       providers: []

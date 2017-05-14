@@ -14,7 +14,7 @@ import { TextInputComponent } from '../../../controls/text-input/text-input.comp
 import { GroupPermissionsGridComponent } from '../../group-permissions-grid/group-permissions-grid.component';
 import { Permission } from '../../../shared/models/permission.model';
 import { GroupPermission } from '../../../shared/models/group-permission.model';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { BaseResourceModalComponent } from '../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 
 @Component({
   selector: 'group-modal',
@@ -22,7 +22,7 @@ import { BaseComponent } from '../../../controls/base-component/base-component.c
   styleUrls: ['./group-modal.component.scss']
 })
 
-export class GroupModalComponent extends BaseComponent {
+export class GroupModalComponent extends BaseResourceModalComponent {
 
   @ViewChild('modal')
   modal: ModalDirective;
@@ -31,54 +31,29 @@ export class GroupModalComponent extends BaseComponent {
   @ViewChild('groupPermissions')
   groupPermissions: GroupPermissionsGridComponent;
   @Input()
-  text = '';
-  @Input()
-  class = '';
-  @Input()
-  readonly = false;
-  @Input()
-  hideOnClose? = true;
-  @Input()
-  account: any | User = null;
-  @Input()
-  title = '';
-  @Input()
   item: any | Group = new Group();
   @Input()
-  public modelMeta: any = Group.meta();
+  modelMeta: any = Group.meta();
   @Output()
   onClose: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
   @Output()
   onSave: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
 
-  init() {
-    super.init();
-    this.modal.onHidden.subscribe(() => this.close());
-    this.modal.onShown.subscribe(() => {
-      this.focus();
-      this.groupPermissions.group = this.item;
-      this.groupPermissions.mockedItems =
-        this.item.permissions.map((permission: any | Permission) => {
-          return new GroupPermission({
-            id: permission.pk,
-            permission: permission
-          });
+  afterOpen() {
+    this.groupPermissions.group = this.item;
+    this.groupPermissions.mockedItems =
+      this.item.permissions.map((permission: any | Permission) => {
+        return new GroupPermission({
+          id: permission.pk,
+          permission: permission
         });
-      this.groupPermissions.search();
-    });
+      });
+    this.groupPermissions.search();
   }
 
-  close() {
-    if (this.hideOnClose && this.modal.isShown) {
-      this.modal.hide();
-    }
-    this.onClose.emit(this);
-    return false;
-  }
   save() {
     this.item.permissions =
       this.groupPermissions.mockedItems.map((groupPermission: GroupPermission) => groupPermission.permission);
-    this.onSave.emit(this);
-    return false;
+    return super.save();
   }
 }

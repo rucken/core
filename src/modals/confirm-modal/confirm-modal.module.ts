@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
   entryComponents: [ConfirmModalComponent]
 })
 export class ConfirmModalModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: ConfirmModalModule,
       providers: []

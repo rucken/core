@@ -3,7 +3,7 @@ import { ContentType } from './../../../shared/models/content-type.model';
 import { User } from '././../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { ContentTypesGridComponent } from '../content-types-grid.component';
-import { BaseComponent } from '../../../controls/base-component/base-component.component';
+import { BaseResourceListModalComponent } from '../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 
 @Component({
   selector: 'content-types-list-modal',
@@ -11,53 +11,24 @@ import { BaseComponent } from '../../../controls/base-component/base-component.c
   styleUrls: ['./content-types-list-modal.component.scss']
 })
 
-export class ContentTypesListModalComponent extends BaseComponent {
+export class ContentTypesListModalComponent extends BaseResourceListModalComponent {
 
-  @Input()
-  text: string;
-  @Input()
-  class: string;
-  @Input()
-  readonly: boolean;
-  @Input()
-  hardReadonly = false;
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
   @Output()
-  onClose: EventEmitter<ContentTypesListModalComponent>;
-  @Input()
-  hideOnClose?: boolean;
+  onClose: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
 
   @ViewChild('contentTypes')
   contentTypes: ContentTypesGridComponent;
 
-  @Input()
-  account: any | User;
-  @Input()
-  title: string;
   @Output()
-  onSave: EventEmitter<ContentTypesListModalComponent>;
+  onSave: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
 
-  item: any | ContentType;
-  items: any[] | ContentType[];
+  item: any | ContentType = new ContentType();
+  items: any[] | ContentType[] = [];
   modelMeta: any = ContentType.meta();
-
-  constructor() {
-    super();
-    if (this.hideOnClose === undefined) {
-      this.hideOnClose = true;
-    }
-    this.onClose = new EventEmitter<ContentTypesListModalComponent>();
-    this.item = new ContentType();
-    this.onSave = new EventEmitter<ContentTypesListModalComponent>();
-  }
-  init() {
-    super.init();
-    this.modal.onHidden.subscribe(() => this.close());
-    this.modal.onShown.subscribe(() => this.focus());
-  }
 
   focus() {
     this.contentTypes.focus();
@@ -66,18 +37,5 @@ export class ContentTypesListModalComponent extends BaseComponent {
   selectContentType(items: any[] | ContentType[]) {
     this.item = items[0];
     this.items = items;
-  }
-
-  close() {
-    if (this.hideOnClose && this.modal.isShown) {
-      this.modal.hide();
-    }
-    this.onClose.emit(this);
-    return false;
-  }
-
-  select() {
-    this.onSave.emit(this);
-    return false;
   }
 }
