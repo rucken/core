@@ -15,9 +15,9 @@ export class DemoAppComponent extends AppComponent {
   @Input()
   autoLoadLang?= true;
 
-  public pleaseWaitVisible = false;
+  pleaseWaitVisible = false;
 
-  public constructor(
+  constructor(
     public viewContainerRef: ViewContainerRef,
     public app: AppService,
     public resolver: ComponentFactoryResolver,

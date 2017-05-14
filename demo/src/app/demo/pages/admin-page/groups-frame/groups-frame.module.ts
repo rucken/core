@@ -10,7 +10,7 @@ import { GroupsFrameModule } from '../../../../../../../dist';
   ]
 })
 export class DemoGroupsFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: GroupsFrameModule,
       providers: []

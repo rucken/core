@@ -10,7 +10,7 @@ import { ThemesPageModule } from '../../../../../../dist';
   ]
 })
 export class DemoThemesPageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoThemesPageModule,
       providers: []

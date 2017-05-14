@@ -9,20 +9,20 @@ import { Http } from '@angular/http';
 import { User } from '../../../../../dist/shared/models/user.model';
 @Injectable()
 export class DemoAccountService extends AccountService {
-  public account$: Subject<User>;
-  public _account: User;
+  account$: Subject<User>;
+  _account: User;
   constructor(public endpointHelper: EndpointHelper) {
     super(endpointHelper);
     this.apiUrl = `${endpointHelper.apiUrl}/${this.name}`;
     this.account$ = <Subject<User>>new Subject();
   }
-  public info() {
+  info() {
     if (localStorage.getItem('token') === null) {
       return super.logout();
     }
     return super.info();
   }
-  public logout() {
+  logout() {
     localStorage.removeItem('token');
     return super.logout();
   }

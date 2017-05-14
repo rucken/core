@@ -18,10 +18,10 @@ export class DemoEndpointHelper extends EndpointHelper {
     if (endpointService.name === 'account') {
       const url = this.actionUrl(endpointService, action).replace('account/', 'account-');
       if (action === 'info') {
-        return this.httpHelper.http.post(url, { 'token': localStorage.getItem('token') });
+        return this.httpHelper.http.get(url);
       }
       if (action === 'login') {
-        return this.httpHelper.http.post(url, data);
+        return this.httpHelper.http.get(url, data);
       }
       return this.httpHelper.http.post(url, data);
     }

@@ -18,7 +18,7 @@ import { TranslateModule } from '@ngx-translate/core';
   entryComponents: [HomePageComponent]
 })
 export class HomePageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: HomePageModule,
       providers: []

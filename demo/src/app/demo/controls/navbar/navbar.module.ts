@@ -22,7 +22,7 @@ import { CollapseModule } from 'ngx-bootstrap';
   entryComponents: [DemoNavbarComponent]
 })
 export class DemoNavbarModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoNavbarModule,
       providers: []

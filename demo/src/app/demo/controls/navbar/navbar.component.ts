@@ -15,7 +15,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class DemoNavbarComponent extends NavbarComponent {
 
-  public changelog: string = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
+  changelog: string = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
 
   constructor(
     public app: AppService,

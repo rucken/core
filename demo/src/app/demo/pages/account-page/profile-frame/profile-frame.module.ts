@@ -10,7 +10,7 @@ import { ProfileFrameModule } from '../../../../../../../dist';
   ]
 })
 export class DemoProfileFrameModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoProfileFrameModule,
       providers: []

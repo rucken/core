@@ -7,7 +7,7 @@ import { environment } from '../../../../environments/environment';
 
 @Injectable()
 export class DemoHttpHelper extends HttpHelper {
-  public withCredentials = false;
+  withCredentials = false;
 
   constructor(
     public authHttp: AuthHttp,

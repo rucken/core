@@ -10,7 +10,7 @@ import { AdminPageModule } from '../../../../../../dist';
   ]
 })
 export class DemoAdminPageModule {
-  public static forRoot(): ModuleWithProviders {
+  static forRoot(): ModuleWithProviders {
     return {
       ngModule: DemoAdminPageModule,
       providers: []
