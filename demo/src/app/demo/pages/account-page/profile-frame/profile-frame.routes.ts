@@ -1,10 +1,14 @@
 import { Routes } from '@angular/router';
 import { ProfileFrameComponent } from './../../../../../../../dist';
 
-export const ProfileFrameRoutes: Routes = [
+export const DemoProfileFrameRoutes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: ProfileFrameComponent
+    component: ProfileFrameComponent,
+    data: {
+      name: 'profile',
+      title: 'Profile',
+      visible: true
+    }
   }
 ];

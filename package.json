@@ -120,7 +120,7 @@
     "npm-run-all": "^4.0.2",
     "po2json": "^0.4.5",
     "protractor": "~5.1.1",
-    "recursive-readdir": "^2.1.1",
+    "recursive-readdir": "^2.2.0",
     "srcgen": "^0.2.13",
     "ts-node": "~3.0.4",
     "tslint": "~5.2.0",

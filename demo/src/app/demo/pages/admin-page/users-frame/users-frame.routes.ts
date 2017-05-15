@@ -1,9 +1,14 @@
 import { Routes } from '@angular/router';
 import { UsersFrameComponent } from './../../../../../../../dist';
 
-export const UsersFrameRoutes: Routes = [
+export const DemoUsersFrameRoutes: Routes = [
   {
     path: '',
-    component: UsersFrameComponent
+    component: UsersFrameComponent,
+    data: {
+      name: 'users',
+      title: 'Users',
+      visible: true
+    }
   }
 ];

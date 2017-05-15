@@ -1,6 +1,11 @@
 import { HomePageComponent } from './home-page.component';
-export const HomePageRoutes = [{
+
+export const DemoHomePageRoutes = [{
   path: '',
-  pathMatch: 'full',
-  component: HomePageComponent
+  component: HomePageComponent,
+  data: {
+    name: 'home',
+    title: 'Home',
+    visible: true
+  }
 }];

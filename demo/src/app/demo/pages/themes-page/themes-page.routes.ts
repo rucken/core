@@ -1,6 +1,10 @@
 import { ThemesPageComponent } from './../../../../../../dist';
-export const ThemesPageRoutes = [{
+export const DemoThemesPageRoutes = [{
   path: '',
-  pathMatch: 'full',
-  component: ThemesPageComponent
+  component: ThemesPageComponent,
+  data: {
+    name: 'themes',
+    title: 'Themes',
+    visible: true
+  }
 }];

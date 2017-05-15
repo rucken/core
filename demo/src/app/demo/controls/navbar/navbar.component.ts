@@ -1,10 +1,11 @@
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
-import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {
-  AdminPageComponent, AppService, AuthModalComponent, NavbarComponent,
-  AccountService, User, ConfirmModalComponent
+  AppService, AuthModalComponent, NavbarComponent,
+  AccountService, ConfirmModalComponent
 } from './../../../../../../dist';
 import { TranslateService } from '@ngx-translate/core';
+import { DemoRoutes } from './../../../app.routes';
 
 @Component({
   selector: 'demo-navbar',
@@ -18,12 +19,17 @@ export class DemoNavbarComponent extends NavbarComponent {
   changelog: string = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
 
   constructor(
-    public app: AppService,
     public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
     public router: Router,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public resolver: ComponentFactoryResolver
   ) {
-    super(app, accountService, router, resolver, translateService);
+    super(accountService, app, translateService, activatedRoute, router, resolver);
+  }
+  init() {
+    super.init();
+    this.childrenRoutes = DemoRoutes;
   }
 }
