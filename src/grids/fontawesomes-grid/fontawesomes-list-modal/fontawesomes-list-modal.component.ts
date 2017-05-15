@@ -17,10 +17,11 @@ export class FontawesomesListModalComponent extends BaseResourceListModalCompone
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
-  @Output()
-  onClose: EventEmitter<FontawesomesListModalComponent> = new EventEmitter<FontawesomesListModalComponent>();
   @ViewChild('fontawesomes')
   fontawesomes: FontawesomesGridComponent;
+
+  @Output()
+  onClose: EventEmitter<FontawesomesListModalComponent> = new EventEmitter<FontawesomesListModalComponent>();
   @Output()
   onSave: EventEmitter<FontawesomesListModalComponent> = new EventEmitter<FontawesomesListModalComponent>();
 

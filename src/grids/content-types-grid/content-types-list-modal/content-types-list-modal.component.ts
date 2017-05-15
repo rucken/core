@@ -17,12 +17,11 @@ export class ContentTypesListModalComponent extends BaseResourceListModalCompone
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
-  @Output()
-  onClose: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
-
   @ViewChild('contentTypes')
   contentTypes: ContentTypesGridComponent;
 
+  @Output()
+  onClose: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
   @Output()
   onSave: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
 

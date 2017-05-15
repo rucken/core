@@ -9,19 +9,19 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   @Input()
   labelClass?= 'control-label';
   @Input()
-  inputClass?: string;
+  inputClass?= 'form-control';
+  @Input()
+  inputFrameClass? = '';
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon?: string;
+  lookupIcon? = 'fa fa-search';
   @Input()
   readonly = false;
   @Input()
   hardReadonly = false;
   @Input()
   inputReadonly = true;
-  @Input()
-  name: string;
   @Input()
   placeholder = '';
   @Input()
@@ -58,6 +58,9 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     }
     if (this.tooltipEnable === undefined) {
       this.tooltipEnable = config.errorInTooltip;
+    }
+    if (this.lookupTooltip === undefined) {
+      this.lookupTooltip = this.translateService.instant('Select');
     }
   }
   init() {

@@ -16,15 +16,18 @@ export class UsersListModalComponent extends BaseResourceListModalComponent {
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
-  @Output()
-  onClose: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
   @ViewChild('users')
   users: UsersGridComponent;
+
+  @Output()
+  onClose: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
   @Output()
   onSave: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
+
   item: any | User = new User();
   items: any[] | User[] = [];
   modelMeta: any = User.meta();
+
   focus() {
     this.users.focus();
   }

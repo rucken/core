@@ -14,17 +14,18 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 })
 
 export class TextInputComponent extends BaseComponent {
+
+  @ViewChild('inputElement')
+  inputElement: ElementRef;
+  @ViewChild('tooltip')
+  tooltip: TooltipDirective;
+
   @Input()
   labelClass?= 'control-label';
   @Input()
   inputClass?= 'form-control';
   @Input()
   inputFrameClass?= '';
-
-  @ViewChild('inputElement')
-  inputElement: ElementRef;
-  @ViewChild('tooltip')
-  tooltip: TooltipDirective;
   @Input()
   type = 'text';
   @Input()

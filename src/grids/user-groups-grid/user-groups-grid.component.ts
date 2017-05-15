@@ -23,16 +23,15 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class UserGroupsGridComponent extends BaseResourcesGridComponent {
 
+  @ViewChild('focusElement')
+  focusElement: ElementRef;
+
   @Input()
   user: any | User;
-  @Input()
-  loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<any | UserGroup[] | UserGroup>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
   @Input()
   readonly: boolean;
   @Input()

@@ -20,18 +20,16 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class GroupsGridComponent extends BaseResourcesGridComponent {
 
-  @Input()
-  loadAll?: boolean;
+  @ViewChild('focusElement')
+  focusElement: ElementRef;
+
   @Output()
   onSelectItems: EventEmitter<any | Group[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
 
   modelMeta: any = Group.meta();
   items: any[] | Group[];
-  searchText = '';
   selectedItems: any[] | Group[];
   cachedResourcesService: GroupsService;
 

@@ -25,6 +25,7 @@ export class ContentTypeModalComponent extends BaseResourceModalComponent {
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: TextInputComponent;
+
   @Input()
   item: any | ContentType = new ContentType();
   @Input()

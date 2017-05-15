@@ -25,6 +25,7 @@ export class FontawesomeModalComponent extends BaseResourceModalComponent {
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: TextInputComponent;
+
   @Input()
   item: any | Fontawesome = new Fontawesome();
   @Input()

@@ -19,18 +19,16 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class UsersGridComponent extends BaseResourcesGridComponent {
 
-  @Input()
-  loadAll?: boolean;
+  @ViewChild('focusElement')
+  focusElement: ElementRef;
+
   @Output()
   onSelectItems: EventEmitter<any[] | User[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
 
   modelMeta: any = User.meta();
   items: any[] | User[];
-  searchText = '';
   selectedItems: any[] | User[];
   cachedResourcesService: UsersService;
 

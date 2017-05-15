@@ -19,17 +19,17 @@ export class GroupsListModalComponent extends BaseResourceListModalComponent {
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
-  @Output()
-  onClose: EventEmitter<GroupsListModalComponent> = new EventEmitter<GroupsListModalComponent>();
   @ViewChild('groups')
   groups: GroupsGridComponent;
+
+  @Output()
+  onClose: EventEmitter<GroupsListModalComponent> = new EventEmitter<GroupsListModalComponent>();
   @Output()
   onSave: EventEmitter<GroupsListModalComponent> = new EventEmitter<GroupsListModalComponent>();
 
   item: any | Group = new Group();
   items: any[] | Group[] = [];
   modelMeta: any = Group.meta();
-
 
   focus() {
     this.groups.focus();

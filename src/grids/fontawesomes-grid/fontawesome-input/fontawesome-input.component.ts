@@ -9,6 +9,7 @@ import { User } from './../../../shared/models/user.model';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'fontawesome-input',
@@ -18,33 +19,16 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class FontawesomeInputComponent extends BaseResourceInputComponent {
+
   @ViewChild('inputElement')
   inputElement: ElementRef;
-  @Input()
-  lookupTooltip?: string;
-  @Input()
-  lookupIcon? = 'fa fa-search';
-  @Input()
-  readonly = false;
-  @Input()
-  hardReadonly = false;
-  @Input()
-  inputReadonly = true;
+
   @Input()
   name = 'fontawesome';
-  @Input()
-  placeholder = '';
-  @Input()
-  title = '';
   @Input()
   model: any | Fontawesome = new Fontawesome();
   @Output()
   modelChange: EventEmitter<any | Fontawesome> = new EventEmitter<any | Fontawesome>();
-
-  @Input()
-  modelAsString = '';
-  @Output()
-  modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
   items: any | Fontawesome[];
   cachedResourcesService: FontawesomesService;
@@ -52,14 +36,12 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
   constructor(
     public app: AppService,
     public accountService: AccountService,
+    public sanitizer: DomSanitizer,
     public fontawesomesService: FontawesomesService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
-    super();
-    if (this.lookupTooltip === undefined) {
-      this.lookupTooltip = this.translateService.instant('Select');
-    }
+    super(sanitizer, translateService);
     this.cachedResourcesService = fontawesomesService.createCache();
   }
   get account(): any | User {

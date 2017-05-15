@@ -17,6 +17,14 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 })
 
 export class SelectInputComponent extends BaseComponent {
+
+  @ViewChild('tooltip')
+  tooltip: TooltipDirective;
+  @ViewChild('autoComplete')
+  autoComplete: NguiAutoCompleteComponent;
+  @ViewChild('inputElement')
+  inputElement: ElementRef;
+
   @Input()
   debounceTime?: number;
   @Output()
@@ -27,12 +35,6 @@ export class SelectInputComponent extends BaseComponent {
   inputClass?= 'form-control';
   @Input()
   inputFrameClass?= '';
-  @ViewChild('tooltip')
-  tooltip: TooltipDirective;
-  @ViewChild('autoComplete')
-  autoComplete: NguiAutoCompleteComponent;
-  @ViewChild('inputElement')
-  inputElement: ElementRef;
   @Input()
   inFormGroup = true;
   @Input()
@@ -83,9 +85,11 @@ export class SelectInputComponent extends BaseComponent {
   get items() {
     return this._items;
   }
+
   private _items: any[] = [];
   private _showMe = false;
   private debouncer: Subject<string> = new Subject<string>();
+
   getTitle: any;
   constructor(
     public sanitizer: DomSanitizer,

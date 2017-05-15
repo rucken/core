@@ -17,16 +17,18 @@ export class PermissionsListModalComponent extends BaseResourceListModalComponen
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
-  @Output()
-  onClose: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
   @ViewChild('permissions')
   permissions: PermissionsGridComponent;
+
+  @Output()
+  onClose: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
   @Output()
   onSave: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
 
   item: any | Permission = new Permission();
   items: any[] | Permission[] = [];
   modelMeta: any = Permission.meta();
+
   focus() {
     this.permissions.focus();
   }

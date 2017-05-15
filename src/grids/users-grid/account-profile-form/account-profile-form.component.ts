@@ -28,6 +28,7 @@ export class AccountProfileFormComponent extends BaseComponent {
   focusElement: TextInputComponent;
   @ViewChild('userGroups')
   userGroups: UserGroupsGridComponent;
+
   @Input()
   text = translate('Update');
   @Input()

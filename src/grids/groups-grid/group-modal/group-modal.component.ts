@@ -30,6 +30,7 @@ export class GroupModalComponent extends BaseResourceModalComponent {
   focusElement: TextInputComponent;
   @ViewChild('groupPermissions')
   groupPermissions: GroupPermissionsGridComponent;
+
   @Input()
   item: any | Group = new Group();
   @Input()
