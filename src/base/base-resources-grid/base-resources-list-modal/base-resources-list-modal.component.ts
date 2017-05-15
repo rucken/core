@@ -13,9 +13,11 @@ export class BaseResourceListModalComponent extends BaseModalComponent {
   account: any | User = null;
   @Output()
   onSave: EventEmitter<any> = new EventEmitter<any>();
+
   item: any = {};
   items: any[] = [];
   modelMeta: any = {};
+
   select() {
     this.onSave.emit(this);
     return false;

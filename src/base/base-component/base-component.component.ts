@@ -1,6 +1,7 @@
 import { OnInit, Input, EventEmitter, ElementRef } from '@angular/core';
 
 export class BaseComponent implements OnInit {
+
   @Input()
   tooltipEnable: boolean;
   @Input()
@@ -10,46 +11,18 @@ export class BaseComponent implements OnInit {
   @Input()
   tooltipTriggers = 'hover focus';
   @Input()
-  name = '';
+  name?: string;
   @Input()
   focused = false;
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   info: EventEmitter<any> = new EventEmitter<any>();
+
   errorsValue: any;
   infoValue: any;
   [key: string]: any;
-  ngOnInit() {
-    this.beforeInit();
-    this.init();
-    this.afterInit();
-  }
-  beforeInit() { }
-  afterInit() { }
-  init() {
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.errorMessage;
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.infoMessage;
-    });
-    setTimeout((out: any) => {
-      if (this.focused === true) {
-        this.focus();
-      }
-    }, 300);
-  }
+
   get errorMessage(): any {
     const arr: string[] = [];
     let text = '';
@@ -81,6 +54,37 @@ export class BaseComponent implements OnInit {
       return arr.join(', ');
     }
     return false;
+  }
+
+  ngOnInit() {
+    this.beforeInit();
+    this.init();
+    this.afterInit();
+  }
+  beforeInit() { }
+  afterInit() { }
+  init() {
+    this.errors.subscribe((data: any) => {
+      this.errorsValue = data;
+      const keys = Object.keys(data);
+      if (keys[0] === this.name) {
+        this.focus();
+      }
+      this.tooltipText = this.errorMessage;
+    });
+    this.info.subscribe((data: any) => {
+      this.infoValue = data;
+      const keys = Object.keys(data);
+      if (keys[0] === this.name) {
+        this.focus();
+      }
+      this.tooltipText = this.infoMessage;
+    });
+    setTimeout((out: any) => {
+      if (this.focused === true) {
+        this.focus();
+      }
+    }, 300);
   }
   safeHtml(html: string): any {
     if (this.sanitizer) {

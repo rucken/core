@@ -4,7 +4,11 @@ import { ProfileFrameComponent } from './profile-frame.component';
 export const ProfileFrameRoutes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: ProfileFrameComponent
+    component: ProfileFrameComponent,
+    data: {
+      name: 'profile',
+      title: 'Profile',
+      visible: true
+    }
   }
 ];

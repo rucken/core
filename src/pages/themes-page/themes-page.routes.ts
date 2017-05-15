@@ -1,6 +1,10 @@
 import { ThemesPageComponent } from './themes-page.component';
 export const ThemesPageRoutes = [{
   path: '',
-  pathMatch: 'full',
-  component: ThemesPageComponent
+  component: ThemesPageComponent,
+  data: {
+    name: 'themes',
+    title: 'Themes',
+    visible: true
+  }
 }];

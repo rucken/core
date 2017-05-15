@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { AppService } from './../../shared/app.service';
+import { Component } from '@angular/core';
 import { ThemesService } from './../../shared/themes.service';
 import { Theme } from './../../shared/models/theme.model';
-import 'rxjs/add/operator/map';
+import { BasePageComponent } from './../../base/base-page/base-page.component';
+import { AccountService } from './../../shared/account.service';
+import { AppService } from './../../shared/app.service';
+import { TranslateService } from '@ngx-translate/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'themes-page',
@@ -11,19 +13,23 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./themes-page.component.scss']
 })
 
-export class ThemesPageComponent implements OnInit {
-  title: string;
+export class ThemesPageComponent extends BasePageComponent {
+
   items: any[] | Theme[];
+
   constructor(
+    public accountService: AccountService,
     public app: AppService,
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
     public themesService: ThemesService,
-    public translateService: TranslateService
+    public router: Router
   ) {
-    this.title = this.translateService.instant('Themes');
+    super(accountService, app, translateService, activatedRoute, router);
   }
-  ngOnInit() {
-    this.app.currentPageName = 'themes';
-    this.app.currentPageTitle = this.title;
+
+  init() {
+    super.init();
     this.themesService.items$.subscribe(
       (themes: any[] | Theme[]) => {
         this.items = themes;

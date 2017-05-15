@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AdminPageRoutes } from './admin-page.routes';
 import { TranslateModule } from '@ngx-translate/core';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+import { BasePageModule } from './../../base/base-page/base-page.module';
 
 @NgModule({
   imports: [
@@ -12,7 +13,7 @@ import { PageHeaderModule } from './../../controls/page-header/page-header.modul
     RouterModule,
     TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
-    // RouterModule.forChild(AdminPageRoutes)
+    BasePageModule.forRoot()
   ],
   declarations: [
     AdminPageComponent

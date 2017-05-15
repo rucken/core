@@ -8,6 +8,8 @@ export class AppService {
   viewContainerRef: ViewContainerRef;
   currentPageName: string;
   currentPageTitle: string;
+  currentFrameName: string;
+  currentFrameTitle: string;
   endpointHelper: EndpointHelper
   translate: TranslateService
   private createdModals: any = {};

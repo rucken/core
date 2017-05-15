@@ -5,13 +5,16 @@ import { CollapseModule } from 'ngx-bootstrap';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
 import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
     ConfirmModalModule.forRoot(),
-    AuthModalModule.forRoot(), TranslateModule.forChild(),
-    CollapseModule.forRoot()
+    AuthModalModule.forRoot(),
+    TranslateModule.forChild(),
+    CollapseModule.forRoot(),
+    RouterModule
   ],
   declarations: [NavbarComponent],
   exports: [NavbarComponent],

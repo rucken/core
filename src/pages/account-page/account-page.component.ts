@@ -1,10 +1,9 @@
-import { RouterOutlet } from '@angular/router/router';
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from './../../shared/models/user.model';
 import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
+import { BasePageComponent } from './../../base/base-page/base-page.component';
 
 @Component({
   selector: 'account-page',
@@ -13,22 +12,15 @@ import { AppService } from './../../shared/app.service';
   encapsulation: ViewEncapsulation.None  // Enable dynamic HTML styles
 })
 
-export class AccountPageComponent implements OnInit {
-  title: string;
+export class AccountPageComponent extends BasePageComponent {
 
-  get account(): any | User {
-    return this.accountService.account;
-  }
   constructor(
-    public router: Router,
     public accountService: AccountService,
     public app: AppService,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
+    public router: Router
   ) {
-    this.title = this.translateService.instant('Account');
-  }
-  ngOnInit() {
-    this.app.currentPageName = 'account';
-    this.app.currentPageTitle = this.title;
+    super(accountService, app, translateService, activatedRoute, router);
   }
 }

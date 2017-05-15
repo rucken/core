@@ -6,16 +6,17 @@ import { TranslateService } from '@ngx-translate/core';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 
 export class BaseResourceSelectInputComponent extends BaseComponent {
+
   @Input()
   labelClass?= 'control-label';
   @Input()
   inputClass?= 'form-control';
   @Input()
-  inputFrameClass? = '';
+  inputFrameClass?= '';
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon? = 'fa fa-search';
+  lookupIcon?= 'fa fa-search';
   @Input()
   readonly = false;
   @Input()
@@ -42,8 +43,36 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   width: string = null;
   @Input()
   loadAll = true;
+
   items: any[];
   cachedResourcesService: any;
+
+  get value() {
+    return this.model;
+  }
+  set value(val) {
+    if (this.errorsValue && this.errorsValue[this.name]) {
+      delete this.errorsValue[this.name];
+      this.tooltipText = '';
+    }
+    this.model = val;
+    this.modelChange.emit(this.model);
+  }
+  get valueAsString() {
+    return this.modelAsString;
+  }
+  set valueAsString(val) {
+    this.modelAsString = val;
+    this.modelAsStringChange.emit(this.modelAsString);
+  }
+  get statusListMessage() {
+    if (this.cachedResourcesService.statusList === ResouceEnumStatus.Ok) {
+      return '';
+    } else {
+      return this.cachedResourcesService.statusListMessage;
+    }
+  }
+
   constructor(
     public sanitizer: DomSanitizer,
     public translateService: TranslateService,
@@ -86,30 +115,5 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     const filter: any = {};
     this.cachedResourcesService.ignoreCache = true;
     this.cachedResourcesService.loadAll('', filter);
-  }
-  get value() {
-    return this.model;
-  }
-  set value(val) {
-    if (this.errorsValue && this.errorsValue[this.name]) {
-      delete this.errorsValue[this.name];
-      this.tooltipText = '';
-    }
-    this.model = val;
-    this.modelChange.emit(this.model);
-  }
-  get valueAsString() {
-    return this.modelAsString;
-  }
-  set valueAsString(val) {
-    this.modelAsString = val;
-    this.modelAsStringChange.emit(this.modelAsString);
-  }
-  get statusListMessage() {
-    if (this.cachedResourcesService.statusList === ResouceEnumStatus.Ok) {
-      return '';
-    } else {
-      return this.cachedResourcesService.statusListMessage;
-    }
   }
 }
