@@ -1,6 +1,11 @@
 import { ThemesPageComponent } from './themes-page.component';
+import { translate } from './../../shared/utils';
 export const ThemesPageRoutes = [{
   path: '',
-  pathMatch: 'full',
-  component: ThemesPageComponent
+  component: ThemesPageComponent,
+  data: {
+    name: 'themes',
+    title: translate('Themes'),
+    visible: true
+  }
 }];

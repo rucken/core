@@ -14,6 +14,7 @@ export class ConfirmModalComponent extends BaseModalComponent {
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: ElementRef;
+
   @Input()
   name = 'confirm';
   @Output()

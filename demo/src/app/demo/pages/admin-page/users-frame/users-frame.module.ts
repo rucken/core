@@ -1,12 +1,12 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { UsersFrameRoutes } from './users-frame.routes';
+import { DemoUsersFrameRoutes } from './users-frame.routes';
 import { UsersFrameModule } from './../../../../../../../dist';
 
 @NgModule({
   imports: [
     UsersFrameModule.forRoot(),
-    RouterModule.forChild(UsersFrameRoutes)
+    RouterModule.forChild(DemoUsersFrameRoutes)
   ]
 })
 export class DemoUsersFrameModule {

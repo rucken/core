@@ -20,18 +20,16 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class ContentTypesGridComponent extends BaseResourcesGridComponent {
 
-  @Input()
-  loadAll?: boolean;
+  @ViewChild('focusElement')
+  focusElement: ElementRef;
+
   @Output()
   onSelectItems: EventEmitter<any[] | ContentType[] | any>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
 
   modelMeta: any = ContentType.meta();
   items: any[] | ContentType[];
-  searchText = '';
   selectedItems: any[] | ContentType[];
   cachedResourcesService: ContentTypesService;
 

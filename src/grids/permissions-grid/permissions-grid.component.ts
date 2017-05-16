@@ -20,18 +20,16 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class PermissionsGridComponent extends BaseResourcesGridComponent {
 
-  @Input()
-  loadAll?: boolean;
+  @ViewChild('focusElement')
+  focusElement: ElementRef;
+
   @Output()
   onSelectItems: EventEmitter<any[] | Permission[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
 
   modelMeta: any = Permission.meta();
   items: any[] | Permission[];
-  searchText = '';
   selectedItems: any[] | Permission[];
   cachedResourcesService: PermissionsService;
 

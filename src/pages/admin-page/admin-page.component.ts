@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from './../../shared/models/user.model';
 import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
+import { BasePageComponent } from './../../base/base-page/base-page.component';
 
 @Component({
   selector: 'admin-page',
@@ -11,23 +11,15 @@ import { AppService } from './../../shared/app.service';
   styleUrls: ['./admin-page.component.scss']
 })
 
-export class AdminPageComponent implements OnInit {
+export class AdminPageComponent extends BasePageComponent {
 
-  title: string;
-
-  get account(): any | User {
-    return this.accountService.account;
-  }
   constructor(
-    public router: Router,
     public accountService: AccountService,
     public app: AppService,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
+    public router: Router
   ) {
-    this.title = this.translateService.instant('Admin');
-  }
-  ngOnInit() {
-    this.app.currentPageName = 'admin';
-    this.app.currentPageTitle = this.title;
+    super(accountService, app, translateService, activatedRoute, router);
   }
 }

@@ -8,10 +8,15 @@ export class BaseResourceModel {
   pkIsNumber: boolean;
   [key: string]: any;
 
+  get pk(): string | number {
+    const key = this.pkFieldName;
+    return this[key];
+  }
   static meta(): any {
     const meta: any = BaseResourceModel;
     return meta;
   }
+
   constructor(obj?: any) {
     if (this.pkFieldName === undefined) {
       this.pkFieldName = 'id';
@@ -25,10 +30,6 @@ export class BaseResourceModel {
       obj = newObj;
     }
     this.parse(obj ? obj : {});
-  }
-  get pk(): string | number {
-    const key = this.pkFieldName;
-    return this[key];
   }
   parse(obj: any) {
 

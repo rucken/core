@@ -21,18 +21,16 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class FontawesomesGridComponent extends BaseResourcesGridComponent {
 
-  @Input()
-  loadAll?: boolean;
+  @ViewChild('focusElement')
+  focusElement: ElementRef;
+
   @Output()
   onSelectItems: EventEmitter<any[] | Fontawesome[]>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
 
   modelMeta: any = Fontawesome.meta();
   items: any[] | Fontawesome[];
-  searchText = '';
   selectedItems: any[] | Fontawesome[];
   cachedResourcesService: FontawesomesService;
 

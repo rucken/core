@@ -4,6 +4,7 @@ import { DemoNavbarComponent } from './navbar.component';
 import { ConfirmModalModule, AuthModalModule } from './../../../../../../dist';
 import { TranslateModule } from '@ngx-translate/core';
 import { CollapseModule } from 'ngx-bootstrap';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { CollapseModule } from 'ngx-bootstrap';
     TranslateModule.forChild(),
     ConfirmModalModule.forRoot(),
     AuthModalModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    RouterModule
   ],
   declarations: [
     DemoNavbarComponent

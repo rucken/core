@@ -25,6 +25,7 @@ export class PermissionModalComponent extends BaseResourceModalComponent {
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: TextInputComponent;
+
   @Input()
   item: any | Permission = new Permission();
   @Input()

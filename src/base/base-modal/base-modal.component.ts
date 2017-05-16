@@ -1,8 +1,11 @@
-import { HostListener, Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap';
+import { HostListener, Input, Output, EventEmitter, Component } from '@angular/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import * as _ from 'lodash';
 
+@Component({
+  selector: 'base-modal-component',
+  template: ''
+})
 export class BaseModalComponent extends BaseComponent {
 
   @Input()
@@ -21,11 +24,14 @@ export class BaseModalComponent extends BaseComponent {
   message = '';
   @Output()
   onClose: EventEmitter<any> = new EventEmitter();
+
   currentLocation = '';
+
   @HostListener('window:popstate', ['$event'])
   onPopState(event: any) {
     this.modal.hide();
   }
+
   init() {
     super.init();
     this.modal.onHidden.subscribe(() => {

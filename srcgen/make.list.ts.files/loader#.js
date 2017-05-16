@@ -46,7 +46,7 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
             }
             if (classFile.replace('.' + entities[e], '') !== classFile) {
               founded = true;
-              if (moduleName + _.upperFirst(entities[e] + 's') !== className && className !== 'AppComponent') {
+              if (moduleName + _.upperFirst(entities[e] + 's') !== className) {
                 if (entities[e] === 'component') {
                   var templateFile = path.resolve(scanPath, '.' + replaceExt(classFile, '.component.html'));
                   if (srcgen.utils.exists(templateFile)) {

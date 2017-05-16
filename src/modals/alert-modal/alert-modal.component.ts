@@ -12,10 +12,11 @@ export class AlertModalComponent extends BaseModalComponent {
 
   @ViewChild('focusElement')
   focusElement: ElementRef;
-  @Input()
-  name = 'alert';
   @ViewChild('modal')
   modal: ModalDirective;
+
+  @Input()
+  name = 'alert';
   @Input()
   buttonClass = 'btn-default';
   @Input()

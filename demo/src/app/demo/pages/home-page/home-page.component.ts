@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from './../../../../../../dist';
+import { AppService, AccountService, BasePageComponent } from './../../../../../../dist';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'home-page',
@@ -8,19 +9,17 @@ import { AppService } from './../../../../../../dist';
   styleUrls: ['./home-page.component.scss']
 })
 
-export class HomePageComponent implements OnInit {
+export class HomePageComponent extends BasePageComponent {
 
-  title: string;
   readme: string = require('html-loader!markdown-loader!./../../../../../../README.md');
-  constructor(
-    public app: AppService,
-    public translateService: TranslateService
-  ) {
-    this.title = this.translateService.instant('Home');
-  }
 
-  ngOnInit() {
-    this.app.currentPageName = 'home';
-    this.app.currentPageTitle = this.title;
+  constructor(
+    public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
+    public router: Router
+  ) {
+    super(accountService, app, translateService, activatedRoute, router);
   }
 }

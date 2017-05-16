@@ -25,6 +25,45 @@ msgstr "Информация"
 msgid "ОК"
 msgstr "Ок"
 
+msgid "Yes"
+msgstr "Да"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "Select"
+msgstr "Выбрать"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Not found"
+msgstr "Нет данных"
+
+msgid "Error, you not set perPage count"
+msgstr "Ошибка, вы не установили текущую страницу"
+
+msgid "Error in creating"
+msgstr "Ошибка при создании"
+
+msgid "Creating..."
+msgstr "Создание..."
+
+msgid "Updating..."
+msgstr "Изменение..."
+
+msgid "Error in updating"
+msgstr "Ошибка при изменении"
+
+msgid "Removing..."
+msgstr "Удаление..."
+
+msgid "OK"
+msgstr "Ок"
+
+msgid "Error on deleting"
+msgstr "Ошибка при удалении"
+
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -48,9 +87,6 @@ msgstr "Вы действительно хотите выйти?"
 
 msgid "Authorization"
 msgstr "Авторизация"
-
-msgid "Select"
-msgstr "Выбрать"
 
 msgid "Content types"
 msgstr "Тип содержимого"
@@ -166,12 +202,6 @@ msgstr "Домашняя страница"
 msgid "Themes"
 msgstr "Темы"
 
-msgid "Loading..."
-msgstr "Загрузка..."
-
-msgid "Updating..."
-msgstr "Изменение..."
-
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
@@ -213,12 +243,6 @@ msgstr "Кол-во стр."
 
 msgid "Content type"
 msgstr "Тип содержимого"
-
-msgid "Yes"
-msgstr "Да"
-
-msgid "No"
-msgstr "Нет"
 
 msgid "Url"
 msgstr "Адрес"
@@ -264,30 +288,6 @@ msgstr "Дата последнего входа"
 
 msgid "Date joined"
 msgstr "Дата регистрации"
-
-msgid "Not found"
-msgstr "Нет данных"
-
-msgid "Error, you not set perPage count"
-msgstr "Ошибка, вы не установили текущую страницу"
-
-msgid "Error in creating"
-msgstr "Ошибка при создании"
-
-msgid "Creating..."
-msgstr "Создание..."
-
-msgid "Error in updating"
-msgstr "Ошибка при изменении"
-
-msgid "Removing..."
-msgstr "Удаление..."
-
-msgid "OK"
-msgstr "Ок"
-
-msgid "Error on deleting"
-msgstr "Ошибка при удалении"
 
 msgid "Menu"
 msgstr "Меню"

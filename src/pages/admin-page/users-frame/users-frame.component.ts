@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from './../../../shared/account.service';
 import { AppService } from './../../../shared/app.service';
-import { User } from './../../../shared/models/user.model';
+import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'users-frame',
@@ -10,19 +11,15 @@ import { User } from './../../../shared/models/user.model';
   styleUrls: ['./users-frame.component.scss']
 })
 
-export class UsersFrameComponent implements OnInit {
-  title: string;
+export class UsersFrameComponent extends BaseFrameComponent {
 
   constructor(
     public accountService: AccountService,
     public app: AppService,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
+    public router: Router
   ) {
-  }
-  get account(): any | User {
-    return this.accountService.account;
-  }
-  ngOnInit() {
-    this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Users')}`;
+    super(accountService, app, translateService, activatedRoute, router);
   }
 }

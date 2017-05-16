@@ -12,8 +12,7 @@ import { PageHeaderModule } from './../../controls/page-header/page-header.modul
     CommonModule,
     FormsModule,
     TranslateModule.forChild(),
-    PageHeaderModule.forRoot(),
-    // RouterModule.forChild(ThemesPageRoutes)
+    PageHeaderModule.forRoot()
   ],
   declarations: [
     ThemesPageComponent

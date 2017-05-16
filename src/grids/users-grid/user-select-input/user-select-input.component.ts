@@ -20,56 +20,22 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 })
 
 export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
-  @Input()
-  labelClass? = 'control-label';
-  @Input()
-  inputClass? = 'form-control';
-  @Input()
-  inputFrameClass? = '';
 
   @ViewChild('inputElement')
   inputElement: SelectInputComponent;
-  @Input()
-  lookupTooltip?: string;
-  @Input()
-  lookupIcon? = 'fa fa-search';
-  @Input()
-  readonly = false;
-  @Input()
-  inputReadonly = true;
-  @Input()
-  hardReadonly = false;
+  @ViewChild('tooltip')
+  tooltip: TooltipDirective;
+
   @Input()
   name = 'user';
-  @Input()
-  placeholder = '';
-  @Input()
-  title = '';
   @Input()
   model: any | User = new User();
   @Output()
   modelChange: EventEmitter<any | User> = new EventEmitter<any | User>();
 
-  @Input()
-  modelAsString = '';
-  @Output()
-  modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
-  @Input()
-  hardValue: any = null;
-
-  @ViewChild('tooltip')
-  tooltip: TooltipDirective;
-  @Input()
-  tooltipEnable: boolean;
-  @Input()
-  tooltipText = '';
-  @Input()
-  tooltipPlacement = 'bottom';
-  @Input()
-  tooltipTriggers = 'hover focus';
-
   items: any[] | User[];
   cachedResourcesService: UsersService;
+
   constructor(
     public app: AppService,
     public accountService: AccountService,
@@ -80,9 +46,6 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     public config: BaseResourceSelectInputConfig
   ) {
     super(sanitizer, translateService, config);
-    if (this.lookupTooltip === undefined) {
-      this.lookupTooltip = this.translateService.instant('Select');
-    }
     this.cachedResourcesService = usersService.createCache();
   }
   get account(): any | User {

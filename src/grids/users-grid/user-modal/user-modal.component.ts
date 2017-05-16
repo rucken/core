@@ -29,6 +29,7 @@ export class UserModalComponent extends BaseResourceModalComponent {
   focusElement: TextInputComponent;
   @ViewChild('userGroups')
   userGroups: UserGroupsGridComponent;
+
   @Input()
   item: any | User = new User();
   @Input()

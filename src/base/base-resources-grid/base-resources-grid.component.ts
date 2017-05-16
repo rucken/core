@@ -1,9 +1,14 @@
 import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import { Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Input, Output, EventEmitter, HostListener, Component } from '@angular/core';
 
+@Component({
+  selector: 'base-resources-grid',
+  template: ''
+})
 export class BaseResourcesGridComponent extends BaseComponent {
+
   @Input()
   loadAll?: boolean;
   @Output()
@@ -23,12 +28,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
   selectedItems: any[];
   cachedResourcesService: any;
   maxSelectCount = 1;
-
   modalIsOpened: boolean;
-
-  get meta() {
-    return this.cachedResourcesService.meta;
-  }
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -36,8 +36,9 @@ export class BaseResourcesGridComponent extends BaseComponent {
       this.enter();
     }
   }
-  enter() {
-    this.onEnter.emit(true);
+
+  get meta() {
+    return this.cachedResourcesService.meta;
   }
   set columns(columns) {
     if (JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
@@ -57,17 +58,21 @@ export class BaseResourcesGridComponent extends BaseComponent {
   get mockedItems() {
     return this.cachedResourcesService.mockedItems;
   }
-  pageChanged(event: any): void {
-    this.cachedResourcesService.meta.curPage = event.page;
-    this.cachedResourcesService.meta.perPage = event.itemsPerPage;
-    this.search();
-  }
   get statusListMessage() {
     if (this.cachedResourcesService.statusList === ResouceEnumStatus.Ok) {
       return '';
     } else {
       return this.cachedResourcesService.statusListMessage;
     }
+  }
+
+  enter() {
+    this.onEnter.emit(true);
+  }
+  pageChanged(event: any): void {
+    this.cachedResourcesService.meta.curPage = event.page;
+    this.cachedResourcesService.meta.perPage = event.itemsPerPage;
+    this.search();
   }
   init() {
     this.cachedResourcesService.items$.subscribe(

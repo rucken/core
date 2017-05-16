@@ -9,6 +9,7 @@ import { User } from './../../../shared/models/user.model';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'permission-input',
@@ -18,33 +19,16 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 export class PermissionInputComponent extends BaseResourceInputComponent {
+
   @ViewChild('inputElement')
   inputElement: ElementRef;
-  @Input()
-  lookupTooltip?: string;
-  @Input()
-  lookupIcon? = 'fa fa-search';
-  @Input()
-  readonly = false;
-  @Input()
-  hardReadonly = false;
-  @Input()
-  inputReadonly = true;
+
   @Input()
   name = 'permission';
-  @Input()
-  placeholder = '';
-  @Input()
-  title = '';
   @Input()
   model: any | Permission = new Permission();
   @Output()
   modelChange: EventEmitter<any | Permission> = new EventEmitter<any | Permission>();
-
-  @Input()
-  modelAsString = '';
-  @Output()
-  modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
 
   items: any[] | Permission[];
   cachedResourcesService: PermissionsService;
@@ -52,11 +36,12 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
   constructor(
     public app: AppService,
     public accountService: AccountService,
+    public sanitizer: DomSanitizer,
     public permissionsService: PermissionsService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
-    super();
+    super(sanitizer, translateService);
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
     }

@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router';
 import { ProfileFrameComponent } from './../../../../../../../dist';
+import { translate } from './../../../../../../../dist/shared/utils';
 
-export const ProfileFrameRoutes: Routes = [
+export const DemoProfileFrameRoutes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: ProfileFrameComponent
+    component: ProfileFrameComponent,
+    data: {
+      name: 'profile',
+      title: translate('Profile'),
+      visible: true
+    }
   }
 ];

@@ -22,6 +22,9 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+msgid "Select"
+msgstr ""
+
 msgid "Loading..."
 msgstr ""
 
@@ -74,9 +77,6 @@ msgid "Do you really want to leave?"
 msgstr ""
 
 msgid "Authorization"
-msgstr ""
-
-msgid "Select"
 msgstr ""
 
 msgid "Content types"

@@ -1,5 +1,5 @@
-import { AppService, AlertModalComponent, AppComponent, RuckenRuI18n } from './../../../dist';
-import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { AppService, AlertModalComponent, BaseAppComponent, RuckenRuI18n } from './../../../dist';
+import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
@@ -11,7 +11,7 @@ import { Router, NavigationStart, NavigationEnd } from '@angular/router';
   entryComponents: [AlertModalComponent],
   encapsulation: ViewEncapsulation.None
 })
-export class DemoAppComponent extends AppComponent {
+export class DemoAppComponent extends BaseAppComponent {
   @Input()
   autoLoadLang?= true;
 

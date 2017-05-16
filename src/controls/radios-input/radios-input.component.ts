@@ -8,15 +8,16 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 })
 
 export class RadiosInputComponent extends BaseComponent {
-  @Input()
-  labelClass? = 'control-label';
-  @Input()
-  inputClass? = 'control-label checkbox-inline';
-  @Input()
-  inputFrameClass? = 'form-control form-radio-controls';
 
   @ViewChild('inputElement')
   inputElement: ElementRef;
+
+  @Input()
+  labelClass?= 'control-label';
+  @Input()
+  inputClass?= 'control-label checkbox-inline';
+  @Input()
+  inputFrameClass?= 'form-control form-radio-controls';
   @Input()
   readonly = false;
   @Input()
@@ -33,6 +34,7 @@ export class RadiosInputComponent extends BaseComponent {
   modelChange: EventEmitter<string> = new EventEmitter<string>();
 
   value: string;
+
   init() {
     if (this.model) {
       this.value = this.model;

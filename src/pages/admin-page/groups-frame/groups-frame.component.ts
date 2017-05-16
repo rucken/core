@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from './../../../shared/models/user.model';
 import { AccountService } from './../../../shared/account.service';
 import { AppService } from './../../../shared/app.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
 
 @Component({
   selector: 'groups-frame',
@@ -10,19 +12,15 @@ import { AppService } from './../../../shared/app.service';
   styleUrls: ['./groups-frame.component.scss']
 })
 
-export class GroupsFrameComponent implements OnInit {
-  title: string;
+export class GroupsFrameComponent extends BaseFrameComponent {
 
   constructor(
     public accountService: AccountService,
     public app: AppService,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
+    public router: Router
   ) {
-  }
-  get account(): any | User {
-    return this.accountService.account;
-  }
-  ngOnInit() {
-    this.title = `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant('Groups')}`;
+    super(accountService, app, translateService, activatedRoute, router);
   }
 }

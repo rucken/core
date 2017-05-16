@@ -9,15 +9,16 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 })
 
 export class CheckboxesInputComponent extends BaseComponent {
+
+  @ViewChild('inputElement')
+  inputElement: ElementRef;
+
   @Input()
   labelClass?= 'control-label';
   @Input()
   inputClass?= 'control-label checkbox-inline';
   @Input()
   inputFrameClass?= 'form-control form-checkbox-controls';
-
-  @ViewChild('inputElement')
-  inputElement: ElementRef;
   @Input()
   readonly = false;
   @Input()

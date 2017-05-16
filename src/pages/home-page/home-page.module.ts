@@ -10,8 +10,7 @@ import { PageHeaderModule } from './../../controls/page-header/page-header.modul
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    PageHeaderModule.forRoot(),
-    // RouterModule.forChild(HomePageRoutes)
+    PageHeaderModule.forRoot()
   ],
   declarations: [HomePageComponent],
   exports: [HomePageComponent],

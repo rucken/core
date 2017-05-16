@@ -26,14 +26,13 @@ import 'rxjs/add/operator/map';
 
 export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
 
-  @Input()
-  loadAll?: boolean;
+  @ViewChild('focusElement')
+  focusElement: ElementRef;
+
   @Output()
   onSelectItems: EventEmitter<GroupPermission[] | any>;
   @Output()
   onEnter: EventEmitter<any[] | any>;
-  @ViewChild('focusElement')
-  focusElement: ElementRef;
   @Input()
   group: any | Group;
   @Input()
@@ -43,7 +42,6 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
 
   modelMeta: any = GroupPermission.meta();
   items: GroupPermission[];
-  searchText = '';
   selectedItems: GroupPermission[];
   cachedResourcesService: GroupPermissionsService;
 

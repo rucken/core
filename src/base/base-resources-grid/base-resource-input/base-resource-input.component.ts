@@ -1,15 +1,20 @@
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
-import { ViewChild, ElementRef, Input, EventEmitter, Output } from '@angular/core';
+import { ElementRef, Input, EventEmitter, Output, Component } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 
+@Component({
+  selector: 'base-resource-input',
+  template: ''
+})
 export class BaseResourceInputComponent extends BaseComponent {
-  @ViewChild('inputElement')
-  inputElement: ElementRef;
+
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon? = 'fa fa-search';
+  lookupIcon?= 'fa fa-search';
   @Input()
   readonly = false;
   @Input()
@@ -26,7 +31,6 @@ export class BaseResourceInputComponent extends BaseComponent {
   model: any = {};
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
-
   @Input()
   modelAsString = '';
   @Output()
@@ -35,10 +39,6 @@ export class BaseResourceInputComponent extends BaseComponent {
   items: any[];
   cachedResourcesService: any;
 
-  init() {
-    super.init();
-    this.cachedResourcesService.loadAll();
-  }
   get value() {
     return this.model;
   }
@@ -59,5 +59,19 @@ export class BaseResourceInputComponent extends BaseComponent {
     } else {
       return this.cachedResourcesService.statusListMessage;
     }
+  }
+
+  constructor(
+    public sanitizer: DomSanitizer,
+    public translateService: TranslateService
+  ) {
+    super();
+    if (this.lookupTooltip === undefined) {
+      this.lookupTooltip = this.translateService.instant('Select');
+    }
+  }
+  init() {
+    super.init();
+    this.cachedResourcesService.loadAll();
   }
 }

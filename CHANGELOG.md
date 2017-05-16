@@ -1,3 +1,18 @@
+<a name="1.7.0"></a>
+# [1.7.0](https://github.com/site15/rucken/compare/1.6.0...v1.7.0) (2017-05-15)
+
+
+### Bug Fixes
+
+* **refactoring:** Move more duplicate properties to base class ([e9e3aca](https://github.com/site15/rucken/commit/e9e3aca))
+
+
+### Features
+
+* **refactoring:** Add base components for pages and frames and move base app component to base folder, add fill navigation list and frames list for page from routes ([02204f3](https://github.com/site15/rucken/commit/02204f3))
+
+
+
 <a name="1.6.0"></a>
 # [1.6.0](https://github.com/site15/rucken/compare/1.5.0...v1.6.0) (2017-05-14)
 

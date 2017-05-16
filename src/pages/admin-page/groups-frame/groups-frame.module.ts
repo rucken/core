@@ -12,8 +12,7 @@ import { GroupsGridModule } from './../../../grids/groups-grid/groups-grid.modul
     CommonModule,
     TranslateModule.forChild(),
     PageHeaderModule.forRoot(),
-    GroupsGridModule.forRoot(),
-    // RouterModule.forChild(GroupsFrameRoutes)
+    GroupsGridModule.forRoot()
   ],
   declarations: [
     GroupsFrameComponent

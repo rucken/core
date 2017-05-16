@@ -17,6 +17,7 @@ export class AuthModalComponent extends BaseModalComponent {
   modal: ModalDirective;
   @ViewChild('focusElement')
   focusElement: TextInputComponent;
+
   @Input()
   name = 'auth';
   @Input()

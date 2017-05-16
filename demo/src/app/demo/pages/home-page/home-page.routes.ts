@@ -1,6 +1,12 @@
 import { HomePageComponent } from './home-page.component';
-export const HomePageRoutes = [{
+import { translate } from './../../../../../../dist/shared/utils';
+
+export const DemoHomePageRoutes = [{
   path: '',
-  pathMatch: 'full',
-  component: HomePageComponent
+  component: HomePageComponent,
+  data: {
+    name: 'home',
+    title: translate('Home'),
+    visible: true
+  }
 }];

@@ -1,9 +1,15 @@
 import { Routes } from '@angular/router';
 import { UsersFrameComponent } from './../../../../../../../dist';
+import { translate } from './../../../../../../../dist/shared/utils';
 
-export const UsersFrameRoutes: Routes = [
+export const DemoUsersFrameRoutes: Routes = [
   {
     path: '',
-    component: UsersFrameComponent
+    component: UsersFrameComponent,
+    data: {
+      name: 'users',
+      title: translate('Users'),
+      visible: true
+    }
   }
 ];

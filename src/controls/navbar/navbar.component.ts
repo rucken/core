@@ -1,13 +1,14 @@
-import { RouterConfigLoader } from '@angular/router/src/router_config_loader';
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import { AccountService } from './../../shared/account.service';
 import { User } from './../../shared/models/user.model';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
 import { AppService } from './../../shared/app.service';
 import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import { ActivatedRoute } from '@angular/router';
+import * as _ from 'lodash';
 
 
 @Component({
@@ -21,14 +22,55 @@ export class NavbarComponent extends BaseComponent {
 
   isCollapsed = true;
   changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
+
+  get version() {
+    return this.app.version;
+  }
+  get account(): any | User {
+    return this.accountService.account;
+  }
+  set childrenRoutes(routes: any[]) {
+    this._childrenRoutes = routes;
+  }
+  get childrenRoutes() {
+    const items: any[] = this._childrenRoutes.filter(
+      item =>
+        item.data &&
+        item.data.visible &&
+        this.account &&
+        this.account.checkPermissions([`read_${item.data.name}-page`])
+    ).map(
+      item => {
+        const newItem = item.data;
+        newItem.title = this.translateService.instant(newItem.title);
+        newItem.url = `/${newItem.name}`;
+        return newItem;
+      });
+    return _.sortBy(items, [
+      (item: any) => { return item.title }
+    ]);
+  }
+
+  private _childrenRoutes: any[] = [];
+
   constructor(
-    public app: AppService,
     public accountService: AccountService,
+    public app: AppService,
+    public translateService: TranslateService,
+    public activatedRoute: ActivatedRoute,
     public router: Router,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public resolver: ComponentFactoryResolver
   ) {
     super();
+    this.accountService.account$.subscribe((user: any | User) => {
+      this.init();
+    });
+    this.accountService.info();
+    this.router.events
+      .map(event => event instanceof NavigationStart)
+      .subscribe(() => {
+        this.isCollapsed = true;
+      });
   }
   showChangeLog() {
     if (this.changelog) {
@@ -40,21 +82,14 @@ export class NavbarComponent extends BaseComponent {
   }
   init() {
     super.init();
-    this.accountService.info();
     if (this.app.localVersion !== this.app.currentVersion) {
       this.showChangeLog();
       this.app.localVersion = this.app.currentVersion;
     }
   }
-  get version() {
-    return this.app.version;
-  }
   go(commands: any[]) {
     this.isCollapsed = true;
     this.router.navigate(commands);
-  }
-  get account(): any | User {
-    return this.accountService.account;
   }
   showLogoutModal() {
     if (this.app.modals(this.resolver).exists('login') || this.app.modals(this.resolver).exists('logout')) {

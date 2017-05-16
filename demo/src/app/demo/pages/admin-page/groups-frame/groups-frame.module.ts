@@ -1,12 +1,12 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { GroupsFrameRoutes } from './groups-frame.routes';
+import { DemoGroupsFrameRoutes } from './groups-frame.routes';
 import { GroupsFrameModule } from './../../../../../../../dist';
 
 @NgModule({
   imports: [
     GroupsFrameModule.forRoot(),
-    RouterModule.forChild(GroupsFrameRoutes)
+    RouterModule.forChild(DemoGroupsFrameRoutes)
   ]
 })
 export class DemoGroupsFrameModule {

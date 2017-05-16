@@ -10,6 +10,7 @@ import * as _ from 'lodash';
 
 @Injectable()
 export class BaseRepositoryService {
+
   columns: any;
   pluralName: string;
   name: string;
@@ -20,18 +21,24 @@ export class BaseRepositoryService {
   props: any = null;
   apiUrlWithProps: string;
   apiUrl: string;
-
   parent: any;
   cached: any;
   ignoreCache: boolean;
   queryProps: any;
   statusListMessage: string;
-  private _statusList: ResouceEnumStatus;
-  changeStatusList$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
-
   statusItemMessage: string;
-  private _statusItem: ResouceEnumStatus;
+  changeStatusList$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
   changeStatusItem$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
+
+  get statusList() {
+    return this._statusList;
+  }
+  get statusItem() {
+    return this._statusItem;
+  }
+
+  private _statusList: ResouceEnumStatus;
+  private _statusItem: ResouceEnumStatus;
 
   constructor(public repositoryHelper: RepositoryHelper) {
     this.items = [];
@@ -69,9 +76,6 @@ export class BaseRepositoryService {
     this.meta.totalResults = totalResults;
     this.meta.totalPages = Math.round(totalResults / this.meta.perPage);
   }
-  get statusList() {
-    return this._statusList;
-  }
   setStatusList(status: ResouceEnumStatus, message?: string) {
     this._statusList = status;
     setTimeout((out: any) => {
@@ -82,9 +86,6 @@ export class BaseRepositoryService {
       }
       this.changeStatusList$.next(status);
     });
-  }
-  get statusItem() {
-    return this._statusItem;
   }
   setStatusItem(status: ResouceEnumStatus, message?: string) {
     this._statusItem = status;
