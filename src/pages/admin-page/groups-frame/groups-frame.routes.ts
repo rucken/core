@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { GroupsFrameComponent } from './groups-frame.component';
+import { translate } from '../../../shared/utils';
 
 export const GroupsFrameRoutes: Routes = [
   {
@@ -7,7 +8,7 @@ export const GroupsFrameRoutes: Routes = [
     component: GroupsFrameComponent,
     data: {
       name: 'groups',
-      title: 'Groups',
+      title: translate('Groups'),
       visible: true
     }
   }

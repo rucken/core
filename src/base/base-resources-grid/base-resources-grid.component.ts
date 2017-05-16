@@ -1,8 +1,12 @@
 import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import { Input, Output, EventEmitter, HostListener } from '@angular/core';
+import { Input, Output, EventEmitter, HostListener, Component } from '@angular/core';
 
+@Component({
+  selector: 'base-resources-grid',
+  template: ''
+})
 export class BaseResourcesGridComponent extends BaseComponent {
 
   @Input()

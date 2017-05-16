@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { UsersFrameComponent } from './users-frame.component';
+import { translate } from '../../../shared/utils';
 
 export const UsersFrameRoutes: Routes = [
   {
@@ -7,7 +8,7 @@ export const UsersFrameRoutes: Routes = [
     component: UsersFrameComponent,
     data: {
       name: 'users',
-      title: 'Users',
+      title: translate('Users'),
       visible: true
     }
   }

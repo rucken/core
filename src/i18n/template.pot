@@ -178,6 +178,21 @@ msgstr ""
 msgid "Are you sure you want to remove a user?"
 msgstr ""
 
+msgid "Account"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "Admin"
+msgstr ""
+
+msgid "Home"
+msgstr ""
+
+msgid "Themes"
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
@@ -275,7 +290,4 @@ msgid "Login"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
-
-msgid "Profile"
 msgstr ""

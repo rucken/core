@@ -1,10 +1,14 @@
 import { BaseResourceSelectInputConfig } from './base-resource-select-input.config';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
-import { Input, Output, EventEmitter } from '@angular/core';
+import { Input, Output, EventEmitter, Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 
+@Component({
+  selector: 'base-resource-select-input',
+  template: ''
+})
 export class BaseResourceSelectInputComponent extends BaseComponent {
 
   @Input()

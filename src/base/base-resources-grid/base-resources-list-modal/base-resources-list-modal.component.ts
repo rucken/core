@@ -1,8 +1,12 @@
 import { BaseModalComponent } from './../../base-modal/base-modal.component';
-import { Input, EventEmitter, Output } from '@angular/core';
+import { Input, EventEmitter, Output, Component } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
 
 
+@Component({
+  selector: 'base-resources-list-modal',
+  template: ''
+})
 export class BaseResourceListModalComponent extends BaseModalComponent {
 
   @Input()

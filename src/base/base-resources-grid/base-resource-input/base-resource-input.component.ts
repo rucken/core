@@ -1,10 +1,14 @@
 import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
-import { ElementRef, Input, EventEmitter, Output } from '@angular/core';
+import { ElementRef, Input, EventEmitter, Output, Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
 
+@Component({
+  selector: 'base-resource-input',
+  template: ''
+})
 export class BaseResourceInputComponent extends BaseComponent {
 
   @Input()
