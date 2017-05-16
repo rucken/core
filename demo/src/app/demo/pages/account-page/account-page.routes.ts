@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AccountPageComponent } from './../../../../../../dist';
 import { DemoProfileFrameRoutes } from './profile-frame/profile-frame.routes';
+import { translate } from './../../../../../../dist/shared/utils';
 
 const children = [
   {
@@ -16,7 +17,7 @@ export const DemoAccountPageRoutes: Routes = [
     component: AccountPageComponent,
     data: {
       name: 'account',
-      title: 'Account',
+      title: translate('Account'),
       visible: true,
       children: children
     },
