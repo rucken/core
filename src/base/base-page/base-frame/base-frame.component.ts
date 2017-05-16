@@ -7,6 +7,10 @@ import { AccountService } from './../../../shared/account.service';
 import * as _ from 'lodash';
 import { User } from './../../../shared/models/user.model';
 
+@Component({
+  selector: 'base-frame',
+  template: ''
+})
 export class BaseFrameComponent extends BaseComponent {
 
   title?: string;

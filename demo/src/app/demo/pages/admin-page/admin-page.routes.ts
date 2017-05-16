@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { AdminPageComponent } from './../../../../../../dist';
 import { DemoGroupsFrameRoutes } from './groups-frame/groups-frame.routes';
 import { DemoUsersFrameRoutes } from './users-frame/users-frame.routes';
+import { translate } from './../../../../../../dist/shared/utils';
 
 const children = [
   {
@@ -22,7 +23,7 @@ export const DemoAdminPageRoutes: Routes = [
     component: AdminPageComponent,
     data: {
       name: 'admin',
-      title: 'Admin',
+      title: translate('Admin'),
       visible: true,
       children: children
     },

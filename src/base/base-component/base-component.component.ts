@@ -1,5 +1,9 @@
-import { OnInit, Input, EventEmitter, ElementRef } from '@angular/core';
+import { OnInit, Input, Component, EventEmitter } from '@angular/core';
 
+@Component({
+  selector: 'base-component',
+  template: ''
+})
 export class BaseComponent implements OnInit {
 
   @Input()

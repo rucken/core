@@ -18,14 +18,14 @@ export class BasePageComponent extends BaseComponent {
   title?: string;
   get childrenRoutes() {
     const items: any[] = this.activatedRoute.snapshot.data.children.filter(
-      item =>
+      (item: any) =>
         item.data &&
         item.data.visible &&
         this.account &&
         this.account.checkPermissions([`read_${item.data.name}-frame`]) &&
         this.checkWordInSearchText(item.data.title)
     ).map(
-      item => {
+      (item: any) => {
         const newItem = item.data;
         newItem.title = this.translateService.instant(newItem.title);
         newItem.url = `${this.name}/${newItem.name}`;

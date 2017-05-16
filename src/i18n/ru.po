@@ -187,6 +187,21 @@ msgstr "Информация о пользователе"
 msgid "Are you sure you want to remove a user?"
 msgstr "Вы уверены, что хотите удалить пользователя?"
 
+msgid "Account"
+msgstr "Личный кабинет"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Admin"
+msgstr "Администрирование"
+
+msgid "Home"
+msgstr "Домашняя страница"
+
+msgid "Themes"
+msgstr "Темы"
+
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
@@ -285,21 +300,6 @@ msgstr "Вход"
 
 msgid "Actions"
 msgstr "Действия"
-
-msgid "Profile"
-msgstr "Профиль"
-
-#~ msgid "Account"
-#~ msgstr "Личный кабинет"
-
-#~ msgid "Admin"
-#~ msgstr "Администрирование"
-
-#~ msgid "Home"
-#~ msgstr "Домашняя страница"
-
-#~ msgid "Themes"
-#~ msgstr "Темы"
 
 #~ msgid "Model"
 #~ msgstr "Модель"

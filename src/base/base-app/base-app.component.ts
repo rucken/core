@@ -3,9 +3,16 @@ import * as _ from 'lodash';
 import { AppService } from './../../shared/app.service';
 import { RuckenRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
-import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit } from '@angular/core';
+import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './../base-component/base-component.component';
 
+@Component({
+  selector: 'base-app-root',
+  templateUrl: './base-app.component.html',
+  styleUrls: ['./base-app.component.scss'],
+  entryComponents: [AlertModalComponent],
+  encapsulation: ViewEncapsulation.None
+})
 export class BaseAppComponent extends BaseComponent {
 
   @Input()

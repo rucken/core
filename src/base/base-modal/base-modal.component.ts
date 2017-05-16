@@ -1,7 +1,11 @@
-import { HostListener, Input, Output, EventEmitter } from '@angular/core';
+import { HostListener, Input, Output, EventEmitter, Component } from '@angular/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import * as _ from 'lodash';
 
+@Component({
+  selector: 'base-modal-component',
+  template: ''
+})
 export class BaseModalComponent extends BaseComponent {
 
   @Input()

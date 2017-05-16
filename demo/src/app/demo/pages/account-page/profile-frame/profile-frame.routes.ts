@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { ProfileFrameComponent } from './../../../../../../../dist';
+import { translate } from './../../../../../../../dist/shared/utils';
 
 export const DemoProfileFrameRoutes: Routes = [
   {
@@ -7,7 +8,7 @@ export const DemoProfileFrameRoutes: Routes = [
     component: ProfileFrameComponent,
     data: {
       name: 'profile',
-      title: 'Profile',
+      title: translate('Profile'),
       visible: true
     }
   }
