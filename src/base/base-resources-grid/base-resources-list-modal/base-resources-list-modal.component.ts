@@ -1,6 +1,5 @@
 import { BaseModalComponent } from './../../base-modal/base-modal.component';
 import { Input, EventEmitter, Output, Component } from '@angular/core';
-import { User } from './../../../shared/models/user.model';
 
 
 @Component({
@@ -13,8 +12,6 @@ export class BaseResourceListModalComponent extends BaseModalComponent {
   readonly = false;
   @Input()
   hardReadonly = false;
-  @Input()
-  account: any | User = null;
   @Output()
   onSave: EventEmitter<any> = new EventEmitter<any>();
 

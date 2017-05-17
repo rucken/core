@@ -1,6 +1,6 @@
 import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { Group } from './../../shared/models/group.model';
 import { GroupModalComponent } from './group-modal/group-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
@@ -25,8 +25,6 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
 
   @Output()
   onSelectItems: EventEmitter<any | Group[]>;
-  @Output()
-  onEnter: EventEmitter<any[] | any>;
 
   modelMeta: any = Group.meta();
   items: any[] | Group[];

@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { ContentType } from './../../../shared/models/content-type.model';
 import { User } from '././../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
@@ -16,7 +16,7 @@ export class ContentTypesListModalComponent extends BaseResourceListModalCompone
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
-  focusElement: ElementRef;
+  focusElement: ContentTypesGridComponent;
   @ViewChild('contentTypes')
   contentTypes: ContentTypesGridComponent;
 
@@ -28,10 +28,6 @@ export class ContentTypesListModalComponent extends BaseResourceListModalCompone
   item: any | ContentType = new ContentType();
   items: any[] | ContentType[] = [];
   modelMeta: any = ContentType.meta();
-
-  focus() {
-    this.contentTypes.focus();
-  }
 
   selectContentType(items: any[] | ContentType[]) {
     this.item = items[0];

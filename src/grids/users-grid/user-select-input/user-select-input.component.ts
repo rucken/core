@@ -1,5 +1,4 @@
-import { isSimpleTemplateString } from 'codelyzer/util/utils';
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
+import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { UsersListModalComponent } from './../users-list-modal/users-list-modal.component';
 import { UsersService } from './../../../shared/users.service';
 import { TranslateService } from '@ngx-translate/core';

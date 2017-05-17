@@ -1,7 +1,7 @@
 import {
   BaseResourceListModalComponent
 } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
-import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { Group } from './../../../shared/models/group.model';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
@@ -18,7 +18,7 @@ export class GroupsListModalComponent extends BaseResourceListModalComponent {
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
-  focusElement: ElementRef;
+  focusElement: GroupsGridComponent;
   @ViewChild('groups')
   groups: GroupsGridComponent;
 
@@ -30,10 +30,6 @@ export class GroupsListModalComponent extends BaseResourceListModalComponent {
   item: any | Group = new Group();
   items: any[] | Group[] = [];
   modelMeta: any = Group.meta();
-
-  focus() {
-    this.groups.focus();
-  }
 
   selectGroup(items: any[] | Group[]) {
     this.item = items[0];

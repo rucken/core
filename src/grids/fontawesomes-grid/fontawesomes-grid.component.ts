@@ -1,7 +1,7 @@
 import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { User } from './../..//shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { Fontawesome } from './../../shared/models/fontawesome.model';
 import { FontawesomeModalComponent } from './fontawesome-modal/fontawesome-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
@@ -26,8 +26,6 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
 
   @Output()
   onSelectItems: EventEmitter<any[] | Fontawesome[]>;
-  @Output()
-  onEnter: EventEmitter<any[] | any>;
 
   modelMeta: any = Fontawesome.meta();
   items: any[] | Fontawesome[];

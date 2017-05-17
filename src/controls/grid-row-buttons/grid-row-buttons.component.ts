@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
 import { TranslateService } from '@ngx-translate/core';

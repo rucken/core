@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from './../../shared/app.service';
 import { BaseComponent } from './../base-component/base-component.component';
@@ -17,14 +17,16 @@ export class BasePageComponent extends BaseComponent {
   searchTextValue = '';
   title?: string;
   get childrenRoutes() {
-    const items: any[] = this.activatedRoute.snapshot.data.children.filter(
+    const items: any[] = (
+      this.activatedRoute.snapshot.data && this.activatedRoute.snapshot.data.children ?
+        this.activatedRoute.snapshot.data.children : []).filter(
       (item: any) =>
         item.data &&
         item.data.visible &&
         this.account &&
         this.account.checkPermissions([`read_${item.data.name}-frame`]) &&
         this.checkWordInSearchText(item.data.title)
-    ).map(
+      ).map(
       (item: any) => {
         const newItem = item.data;
         newItem.title = this.translateService.instant(newItem.title);

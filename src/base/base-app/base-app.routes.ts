@@ -19,12 +19,12 @@ export const BaseRoutes: Routes = [
   {
     path: 'admin',
     loadChildren: './../../pages/admin-page/admin-page.module#AdminPageModule',
-    data: AdminPageRoutes[1].data
+    data: AdminPageRoutes[0].data
   },
   {
     path: 'account',
     loadChildren: './../../pages/account-page/account-page.module#AccountPageModule',
-    data: AccountPageRoutes[1].data
+    data: AccountPageRoutes[0].data
   },
   {
     path: '**',

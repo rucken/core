@@ -1,6 +1,6 @@
 import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, HostListener, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, HostListener, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { Permission } from './../../shared/models/permission.model';
 import { PermissionModalComponent } from './permission-modal/permission-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
@@ -25,8 +25,6 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
 
   @Output()
   onSelectItems: EventEmitter<any[] | Permission[]>;
-  @Output()
-  onEnter: EventEmitter<any[] | any>;
 
   modelMeta: any = Permission.meta();
   items: any[] | Permission[];

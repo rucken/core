@@ -1,4 +1,4 @@
-import { HostListener, Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
+import { Component, Input, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
 import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
 

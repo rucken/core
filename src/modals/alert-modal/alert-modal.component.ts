@@ -1,5 +1,5 @@
 import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
-import { Component, OnInit, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
+import { Component, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap';
 
 @Component({
