@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
 import { AccountPageComponent } from './../../../../../../dist';
 import { DemoProfileFrameRoutes } from './profile-frame/profile-frame.routes';
-import { translate } from './../../../../../../dist/shared/utils';
+import { translate } from './../../../../../../dist';
 
 const children = [
+  { path: '', redirectTo: '/account/profile', pathMatch: 'full' },
   {
     path: 'profile',
     loadChildren: './profile-frame/profile-frame.module#DemoProfileFrameModule',
@@ -11,7 +12,6 @@ const children = [
   }
 ];
 export const DemoAccountPageRoutes: Routes = [
-  { path: '', redirectTo: '/account/profile', pathMatch: 'full' },
   {
     path: '',
     component: AccountPageComponent,

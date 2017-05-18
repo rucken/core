@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 import { EndpointHelper, AccountService } from './../../../../../dist';
 import { environment } from './../../../environments/environment';
 import { Http } from '@angular/http';
-import { User } from './../../../../../dist/shared/models/user.model';
+import { User } from './../../../../../dist';
 @Injectable()
 export class DemoAccountService extends AccountService {
   account$: Subject<User>;

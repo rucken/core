@@ -1,5 +1,5 @@
 import { ThemesPageComponent } from './../../../../../../dist';
-import { translate } from './../../../../../../dist/shared/utils';
+import { translate } from './../../../../../../dist';
 export const DemoThemesPageRoutes = [{
   path: '',
   component: ThemesPageComponent,

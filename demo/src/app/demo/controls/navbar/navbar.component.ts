@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {
   AppService, AuthModalComponent, NavbarComponent,
