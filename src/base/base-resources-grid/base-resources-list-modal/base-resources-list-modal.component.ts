@@ -19,7 +19,7 @@ export class BaseResourceListModalComponent extends BaseModalComponent {
   items: any[] = [];
   modelMeta: any = {};
 
-  afterInit() {console.log('group permission grid');}
+  afterInit() { console.log('group permission grid'); }
   select() {
     this.onSave.emit(this);
     return false;
