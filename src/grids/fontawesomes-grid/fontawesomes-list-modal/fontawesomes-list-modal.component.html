@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <fontawesomes-grid #fontawesomes (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectFontawesome($event)"
-          [hardReadonly]="hardReadonly" #focusElement></fontawesomes-grid>
+          [hardReadonly]="hardReadonly" [exclude]="exclude" #focusElement></fontawesomes-grid>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>

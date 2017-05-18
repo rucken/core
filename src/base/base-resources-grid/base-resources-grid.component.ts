@@ -120,6 +120,9 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
   search(ignoreCache?: boolean) {
     const filter: any = {};
+    if (this.exclude) {
+      filter.exclude = this.exclude;
+    }
     this.cachedResourcesService.ignoreCache = ignoreCache;
     this.cachedResourcesService.loadAll(this.searchText, filter);
   }

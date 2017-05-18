@@ -36,7 +36,6 @@ export class GroupModalComponent extends BaseResourceModalComponent {
   onClose: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
   @Output()
   onSave: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
-
   afterOpen() {
     this.groupPermissions.group = this.item;
     this.groupPermissions.mockedItems =

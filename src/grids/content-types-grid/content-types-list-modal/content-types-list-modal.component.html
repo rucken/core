@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <content-types-grid #contentTypes (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectContentType($event)"
-          [hardReadonly]="hardReadonly" #focusElement></content-types-grid>
+          [hardReadonly]="hardReadonly" [exclude]="exclude" #focusElement></content-types-grid>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>

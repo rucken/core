@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <permissions-grid #permissions (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectPermission($event)" [hardReadonly]="hardReadonly"
-          #focusElement></permissions-grid>
+          [exclude]="exclude" #focusElement></permissions-grid>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>

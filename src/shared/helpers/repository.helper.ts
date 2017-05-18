@@ -22,7 +22,15 @@ export class RepositoryHelper extends EndpointHelper {
     const uri = new URLSearchParams();
     for (const queryProp in repositoryService.queryProps) {
       if (repositoryService.queryProps.hasOwnProperty(queryProp)) {
-        uri.append(_.snakeCase(queryProp), repositoryService.queryProps[queryProp]);
+        const queryPropKey = _.snakeCase(queryProp);
+        const value = repositoryService.queryProps[queryProp];
+        if (_.isArray(value)) {
+          value.map((val: any) => {
+            uri.append(`${queryPropKey}[]`, val.pk ? val.pk : val);
+          });
+        } else {
+          uri.append(queryPropKey, value);
+        }
       }
     }
     let apiUrl = repositoryService.apiUrl;

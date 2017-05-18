@@ -7,6 +7,8 @@ import { OnInit, Input, Component, EventEmitter } from '@angular/core';
 export class BaseComponent implements OnInit {
 
   @Input()
+  exclude: any[] = [];
+  @Input()
   tooltipEnable: boolean;
   @Input()
   tooltipText = '';

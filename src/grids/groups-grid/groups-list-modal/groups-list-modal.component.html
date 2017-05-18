@@ -10,7 +10,7 @@
       </div>
       <div class="modal-body">
         <groups-grid #groups (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectGroup($event)" [hardReadonly]="hardReadonly"
-          #focusElement></groups-grid>
+          [exclude]="exclude" #focusElement></groups-grid>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>
