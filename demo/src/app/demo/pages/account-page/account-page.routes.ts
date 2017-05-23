@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { AccountPageComponent } from './../../../../../../dist';
+import { AccountPageComponent } from './../../../../../../src';
 import { DemoProfileFrameRoutes } from './profile-frame/profile-frame.routes';
-import { translate } from './../../../../../../dist';
+import { translate } from './../../../../../../src';
 
 const children = [
   { path: '', redirectTo: '/account/profile', pathMatch: 'full' },

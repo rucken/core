@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import {
   AppService, AuthModalComponent, NavbarComponent,
   AccountService, ConfirmModalComponent
-} from './../../../../../../dist';
+} from './../../../../../../src';
 import { TranslateService } from '@ngx-translate/core';
 import { DemoRoutes } from './../../../app.routes';
 

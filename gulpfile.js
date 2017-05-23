@@ -11,7 +11,6 @@ var fs = require('fs');
 gulp.task('change-src-version', function (done) {
   var srcPackage = require('./src/package.json');
   srcPackage.version = package.version;
-  srcPackage.name = package.name;
   try {
     fileName = path.resolve('./src/package.json');
     fs.writeFileSync(fileName, JSON.stringify(srcPackage, null, 4));

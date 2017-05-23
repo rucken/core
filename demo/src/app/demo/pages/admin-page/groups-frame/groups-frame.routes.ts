@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { GroupsFrameComponent } from './../../../../../../../dist';
-import { translate } from './../../../../../../../dist';
+import { GroupsFrameComponent } from './../../../../../../../src';
+import { translate } from './../../../../../../../src';
 
 export const DemoGroupsFrameRoutes: Routes = [
   {

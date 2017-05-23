@@ -1,5 +1,5 @@
 import { HomePageComponent } from './home-page.component';
-import { translate } from './../../../../../../dist';
+import { translate } from './../../../../../../src';
 
 export const DemoHomePageRoutes = [{
   path: '',

@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { AdminPageComponent } from './../../../../../../dist';
+import { AdminPageComponent } from './../../../../../../src';
 import { DemoGroupsFrameRoutes } from './groups-frame/groups-frame.routes';
 import { DemoUsersFrameRoutes } from './users-frame/users-frame.routes';
-import { translate } from './../../../../../../dist';
+import { translate } from './../../../../../../src';
 
 const children = [
   { path: '', redirectTo: '/admin/users', pathMatch: 'full' },

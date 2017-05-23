@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DemoProfileFrameRoutes } from './profile-frame.routes';
-import { ProfileFrameModule } from './../../../../../../../dist';
+import { ProfileFrameModule } from './../../../../../../../src';
 
 @NgModule({
   imports: [

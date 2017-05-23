@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { ProfileFrameComponent } from './../../../../../../../dist';
-import { translate } from './../../../../../../../dist';
+import { ProfileFrameComponent } from './../../../../../../../src';
+import { translate } from './../../../../../../../src';
 
 export const DemoProfileFrameRoutes: Routes = [
   {

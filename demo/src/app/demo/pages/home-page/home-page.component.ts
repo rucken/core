@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService, AccountService, BasePageComponent } from './../../../../../../dist';
+import { AppService, AccountService, BasePageComponent } from './../../../../../../src';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

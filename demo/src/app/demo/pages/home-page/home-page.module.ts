@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { DemoHomePageRoutes } from './home-page.routes';
-import { PageHeaderModule } from './../../../../../../dist';
+import { PageHeaderModule } from './../../../../../../src';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
