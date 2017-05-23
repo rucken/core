@@ -5,7 +5,7 @@
       [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
       [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
       container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
-    <textarea [textMask]="mask" *ngIf="type==='textarea'" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
+    <textarea *ngIf="type==='textarea'" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
       [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText"
       placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)"
       #tooltip="bs-tooltip" #inputElement></textarea>
