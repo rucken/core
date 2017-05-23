@@ -1,3 +1,18 @@
+<a name="1.8.0"></a>
+# [1.8.0](https://github.com/site15/rucken/compare/1.7.0...v1.8.0) (2017-05-23)
+
+
+### Bug Fixes
+
+* **refactoring:** Remove no used code and imports ([b54630e](https://github.com/site15/rucken/commit/b54630e))
+
+
+### Features
+
+* **grids:** Add exclude: any[] options to BaseComponents, for exclude records by id on request to backend for fetch data ([c8d8109](https://github.com/site15/rucken/commit/c8d8109))
+
+
+
 <a name="1.7.0"></a>
 # [1.7.0](https://github.com/site15/rucken/compare/1.6.0...v1.7.0) (2017-05-15)
 
