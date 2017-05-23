@@ -1,6 +1,6 @@
 import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { ContentType } from './../../shared/models/content-type.model';
 import { ContentTypeModalComponent } from './content-type-modal/content-type-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
@@ -25,8 +25,6 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
 
   @Output()
   onSelectItems: EventEmitter<any[] | ContentType[] | any>;
-  @Output()
-  onEnter: EventEmitter<any[] | any>;
 
   modelMeta: any = ContentType.meta();
   items: any[] | ContentType[];

@@ -1,12 +1,10 @@
-import { isSimpleTemplateString } from 'codelyzer/util/utils';
 import { Fontawesome } from './../../../shared/models/fontawesome.model';
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
+import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver, ElementRef } from '@angular/core';
 import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fontawesomes-list-modal.component';
 import { AppService } from './../../../shared/app.service';
 import { AccountService } from './../../../shared/account.service';
 import { FontawesomesService } from './../../../shared/fontawesomes.service';
 import { User } from './../../../shared/models/user.model';
-import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
 import { DomSanitizer } from '@angular/platform-browser';

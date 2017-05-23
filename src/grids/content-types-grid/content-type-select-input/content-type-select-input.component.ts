@@ -1,13 +1,11 @@
-import { isSimpleTemplateString } from 'codelyzer/util/utils';
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
 import { ContentType } from './../../../shared/models/content-type.model';
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef, ComponentFactoryResolver } from '@angular/core';
+import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { ContentTypesListModalComponent } from './../content-types-list-modal/content-types-list-modal.component';
 import { AppService } from './../../../shared/app.service';
 import { AccountService } from './../../../shared/account.service';
 import { ContentTypesService } from './../../../shared/content-types.service';
 import { User } from './../../../shared/models/user.model';
-import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
 import { DomSanitizer } from '@angular/platform-browser';

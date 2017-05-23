@@ -1,6 +1,5 @@
 import { BaseModalComponent } from './../../base-modal/base-modal.component';
 import { Input, EventEmitter, Output, Component } from '@angular/core';
-import { User } from './../../../shared/models/user.model';
 
 
 @Component({
@@ -13,8 +12,6 @@ export class BaseResourceListModalComponent extends BaseModalComponent {
   readonly = false;
   @Input()
   hardReadonly = false;
-  @Input()
-  account: any | User = null;
   @Output()
   onSave: EventEmitter<any> = new EventEmitter<any>();
 
@@ -22,6 +19,7 @@ export class BaseResourceListModalComponent extends BaseModalComponent {
   items: any[] = [];
   modelMeta: any = {};
 
+  afterInit() { console.log('group permission grid'); }
   select() {
     this.onSave.emit(this);
     return false;

@@ -1,6 +1,6 @@
 import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { GroupPermission } from './../../shared/models/group-permission.model';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
 import { GroupPermissionsService } from './../../shared/group-permissions.service';
@@ -31,8 +31,6 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
 
   @Output()
   onSelectItems: EventEmitter<GroupPermission[] | any>;
-  @Output()
-  onEnter: EventEmitter<any[] | any>;
   @Input()
   group: any | Group;
   @Input()
@@ -65,6 +63,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: PermissionsListModalComponent = this.app.modals(this.resolver).create(PermissionsListModalComponent);
+    itemModal.exclude = this.items;
     itemModal.name = 'createGroupPermission';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.permissions.maxSelectCount = 10000;

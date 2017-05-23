@@ -3,8 +3,7 @@ import {
   EventEmitter,
   Input,
   Output,
-  ViewChild,
-  OnInit
+  ViewChild
 } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';

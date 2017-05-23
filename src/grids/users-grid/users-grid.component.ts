@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { User } from './../../shared/models/user.model';
 import { UserModalComponent } from './user-modal/user-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
@@ -24,8 +24,6 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
 
   @Output()
   onSelectItems: EventEmitter<any[] | User[]>;
-  @Output()
-  onEnter: EventEmitter<any[] | any>;
 
   modelMeta: any = User.meta();
   items: any[] | User[];

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { BaseComponent } from '../../base/base-component/base-component.component';
 
 @Component({
   selector: 'error-frame',
@@ -6,10 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./error-frame.component.scss']
 })
 
-export class ErrorFrameComponent implements OnInit {
+export class ErrorFrameComponent extends BaseComponent {
 
   @Input()
   message: string;
-
-  ngOnInit() { }
 }

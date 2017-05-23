@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
 import { UsersGridComponent } from './../users-grid.component';
@@ -15,7 +15,7 @@ export class UsersListModalComponent extends BaseResourceListModalComponent {
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
-  focusElement: ElementRef;
+  focusElement: UsersGridComponent;
   @ViewChild('users')
   users: UsersGridComponent;
 
@@ -28,9 +28,6 @@ export class UsersListModalComponent extends BaseResourceListModalComponent {
   items: any[] | User[] = [];
   modelMeta: any = User.meta();
 
-  focus() {
-    this.users.focus();
-  }
   selectUser(items: any[] | User[]) {
     this.item = items[0];
     this.items = items;

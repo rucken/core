@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { Permission } from './../../../shared/models/permission.model';
 import { User } from '././../../../shared/models/user.model';
 import { ModalDirective } from 'ngx-bootstrap';
@@ -16,7 +16,7 @@ export class PermissionsListModalComponent extends BaseResourceListModalComponen
   @ViewChild('modal')
   modal: ModalDirective;
   @ViewChild('focusElement')
-  focusElement: ElementRef;
+  focusElement: PermissionsGridComponent;
   @ViewChild('permissions')
   permissions: PermissionsGridComponent;
 
@@ -29,9 +29,6 @@ export class PermissionsListModalComponent extends BaseResourceListModalComponen
   items: any[] | Permission[] = [];
   modelMeta: any = Permission.meta();
 
-  focus() {
-    this.permissions.focus();
-  }
   selectPermission(items: any[] | Permission[]) {
     this.item = items[0];
     this.items = items;

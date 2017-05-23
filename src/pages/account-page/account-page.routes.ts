@@ -3,22 +3,22 @@ import { AccountPageComponent } from './account-page.component';
 import { ProfileFrameRoutes } from './profile-frame/profile-frame.routes';
 import { translate } from './../../shared/utils';
 
-export const AccountPageRoutes: Routes = [
-  { path: '', redirectTo: '/account/profile', pathMatch: 'full' },
+const children = [
+  { path: '', redirectTo: '/profile', pathMatch: 'full' },
   {
-    path: '',
+    path: 'profile',
+    loadChildren: './profile-frame/profile-frame.module#ProfileFrameModule',
+    data: ProfileFrameRoutes[0].data
+  }
+];
+export const AccountPageRoutes: Routes = [
+  {
     component: AccountPageComponent,
     data: {
       name: 'account',
       title: translate('Account'),
       visible: true
     },
-    children: [
-      {
-        path: 'profile',
-        loadChildren: './profile-frame/profile-frame.module#ProfileFrameModule',
-        data: ProfileFrameRoutes[0].data
-      }
-    ]
+    children: children
   }
 ];

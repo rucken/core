@@ -72,6 +72,10 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
   init() {
     super.init();
-    this.cachedResourcesService.loadAll();
+    const filter: any = {};
+    if (this.exclude) {
+      filter.exclude = this.exclude;
+    }
+    this.cachedResourcesService.loadAll('', filter);
   }
 }

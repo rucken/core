@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import { AppService } from './../../shared/app.service';
 import { RuckenRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
-import { EventEmitter, Component, OnInit, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
+import { EventEmitter, Component, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './../base-component/base-component.component';
 
 @Component({

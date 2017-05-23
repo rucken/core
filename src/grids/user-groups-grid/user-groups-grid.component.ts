@@ -1,6 +1,6 @@
 import { User } from './../../shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
-import { Component, OnInit, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { UserGroup } from './../../shared/models/user-group.model';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
 import { UserGroupsService } from './../../shared/user-groups.service';
@@ -30,8 +30,6 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   user: any | User;
   @Output()
   onSelectItems: EventEmitter<any | UserGroup[] | UserGroup>;
-  @Output()
-  onEnter: EventEmitter<any[] | any>;
   @Input()
   readonly: boolean;
   @Input()
@@ -62,6 +60,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: GroupsListModalComponent = this.app.modals(this.resolver).create(GroupsListModalComponent);
+    itemModal.exclude = this.items;
     itemModal.name = 'selectGroups';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.groups.maxSelectCount = 10000;

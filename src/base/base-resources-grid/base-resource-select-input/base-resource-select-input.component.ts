@@ -117,7 +117,9 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   }
   search() {
     const filter: any = {};
-    this.cachedResourcesService.ignoreCache = true;
+    if (this.exclude) {
+      filter.exclude = this.exclude;
+    }
     this.cachedResourcesService.loadAll('', filter);
   }
 }

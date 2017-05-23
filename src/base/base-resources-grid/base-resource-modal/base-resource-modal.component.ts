@@ -11,8 +11,6 @@ export class BaseResourceModalComponent extends BaseModalComponent {
   @Input()
   readonly = false;
   @Input()
-  account: any | User = null;
-  @Input()
   item: any = {};
   @Input()
   modelMeta: any = {};

@@ -19,12 +19,12 @@ export const DemoRoutes: Routes = [
   {
     path: 'admin',
     loadChildren: './demo/pages/admin-page/admin-page.module#DemoAdminPageModule',
-    data: DemoAdminPageRoutes[1].data
+    data: DemoAdminPageRoutes[0].data
   },
   {
     path: 'account',
     loadChildren: './demo/pages/account-page/account-page.module#DemoAccountPageModule',
-    data: DemoAccountPageRoutes[1].data
+    data: DemoAccountPageRoutes[0].data
   },
   {
     path: '**',

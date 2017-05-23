@@ -9,7 +9,8 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <permissions-grid #permissions (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectPermission($event)" [hardReadonly]="hardReadonly"></permissions-grid>
+        <permissions-grid #permissions (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectPermission($event)" [hardReadonly]="hardReadonly"
+          [exclude]="exclude" #focusElement></permissions-grid>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>
