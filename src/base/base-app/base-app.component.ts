@@ -5,6 +5,7 @@ import { RuckenRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
 import { EventEmitter, Component, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './../base-component/base-component.component';
+import { translate } from '../../../src-inline/shared/utils';
 
 @Component({
   selector: 'base-app-root',
@@ -15,8 +16,18 @@ import { BaseComponent } from './../base-component/base-component.component';
 })
 export class BaseAppComponent extends BaseComponent {
 
-  @Input()
-  autoLoadLang?: boolean;
+  languages = [{
+    code: 'ru',
+    title: translate('Russian'),
+    dic: _.merge(RuckenRuI18n)
+  }, {
+    code: 'en',
+    title: translate('English'),
+    dic: null
+  }]
+  currentLang = 'en';
+  defaultLang = 'en';
+  autoLoadLang = true;
 
   constructor(
     public viewContainerRef: ViewContainerRef,
@@ -31,14 +42,18 @@ export class BaseAppComponent extends BaseComponent {
     app.translate = translateService;
   }
   loadLang() {
-    this.translateService.addLangs(['en', 'ru']);
-    this.translateService.setDefaultLang('en');
-    this.translateService.setTranslation('ru', _.merge(RuckenRuI18n));
+    this.translateService.addLangs(this.languages.map(lang => lang.code));
+    this.translateService.setDefaultLang(this.defaultLang);
+    this.languages.filter(lang => lang.dic).map(lang => this.translateService.setTranslation(lang.code, lang.dic));
     const browserLang: string = this.translateService.getBrowserLang();
-    this.translateService.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+    if (this.languages.filter(lang => lang.code === browserLang).length > 0) {
+      this.translateService.use(browserLang);
+    } else {
+      this.translateService.use(this.currentLang);
+    }
   }
   init() {
-    if (this.autoLoadLang === undefined || this.autoLoadLang === true) {
+    if (this.autoLoadLang === true) {
       this.loadLang();
     }
   }

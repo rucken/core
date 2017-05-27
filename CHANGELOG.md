@@ -1,3 +1,15 @@
+<a name="1.8.1"></a>
+## [1.8.1](https://github.com/site15/rucken/compare/1.8.0...v1.8.1) (2017-05-27)
+
+
+### Bug Fixes
+
+* **lang:** Fix change language for labels on buttons ([2024af8](https://github.com/site15/rucken/commit/2024af8))
+* **navbar:** Add to navbar language switcher and fix error translate pages and frame on the fly ([76fe091](https://github.com/site15/rucken/commit/76fe091))
+* **text-input:** Remove mask directive from textarea ([e46c7b3](https://github.com/site15/rucken/commit/e46c7b3))
+
+
+
 <a name="1.8.0"></a>
 # [1.8.0](https://github.com/site15/rucken/compare/1.7.0...v1.8.0) (2017-05-23)
 

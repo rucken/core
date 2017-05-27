@@ -16,6 +16,12 @@ msgstr ""
 msgid "ОК"
 msgstr ""
 
+msgid "Russian"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
 msgid "Yes"
 msgstr ""
 
@@ -278,6 +284,9 @@ msgid "Last login"
 msgstr ""
 
 msgid "Date joined"
+msgstr ""
+
+msgid "Language"
 msgstr ""
 
 msgid "Menu"

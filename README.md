@@ -8,7 +8,7 @@ Status: Beta
 
 ## What is Rucken?
 
-- **Core** - Base core for create web applications on `Angular2`.
+- **Core** - Base core for create web applications on `Angular4`.
 - **Admin** - Include work with admin, user groups and permissions.
 - **DI** - With dependency injection you can change base service.
 - **Extends** - Write components with extends from core `rucken` components.
@@ -21,17 +21,11 @@ Status: Beta
 
 [Demo source](https://github.com/site15/rucken/tree/master/demo) - Source code of demo application.
 
-#### Projects based on Rucken
+#### Sample projects
 
 [Rucken: Todo](https://github.com/site15/rucken-todo) - Simple todo application with: projects, tasks, statuses (backend: http://mockapi.io).
 
 [Rucken: Todo (Django)](https://github.com/site15/rucken-todo-django-example) - Simple todo application with: auth, groups, permissions, projects, tasks, statuses (backend: Django + plugins).
-
-## Install
-
-```bash
-npm install rucken --save
-```
 
 ## License
 

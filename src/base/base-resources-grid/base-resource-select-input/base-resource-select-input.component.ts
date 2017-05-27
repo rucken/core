@@ -92,9 +92,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     if (this.tooltipEnable === undefined) {
       this.tooltipEnable = config.errorInTooltip;
     }
-    if (this.lookupTooltip === undefined) {
-      this.lookupTooltip = this.translateService.instant('Select');
-    }
+    translateService.onLangChange.subscribe(() => this.init());
   }
   init() {
     if (this.inputElement) {
@@ -111,6 +109,9 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
         this.items = [];
       });
     super.init();
+    if (this.lookupTooltip === undefined) {
+      this.lookupTooltip = this.translateService.instant('Select');
+    }
     if (this.select && this.loadAll) {
       this.search();
     }

@@ -35,6 +35,8 @@ export class BaseResourceInputComponent extends BaseComponent {
   modelAsString = '';
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
+  @Input()
+  loadAll = false;
 
   items: any[];
   cachedResourcesService: any;
@@ -66,12 +68,18 @@ export class BaseResourceInputComponent extends BaseComponent {
     public translateService: TranslateService
   ) {
     super();
-    if (this.lookupTooltip === undefined) {
-      this.lookupTooltip = this.translateService.instant('Select');
-    }
+    translateService.onLangChange.subscribe(() => this.init());
   }
   init() {
     super.init();
+    if (this.lookupTooltip === undefined) {
+      this.lookupTooltip = this.translateService.instant('Select');
+    }
+    if (this.select && this.loadAll) {
+      this.search();
+    }
+  }
+  search() {
     const filter: any = {};
     if (this.exclude) {
       filter.exclude = this.exclude;

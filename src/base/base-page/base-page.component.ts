@@ -14,8 +14,8 @@ import { User } from './../../shared/models/user.model';
 })
 export class BasePageComponent extends BaseComponent {
 
-  searchTextValue = '';
   title?: string;
+  searchTextValue = '';
   get childrenRoutes() {
     const items: any[] = (
       this.activatedRoute.snapshot.data && this.activatedRoute.snapshot.data.children ?
@@ -29,7 +29,6 @@ export class BasePageComponent extends BaseComponent {
       ).map(
       (item: any) => {
         const newItem = item.data;
-        newItem.title = this.translateService.instant(newItem.title);
         newItem.url = `${this.name}/${newItem.name}`;
         return newItem;
       });
@@ -49,25 +48,27 @@ export class BasePageComponent extends BaseComponent {
     public router: Router
   ) {
     super();
-    this.accountService.account$.subscribe((user: any | User) => {
-      this.init();
-    })
+    translateService.onLangChange.subscribe(() => this.init());
+    accountService.account$.subscribe(() => this.init());
   }
   init() {
+    super.init();
+    let pageTitle: string;
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
     }
-    if (this.title === undefined) {
+    if (this._title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
-        this.title = this.translateService.instant(this.activatedRoute.snapshot.data.title);
+        pageTitle = this.translateService.instant(this.activatedRoute.snapshot.data.title);
       } else {
         if (this.name) {
-          this.title = this.translateService.instant(_.upperFirst(this.name));
+          pageTitle = this.translateService.instant(_.upperFirst(this.name));
         }
       }
     }
     this.app.currentPageName = this.name;
-    this.app.currentPageTitle = this.title;
+    this.app.currentPageTitle = pageTitle;
+    this.title = pageTitle;
   }
   checkWordInSearchText(word: string) {
     return this.translateService.instant(word).toLowerCase().indexOf(this.searchTextValue.toLowerCase()) !== -1;

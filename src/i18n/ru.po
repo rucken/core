@@ -25,6 +25,12 @@ msgstr "Информация"
 msgid "ОК"
 msgstr "Ок"
 
+msgid "Russian"
+msgstr "Русский"
+
+msgid "English"
+msgstr "Английский"
+
 msgid "Yes"
 msgstr "Да"
 
@@ -288,6 +294,9 @@ msgstr "Дата последнего входа"
 
 msgid "Date joined"
 msgstr "Дата регистрации"
+
+msgid "Language"
+msgstr "Язык"
 
 msgid "Menu"
 msgstr "Меню"

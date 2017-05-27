@@ -5,7 +5,7 @@ import { DemoUsersFrameRoutes } from './users-frame/users-frame.routes';
 import { translate } from './../../../../../../src';
 
 const children = [
-  { path: '', redirectTo: '/admin/users', pathMatch: 'full' },
+  { path: '', redirectTo: '/admin/groups', pathMatch: 'full' },
   {
     path: 'users',
     loadChildren: './users-frame/users-frame.module#DemoUsersFrameModule',

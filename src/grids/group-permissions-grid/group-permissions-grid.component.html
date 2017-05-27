@@ -5,7 +5,7 @@
         <h4>{{modelMeta.group.titles.permissions | translate}}</h4>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-success pull-right" aria-label="Append" (click)="showCreateModal()" *ngIf="account && account.checkPermissions(['change_group']) && !readonly">
+        <button type="button" class="btn btn-success pull-right" (click)="showCreateModal()" *ngIf="account && account.checkPermissions(['change_group']) && !readonly">
 					<span class="fa fa-plus"></span> {{ 'Append' | translate }}
 				</button>
       </div>
