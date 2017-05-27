@@ -2,7 +2,7 @@
   <div class="app-grid__toolbar--header">
     <div class="row">
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="hardReadonly !== true && account && account.checkPermissions(['add_fontawesome'])">
+        <button type="button" class="btn btn-primary" (click)="showCreateModal()" *ngIf="hardReadonly !== true && account && account.checkPermissions(['add_fontawesome'])">
 					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
 				</button>
       </div>

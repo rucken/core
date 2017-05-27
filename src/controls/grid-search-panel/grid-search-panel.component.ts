@@ -1,6 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import { translate } from '../../../src-inline/shared/utils';
 
 @Component({
   selector: 'grid-search-panel',
@@ -22,7 +23,7 @@ export class GridSearchPanelComponent extends BaseComponent {
   constructor(public translateService: TranslateService) {
     super();
     if (this.searchTitle === undefined) {
-      this.searchTitle = 'Search';
+      this.searchTitle = translate('Search');
     }
   }
   get searchTextValue() {

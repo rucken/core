@@ -3,6 +3,7 @@ import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import { translate } from '../../../src-inline/shared/utils';
 
 @Component({
   selector: 'grid-row-buttons',
@@ -35,10 +36,10 @@ export class GridRowButtonsComponent extends BaseComponent {
   constructor(public translateService: TranslateService) {
     super();
     if (this.editTitle === undefined) {
-      this.editTitle = 'Edit';
+      this.editTitle = translate('Edit');
     }
     if (this.removeTitle === undefined) {
-      this.removeTitle = 'Remove';
+      this.removeTitle = translate('Remove');
     }
   }
   edit() {

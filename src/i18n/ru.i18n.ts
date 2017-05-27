@@ -16,6 +16,8 @@ export const RuckenRuI18n = {
     'Close': 'Закрыть',
     'Info': 'Информация',
     'ОК': 'Ок',
+    'Russian': 'Русский',
+    'English': 'Английский',
     'Yes': 'Да',
     'No': 'Нет',
     'Select': 'Выбрать',
@@ -29,6 +31,10 @@ export const RuckenRuI18n = {
     'Removing...': 'Удаление...',
     'OK': 'Ок',
     'Error on deleting': 'Ошибка при удалении',
+    'Edit': 'Редактировать',
+    'Remove': 'Удалить',
+    'Search': 'Поиск',
+    'Cancel': 'Отмена',
     'Change log': 'Журнал изменений',
     'Logout': 'Выйти',
     'Do you really want to leave?': 'Вы действительно хотите выйти?',
@@ -39,7 +45,6 @@ export const RuckenRuI18n = {
     'Save': 'Сохранить',
     'Edit content type': 'Редактирование типа содержимого',
     'Content type info': 'Информация о типе содержимом',
-    'Remove': 'Удалить',
     'Are you sure you want to remove a content type?': 'Вы уверены, что хотите удалить тип содкржимого?',
     'Fontawesomes': 'Иконки',
     'Create new fontawesome': 'Создание новой иконки',
@@ -104,9 +109,6 @@ export const RuckenRuI18n = {
     'Language': 'Язык',
     'Menu': 'Меню',
     'Site name': 'Название сайта',
-    'Russian': 'Русский',
-    'English': 'Английский',
     'Login': 'Вход',
-    'Actions': 'Действия',
-    'Cancel': 'Отмена'
+    'Actions': 'Действия'
 };

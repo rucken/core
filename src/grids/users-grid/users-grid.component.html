@@ -2,7 +2,7 @@
   <div class="app-grid__toolbar--header">
     <div class="row">
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary" aria-label="Create" (click)="showCreateModal()" *ngIf="hardReadonly !== true && account && account.checkPermissions(['add_user'])">
+        <button type="button" class="btn btn-primary" (click)="showCreateModal()" *ngIf="hardReadonly !== true && account && account.checkPermissions(['add_user'])">
 					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
 				</button>
       </div>
@@ -62,9 +62,9 @@
       <div class="col-md-9">
         <div class="pull-right" *ngIf="meta.totalPages>1 || meta.totalResults>meta.perPage">
           <pagination [directionLinks]="false" (pageChanged)="pageChanged($event)" [boundaryLinks]="true" [totalItems]="meta.totalResults"
-            [rotate]="false" [maxSize]="5" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed"
-            firstText="&laquo;" lastText="&raquo;"></pagination>
-            <!--fix:[(ngModel)]="meta.curPage"-->
+            [rotate]="false" [maxSize]="5" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed" firstText="&laquo;"
+            lastText="&raquo;"></pagination>
+          <!--fix:[(ngModel)]="meta.curPage"-->
         </div>
       </div>
     </div>

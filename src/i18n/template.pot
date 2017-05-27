@@ -61,6 +61,18 @@ msgstr ""
 msgid "Error on deleting"
 msgstr ""
 
+msgid "Edit"
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Search"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
 msgid "Change log"
 msgstr ""
 
@@ -89,9 +101,6 @@ msgid "Edit content type"
 msgstr ""
 
 msgid "Content type info"
-msgstr ""
-
-msgid "Remove"
 msgstr ""
 
 msgid "Are you sure you want to remove a content type?"
@@ -290,7 +299,4 @@ msgid "Login"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
-
-msgid "Cancel"
 msgstr ""

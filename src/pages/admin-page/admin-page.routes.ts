@@ -5,7 +5,7 @@ import { GroupsFrameRoutes } from './groups-frame/groups-frame.routes';
 import { translate } from './../../shared/utils';
 
 const children = [
-  { path: '', redirectTo: '/admin/users', pathMatch: 'full' },
+  { path: '', redirectTo: '/admin/groups', pathMatch: 'full' },
   {
     path: 'users',
     loadChildren: './users-frame/users-frame.module#UsersFrameModule',

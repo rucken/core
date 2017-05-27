@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import { translate } from '../../../src-inline/shared/utils';
 
 @Component({
   selector: 'modal-footer-buttons',
@@ -22,7 +23,7 @@ export class ModalFooterButtonsComponent extends BaseComponent {
   constructor(public translateService: TranslateService) {
     super();
     if (this.cancelTitle === undefined) {
-      this.cancelTitle = 'Cancel';
+      this.cancelTitle = translate('Cancel');
     }
   }
   close() {
