@@ -64,18 +64,6 @@ msgstr "Ок"
 msgid "Error on deleting"
 msgstr "Ошибка при удалении"
 
-msgid "Edit"
-msgstr "Редактировать"
-
-msgid "Remove"
-msgstr "Удалить"
-
-msgid "Search"
-msgstr "Поиск"
-
-msgid "Cancel"
-msgstr "Отмена"
-
 msgid "Change log"
 msgstr "Журнал изменений"
 
@@ -105,6 +93,9 @@ msgstr "Редактирование типа содержимого"
 
 msgid "Content type info"
 msgstr "Информация о типе содержимом"
+
+msgid "Remove"
+msgstr "Удалить"
 
 msgid "Are you sure you want to remove a content type?"
 msgstr "Вы уверены, что хотите удалить тип содкржимого?"
@@ -289,17 +280,35 @@ msgstr "Дата последнего входа"
 msgid "Date joined"
 msgstr "Дата регистрации"
 
+msgid "Language"
+msgstr "Язык"
+
 msgid "Menu"
 msgstr "Меню"
 
 msgid "Site name"
 msgstr "Название сайта"
 
+msgid "Russian"
+msgstr "Русский"
+
+msgid "English"
+msgstr "Английский"
+
 msgid "Login"
 msgstr "Вход"
 
 msgid "Actions"
 msgstr "Действия"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+#~ msgid "Edit"
+#~ msgstr "Редактировать"
+
+#~ msgid "Search"
+#~ msgstr "Поиск"
 
 #~ msgid "Model"
 #~ msgstr "Модель"

@@ -22,7 +22,7 @@ export class ModalFooterButtonsComponent extends BaseComponent {
   constructor(public translateService: TranslateService) {
     super();
     if (this.cancelTitle === undefined) {
-      this.cancelTitle = this.translateService.instant('Cancel');
+      this.cancelTitle = 'Cancel';
     }
   }
   close() {

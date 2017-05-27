@@ -40,9 +40,6 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     public translateService: TranslateService
   ) {
     super(sanitizer, translateService);
-    if (this.lookupTooltip === undefined) {
-      this.lookupTooltip = this.translateService.instant('Select');
-    }
     this.cachedResourcesService = permissionsService.createCache();
   }
   get account(): any | User {

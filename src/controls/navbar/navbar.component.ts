@@ -21,35 +21,8 @@ import * as _ from 'lodash';
 export class NavbarComponent extends BaseComponent {
 
   isCollapsed = true;
+  languagesIsCollapsed = true;
   changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
-
-  get version() {
-    return this.app.version;
-  }
-  get account(): any | User {
-    return this.accountService.account;
-  }
-  set childrenRoutes(routes: any[]) {
-    this._childrenRoutes = routes;
-  }
-  get childrenRoutes() {
-    const items: any[] = this._childrenRoutes.filter(
-      item =>
-        item.data &&
-        item.data.visible &&
-        this.account &&
-        this.account.checkPermissions([`read_${item.data.name}-page`])
-    ).map(
-      item => {
-        const newItem = item.data;
-        newItem.title = this.translateService.instant(newItem.title);
-        newItem.url = `/${newItem.name}`;
-        return newItem;
-      });
-    return _.sortBy(items, [
-      (item: any) => { return item.title }
-    ]);
-  }
 
   private _childrenRoutes: any[] = [];
 
@@ -71,6 +44,43 @@ export class NavbarComponent extends BaseComponent {
       .subscribe(() => {
         this.isCollapsed = true;
       });
+  }
+  get languages() {
+    return this.app.component.languages;
+  }
+  get version() {
+    return this.app.version;
+  }
+  get account(): any | User {
+    return this.accountService.account;
+  }
+  set childrenRoutes(routes: any[]) {
+    this._childrenRoutes = routes;
+  }
+  get childrenRoutes() {
+    const items: any[] = this._childrenRoutes.filter(
+      item =>
+        item.data &&
+        item.data.visible &&
+        this.account &&
+        this.account.checkPermissions([`read_${item.data.name}-page`])
+    ).map(
+      item => {
+        const newItem = item.data;
+        newItem.url = `/${newItem.name}`;
+        return newItem;
+      });
+    return _.sortBy(items, [
+      (item: any) => { return item.title }
+    ]);
+  }
+  get currentLanguage() {
+    return this.translateService.currentLang;
+  }
+  set currentLanguage(lang: string) {
+    this.languagesIsCollapsed = true;
+    this.isCollapsed = true;
+    this.translateService.use(lang);
   }
   showChangeLog() {
     if (this.changelog) {

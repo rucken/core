@@ -22,7 +22,7 @@ export class GridSearchPanelComponent extends BaseComponent {
   constructor(public translateService: TranslateService) {
     super();
     if (this.searchTitle === undefined) {
-      this.searchTitle = this.translateService.instant('Search');
+      this.searchTitle = 'Search';
     }
   }
   get searchTextValue() {

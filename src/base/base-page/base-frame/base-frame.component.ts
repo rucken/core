@@ -26,16 +26,17 @@ export class BaseFrameComponent extends BaseComponent {
     public router: Router
   ) {
     super();
-    this.accountService.account$.subscribe((user: any | User) => {
-      this.init();
-    })
+    translateService.onLangChange.subscribe(() => this.init());
+    accountService.account$.subscribe(() => this.init());
+    app.currentPageTitle$.subscribe(() => this.init());
   }
   init() {
-    let frameTitle: string = this.title;
+    super.init();
+    let frameTitle: string;
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
     }
-    if (frameTitle === undefined) {
+    if (this._title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
         frameTitle = this.translateService.instant(this.activatedRoute.snapshot.data.title);
       } else {
@@ -44,8 +45,9 @@ export class BaseFrameComponent extends BaseComponent {
         }
       }
     }
-    this.title = `${this.app.currentPageTitle}: ${frameTitle}`;
+    frameTitle = `${this.app.currentPageTitle}: ${frameTitle}`;
     this.app.currentFrameName = this.name;
-    this.app.currentFrameTitle = this.title;
+    this.app.currentFrameTitle = frameTitle;
+    this.title = frameTitle;
   }
 }

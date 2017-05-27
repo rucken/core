@@ -35,10 +35,10 @@ export class GridRowButtonsComponent extends BaseComponent {
   constructor(public translateService: TranslateService) {
     super();
     if (this.editTitle === undefined) {
-      this.editTitle = this.translateService.instant('Edit');
+      this.editTitle = 'Edit';
     }
     if (this.removeTitle === undefined) {
-      this.removeTitle = this.translateService.instant('Remove');
+      this.removeTitle = 'Remove';
     }
   }
   edit() {
