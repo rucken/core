@@ -7,21 +7,19 @@
     "url": "https://github.com/site15/rucken/issues"
   },
   "private": true,
-  "description": "Core with Admin UI for web application maked on Angular2+",
+  "description": "Core with Admin UI for web application maked on Angular4",
   "homepage": "https://github.com/site15/rucken",
   "main": "bundles/rucken.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
   "keywords": [
-    "ng",
-    "angular 2",
+    "ngx",
+    "angular4",
     "admin ui",
     "web application",
     "seed",
     "i18n",
-    "bootstrap",
-    "twitter-bootstrap",
-    "ng-bootstap"
+    "bootstrap"
   ],
   "maintainers": [
     {
