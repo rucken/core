@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import { translate } from '../../../src-inline/shared/utils';
+import { translate } from '../../shared/utils';
 
 @Component({
   selector: 'modal-footer-buttons',

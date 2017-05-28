@@ -1,3 +1,13 @@
+<a name="1.8.2"></a>
+## [1.8.2](https://github.com/site15/rucken/compare/1.8.1...v1.8.2) (2017-05-28)
+
+
+### Bug Fixes
+
+* **paths:** Fix error path for source files ([57d12e3](https://github.com/site15/rucken/commit/57d12e3))
+
+
+
 <a name="1.8.1"></a>
 ## [1.8.1](https://github.com/site15/rucken/compare/1.8.0...v1.8.1) (2017-05-27)
 
