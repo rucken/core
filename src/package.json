@@ -1,11 +1,19 @@
 {
     "name": "rucken",
-    "version": "1.8.2",
+    "version": "1.8.3",
     "peerDependencies": {
         "@angular/common": "*",
         "@angular/compiler": "*",
         "@angular/core": "*",
         "@angular/forms": "*",
-        "@angular/router": "*"
+        "@angular/router": "*",
+        "@types/lodash": "*",
+        "@ngui/auto-complete": "*",
+        "@ngx-translate/core": "*",
+        "angular2-jwt": "*",
+        "angular2-text-mask": "*",
+        "lodash": "*",
+        "ngx-bootstrap": "*",
+        "text-mask-addons": "*"
     }
 }
