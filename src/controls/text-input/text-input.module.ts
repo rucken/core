@@ -6,11 +6,12 @@ import { TextMaskModule } from 'angular2-text-mask';
 import { TooltipModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 
 @NgModule({
   imports: [
     CommonModule, FormsModule, TranslateModule.forChild(),
-    TextMaskModule, TooltipModule.forRoot()
+    TextMaskModule, NgxMyDatePickerModule, TooltipModule.forRoot()
   ],
   declarations: [TextInputComponent],
   exports: [TextInputComponent],

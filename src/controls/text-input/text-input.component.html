@@ -1,14 +1,26 @@
 <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}">
   <label [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
-  <div [ngClass]="inputFrameClass">
+  <div [ngClass]="inputFrameClass" *ngIf="type!=='date' || isNativeDateInput">
     <input [textMask]="mask" *ngIf="type!=='textarea'" [attr.type]="type" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
       [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
       [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
       container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
-    <textarea *ngIf="type==='textarea'" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
-      [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText"
-      placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)"
-      #tooltip="bs-tooltip" #inputElement></textarea>
+    <textarea *ngIf="type==='textarea'" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
+      [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
+      triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip"
+      #inputElement></textarea>
+  </div>
+  <div [ngClass]="inputFrameClass" *ngIf="type==='date' && !isNativeDateInput">
+    <input style="float:none" ngx-mydatepicker type="text" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
+      [(ngModel)]="dateModel" [options]="dateOptions" #dp="ngx-mydatepicker" [attr.placeholder]="placeholder"  [readonly]="readonly"
+      [attr.maxlength]="maxlength" [attr.step]="step" [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
+      triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip"
+      #inputElement>
+    <span class="input-group-btn">
+      <button type="button" class="btn btn-default" (click)="dp.toggleCalendar()">
+          <i class="fa fa-calendar"></i>
+      </button>
+    </span>
   </div>
   <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
 </div>

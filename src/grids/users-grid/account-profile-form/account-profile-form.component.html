@@ -2,12 +2,16 @@
   <div class="row">
     <div class="col-md-6">
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <text-input [errors]="errors" [info]="info" name="username" [(model)]="item.username" [title]="modelMeta.titles.username"
             [focused]="true" [readonly]="readonly" #focusElement></text-input>
         </div>
         <div class="col-md-6">
           <text-input [errors]="errors" [info]="info" type="email" name="email" [(model)]="item.email" [title]="modelMeta.titles.email"
+            [readonly]="readonly"></text-input>
+        </div>
+        <div class="col-md-6">
+          <text-input [errors]="errors" [info]="info" type="date" name="date" [(model)]="item.date" [title]="modelMeta.titles.dateOfBirth"
             [readonly]="readonly"></text-input>
         </div>
         <div class="col-md-6">
