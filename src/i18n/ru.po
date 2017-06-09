@@ -94,6 +94,78 @@ msgstr "Вы действительно хотите выйти?"
 msgid "Authorization"
 msgstr "Авторизация"
 
+msgid "Sun"
+msgstr "Вс"
+
+msgid "Mon"
+msgstr "Пн"
+
+msgid "Tue"
+msgstr "Вт"
+
+msgid "Wed"
+msgstr "Ср"
+
+msgid "Thu"
+msgstr "Чт"
+
+msgid "Fri"
+msgstr "Пт"
+
+msgid "Sat"
+msgstr "Сб"
+
+msgid "Jan"
+msgstr "Янв"
+
+msgid "Feb"
+msgstr "Фев"
+
+msgid "Mar"
+msgstr "Мар"
+
+msgid "Apr"
+msgstr "Апр"
+
+msgid "May"
+msgstr "Май"
+
+msgid "Jun"
+msgstr "Июн"
+
+msgid "Jul"
+msgstr "Июл"
+
+msgid "Aug"
+msgstr "Авг"
+
+msgid "Sep"
+msgstr "Сен"
+
+msgid "Oct"
+msgstr "Окт"
+
+msgid "Nov"
+msgstr "Ноя"
+
+msgid "Dec"
+msgstr "Дек"
+
+msgid "Today"
+msgstr "Сегодня"
+
+msgid "Previous month"
+msgstr "Предыдущий месяц"
+
+msgid "Next month"
+msgstr "Следующий месяц"
+
+msgid "Previous year"
+msgstr "Предыдущий год"
+
+msgid "Next year"
+msgstr "Следующий год"
+
 msgid "Content types"
 msgstr "Тип содержимого"
 
@@ -294,6 +366,9 @@ msgstr "Дата последнего входа"
 
 msgid "Date joined"
 msgstr "Дата регистрации"
+
+msgid "Date of birth"
+msgstr "Дата рождени"
 
 msgid "Language"
 msgstr "Язык"
