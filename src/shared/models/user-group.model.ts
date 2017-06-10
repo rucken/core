@@ -27,13 +27,6 @@ export class UserGroup extends BaseResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  parse(obj: any) {
-    this.parseByFields(obj, UserGroup.meta());
-  }
-  format() {
-    const result = this.formatByFields(UserGroup.meta());
-    return result;
-  }
   get asString() {
     return this.groupAsString;
   }

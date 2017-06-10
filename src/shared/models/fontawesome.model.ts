@@ -16,20 +16,8 @@ export class Fontawesome extends BaseResourceModel {
   code: string;
   class: string;
 
-  static meta(): any {
-    const meta: any = Fontawesome;
-    return meta;
-  }
-
   constructor(obj?: any) {
     super(obj);
-  }
-  parse(obj: any) {
-    this.parseByFields(obj, Fontawesome.meta());
-  }
-  format() {
-    const result = this.formatByFields(Fontawesome.meta());
-    return result;
   }
   get asString() {
     return this.class;

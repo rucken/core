@@ -21,6 +21,7 @@ export class Group extends BaseResourceModel {
 
   static meta(): any {
     const meta: any = Group;
+    meta.permission = Permission;
     return meta;
   }
   constructor(obj?: any) {

@@ -16,18 +16,7 @@ export class Theme extends BaseResourceModel {
   url: string;
   name: string;
 
-  static meta(): any {
-    const meta: any = Theme;
-    return meta;
-  }
-
   constructor(obj?: any) {
     super(obj);
-  }
-  parse(obj: any) {
-    this.parseByFields(obj, Theme.meta());
-  }
-  format() {
-    return this.formatByFields(Theme.meta());
   }
 }

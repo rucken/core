@@ -32,7 +32,8 @@ export class BaseResourceModel {
     this.parse(obj ? obj : {});
   }
   parse(obj: any) {
-
+    const current: any = this.constructor;
+    this.parseByFields(obj, current.meta());
   }
   parseByFields(obj: any, meta: any) {
     const fields: string[] = meta.fields ? meta.fields : [];
@@ -70,6 +71,9 @@ export class BaseResourceModel {
     }
   }
   format() {
+    const current: any = this.constructor;
+    const result = this.formatByFields(current.meta());
+    return result;
   }
   formatByFields(meta: any): any {
     const obj: any = {};
