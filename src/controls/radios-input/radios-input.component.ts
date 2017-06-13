@@ -25,28 +25,25 @@ export class RadiosInputComponent extends BaseComponent {
   @Input()
   title = '';
   @Input()
-  values: { [key: string]: string; } = {};
+  values: { [key: string]: any; } = {};
   @Input()
-  model: string;
+  set model(value: any) {
+    this._model = value;
+    this.modelChange.emit(this.model);
+  }
+  get model() {
+    return this._model;
+  }
   @Input()
   radiosTitles: { [key: string]: string; } = {};
   @Output()
   modelChange: EventEmitter<string> = new EventEmitter<string>();
 
-  value: string;
-
+  private _model: any;
   init() {
-    if (this.model) {
-      this.value = this.model;
-    } else {
+    if (this._model === undefined) {
       this.value = this.values[this.keys(this.values)[0]];
     }
     super.init();
-  }
-  updateModel() {
-    setTimeout((out: any) => {
-      this.model = this.value;
-      this.modelChange.emit(this.model);
-    }, 700);
   }
 }
