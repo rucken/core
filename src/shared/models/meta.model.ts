@@ -21,14 +21,8 @@ export class MetaModel extends BaseResourceModel {
     const meta: any = MetaModel;
     return meta;
   }
+
   constructor(obj?: any) {
     super(obj);
-  }
-  parse(obj: any) {
-    this.parseByFields(obj, MetaModel.meta());
-  }
-  format() {
-    const result = this.formatByFields(MetaModel.meta());
-    return result;
   }
 }

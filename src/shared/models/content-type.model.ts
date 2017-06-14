@@ -14,21 +14,12 @@ export class ContentType extends BaseResourceModel {
   id: number;
   name: string;
   title: string;
-
   static meta(): any {
     const meta: any = ContentType;
     return meta;
   }
-
   constructor(obj?: any) {
     super(obj);
-  }
-  parse(obj: any) {
-    this.parseByFields(obj, ContentType.meta());
-  }
-  format() {
-    const result = this.formatByFields(ContentType.meta());
-    return result;
   }
   get asString() {
     return this.title;

@@ -3,6 +3,7 @@ import { DemoHomePageRoutes } from './demo/pages/home-page/home-page.routes';
 import { DemoThemesPageRoutes } from './demo/pages/themes-page/themes-page.routes';
 import { DemoAdminPageRoutes } from './demo/pages/admin-page/admin-page.routes';
 import { DemoAccountPageRoutes } from './demo/pages/account-page/account-page.routes';
+import { DemoComponentsPageRoutes } from './demo/pages/components-page/components-page.routes';
 
 export const DemoRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,6 +17,11 @@ export const DemoRoutes: Routes = [
     loadChildren: './demo/pages/themes-page/themes-page.module#DemoThemesPageModule',
     data: DemoThemesPageRoutes[0].data
   },
+  /*{
+    path: 'components',
+    loadChildren: './demo/pages/components-page/components-page.module#DemoComponentsPageModule',
+    data: DemoComponentsPageRoutes[0].data
+  },*/
   {
     path: 'admin',
     loadChildren: './demo/pages/admin-page/admin-page.module#DemoAdminPageModule',

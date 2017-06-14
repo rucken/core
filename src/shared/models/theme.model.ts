@@ -24,10 +24,4 @@ export class Theme extends BaseResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  parse(obj: any) {
-    this.parseByFields(obj, Theme.meta());
-  }
-  format() {
-    return this.formatByFields(Theme.meta());
-  }
 }

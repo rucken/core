@@ -27,13 +27,6 @@ export class GroupPermission extends BaseResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  parse(obj: any) {
-    this.parseByFields(obj, GroupPermission.meta());
-  }
-  format() {
-    const result = this.formatByFields(GroupPermission.meta());
-    return result;
-  }
   get asString() {
     return this.permissionAsString;
   }

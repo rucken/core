@@ -20,6 +20,7 @@ export class Permission extends BaseResourceModel {
 
   static meta(): any {
     const meta: any = Permission;
+    meta.contentType = ContentType;
     return meta;
   }
   constructor(obj?: any) {

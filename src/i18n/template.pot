@@ -85,6 +85,78 @@ msgstr ""
 msgid "Authorization"
 msgstr ""
 
+msgid "Sun"
+msgstr ""
+
+msgid "Mon"
+msgstr ""
+
+msgid "Tue"
+msgstr ""
+
+msgid "Wed"
+msgstr ""
+
+msgid "Thu"
+msgstr ""
+
+msgid "Fri"
+msgstr ""
+
+msgid "Sat"
+msgstr ""
+
+msgid "Jan"
+msgstr ""
+
+msgid "Feb"
+msgstr ""
+
+msgid "Mar"
+msgstr ""
+
+msgid "Apr"
+msgstr ""
+
+msgid "May"
+msgstr ""
+
+msgid "Jun"
+msgstr ""
+
+msgid "Jul"
+msgstr ""
+
+msgid "Aug"
+msgstr ""
+
+msgid "Sep"
+msgstr ""
+
+msgid "Oct"
+msgstr ""
+
+msgid "Nov"
+msgstr ""
+
+msgid "Dec"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Previous month"
+msgstr ""
+
+msgid "Next month"
+msgstr ""
+
+msgid "Previous year"
+msgstr ""
+
+msgid "Next year"
+msgstr ""
+
 msgid "Content types"
 msgstr ""
 
@@ -193,6 +265,12 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
+msgid "Components"
+msgstr ""
+
+msgid "Controls"
+msgstr ""
+
 msgid "Home"
 msgstr ""
 
@@ -284,6 +362,9 @@ msgid "Last login"
 msgstr ""
 
 msgid "Date joined"
+msgstr ""
+
+msgid "Date of birth"
 msgstr ""
 
 msgid "Language"

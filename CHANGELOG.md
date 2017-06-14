@@ -1,3 +1,19 @@
+<a name="1.9.0"></a>
+# [1.9.0](https://github.com/site15/rucken/compare/1.8.3...v1.9.0) (2017-06-14)
+
+
+### Bug Fixes
+
+* **radio-input:** Change update value method ([ec7853e](https://github.com/site15/rucken/commit/ec7853e))
+
+
+### Features
+
+* **app-modals:** Add set size of modal ([3f8ac1f](https://github.com/site15/rucken/commit/3f8ac1f))
+* **text-input:** Add ngx-mydatepicker mode for date type input ([bda7d95](https://github.com/site15/rucken/commit/bda7d95))
+
+
+
 <a name="1.8.3"></a>
 ## [1.8.3](https://github.com/site15/rucken/compare/1.8.2...v1.8.3) (2017-05-28)
 

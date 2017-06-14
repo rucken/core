@@ -6,6 +6,9 @@ import { TextInputConfig } from './text-input.config';
 import emailMask from 'text-mask-addons/dist/emailMask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import { INgxMyDpOptions } from 'ngx-mydatepicker';
+import * as moment from 'moment/moment';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'text-input',
@@ -25,9 +28,9 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   inputClass?= 'form-control';
   @Input()
-  inputFrameClass?= '';
+  inputFrameClass?: string;
   @Input()
-  type = 'text';
+  type: string;
   @Input()
   readonly = false;
   @Input()
@@ -52,6 +55,12 @@ export class TextInputComponent extends BaseComponent {
   min = '';
   @Input()
   max = '';
+  @Input()
+  dateOptions?: INgxMyDpOptions;
+  @Input()
+  isNativeDateInput?: boolean;
+
+  private _dateModel: any;
 
   constructor(
     public sanitizer: DomSanitizer,
@@ -59,6 +68,12 @@ export class TextInputComponent extends BaseComponent {
     public config: TextInputConfig
   ) {
     super();
+    if (this.isNativeDateInput === undefined) {
+      this.isNativeDateInput = config.isNativeDateInput;
+    }
+    if (this.dateOptions === undefined) {
+      this.dateOptions = config.dateOptions;
+    }
     if (this.tooltipEnable === undefined) {
       this.tooltipEnable = config.errorInTooltip;
     }
@@ -70,6 +85,15 @@ export class TextInputComponent extends BaseComponent {
     }
   }
   init() {
+    if (this.type === undefined) {
+      this.type = 'text';
+    }
+    if (this.type === 'date' && this.inputFrameClass === undefined && !this.isNativeDateInput) {
+      this.inputFrameClass = 'input-group';
+    }
+    if (this.inputFrameClass === undefined) {
+      this.inputFrameClass = '';
+    }
     if (this.mask.mask === false) {
       if (this.type === 'email') {
         this.type = 'text';
@@ -82,10 +106,44 @@ export class TextInputComponent extends BaseComponent {
       }
       if (this.type === 'phone') {
         this.type = 'text';
-        this.mask.mask = ['+', /\d/, '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+        this.mask = this.config.phoneMask;
+      }
+      if (this.type === 'date' && !this.isNativeDateInput) {
+        this.mask = this.config.dateMask;
       }
     }
     super.init();
+  }
+  get dateModel() {
+    if (!this._dateModel || !this._dateModel.jsdate) {
+      const value = this.value;
+      let date: any;
+      try {
+        date = moment(value, this.config.nativeInputDateFormat).toDate();
+      } catch (err) {
+        date = null;
+      }
+      if (!date || date === 'Invalid date' || _.isNaN(date.getFullYear())) {
+        this._dateModel = undefined;
+      } else {
+        this._dateModel = {
+          date: {
+            year: date.getFullYear(),
+            month: date.getMonth() + 1,
+            day: date.getDate()
+          }
+        }
+      }
+    }
+    return this._dateModel;
+  }
+  set dateModel(val: any) {
+    if (val) {
+      this._dateModel = val;
+      this.value = this.config.nativeInputDateFormat.replace('YYYY', this._dateModel.date.year).replace('MM', this._dateModel.date.month).replace('DD', this._dateModel.date.day);
+    } else {
+      this.value = val;
+    }
   }
   get value() {
     if (this.hardValue !== null) {

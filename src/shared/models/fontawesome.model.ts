@@ -24,13 +24,6 @@ export class Fontawesome extends BaseResourceModel {
   constructor(obj?: any) {
     super(obj);
   }
-  parse(obj: any) {
-    this.parseByFields(obj, Fontawesome.meta());
-  }
-  format() {
-    const result = this.formatByFields(Fontawesome.meta());
-    return result;
-  }
   get asString() {
     return this.class;
   }

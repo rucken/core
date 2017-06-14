@@ -57,7 +57,10 @@ export class BaseAppComponent extends BaseComponent {
       this.loadLang();
     }
   }
-  showErrorModal(message: string, title?: string): EventEmitter<any> {
+  showErrorModal(message: string, title?: string, size?: string): EventEmitter<any> {
+    if (size === undefined) {
+      size = 'md';
+    }
     if (title === undefined) {
       title = this.translateService.instant('Error');
     }
@@ -65,11 +68,15 @@ export class BaseAppComponent extends BaseComponent {
     alert.name = 'error';
     alert.text = title;
     alert.message = message;
+    alert.size = size;
     alert.buttonText = this.translateService.instant('Close');
     alert.modal.show();
     return alert.onClose;
   }
-  showInfoModal(message: string, title?: string): EventEmitter<any> {
+  showInfoModal(message: string, title?: string, size?: string): EventEmitter<any> {
+    if (size === undefined) {
+      size = 'md';
+    }
     if (title === undefined) {
       title = this.translateService.instant('Info');
     }
@@ -78,12 +85,16 @@ export class BaseAppComponent extends BaseComponent {
     alert.text = title;
     alert.message = message;
     alert.messageClass = '';
+    alert.size = size;
     alert.buttonClass = 'btn-primary';
     alert.buttonText = this.translateService.instant('ОК');
     alert.modal.show();
     return alert.onClose;
   }
-  showContentModal(content: string, title?: string): EventEmitter<any> {
+  showContentModal(content: string, title?: string, size?: string): EventEmitter<any> {
+    if (size === undefined) {
+      size = 'md';
+    }
     if (title === undefined) {
       title = this.translateService.instant('Info');
     }
@@ -93,7 +104,7 @@ export class BaseAppComponent extends BaseComponent {
     alert.text = title;
     alert.content = content;
     alert.messageClass = '';
-    alert.size = 'md';
+    alert.size = size;
     alert.buttonClass = 'btn-primary';
     alert.buttonText = this.translateService.instant('ОК');
     alert.modal.show();

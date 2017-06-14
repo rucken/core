@@ -24,12 +24,13 @@ export class User extends BaseResourceModel {
     email: translate('Email'),
     lastLogin: translate('Last login'),
     dateJoined: translate('Date joined'),
-    groups: translate('Groups')
+    groups: translate('Groups'),
+    dateOfBirth:  translate('Date of birth'),
   };
-  static dateFields: any = ['lastLogin', 'dateJoined'];
+  static dateFields: any = ['lastLogin', 'dateJoined', 'dateOfBirth'];
   static fields: any = ['id', 'username', 'password', 'isSuperuser',
     'isStaff', 'isActive', 'firstName', 'lastName', 'email',
-    'lastLogin', 'dateJoined', 'groups'];
+    'lastLogin', 'dateJoined', 'groups', 'dateOfBirth'];
 
   className = 'User';
 
@@ -46,6 +47,7 @@ export class User extends BaseResourceModel {
   lastLogin: Date;
   dateJoined: Date;
   groups: Group[];
+  dateOfBirth: Date;
 
   static meta(): any {
     const meta: any = User;
@@ -151,5 +153,14 @@ export class User extends BaseResourceModel {
       username: this.username,
       password: this.password
     };
+  }
+  get dateOfBirthInput() {
+    return this.getDateInput('dateOfBirth');
+  }
+  set dateOfBirthInput(text: string) {
+    this.setDateInput('dateOfBirth', text);
+  }
+  get dateOfBirthAsString() {
+    return this.dateAsString('dateOfBirth');
   }
 }
