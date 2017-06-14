@@ -86,7 +86,8 @@ export class NavbarComponent extends BaseComponent {
     if (this.changelog) {
       this.app.component.showContentModal(
         this.changelog,
-        this.translateService.instant('Change log')
+        this.translateService.instant('Change log'),
+        'lg'
       );
     }
   }
