@@ -70,22 +70,26 @@ export class BaseComponent implements OnInit {
   beforeInit() { }
   afterInit() { }
   init() {
-    this.errors.subscribe((data: any) => {
-      this.errorsValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.errorMessage;
-    });
-    this.info.subscribe((data: any) => {
-      this.infoValue = data;
-      const keys = Object.keys(data);
-      if (keys[0] === this.name) {
-        this.focus();
-      }
-      this.tooltipText = this.infoMessage;
-    });
+    if (this.errors) {
+      this.errors.subscribe((data: any) => {
+        this.errorsValue = data;
+        const keys = Object.keys(data);
+        if (keys[0] === this.name) {
+          this.focus();
+        }
+        this.tooltipText = this.errorMessage;
+      });
+    }
+    if (this.info) {
+      this.info.subscribe((data: any) => {
+        this.infoValue = data;
+        const keys = Object.keys(data);
+        if (keys[0] === this.name) {
+          this.focus();
+        }
+        this.tooltipText = this.infoMessage;
+      });
+    }
     setTimeout((out: any) => {
       if (this.focused === true) {
         this.focus();

@@ -265,6 +265,12 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
+msgid "Components"
+msgstr ""
+
+msgid "Controls"
+msgstr ""
+
 msgid "Home"
 msgstr ""
 
