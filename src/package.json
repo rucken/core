@@ -1,20 +1,20 @@
 {
-  "name": "rucken",
-  "version": "1.8.3",
-  "peerDependencies": {
-    "@angular/common": "*",
-    "@angular/compiler": "*",
-    "@angular/core": "*",
-    "@angular/forms": "*",
-    "@angular/router": "*",
-    "@types/lodash": "*",
-    "@ngui/auto-complete": "*",
-    "@ngx-translate/core": "*",
-    "angular2-jwt": "*",
-    "angular2-text-mask": "*",
-    "lodash": "*",
-    "ngx-bootstrap": "*",
-    "text-mask-addons": "*",
-    "ngx-mydatepicker": "*"
-  }
+    "name": "rucken",
+    "version": "1.9.0",
+    "peerDependencies": {
+        "@angular/common": "*",
+        "@angular/compiler": "*",
+        "@angular/core": "*",
+        "@angular/forms": "*",
+        "@angular/router": "*",
+        "@types/lodash": "*",
+        "@ngui/auto-complete": "*",
+        "@ngx-translate/core": "*",
+        "angular2-jwt": "*",
+        "angular2-text-mask": "*",
+        "lodash": "*",
+        "ngx-bootstrap": "*",
+        "text-mask-addons": "*",
+        "ngx-mydatepicker": "*"
+    }
 }
