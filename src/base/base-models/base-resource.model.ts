@@ -6,6 +6,8 @@ export class BaseResourceModel {
   className = 'ResourceModel';
   pkFieldName: string;
   pkIsNumber: boolean;
+  dateAsStringFormat = 'DD.MM.YYYY';
+  dateInputFormat = 'YYYY-MM-DD';
   [key: string]: any;
 
   get pk(): string | number {
@@ -115,7 +117,7 @@ export class BaseResourceModel {
     text = '';
     if (this[fieldName] !== undefined) {
       try {
-        text = moment(this[fieldName]).format('DD.MM.YYYY');
+        text = moment(this[fieldName]).format(this.dateAsStringFormat);
       } catch (err) {
         text = '';
       }
@@ -132,7 +134,7 @@ export class BaseResourceModel {
     let value: string;
     value = '';
     try {
-      value = moment(this[fieldName]).format('YYYY-MM-DD');
+      value = moment(this[fieldName]).format(this.dateInputFormat);
     } catch (err) {
       value = '';
     }
@@ -147,7 +149,7 @@ export class BaseResourceModel {
       return;
     }
     try {
-      value = moment(value, 'YYYY-MM-DD').toDate();
+      value = moment(value, this.dateInputFormat).toDate();
     } catch (err) {
       value = null;
     }
