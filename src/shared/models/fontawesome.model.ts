@@ -9,7 +9,6 @@ export class Fontawesome extends BaseResourceModel {
   };
   static fields: any = ['code', 'class'];
 
-  className = 'Fontawesome';
   pkFieldName = 'class';
   pkIsNumber = false;
 

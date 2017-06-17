@@ -11,8 +11,6 @@ export class GroupPermission extends BaseResourceModel {
   };
   static fields: any = ['id', 'group', 'permission'];
 
-  className = 'GroupPermission';
-
   id: number;
   group: Group;
   permission: Permission;

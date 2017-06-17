@@ -12,8 +12,6 @@ export class Group extends BaseResourceModel {
   };
   static fields: any = ['id', 'name', 'title', 'permissions'];
 
-  className = 'Group';
-
   id: number;
   name: string;
   title: string;

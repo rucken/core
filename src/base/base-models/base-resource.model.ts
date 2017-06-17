@@ -20,6 +20,10 @@ export class BaseResourceModel {
   }
 
   constructor(obj?: any) {
+    const funcNameRegex = /function (.{1,})\(/;
+    const results = (funcNameRegex).exec((this).constructor.toString());
+    this.className = (results && results.length > 1) ? results[1] : '';
+
     if (this.pkFieldName === undefined) {
       this.pkFieldName = 'id';
     }
@@ -126,6 +130,21 @@ export class BaseResourceModel {
       }
     }
     return text;
+  }
+  setDateAsString(fieldName: string, value: any) {
+    if (this[fieldName] === undefined) {
+      this[fieldName] = null;
+      return;
+    }
+    try {
+      value = moment(value, this.dateAsStringFormat).toDate();
+    } catch (err) {
+      value = null;
+    }
+    if (value === 'Invalid date') {
+      value = null;
+    }
+    this[fieldName] = value;
   }
   getDateInput(fieldName: string) {
     if (this[fieldName] === undefined) {
