@@ -14,7 +14,6 @@
         "angular2-text-mask": "*",
         "lodash": "*",
         "ngx-bootstrap": "*",
-        "text-mask-addons": "*",
-        "ngx-mydatepicker": "*"
+        "text-mask-addons": "*"
     }
 }
