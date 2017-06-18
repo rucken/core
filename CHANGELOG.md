@@ -1,3 +1,14 @@
+<a name="1.9.1"></a>
+## [1.9.1](https://github.com/site15/rucken/compare/1.9.0...v1.9.1) (2017-06-18)
+
+
+### Bug Fixes
+
+* **models:** Add detect className to model class constructor ([8021d59](https://github.com/site15/rucken/commit/8021d59))
+* **text-input:** Remove all usages ngx-mydatepicker, change to datepicker from ngx-bootstrap ([fb7ab51](https://github.com/site15/rucken/commit/fb7ab51))
+
+
+
 <a name="1.9.0"></a>
 # [1.9.0](https://github.com/site15/rucken/compare/1.8.3...v1.9.0) (2017-06-14)
 
