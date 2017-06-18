@@ -11,16 +11,18 @@
       #inputElement></textarea>
   </div>
   <div [ngClass]="inputFrameClass" *ngIf="type==='date' && !isNativeDateInput">
-    <input style="float:none" ngx-mydatepicker type="text" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
-      [(ngModel)]="dateModel" [options]="dateOptions" #dp="ngx-mydatepicker" [attr.placeholder]="placeholder"  [readonly]="readonly"
-      [attr.maxlength]="maxlength" [attr.step]="step" [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
-      triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip"
-      #inputElement>
+    <input [ngModel]="value" [textMask]="mask" (change)="dateInputChange($event)" type="text" [ngClass]="inputClass" [attr.id]="'input'+name"
+      [attr.name]="'input'+name" [attr.placeholder]="placeholder" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
+      [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
+      container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
     <span class="input-group-btn">
-      <button type="button" class="btn btn-default" (click)="dp.toggleCalendar()">
+      <button type="button" class="btn btn-default" (click)="showDatePicker = !showDatePicker">
           <i class="fa fa-calendar"></i>
       </button>
     </span>
+  </div>
+  <div *ngIf="showDatePicker && !isNativeDateInput" style="position: absolute; z-index:10; min-height:290px;">
+    <datepicker [(ngModel)]="dateValue" [minDate]="minDate" [maxDate]="maxDate" [startingDay]="startingDay" (selectionDone)="showDatePicker=false"></datepicker>
   </div>
   <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
 </div>
