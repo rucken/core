@@ -9,8 +9,6 @@ export class ContentType extends BaseResourceModel {
   };
   static fields: any = ['id', 'name', 'title'];
 
-  className = 'ContentType';
-
   id: number;
   name: string;
   title: string;

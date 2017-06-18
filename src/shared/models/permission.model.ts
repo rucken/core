@@ -11,8 +11,6 @@ export class Permission extends BaseResourceModel {
   };
   static fields: any = ['id', 'contentType', 'title', 'name'];
 
-  className = 'Permission';
-
   id: number;
   contentType: ContentType;
   title: string;

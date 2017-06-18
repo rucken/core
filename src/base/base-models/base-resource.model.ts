@@ -6,6 +6,8 @@ export class BaseResourceModel {
   className = 'ResourceModel';
   pkFieldName: string;
   pkIsNumber: boolean;
+  dateAsStringFormat = 'DD.MM.YYYY';
+  dateInputFormat = 'YYYY-MM-DD';
   [key: string]: any;
 
   get pk(): string | number {
@@ -18,6 +20,10 @@ export class BaseResourceModel {
   }
 
   constructor(obj?: any) {
+    const funcNameRegex = /function (.{1,})\(/;
+    const results = (funcNameRegex).exec((this).constructor.toString());
+    this.className = (results && results.length > 1) ? results[1] : '';
+
     if (this.pkFieldName === undefined) {
       this.pkFieldName = 'id';
     }
@@ -115,7 +121,7 @@ export class BaseResourceModel {
     text = '';
     if (this[fieldName] !== undefined) {
       try {
-        text = moment(this[fieldName]).format('DD.MM.YYYY');
+        text = moment(this[fieldName]).format(this.dateAsStringFormat);
       } catch (err) {
         text = '';
       }
@@ -125,6 +131,21 @@ export class BaseResourceModel {
     }
     return text;
   }
+  setDateAsString(fieldName: string, value: any) {
+    if (this[fieldName] === undefined) {
+      this[fieldName] = null;
+      return;
+    }
+    try {
+      value = moment(value, this.dateAsStringFormat).toDate();
+    } catch (err) {
+      value = null;
+    }
+    if (value === 'Invalid date') {
+      value = null;
+    }
+    this[fieldName] = value;
+  }
   getDateInput(fieldName: string) {
     if (this[fieldName] === undefined) {
       return '';
@@ -132,7 +153,7 @@ export class BaseResourceModel {
     let value: string;
     value = '';
     try {
-      value = moment(this[fieldName]).format('YYYY-MM-DD');
+      value = moment(this[fieldName]).format(this.dateInputFormat);
     } catch (err) {
       value = '';
     }
@@ -147,7 +168,7 @@ export class BaseResourceModel {
       return;
     }
     try {
-      value = moment(value, 'YYYY-MM-DD').toDate();
+      value = moment(value, this.dateInputFormat).toDate();
     } catch (err) {
       value = null;
     }

@@ -25,14 +25,12 @@ export class User extends BaseResourceModel {
     lastLogin: translate('Last login'),
     dateJoined: translate('Date joined'),
     groups: translate('Groups'),
-    dateOfBirth:  translate('Date of birth'),
+    dateOfBirth: translate('Date of birth'),
   };
   static dateFields: any = ['lastLogin', 'dateJoined', 'dateOfBirth'];
   static fields: any = ['id', 'username', 'password', 'isSuperuser',
     'isStaff', 'isActive', 'firstName', 'lastName', 'email',
     'lastLogin', 'dateJoined', 'groups', 'dateOfBirth'];
-
-  className = 'User';
 
   id: number;
   username: string;
@@ -162,5 +160,8 @@ export class User extends BaseResourceModel {
   }
   get dateOfBirthAsString() {
     return this.dateAsString('dateOfBirth');
+  }
+  set dateOfBirthAsString(text: string) {
+    this.setDateAsString('dateOfBirth', text);
   }
 }

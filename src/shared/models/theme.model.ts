@@ -9,7 +9,6 @@ export class Theme extends BaseResourceModel {
 
   static fields: any = ['url', 'name'];
 
-  className = 'Theme';
   pkFieldName = 'url';
   pkIsNumber = false;
 

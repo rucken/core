@@ -1,6 +1,6 @@
 {
     "name": "rucken",
-    "version": "1.9.0",
+    "version": "1.9.1",
     "peerDependencies": {
         "@angular/common": "*",
         "@angular/compiler": "*",
@@ -14,7 +14,6 @@
         "angular2-text-mask": "*",
         "lodash": "*",
         "ngx-bootstrap": "*",
-        "text-mask-addons": "*",
-        "ngx-mydatepicker": "*"
+        "text-mask-addons": "*"
     }
 }
