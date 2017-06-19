@@ -6,6 +6,8 @@ import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.comp
 import { EventEmitter, Component, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './../base-component/base-component.component';
 import { translate } from '../../shared/utils';
+import 'moment/locale/ru';
+import * as moment from 'moment/moment';
 
 @Component({
   selector: 'base-app-root',
@@ -47,10 +49,17 @@ export class BaseAppComponent extends BaseComponent {
     this.languages.filter(lang => lang.dic).map(lang => this.translateService.setTranslation(lang.code, lang.dic));
     const browserLang: string = this.translateService.getBrowserLang();
     if (this.languages.filter(lang => lang.code === browserLang).length > 0) {
-      this.translateService.use(browserLang);
+      this.currentLanguage = browserLang;
     } else {
-      this.translateService.use(this.currentLang);
+      this.currentLanguage = this.currentLang;
     }
+  }
+  get currentLanguage() {
+    return this.translateService.currentLang;
+  }
+  set currentLanguage(lang: string) {
+    moment.locale(lang);
+    this.translateService.use(lang);
   }
   init() {
     if (this.autoLoadLang === true) {

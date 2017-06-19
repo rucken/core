@@ -7,7 +7,6 @@ import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import * as moment from 'moment/moment';
 import * as _ from 'lodash';
-import { BaseResourceModel } from '../../base/base-models/base-resource.model';
 import { TextInputConfig } from './text-input.config';
 
 @Component({
@@ -60,11 +59,7 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   maxDate?: Date = null;
   @Input()
-  dateOptions?: any;
-  @Input()
   isNativeDateInput?: boolean;
-  @Input()
-  record: BaseResourceModel = new BaseResourceModel();
   @Input()
   startingDay: number;
   private _dateValue: any;
@@ -128,9 +123,7 @@ export class TextInputComponent extends BaseComponent {
   set dateValue(value: any) {
     this._dateValue = value;
     if (this.type === 'date') {
-      this.record.dateValue = value;
-      this.record.dateInputFormat = this.record.dateAsStringFormat;
-      this.value = this.record.getDateInput('dateValue');
+      this.value = this.getStringFromDateValue();
     }
   }
   dateInputChange(value: any) {
@@ -139,17 +132,17 @@ export class TextInputComponent extends BaseComponent {
     } else {
       this.value = value;
     }
-    this.record.dateValue = null;
-    this.record.dateInputFormat = this.record.dateAsStringFormat;
-    this.record.setDateInput('dateValue', this.value);
-    this._dateValue = this.record.dateValue;
-    if (this._dateValue.toString() === 'Invalid Date') {
+    this.setDateValueFromString(this.value);
+    if (!this._dateValue || this._dateValue.toString() === 'Invalid Date') {
       this._dateValue = new Date();
     }
   }
   get value() {
     if (this.hardValue !== null) {
       return this.hardValue;
+    }
+    if (this.type === 'date' && !this.isNativeDateInput) {
+      return moment(moment(this.model, this.config.nativeInputDateFormat).toDate()).format(this.config.inputDateFormat);
     }
     return this.model;
   }
@@ -158,7 +151,34 @@ export class TextInputComponent extends BaseComponent {
       delete this.errorsValue[this.name];
       this.tooltipText = '';
     }
-    this.model = value;
+    this.model = moment(moment(value, this.config.inputDateFormat).toDate()).format(this.config.nativeInputDateFormat);
     this.modelChange.emit(this.model);
+  }
+  getStringFromDateValue() {
+    if (this._dateValue === undefined) {
+      return '';
+    }
+    let value: string;
+    value = '';
+    try {
+      value = moment(this._dateValue).format(this.config.inputDateFormat);
+    } catch (err) {
+      value = '';
+    }
+    if (value === 'Invalid date') {
+      value = '';
+    }
+    return value;
+  }
+  setDateValueFromString(value: any) {
+    try {
+      value = moment(value, this.config.inputDateFormat).toDate();
+    } catch (err) {
+      value = null;
+    }
+    if (value === 'Invalid date') {
+      value = null;
+    }
+    this._dateValue = value;
   }
 }

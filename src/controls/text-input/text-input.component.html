@@ -22,7 +22,8 @@
     </span>
   </div>
   <div *ngIf="showDatePicker && !isNativeDateInput" style="position: absolute; z-index:10; min-height:290px;">
-    <datepicker [(ngModel)]="dateValue" [minDate]="minDate" [maxDate]="maxDate" [startingDay]="startingDay" (selectionDone)="showDatePicker=false"></datepicker>
+    <datepicker [(ngModel)]="dateValue" [minDate]="minDate" [maxDate]="maxDate" [showWeeks]="false" [startingDay]="startingDay"
+      (selectionDone)="showDatePicker=false"></datepicker>
   </div>
   <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
 </div>

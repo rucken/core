@@ -19,6 +19,7 @@ export class TextInputConfig {
     thousandsSeparatorSymbol: ' '
   };
   nativeInputDateFormat = 'YYYY-MM-DD';
+  inputDateFormat = 'DD.MM.YYYY';
   phoneMask = {
     mask: ['+', /\d/, '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   };

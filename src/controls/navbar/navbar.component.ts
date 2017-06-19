@@ -9,8 +9,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import 'moment/locale/ru';
-import * as moment from 'moment/moment';
 
 
 @Component({
@@ -50,6 +48,14 @@ export class NavbarComponent extends BaseComponent {
   get languages() {
     return this.app.component.languages;
   }
+  get currentLanguage() {
+    return this.app.component.currentLanguage;
+  }
+  set currentLanguage(lang: string) {
+    this.languagesIsCollapsed = true;
+    this.isCollapsed = true;
+    this.app.component.currentLanguage = lang;
+  }
   get version() {
     return this.app.version;
   }
@@ -75,15 +81,6 @@ export class NavbarComponent extends BaseComponent {
     return _.sortBy(items, [
       (item: any) => { return item.title }
     ]);
-  }
-  get currentLanguage() {
-    return this.translateService.currentLang;
-  }
-  set currentLanguage(lang: string) {
-    moment.locale(lang);
-    this.languagesIsCollapsed = true;
-    this.isCollapsed = true;
-    this.translateService.use(lang);
   }
   showChangeLog() {
     if (this.changelog) {
