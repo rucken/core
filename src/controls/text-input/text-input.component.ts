@@ -90,9 +90,6 @@ export class TextInputComponent extends BaseComponent {
     if (this.type === undefined) {
       this.type = 'text';
     }
-    if (this.type === 'date' && this.inputFrameClass === undefined && !this.isNativeDateInput) {
-      this.inputFrameClass = 'input-group';
-    }
     if (this.inputFrameClass === undefined) {
       this.inputFrameClass = '';
     }
