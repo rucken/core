@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class TextInputConfig {
-  isNativeDateInput = false;
+  isNativeDateInput = true;
   errorInTooltip = true;
   maxlength = 250;
   step = 'any';
