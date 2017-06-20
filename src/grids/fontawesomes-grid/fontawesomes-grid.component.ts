@@ -60,11 +60,14 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.readonly = !this.account.checkPermissions(['add_fontawesome']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new fontawesome');
-    itemModal.onSave.subscribe(($event: any) => this.save($event));
+    itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Fontawesome();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   showEditModal(item: any | Fontawesome) {
     if (this.modalIsOpened) {
@@ -80,11 +83,14 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Fontawesome info');
     }
-    itemModal.onSave.subscribe(($event: any) => this.save($event));
+    itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Fontawesome(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   showRemoveModal(item: any | Fontawesome) {
     if (this.modalIsOpened) {
@@ -96,10 +102,13 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a fontawesome?');
-    confirm.onYes.subscribe(($event: any) => this.remove($event));
+    confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      confirm.okInProcessFromStatus(status)
+    );
   }
   save(itemModal: FontawesomeModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(

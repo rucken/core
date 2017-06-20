@@ -4,12 +4,9 @@ export enum ResouceEnumStatus {
   Creating,
   Updating,
   Removing,
+  Processing,
   NotAccess,
   NotFound,
   Invalid,
-  Error,
-  AccountInfo,
-  AccountLogin,
-  AccountLogout,
-  AccountUpdate
+  Error
 }

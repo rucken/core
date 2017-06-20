@@ -53,7 +53,7 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Fontawesomes');
-    itemModal.onSave.subscribe(($event: any) => {
+    itemModal.onOk.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputReadonly === false) {
         this.valueAsString = '';
@@ -63,5 +63,8 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
 }

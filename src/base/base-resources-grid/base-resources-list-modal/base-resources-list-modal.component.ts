@@ -12,16 +12,8 @@ export class BaseResourceListModalComponent extends BaseModalComponent {
   readonly = false;
   @Input()
   hardReadonly = false;
-  @Output()
-  onSave: EventEmitter<any> = new EventEmitter<any>();
 
   item: any = {};
   items: any[] = [];
   modelMeta: any = {};
-
-  afterInit() { console.log('group permission grid'); }
-  select() {
-    this.onSave.emit(this);
-    return false;
-  }
 }

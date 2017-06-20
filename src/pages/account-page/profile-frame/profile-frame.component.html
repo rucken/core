@@ -1,2 +1,2 @@
 <page-header [title]="title"></page-header>
-<account-profile-form (onSave)="update($event)" (onCancel)="cancel($event)" [item]="account" *ngIf="account"></account-profile-form>
+<account-profile-form (onSave)="update($event)" (onCancel)="cancel($event)" [item]="account" *ngIf="account" #accountProfileForm></account-profile-form>

@@ -23,7 +23,7 @@ export class ContentTypesListModalComponent extends BaseResourceListModalCompone
   @Output()
   onClose: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
   @Output()
-  onSave: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
+  onOk: EventEmitter<ContentTypesListModalComponent> = new EventEmitter<ContentTypesListModalComponent>();
 
   item: any | ContentType = new ContentType();
   items: any[] | ContentType[] = [];

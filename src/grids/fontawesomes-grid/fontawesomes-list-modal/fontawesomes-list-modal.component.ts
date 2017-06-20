@@ -23,7 +23,7 @@ export class FontawesomesListModalComponent extends BaseResourceListModalCompone
   @Output()
   onClose: EventEmitter<FontawesomesListModalComponent> = new EventEmitter<FontawesomesListModalComponent>();
   @Output()
-  onSave: EventEmitter<FontawesomesListModalComponent> = new EventEmitter<FontawesomesListModalComponent>();
+  onOk: EventEmitter<FontawesomesListModalComponent> = new EventEmitter<FontawesomesListModalComponent>();
 
   item: any | Fontawesome = new Fontawesome();
   items: any[] | Fontawesome[] = [];

@@ -64,7 +64,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.account = this.account;
     itemModal.text = this.translateService.instant('Select');
     itemModal.title = this.translateService.instant('Content types');
-    itemModal.onSave.subscribe(($event: any) => {
+    itemModal.onOk.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputElement) {
         this.inputElement.value = this.value.pk;
@@ -77,6 +77,9 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   get statusListMessage() {
     return '';

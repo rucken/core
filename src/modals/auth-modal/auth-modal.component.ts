@@ -24,16 +24,12 @@ export class AuthModalComponent extends BaseModalComponent {
   @Output()
   onClose: EventEmitter<AuthModalComponent | any> = new EventEmitter();
   @Output()
-  onLogin: EventEmitter<AuthModalComponent | any> = new EventEmitter();
+  onOk: EventEmitter<AuthModalComponent | any> = new EventEmitter();
 
   modelMeta: any = User.meta();
 
   init() {
     super.init();
     this.account = new User();
-  }
-  login() {
-    this.onLogin.emit(this);
-    return false;
   }
 }

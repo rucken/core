@@ -25,7 +25,7 @@ export class GroupsListModalComponent extends BaseResourceListModalComponent {
   @Output()
   onClose: EventEmitter<GroupsListModalComponent> = new EventEmitter<GroupsListModalComponent>();
   @Output()
-  onSave: EventEmitter<GroupsListModalComponent> = new EventEmitter<GroupsListModalComponent>();
+  onOk: EventEmitter<GroupsListModalComponent> = new EventEmitter<GroupsListModalComponent>();
 
   item: any | Group = new Group();
   items: any[] | Group[] = [];

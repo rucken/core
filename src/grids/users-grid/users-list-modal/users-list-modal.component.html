@@ -1,5 +1,4 @@
-<div bsModal #modal="bs-modal" class="modal fade user-modal" tabindex="-1" role="dialog"
-  aria-hidden="true">
+<div bsModal #modal="bs-modal" class="modal fade user-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -9,12 +8,12 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <users-grid #users (onEnter)="select()" [onEnterEnabled]="true" (onSelectItems)="selectUser($event)" [hardReadonly]="hardReadonly"
+        <users-grid #users (onEnter)="ok()" [onEnterEnabled]="true" (onSelectItems)="selectUser($event)" [hardReadonly]="hardReadonly"
           [exclude]="exclude" #focusElement></users-grid>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" (click)="close()" translate>Close</button>
-        <button type="button" class="btn btn-success" (click)="select()">{{text | translate}}</button>
+        <modal-footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" closeTitle="{{'Close'|translate}}"
+          okBtnClass="btn-success" [okInProcess]="okInProcess"></modal-footer-buttons>
       </div>
     </div>
   </div>

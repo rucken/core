@@ -8,15 +8,15 @@
                 </button>
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
-      <form (ngSubmit)="login()">
+      <form (ngSubmit)="ok()">
         <div class="modal-body">
           <text-input [errors]="errors" [info]="info" name="username" [(model)]="account.username" [title]="modelMeta.titles.usernameOrEmail"
             [focused]="true" #focusElement></text-input>
           <text-input [errors]="errors" [info]="info" type="password" name="password" [(model)]="account.password" [title]="modelMeta.titles.password"></text-input>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" (click)="close()" translate>Cancel</button>
-          <button type="submit" class="btn btn-primary" translate>Login</button>
+          <modal-footer-buttons (onClose)="close()" (onOk)="ok()" okTitle="{{'Login'||translate}}"
+            closeTitle="{{'Cancel'|translate}}" #focusElement [okInProcess]="okInProcess"></modal-footer-buttons>
         </div>
       </form>
     </div>

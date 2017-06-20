@@ -14,11 +14,4 @@ export class BaseResourceModalComponent extends BaseModalComponent {
   item: any = {};
   @Input()
   modelMeta: any = {};
-  @Output()
-  onSave: EventEmitter<any>;
-
-  save() {
-    this.onSave.emit(this);
-    return false;
-  }
 }

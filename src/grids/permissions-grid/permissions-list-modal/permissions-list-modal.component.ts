@@ -23,7 +23,7 @@ export class PermissionsListModalComponent extends BaseResourceListModalComponen
   @Output()
   onClose: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
   @Output()
-  onSave: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
+  onOk: EventEmitter<PermissionsListModalComponent> = new EventEmitter<PermissionsListModalComponent>();
 
   item: any | Permission = new Permission();
   items: any[] | Permission[] = [];

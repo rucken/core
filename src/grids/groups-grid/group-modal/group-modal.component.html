@@ -8,7 +8,7 @@
                 </button>
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
-      <form (ngSubmit)="save()">
+      <form (ngSubmit)="ok()">
         <div class="modal-body">
           <text-input [errors]="errors" [info]="info" name="name" [(model)]="item.name" [title]="modelMeta.titles.name" [readonly]="readonly"
             [focused]="true" #focusElement></text-input>
@@ -16,7 +16,7 @@
           <group-permissions-grid [loadAll]="false" #groupPermissions [readonly]="readonly"></group-permissions-grid>
         </div>
         <div class="modal-footer">
-          <modal-footer-buttons (onClose)="close()" [readonly]="readonly" [okTitle]="text"></modal-footer-buttons>
+          <modal-footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" [okInProcess]="okInProcess"></modal-footer-buttons>
         </div>
       </form>
     </div>

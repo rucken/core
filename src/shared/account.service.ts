@@ -64,8 +64,8 @@ export class AccountService {
   }
   login(account: any | User) {
     const result = new EventEmitter();
-    this.setStatus(ResouceEnumStatus.Loading,
-      translate('Loading...')
+    this.setStatus(ResouceEnumStatus.Processing,
+      translate('Login...')
     );
     this.endpointHelper.actionRequest(this, 'login', account.AsLoginUser).map(
       (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
@@ -84,9 +84,13 @@ export class AccountService {
   }
   logout() {
     const result = new EventEmitter();
+    this.setStatus(ResouceEnumStatus.Processing,
+      translate('Logout...')
+    );
     setTimeout((out: any) => {
       this.account = null;
       result.emit({ message: 'OK' });
+      this.setStatus(ResouceEnumStatus.Ok);
     }, 700);
     return result;
   }

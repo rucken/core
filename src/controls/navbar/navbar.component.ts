@@ -111,8 +111,11 @@ export class NavbarComponent extends BaseComponent {
     confirm.name = 'logout';
     confirm.title = this.translateService.instant('Logout');
     confirm.message = this.translateService.instant('Do you really want to leave?');
-    confirm.onYes.subscribe(($event: any) => this.logout($event));
+    confirm.onOk.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
+    this.accountService.changeStatus$.subscribe(status =>
+      confirm.okInProcessFromStatus(status)
+    );
   }
   logout(itemModal: ConfirmModalComponent) {
     this.accountService.logout().subscribe(
@@ -134,8 +137,11 @@ export class NavbarComponent extends BaseComponent {
     this.isCollapsed = true;
     const itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'login');
     itemModal.title = this.translateService.instant('Authorization');
-    itemModal.onLogin.subscribe(($event: any) => this.login($event));
+    itemModal.onOk.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
+    this.accountService.changeStatus$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   login(itemModal: AuthModalComponent) {
     this.accountService.login(itemModal.account).subscribe(

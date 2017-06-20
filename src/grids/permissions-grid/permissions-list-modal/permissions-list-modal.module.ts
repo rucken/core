@@ -4,11 +4,12 @@ import { PermissionsListModalComponent } from './permissions-list-modal.componen
 import { ModalModule } from 'ngx-bootstrap';
 import { PermissionsGridModule } from './../permissions-grid.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { ModalFooterButtonsModule } from '../../../controls/modal-footer-buttons/modal-footer-buttons.module';
 
 @NgModule({
   imports: [
     CommonModule, ModalModule.forRoot(), TranslateModule.forChild(),
-    PermissionsGridModule.forRoot(), PermissionsGridModule.forRoot()
+    ModalFooterButtonsModule.forRoot(), PermissionsGridModule.forRoot(), PermissionsGridModule.forRoot()
   ],
   declarations: [
     PermissionsListModalComponent

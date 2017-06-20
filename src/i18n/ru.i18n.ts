@@ -99,6 +99,8 @@ export const RuckenRuI18n = {
     'Account': 'Личный кабинет',
     'Profile': 'Профиль',
     'Admin': 'Администрирование',
+    'Components': 'Компоненты',
+    'Controls': 'Контролы',
     'Home': 'Домашняя страница',
     'Themes': 'Темы',
     'Unknown error': 'Неизвестная ошибка',

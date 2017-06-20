@@ -274,6 +274,12 @@ msgstr "Профиль"
 msgid "Admin"
 msgstr "Администрирование"
 
+msgid "Components"
+msgstr "Компоненты"
+
+msgid "Controls"
+msgstr "Контролы"
+
 msgid "Home"
 msgstr "Домашняя страница"
 

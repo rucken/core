@@ -35,7 +35,7 @@ export class GroupModalComponent extends BaseResourceModalComponent {
   @Output()
   onClose: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
   @Output()
-  onSave: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
+  onOk: EventEmitter<GroupModalComponent> = new EventEmitter<GroupModalComponent>();
   afterOpen() {
     this.groupPermissions.group = this.item;
     this.groupPermissions.mockedItems =
@@ -48,9 +48,9 @@ export class GroupModalComponent extends BaseResourceModalComponent {
     this.groupPermissions.search();
   }
 
-  save() {
+  ok() {
     this.item.permissions =
       this.groupPermissions.mockedItems.map((groupPermission: GroupPermission) => groupPermission.permission);
-    return super.save();
+    return super.ok();
   }
 }

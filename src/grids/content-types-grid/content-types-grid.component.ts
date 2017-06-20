@@ -58,11 +58,14 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     itemModal.readonly = !this.account.checkPermissions(['add_content-type']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new content type');
-    itemModal.onSave.subscribe(($event: any) => this.save($event));
+    itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new ContentType();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   showEditModal(item: any | ContentType) {
     if (this.modalIsOpened) {
@@ -78,11 +81,14 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Content type info');
     }
-    itemModal.onSave.subscribe(($event: any) => this.save($event));
+    itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new ContentType(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   showRemoveModal(item: any | ContentType) {
     if (this.modalIsOpened) {
@@ -94,10 +100,13 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a content type?');
-    confirm.onYes.subscribe(($event: any) => this.remove($event));
+    confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      confirm.okInProcessFromStatus(status)
+    );
   }
   save(itemModal: ContentTypeModalComponent) {
     this.cachedResourcesService.save(itemModal.item).subscribe(

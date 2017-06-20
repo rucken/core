@@ -1,19 +1,20 @@
 {
-    "name": "rucken",
-    "version": "1.9.1",
-    "peerDependencies": {
-        "@angular/common": "*",
-        "@angular/compiler": "*",
-        "@angular/core": "*",
-        "@angular/forms": "*",
-        "@angular/router": "*",
-        "@types/lodash": "*",
-        "@ngui/auto-complete": "*",
-        "@ngx-translate/core": "*",
-        "angular2-jwt": "*",
-        "angular2-text-mask": "*",
-        "lodash": "*",
-        "ngx-bootstrap": "*",
-        "text-mask-addons": "*"
-    }
+  "name": "rucken",
+  "version": "1.9.1",
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/compiler": "*",
+    "@angular/core": "*",
+    "@angular/forms": "*",
+    "@angular/router": "*",
+    "@types/lodash": "*",
+    "@ngui/auto-complete": "*",
+    "@ngx-translate/core": "*",
+    "angular2-jwt": "*",
+    "angular2-text-mask": "*",
+    "angular2-ladda": "*",
+    "lodash": "*",
+    "ngx-bootstrap": "*",
+    "text-mask-addons": "*"
+  }
 }

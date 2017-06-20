@@ -1,5 +1,4 @@
-<div bsModal #modal="bs-modal" class="modal fade user-modal" [ngClass]="class" tabindex="-1" role="dialog"
-  aria-hidden="true">
+<div bsModal #modal="bs-modal" class="modal fade user-modal" [ngClass]="class" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,7 +7,7 @@
                 </button>
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
-      <form (ngSubmit)="save()">
+      <form (ngSubmit)="ok()">
         <div class="modal-body">
           <div class="row">
             <div class="col-md-6">
@@ -53,7 +52,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <modal-footer-buttons (onClose)="close()" [readonly]="readonly" [okTitle]="text"></modal-footer-buttons>
+          <modal-footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" [okInProcess]="okInProcess"></modal-footer-buttons>
         </div>
       </form>
     </div>

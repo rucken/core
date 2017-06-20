@@ -8,14 +8,14 @@
                 </button>
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
-      <form (ngSubmit)="save()">
+      <form (ngSubmit)="ok()">
         <div class="modal-body">
           <text-input [errors]="errors" [info]="info" name="code" [(model)]="item.code" [title]="modelMeta.titles.code" [readonly]="readonly"
             [focused]="true" #focusElement></text-input>
             <text-input [errors]="errors" [info]="info" name="class" [(model)]="item.class" [title]="modelMeta.titles.class" [readonly]="readonly"></text-input>
         </div>
         <div class="modal-footer">
-          <modal-footer-buttons (onClose)="close()" [readonly]="readonly" [okTitle]="text"></modal-footer-buttons>
+          <modal-footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" [okInProcess]="okInProcess"></modal-footer-buttons>
         </div>
       </form>
     </div>
