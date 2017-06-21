@@ -205,6 +205,12 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
+msgid "Login..."
+msgstr ""
+
+msgid "Logout..."
+msgstr ""
+
 msgid "Unknown error"
 msgstr ""
 
