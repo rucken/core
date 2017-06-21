@@ -1,3 +1,19 @@
+<a name="1.10.0"></a>
+# [1.10.0](https://github.com/site15/rucken/compare/1.9.1...v1.10.0) (2017-06-21)
+
+
+### Bug Fixes
+
+* **account-profile-form:** Fix dateOfBirth input type ([1677ce1](https://github.com/site15/rucken/commit/1677ce1))
+* **text-input:** Change default date style to native ([546ddf3](https://github.com/site15/rucken/commit/546ddf3))
+
+
+### Features
+
+* **modal-footer-buttons:** Change all buttons in modals and forms, add loading spinner ([28cf5d8](https://github.com/site15/rucken/commit/28cf5d8))
+
+
+
 <a name="1.9.1"></a>
 ## [1.9.1](https://github.com/site15/rucken/compare/1.9.0...v1.9.1) (2017-06-18)
 
