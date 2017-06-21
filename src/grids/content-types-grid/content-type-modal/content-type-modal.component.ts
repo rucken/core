@@ -30,5 +30,5 @@ export class ContentTypeModalComponent extends BaseResourceModalComponent {
   @Output()
   onClose: EventEmitter<ContentTypeModalComponent> = new EventEmitter<ContentTypeModalComponent>();
   @Output()
-  onSave: EventEmitter<ContentTypeModalComponent> = new EventEmitter<ContentTypeModalComponent>();
+  onOk: EventEmitter<ContentTypeModalComponent> = new EventEmitter<ContentTypeModalComponent>();
 }

@@ -71,7 +71,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.readonly = this.readonly;
     itemModal.text = this.translateService.instant('Append');
     itemModal.title = this.translateService.instant('Select permissions for append to group');
-    itemModal.onSave.subscribe(($event: any) => this.save($event));
+    itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Permission();
     itemModal.modal.show();
@@ -79,6 +79,9 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
       id: itemModal.item.pk,
       permission: itemModal.item
     })];
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   showEditModal(item: GroupPermission) {
     if (this.modalIsOpened) {
@@ -94,10 +97,13 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Permission info');
     }
-    itemModal.onSave.subscribe(($event: any) => this.savePermission($event));
+    itemModal.onOk.subscribe(($event: any) => this.savePermission($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = item.permission;
     itemModal.modal.show();
+    this.permissionsService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   savePermission(itemModal: PermissionModalComponent) {
     this.permissionsService.save(itemModal.item).subscribe(
@@ -124,10 +130,13 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a group permission?');
-    confirm.onYes.subscribe(($event: any) => this.remove($event));
+    confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+      confirm.okInProcessFromStatus(status)
+    );
   }
   save(itemModal: PermissionsListModalComponent) {
     const items: Permission[] = itemModal.items;

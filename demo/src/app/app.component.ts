@@ -1,7 +1,6 @@
 import { AppService, AlertModalComponent, BaseAppComponent } from './../../../src';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import * as _ from 'lodash';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({

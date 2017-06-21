@@ -94,78 +94,6 @@ msgstr "Вы действительно хотите выйти?"
 msgid "Authorization"
 msgstr "Авторизация"
 
-msgid "Sun"
-msgstr "Вс"
-
-msgid "Mon"
-msgstr "Пн"
-
-msgid "Tue"
-msgstr "Вт"
-
-msgid "Wed"
-msgstr "Ср"
-
-msgid "Thu"
-msgstr "Чт"
-
-msgid "Fri"
-msgstr "Пт"
-
-msgid "Sat"
-msgstr "Сб"
-
-msgid "Jan"
-msgstr "Янв"
-
-msgid "Feb"
-msgstr "Фев"
-
-msgid "Mar"
-msgstr "Мар"
-
-msgid "Apr"
-msgstr "Апр"
-
-msgid "May"
-msgstr "Май"
-
-msgid "Jun"
-msgstr "Июн"
-
-msgid "Jul"
-msgstr "Июл"
-
-msgid "Aug"
-msgstr "Авг"
-
-msgid "Sep"
-msgstr "Сен"
-
-msgid "Oct"
-msgstr "Окт"
-
-msgid "Nov"
-msgstr "Ноя"
-
-msgid "Dec"
-msgstr "Дек"
-
-msgid "Today"
-msgstr "Сегодня"
-
-msgid "Previous month"
-msgstr "Предыдущий месяц"
-
-msgid "Next month"
-msgstr "Следующий месяц"
-
-msgid "Previous year"
-msgstr "Предыдущий год"
-
-msgid "Next year"
-msgstr "Следующий год"
-
 msgid "Content types"
 msgstr "Тип содержимого"
 
@@ -274,11 +202,23 @@ msgstr "Профиль"
 msgid "Admin"
 msgstr "Администрирование"
 
+msgid "Components"
+msgstr "Компоненты"
+
+msgid "Controls"
+msgstr "Контролы"
+
 msgid "Home"
 msgstr "Домашняя страница"
 
 msgid "Themes"
 msgstr "Темы"
+
+msgid "Login..."
+msgstr "Вход..."
+
+msgid "Logout..."
+msgstr "Выход..."
 
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
@@ -384,6 +324,78 @@ msgstr "Вход"
 
 msgid "Actions"
 msgstr "Действия"
+
+#~ msgid "Sun"
+#~ msgstr "Вс"
+
+#~ msgid "Mon"
+#~ msgstr "Пн"
+
+#~ msgid "Tue"
+#~ msgstr "Вт"
+
+#~ msgid "Wed"
+#~ msgstr "Ср"
+
+#~ msgid "Thu"
+#~ msgstr "Чт"
+
+#~ msgid "Fri"
+#~ msgstr "Пт"
+
+#~ msgid "Sat"
+#~ msgstr "Сб"
+
+#~ msgid "Jan"
+#~ msgstr "Янв"
+
+#~ msgid "Feb"
+#~ msgstr "Фев"
+
+#~ msgid "Mar"
+#~ msgstr "Мар"
+
+#~ msgid "Apr"
+#~ msgstr "Апр"
+
+#~ msgid "May"
+#~ msgstr "Май"
+
+#~ msgid "Jun"
+#~ msgstr "Июн"
+
+#~ msgid "Jul"
+#~ msgstr "Июл"
+
+#~ msgid "Aug"
+#~ msgstr "Авг"
+
+#~ msgid "Sep"
+#~ msgstr "Сен"
+
+#~ msgid "Oct"
+#~ msgstr "Окт"
+
+#~ msgid "Nov"
+#~ msgstr "Ноя"
+
+#~ msgid "Dec"
+#~ msgstr "Дек"
+
+#~ msgid "Today"
+#~ msgstr "Сегодня"
+
+#~ msgid "Previous month"
+#~ msgstr "Предыдущий месяц"
+
+#~ msgid "Next month"
+#~ msgstr "Следующий месяц"
+
+#~ msgid "Previous year"
+#~ msgstr "Предыдущий год"
+
+#~ msgid "Next year"
+#~ msgstr "Следующий год"
 
 #~ msgid "Model"
 #~ msgstr "Модель"

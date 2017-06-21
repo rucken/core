@@ -35,7 +35,7 @@ export class UserModalComponent extends BaseResourceModalComponent {
   @Output()
   onClose: EventEmitter<UserModalComponent | any> = new EventEmitter();
   @Output()
-  onSave: EventEmitter<UserModalComponent | any> = new EventEmitter();
+  onOk: EventEmitter<UserModalComponent | any> = new EventEmitter();
 
   afterOpen() {
     this.userGroups.user = this.item;
@@ -48,9 +48,9 @@ export class UserModalComponent extends BaseResourceModalComponent {
       });
     this.userGroups.search();
   }
-  save() {
+  ok() {
     this.item.groups =
       this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
-    return super.save();
+    return super.ok();
   }
 }

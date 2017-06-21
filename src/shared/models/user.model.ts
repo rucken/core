@@ -161,7 +161,4 @@ export class User extends BaseResourceModel {
   get dateOfBirthAsString() {
     return this.dateAsString('dateOfBirth');
   }
-  set dateOfBirthAsString(text: string) {
-    this.setDateAsString('dateOfBirth', text);
-  }
 }

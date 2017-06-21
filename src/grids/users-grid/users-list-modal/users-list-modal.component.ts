@@ -22,7 +22,7 @@ export class UsersListModalComponent extends BaseResourceListModalComponent {
   @Output()
   onClose: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
   @Output()
-  onSave: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
+  onOk: EventEmitter<UsersListModalComponent> = new EventEmitter<UsersListModalComponent>();
 
   item: any | User = new User();
   items: any[] | User[] = [];

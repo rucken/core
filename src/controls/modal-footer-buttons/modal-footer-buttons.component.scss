@@ -1,3 +1,23 @@
-.modal-footer-buttons {
-
+.modal-footer-buttons{
+  .ladda-button[data-style=expand-left][data-loading] {
+    padding-left: 40px;
+  }
+  .ladda-button{
+    .ladda-spinner {
+        position: absolute;
+        z-index: 2;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        top: 50%;
+        margin-top: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+  }
+  .ladda-button[data-style=expand-left]{
+    .ladda-spinner {
+      left: 20px;
+    }
+  }
 }

@@ -11,7 +11,7 @@
             [readonly]="readonly"></text-input>
         </div>
         <div class="col-md-6">
-          <text-input [errors]="errors" [info]="info" type="date" name="date" [(model)]="item.date" [title]="modelMeta.titles.dateOfBirth"
+          <text-input [errors]="errors" [info]="info" type="date" name="dateOfBirth" [(model)]="item.dateOfBirthInput" [title]="modelMeta.titles.dateOfBirth"
             [readonly]="readonly"></text-input>
         </div>
         <div class="col-md-6">
@@ -42,7 +42,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <modal-footer-buttons (onClose)="cancel()" [readonly]="readonly" [okTitle]="text"></modal-footer-buttons>
+      <modal-footer-buttons (onClose)="cancel()" [readonly]="readonly" [okTitle]="text" [okInProcess]="okInProcess"></modal-footer-buttons>
     </div>
   </div>
 </form>

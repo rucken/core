@@ -85,78 +85,6 @@ msgstr ""
 msgid "Authorization"
 msgstr ""
 
-msgid "Sun"
-msgstr ""
-
-msgid "Mon"
-msgstr ""
-
-msgid "Tue"
-msgstr ""
-
-msgid "Wed"
-msgstr ""
-
-msgid "Thu"
-msgstr ""
-
-msgid "Fri"
-msgstr ""
-
-msgid "Sat"
-msgstr ""
-
-msgid "Jan"
-msgstr ""
-
-msgid "Feb"
-msgstr ""
-
-msgid "Mar"
-msgstr ""
-
-msgid "Apr"
-msgstr ""
-
-msgid "May"
-msgstr ""
-
-msgid "Jun"
-msgstr ""
-
-msgid "Jul"
-msgstr ""
-
-msgid "Aug"
-msgstr ""
-
-msgid "Sep"
-msgstr ""
-
-msgid "Oct"
-msgstr ""
-
-msgid "Nov"
-msgstr ""
-
-msgid "Dec"
-msgstr ""
-
-msgid "Today"
-msgstr ""
-
-msgid "Previous month"
-msgstr ""
-
-msgid "Next month"
-msgstr ""
-
-msgid "Previous year"
-msgstr ""
-
-msgid "Next year"
-msgstr ""
-
 msgid "Content types"
 msgstr ""
 
@@ -275,6 +203,12 @@ msgid "Home"
 msgstr ""
 
 msgid "Themes"
+msgstr ""
+
+msgid "Login..."
+msgstr ""
+
+msgid "Logout..."
 msgstr ""
 
 msgid "Unknown error"

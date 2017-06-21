@@ -9,8 +9,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { ActivatedRoute } from '@angular/router';
 import * as _ from 'lodash';
-import 'moment/locale/ru';
-import * as moment from 'moment/moment';
 
 
 @Component({
@@ -50,6 +48,14 @@ export class NavbarComponent extends BaseComponent {
   get languages() {
     return this.app.component.languages;
   }
+  get currentLanguage() {
+    return this.app.component.currentLanguage;
+  }
+  set currentLanguage(lang: string) {
+    this.languagesIsCollapsed = true;
+    this.isCollapsed = true;
+    this.app.component.currentLanguage = lang;
+  }
   get version() {
     return this.app.version;
   }
@@ -75,15 +81,6 @@ export class NavbarComponent extends BaseComponent {
     return _.sortBy(items, [
       (item: any) => { return item.title }
     ]);
-  }
-  get currentLanguage() {
-    return this.translateService.currentLang;
-  }
-  set currentLanguage(lang: string) {
-    moment.locale(lang);
-    this.languagesIsCollapsed = true;
-    this.isCollapsed = true;
-    this.translateService.use(lang);
   }
   showChangeLog() {
     if (this.changelog) {
@@ -114,8 +111,11 @@ export class NavbarComponent extends BaseComponent {
     confirm.name = 'logout';
     confirm.title = this.translateService.instant('Logout');
     confirm.message = this.translateService.instant('Do you really want to leave?');
-    confirm.onYes.subscribe(($event: any) => this.logout($event));
+    confirm.onOk.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
+    this.accountService.changeStatus$.subscribe(status =>
+      confirm.okInProcessFromStatus(status)
+    );
   }
   logout(itemModal: ConfirmModalComponent) {
     this.accountService.logout().subscribe(
@@ -137,8 +137,11 @@ export class NavbarComponent extends BaseComponent {
     this.isCollapsed = true;
     const itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'login');
     itemModal.title = this.translateService.instant('Authorization');
-    itemModal.onLogin.subscribe(($event: any) => this.login($event));
+    itemModal.onOk.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
+    this.accountService.changeStatus$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   login(itemModal: AuthModalComponent) {
     this.accountService.login(itemModal.account).subscribe(

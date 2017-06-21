@@ -23,6 +23,7 @@ import { DemoRepositoryHelper } from './demo/shared/helpers/repository.helper';
 import { RouterModule } from '@angular/router';
 import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
+import { LaddaModule } from 'angular2-ladda';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,11 @@ import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
     BrowserModule,
     FormsModule,
     HttpModule,
+    LaddaModule.forRoot({
+      style: 'expand-left',
+      spinnerColor: 'white',
+      spinnerLines: 12
+    }),
     AlertModalModule.forRoot(),
     DemoNavbarModule.forRoot(),
     AuthModalModule.forRoot(),

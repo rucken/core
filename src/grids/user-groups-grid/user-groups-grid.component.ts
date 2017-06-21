@@ -68,7 +68,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.readonly = this.readonly;
     itemModal.text = this.translateService.instant('Append');
     itemModal.title = this.translateService.instant('Select groups for append to user');
-    itemModal.onSave.subscribe(($event: any) => this.save($event));
+    itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Group();
     itemModal.modal.show();
@@ -91,11 +91,14 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     if (itemModal.readonly) {
       itemModal.title = this.translateService.instant('Group info');
     }
-    itemModal.onSave.subscribe(($event: any) => this.saveGroup($event));
+    itemModal.onOk.subscribe(($event: any) => this.saveGroup($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = item.group;
     itemModal.modal.show();
     this.selectedItems = [item];
+    this.groupsService.changeStatusItem$.subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   saveGroup(itemModal: GroupModalComponent) {
     this.groupsService.save(itemModal.item).subscribe(
@@ -122,7 +125,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     confirm.size = 'md';
     confirm.title = this.translateService.instant('Remove');
     confirm.message = this.translateService.instant('Are you sure you want to remove a user group?');
-    confirm.onYes.subscribe(($event: any) => this.remove($event));
+    confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();

@@ -1,5 +1,4 @@
-<div bsModal #modal="bs-modal" class="modal fade alert-modal" tabindex="-1" role="dialog"
-  aria-hidden="true">
+<div bsModal #modal="bs-modal" class="modal fade alert-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" [ngClass]="['modal-'+size]">
     <div class="modal-content">
       <div class="modal-header">
@@ -14,7 +13,8 @@
           <span *ngIf="!content">{{message | translate}}</span>
         </div>
         <div class="modal-footer">
-          <button type="submit" #focusElement class="btn" [ngClass]="[buttonClass]">{{buttonText}}</button>
+          <modal-footer-buttons (onOk)="close()" [okTitle]="buttonText" [okBtnClass]="buttonClass" [closeHidden]="true"
+            #focusElement [okInProcess]="okInProcess"></modal-footer-buttons>
         </div>
       </form>
     </div>

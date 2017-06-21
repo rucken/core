@@ -30,5 +30,5 @@ export class FontawesomeModalComponent extends BaseResourceModalComponent {
   @Output()
   onClose: EventEmitter<FontawesomeModalComponent> = new EventEmitter<FontawesomeModalComponent>();
   @Output()
-  onSave: EventEmitter<FontawesomeModalComponent> = new EventEmitter<FontawesomeModalComponent>();
+  onOk: EventEmitter<FontawesomeModalComponent> = new EventEmitter<FontawesomeModalComponent>();
 }

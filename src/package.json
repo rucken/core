@@ -12,6 +12,7 @@
         "@ngx-translate/core": "*",
         "angular2-jwt": "*",
         "angular2-text-mask": "*",
+        "angular2-ladda": "*",
         "lodash": "*",
         "ngx-bootstrap": "*",
         "text-mask-addons": "*"

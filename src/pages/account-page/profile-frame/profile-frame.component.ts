@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from './../../../shared/models/user.model';
 import { AccountService } from './../../../shared/account.service';
 import { AppService } from './../../../shared/app.service';
 import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { AccountProfileFormComponent } from '../../../grids/users-grid/account-profile-form/account-profile-form.component';
 
 @Component({
   selector: 'profile-frame',
@@ -12,6 +13,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./profile-frame.component.scss']
 })
 export class ProfileFrameComponent extends BaseFrameComponent {
+
+  @ViewChild('accountProfileForm')
+  accountProfileForm: AccountProfileFormComponent;
 
   modelMeta: any = User.meta();
   rePassword: string;
@@ -24,6 +28,12 @@ export class ProfileFrameComponent extends BaseFrameComponent {
     public router: Router
   ) {
     super(accountService, app, translateService, activatedRoute, router);
+  }
+  init() {
+    super.init();
+    this.accountService.changeStatus$.subscribe(status =>
+      this.accountProfileForm ? this.accountProfileForm.okInProcessFromStatus(status) : false
+    );
   }
   get readonly() {
     return !this.account || !this.account.checkPermissions(['change_profile']);

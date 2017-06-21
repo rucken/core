@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Injectable()
 export class TextInputConfig {
-  isNativeDateInput = false;
+  isNativeDateInput = true;
   errorInTooltip = true;
   maxlength = 250;
   step = 'any';
@@ -19,6 +19,7 @@ export class TextInputConfig {
     thousandsSeparatorSymbol: ' '
   };
   nativeInputDateFormat = 'YYYY-MM-DD';
+  inputDateFormat = 'DD.MM.YYYY';
   phoneMask = {
     mask: ['+', /\d/, '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   };

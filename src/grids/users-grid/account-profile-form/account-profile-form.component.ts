@@ -14,6 +14,7 @@ import { Group } from './../../../shared/models/group.model';
 import { UserGroup } from './../../../shared/models/user-group.model';
 import { translate } from './../../../shared/utils';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
+import { ResouceEnumStatus } from '../../../shared/enums/resource.enums';
 
 @Component({
   selector: 'account-profile-form',
@@ -44,6 +45,8 @@ export class AccountProfileFormComponent extends BaseComponent {
   item: any | User = new User();
   @Input()
   modelMeta: any = User.meta();
+  @Input()
+  okInProcess = false;
   @Output()
   onCancel: EventEmitter<AccountProfileFormComponent | any> = new EventEmitter();
   @Output()
@@ -70,5 +73,13 @@ export class AccountProfileFormComponent extends BaseComponent {
       this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
     this.onSave.emit(this.item);
     return false;
+  }
+  okInProcessFromStatus(status: ResouceEnumStatus) {
+    this.okInProcess =
+      status === ResouceEnumStatus.Creating ||
+      status === ResouceEnumStatus.Updating ||
+      status === ResouceEnumStatus.Removing ||
+      status === ResouceEnumStatus.Processing ||
+      status === ResouceEnumStatus.Loading;
   }
 }

@@ -30,5 +30,5 @@ export class PermissionModalComponent extends BaseResourceModalComponent {
   @Output()
   onClose: EventEmitter<PermissionModalComponent> = new EventEmitter<PermissionModalComponent>();
   @Output()
-  onSave: EventEmitter<PermissionModalComponent> = new EventEmitter<PermissionModalComponent>()
+  onOk: EventEmitter<PermissionModalComponent> = new EventEmitter<PermissionModalComponent>()
 }

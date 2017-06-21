@@ -1,6 +1,7 @@
 import { HostListener, Input, Output, EventEmitter, Component } from '@angular/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import * as _ from 'lodash';
+import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
 
 @Component({
   selector: 'base-modal-component',
@@ -22,8 +23,12 @@ export class BaseModalComponent extends BaseComponent {
   title?= '';
   @Input()
   message = '';
+  @Input()
+  okInProcess = false;
   @Output()
   onClose: EventEmitter<any> = new EventEmitter();
+  @Output()
+  onOk: EventEmitter<any> = new EventEmitter();
 
   currentLocation = '';
 
@@ -68,5 +73,17 @@ export class BaseModalComponent extends BaseComponent {
     }
     this.onClose.emit(this);
     return false;
+  }
+  ok() {
+    this.onOk.emit(this);
+    return false;
+  }
+  okInProcessFromStatus(status: ResouceEnumStatus) {
+    this.okInProcess =
+      status === ResouceEnumStatus.Creating ||
+      status === ResouceEnumStatus.Updating ||
+      status === ResouceEnumStatus.Removing ||
+      status === ResouceEnumStatus.Processing ||
+      status === ResouceEnumStatus.Loading;
   }
 }

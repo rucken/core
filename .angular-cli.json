@@ -18,10 +18,10 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
+        "../../node_modules/ladda/css/ladda.scss",
         "styles.scss"
       ],
-      "scripts": [
-      ],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

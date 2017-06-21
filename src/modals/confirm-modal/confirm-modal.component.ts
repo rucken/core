@@ -17,13 +17,4 @@ export class ConfirmModalComponent extends BaseModalComponent {
 
   @Input()
   name = 'confirm';
-  @Output()
-  onClose: EventEmitter<ConfirmModalComponent | any> = new EventEmitter();
-  @Output()
-  onYes: EventEmitter<ConfirmModalComponent | any> = new EventEmitter();
-
-  yes() {
-    this.onYes.emit(this);
-    return false;
-  }
 }
