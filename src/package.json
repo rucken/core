@@ -1,7 +1,7 @@
 {
     "name": "rucken",
-    "version": "1.9.1",
-    "peerDependencies": {
+    "version": "1.10.0",
+    "dependencies": {
         "@angular/common": "*",
         "@angular/compiler": "*",
         "@angular/core": "*",
