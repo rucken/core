@@ -148,7 +148,11 @@ export class TextInputComponent extends BaseComponent {
       delete this.errorsValue[this.name];
       this.tooltipText = '';
     }
-    this.model = moment(moment(value, this.config.inputDateFormat).toDate()).format(this.config.nativeInputDateFormat);
+    if (this.type === 'date' && !this.isNativeDateInput) {
+      this.model = moment(moment(value, this.config.inputDateFormat).toDate()).format(this.config.nativeInputDateFormat);
+    } else {
+      this.model = value;
+    }
     this.modelChange.emit(this.model);
   }
   getStringFromDateValue() {
