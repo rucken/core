@@ -118,7 +118,7 @@
     "protractor": "~5.1.2",
     "recursive-readdir": "^2.2.1",
     "srcgen": "^0.2.13",
-    "ts-node": "~3.0.6",
+    "ts-node": "~3.1.0",
     "tslint": "~5.4.3",
     "typescript": "~2.3.4",
     "typings": "^2.1.1"
