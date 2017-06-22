@@ -22,4 +22,7 @@ export class HomePageComponent extends BasePageComponent {
   ) {
     super(accountService, app, translateService, activatedRoute, router);
   }
+  get formatedReadme() {
+    return this.readme.replace('<h1 id="rucken">rucken</h1>', '');
+  }
 }
