@@ -1,10 +1,12 @@
+# rucken
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/valor-software/ngx-bootstrap.svg)](https://greenkeeper.io/)
 [![NPM version][npm-image]][npm-url]
-[![dependencies Status][dependencies-image]][dependencies-url]
 [![Build Status][travis-image]][travis-url]
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Status: Beta
+Core with Admin UI for web application maked on Angular4
 
 ## What is Rucken?
 
@@ -40,4 +42,4 @@ MIT
 [dependencies-image]: https://david-dm.org/site15/rucken/status.svg
 [dependencies-url]: https://david-dm.org/site15/rucken
 [telegram-image]: https://img.shields.io/badge/chat-telegram-blue.svg?maxAge=2592000
-[telegram-url]: https://t.me/joinchat/AAAAAAtLpXFkn1XWDUFCFA
+[telegram-url]: https://t.me/rucken
