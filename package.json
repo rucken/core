@@ -65,7 +65,7 @@
     "@angular/router": "^4.2.4",
     "@ngui/auto-complete": "^0.13.3",
     "@ngx-translate/core": "^7.0.0",
-    "@types/jasmine": "2.5.52",
+    "@types/jasmine": "2.5.53",
     "@types/lodash": "^4.14.66",
     "@types/marked": "0.0.28",
     "@types/node": "^8.0.1",
