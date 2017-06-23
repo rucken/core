@@ -1,6 +1,6 @@
 # rucken
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/valor-software/ngx-bootstrap.svg)](https://greenkeeper.io/)
+[![Greenkeeper badge](https://badges.greenkeeper.io/site15/rucken.svg)](https://greenkeeper.io/)
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Gitter][gitter-image]][gitter-url]
@@ -9,8 +9,6 @@
 Core with Admin UI for web application maked on Angular4
 
 ## What is Rucken?
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/site15/rucken.svg)](https://greenkeeper.io/)
 
 - **Core** - Base core for create web applications on `Angular4`.
 - **Admin** - Include work with admin, user groups and permissions.
