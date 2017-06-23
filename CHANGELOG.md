@@ -1,3 +1,11 @@
+<a name="1.10.1"></a>
+## [1.10.1](https://github.com/site15/rucken/compare/1.10.0...v1.10.1) (2017-06-23)
+
+### Bug Fixes
+
+* **demo:** Fix errors and add integrations with rollbar.com
+
+
 <a name="1.10.0"></a>
 # [1.10.0](https://github.com/site15/rucken/compare/1.9.1...v1.10.0) (2017-06-21)
 
