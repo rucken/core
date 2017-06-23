@@ -67,7 +67,7 @@ export class AccountService {
     this.setStatus(ResouceEnumStatus.Processing,
       translate('Login...')
     );
-    this.endpointHelper.actionRequest(this, 'login', account.AsLoginUser).map(
+    this.endpointHelper.actionRequest(this, 'login', account.formatToAuth()).map(
       (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
       subscribe((user: any | User) => {
         this.account = user;

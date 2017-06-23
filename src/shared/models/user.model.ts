@@ -146,7 +146,7 @@ export class User extends BaseResourceModel {
       return '';
     }
   }
-  get AsLoginUser(): any {
+  get formatToAuth(): any {
     return {
       username: this.username,
       password: this.password
