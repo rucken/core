@@ -126,6 +126,12 @@ export class User extends BaseResourceModel {
         group.checkPermissions(permissionNames)).length > 0;
     }
   }
+  formatToAuth(): any {
+    return {
+      username: this.username,
+      password: this.password
+    };
+  }
   get rolesAsString() {
     const roles: string[] = [];
     if (this.isActive) {
@@ -145,12 +151,6 @@ export class User extends BaseResourceModel {
     } else {
       return '';
     }
-  }
-  get formatToAuth(): any {
-    return {
-      username: this.username,
-      password: this.password
-    };
   }
   get dateOfBirthInput() {
     return this.getDateInput('dateOfBirth');
