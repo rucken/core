@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "importHelpers": true,
     "baseUrl": "",
     "declaration": false,
     "emitDecoratorMetadata": true,
