@@ -1,3 +1,13 @@
+<a name="1.10.2"></a>
+## [1.10.2](https://github.com/site15/rucken/compare/1.10.1...v1.10.2) (2017-06-28)
+
+
+### Bug Fixes
+
+* **user.model:** Fix method "formatToAuth" type ([d778e4b](https://github.com/site15/rucken/commit/d778e4b))
+
+
+
 <a name="1.10.1"></a>
 ## [1.10.1](https://github.com/site15/rucken/compare/1.10.0...v1.10.1) (2017-06-23)
 
