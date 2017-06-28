@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.10.1",
+  "version": "1.10.2",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "bugs": {
@@ -66,9 +66,9 @@
     "@ngui/auto-complete": "^0.13.3",
     "@ngx-translate/core": "^7.0.0",
     "@types/jasmine": "2.5.52",
-    "@types/lodash": "^4.14.66",
+    "@types/lodash": "^4.14.67",
     "@types/marked": "0.0.28",
-    "@types/node": "^8.0.1",
+    "@types/node": "^8.0.4",
     "@types/requirejs": "^2.1.29",
     "@types/webpack": "^2.2.16",
     "angular2-jwt": "^0.2.3",
@@ -82,6 +82,7 @@
     "ngx-bootstrap": "^1.7.1",
     "rxjs": "^5.4.1",
     "text-mask-addons": "^3.6.0",
+    "tslib": "^1.7.1",
     "zone.js": "^0.8.12"
   },
   "devDependencies": {
@@ -110,6 +111,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "lite-server": "^2.3.0",
+    "locate-path": "^2.0.0",
     "markdown-loader": "^2.0.0",
     "ngm-cli": "^0.5.2",
     "node-sass": "^4.5.3",
@@ -117,6 +119,7 @@
     "po2json": "^0.4.5",
     "protractor": "~5.1.2",
     "recursive-readdir": "^2.2.1",
+    "shebang-command": "^1.2.0",
     "srcgen": "^0.2.13",
     "ts-node": "~3.1.0",
     "tslint": "~5.4.3",
