@@ -70,7 +70,7 @@
     "@types/marked": "0.0.28",
     "@types/node": "^8.0.4",
     "@types/requirejs": "^2.1.29",
-    "@types/webpack": "^2.2.16",
+    "@types/webpack": "^3.0.0",
     "angular2-jwt": "^0.2.3",
     "angular2-ladda": "^1.2.1",
     "angular2-text-mask": "^8.0.2",
