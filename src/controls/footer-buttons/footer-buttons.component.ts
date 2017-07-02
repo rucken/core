@@ -3,13 +3,13 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 import { translate } from '../../shared/utils';
 
 @Component({
-  selector: 'modal-footer-buttons',
-  templateUrl: './modal-footer-buttons.component.html',
-  styleUrls: ['./modal-footer-buttons.component.scss'],
+  selector: 'footer-buttons',
+  templateUrl: './footer-buttons.component.html',
+  styleUrls: ['./footer-buttons.component.scss'],
   encapsulation: ViewEncapsulation.None  // Enable dynamic HTML styles
 })
 
-export class ModalFooterButtonsComponent extends BaseComponent {
+export class FooterButtonsComponent extends BaseComponent {
 
   @ViewChild('inputElement')
   inputElement: ElementRef;

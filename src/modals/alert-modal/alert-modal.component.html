@@ -13,8 +13,8 @@
           <span *ngIf="!content">{{message | translate}}</span>
         </div>
         <div class="modal-footer">
-          <modal-footer-buttons (onOk)="close()" [okTitle]="buttonText" [okBtnClass]="buttonClass" [closeHidden]="true"
-            #focusElement [okInProcess]="okInProcess"></modal-footer-buttons>
+          <footer-buttons (onOk)="close()" [okTitle]="buttonText" [okBtnClass]="buttonClass" [closeHidden]="true"
+            #focusElement [okInProcess]="okInProcess"></footer-buttons>
         </div>
       </form>
     </div>

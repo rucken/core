@@ -6,7 +6,7 @@ import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-moda
 import { GroupPermissionsService } from './../../shared/group-permissions.service';
 import { AppService } from './../../shared/app.service';
 import { AccountService } from './../../shared/account.service';
-import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { PermissionsListModalComponent } from './../permissions-grid/permissions-list-modal/permissions-list-modal.component';
 import { Permission } from './../../shared/models/permission.model';

@@ -6,7 +6,7 @@ import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-moda
 import { AccountService } from './../../shared/account.service';
 import { AppService } from './../../shared/app.service';
 import { UsersService } from './../../shared/users.service';
-import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';

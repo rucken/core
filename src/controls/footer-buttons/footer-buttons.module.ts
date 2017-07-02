@@ -1,19 +1,19 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ModalFooterButtonsComponent } from './modal-footer-buttons.component';
+import { FooterButtonsComponent } from './footer-buttons.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { LaddaModule } from 'angular2-ladda';
 
 @NgModule({
   imports: [CommonModule, LaddaModule, TranslateModule.forChild()],
-  declarations: [ModalFooterButtonsComponent],
-  exports: [ModalFooterButtonsComponent],
-  entryComponents: [ModalFooterButtonsComponent]
+  declarations: [FooterButtonsComponent],
+  exports: [FooterButtonsComponent],
+  entryComponents: [FooterButtonsComponent]
 })
-export class ModalFooterButtonsModule {
+export class FooterButtonsModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: ModalFooterButtonsModule,
+      ngModule: FooterButtonsModule,
       providers: []
     };
   }

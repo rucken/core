@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { EndpointHelper } from './helpers/endpoint.helper';
-import { ResouceEnumStatus } from './enums/resource.enums';
+import { EndpointStatusEnum } from './enums/endpoint-status.enum';
 import { translate } from './utils';
 import { User } from './models/user.model';
 
@@ -14,8 +14,8 @@ export class AccountService {
   apiUrl: string;
 
   statusMessage: string;
-  _status: ResouceEnumStatus;
-  changeStatus$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
+  _status: EndpointStatusEnum;
+  changeStatus$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
 
   constructor(public endpointHelper: EndpointHelper) {
     this.name = 'account';
@@ -24,7 +24,7 @@ export class AccountService {
   get statusList() {
     return this._status;
   }
-  setStatus(status: ResouceEnumStatus, message?: string) {
+  setStatus(status: EndpointStatusEnum, message?: string) {
     this._status = status;
     setTimeout((out: any) => {
       if (message) {
@@ -44,7 +44,7 @@ export class AccountService {
   }
   info() {
     const result = new EventEmitter();
-    this.setStatus(ResouceEnumStatus.Loading,
+    this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
     this.endpointHelper.actionRequest(this, 'info').map(
@@ -52,11 +52,11 @@ export class AccountService {
       subscribe((user: any | User) => {
         this.account = user;
         result.emit(this.account);
-        this.setStatus(ResouceEnumStatus.Ok);
+        this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
         this.account = null;
         result.error(this.endpointHelper.extractError(error));
-        this.setStatus(ResouceEnumStatus.Error,
+        this.setStatus(EndpointStatusEnum.Error,
           translate('Error')
         );
       });
@@ -64,7 +64,7 @@ export class AccountService {
   }
   login(account: any | User) {
     const result = new EventEmitter();
-    this.setStatus(ResouceEnumStatus.Processing,
+    this.setStatus(EndpointStatusEnum.Processing,
       translate('Login...')
     );
     this.endpointHelper.actionRequest(this, 'login', account.formatToAuth()).map(
@@ -72,11 +72,11 @@ export class AccountService {
       subscribe((user: any | User) => {
         this.account = user;
         result.emit(this.account);
-        this.setStatus(ResouceEnumStatus.Ok);
+        this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
         this.account = null;
         result.error(this.endpointHelper.extractError(error));
-        this.setStatus(ResouceEnumStatus.Error,
+        this.setStatus(EndpointStatusEnum.Error,
           translate('Error')
         );
       });
@@ -84,19 +84,19 @@ export class AccountService {
   }
   logout() {
     const result = new EventEmitter();
-    this.setStatus(ResouceEnumStatus.Processing,
+    this.setStatus(EndpointStatusEnum.Processing,
       translate('Logout...')
     );
     setTimeout((out: any) => {
       this.account = null;
       result.emit({ message: 'OK' });
-      this.setStatus(ResouceEnumStatus.Ok);
+      this.setStatus(EndpointStatusEnum.Ok);
     }, 700);
     return result;
   }
   update(account: any | User) {
     const result = new EventEmitter();
-    this.setStatus(ResouceEnumStatus.Updating,
+    this.setStatus(EndpointStatusEnum.Updating,
       translate('Updating...')
     );
     this.endpointHelper.actionRequest(this, 'update', account).map(
@@ -104,10 +104,10 @@ export class AccountService {
       .subscribe((user: any | User) => {
         this.account = user;
         result.emit(this.account);
-        this.setStatus(ResouceEnumStatus.Ok);
+        this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
         result.error(this.endpointHelper.extractError(error));
-        this.setStatus(ResouceEnumStatus.Error,
+        this.setStatus(EndpointStatusEnum.Error,
           translate('Error')
         );
       });

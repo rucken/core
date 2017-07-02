@@ -2,7 +2,7 @@ import 'rxjs/add/operator/map';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import { MetaModel } from './../../shared/models/meta.model';
-import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { RepositoryHelper } from './../../shared/helpers/repository.helper';
 import { translate, inValues } from './../../shared/utils';
 import * as _ from 'lodash';
@@ -27,8 +27,8 @@ export class BaseRepositoryService {
   queryProps: any;
   statusListMessage: string;
   statusItemMessage: string;
-  changeStatusList$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
-  changeStatusItem$: Subject<ResouceEnumStatus> = <Subject<ResouceEnumStatus>>new Subject();
+  changeStatusList$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
+  changeStatusItem$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
 
   get statusList() {
     return this._statusList;
@@ -37,8 +37,8 @@ export class BaseRepositoryService {
     return this._statusItem;
   }
 
-  private _statusList: ResouceEnumStatus;
-  private _statusItem: ResouceEnumStatus;
+  private _statusList: EndpointStatusEnum;
+  private _statusItem: EndpointStatusEnum;
 
   constructor(public repositoryHelper: RepositoryHelper) {
     this.items = [];
@@ -76,7 +76,7 @@ export class BaseRepositoryService {
     this.meta.totalResults = totalResults;
     this.meta.totalPages = Math.round(totalResults / this.meta.perPage);
   }
-  setStatusList(status: ResouceEnumStatus, message?: string) {
+  setStatusList(status: EndpointStatusEnum, message?: string) {
     this._statusList = status;
     setTimeout((out: any) => {
       if (message) {
@@ -87,7 +87,7 @@ export class BaseRepositoryService {
       this.changeStatusList$.next(status);
     });
   }
-  setStatusItem(status: ResouceEnumStatus, message?: string) {
+  setStatusItem(status: EndpointStatusEnum, message?: string) {
     this._statusItem = status;
     setTimeout((out: any) => {
       if (message) {
@@ -141,7 +141,7 @@ export class BaseRepositoryService {
     this.ignoreCache = false;
     */
     this.queryProps = _.cloneDeep(filter);
-    this.setStatusList(ResouceEnumStatus.Loading,
+    this.setStatusList(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
     this.repositoryHelper.readItemsRequest(this)
@@ -150,10 +150,10 @@ export class BaseRepositoryService {
         this.loadAllItems(loadedItems);
         if (this.items && this.items.length > 0) {
           result.emit(this.items);
-          this.setStatusList(ResouceEnumStatus.Ok);
+          this.setStatusList(EndpointStatusEnum.Ok);
         } else {
           result.error(this.items);
-          this.setStatusList(ResouceEnumStatus.NotFound,
+          this.setStatusList(EndpointStatusEnum.NotFound,
             translate('Not found')
           );
         }
@@ -165,7 +165,7 @@ export class BaseRepositoryService {
         } else {
           this.items$.next([]);
           result.error(this.repositoryHelper.extractError(error));
-          this.setStatusList(ResouceEnumStatus.NotFound,
+          this.setStatusList(EndpointStatusEnum.NotFound,
             translate('Not found')
           );
         }
@@ -174,7 +174,7 @@ export class BaseRepositoryService {
   }
   mockLoadAll(filter: any, mockedItems: any[]) {
     const result = new EventEmitter();
-    this.setStatusList(ResouceEnumStatus.Loading,
+    this.setStatusList(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
     setTimeout((out: any) => {
@@ -199,10 +199,10 @@ export class BaseRepositoryService {
       this.loadAllItems(this.repositoryHelper.itemsResponse(this, items));
       if (this.items && this.items.length > 0) {
         result.emit(this.items);
-        this.setStatusList(ResouceEnumStatus.Ok);
+        this.setStatusList(EndpointStatusEnum.Ok);
       } else {
         result.error(this.items);
-        this.setStatusList(ResouceEnumStatus.NotFound,
+        this.setStatusList(EndpointStatusEnum.NotFound,
           translate('Not found')
         );
       }
@@ -211,17 +211,17 @@ export class BaseRepositoryService {
   }
   cacheLoadAll(cachedItems: any[]) {
     const result = new EventEmitter();
-    this.setStatusList(ResouceEnumStatus.Loading,
+    this.setStatusList(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
     setTimeout((out: any) => {
       this.loadAllItems(this.repositoryHelper.itemsResponse(this, cachedItems));
       if (this.items && this.items.length > 0) {
         result.emit(this.items);
-        this.setStatusList(ResouceEnumStatus.Ok);
+        this.setStatusList(EndpointStatusEnum.Ok);
       } else {
         result.error(this.items);
-        this.setStatusList(ResouceEnumStatus.NotFound,
+        this.setStatusList(EndpointStatusEnum.NotFound,
           translate('Not found')
         );
       }
@@ -243,7 +243,7 @@ export class BaseRepositoryService {
   }
   load(key: string | number) {
     const result = new EventEmitter();
-    this.setStatusItem(ResouceEnumStatus.Loading,
+    this.setStatusItem(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
     this.repositoryHelper.readItemRequest(this, key)
@@ -251,10 +251,10 @@ export class BaseRepositoryService {
       .subscribe((loadedItem: any) => {
         this.loadItem(loadedItem);
         result.emit(loadedItem);
-        this.setStatusItem(ResouceEnumStatus.Ok);
+        this.setStatusItem(EndpointStatusEnum.Ok);
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
-        this.setStatusItem(ResouceEnumStatus.NotFound,
+        this.setStatusItem(EndpointStatusEnum.NotFound,
           translate('Not found')
         );
       });
@@ -272,7 +272,7 @@ export class BaseRepositoryService {
     const result = new EventEmitter();
     if (item.validate && item.validate() !== true) {
       result.error(item.validate());
-      this.setStatusItem(ResouceEnumStatus.Invalid,
+      this.setStatusItem(EndpointStatusEnum.Invalid,
         translate('Error in creating')
       );
       return result;
@@ -280,7 +280,7 @@ export class BaseRepositoryService {
     if (this.mockedItems !== null) {
       return this.mockCreate(item);
     }
-    this.setStatusItem(ResouceEnumStatus.Creating,
+    this.setStatusItem(EndpointStatusEnum.Creating,
       translate('Creating...')
     );
     this.repositoryHelper.createItemRequest(this, item)
@@ -288,18 +288,18 @@ export class BaseRepositoryService {
       .subscribe((createdItem: any) => {
         this.createItem(createdItem);
         result.emit(createdItem);
-        this.setStatusItem(ResouceEnumStatus.Ok);
-        this.setStatusList(ResouceEnumStatus.Ok);
+        this.setStatusItem(EndpointStatusEnum.Ok);
+        this.setStatusList(EndpointStatusEnum.Ok);
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
-        this.setStatusItem(ResouceEnumStatus.Invalid,
+        this.setStatusItem(EndpointStatusEnum.Invalid,
           translate('Error in creating')
         );
       });
     return result;
   }
   mockCreate(item: any) {
-    this.setStatusItem(ResouceEnumStatus.Creating,
+    this.setStatusItem(EndpointStatusEnum.Creating,
       translate('Creating...')
     );
     const result = new EventEmitter();
@@ -312,8 +312,8 @@ export class BaseRepositoryService {
         this.createItem(item);
       }
       result.emit(item);
-      this.setStatusItem(ResouceEnumStatus.Ok);
-      this.setStatusList(ResouceEnumStatus.Ok);
+      this.setStatusItem(EndpointStatusEnum.Ok);
+      this.setStatusList(EndpointStatusEnum.Ok);
     });
     return result;
   }
@@ -347,7 +347,7 @@ export class BaseRepositoryService {
     const result = new EventEmitter();
     if (item.validate() !== true) {
       result.error(item.validate());
-      this.setStatusItem(ResouceEnumStatus.Invalid,
+      this.setStatusItem(EndpointStatusEnum.Invalid,
         translate('Error in creating')
       );
       return result;
@@ -355,7 +355,7 @@ export class BaseRepositoryService {
     if (this.mockedItems !== null) {
       return this.mockUpdate(item);
     }
-    this.setStatusItem(ResouceEnumStatus.Updating,
+    this.setStatusItem(EndpointStatusEnum.Updating,
       translate('Updating...')
     );
     this.repositoryHelper.updateItemRequest(this, item)
@@ -363,26 +363,26 @@ export class BaseRepositoryService {
       .subscribe((updatedItem: any) => {
         this.updateItem(updatedItem);
         result.emit(updatedItem);
-        this.setStatusItem(ResouceEnumStatus.Ok);
-        this.setStatusList(ResouceEnumStatus.Ok);
+        this.setStatusItem(EndpointStatusEnum.Ok);
+        this.setStatusList(EndpointStatusEnum.Ok);
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
-        this.setStatusItem(ResouceEnumStatus.Invalid,
+        this.setStatusItem(EndpointStatusEnum.Invalid,
           translate('Error in updating')
         );
       });
     return result;
   }
   mockUpdate(item: any) {
-    this.setStatusItem(ResouceEnumStatus.Updating,
+    this.setStatusItem(EndpointStatusEnum.Updating,
       translate('Updating...')
     );
     const result = new EventEmitter();
     setTimeout((out: any) => {
       this.updateItem(item);
       result.emit(item);
-      this.setStatusItem(ResouceEnumStatus.Ok);
-      this.setStatusList(ResouceEnumStatus.Ok);
+      this.setStatusItem(EndpointStatusEnum.Ok);
+      this.setStatusList(EndpointStatusEnum.Ok);
     });
     return result;
   }
@@ -422,7 +422,7 @@ export class BaseRepositoryService {
       return this.mockRemove(items);
     }
     const result = new EventEmitter();
-    this.setStatusItem(ResouceEnumStatus.Removing,
+    this.setStatusItem(EndpointStatusEnum.Removing,
       translate('Removing...')
     );
     this.repositoryHelper.deleteItemsRequest(this, items)
@@ -433,7 +433,7 @@ export class BaseRepositoryService {
           result.error({
             error: translate('Not found')
           });
-          this.setStatusList(ResouceEnumStatus.NotFound,
+          this.setStatusList(EndpointStatusEnum.NotFound,
             translate('Not found')
           );
         } else {
@@ -441,26 +441,26 @@ export class BaseRepositoryService {
             result.emit({
               message: translate('OK')
             });
-            this.setStatusList(ResouceEnumStatus.NotFound,
+            this.setStatusList(EndpointStatusEnum.NotFound,
               translate('Not found')
             );
           } else {
             result.emit({
               message: translate('OK')
             });
-            this.setStatusItem(ResouceEnumStatus.Ok);
+            this.setStatusItem(EndpointStatusEnum.Ok);
           }
         }
       }, (error: any) => {
         result.error(this.repositoryHelper.extractError(error));
-        this.setStatusItem(ResouceEnumStatus.Invalid,
+        this.setStatusItem(EndpointStatusEnum.Invalid,
           translate('Error on deleting')
         );
       });
     return result;
   }
   mockRemove(items: any[]) {
-    this.setStatusItem(ResouceEnumStatus.Removing,
+    this.setStatusItem(EndpointStatusEnum.Removing,
       translate('Removing...')
     );
     const result = new EventEmitter();
@@ -471,7 +471,7 @@ export class BaseRepositoryService {
         result.error({
           error: translate('Not found')
         });
-        this.setStatusList(ResouceEnumStatus.NotFound,
+        this.setStatusList(EndpointStatusEnum.NotFound,
           translate('Not found')
         );
       } else {
@@ -479,14 +479,14 @@ export class BaseRepositoryService {
           result.emit({
             message: translate('OK')
           });
-          this.setStatusList(ResouceEnumStatus.NotFound,
+          this.setStatusList(EndpointStatusEnum.NotFound,
             translate('Not found')
           );
         } else {
           result.emit({
             message: translate('OK')
           });
-          this.setStatusItem(ResouceEnumStatus.Ok);
+          this.setStatusItem(EndpointStatusEnum.Ok);
         }
       }
     });

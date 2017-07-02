@@ -1,3 +1,14 @@
+<a name="1.10.4"></a>
+## [1.10.4](https://github.com/site15/rucken/compare/1.10.3...v1.10.4) (2017-07-02)
+
+
+### Bug Fixes
+
+* **refactor:** Change modal-footer-buttons to footer-buttons ([6df03cc](https://github.com/site15/rucken/commit/6df03cc))
+* **refactor:** Change name of ResouceEnumStatus to EndpointStatusEnum ([5218af3](https://github.com/site15/rucken/commit/5218af3))
+
+
+
 <a name="1.10.3"></a>
 ## [1.10.3](https://github.com/site15/rucken/compare/1.10.2...v1.10.3) (2017-06-29)
 
