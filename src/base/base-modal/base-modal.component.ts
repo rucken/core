@@ -1,7 +1,7 @@
 import { HostListener, Input, Output, EventEmitter, Component } from '@angular/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import * as _ from 'lodash';
-import { ResouceEnumStatus } from '../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from '../../shared/enums/endpoint-status.enum';
 
 @Component({
   selector: 'base-modal-component',
@@ -78,12 +78,12 @@ export class BaseModalComponent extends BaseComponent {
     this.onOk.emit(this);
     return false;
   }
-  okInProcessFromStatus(status: ResouceEnumStatus) {
+  okInProcessFromStatus(status: EndpointStatusEnum) {
     this.okInProcess =
-      status === ResouceEnumStatus.Creating ||
-      status === ResouceEnumStatus.Updating ||
-      status === ResouceEnumStatus.Removing ||
-      status === ResouceEnumStatus.Processing ||
-      status === ResouceEnumStatus.Loading;
+      status === EndpointStatusEnum.Creating ||
+      status === EndpointStatusEnum.Updating ||
+      status === EndpointStatusEnum.Removing ||
+      status === EndpointStatusEnum.Processing ||
+      status === EndpointStatusEnum.Loading;
   }
 }

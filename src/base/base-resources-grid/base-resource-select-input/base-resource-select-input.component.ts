@@ -3,7 +3,7 @@ import { BaseComponent } from './../../../base/base-component/base-component.com
 import { Input, Output, EventEmitter, Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
-import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from './../../../shared/enums/endpoint-status.enum';
 
 @Component({
   selector: 'base-resource-select-input',
@@ -70,7 +70,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     this.modelAsStringChange.emit(this.modelAsString);
   }
   get statusListMessage() {
-    if (this.cachedResourcesService.statusList === ResouceEnumStatus.Ok) {
+    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
       return this.cachedResourcesService.statusListMessage;

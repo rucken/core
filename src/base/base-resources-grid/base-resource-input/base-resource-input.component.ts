@@ -1,4 +1,4 @@
-import { ResouceEnumStatus } from './../../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from './../../../shared/enums/endpoint-status.enum';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { ElementRef, Input, EventEmitter, Output, Component } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -56,7 +56,7 @@ export class BaseResourceInputComponent extends BaseComponent {
     this.modelAsStringChange.emit(this.modelAsString);
   }
   get statusListMessage() {
-    if (this.cachedResourcesService.statusList === ResouceEnumStatus.Ok) {
+    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
       return this.cachedResourcesService.statusListMessage;

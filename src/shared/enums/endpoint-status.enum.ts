@@ -1,4 +1,4 @@
-export enum ResouceEnumStatus {
+export enum EndpointStatusEnum {
   Ok = 1,
   Loading,
   Creating,

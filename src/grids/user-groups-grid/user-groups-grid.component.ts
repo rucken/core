@@ -6,7 +6,7 @@ import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-moda
 import { UserGroupsService } from './../../shared/user-groups.service';
 import { AppService } from './../../shared/app.service';
 import { AccountService } from './../../shared/account.service';
-import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { GroupsListModalComponent } from './../groups-grid/groups-list-modal/groups-list-modal.component';
 import { Group } from './../../shared/models/group.model';

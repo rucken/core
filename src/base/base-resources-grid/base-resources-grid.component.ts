@@ -1,4 +1,4 @@
-import { ResouceEnumStatus } from './../../shared/enums/resource.enums';
+import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { Input, Output, EventEmitter, HostListener, Component } from '@angular/core';
@@ -59,7 +59,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
     return this.cachedResourcesService.mockedItems;
   }
   get statusListMessage() {
-    if (this.cachedResourcesService.statusList === ResouceEnumStatus.Ok) {
+    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
       return this.cachedResourcesService.statusListMessage;
