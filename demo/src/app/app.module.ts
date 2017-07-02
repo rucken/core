@@ -13,7 +13,7 @@ import {
   RuckenComponents, RuckenServices, RepositoryHelper,
   EndpointHelper, HttpHelper, AccountService, AuthHttpFactory, BaseResourceSelectInputConfig,
   TextInputConfig, SelectInputConfig, TableColumnConfig,
-  TextInputModule, ModalFooterButtonsModule, AuthModalModule, AlertModalModule
+  TextInputModule, AuthModalModule, AlertModalModule
 } from './../../../src';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';

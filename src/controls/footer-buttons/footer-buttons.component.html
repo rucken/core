@@ -1,4 +1,4 @@
-<div class="modal-footer-buttons">
+<div class="footer-buttons">
   <button type="button" class="btn" [ngClass]="[closeBtnClass]" (click)="close()" *ngIf="!closeHidden">{{(readonly?'Close':closeTitle) | translate}}</button>
   <button type="button" class="btn" [ngClass]="[okBtnClass]" (click)="ok()" *ngIf="!readonly" [ladda]="okInProcess" #inputElement> {{okTitle | translate}}</button>
   <button type="submit" class="hidden"></button>

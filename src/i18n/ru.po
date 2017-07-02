@@ -70,6 +70,9 @@ msgstr "Ок"
 msgid "Error on deleting"
 msgstr "Ошибка при удалении"
 
+msgid "Cancel"
+msgstr "Отмена"
+
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -78,9 +81,6 @@ msgstr "Удалить"
 
 msgid "Search"
 msgstr "Поиск"
-
-msgid "Cancel"
-msgstr "Отмена"
 
 msgid "Change log"
 msgstr "Журнал изменений"

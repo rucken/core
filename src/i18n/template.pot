@@ -61,6 +61,9 @@ msgstr ""
 msgid "Error on deleting"
 msgstr ""
 
+msgid "Cancel"
+msgstr ""
+
 msgid "Edit"
 msgstr ""
 
@@ -68,9 +71,6 @@ msgid "Remove"
 msgstr ""
 
 msgid "Search"
-msgstr ""
-
-msgid "Cancel"
 msgstr ""
 
 msgid "Change log"

@@ -3,7 +3,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ContentTypeSelectInputComponent } from './content-type-select-input.component';
 import { ModalModule, TooltipModule } from 'ngx-bootstrap';
-import { ModalFooterButtonsModule } from './../../../controls/modal-footer-buttons/modal-footer-buttons.module';
+import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -13,7 +13,7 @@ import { ContentTypesListModalModule } from './../../../grids/content-types-grid
   imports: [
     CommonModule, FormsModule, ModalModule.forRoot(), TranslateModule.forChild(),
     ContentTypesListModalModule.forRoot(),
-    ModalFooterButtonsModule.forRoot(), TextInputModule.forRoot(),
+    FooterButtonsModule.forRoot(), TextInputModule.forRoot(),
     TooltipModule.forRoot(), SelectInputModule.forRoot()
   ],
   declarations: [

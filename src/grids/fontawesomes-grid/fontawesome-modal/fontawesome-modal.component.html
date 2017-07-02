@@ -15,7 +15,7 @@
             <text-input [errors]="errors" [info]="info" name="class" [(model)]="item.class" [title]="modelMeta.titles.class" [readonly]="readonly"></text-input>
         </div>
         <div class="modal-footer">
-          <modal-footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" [okInProcess]="okInProcess"></modal-footer-buttons>
+          <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" [okInProcess]="okInProcess"></footer-buttons>
         </div>
       </form>
     </div>
