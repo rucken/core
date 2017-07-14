@@ -113,7 +113,7 @@
     "lite-server": "^2.3.0",
     "locate-path": "^2.0.0",
     "markdown-loader": "^2.0.0",
-    "ngm-cli": "^0.5.2",
+    "ngm-cli": "^0.6.0",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.0.2",
     "po2json": "^0.4.5",
