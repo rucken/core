@@ -121,7 +121,7 @@
     "recursive-readdir": "^2.2.1",
     "shebang-command": "^1.2.0",
     "srcgen": "^0.2.13",
-    "ts-node": "~3.1.0",
+    "ts-node": "~3.2.1",
     "tslint": "~5.4.3",
     "typescript": "~2.3.0",
     "typings": "^2.1.1"
