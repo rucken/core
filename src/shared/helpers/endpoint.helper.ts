@@ -23,38 +23,26 @@ export class EndpointHelper {
       return `${endpointService.apiUrl}/${action}`;
     }
   };
+  actionDirectRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
+    return this.httpHelper.http.post(this.actionUrl(endpointService, action), this.actionRequestBody(endpointService, action, data));
+  };
   actionRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
+    return this.httpHelper.post(this.actionUrl(endpointService, action), this.actionRequestBody(endpointService, action, data));
+  };
+  actionRequestBody(endpointService: any, action?: any, data?: any) {
     if (data && data.format) {
       data = data.format();
     }
-    if (endpointService.name === 'account') {
-      if (action === 'info') {
-        return this.httpHelper.http.post(this.actionUrl(endpointService, action), { 'token': localStorage.getItem('token') });
-      }
-      if (action === 'login') {
-        return this.httpHelper.http.post(this.actionUrl(endpointService, action), data);
-      }
-    }
-    return this.httpHelper.post(this.actionUrl(endpointService, action), data);
+    return data;
   };
-  actionResponse(endpointService: any, action?: any, response?: Response) {
+  actionResponseBody(endpointService: any, action?: any, response?: Response) {
     let data: any;
     if (response.json && _.isFunction(response.json)) {
       data = response.json();
     } else {
       data = response;
     }
-    if (endpointService.name === 'account') {
-      if (action === 'info' || action === 'login') {
-        if (data.token) {
-          localStorage.setItem('token', data.token);
-        }
-        return new User(data.user);
-      }
-      if (action === 'update') {
-        return new User(data);
-      }
-    }
+    return data;
   };
   extractError(error: any, message?: string): any {
     if (message === undefined) {

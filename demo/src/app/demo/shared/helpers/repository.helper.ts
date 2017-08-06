@@ -5,10 +5,11 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { MetaModel, EndpointHelper, RepositoryHelper, HttpHelper } from './../../../../../../src';
 import * as _ from 'lodash';
 import { environment } from './../../../../environments/environment';
+import { DemoEndpointHelper } from './endpoint.helper';
 
 @Injectable()
 export class DemoRepositoryHelper extends RepositoryHelper {
-  constructor(public httpHelper: HttpHelper) {
+  constructor(public httpHelper: HttpHelper, public demoEndpointHelper: EndpointHelper) {
     super(httpHelper);
   }
   get apiUrl() {

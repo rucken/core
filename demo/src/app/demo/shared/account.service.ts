@@ -16,14 +16,4 @@ export class DemoAccountService extends AccountService {
     this.apiUrl = `${endpointHelper.apiUrl}/${this.name}`;
     this.account$ = <Subject<User>>new Subject();
   }
-  info() {
-    if (localStorage.getItem('token') === null) {
-      return super.logout();
-    }
-    return super.info();
-  }
-  logout() {
-    localStorage.removeItem('token');
-    return super.logout();
-  }
 }

@@ -21,6 +21,19 @@ export class AccountService {
     this.name = 'account';
     this.apiUrl = `${endpointHelper.apiUrl}/${this.name}`;
   }
+  get token() {
+    return localStorage.getItem('token');
+  }
+  set token(value: string) {
+    if (value === null) {
+      localStorage.removeItem('token');
+    } else {
+      localStorage.setItem('token', value);
+    }
+  }
+  transformModel(item: any) {
+    return new User(item);
+  }
   get statusList() {
     return this._status;
   }
@@ -47,10 +60,11 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    this.endpointHelper.actionRequest(this, 'info').map(
-      (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
-      subscribe((user: any | User) => {
-        this.account = user;
+    this.endpointHelper.actionDirectRequest(this, 'info', { 'token': this.token }).map(
+      (response: any) => this.endpointHelper.actionResponseBody(this, 'info', response)).
+      subscribe((data: { user: any, token: string } | any) => {
+        this.account = this.transformModel(data.user);
+        this.token = data.token;
         result.emit(this.account);
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
@@ -67,10 +81,11 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Processing,
       translate('Login...')
     );
-    this.endpointHelper.actionRequest(this, 'login', account.formatToAuth()).map(
-      (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
-      subscribe((user: any | User) => {
-        this.account = user;
+    this.endpointHelper.actionDirectRequest(this, 'login', account.formatToAuth()).map(
+      (response: any) => this.endpointHelper.actionResponseBody(this, 'login', response)).
+      subscribe((data: { user: any, token: string } | any) => {
+        this.account = this.transformModel(data.user);
+        this.token = data.token;
         result.emit(this.account);
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
@@ -89,6 +104,7 @@ export class AccountService {
     );
     setTimeout((out: any) => {
       this.account = null;
+      this.token = null;
       result.emit({ message: 'OK' });
       this.setStatus(EndpointStatusEnum.Ok);
     }, 700);
@@ -100,9 +116,9 @@ export class AccountService {
       translate('Updating...')
     );
     this.endpointHelper.actionRequest(this, 'update', account).map(
-      (response: any) => this.endpointHelper.actionResponse(this, 'update', response))
+      (response: any) => this.endpointHelper.actionResponseBody(this, 'update', response))
       .subscribe((user: any | User) => {
-        this.account = user;
+        this.account = this.transformModel(user);
         result.emit(this.account);
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {

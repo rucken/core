@@ -57,12 +57,7 @@ export class RepositoryHelper extends EndpointHelper {
     return apiUrl + `?${uri.toString()}`;
   };
   itemsResponse(repositoryService: any, response: any) {
-    let data: any;
-    if (response.json && _.isFunction(response.json)) {
-      data = response.json();
-    } else {
-      data = response;
-    }
+    const data: any = super.actionResponseBody(repositoryService, 'items', response);
     if (data['meta']) {
       repositoryService.meta = new MetaModel(data['meta']);
     }
@@ -73,12 +68,7 @@ export class RepositoryHelper extends EndpointHelper {
     }
   };
   itemResponse(repositoryService: any, response: any, requestData?: any) {
-    let data: any;
-    if (response.json && _.isFunction(response.json)) {
-      data = response.json();
-    } else {
-      data = response;
-    }
+    const data: any = super.actionResponseBody(repositoryService, 'item', response);
     if (data[_.camelCase(repositoryService.name)]) {
       return data[_.camelCase(repositoryService.name)];
     } else {
@@ -94,22 +84,15 @@ export class RepositoryHelper extends EndpointHelper {
     return this.httpHelper.get(this.itemsUrl(repositoryService));
   };
   createItemRequest(repositoryService: any, item: any): Observable<Response> {
-    if (item && item.format) {
-      item = item.format();
-    }
     return this.httpHelper.post(
       this.itemUrl(repositoryService),
-      item
+      this.actionRequestBody(repositoryService, 'create', item)
     );
   };
   updateItemRequest(repositoryService: any, item: any): Observable<Response> {
-    const pkValue = item.pk;
-    if (item && item.format) {
-      item = item.format();
-    }
     return this.httpHelper.put(
-      this.itemUrl(repositoryService, pkValue),
-      item
+      this.itemUrl(repositoryService, item.pk),
+      this.actionRequestBody(repositoryService, 'update', item)
     );
   };
   deleteItemsRequest(repositoryService: any, items: any): Observable<Response> {
