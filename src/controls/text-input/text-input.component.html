@@ -27,5 +27,5 @@
         (selectionDone)="showDatePicker=false"></datepicker>
     </div>
   </div>
-  <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
+  <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="safeHtml(errorMessage) || infoMessage"></span>
 </div>

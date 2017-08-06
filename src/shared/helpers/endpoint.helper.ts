@@ -23,19 +23,19 @@ export class EndpointHelper {
       return `${endpointService.apiUrl}/${action}`;
     }
   };
-  actionDirectRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
-    return this.httpHelper.http.post(this.actionUrl(endpointService, action), this.actionRequestBody(endpointService, action, data));
-  };
-  actionRequest(endpointService: any, action?: any, data?: any): Observable<Response> {
+  actionRequest(endpointService: any, action?: any, data?: any, direct?: boolean): Observable<Response> {
     return this.httpHelper.post(this.actionUrl(endpointService, action), this.actionRequestBody(endpointService, action, data));
   };
   actionRequestBody(endpointService: any, action?: any, data?: any) {
-    if (data && data.format) {
+    if (data === undefined) {
+      data = {};
+    }
+    if (data.format !== undefined) {
       data = data.format();
     }
     return data;
   };
-  actionResponseBody(endpointService: any, action?: any, response?: Response) {
+  actionResponse(endpointService: any, action?: any, response?: Response) {
     let data: any;
     if (response.json && _.isFunction(response.json)) {
       data = response.json();

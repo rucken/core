@@ -28,7 +28,7 @@ export class BaseFrameComponent extends BaseComponent {
     super();
     translateService.onLangChange.subscribe(() => this.init());
     accountService.account$.subscribe(() => this.init());
-    app.currentPageTitle$.subscribe(() => this.init());
+    app.onCurrentPageTitle.subscribe(() => this.init());
   }
   init() {
     super.init();

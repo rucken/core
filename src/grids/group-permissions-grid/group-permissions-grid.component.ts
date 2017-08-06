@@ -63,7 +63,6 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: PermissionsListModalComponent = this.app.modals(this.resolver).create(PermissionsListModalComponent);
-    itemModal.exclude = this.items;
     itemModal.name = 'createGroupPermission';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.permissions.maxSelectCount = 10000;

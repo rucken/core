@@ -81,9 +81,6 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
   search() {
     const filter: any = {};
-    if (this.exclude) {
-      filter.exclude = this.exclude;
-    }
     this.cachedResourcesService.loadAll('', filter);
   }
 }

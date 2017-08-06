@@ -10,75 +10,49 @@ export class HttpHelper {
 
   constructor(public authHttp: AuthHttp, public http: Http) {
   }
-
-  get(url: string): Observable<Response> {
+  getRequestOptions(): RequestOptions {
     const headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi') !== -1) {
-      options = new RequestOptions({ headers: headers });
-      return this.http.get(url, options);
-    }
-    return this.authHttp.get(url, options);
+    return new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
   }
-
-  patch(url: string, data?: any): Observable<Response> {
+  getRequestBody(data: any): string {
     if (data === undefined) {
       data = {};
     }
-    if (data.format !== undefined) {
-      data = data.format();
-    }
-    const bodyString = JSON.stringify(data);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi') !== -1) {
-      options = new RequestOptions({ headers: headers });
-      return this.http.post(url, bodyString, options);
-    }
-    return this.authHttp.patch(url, bodyString, options);
+    return JSON.stringify(data);
   }
 
-  post(url: string, data?: any): Observable<Response> {
-    if (data === undefined) {
-      data = {};
+  get(url: string, direct?: boolean): Observable<Response> {
+    if (direct) {
+      return this.http.get(url, this.getRequestOptions());
     }
-    if (data.format !== undefined) {
-      data = data.format();
-    }
-    const bodyString = JSON.stringify(data);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi') !== -1) {
-      options = new RequestOptions({ headers: headers });
-      return this.http.post(url, bodyString, options);
-    }
-    return this.authHttp.post(url, bodyString, options);
+    return this.authHttp.get(url, this.getRequestOptions());
   }
 
-  put(url: string, data?: any): Observable<Response> {
-    if (data === undefined) {
-      data = {};
+  patch(url: string, data?: any, direct?: boolean): Observable<Response> {
+    if (direct) {
+      return this.http.patch(url, this.getRequestBody(data), this.getRequestOptions());
     }
-    if (data.format !== undefined) {
-      data = data.format();
-    }
-    const bodyString = JSON.stringify(data);
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi') !== -1) {
-      options = new RequestOptions({ headers: headers });
-      return this.http.put(url, bodyString, options);
-    }
-    return this.authHttp.put(url, bodyString, options);
+    return this.authHttp.patch(url, this.getRequestBody(data), this.getRequestOptions());
   }
 
-  delete(url: string): Observable<Response> {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers, withCredentials: this.withCredentials });
-    if (url.indexOf('mockapi') !== -1) {
-      options = new RequestOptions({ headers: headers });
-      return this.http.delete(url, options);
+  post(url: string, data?: any, direct?: boolean): Observable<Response> {
+    if (direct) {
+      return this.http.post(url, this.getRequestBody(data), this.getRequestOptions());
     }
-    return this.authHttp.delete(url, options);
+    return this.authHttp.post(url, this.getRequestBody(data), this.getRequestOptions());
+  }
+
+  put(url: string, data?: any, direct?: boolean): Observable<Response> {
+    if (direct) {
+      return this.http.put(url, this.getRequestBody(data), this.getRequestOptions());
+    }
+    return this.authHttp.put(url, this.getRequestBody(data), this.getRequestOptions());
+  }
+
+  delete(url: string, direct?: boolean): Observable<Response> {
+    if (direct) {
+      return this.http.delete(url, this.getRequestOptions());
+    }
+    return this.authHttp.delete(url, this.getRequestOptions());
   }
 }

@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { MetaModel, EndpointHelper, HttpHelper } from './../../../../../../src';
-import * as _ from 'lodash';
+import { EndpointHelper, HttpHelper } from './../../../../../../src';
 import { environment } from './../../../../environments/environment';
 
 @Injectable()

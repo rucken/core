@@ -34,8 +34,6 @@ export class TableColumnComponent extends BaseComponent {
     public config: TableColumnConfig
   ) {
     super();
-  }
-  beforeInit() {
     this.columnsChange.subscribe((columns: any) => {
       this._columns = columns;
       this.init();

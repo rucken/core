@@ -7,22 +7,31 @@ import { HttpHelper } from './http.helper';
 import { MetaModel } from './../models/meta.model';
 
 @Injectable()
-export class RepositoryHelper extends EndpointHelper {
-  constructor(public httpHelper: HttpHelper) {
-    super(httpHelper);
+export class RepositoryHelper {
+  constructor(public httpHelper: HttpHelper, public endpointHelper: EndpointHelper) {
+
+  }
+  get mockApiUrl() {
+    return this.endpointHelper.apiUrl;
+  }
+  get apiUrl() {
+    return this.endpointHelper.apiUrl;
+  }
+  extractError(error: any, message?: string): any {
+    return this.endpointHelper.extractError(error, message);
   }
   itemUrl(repositoryService: any, key?: any) {
     if (key === undefined) {
-      return repositoryService.apiUrl;
+      return this.endpointHelper.actionUrl(repositoryService);
     } else {
-      return `${repositoryService.apiUrl}/${key}`;
+      return this.endpointHelper.actionUrl(repositoryService, key)
     }
   };
   itemsUrl(repositoryService: any) {
     const uri = new URLSearchParams();
     for (const queryProp in repositoryService.queryProps) {
       if (repositoryService.queryProps.hasOwnProperty(queryProp)) {
-        const queryPropKey = _.snakeCase(queryProp);
+        const queryPropKey = queryProp.indexOf('{') === -1 ? _.snakeCase(queryProp) : queryProp;
         const value = repositoryService.queryProps[queryProp];
         if (_.isArray(value)) {
           value.map((val: any) => {
@@ -33,7 +42,7 @@ export class RepositoryHelper extends EndpointHelper {
         }
       }
     }
-    let apiUrl = repositoryService.apiUrl;
+    let apiUrl = this.endpointHelper.actionUrl(repositoryService);
     if (repositoryService.props !== null) {
       apiUrl = repositoryService.apiUrlWithProps;
       for (const propKey in repositoryService.props) {
@@ -57,7 +66,7 @@ export class RepositoryHelper extends EndpointHelper {
     return apiUrl + `?${uri.toString()}`;
   };
   itemsResponse(repositoryService: any, response: any) {
-    const data: any = super.actionResponseBody(repositoryService, 'items', response);
+    const data: any = this.endpointHelper.actionResponse(repositoryService, 'items', response);
     if (data['meta']) {
       repositoryService.meta = new MetaModel(data['meta']);
     }
@@ -68,7 +77,7 @@ export class RepositoryHelper extends EndpointHelper {
     }
   };
   itemResponse(repositoryService: any, response: any, requestData?: any) {
-    const data: any = super.actionResponseBody(repositoryService, 'item', response);
+    const data: any = this.endpointHelper.actionResponse(repositoryService, 'item', response);
     if (data[_.camelCase(repositoryService.name)]) {
       return data[_.camelCase(repositoryService.name)];
     } else {
@@ -86,13 +95,13 @@ export class RepositoryHelper extends EndpointHelper {
   createItemRequest(repositoryService: any, item: any): Observable<Response> {
     return this.httpHelper.post(
       this.itemUrl(repositoryService),
-      this.actionRequestBody(repositoryService, 'create', item)
+      this.endpointHelper.actionRequestBody(repositoryService, 'create', item)
     );
   };
   updateItemRequest(repositoryService: any, item: any): Observable<Response> {
     return this.httpHelper.put(
       this.itemUrl(repositoryService, item.pk),
-      this.actionRequestBody(repositoryService, 'update', item)
+      this.endpointHelper.actionRequestBody(repositoryService, 'update', item)
     );
   };
   deleteItemsRequest(repositoryService: any, items: any): Observable<Response> {

@@ -17,9 +17,6 @@ import {
 } from './../../../src';
 import { DemoAppComponent } from './app.component';
 import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
-import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
-import { DemoAccountService } from './demo/shared/account.service';
-import { DemoRepositoryHelper } from './demo/shared/helpers/repository.helper';
 import { RouterModule } from '@angular/router';
 import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
@@ -58,10 +55,9 @@ import { LaddaModule } from 'angular2-ladda';
     SelectInputConfig,
     TableColumnConfig,
     { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
-    { provide: RepositoryHelper, useClass: DemoRepositoryHelper },
     { provide: EndpointHelper, useClass: DemoEndpointHelper },
-    { provide: HttpHelper, useClass: DemoHttpHelper },
-    { provide: AccountService, useClass: DemoAccountService }
+    { provide: RepositoryHelper, useClass: RepositoryHelper },
+    { provide: HttpHelper, useClass: HttpHelper }
   ],
   bootstrap: [DemoAppComponent]
 })

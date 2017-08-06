@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <permissions-grid #permissions (onEnter)="ok()" [onEnterEnabled]="true" (onSelectItems)="selectPermission($event)" [hardReadonly]="hardReadonly"
-          [exclude]="exclude" #focusElement></permissions-grid>
+          #focusElement></permissions-grid>
       </div>
       <div class="modal-footer">
         <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" closeTitle="{{'Close'|translate}}"

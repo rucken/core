@@ -60,7 +60,6 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     }
     this.modalIsOpened = true;
     const itemModal: GroupsListModalComponent = this.app.modals(this.resolver).create(GroupsListModalComponent);
-    itemModal.exclude = this.items;
     itemModal.name = 'selectGroups';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.groups.maxSelectCount = 10000;

@@ -20,6 +20,7 @@ export class AccountService {
   constructor(public endpointHelper: EndpointHelper) {
     this.name = 'account';
     this.apiUrl = `${endpointHelper.apiUrl}/${this.name}`;
+    this.account$ = <Subject<User>>new Subject();
   }
   get token() {
     return localStorage.getItem('token');
@@ -60,8 +61,8 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    this.endpointHelper.actionDirectRequest(this, 'info', { 'token': this.token }).map(
-      (response: any) => this.endpointHelper.actionResponseBody(this, 'info', response)).
+    this.endpointHelper.actionRequest(this, 'info', { 'token': this.token }).map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
         this.token = data.token;
@@ -81,8 +82,8 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Processing,
       translate('Login...')
     );
-    this.endpointHelper.actionDirectRequest(this, 'login', account.formatToAuth()).map(
-      (response: any) => this.endpointHelper.actionResponseBody(this, 'login', response)).
+    this.endpointHelper.actionRequest(this, 'login', account.formatToAuth(), true).map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
         this.token = data.token;
@@ -116,7 +117,7 @@ export class AccountService {
       translate('Updating...')
     );
     this.endpointHelper.actionRequest(this, 'update', account).map(
-      (response: any) => this.endpointHelper.actionResponseBody(this, 'update', response))
+      (response: any) => this.endpointHelper.actionResponse(this, 'update', response))
       .subscribe((user: any | User) => {
         this.account = this.transformModel(user);
         result.emit(this.account);
