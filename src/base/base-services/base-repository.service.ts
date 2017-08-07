@@ -101,6 +101,9 @@ export class BaseRepositoryService {
   transformModel(item: any) {
     return item;
   }
+  transformModels(items: any[]) {
+    return items.map((item: any) => this.transformModel(item));
+  }
   loadAllItems(loadedItems: any[]) {
     this.items = loadedItems;
     this.items$.next(this.items);
@@ -145,7 +148,7 @@ export class BaseRepositoryService {
       translate('Loading...')
     );
     this.repositoryHelper.readItemsRequest(this)
-      .map((response: any) => this.repositoryHelper.itemsResponse(this, response).map((item: any) => this.transformModel(item)))
+      .map((response: any) => this.transformModels(this.repositoryHelper.itemsResponse(this, response)))
       .subscribe((loadedItems: any[]) => {
         this.loadAllItems(loadedItems);
         if (this.items && this.items.length > 0) {
@@ -178,8 +181,7 @@ export class BaseRepositoryService {
       translate('Loading...')
     );
     setTimeout((out: any) => {
-      const constItems = mockedItems.filter((item: any) => inValues(item, filter.q)).
-        map((item: any) => this.transformModel(item));
+      const constItems = this.transformModels(mockedItems.filter((item: any) => inValues(item, filter.q)));
       this.calcMeta(constItems.length);
       let count = 0;
       if (this.meta.perPage === undefined) {
@@ -394,13 +396,14 @@ export class BaseRepositoryService {
     }
   }
   removeItems(items: any[]) {
+    let keys: any[];
     if (this.mockedItems !== null) {
-      const keys = items.map(d => d.pk);
+      keys = items.map(d => d.pk);
       this.mockedItems.forEach((t, i) => {
         if (keys.indexOf(t.pk) !== -1) { this.mockedItems.splice(i, 1); }
       });
     }
-    const keys = items.map(d => d.pk);
+    keys = items.map(d => d.pk);
     this.items.forEach((t, i) => {
       if (keys.indexOf(t.pk) !== -1) { this.items.splice(i, 1); }
     });

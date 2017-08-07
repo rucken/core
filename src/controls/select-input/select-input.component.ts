@@ -88,7 +88,7 @@ export class SelectInputComponent extends BaseComponent {
 
   private _items: any[] = [];
   private _showMe = false;
-  private debouncer: Subject<string> = new Subject<string>();
+  private debouncer$: Subject<string> = new Subject<string>();
 
   getTitle: any;
   constructor(
@@ -112,8 +112,7 @@ export class SelectInputComponent extends BaseComponent {
     if (this.debounceTime === undefined) {
       this.debounceTime = config.debounceTime;
     }
-    this.debouncer
-      .debounceTime(this.debounceTime)
+    this.debouncer$.debounceTime(this.debounceTime)
       .subscribe((value: string) => this.onChangeInputValue.emit(value));
   }
   get inputReadonly() {
@@ -123,7 +122,7 @@ export class SelectInputComponent extends BaseComponent {
     if (!value && !this.inputReadonly) {
       this.value = null;
     }
-    this.debouncer.next(value);
+    this.debouncer$.next(value);
   }
   get showMe() {
     return this._showMe;

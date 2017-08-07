@@ -1,4 +1,5 @@
 export const environment = {
+  type: 'mockapi',
   production: true,
-  apiUrl: 'https://58b570c93b33631200bf2d3d.mockapi.io/api'
+  apiUrl: 'https://598726293223df0011bbead7.mockapi.io/api'
 };

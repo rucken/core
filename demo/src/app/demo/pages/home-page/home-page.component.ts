@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService, AccountService, BasePageComponent } from './../../../../../../src';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'home-page',
@@ -11,9 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class HomePageComponent extends BasePageComponent {
 
-  readme: string = require('html-loader!markdown-loader!./../../../../../../README.md');
-
   constructor(
+    public sanitizer: DomSanitizer,
     public accountService: AccountService,
     public app: AppService,
     public translateService: TranslateService,
@@ -21,8 +21,7 @@ export class HomePageComponent extends BasePageComponent {
     public router: Router
   ) {
     super(accountService, app, translateService, activatedRoute, router);
-  }
-  get formatedReadme() {
-    return this.readme.replace('<h1 id="rucken">rucken</h1>', '');
+    const readme = require('html-loader!markdown-loader!./../../../../../../README.md');
+    this.readme = this.safeHtml(readme.replace('<h1 id="rucken">rucken</h1>', ''))
   }
 }

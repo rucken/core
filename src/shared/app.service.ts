@@ -8,10 +8,10 @@ export class AppService {
   viewContainerRef: ViewContainerRef;
   endpointHelper: EndpointHelper
   translate: TranslateService
-  currentPageName$: EventEmitter<string> = new EventEmitter<string>();
-  currentPageTitle$: EventEmitter<string> = new EventEmitter<string>();
-  currentFrameName$: EventEmitter<string> = new EventEmitter<string>();
-  currentFrameTitle$: EventEmitter<string> = new EventEmitter<string>();
+  onCurrentPageName: EventEmitter<string> = new EventEmitter<string>();
+  onCurrentPageTitle: EventEmitter<string> = new EventEmitter<string>();
+  onCurrentFrameName: EventEmitter<string> = new EventEmitter<string>();
+  onCurrentFrameTitle: EventEmitter<string> = new EventEmitter<string>();
   private _currentPageName: string;
   private _currentPageTitle: string;
   private _currentFrameName: string;
@@ -22,28 +22,28 @@ export class AppService {
   }
   set currentFrameTitle(value: string) {
     this._currentFrameTitle = value;
-    this.currentFrameTitle$.emit(value);
+    this.onCurrentFrameTitle.emit(value);
   }
   get currentFrameTitle(): string {
     return this._currentFrameTitle;
   }
   set currentFrameName(value: string) {
     this._currentFrameName = value;
-    this.currentFrameName$.emit(value);
+    this.onCurrentFrameName.emit(value);
   }
   get currentFrameName(): string {
     return this._currentFrameName;
   }
   set currentPageTitle(value: string) {
     this._currentPageTitle = value;
-    this.currentPageTitle$.emit(value);
+    this.onCurrentPageTitle.emit(value);
   }
   get currentPageTitle(): string {
     return this._currentPageTitle;
   }
   set currentPageName(value: string) {
     this._currentPageName = value;
-    this.currentPageName$.emit(value);
+    this.onCurrentPageName.emit(value);
   }
   get currentPageName(): string {
     return this._currentPageName;
@@ -77,7 +77,7 @@ export class AppService {
       exists(name: string): boolean {
         return vm._createdModals[name] !== undefined;
       },
-      create(modal: { new (): any }, name?: string): any {
+      create(modal: { new(): any }, name?: string): any {
         const inModal = document.body.classList.contains('modal-open');
         const factory = resolver.resolveComponentFactory(modal);
         const ref = vm.viewContainerRef.createComponent(factory);

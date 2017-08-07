@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <groups-grid #groups (onEnter)="ok()" [onEnterEnabled]="true" (onSelectItems)="selectGroup($event)" [hardReadonly]="hardReadonly"
-          [exclude]="exclude" #focusElement></groups-grid>
+          #focusElement></groups-grid>
       </div>
       <div class="modal-footer">
         <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" closeTitle="{{'Close'|translate}}"

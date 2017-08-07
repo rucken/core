@@ -1,13 +1,12 @@
-import { OnInit, Input, Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Component({
   selector: 'base-component',
   template: ''
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent implements OnInit, OnDestroy {
 
-  @Input()
-  exclude: any[] = [];
   @Input()
   tooltipEnable: boolean;
   @Input()
@@ -28,6 +27,8 @@ export class BaseComponent implements OnInit {
   errorsValue: any;
   infoValue: any;
   [key: string]: any;
+
+  destroyed$: Subject<boolean> = new Subject();
 
   get errorMessage(): any {
     const arr: string[] = [];
@@ -61,14 +62,13 @@ export class BaseComponent implements OnInit {
     }
     return false;
   }
-
-  ngOnInit() {
-    this.beforeInit();
-    this.init();
-    this.afterInit();
+  ngOnDestroy() {
+    this.destroyed$.next(true);
+    this.destroyed$.complete();
   }
-  beforeInit() { }
-  afterInit() { }
+  ngOnInit() {
+    this.init();
+  }
   init() {
     if (this.errors) {
       this.errors.subscribe((data: any) => {

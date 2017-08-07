@@ -4,6 +4,7 @@ import { translate } from './../../shared/utils';
 
 export class BaseResourceModel {
   className = 'ResourceModel';
+
   pkFieldName: string;
   pkIsNumber: boolean;
   dateAsStringFormat = 'DD.MM.YYYY';
@@ -78,8 +79,7 @@ export class BaseResourceModel {
   }
   format() {
     const current: any = this.constructor;
-    const result = this.formatByFields(current.meta());
-    return result;
+    return this.formatByFields(current.meta());
   }
   formatByFields(meta: any): any {
     const obj: any = {};
@@ -96,10 +96,15 @@ export class BaseResourceModel {
       }
     }
     if (dateFields.length > 0) {
-      const tzoffset = (new Date()).getTimezoneOffset() * 60000;
       for (const key in this) {
         if (dateFields.indexOf(key) !== -1) {
           if (obj[key]) {
+            let tzoffset = 0;
+            try {
+              tzoffset = (moment(this[key]).toDate()).getTimezoneOffset() * 60000;
+            } catch (err) {
+              tzoffset = (new Date()).getTimezoneOffset() * 60000;
+            }
             try {
               obj[key] = moment(+moment(this[key]).toDate() - tzoffset).toISOString().slice(0, -1);
             } catch (err) {
