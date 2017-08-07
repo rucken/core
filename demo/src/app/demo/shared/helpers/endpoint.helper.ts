@@ -10,4 +10,15 @@ export class DemoEndpointHelper extends EndpointHelper {
   get apiUrl() {
     return environment.apiUrl;
   }
+  actionUrl(endpointService: any, action?: any) {
+    let endpointServiceApiUrl = endpointService.apiUrl;
+    if (environment.type === 'mockapi' && endpointService.name === 'account') {
+      endpointServiceApiUrl += '/1';
+    }
+    if (action === undefined) {
+      return endpointServiceApiUrl;
+    } else {
+      return `${endpointServiceApiUrl}/${action}`;
+    }
+  };
 }

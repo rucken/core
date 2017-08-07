@@ -38,6 +38,7 @@
     "build": "npm-run-all build.change-src-version build.inline-templates build.build-src-inline",
     "ng": "ng",
     "start": "ng serve --aot=false --host 0.0.0.0",
+    "mockapi": "ng serve --aot=false --host 0.0.0.0 --environment=mockapi",
     "test": "npm-run-all lint build demo.build demo.add-version",
     "lint": "ng lint",
     "e2e": "ng e2e",

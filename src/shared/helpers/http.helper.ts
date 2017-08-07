@@ -7,6 +7,7 @@ import { AuthHttp } from 'angular2-jwt';
 export class HttpHelper {
 
   withCredentials = false;
+  direct = false;
 
   constructor(public authHttp: AuthHttp, public http: Http) {
   }
@@ -22,35 +23,35 @@ export class HttpHelper {
   }
 
   get(url: string, direct?: boolean): Observable<Response> {
-    if (direct) {
+    if (direct || this.direct) {
       return this.http.get(url, this.getRequestOptions());
     }
     return this.authHttp.get(url, this.getRequestOptions());
   }
 
   patch(url: string, data?: any, direct?: boolean): Observable<Response> {
-    if (direct) {
+    if (direct || this.direct) {
       return this.http.patch(url, this.getRequestBody(data), this.getRequestOptions());
     }
     return this.authHttp.patch(url, this.getRequestBody(data), this.getRequestOptions());
   }
 
   post(url: string, data?: any, direct?: boolean): Observable<Response> {
-    if (direct) {
+    if (direct || this.direct) {
       return this.http.post(url, this.getRequestBody(data), this.getRequestOptions());
     }
     return this.authHttp.post(url, this.getRequestBody(data), this.getRequestOptions());
   }
 
   put(url: string, data?: any, direct?: boolean): Observable<Response> {
-    if (direct) {
+    if (direct || this.direct) {
       return this.http.put(url, this.getRequestBody(data), this.getRequestOptions());
     }
     return this.authHttp.put(url, this.getRequestBody(data), this.getRequestOptions());
   }
 
   delete(url: string, direct?: boolean): Observable<Response> {
-    if (direct) {
+    if (direct || this.direct) {
       return this.http.delete(url, this.getRequestOptions());
     }
     return this.authHttp.delete(url, this.getRequestOptions());

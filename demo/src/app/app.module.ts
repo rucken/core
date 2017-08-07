@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
 import { LaddaModule } from 'angular2-ladda';
+import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { LaddaModule } from 'angular2-ladda';
     { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
     { provide: EndpointHelper, useClass: DemoEndpointHelper },
     { provide: RepositoryHelper, useClass: RepositoryHelper },
-    { provide: HttpHelper, useClass: HttpHelper }
+    { provide: HttpHelper, useClass: DemoHttpHelper }
   ],
   bootstrap: [DemoAppComponent]
 })
