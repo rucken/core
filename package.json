@@ -67,7 +67,7 @@
     "@ngx-translate/core": "^7.0.0",
     "@types/jasmine": "2.5.53",
     "@types/lodash": "^4.14.68",
-    "@types/marked": "0.0.28",
+    "@types/marked": "0.3.0",
     "@types/node": "^8.0.7",
     "@types/requirejs": "^2.1.29",
     "@types/webpack": "^3.0.1",
