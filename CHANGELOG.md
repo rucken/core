@@ -6,8 +6,6 @@
 
 * **base-resource.model:** Change detect used timezone fore  date fields ([2264941](https://github.com/site15/rucken/commit/2264941))
 * **env:** Change demo host url in environment ([ca4dcce](https://github.com/site15/rucken/commit/ca4dcce))
-* **refactor:** Change modal-footer-buttons to footer-buttons ([6df03cc](https://github.com/site15/rucken/commit/6df03cc))
-* **refactor:** Change name of ResouceEnumStatus to EndpointStatusEnum ([5218af3](https://github.com/site15/rucken/commit/5218af3))
 * **services:** Refactor helpers and account service ([5f489de](https://github.com/site15/rucken/commit/5f489de))
 
 
