@@ -1,6 +1,6 @@
 {
     "name": "rucken",
-    "version": "1.10.4",
+    "version": "1.10.5",
     "dependencies": {
         "@angular/common": "*",
         "@angular/compiler": "*",
