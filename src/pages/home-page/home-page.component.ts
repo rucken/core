@@ -25,6 +25,6 @@ export class HomePageComponent extends BasePageComponent {
     public router: Router
   ) {
     super(accountService, app, translateService, activatedRoute, router);
-    this.readme = this.safeHtml(this.readme);// require('html-loader!markdown-loader!./../../../README.md');
+    this.readme = this.safeHtml(this.readme); // require('html-loader!markdown-loader!./../../../README.md');
   }
 }
