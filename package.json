@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.10.4",
+  "version": "1.10.5",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "bugs": {
@@ -49,6 +49,7 @@
     "demo.build": "ng build --base-href https://site15.github.io/rucken/ --prod --aot=false",
     "demo.add-version": "gulp add-version",
     "demo.deploy": "gh-pages -d demo/dist",
+    "local-build": "npm-run-all build demo.build demo.add-version",
     "_extract_translate": "ngx-translate-extract --input ./src --output ./src/i18n/template.pot --format=pot --marker translate --clean",
     "_po2ts": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
     "_make_ts_list": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",

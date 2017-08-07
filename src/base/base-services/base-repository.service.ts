@@ -396,13 +396,14 @@ export class BaseRepositoryService {
     }
   }
   removeItems(items: any[]) {
+    let keys: any[];
     if (this.mockedItems !== null) {
-      const keys = items.map(d => d.pk);
+      keys = items.map(d => d.pk);
       this.mockedItems.forEach((t, i) => {
         if (keys.indexOf(t.pk) !== -1) { this.mockedItems.splice(i, 1); }
       });
     }
-    const keys = items.map(d => d.pk);
+    keys = items.map(d => d.pk);
     this.items.forEach((t, i) => {
       if (keys.indexOf(t.pk) !== -1) { this.items.splice(i, 1); }
     });

@@ -33,7 +33,7 @@ Core with Admin UI for web application maked on Angular4
 
 MIT
 
-[travis-image]: https://travis-ci.org/site15/rucken.svg?branch=develop
+[travis-image]: https://travis-ci.org/site15/rucken.svg?branch=master
 [travis-url]: https://travis-ci.org/site15/rucken
 [gitter-image]: https://img.shields.io/gitter/room/nwjs/nw.js.svg
 [gitter-url]: https://gitter.im/site15-ru/rucken
