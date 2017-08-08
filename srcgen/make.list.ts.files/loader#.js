@@ -4,7 +4,7 @@ var fs = require('fs'),
   srcgen = require('srcgen'),
   recursive = require('recursive-readdir'),
   replaceExt = require('replace-ext');
-var scanPath = path.resolve(__srcdir, '../../', scan.path);
+var scanPath = path.resolve(__srcdir, '..', '..', scan.path);
 console.log('Scan dir:' + scanPath);
 recursive(scanPath, ['!*.ts'], function (err, files) {
   var exportArray = [];
@@ -20,7 +20,8 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
     'module',
     'component',
     'shared',
-    'service'
+    'service',
+    'pipe'
   ];
   var moduleName = _.upperFirst(path.basename(scanPath));
   if (moduleName == 'Src') {
@@ -65,7 +66,7 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
                 founded = true;
               }
             }
-            if (!founded) {
+            if (!founded && delmitter.prefix !== 'interface ') {
               exportEntities['shared'].push(className);
             }
           }
@@ -91,7 +92,7 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
     }
   }
   if (exportArray.length > 0) {
-    var out = exportArray.join('\n')+'\n';
+    var out = exportArray.join('\n') + '\n';
     require("fs").writeFileSync(path.resolve(scanPath, 'index.ts'), out);
     console.log('Objects count included in index.ts:' + exportArray.length);
   }

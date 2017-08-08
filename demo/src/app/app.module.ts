@@ -22,10 +22,12 @@ import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
 import { LaddaModule } from 'angular2-ladda';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
+import { RuckenPipes } from '../../../src';
 
 @NgModule({
   declarations: [
-    DemoAppComponent
+    DemoAppComponent,
+    RuckenPipes
   ],
   imports: [
     CommonModule,
