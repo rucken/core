@@ -16,15 +16,26 @@ export class EndpointHelper {
   get mockApiUrl() {
     return '/api';
   }
-  actionUrl(endpointService: any, action?: any) {
-    if (action === undefined) {
-      return endpointService.apiUrl;
-    } else {
-      return `${endpointService.apiUrl}/${action}`;
+  actionUrl(endpointService: any, action: any, data: any, customUrl?: string) {
+    let url: string = endpointService.apiUrl;
+    if (customUrl) {
+      url = customUrl;
     }
+    if (action !== undefined && action !== null) {
+      url = `${url}/${action}`;
+    }
+    if (data) {
+      let key: string;
+      for (key in data) {
+        if (data.hasOwnProperty(key)) {
+          url = url.replace(new RegExp(`{${key}}`, 'ig'), data[key]);
+        }
+      }
+    }
+    return url;
   };
   actionRequest(endpointService: any, action?: any, data?: any, direct?: boolean): Observable<Response> {
-    return this.httpHelper.post(this.actionUrl(endpointService, action), this.actionRequestBody(endpointService, action, data));
+    return this.httpHelper.post(this.actionUrl(endpointService, action, null), this.actionRequestBody(endpointService, action, data));
   };
   actionRequestBody(endpointService: any, action?: any, data?: any) {
     if (data === undefined) {
