@@ -26,7 +26,7 @@ export class RepositoryHelper {
     if (action && repositoryService.getApiUrl) {
       customUrl = repositoryService.getApiUrl(action, key, data);
     }
-    if (key === undefined) {
+    if (key === undefined || key === null) {
       url = this.endpointHelper.actionUrl(repositoryService, null, data, customUrl);
     } else {
       url = this.endpointHelper.actionUrl(repositoryService, key, null, customUrl)
