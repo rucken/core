@@ -1,3 +1,20 @@
+<a name="1.11.0"></a>
+# [1.11.0](https://github.com/site15/rucken/compare/1.10.5...1.11.0) (2017-08-19)
+
+
+### Bug Fixes
+
+* Error in add custom translate pipes ([3103056](https://github.com/site15/rucken/commit/3103056))
+* Error in support custom api url ([bdf84e8](https://github.com/site15/rucken/commit/bdf84e8))
+
+
+### Features
+
+* **custom-translate.pipe:** Add custom pipe for translate ([a42d058](https://github.com/site15/rucken/commit/a42d058))
+* Add get support custom api url on repositories ([fec86af](https://github.com/site15/rucken/commit/fec86af))
+
+
+
 <a name="1.10.5"></a>
 ## [1.10.5](https://github.com/site15/rucken/compare/1.10.3...v1.10.5) (2017-08-07)
 
@@ -6,8 +23,6 @@
 
 * **base-resource.model:** Change detect used timezone fore  date fields ([2264941](https://github.com/site15/rucken/commit/2264941))
 * **env:** Change demo host url in environment ([ca4dcce](https://github.com/site15/rucken/commit/ca4dcce))
-* **refactor:** Change modal-footer-buttons to footer-buttons ([6df03cc](https://github.com/site15/rucken/commit/6df03cc))
-* **refactor:** Change name of ResouceEnumStatus to EndpointStatusEnum ([5218af3](https://github.com/site15/rucken/commit/5218af3))
 * **services:** Refactor helpers and account service ([5f489de](https://github.com/site15/rucken/commit/5f489de))
 
 

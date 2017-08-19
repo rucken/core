@@ -20,15 +20,22 @@ export class RepositoryHelper {
   extractError(error: any, message?: string): any {
     return this.endpointHelper.extractError(error, message);
   }
-  itemUrl(repositoryService: any, key?: any) {
-    if (key === undefined) {
-      return this.endpointHelper.actionUrl(repositoryService);
-    } else {
-      return this.endpointHelper.actionUrl(repositoryService, key)
+  itemUrl(repositoryService: any, key: any, data: any, action: string): string {
+    let url = repositoryService.apiUrl;
+    let customUrl: string;
+    if (action && repositoryService.getApiUrl) {
+      customUrl = repositoryService.getApiUrl(action, key, data);
     }
+    if (key === undefined || key === null) {
+      url = this.endpointHelper.actionUrl(repositoryService, null, data, customUrl);
+    } else {
+      url = this.endpointHelper.actionUrl(repositoryService, key, null, customUrl)
+    }
+    return url;
   };
   itemsUrl(repositoryService: any) {
     const uri = new URLSearchParams();
+    let apiUrl = this.itemUrl(repositoryService, null, null, 'items');
     for (const queryProp in repositoryService.queryProps) {
       if (repositoryService.queryProps.hasOwnProperty(queryProp)) {
         const queryPropKey = queryProp.indexOf('{') === -1 ? _.snakeCase(queryProp) : queryProp;
@@ -42,7 +49,6 @@ export class RepositoryHelper {
         }
       }
     }
-    let apiUrl = this.endpointHelper.actionUrl(repositoryService);
     if (repositoryService.props !== null) {
       apiUrl = repositoryService.apiUrlWithProps;
       for (const propKey in repositoryService.props) {
@@ -86,7 +92,7 @@ export class RepositoryHelper {
   };
   readItemRequest(repositoryService: any, key: any): Observable<Response> {
     return this.httpHelper.get(
-      this.itemUrl(repositoryService, key)
+      this.itemUrl(repositoryService, key, null, 'item')
     );
   };
   readItemsRequest(repositoryService: any): Observable<Response> {
@@ -94,18 +100,18 @@ export class RepositoryHelper {
   };
   createItemRequest(repositoryService: any, item: any): Observable<Response> {
     return this.httpHelper.post(
-      this.itemUrl(repositoryService),
+      this.itemUrl(repositoryService, null, item, 'create'),
       this.endpointHelper.actionRequestBody(repositoryService, 'create', item)
     );
   };
   updateItemRequest(repositoryService: any, item: any): Observable<Response> {
     return this.httpHelper.put(
-      this.itemUrl(repositoryService, item.pk),
+      this.itemUrl(repositoryService, item.pk, item, 'update'),
       this.endpointHelper.actionRequestBody(repositoryService, 'update', item)
     );
   };
   deleteItemsRequest(repositoryService: any, items: any): Observable<Response> {
     const ids = items.map((item: any) => item.pk);
-    return this.httpHelper.delete(this.itemUrl(repositoryService, ids.join('|')));
+    return this.httpHelper.delete(this.itemUrl(repositoryService, ids.join('|'), items[0], 'delete'));
   };
 }

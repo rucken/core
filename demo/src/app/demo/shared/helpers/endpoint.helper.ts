@@ -10,15 +10,25 @@ export class DemoEndpointHelper extends EndpointHelper {
   get apiUrl() {
     return environment.apiUrl;
   }
-  actionUrl(endpointService: any, action?: any) {
-    let endpointServiceApiUrl = endpointService.apiUrl;
+  actionUrl(endpointService: any, action: any, data: any, customUrl?: string) {
+    let url: string = endpointService.apiUrl;
+    if (customUrl) {
+      url = customUrl;
+    }
     if (environment.type === 'mockapi' && endpointService.name === 'account') {
-      endpointServiceApiUrl += '/1';
+      url += '/1';
     }
-    if (action === undefined) {
-      return endpointServiceApiUrl;
-    } else {
-      return `${endpointServiceApiUrl}/${action}`;
+    if (action !== undefined && action !== null) {
+      url = `${url}/${action}`;
     }
+    if (data) {
+      let key: string;
+      for (key in data) {
+        if (data.hasOwnProperty(key)) {
+          url = url.replace(new RegExp(`{${key}}`, 'ig'), data[key]);
+        }
+      }
+    }
+    return url;
   };
 }

@@ -35,7 +35,7 @@ MIT
 
 [travis-image]: https://travis-ci.org/site15/rucken.svg?branch=master
 [travis-url]: https://travis-ci.org/site15/rucken
-[gitter-image]: https://img.shields.io/gitter/room/nwjs/nw.js.svg
+[gitter-image]: https://img.shields.io/gitter/room/site15-ru/rucken.js.svg
 [gitter-url]: https://gitter.im/site15-ru/rucken
 [npm-image]: https://badge.fury.io/js/rucken.svg
 [npm-url]: https://npmjs.org/package/rucken
