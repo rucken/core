@@ -15,7 +15,6 @@ import { AlertModalModule } from './../../modals/alert-modal/alert-modal.module'
 import { NavbarModule } from './../../controls/navbar/navbar.module';
 import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
 import { BaseRoutes } from './base-app.routes';
-import { RuckenServices } from './../../index';
 import { BaseResourceSelectInputConfig } from './../base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { TextInputConfig } from './../../controls/text-input/text-input.config';
 import { SelectInputConfig } from './../../controls/select-input/select-input.config';
@@ -44,7 +43,6 @@ import { AuthHttpFactory } from './../../shared/factories/auth-http.factory';
     PaginationConfig,
     TabsetConfig,
     PopoverConfig,
-    RuckenServices,
     BaseResourceSelectInputConfig,
     TextInputConfig,
     SelectInputConfig,

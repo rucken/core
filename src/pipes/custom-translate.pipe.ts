@@ -6,7 +6,7 @@ import * as _ from 'lodash';
 export class CustomTranslatePipe implements PipeTransform {
   constructor(private _translateService: TranslateService) { }
   transform(value: string, args: any): any {
-    const newArgs = {};
+    const newArgs: any = {};
     let key = '';
     for (key in args) {
       if (args[key]) {
