@@ -1,3 +1,13 @@
+<a name="1.11.1"></a>
+## [1.11.1](https://github.com/site15/rucken/compare/1.11.0...1.11.1) (2017-08-19)
+
+
+### Bug Fixes
+
+* Set npm and nodejs specific version in package.json engines ([d211f4e](https://github.com/site15/rucken/commit/d211f4e))
+
+
+
 <a name="1.11.0"></a>
 # [1.11.0](https://github.com/site15/rucken/compare/1.10.5...1.11.0) (2017-08-19)
 
