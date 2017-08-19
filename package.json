@@ -6,6 +6,10 @@
   "bugs": {
     "url": "https://github.com/site15/rucken/issues"
   },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=5.3.0"
+  },
   "private": true,
   "description": "Core with Admin UI for web application maked on Angular4",
   "homepage": "https://github.com/site15/rucken",
