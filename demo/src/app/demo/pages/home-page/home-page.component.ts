@@ -22,6 +22,6 @@ export class HomePageComponent extends BasePageComponent {
   ) {
     super(accountService, app, translateService, activatedRoute, router);
     const readme = require('html-loader!markdown-loader!./../../../../../../README.md');
-    this.readme = this.safeHtml(readme.replace('<h1 id="rucken">rucken</h1>', ''))
+    this.readme = readme.replace('<h1 id="rucken">rucken</h1>', '');
   }
 }
