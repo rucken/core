@@ -8,13 +8,14 @@ import { TextInputModule } from './../../../controls/text-input/text-input.modul
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { ContentTypesListModalModule } from './../../../grids/content-types-grid/content-types-list-modal/content-types-list-modal.module';
+import { PipesModule } from '../../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule, FormsModule, ModalModule.forRoot(), TranslateModule.forChild(),
     ContentTypesListModalModule.forRoot(),
     FooterButtonsModule.forRoot(), TextInputModule.forRoot(),
-    TooltipModule.forRoot(), SelectInputModule.forRoot()
+    PipesModule.forRoot(), TooltipModule.forRoot(), SelectInputModule.forRoot()
   ],
   declarations: [
     ContentTypeSelectInputComponent

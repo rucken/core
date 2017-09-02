@@ -1,5 +1,4 @@
 import { Component, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
-import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import * as _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
@@ -92,7 +91,6 @@ export class SelectInputComponent extends BaseComponent {
 
   getTitle: any;
   constructor(
-    public sanitizer: DomSanitizer,
     public translateService: TranslateService,
     public config: SelectInputConfig
   ) {
@@ -147,10 +145,10 @@ export class SelectInputComponent extends BaseComponent {
   init() {
     this.getTitle = (item: any) => {
       if (item && item[this.titleField]) {
-        return this.safeHtml(item[this.titleField]);
+        return item[this.titleField];
       }
       if (item && item[this.inputTitleField]) {
-        return this.safeHtml(item[this.inputTitleField]);
+        return item[this.inputTitleField];
       }
       return '';
     };

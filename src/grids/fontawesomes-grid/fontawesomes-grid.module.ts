@@ -7,11 +7,12 @@ import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { TranslateModule } from '@ngx-translate/core';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule, TranslateModule.forChild(), GridSearchPanelModule.forRoot(), ConfirmModalModule.forRoot(),
-    TableColumnModule.forRoot(), GridRowButtonsModule.forRoot(), PaginationModule.forRoot()
+    PipesModule.forRoot(), TableColumnModule.forRoot(), GridRowButtonsModule.forRoot(), PaginationModule.forRoot()
   ],
   declarations: [
     FontawesomesGridComponent

@@ -11,7 +11,7 @@
     <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
       [show-input-tag]="false" [list-formatter]="getTitle" [source]="items" #autoComplete>
     </ngui-auto-complete>
-    <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
+    <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="(errorMessage || infoMessage) | safeHtml"></span>
   </div>
   <div *ngIf="!inFormGroup">
     <div [ngClass]="{'inner-addon right-addon':!readonly}" class="{{inputFrameClass}}">

@@ -8,7 +8,6 @@ import { ContentTypesService } from './../../../shared/content-types.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { BaseResourceSelectInputConfig } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 
@@ -41,11 +40,10 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     public accountService: AccountService,
     public contentTypesService: ContentTypesService,
     public resolver: ComponentFactoryResolver,
-    public sanitizer: DomSanitizer,
     public translateService: TranslateService,
     public config: BaseResourceSelectInputConfig
   ) {
-    super(sanitizer, translateService, config);
+    super(translateService, config);
     this.cachedResourcesService = contentTypesService.createCache();
   }
   changeInputValue(value: string) {

@@ -7,7 +7,6 @@ import { FontawesomesService } from './../../../shared/fontawesomes.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'fontawesome-input',
@@ -34,12 +33,11 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
   constructor(
     public app: AppService,
     public accountService: AccountService,
-    public sanitizer: DomSanitizer,
     public fontawesomesService: FontawesomesService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
-    super(sanitizer, translateService);
+    super(translateService);
     this.cachedResourcesService = fontawesomesService.createCache();
   }
   get account(): any | User {

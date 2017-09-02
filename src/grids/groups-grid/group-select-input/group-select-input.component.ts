@@ -8,7 +8,6 @@ import { GroupsService } from './../../../shared/groups.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { BaseResourceSelectInputConfig } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
@@ -41,11 +40,10 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
     public accountService: AccountService,
     public groupsService: GroupsService,
     public resolver: ComponentFactoryResolver,
-    public sanitizer: DomSanitizer,
     public translateService: TranslateService,
     public config: BaseResourceSelectInputConfig
   ) {
-    super(sanitizer, translateService, config);
+    super(translateService, config);
     this.cachedResourcesService = groupsService.createCache();
   }
   get account(): any | User {

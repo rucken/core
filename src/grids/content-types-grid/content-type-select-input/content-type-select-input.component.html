@@ -13,5 +13,5 @@
     </button>
     </span>
   </div>
-  <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
+  <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="(errorMessage || infoMessage) | safeHtml"></span>
 </div>

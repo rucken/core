@@ -1,4 +1,3 @@
-import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { User } from './../..//shared/models/user.model';
 import { Subscription } from 'rxjs/Rx';
 import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
@@ -33,7 +32,6 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
   cachedResourcesService: FontawesomesService;
 
   constructor(
-    public sanitizer: DomSanitizer,
     public fontawesomesService: FontawesomesService,
     public accountService: AccountService,
     public app: AppService,

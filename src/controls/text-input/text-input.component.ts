@@ -1,6 +1,5 @@
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import emailMask from 'text-mask-addons/dist/emailMask';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
@@ -65,7 +64,6 @@ export class TextInputComponent extends BaseComponent {
   private _dateValue: any;
 
   constructor(
-    public sanitizer: DomSanitizer,
     public translateService: TranslateService,
     public config: TextInputConfig
   ) {

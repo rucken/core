@@ -96,13 +96,6 @@ export class BaseComponent implements OnInit, OnDestroy {
       }
     }, 300);
   }
-  safeHtml(html: string): any {
-    if (this.sanitizer) {
-      return this.sanitizer.bypassSecurityTrustHtml(html);
-    } else {
-      return html;
-    }
-  }
   translate(text: string) {
     if (this.translateService) {
       return this.translateService.instant(text);

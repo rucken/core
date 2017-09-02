@@ -1,7 +1,6 @@
 import { BaseResourceSelectInputConfig } from './base-resource-select-input.config';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { Input, Output, EventEmitter, Component } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { EndpointStatusEnum } from './../../../shared/enums/endpoint-status.enum';
 
@@ -78,7 +77,6 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   }
 
   constructor(
-    public sanitizer: DomSanitizer,
     public translateService: TranslateService,
     public config: BaseResourceSelectInputConfig
   ) {

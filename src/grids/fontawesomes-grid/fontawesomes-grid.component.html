@@ -37,7 +37,7 @@
       </tr>
       <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}"
         (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
-        <td class="app-grid__table__col-icon" [innerHtml]="safeHtml(item.iconAsHtml)"></td>
+        <td class="app-grid__table__col-icon" [innerHtml]="item.iconAsHtml | safeHtml"></td>
         <td class="app-grid__table__col-code">{{item.code}}</td>
         <td class="app-grid__table__col-class">{{item.class}}</td>
         <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_fontawesome','delete_fontawesome'])">

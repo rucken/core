@@ -6,10 +6,11 @@ import { TooltipModule } from 'ngx-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
 import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, TranslateModule.forChild(), TooltipModule.forRoot(),
+    CommonModule, FormsModule, TranslateModule.forChild(), TooltipModule.forRoot(), PipesModule.forRoot(),
     NguiAutoCompleteModule
   ],
   declarations: [SelectInputComponent],
