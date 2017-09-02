@@ -1,3 +1,20 @@
+<a name="1.12.0"></a>
+# [1.12.0](https://github.com/site15/rucken/compare/1.11.1...1.12.0) (2017-09-02)
+
+
+### Bug Fixes
+
+* Change demo, remove safeHtml ([074a4e1](https://github.com/site15/rucken/commit/074a4e1))
+
+
+### Features
+
+* Add getMockItemsNextPk for base repository service and move mockItems to getter ([e4acf46](https://github.com/site15/rucken/commit/e4acf46))
+* Remove all usage of DomSanitizer, change to use safeHtml pipe ([6777a23](https://github.com/site15/rucken/commit/6777a23))
+* Update dependencies ([6aa0f29](https://github.com/site15/rucken/commit/6aa0f29))
+
+
+
 <a name="1.11.1"></a>
 ## [1.11.1](https://github.com/site15/rucken/compare/1.11.0...1.11.1) (2017-08-19)
 
