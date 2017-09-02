@@ -2,6 +2,7 @@ import { AppService, AlertModalComponent, BaseAppComponent } from './../../../sr
 import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'demo-app-root',

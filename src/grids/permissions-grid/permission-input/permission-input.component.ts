@@ -7,7 +7,6 @@ import { PermissionsService } from './../../../shared/permissions.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'permission-input',
@@ -34,12 +33,11 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
   constructor(
     public app: AppService,
     public accountService: AccountService,
-    public sanitizer: DomSanitizer,
     public permissionsService: PermissionsService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
-    super(sanitizer, translateService);
+    super(translateService);
     this.cachedResourcesService = permissionsService.createCache();
   }
   get account(): any | User {

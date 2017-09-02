@@ -1,6 +1,5 @@
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { Component, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
-import { BrowserModule, DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { TableColumnConfig } from './table-column.config';
 import { BaseComponent } from './../../base/base-component/base-component.component';
@@ -29,7 +28,6 @@ export class TableColumnComponent extends BaseComponent {
   _columns: any = {};
 
   constructor(
-    public sanitizer: DomSanitizer,
     public translateService: TranslateService,
     public config: TableColumnConfig
   ) {

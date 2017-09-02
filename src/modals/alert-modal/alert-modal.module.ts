@@ -5,11 +5,12 @@ import { ModalModule } from 'ngx-bootstrap';
 import { FooterButtonsModule } from './../../controls/footer-buttons/footer-buttons.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule, FormsModule, ModalModule.forRoot(), TranslateModule.forChild(),
-    FooterButtonsModule.forRoot()
+    FooterButtonsModule.forRoot(), PipesModule.forRoot()
   ],
   declarations: [AlertModalComponent],
   exports: [AlertModalComponent],

@@ -9,8 +9,8 @@
       </div>
       <form (ngSubmit)="close()">
         <div class="modal-body" [ngClass]="[messageClass]">
-          <span *ngIf="content" [innerHTML]="content"></span>
-          <span *ngIf="!content">{{message | translate}}</span>
+          <span *ngIf="content" [innerHTML]="content | safeHtml"></span>
+          <span *ngIf="!content && message" [innerHTML]="message | safeHtml"></span>
         </div>
         <div class="modal-footer">
           <footer-buttons (onOk)="close()" [okTitle]="buttonText" [okBtnClass]="buttonClass" [closeHidden]="true"

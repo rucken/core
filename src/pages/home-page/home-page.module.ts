@@ -5,12 +5,14 @@ import { RouterModule } from '@angular/router';
 import { HomePageRoutes } from './home-page.routes';
 import { TranslateModule } from '@ngx-translate/core';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    PageHeaderModule.forRoot()
+    PageHeaderModule.forRoot(),
+    PipesModule.forRoot()
   ],
   declarations: [HomePageComponent],
   exports: [HomePageComponent],

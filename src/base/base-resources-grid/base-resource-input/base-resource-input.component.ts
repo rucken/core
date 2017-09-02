@@ -1,7 +1,6 @@
 import { EndpointStatusEnum } from './../../../shared/enums/endpoint-status.enum';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { ElementRef, Input, EventEmitter, Output, Component } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
 
@@ -64,7 +63,6 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
 
   constructor(
-    public sanitizer: DomSanitizer,
     public translateService: TranslateService
   ) {
     super();
