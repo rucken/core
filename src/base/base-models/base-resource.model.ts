@@ -15,6 +15,10 @@ export class BaseResourceModel {
     const key = this.pkFieldName;
     return this[key];
   }
+  set pk(value: string | number) {
+    const key = this.pkFieldName;
+    this[key] = value;
+  }
   static meta(): any {
     const meta: any = BaseResourceModel;
     return meta;

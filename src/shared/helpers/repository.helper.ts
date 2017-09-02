@@ -57,13 +57,15 @@ export class RepositoryHelper {
         }
       }
     }
-    for (const key in repositoryService.columns) {
-      if (repositoryService.columns.hasOwnProperty(key)) {
-        if (repositoryService.columns[key]['sort']) {
-          if (repositoryService.columns[key]['sort'] === 'asc') {
+    let key: string;
+    for (const columnKey in repositoryService.columns) {
+      if (repositoryService.columns.hasOwnProperty(columnKey)) {
+        key = columnKey.split('.').map(item => _.camelCase(item)).join('.');
+        if (repositoryService.columns[columnKey]['sort']) {
+          if (repositoryService.columns[columnKey]['sort'] === 'asc') {
             uri.append('sort[]', _.snakeCase(key));
           }
-          if (repositoryService.columns[key]['sort'] === 'desc') {
+          if (repositoryService.columns[columnKey]['sort'] === 'desc') {
             uri.append('sort[]', `-${_.snakeCase(key)}`);
           }
         }

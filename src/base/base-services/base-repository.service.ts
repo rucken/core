@@ -16,7 +16,6 @@ export class BaseRepositoryService {
   name: string;
   items$: Subject<any[]>;
   items: any[];
-  mockedItems: any[];
   meta: MetaModel;
   props: any = null;
   apiUrlWithProps: string;
@@ -30,6 +29,8 @@ export class BaseRepositoryService {
   changeStatusList$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
   changeStatusItem$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
 
+  private _mockedItems: any[];
+
   get statusList() {
     return this._statusList;
   }
@@ -42,11 +43,39 @@ export class BaseRepositoryService {
 
   constructor(public repositoryHelper: RepositoryHelper) {
     this.items = [];
-    this.mockedItems = null;
+    this._mockedItems = null;
     this.cached = [];
     this.meta = new MetaModel();
     this.meta.curPage = 1;
     this.parent = null;
+  }
+  getMockItemsNextPk(item: any) {
+    if (item && item.pkIsNumber) {
+      let currentMax = 0;
+      this._mockedItems.map((mapItem: any) => Math.abs(mapItem.pk) > currentMax ? currentMax = Math.abs(mapItem.pk) : null);
+      return (currentMax + 1) * -1;
+    }
+    return null;
+  }
+  get mockedItems() {
+    return this._mockedItems.map((mapItem: any) => {
+      if (mapItem && mapItem.pkIsNumber && mapItem.pk < 0) {
+        mapItem.pk = null;
+      }
+      return mapItem;
+    })
+  }
+  set mockedItems(_mockedItems: any[]) {
+    if (_mockedItems) {
+      this._mockedItems = _mockedItems.map((mapItem: any) => {
+        if (mapItem && mapItem.pkIsNumber && (mapItem.pk === null || mapItem.pk === undefined)) {
+          mapItem.pk = this.getMockItemsNextPk(mapItem);
+        }
+        return mapItem;
+      })
+    } else {
+      this._mockedItems = _mockedItems;
+    }
   }
   newCache(): any {
     return new BaseRepositoryService(this.repositoryHelper);
@@ -121,8 +150,8 @@ export class BaseRepositoryService {
     if (!filter.q) {
       filter.q = !q ? '' : q;
     }
-    if (this.mockedItems !== null) {
-      return this.mockLoadAll(filter, this.mockedItems);
+    if (this._mockedItems !== null) {
+      return this.mockLoadAll(filter, this._mockedItems);
     }
     const result = new EventEmitter();
     if (!filter.curPage && this.meta.curPage) {
@@ -264,8 +293,9 @@ export class BaseRepositoryService {
   }
   createItem(createdItem: any) {
     this.calcMeta(_.toNumber(this.meta.totalResults) + 1);
-    if (this.mockedItems !== null) {
-      this.mockedItems.unshift(createdItem);
+    if (this._mockedItems !== null) {
+      createdItem.pk = this.getMockItemsNextPk(createdItem);
+      this._mockedItems.unshift(createdItem);
     }
     this.items.unshift(createdItem);
     this.items$.next(this.items);
@@ -279,7 +309,7 @@ export class BaseRepositoryService {
       );
       return result;
     }
-    if (this.mockedItems !== null) {
+    if (this._mockedItems !== null) {
       return this.mockCreate(item);
     }
     this.setStatusItem(EndpointStatusEnum.Creating,
@@ -321,15 +351,15 @@ export class BaseRepositoryService {
   }
   updateItem(updatedItem: any) {
     let founded = false;
-    if (this.mockedItems !== null) {
-      this.mockedItems.forEach((eachItem: any, i: number) => {
+    if (this._mockedItems !== null) {
+      this._mockedItems.forEach((eachItem: any, i: number) => {
         if (eachItem.pk === updatedItem.pk) {
-          this.mockedItems[i] = updatedItem;
+          this._mockedItems[i] = updatedItem;
           founded = true;
         }
       });
       if (!founded) {
-        this.mockedItems.unshift(updatedItem);
+        this._mockedItems.unshift(updatedItem);
       }
       founded = false;
     }
@@ -354,7 +384,7 @@ export class BaseRepositoryService {
       );
       return result;
     }
-    if (this.mockedItems !== null) {
+    if (this._mockedItems !== null) {
       return this.mockUpdate(item);
     }
     this.setStatusItem(EndpointStatusEnum.Updating,
@@ -397,10 +427,10 @@ export class BaseRepositoryService {
   }
   removeItems(items: any[]) {
     let keys: any[];
-    if (this.mockedItems !== null) {
+    if (this._mockedItems !== null) {
       keys = items.map(d => d.pk);
-      this.mockedItems.forEach((t, i) => {
-        if (keys.indexOf(t.pk) !== -1) { this.mockedItems.splice(i, 1); }
+      this._mockedItems.forEach((t, i) => {
+        if (keys.indexOf(t.pk) !== -1) { this._mockedItems.splice(i, 1); }
       });
     }
     keys = items.map(d => d.pk);
@@ -421,7 +451,7 @@ export class BaseRepositoryService {
     this.items$.next(this.items);
   }
   remove(items: any[]) {
-    if (this.mockedItems !== null) {
+    if (this._mockedItems !== null) {
       return this.mockRemove(items);
     }
     const result = new EventEmitter();
