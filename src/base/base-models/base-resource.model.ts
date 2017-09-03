@@ -125,12 +125,15 @@ export class BaseResourceModel {
     }
     return obj;
   }
-  dateAsString(fieldName: string) {
+  dateAsString(fieldName: string, dateAsStringFormat?: string) {
+    if (dateAsStringFormat === undefined) {
+      dateAsStringFormat = this.dateAsStringFormat;
+    }
     let text: string;
     text = '';
     if (this[fieldName] !== undefined) {
       try {
-        text = moment(this[fieldName]).format(this.dateAsStringFormat);
+        text = moment(this[fieldName]).format(dateAsStringFormat);
       } catch (err) {
         text = '';
       }
@@ -140,13 +143,16 @@ export class BaseResourceModel {
     }
     return text;
   }
-  setDateAsString(fieldName: string, value: any) {
+  setDateAsString(fieldName: string, value: any, dateAsStringFormat?: string) {
+    if (dateAsStringFormat === undefined) {
+      dateAsStringFormat = this.dateAsStringFormat;
+    }
     if (this[fieldName] === undefined) {
       this[fieldName] = null;
       return;
     }
     try {
-      value = moment(value, this.dateAsStringFormat).toDate();
+      value = moment(value, dateAsStringFormat).toDate();
     } catch (err) {
       value = null;
     }
@@ -155,14 +161,17 @@ export class BaseResourceModel {
     }
     this[fieldName] = value;
   }
-  getDateInput(fieldName: string) {
+  getDateInput(fieldName: string, dateInputFormat?: string) {
+    if (dateInputFormat === undefined) {
+      dateInputFormat = this.dateInputFormat;
+    }
     if (this[fieldName] === undefined) {
       return '';
     }
     let value: string;
     value = '';
     try {
-      value = moment(this[fieldName]).format(this.dateInputFormat);
+      value = moment(this[fieldName]).format(dateInputFormat);
     } catch (err) {
       value = '';
     }
@@ -171,7 +180,10 @@ export class BaseResourceModel {
     }
     return value;
   }
-  setDateInput(fieldName: string, value: any) {
+  setDateInput(fieldName: string, value: any, dateInputFormat?: string) {
+    if (dateInputFormat === undefined) {
+      dateInputFormat = this.dateInputFormat;
+    }
     if (this[fieldName] === undefined) {
       this[fieldName] = null;
       return;
