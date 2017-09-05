@@ -70,7 +70,7 @@
     "@angular/platform-browser-dynamic": "^4.4.0-RC.0",
     "@angular/router": "^4.4.0-RC.0",
     "@ngui/auto-complete": "^0.13.8",
-    "@ngx-translate/core": "^7.2.0",
+    "@ngx-translate/core": "^8.0.0",
     "@types/jasmine": "2.5.54",
     "@types/lodash": "^4.14.74",
     "@types/marked": "0.3.0",
