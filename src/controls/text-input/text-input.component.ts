@@ -142,16 +142,21 @@ export class TextInputComponent extends BaseComponent {
     return this.model;
   }
   set value(value) {
+    let newValue: any = value;
     if (this.errorsValue && this.errorsValue[this.name]) {
       delete this.errorsValue[this.name];
       this.tooltipText = '';
     }
     if (this.type === 'date' && !this.isNativeDateInput) {
-      this.model = moment(moment(value, this.config.inputDateFormat).toDate()).format(this.config.nativeInputDateFormat);
-    } else {
-      this.model = value;
+      newValue = moment(moment(value, this.config.inputDateFormat).toDate()).format(this.config.nativeInputDateFormat);
     }
-    this.modelChange.emit(this.model);
+    if (newValue === 'Invalid date' && !this.model) {
+      newValue = this.model;
+    }
+    if (this.model !== newValue) {
+      this.model = newValue;
+      this.modelChange.emit(this.model);
+    }
   }
   getStringFromDateValue() {
     if (this._dateValue === undefined) {
