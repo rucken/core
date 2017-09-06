@@ -78,9 +78,7 @@ export class NavbarComponent extends BaseComponent {
         newItem.url = `/${newItem.name}`;
         return newItem;
       });
-    return _.sortBy(items, [
-      (item: any) => { return item.title }
-    ]);
+    return items;
   }
   showChangeLog() {
     if (this.changelog) {
