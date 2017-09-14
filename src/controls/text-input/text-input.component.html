@@ -4,10 +4,10 @@
     <input [textMask]="mask" *ngIf="type!=='textarea'" [attr.type]="type" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
       [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
       [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
-      container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
+      container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement>
     <textarea *ngIf="type==='textarea'" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
       [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
-      triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip"
+      triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip"
       #inputElement></textarea>
   </div>
   <div [ngClass]="inputFrameClass" *ngIf="type==='date' && !isNativeDateInput">
@@ -15,7 +15,7 @@
       <input [ngModel]="value" [textMask]="mask" (change)="dateInputChange($event)" type="text" [ngClass]="inputClass" [attr.id]="'input'+name"
         [attr.name]="'input'+name" [attr.placeholder]="placeholder" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
         [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
-        container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip" #inputElement>
+        container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement>
       <span class="input-group-btn" *ngIf="!readonly">
         <button type="button" class="btn btn-default" (click)="showDatePicker = !showDatePicker">
             <i class="fa fa-calendar"></i>

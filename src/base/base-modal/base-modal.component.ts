@@ -2,6 +2,7 @@ import { HostListener, Input, Output, EventEmitter, Component } from '@angular/c
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import * as _ from 'lodash';
 import { EndpointStatusEnum } from '../../shared/enums/endpoint-status.enum';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'base-modal-component',
@@ -18,11 +19,11 @@ export class BaseModalComponent extends BaseComponent {
   @Input()
   hideButton?= false;
   @Input()
-  size?= 'sm';
+  size?: string;
   @Input()
-  title?= '';
+  title?: string;
   @Input()
-  message = '';
+  message?: string;
   @Input()
   okInProcess = false;
   @Output()
@@ -50,11 +51,20 @@ export class BaseModalComponent extends BaseComponent {
       }
       this.afterOpen();
     });
+    if (this.title === undefined) {
+      this.title = '';
+    }
+    if (this.message === undefined) {
+      this.message = '';
+    }
     if (this.message.length > 100) {
       this.size = 'md';
     }
     if (this.message.length > 1000) {
       this.size = 'lg';
+    }
+    if (!this.size) {
+      this.size = 'sm';
     }
     if (!this.title) {
       this.title = this.text;

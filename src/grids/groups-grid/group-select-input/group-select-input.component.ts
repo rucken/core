@@ -2,9 +2,9 @@ import { SelectInputComponent } from './../../../controls/select-input/select-in
 import { Group } from './../../../shared/models/group.model';
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { GroupsListModalComponent } from './../groups-list-modal/groups-list-modal.component';
-import { AppService } from './../../../shared/app.service';
-import { AccountService } from './../../../shared/account.service';
-import { GroupsService } from './../../../shared/groups.service';
+import { AppService } from './../../../shared/services/app.service';
+import { AccountService } from './../../../shared/services/account.service';
+import { GrousService } from './../../../shared/services/groups.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -33,18 +33,18 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
   modelChange: EventEmitter<any | Group> = new EventEmitter<any | Group>();
 
   items: any[] | Group[];
-  cachedResourcesService: GroupsService;
+  cachedResourceService: GrousService;
 
   constructor(
     public app: AppService,
     public accountService: AccountService,
-    public groupsService: GroupsService,
+    public groupsService: GrousService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService,
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-    this.cachedResourcesService = groupsService.createCache();
+    this.cachedResourceService = groupsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -70,7 +70,7 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

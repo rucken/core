@@ -1,12 +1,12 @@
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { UsersListModalComponent } from './../users-list-modal/users-list-modal.component';
-import { UsersService } from './../../../shared/users.service';
+import { UsersService } from './../../../shared/services/users.service';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
 import { User } from './../../../shared/models/user.model';
-import { AppService } from './../../../shared/app.service';
-import { AccountService } from './../../../shared/account.service';
+import { AppService } from './../../../shared/services/app.service';
+import { AccountService } from './../../../shared/services/account.service';
 import { BaseResourceSelectInputConfig } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
@@ -32,7 +32,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
   modelChange: EventEmitter<any | User> = new EventEmitter<any | User>();
 
   items: any[] | User[];
-  cachedResourcesService: UsersService;
+  cachedResourceService: UsersService;
 
   constructor(
     public app: AppService,
@@ -43,7 +43,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-    this.cachedResourcesService = usersService.createCache();
+    this.cachedResourceService = usersService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -69,7 +69,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

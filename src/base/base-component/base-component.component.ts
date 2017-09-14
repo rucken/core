@@ -67,6 +67,9 @@ export class BaseComponent implements OnInit, OnDestroy {
     this.destroyed$.complete();
   }
   ngOnInit() {
+    if (this.app && this.app.translateService && this.translateService) {
+      this.translateService.store = this.app.translateService.store;
+    }
     this.init();
   }
   init() {

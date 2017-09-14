@@ -1,6 +1,6 @@
 import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
-import { Component, Input, Output, ViewChild, EventEmitter, ElementRef, ViewContainerRef } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap';
+import { Component, Input, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'alert-modal',
@@ -22,9 +22,15 @@ export class AlertModalComponent extends BaseModalComponent {
   @Input()
   buttonText: string;
   @Input()
-  content: any = false;
+  content?: string;
   @Input()
   messageClass = 'text-danger';
   @Output()
   onClose: EventEmitter<AlertModalComponent | any> = new EventEmitter();
+  init() {
+    super.init();
+    if (this.content === undefined) {
+      this.content = '';
+    }
+  }
 }

@@ -5,11 +5,16 @@ import { DemoAdminPageRoutes } from './demo/pages/admin-page/admin-page.routes';
 import { DemoAccountPageRoutes } from './demo/pages/account-page/account-page.routes';
 import { DemoComponentsPageRoutes } from './demo/pages/components-page/components-page.routes';
 
+import { DemoHomePageModule } from './demo/pages/home-page/home-page.module';
+import { DemoAdminPageModule } from './demo/pages/admin-page/admin-page.module';
+import { DemoThemesPageModule } from './demo/pages/themes-page/themes-page.module';
+import { DemoAccountPageModule } from './demo/pages/account-page/account-page.module';
+
 export const DemoRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
-    loadChildren: './demo/pages/home-page/home-page.module#HomePageModule',
+    loadChildren: './demo/pages/home-page/home-page.module#DemoHomePageModule',
     data: DemoHomePageRoutes[0].data
   },
   {

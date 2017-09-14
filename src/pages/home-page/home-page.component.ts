@@ -1,8 +1,8 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { BasePageComponent } from './../../base/base-page/base-page.component';
-import { AccountService } from './../../shared/account.service';
-import { AppService } from './../../shared/app.service';
+import { AccountService } from './../../shared/services/account.service';
+import { AppService } from './../../shared/services/app.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({

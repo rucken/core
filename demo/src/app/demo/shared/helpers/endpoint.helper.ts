@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EndpointHelper, HttpHelper } from './../../../../../../src';
+import { EndpointHelper, HttpHelper } from 'rucken';
 import { environment } from './../../../../environments/environment';
 
 @Injectable()

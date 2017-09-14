@@ -1,14 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { UsersListModalComponent } from './users-list-modal.component';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { UsersGridModule } from './../users-grid.module';
-import { ModalModule } from 'ngx-bootstrap';
-import { TranslateModule } from '@ngx-translate/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, ModalModule.forRoot(), TranslateModule.forChild(),
+    ModalModule.forRoot(), SharedModule.forRoot(),
     FooterButtonsModule.forRoot(), UsersGridModule.forRoot()
   ],
   declarations: [

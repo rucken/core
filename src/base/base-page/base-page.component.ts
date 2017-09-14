@@ -1,9 +1,9 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from './../../shared/app.service';
+import { AppService } from './../../shared/services/app.service';
 import { BaseComponent } from './../base-component/base-component.component';
-import { AccountService } from './../../shared/account.service';
+import { AccountService } from './../../shared/services/account.service';
 import * as _ from 'lodash';
 import { User } from './../../shared/models/user.model';
 
@@ -48,6 +48,7 @@ export class BasePageComponent extends BaseComponent {
     public router: Router
   ) {
     super();
+
     translateService.onLangChange.subscribe(() => this.init());
     accountService.account$.subscribe(() => this.init());
   }

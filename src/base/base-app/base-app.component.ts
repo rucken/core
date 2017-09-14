@@ -1,11 +1,11 @@
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
-import { AppService } from './../../shared/app.service';
+import { AppService } from './../../shared/services/app.service';
 import { RuckenRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
 import { EventEmitter, Component, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './../base-component/base-component.component';
-import { translate } from '../../shared/utils';
+import { translate } from '../../shared/utils/utils';
 import 'moment/locale/ru';
 import * as moment from 'moment/moment';
 
@@ -41,7 +41,10 @@ export class BaseAppComponent extends BaseComponent {
     // You need this small hack in order to catch application root view container ref
     app.viewContainerRef = viewContainerRef;
     app.component = this;
-    app.translate = translateService;
+    app.translateService = translateService;
+    if (this.autoLoadLang === true) {
+      this.loadLang();
+    }
   }
   loadLang() {
     this.translateService.addLangs(this.languages.map(lang => lang.code));
@@ -60,11 +63,6 @@ export class BaseAppComponent extends BaseComponent {
   set currentLanguage(lang: string) {
     moment.locale(lang);
     this.translateService.use(lang);
-  }
-  init() {
-    if (this.autoLoadLang === true) {
-      this.loadLang();
-    }
   }
   showErrorModal(message: string, title?: string, size?: string): EventEmitter<any> {
     if (size === undefined) {

@@ -1,5 +1,5 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { EndpointHelper } from './helpers/endpoint.helper';
+import { EndpointHelper } from './../helpers/endpoint.helper';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
 @Injectable()
@@ -7,11 +7,12 @@ export class AppService {
   component: any;
   viewContainerRef: ViewContainerRef;
   endpointHelper: EndpointHelper
-  translate: TranslateService
+  onSetTranslateService: EventEmitter<TranslateService> = new EventEmitter<TranslateService>();
   onCurrentPageName: EventEmitter<string> = new EventEmitter<string>();
   onCurrentPageTitle: EventEmitter<string> = new EventEmitter<string>();
   onCurrentFrameName: EventEmitter<string> = new EventEmitter<string>();
   onCurrentFrameTitle: EventEmitter<string> = new EventEmitter<string>();
+  private _translateService: TranslateService;
   private _currentPageName: string;
   private _currentPageTitle: string;
   private _currentFrameName: string;
@@ -19,6 +20,13 @@ export class AppService {
   private _createdModals: any = {};
   constructor(public location: Location) {
 
+  }
+  set translateService(translateService: TranslateService) {
+    this._translateService = translateService;
+    this.onSetTranslateService.emit(translateService);
+  }
+  get translateService(): TranslateService {
+    return this._translateService;
   }
   set currentFrameTitle(value: string) {
     this._currentFrameTitle = value;
@@ -69,7 +77,7 @@ export class AppService {
     return ver;
   }
   get version() {
-    return `${this.translate.instant('Version')}: ${this.currentVersion}`;
+    return `${this.translateService.instant('Version')}: ${this.currentVersion}`;
   }
   modals(resolver: ComponentFactoryResolver): any {
     const vm = this;

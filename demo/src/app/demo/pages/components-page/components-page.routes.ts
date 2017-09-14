@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
-import { ComponentsPageComponent } from './../../../../../../src';
+import { ComponentsPageComponent } from 'rucken';
 import { DemoControlsFrameRoutes } from './controls-frame/controls-frame.routes';
-import { translate } from './../../../../../../src';
+import { translate } from 'rucken';
+import { DemoControlsFrameModule } from './controls-frame/controls-frame.module';
 
-const children = [
+export const children = [
   { path: '', redirectTo: '/components/controls', pathMatch: 'full' },
   {
     path: 'controls',

@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DemoThemesPageRoutes } from './themes-page.routes';
-import { ThemesPageModule } from './../../../../../../src';
+import { ThemesPageModule } from 'rucken';
 
 @NgModule({
   imports: [

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { Permission } from './../../../shared/models/permission.model';
 import { User } from '././../../../shared/models/user.model';
-import { ModalDirective } from 'ngx-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { PermissionsGridComponent } from './../permissions-grid.component';
 import { BaseResourceListModalComponent } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 

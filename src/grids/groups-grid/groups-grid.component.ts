@@ -4,9 +4,9 @@ import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewC
 import { Group } from './../../shared/models/group.model';
 import { GroupModalComponent } from './group-modal/group-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { GroupsService } from './../../shared/groups.service';
-import { AppService } from './../../shared/app.service';
-import { AccountService } from './../../shared/account.service';
+import { GrousService } from './../../shared/services/groups.service';
+import { AppService } from './../../shared/services/app.service';
+import { AccountService } from './../../shared/services/account.service';
 import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
@@ -29,17 +29,17 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = Group.meta();
   items: any[] | Group[];
   selectedItems: any[] | Group[];
-  cachedResourcesService: GroupsService;
+  cachedResourceService: GrousService;
 
   constructor(
-    public groupsService: GroupsService,
+    public groupsService: GrousService,
     public accountService: AccountService,
     public app: AppService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = groupsService.createCache();
+    this.cachedResourceService = groupsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -63,7 +63,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Group();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -86,7 +86,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Group(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -104,12 +104,12 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
   save(itemModal: GroupModalComponent) {
-    this.cachedResourcesService.save(itemModal.item).subscribe(
+    this.cachedResourceService.save(itemModal.item).subscribe(
       (group: any | Group) => {
         itemModal.modal.hide();
       }, (errors: any) => {
@@ -124,7 +124,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourcesService.remove(this.selectedItems).subscribe(
+    this.cachedResourceService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

@@ -1,9 +1,9 @@
-import { Component, ComponentFactoryResolver} from '@angular/core';
+import { Component, ComponentFactoryResolver } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {
   AppService, AuthModalComponent, NavbarComponent,
   AccountService, ConfirmModalComponent
-} from './../../../../../../src';
+} from 'rucken';
 import { TranslateService } from '@ngx-translate/core';
 import { DemoRoutes } from './../../../app.routes';
 
@@ -16,7 +16,7 @@ import { DemoRoutes } from './../../../app.routes';
 
 export class DemoNavbarComponent extends NavbarComponent {
 
-  changelog: string = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
+  changelog = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
 
   constructor(
     public accountService: AccountService,

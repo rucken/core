@@ -4,9 +4,9 @@ import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewC
 import { ContentType } from './../../shared/models/content-type.model';
 import { ContentTypeModalComponent } from './content-type-modal/content-type-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { ContentTypesService } from './../../shared/content-types.service';
-import { AppService } from './../../shared/app.service';
-import { AccountService } from './../../shared/account.service';
+import { ContentTypesService } from './../../shared/services/content-types.service';
+import { AppService } from './../../shared/services/app.service';
+import { AccountService } from './../../shared/services/account.service';
 import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';

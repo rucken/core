@@ -1,5 +1,5 @@
-import { ThemesPageComponent } from './../../../../../../src';
-import { translate } from './../../../../../../src';
+import { ThemesPageComponent } from 'rucken';
+import { translate } from 'rucken';
 export const DemoThemesPageRoutes = [{
   path: '',
   component: ThemesPageComponent,

@@ -1,10 +1,10 @@
 <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}">
   <label *ngIf="title" [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
   <div [ngClass]="{'input-group':!readonly && !select}" class="{{inputFrameClass}}" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
-    triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" (onShown)="showTooltip($event)" #tooltip="bs-tooltip">
+    triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip">
     <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" [ngClass]="inputClass" disabled/>
     <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement disabled/>
-    <select-input *ngIf="!statusListMessage && select && items && items.length" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
+    <select-input *ngIf="!statusListMessage && select && items && items.length>0" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
       [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">
       <button class="btn btn-success" type="button" (click)="onLookup()"

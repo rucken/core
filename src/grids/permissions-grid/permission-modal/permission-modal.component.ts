@@ -6,7 +6,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { Permission } from './../../../shared/models/permission.model';
-import { ModalDirective } from 'ngx-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 

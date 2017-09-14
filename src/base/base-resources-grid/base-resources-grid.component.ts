@@ -26,7 +26,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
   items: any[];
   searchText = '';
   selectedItems: any[];
-  cachedResourcesService: any;
+  cachedResourceService: any;
   maxSelectCount = 1;
   modalIsOpened: boolean;
 
@@ -38,31 +38,31 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
 
   get meta() {
-    return this.cachedResourcesService.meta;
+    return this.cachedResourceService.meta;
   }
   set columns(columns) {
-    if (JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
-      this.cachedResourcesService.columns = columns;
+    if (JSON.stringify(this.cachedResourceService.columns) !== JSON.stringify(columns)) {
+      this.cachedResourceService.columns = columns;
       this.search(true);
     }
   }
   get columns(): any {
-    if (this.cachedResourcesService.columns === undefined) {
-      this.cachedResourcesService.columns = { id: { sort: 'desc' } };
+    if (this.cachedResourceService.columns === undefined) {
+      this.cachedResourceService.columns = { id: { sort: 'desc' } };
     }
-    return this.cachedResourcesService.columns;
+    return this.cachedResourceService.columns;
   }
   set mockedItems(items) {
-    this.cachedResourcesService.mockedItems = items;
+    this.cachedResourceService.mockedItems = items;
   }
   get mockedItems() {
-    return this.cachedResourcesService.mockedItems;
+    return this.cachedResourceService.mockedItems;
   }
   get statusListMessage() {
-    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
+    if (this.cachedResourceService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
-      return this.cachedResourcesService.statusListMessage;
+      return this.cachedResourceService.statusListMessage;
     }
   }
 
@@ -70,12 +70,12 @@ export class BaseResourcesGridComponent extends BaseComponent {
     this.onEnter.emit(true);
   }
   pageChanged(event: any): void {
-    this.cachedResourcesService.meta.curPage = event.page;
-    this.cachedResourcesService.meta.perPage = event.itemsPerPage;
+    this.cachedResourceService.meta.curPage = event.page;
+    this.cachedResourceService.meta.perPage = event.itemsPerPage;
     this.search();
   }
   init() {
-    this.cachedResourcesService.items$.subscribe(
+    this.cachedResourceService.items$.subscribe(
       (items: any[]) => {
         this.items = items;
         if (this.items) {
@@ -120,7 +120,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
   search(ignoreCache?: boolean) {
     const filter: any = {};
-    this.cachedResourcesService.ignoreCache = ignoreCache;
-    this.cachedResourcesService.loadAll(this.searchText, filter);
+    this.cachedResourceService.ignoreCache = ignoreCache;
+    this.cachedResourceService.loadAll(this.searchText, filter);
   }
 }

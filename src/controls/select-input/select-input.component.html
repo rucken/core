@@ -6,7 +6,7 @@
       <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
         [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
         [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable"
-        (onShown)="showTooltip($event)" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
+        (onShown)="showTooltip()" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
     </div>
     <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
       [show-input-tag]="false" [list-formatter]="getTitle" [source]="items" #autoComplete>
@@ -19,7 +19,7 @@
       <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
         [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
         [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable"
-        (onShown)="showTooltip($event)" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
+        (onShown)="showTooltip()" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
     </div>
     <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
       [show-input-tag]="false" [list-formatter]="getTitle" [source]="items" #autoComplete>

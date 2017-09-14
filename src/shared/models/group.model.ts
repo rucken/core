@@ -1,7 +1,7 @@
 import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { Permission } from './permission.model';
 import * as _ from 'lodash';
-import { translate } from './../utils';
+import { translate } from './../utils/utils';
 
 export class Group extends BaseResourceModel {
   static titles: any = {

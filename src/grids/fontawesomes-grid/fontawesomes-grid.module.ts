@@ -5,13 +5,13 @@ import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-s
 import { TableColumnModule } from './../../controls/table-column/table-column.module';
 import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { TranslateModule } from '@ngx-translate/core';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
 import { PipesModule } from '../../pipes/pipes.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, TranslateModule.forChild(), GridSearchPanelModule.forRoot(), ConfirmModalModule.forRoot(),
+    CommonModule, SharedModule.forRoot(), GridSearchPanelModule.forRoot(), ConfirmModalModule.forRoot(),
     PipesModule.forRoot(), TableColumnModule.forRoot(), GridRowButtonsModule.forRoot(), PaginationModule.forRoot()
   ],
   declarations: [

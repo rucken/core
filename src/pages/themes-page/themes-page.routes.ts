@@ -1,5 +1,5 @@
 import { ThemesPageComponent } from './themes-page.component';
-import { translate } from './../../shared/utils';
+import { translate } from './../../shared/utils/utils';
 export const ThemesPageRoutes = [{
   path: '',
   component: ThemesPageComponent,

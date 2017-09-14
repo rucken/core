@@ -1,10 +1,10 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { EndpointHelper } from './helpers/endpoint.helper';
-import { EndpointStatusEnum } from './enums/endpoint-status.enum';
-import { translate } from './utils';
-import { User } from './models/user.model';
+import { EndpointHelper } from './../helpers/endpoint.helper';
+import { EndpointStatusEnum } from './../enums/endpoint-status.enum';
+import { translate } from './../utils/utils';
+import { User } from './../models/user.model';
 
 @Injectable()
 export class AccountService {

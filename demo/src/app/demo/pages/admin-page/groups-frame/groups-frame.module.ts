@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DemoGroupsFrameRoutes } from './groups-frame.routes';
-import { GroupsFrameModule } from './../../../../../../../src';
+import { GroupsFrameModule } from 'rucken';
 
 @NgModule({
   imports: [

@@ -6,7 +6,7 @@ var fs = require('fs'),
   replaceExt = require('replace-ext');
 var scanPath = path.resolve(__srcdir, '..', '..', scan.path);
 console.log('Scan dir:' + scanPath);
-recursive(scanPath, ['!*.ts'], function (err, files) {
+recursive(scanPath, ['!*.ts','*node_modules*'], function (err, files) {
   var exportArray = [];
   var exportEntities = {};
   var delmitters = [
@@ -54,7 +54,9 @@ recursive(scanPath, ['!*.ts'], function (err, files) {
                     exportEntities[entities[e]].push(className);
                   }
                 } else {
-                  exportEntities[entities[e]].push(className);
+                  if (entities[e] !== 'module' && className.indexOf('Shared') === -1) {
+                    exportEntities[entities[e]].push(className);
+                  }
                 }
               }
             }

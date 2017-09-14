@@ -4,7 +4,7 @@ import { Subject } from 'rxjs/Subject';
 import { MetaModel } from './../../shared/models/meta.model';
 import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { RepositoryHelper } from './../../shared/helpers/repository.helper';
-import { translate, inValues } from './../../shared/utils';
+import { translate, inValues } from './../../shared/utils/utils';
 import * as _ from 'lodash';
 
 
@@ -163,7 +163,7 @@ export class BaseRepositoryService {
     if (this.ignoreCache) {
       filter.curPage = 1;
     }
-    /* TODO: move cache to http service, current cash use for local update items cloned from root service
+    /* TODO: move cache to htt.service, current cash use for local update items cloned from roo.service
     if (!this.ignoreCache) {
       let cachedItems = this.getFromCachedItems(filter);
       if (cachedItems !== null) {

@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { Group } from './models/group.model';
-import { BaseRepositoryService } from './../base/base-services/base-repository.service';
-import { RepositoryHelper } from './helpers/repository.helper';
+import { Group } from './../models/group.model';
+import { BaseRepositoryService } from './../../base/base-services/base-repository.service';
+import { RepositoryHelper } from './../helpers/repository.helper';
 @Injectable()
-export class GroupsService extends BaseRepositoryService {
+export class GrousService extends BaseRepositoryService {
   items$: Subject<Group[]>;
   items: Group[];
   apiUrl: string;
@@ -21,6 +21,6 @@ export class GroupsService extends BaseRepositoryService {
     return new Group(item);
   }
   newCache() {
-    return new GroupsService(this.repositoryHelper);
+    return new GrousService(this.repositoryHelper);
   }
 }
