@@ -12,7 +12,7 @@ import { TranslateModule, TranslateFakeLoader, TranslateLoader } from '@ngx-tran
 import {
   RuckenComponents, RuckenServices, RepositoryHelper,
   EndpointHelper, HttpHelper, AccountService, AuthHttpFactory,
-  BaseResourceSelectInputConfig, SharedModule,
+  BaseResourceSelectInputConfig,
   TextInputConfig, SelectInputConfig, TableColumnConfig,
   TextInputModule, AuthModalModule, AlertModalModule
 } from 'rucken';
@@ -23,6 +23,7 @@ import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
 import { LaddaModule } from 'angular2-ladda';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
+import { DemoSharedModule } from './demo/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
     }),
     AlertModalModule.forRoot(),
     DemoNavbarModule.forRoot(),
-    SharedModule.forRoot(),
+    DemoSharedModule.forRoot(),
     TranslateModule.forRoot({
       loader: { provide: TranslateLoader, useClass: TranslateFakeLoader }
     }),
