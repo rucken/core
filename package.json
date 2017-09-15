@@ -48,7 +48,7 @@
     "demo-link": "npm link src",
     "demo-lite_server": "lite-server -c demo/bs-config.json",
     "demo-serve": "ng serve --host 0.0.0.0 --aot",
-    "demo-serve_mockapi": "ng serve --host 0.0.0.0 --aot --environment=mockapi",
+    "demo-serve_mockapi": "ng serve --host 0.0.0.0 --aot=false --environment=mockapi",
     "demo-gh_pages": "npm-run-all demo-build demo-deploy",
     "demo-prod_build": "ng build --base-href / --prod --aot --build-optimizer",
     "demo-dev_build": "ng build --base-href / --aot",
