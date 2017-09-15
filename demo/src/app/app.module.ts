@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -23,14 +22,13 @@ import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
 import { LaddaModule } from 'angular2-ladda';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
-import { DemoSharedModule } from './demo/shared/shared.module';
+import { SharedModule } from 'rucken';
 
 @NgModule({
   declarations: [
     DemoAppComponent
   ],
   imports: [
-    CommonModule,
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -41,7 +39,7 @@ import { DemoSharedModule } from './demo/shared/shared.module';
     }),
     AlertModalModule.forRoot(),
     DemoNavbarModule.forRoot(),
-    DemoSharedModule.forRoot(),
+    SharedModule.forRoot(),
     TranslateModule.forRoot({
       loader: { provide: TranslateLoader, useClass: TranslateFakeLoader }
     }),

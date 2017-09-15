@@ -20,7 +20,8 @@ export class DemoAppComponent extends BaseAppComponent {
     public app: AppService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService,
-    public router: Router
+    public router: Router,
+    public sharedService: SharedService
   ) {
     super(viewContainerRef, app, resolver, translateService);
 

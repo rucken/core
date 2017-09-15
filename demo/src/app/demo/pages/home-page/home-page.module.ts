@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DemoHomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { DemoHomePageRoutes } from './home-page.routes';
@@ -8,7 +7,6 @@ import { PipesModule } from 'rucken';
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule.forRoot(),
     PageHeaderModule.forRoot(),
     PipesModule.forRoot(),

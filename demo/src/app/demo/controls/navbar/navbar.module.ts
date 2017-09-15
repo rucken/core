@@ -1,13 +1,11 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { DemoNavbarComponent } from './navbar.component';
-import { ConfirmModalModule, AuthModalModule, SharedModule, PipesModule } from 'rucken';
+import { ConfirmModalModule, AuthModalModule, PipesModule, SharedModule } from 'rucken';
 import { CollapseModule } from 'ngx-bootstrap';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule.forRoot(),
     ConfirmModalModule.forRoot(),
     AuthModalModule.forRoot(),
