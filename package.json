@@ -127,7 +127,7 @@
     "protractor": "~5.1.2",
     "recursive-readdir": "^2.2.1",
     "shebang-command": "^1.2.0",
-    "srcgen": "^0.3.0",
+    "srcgen": "^0.2.13",
     "ts-node": "~3.3.0",
     "tslint": "~5.7.0",
     "typescript": "~2.5.2",
