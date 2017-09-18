@@ -1,3 +1,26 @@
+<a name="1.13.0"></a>
+# [1.13.0](https://github.com/site15/rucken/compare/1.12.0...1.13.0) (2017-09-18)
+
+
+### Bug Fixes
+
+* Add imports modules for list modals to input modules ([48702e4](https://github.com/site15/rucken/commit/48702e4))
+* check readonly by hardReadonly field ([910239d](https://github.com/site15/rucken/commit/910239d))
+* Detect focusabel components ([11c5508](https://github.com/site15/rucken/commit/11c5508))
+* **AoT:** Add shared service to demo app component, it is work as bridge ([2c9e435](https://github.com/site15/rucken/commit/2c9e435))
+* **base-resource:** Error if data not founded ([c3f02a8](https://github.com/site15/rucken/commit/c3f02a8))
+* **shared:** Add shared module to demo app ([d7261d1](https://github.com/site15/rucken/commit/d7261d1))
+* **text-input:** Add no emit change of model if date value is wrong ([27a9fa8](https://github.com/site15/rucken/commit/27a9fa8))
+* **translate:** For correct work with AoT, add sharedService.linkTranslateService() in any lazy component who use translate ([7d48224](https://github.com/site15/rucken/commit/7d48224))
+
+
+### Features
+
+* **AoT:** Full support ngx-translate + hard code translate dic (not remote json file) + aot + lazy routes ([0ff23c9](https://github.com/site15/rucken/commit/0ff23c9))
+* **base-resource.model:** Add format date in methods for work with dates ([0c0b018](https://github.com/site15/rucken/commit/0c0b018))
+
+
+
 <a name="1.12.0"></a>
 # [1.12.0](https://github.com/site15/rucken/compare/1.11.1...1.12.0) (2017-09-02)
 
