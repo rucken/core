@@ -1,9 +1,9 @@
-import { HomePageComponent } from './home-page.component';
-import { translate } from './../../../../../../src';
+import { DemoHomePageComponent } from './home-page.component';
+import { translate } from 'rucken';
 
 export const DemoHomePageRoutes = [{
   path: '',
-  component: HomePageComponent,
+  component: DemoHomePageComponent,
   data: {
     name: 'home',
     title: translate('Home'),

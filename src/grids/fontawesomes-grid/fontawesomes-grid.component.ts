@@ -4,9 +4,9 @@ import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewC
 import { Fontawesome } from './../../shared/models/fontawesome.model';
 import { FontawesomeModalComponent } from './fontawesome-modal/fontawesome-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { FontawesomesService } from './../../shared/fontawesomes.service';
-import { AppService } from './../../shared/app.service';
-import { AccountService } from './../../shared/account.service';
+import { FontawesomeService } from './../../shared/services/fontawesomes.service';
+import { AppService } from './../../shared/services/app.service';
+import { AccountService } from './../../shared/services/account.service';
 import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
@@ -29,23 +29,23 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = Fontawesome.meta();
   items: any[] | Fontawesome[];
   selectedItems: any[] | Fontawesome[];
-  cachedResourcesService: FontawesomesService;
+  cachedResourceService: FontawesomeService;
 
   constructor(
-    public fontawesomesService: FontawesomesService,
+    public fontawesomeService: FontawesomeService,
     public accountService: AccountService,
     public app: AppService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = fontawesomesService.createCache();
+    this.cachedResourceService = fontawesomeService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
-    return this.hardReadonly !== true || !this.account.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
+    return this.hardReadonly || !this.account.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -63,7 +63,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Fontawesome();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -86,7 +86,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Fontawesome(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -104,12 +104,12 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
   save(itemModal: FontawesomeModalComponent) {
-    this.cachedResourcesService.save(itemModal.item).subscribe(
+    this.cachedResourceService.save(itemModal.item).subscribe(
       (fontawesome: any | Fontawesome) => {
         itemModal.modal.hide();
       }, (errors: any) => {
@@ -124,7 +124,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourcesService.remove(this.selectedItems).subscribe(
+    this.cachedResourceService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

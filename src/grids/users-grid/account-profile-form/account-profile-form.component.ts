@@ -6,13 +6,13 @@ import {
   ViewChild
 } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
-import { ModalDirective } from 'ngx-bootstrap';
-import { AccountService } from './../../../shared/account.service';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+import { AccountService } from './../../../shared/services/account.service';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
 import { Group } from './../../../shared/models/group.model';
 import { UserGroup } from './../../../shared/models/user-group.model';
-import { translate } from './../../../shared/utils';
+import { translate } from './../../../shared/utils/utils';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { EndpointStatusEnum } from '../../../shared/enums/endpoint-status.enum';
 

@@ -1,16 +1,14 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { GroupsFrameComponent } from './groups-frame.component';
 import { RouterModule } from '@angular/router';
 import { GroupsFrameRoutes } from './groups-frame.routes';
-import { TranslateModule } from '@ngx-translate/core';
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { GroupsGridModule } from './../../../grids/groups-grid/groups-grid.module';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    TranslateModule.forChild(),
+    SharedModule.forRoot(),
     PageHeaderModule.forRoot(),
     GroupsGridModule.forRoot()
   ],

@@ -1,13 +1,14 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
-import { AccountService } from './../../shared/account.service';
+import { AccountService } from './../../shared/services/account.service';
 import { User } from './../../shared/models/user.model';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
 import { Router, NavigationStart } from '@angular/router';
-import { AppService } from './../../shared/app.service';
+import { AppService } from './../../shared/services/app.service';
 import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { ActivatedRoute } from '@angular/router';
+import { SharedService } from '../../shared/services/shared.service';
 import * as _ from 'lodash';
 
 
@@ -32,9 +33,11 @@ export class NavbarComponent extends BaseComponent {
     public translateService: TranslateService,
     public activatedRoute: ActivatedRoute,
     public router: Router,
-    public resolver: ComponentFactoryResolver
+    public resolver: ComponentFactoryResolver,
+    public sharedService: SharedService
   ) {
     super();
+    sharedService.linkTranslateService();
     this.accountService.account$.subscribe((user: any | User) => {
       this.init();
     });
@@ -78,9 +81,7 @@ export class NavbarComponent extends BaseComponent {
         newItem.url = `/${newItem.name}`;
         return newItem;
       });
-    return _.sortBy(items, [
-      (item: any) => { return item.title }
-    ]);
+    return items;
   }
   showChangeLog() {
     if (this.changelog) {

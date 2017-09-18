@@ -2,9 +2,9 @@ import { SelectInputComponent } from './../../../controls/select-input/select-in
 import { ContentType } from './../../../shared/models/content-type.model';
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { ContentTypesListModalComponent } from './../content-types-list-modal/content-types-list-modal.component';
-import { AppService } from './../../../shared/app.service';
-import { AccountService } from './../../../shared/account.service';
-import { ContentTypesService } from './../../../shared/content-types.service';
+import { AppService } from './../../../shared/services/app.service';
+import { AccountService } from './../../../shared/services/account.service';
+import { ContentTypesService } from './../../../shared/services/content-types.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -33,23 +33,23 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
   modelChange: EventEmitter<any | ContentType> = new EventEmitter<any | ContentType>();
 
   items: any[] | ContentType[];
-  cachedResourcesService: ContentTypesService;
+  cachedResourceService: ContentTypesService;
 
   constructor(
     public app: AppService,
     public accountService: AccountService,
-    public contentTypesService: ContentTypesService,
+    public contentTypeService: ContentTypesService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService,
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-    this.cachedResourcesService = contentTypesService.createCache();
+    this.cachedResourceService = contentTypeService.createCache();
   }
   changeInputValue(value: string) {
     const filter: any = {};
-    this.cachedResourcesService.ignoreCache = true;
-    this.cachedResourcesService.loadAll(value, filter);
+    this.cachedResourceService.ignoreCache = true;
+    this.cachedResourceService.loadAll(value, filter);
   }
   get account(): any | User {
     return this.accountService.account;
@@ -75,7 +75,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

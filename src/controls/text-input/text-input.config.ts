@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { translate } from '../../shared/utils';
-import { TranslateService } from '@ngx-translate/core';
+import { translate } from '../../shared/utils/utils';
 
 @Injectable()
 export class TextInputConfig {

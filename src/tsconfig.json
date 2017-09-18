@@ -12,20 +12,18 @@
     "noEmitHelpers": false,
     "noImplicitAny": true,
     "declaration": true,
-    "skipLibCheck": true,
+    "skipLibCheck": false,
     "stripInternal": true,
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "lib": [
-      "dom",
-      "es6"
-    ],
-    "typeRoots": [
-      "../node_modules/@types"
-    ],
+    "lib": ["dom", "es6"],
     "types": [
       "jasmine"
+    ],
+    "suppressImplicitAnyIndexErrors": true,
+    "typeRoots": [
+      "../node_modules/@types/"
     ]
   },
   "exclude": [
@@ -36,7 +34,8 @@
     "./index.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "../dist",
-    "strictMetadataEmit": true
+    "genDir": "../temp/factories",
+    "strictMetadataEmit": true,
+    "skipTemplateCodegen": true
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { EndpointHelper } from './helpers/endpoint.helper';
+import { EndpointHelper } from './../helpers/endpoint.helper';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
 @Injectable()
@@ -7,7 +7,7 @@ export class AppService {
   component: any;
   viewContainerRef: ViewContainerRef;
   endpointHelper: EndpointHelper
-  translate: TranslateService
+  translateService: TranslateService;
   onCurrentPageName: EventEmitter<string> = new EventEmitter<string>();
   onCurrentPageTitle: EventEmitter<string> = new EventEmitter<string>();
   onCurrentFrameName: EventEmitter<string> = new EventEmitter<string>();
@@ -69,7 +69,7 @@ export class AppService {
     return ver;
   }
   get version() {
-    return `${this.translate.instant('Version')}: ${this.currentVersion}`;
+    return `${this.translateService.instant('Version')}: ${this.currentVersion}`;
   }
   modals(resolver: ComponentFactoryResolver): any {
     const vm = this;

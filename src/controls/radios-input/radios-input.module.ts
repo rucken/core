@@ -1,12 +1,11 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RadiosInputComponent } from './radios-input.component';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, TranslateModule.forChild()
+    FormsModule, SharedModule.forRoot()
   ],
   declarations: [RadiosInputComponent],
   exports: [RadiosInputComponent],

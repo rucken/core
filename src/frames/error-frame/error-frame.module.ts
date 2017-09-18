@@ -1,13 +1,13 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ErrorFrameComponent } from './error-frame.component';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
-import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, TranslateModule.forChild(), PageHeaderModule.forRoot()
+    SharedModule.forRoot(), PageHeaderModule.forRoot()
   ],
+
   declarations: [
     ErrorFrameComponent
   ],

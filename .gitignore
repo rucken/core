@@ -39,8 +39,8 @@ testem.log
 #System Files
 .DS_Store
 Thumbs.db
-/src-inline
 /demo/dist
 /dist
-/demo/src-inline
 /.tmp
+/demo/aot
+/src/node_modules

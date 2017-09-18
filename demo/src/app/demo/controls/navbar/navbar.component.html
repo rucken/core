@@ -11,7 +11,7 @@
 			</button>
       <a class="navbar-brand pointer">
         <span (click)="go(['/'])" translate>Rucken: Demo</span>
-        <span class="badge" (click)="showChangeLog()">{{version}}</span>
+        <span class="badge" (click)="showChangeLog()">{{version | customTranslate}}</span>
       </a>
     </div>
     <div id="navbar" class="navbar-collapse collapse" [collapse]="isCollapsed">

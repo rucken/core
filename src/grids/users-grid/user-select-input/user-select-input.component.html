@@ -3,7 +3,7 @@
   <div [ngClass]="{'input-group':!readonly && !select}" [ngClass]="inputFrameClass">
     <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" [ngClass]="inputClass" disabled/>
     <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" disabled/>
-    <select-input *ngIf="!statusListMessage && select && items && items.length" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
+    <select-input *ngIf="!statusListMessage && select && items && items.length>0" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
       [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">
       <button class="btn btn-success" type="button" (click)="onLookup()"

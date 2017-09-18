@@ -1,9 +1,9 @@
 import { Permission } from './../../../shared/models/permission.model';
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver, ElementRef } from '@angular/core';
 import { PermissionsListModalComponent } from './../permissions-list-modal/permissions-list-modal.component';
-import { AppService } from './../../../shared/app.service';
-import { AccountService } from './../../../shared/account.service';
-import { PermissionsService } from './../../../shared/permissions.service';
+import { AppService } from './../../../shared/services/app.service';
+import { AccountService } from './../../../shared/services/account.service';
+import { PermissionsService } from './../../../shared/services/permissions.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -28,7 +28,7 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
   modelChange: EventEmitter<any | Permission> = new EventEmitter<any | Permission>();
 
   items: any[] | Permission[];
-  cachedResourcesService: PermissionsService;
+  cachedResourceService: PermissionsService;
 
   constructor(
     public app: AppService,
@@ -38,7 +38,7 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     public translateService: TranslateService
   ) {
     super(translateService);
-    this.cachedResourcesService = permissionsService.createCache();
+    this.cachedResourceService = permissionsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -61,7 +61,7 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

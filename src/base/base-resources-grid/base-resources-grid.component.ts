@@ -26,7 +26,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
   items: any[];
   searchText = '';
   selectedItems: any[];
-  cachedResourcesService: any;
+  cachedResourceService: any;
   maxSelectCount = 1;
   modalIsOpened: boolean;
 
@@ -38,31 +38,43 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
 
   get meta() {
-    return this.cachedResourcesService.meta;
+    if (this.cachedResourceService) {
+      return this.cachedResourceService.meta;
+    }
+    return {};
   }
   set columns(columns) {
-    if (JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
-      this.cachedResourcesService.columns = columns;
+    if (this.cachedResourceService && JSON.stringify(this.cachedResourceService.columns) !== JSON.stringify(columns)) {
+      this.cachedResourceService.columns = columns;
       this.search(true);
     }
   }
   get columns(): any {
-    if (this.cachedResourcesService.columns === undefined) {
-      this.cachedResourcesService.columns = { id: { sort: 'desc' } };
+    if (this.cachedResourceService && this.cachedResourceService.columns === undefined) {
+      this.cachedResourceService.columns = { id: { sort: 'desc' } };
+      return this.cachedResourceService.columns;
     }
-    return this.cachedResourcesService.columns;
+    return {};
   }
   set mockedItems(items) {
-    this.cachedResourcesService.mockedItems = items;
+    if (this.cachedResourceService) {
+      this.cachedResourceService.mockedItems = items;
+    }
   }
   get mockedItems() {
-    return this.cachedResourcesService.mockedItems;
+    if (this.cachedResourceService) {
+      return this.cachedResourceService.mockedItems;
+    }
+    return [];
   }
   get statusListMessage() {
-    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
+    if (!this.cachedResourceService) {
+      return '';
+    }
+    if (this.cachedResourceService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
-      return this.cachedResourcesService.statusListMessage;
+      return this.cachedResourceService.statusListMessage;
     }
   }
 
@@ -70,21 +82,25 @@ export class BaseResourcesGridComponent extends BaseComponent {
     this.onEnter.emit(true);
   }
   pageChanged(event: any): void {
-    this.cachedResourcesService.meta.curPage = event.page;
-    this.cachedResourcesService.meta.perPage = event.itemsPerPage;
-    this.search();
+    if (this.cachedResourceService) {
+      this.cachedResourceService.meta.curPage = event.page;
+      this.cachedResourceService.meta.perPage = event.itemsPerPage;
+      this.search();
+    }
   }
   init() {
-    this.cachedResourcesService.items$.subscribe(
-      (items: any[]) => {
-        this.items = items;
-        if (this.items) {
-          this.selectItem(this.items[0], null, true);
-        }
-      }, (errors: any) => {
-        this.items = [];
-        this.selectItem(null);
-      });
+    if (this.cachedResourceService) {
+      this.cachedResourceService.items$.subscribe(
+        (items: any[]) => {
+          this.items = items;
+          if (this.items) {
+            this.selectItem(this.items[0], null, true);
+          }
+        }, (errors: any) => {
+          this.items = [];
+          this.selectItem(null);
+        });
+    }
     super.init();
     this.loadAll = this.loadAll === undefined ? true : this.loadAll;
 
@@ -120,7 +136,9 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
   search(ignoreCache?: boolean) {
     const filter: any = {};
-    this.cachedResourcesService.ignoreCache = ignoreCache;
-    this.cachedResourcesService.loadAll(this.searchText, filter);
+    if (this.cachedResourceService) {
+      this.cachedResourceService.ignoreCache = ignoreCache;
+      this.cachedResourceService.loadAll(this.searchText, filter);
+    }
   }
 }

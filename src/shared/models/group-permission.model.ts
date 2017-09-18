@@ -1,7 +1,7 @@
 import { Permission } from './permission.model';
 import { BaseResourceModel } from './../../base/base-models/base-resource.model';
 import { Group } from './group.model';
-import { translate } from './../utils';
+import { translate } from './../utils/utils';
 
 export class GroupPermission extends BaseResourceModel {
   static titles: any = {

@@ -1,4 +1,4 @@
-import { AppService, AlertModalComponent, BaseAppComponent } from './../../../src';
+import { AppService, AlertModalComponent, BaseAppComponent, SharedService } from 'rucken';
 import { Component, ViewContainerRef, ComponentFactoryResolver, Input, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
@@ -20,9 +20,10 @@ export class DemoAppComponent extends BaseAppComponent {
     public app: AppService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService,
-    public router: Router
+    public router: Router,
+    public sharedService: SharedService
   ) {
-    super(viewContainerRef, app, resolver, translateService);
+    super(viewContainerRef, app, resolver, translateService, sharedService);
 
     router.events.subscribe((evt) => {
       if (evt instanceof NavigationStart) {
@@ -33,7 +34,7 @@ export class DemoAppComponent extends BaseAppComponent {
               return;
             }
             window['showPleaseWait'](this.translateService.instant('Loading...'));
-          }, 500);
+          }, 700);
         }
       }
       if (evt instanceof NavigationEnd) {

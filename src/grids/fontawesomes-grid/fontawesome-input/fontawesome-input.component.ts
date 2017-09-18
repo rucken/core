@@ -1,9 +1,9 @@
 import { Fontawesome } from './../../../shared/models/fontawesome.model';
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver, ElementRef } from '@angular/core';
 import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fontawesomes-list-modal.component';
-import { AppService } from './../../../shared/app.service';
-import { AccountService } from './../../../shared/account.service';
-import { FontawesomesService } from './../../../shared/fontawesomes.service';
+import { AppService } from './../../../shared/services/app.service';
+import { AccountService } from './../../../shared/services/account.service';
+import { FontawesomeService } from './../../../shared/services/fontawesomes.service';
 import { User } from './../../../shared/models/user.model';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -28,17 +28,17 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
   modelChange: EventEmitter<any | Fontawesome> = new EventEmitter<any | Fontawesome>();
 
   items: any | Fontawesome[];
-  cachedResourcesService: FontawesomesService;
+  cachedResourceService: FontawesomeService;
 
   constructor(
     public app: AppService,
     public accountService: AccountService,
-    public fontawesomesService: FontawesomesService,
+    public fontawesomeService: FontawesomeService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
     super(translateService);
-    this.cachedResourcesService = fontawesomesService.createCache();
+    this.cachedResourceService = fontawesomeService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -61,7 +61,7 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

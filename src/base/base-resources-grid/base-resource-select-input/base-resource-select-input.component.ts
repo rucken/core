@@ -69,6 +69,9 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     this.modelAsStringChange.emit(this.modelAsString);
   }
   get statusListMessage() {
+    if (!this.cachedResourcesService) {
+      return '';
+    }
     if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
@@ -96,16 +99,18 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;
     }
-    this.cachedResourcesService.items$.subscribe(
-      (pageTypes: any[]) => {
-        this.items = pageTypes;
-        if (this.inputElement) {
-          this.inputElement.items = this.items;
-          this.inputElement.init();
-        }
-      }, (errors: any) => {
-        this.items = [];
-      });
+    if (!this.cachedResourcesService) {
+      this.cachedResourcesService.items$.subscribe(
+        (pageTypes: any[]) => {
+          this.items = pageTypes;
+          if (this.inputElement) {
+            this.inputElement.items = this.items;
+            this.inputElement.init();
+          }
+        }, (errors: any) => {
+          this.items = [];
+        });
+    }
     super.init();
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
@@ -116,6 +121,8 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   }
   search() {
     const filter: any = {};
-    this.cachedResourcesService.loadAll('', filter);
+    if (!this.cachedResourcesService) {
+      this.cachedResourcesService.loadAll('', filter);
+    }
   }
 }

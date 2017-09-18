@@ -38,7 +38,7 @@ export class BaseResourceInputComponent extends BaseComponent {
   loadAll = false;
 
   items: any[];
-  cachedResourcesService: any;
+  cachedResourceService: any;
 
   get value() {
     return this.model;
@@ -55,10 +55,10 @@ export class BaseResourceInputComponent extends BaseComponent {
     this.modelAsStringChange.emit(this.modelAsString);
   }
   get statusListMessage() {
-    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
+    if (this.cachedResourceService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
-      return this.cachedResourcesService.statusListMessage;
+      return this.cachedResourceService.statusListMessage;
     }
   }
 
@@ -79,6 +79,6 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
   search() {
     const filter: any = {};
-    this.cachedResourcesService.loadAll('', filter);
+    this.cachedResourceService.loadAll('', filter);
   }
 }

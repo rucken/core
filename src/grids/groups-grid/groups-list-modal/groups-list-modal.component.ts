@@ -4,7 +4,7 @@ import {
 import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
 import { Group } from './../../../shared/models/group.model';
 import { User } from './../../../shared/models/user.model';
-import { ModalDirective } from 'ngx-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { GroupsGridComponent } from './../groups-grid.component';
 
 @Component({

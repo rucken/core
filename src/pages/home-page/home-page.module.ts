@@ -1,19 +1,18 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { HomePageRoutes } from './home-page.routes';
-import { TranslateModule } from '@ngx-translate/core';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 import { PipesModule } from '../../pipes/pipes.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    TranslateModule.forChild(),
+    SharedModule.forRoot(),
     PageHeaderModule.forRoot(),
     PipesModule.forRoot()
   ],
+
   declarations: [HomePageComponent],
   exports: [HomePageComponent],
   entryComponents: [HomePageComponent]

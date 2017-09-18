@@ -1,22 +1,23 @@
 import { SelectInputModule } from './../../../controls/select-input/select-input.module';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ContentTypeSelectInputComponent } from './content-type-select-input.component';
-import { ModalModule, TooltipModule } from 'ngx-bootstrap';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import { FormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 import { ContentTypesListModalModule } from './../../../grids/content-types-grid/content-types-list-modal/content-types-list-modal.module';
 import { PipesModule } from '../../../pipes/pipes.module';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, ModalModule.forRoot(), TranslateModule.forChild(),
+    FormsModule, ModalModule.forRoot(), SharedModule.forRoot(),
     ContentTypesListModalModule.forRoot(),
     FooterButtonsModule.forRoot(), TextInputModule.forRoot(),
     PipesModule.forRoot(), TooltipModule.forRoot(), SelectInputModule.forRoot()
   ],
+
   declarations: [
     ContentTypeSelectInputComponent
   ],

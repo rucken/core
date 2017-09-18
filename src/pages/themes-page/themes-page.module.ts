@@ -1,19 +1,18 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ThemesPageComponent } from './themes-page.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ThemesPageRoutes } from './themes-page.routes';
-import { TranslateModule } from '@ngx-translate/core';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     FormsModule,
-    TranslateModule.forChild(),
+    SharedModule.forRoot(),
     PageHeaderModule.forRoot()
   ],
+
   declarations: [
     ThemesPageComponent
   ],

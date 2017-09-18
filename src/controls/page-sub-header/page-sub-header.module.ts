@@ -1,10 +1,9 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PageSubHeaderComponent } from './page-sub-header.component';
-import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, TranslateModule.forChild()],
+  imports: [SharedModule.forRoot()],
   declarations: [PageSubHeaderComponent],
   exports: [PageSubHeaderComponent],
   entryComponents: [PageSubHeaderComponent]

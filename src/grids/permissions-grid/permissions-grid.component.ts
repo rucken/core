@@ -4,9 +4,9 @@ import { Component, Input, Output, HostListener, EventEmitter, ComponentFactoryR
 import { Permission } from './../../shared/models/permission.model';
 import { PermissionModalComponent } from './permission-modal/permission-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { PermissionsService } from './../../shared/permissions.service';
-import { AppService } from './../../shared/app.service';
-import { AccountService } from './../../shared/account.service';
+import { PermissionsService } from './../../shared/services/permissions.service';
+import { AppService } from './../../shared/services/app.service';
+import { AccountService } from './../../shared/services/account.service';
 import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
@@ -29,7 +29,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = Permission.meta();
   items: any[] | Permission[];
   selectedItems: any[] | Permission[];
-  cachedResourcesService: PermissionsService;
+  cachedResourceService: PermissionsService;
 
   constructor(
     public permissionsService: PermissionsService,
@@ -39,13 +39,13 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = permissionsService.createCache();
+    this.cachedResourceService = permissionsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
-    return this.hardReadonly !== true || !this.account || !this.account.checkPermissions(['add_permission', 'change_permission', 'delete_permission']);
+    return this.hardReadonly || !this.account || !this.account.checkPermissions(['add_permission', 'change_permission', 'delete_permission']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -63,7 +63,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Permission();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -86,7 +86,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Permission(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -104,12 +104,12 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
   save(itemModal: PermissionModalComponent) {
-    this.cachedResourcesService.save(itemModal.item).subscribe(
+    this.cachedResourceService.save(itemModal.item).subscribe(
       (permission: any | Permission) => {
         itemModal.modal.hide();
       }, (errors: any) => {
@@ -124,7 +124,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourcesService.remove(this.selectedItems).subscribe(
+    this.cachedResourceService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

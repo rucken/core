@@ -67,6 +67,9 @@ export class BaseComponent implements OnInit, OnDestroy {
     this.destroyed$.complete();
   }
   ngOnInit() {
+    if (this.app && this.app.translateService && this.translateService) {
+      this.translateService.store = this.app.translateService.store;
+    }
     this.init();
   }
   init() {
@@ -116,10 +119,10 @@ export class BaseComponent implements OnInit, OnDestroy {
         inputElement.focus();
         break;
       }
-      if (inputElement.nativeElement) {
+      if (inputElement && inputElement.nativeElement) {
         inputElement = inputElement.nativeElement
       } else {
-        if (inputElement.inputElement) {
+        if (inputElement && inputElement.inputElement) {
           inputElement = inputElement.inputElement
         } else {
           break;

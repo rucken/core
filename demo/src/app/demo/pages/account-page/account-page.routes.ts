@@ -1,9 +1,10 @@
 import { Routes } from '@angular/router';
-import { AccountPageComponent } from './../../../../../../src';
+import { AccountPageComponent } from 'rucken';
 import { DemoProfileFrameRoutes } from './profile-frame/profile-frame.routes';
-import { translate } from './../../../../../../src';
+import { translate } from 'rucken';
+import { DemoProfileFrameModule } from './profile-frame/profile-frame.module';
 
-const children = [
+export const children = [
   { path: '', redirectTo: '/account/profile', pathMatch: 'full' },
   {
     path: 'profile',

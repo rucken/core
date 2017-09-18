@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AccountService } from './../../shared/account.service';
-import { AppService } from './../../shared/app.service';
+import { AccountService } from './../../shared/services/account.service';
+import { AppService } from './../../shared/services/app.service';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import { translate } from '../../shared/utils';
+import { translate } from '../../shared/utils/utils';
 
 @Component({
   selector: 'grid-row-buttons',

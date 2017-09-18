@@ -1,28 +1,25 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HomePageComponent } from './home-page.component';
+import { DemoHomePageComponent } from './home-page.component';
 import { RouterModule } from '@angular/router';
 import { DemoHomePageRoutes } from './home-page.routes';
-import { PageHeaderModule } from './../../../../../../src';
-import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule } from '../../../../../../src-inline/pipes/pipes.module';
+import { PageHeaderModule, SharedModule } from 'rucken';
+import { PipesModule } from 'rucken';
 
 @NgModule({
   imports: [
-    CommonModule,
-    TranslateModule.forChild(),
+    SharedModule.forRoot(),
     PageHeaderModule.forRoot(),
     PipesModule.forRoot(),
     RouterModule.forChild(DemoHomePageRoutes)
   ],
-  declarations: [HomePageComponent],
-  exports: [HomePageComponent],
-  entryComponents: [HomePageComponent]
+  declarations: [DemoHomePageComponent],
+  exports: [DemoHomePageComponent],
+  entryComponents: [DemoHomePageComponent]
 })
-export class HomePageModule {
+export class DemoHomePageModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: HomePageModule,
+      ngModule: DemoHomePageModule,
       providers: []
     };
   }

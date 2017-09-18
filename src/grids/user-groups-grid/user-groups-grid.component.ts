@@ -3,15 +3,15 @@ import { Subscription } from 'rxjs/Rx';
 import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { UserGroup } from './../../shared/models/user-group.model';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { UserGroupsService } from './../../shared/user-groups.service';
-import { AppService } from './../../shared/app.service';
-import { AccountService } from './../../shared/account.service';
+import { UserGroupsService } from './../../shared/services/user-groups.service';
+import { AppService } from './../../shared/services/app.service';
+import { AccountService } from './../../shared/services/account.service';
 import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { GroupsListModalComponent } from './../groups-grid/groups-list-modal/groups-list-modal.component';
 import { Group } from './../../shared/models/group.model';
 import { GroupModalComponent } from './../groups-grid/group-modal/group-modal.component';
-import { GroupsService } from './../../shared/groups.service';
+import { GrousService } from './../../shared/services/groups.service';
 import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
@@ -38,18 +38,18 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = UserGroup.meta();
   items: any[] | UserGroup[];
   selectedItems: any[] | UserGroup[];
-  cachedResourcesService: UserGroupsService;
+  cachedResourceService: UserGroupsService;
 
   constructor(
     public userGroupsService: UserGroupsService,
-    public groupsService: GroupsService,
+    public groupsService: GrousService,
     public accountService: AccountService,
     public app: AppService,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = userGroupsService.createCache();
+    this.cachedResourceService = userGroupsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -131,7 +131,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   }
   save(itemModal: GroupsListModalComponent) {
     const items: Group[] = itemModal.items;
-    this.cachedResourcesService.save(items.map(item => new UserGroup({
+    this.cachedResourceService.save(items.map(item => new UserGroup({
       id: item.pk,
       group: item
     }))).subscribe(
@@ -149,7 +149,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourcesService.remove(this.selectedItems).subscribe(
+    this.cachedResourceService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

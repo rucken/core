@@ -1,18 +1,29 @@
 {
   "compilerOptions": {
     "importHelpers": true,
-    "baseUrl": "",
-    "declaration": false,
+    "sourceMap": true,
+    "inlineSources": true,
+    "noEmitHelpers": false,
+    "noImplicitAny": true,
+    "declaration": true,
+    "skipLibCheck": true,
+    "stripInternal": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": [
-      "es2016",
-      "dom"
+    "lib": ["es6", "dom"],
+    "suppressImplicitAnyIndexErrors": true,
+    "types": [
+      "jasmine",
+      "webpack"
     ],
     "mapRoot": "./",
-    "module": "es2015",
+    "module": "es6",
     "moduleResolution": "node",
-    "sourceMap": true,
+    "outDir": "../temp/out-tsc",
     "target": "es5",
     "typeRoots": [
       "../node_modules/@types"

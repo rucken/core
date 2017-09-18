@@ -1,16 +1,17 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { CustomTranslatePipe } from './custom-translate.pipe';
 import { SafeHtmlPipe } from './safe-html.pipe';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    SharedModule.forRoot()
   ],
   declarations: [
     CustomTranslatePipe,
     SafeHtmlPipe
   ],
+
   exports: [
     CustomTranslatePipe,
     SafeHtmlPipe

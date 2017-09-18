@@ -1,5 +1,5 @@
 import { BaseResourceModel } from './../../base/base-models/base-resource.model';
-import { translate } from './../utils';
+import { translate } from './../utils/utils';
 
 export class Theme extends BaseResourceModel {
   static titles: any = {

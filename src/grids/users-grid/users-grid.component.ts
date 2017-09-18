@@ -3,9 +3,9 @@ import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewC
 import { User } from './../../shared/models/user.model';
 import { UserModalComponent } from './user-modal/user-modal.component';
 import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { AccountService } from './../../shared/account.service';
-import { AppService } from './../../shared/app.service';
-import { UsersService } from './../../shared/users.service';
+import { AccountService } from './../../shared/services/account.service';
+import { AppService } from './../../shared/services/app.service';
+import { UsersService } from './../../shared/services/users.service';
 import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
 import { MetaModel } from './../../shared/models/meta.model';
 import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
@@ -28,7 +28,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = User.meta();
   items: any[] | User[];
   selectedItems: any[] | User[];
-  cachedResourcesService: UsersService;
+  cachedResourceService: UsersService;
 
   constructor(
     public usersService: UsersService,
@@ -38,13 +38,13 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = usersService.createCache();
+    this.cachedResourceService = usersService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
   }
   get readonly() {
-    return this.hardReadonly !== true || !this.account || !this.account.checkPermissions(['add_user', 'change_user', 'delete_user']);
+    return this.hardReadonly || !this.account || !this.account.checkPermissions(['add_user', 'change_user', 'delete_user']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -62,7 +62,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -85,7 +85,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -103,12 +103,12 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourceService.changeStatusItem$.subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
   save(itemModal: UserModalComponent) {
-    this.cachedResourcesService.save(itemModal.item).subscribe(
+    this.cachedResourceService.save(itemModal.item).subscribe(
       (user: any | User) => {
         itemModal.modal.hide();
       }, (errors: any) => {
@@ -123,7 +123,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourcesService.remove(this.selectedItems).subscribe(
+    this.cachedResourceService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

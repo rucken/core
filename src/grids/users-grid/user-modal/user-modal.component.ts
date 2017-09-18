@@ -6,7 +6,7 @@ import {
   ViewChild
 } from '@angular/core';
 import { User } from './../../../shared/models/user.model';
-import { ModalDirective } from 'ngx-bootstrap';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
 import { Group } from './../../../shared/models/group.model';
