@@ -1,3 +1,13 @@
+<a name="1.13.1"></a>
+## [1.13.1](https://github.com/site15/rucken/compare/1.13.0...1.13.1) (2017-09-18)
+
+
+### Bug Fixes
+
+* **scripts:** Remove prepare from test script ([778df00](https://github.com/site15/rucken/commit/778df00))
+
+
+
 <a name="1.13.0"></a>
 # [1.13.0](https://github.com/site15/rucken/compare/1.12.0...1.13.0) (2017-09-18)
 
