@@ -2,7 +2,7 @@ import { Component, ComponentFactoryResolver } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {
   AppService, AuthModalComponent, NavbarComponent,
-  AccountService, ConfirmModalComponent
+  AccountService, ConfirmModalComponent, SharedService
 } from 'rucken';
 import { TranslateService } from '@ngx-translate/core';
 import { DemoRoutes } from './../../../app.routes';
@@ -24,9 +24,10 @@ export class DemoNavbarComponent extends NavbarComponent {
     public translateService: TranslateService,
     public activatedRoute: ActivatedRoute,
     public router: Router,
-    public resolver: ComponentFactoryResolver
+    public resolver: ComponentFactoryResolver,
+    public sharedService: SharedService
   ) {
-    super(accountService, app, translateService, activatedRoute, router, resolver);
+    super(accountService, app, translateService, activatedRoute, router, resolver, sharedService);
   }
   init() {
     super.init();

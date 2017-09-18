@@ -1,6 +1,7 @@
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
 import { AppService } from './../../shared/services/app.service';
+import { SharedService } from './../../shared/services/shared.service';
 import { RuckenRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
 import { EventEmitter, Component, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
@@ -35,7 +36,8 @@ export class BaseAppComponent extends BaseComponent {
     public viewContainerRef: ViewContainerRef,
     public app: AppService,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    public sharedService: SharedService
   ) {
     super();
     // You need this small hack in order to catch application root view container ref
@@ -45,6 +47,7 @@ export class BaseAppComponent extends BaseComponent {
     if (this.autoLoadLang === true) {
       this.loadLang();
     }
+    sharedService.linkTranslateService();
   }
   loadLang() {
     this.translateService.addLangs(this.languages.map(lang => lang.code));
@@ -56,6 +59,7 @@ export class BaseAppComponent extends BaseComponent {
     } else {
       this.currentLanguage = this.currentLang;
     }
+    this.sharedService.linkTranslateService();
   }
   get currentLanguage() {
     return this.translateService.currentLang;

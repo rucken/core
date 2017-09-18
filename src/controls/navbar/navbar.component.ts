@@ -8,6 +8,7 @@ import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.compone
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { ActivatedRoute } from '@angular/router';
+import { SharedService } from '../../shared/services/shared.service';
 import * as _ from 'lodash';
 
 
@@ -32,9 +33,11 @@ export class NavbarComponent extends BaseComponent {
     public translateService: TranslateService,
     public activatedRoute: ActivatedRoute,
     public router: Router,
-    public resolver: ComponentFactoryResolver
+    public resolver: ComponentFactoryResolver,
+    public sharedService: SharedService
   ) {
     super();
+    sharedService.linkTranslateService();
     this.accountService.account$.subscribe((user: any | User) => {
       this.init();
     });

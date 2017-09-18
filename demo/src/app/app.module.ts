@@ -37,12 +37,12 @@ import { SharedModule } from 'rucken';
       spinnerColor: 'white',
       spinnerLines: 12
     }),
-    AlertModalModule.forRoot(),
-    DemoNavbarModule.forRoot(),
-    SharedModule.forRoot(),
     TranslateModule.forRoot({
       loader: { provide: TranslateLoader, useClass: TranslateFakeLoader }
     }),
+    SharedModule.forRoot(),
+    AlertModalModule.forRoot(),
+    DemoNavbarModule.forRoot(),
     RouterModule.forRoot(DemoRoutes, { useHash: true })
   ],
   providers: [

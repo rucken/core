@@ -4,6 +4,7 @@ import { BasePageComponent } from './../../base/base-page/base-page.component';
 import { AccountService } from './../../shared/services/account.service';
 import { AppService } from './../../shared/services/app.service';
 import { TranslateService } from '@ngx-translate/core';
+import { SharedService } from './../../shared/services/shared.service';
 
 @Component({
   selector: 'home-page',
@@ -20,9 +21,10 @@ export class HomePageComponent extends BasePageComponent {
     public app: AppService,
     public translateService: TranslateService,
     public activatedRoute: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public sharedService: SharedService
   ) {
-    super(accountService, app, translateService, activatedRoute, router);
+    super(accountService, app, translateService, activatedRoute, router, sharedService);
     this.readme = this.readme; // require('html-loader!markdown-loader!./../../../README.md');
   }
 }

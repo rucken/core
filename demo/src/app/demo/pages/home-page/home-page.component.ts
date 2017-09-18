@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService, AccountService, BasePageComponent } from 'rucken';
+import { AppService, AccountService, BasePageComponent, SharedService } from 'rucken';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -15,9 +15,10 @@ export class DemoHomePageComponent extends BasePageComponent {
     public app: AppService,
     public translateService: TranslateService,
     public activatedRoute: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public sharedService: SharedService
   ) {
-    super(accountService, app, translateService, activatedRoute, router);
+    super(accountService, app, translateService, activatedRoute, router, sharedService);
     const readme = require('html-loader!markdown-loader!./../../../../../../README.md');
     this.readme = readme.replace('<h1 id="rucken">rucken</h1>', '');
   }

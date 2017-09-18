@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TextMaskModule } from 'angular2-text-mask';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -11,7 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModule.forRoot(), DatepickerModule.forRoot(),
+    FormsModule, SharedModule.forRoot(), DatepickerModule.forRoot(),
     PipesModule.forRoot(), TextMaskModule, TooltipModule.forRoot()
   ],
 

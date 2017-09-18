@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ContentTypesGridComponent } from './content-types-grid.component';
 import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-search-panel.module';
 import { TableColumnModule } from './../../controls/table-column/table-column.module';
@@ -11,7 +10,7 @@ import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, SharedModule.forRoot(), GridSearchPanelModule.forRoot(),
+    SharedModule.forRoot(), GridSearchPanelModule.forRoot(),
     ContentTypeModalModule.forRoot(), ConfirmModalModule.forRoot(),
     TableColumnModule.forRoot(), GridRowButtonsModule.forRoot(), PaginationModule.forRoot()
   ],

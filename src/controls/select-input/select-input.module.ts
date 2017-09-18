@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { SelectInputComponent } from './select-input.component';
 import { SelectInputConfig } from './select-input.config';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -10,7 +9,7 @@ import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModule.forRoot(), TooltipModule.forRoot(), PipesModule.forRoot(),
+    FormsModule, SharedModule.forRoot(), TooltipModule.forRoot(), PipesModule.forRoot(),
     NguiAutoCompleteModule
   ],
 

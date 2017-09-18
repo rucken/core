@@ -5,6 +5,7 @@ import { AccountService } from './../../../shared/services/account.service';
 import { AppService } from './../../../shared/services/app.service';
 import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from './../../../shared/services/shared.service';
 
 @Component({
   selector: 'controls-frame',
@@ -21,9 +22,10 @@ export class ControlsFrameComponent extends BaseFrameComponent {
     public app: AppService,
     public translateService: TranslateService,
     public activatedRoute: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    public sharedService: SharedService
   ) {
-    super(accountService, app, translateService, activatedRoute, router);
+    super(accountService, app, translateService, activatedRoute, router, sharedService);
   }
   get readonly() {
     return !this.account || !this.account.checkPermissions(['change_controls']);

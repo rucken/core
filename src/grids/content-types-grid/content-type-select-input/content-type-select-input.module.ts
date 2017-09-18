@@ -1,6 +1,5 @@
 import { SelectInputModule } from './../../../controls/select-input/select-input.module';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ContentTypeSelectInputComponent } from './content-type-select-input.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -13,7 +12,7 @@ import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, ModalModule.forRoot(), SharedModule.forRoot(),
+    FormsModule, ModalModule.forRoot(), SharedModule.forRoot(),
     ContentTypesListModalModule.forRoot(),
     FooterButtonsModule.forRoot(), TextInputModule.forRoot(),
     PipesModule.forRoot(), TooltipModule.forRoot(), SelectInputModule.forRoot()

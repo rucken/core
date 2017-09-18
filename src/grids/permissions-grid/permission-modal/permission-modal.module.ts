@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PermissionModalComponent } from './permission-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
@@ -11,7 +10,7 @@ import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, ModalModule.forRoot(), SharedModule.forRoot(),
+    FormsModule, ModalModule.forRoot(), SharedModule.forRoot(),
     FooterButtonsModule.forRoot(), TextInputModule.forRoot(),
     ContentTypeSelectInputModule.forRoot()
   ],

@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './navbar.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
@@ -9,7 +8,6 @@ import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     ConfirmModalModule.forRoot(),
     AuthModalModule.forRoot(),
     SharedModule.forRoot(),

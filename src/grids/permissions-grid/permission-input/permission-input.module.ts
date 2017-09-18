@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PermissionInputComponent } from './permission-input.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +7,7 @@ import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, FormsModule, SharedModule.forRoot(), TooltipModule.forRoot(), PermissionsListModalModule.forRoot()
+    FormsModule, SharedModule.forRoot(), TooltipModule.forRoot(), PermissionsListModalModule.forRoot()
   ],
   declarations: [
     PermissionInputComponent

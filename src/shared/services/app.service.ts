@@ -7,12 +7,11 @@ export class AppService {
   component: any;
   viewContainerRef: ViewContainerRef;
   endpointHelper: EndpointHelper
-  onSetTranslateService: EventEmitter<TranslateService> = new EventEmitter<TranslateService>();
+  translateService: TranslateService;
   onCurrentPageName: EventEmitter<string> = new EventEmitter<string>();
   onCurrentPageTitle: EventEmitter<string> = new EventEmitter<string>();
   onCurrentFrameName: EventEmitter<string> = new EventEmitter<string>();
   onCurrentFrameTitle: EventEmitter<string> = new EventEmitter<string>();
-  private _translateService: TranslateService;
   private _currentPageName: string;
   private _currentPageTitle: string;
   private _currentFrameName: string;
@@ -20,13 +19,6 @@ export class AppService {
   private _createdModals: any = {};
   constructor(public location: Location) {
 
-  }
-  set translateService(translateService: TranslateService) {
-    this._translateService = translateService;
-    this.onSetTranslateService.emit(translateService);
-  }
-  get translateService(): TranslateService {
-    return this._translateService;
   }
   set currentFrameTitle(value: string) {
     this._currentFrameTitle = value;

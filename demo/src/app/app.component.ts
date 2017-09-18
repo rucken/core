@@ -23,7 +23,7 @@ export class DemoAppComponent extends BaseAppComponent {
     public router: Router,
     public sharedService: SharedService
   ) {
-    super(viewContainerRef, app, resolver, translateService);
+    super(viewContainerRef, app, resolver, translateService, sharedService);
 
     router.events.subscribe((evt) => {
       if (evt instanceof NavigationStart) {

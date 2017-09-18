@@ -1,6 +1,5 @@
 import { GroupsGridModule } from './../groups-grid.module';
 import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { GroupsListModalComponent } from './groups-list-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
@@ -8,7 +7,7 @@ import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule, ModalModule.forRoot(), SharedModule.forRoot(),
+    ModalModule.forRoot(), SharedModule.forRoot(),
     FooterButtonsModule.forRoot(), GroupsGridModule.forRoot()
   ],
 
