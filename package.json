@@ -50,7 +50,7 @@
     "demo-serve": "ng serve --host 0.0.0.0 --aot",
     "demo-serve_mockapi": "ng serve --host 0.0.0.0 --aot --environment=mockapi",
     "demo-gh_pages": "npm-run-all demo-build demo-deploy",
-    "demo-prod_build": "ng build --base-href / --prod --aot --build-optimizer",
+    "demo-prod_build": "ng build --base-href https://site15.github.io/rucken/ --prod --aot --build-optimizer",
     "demo-dev_build": "ng build --base-href / --aot",
     "demo-deploy": "gh-pages -d demo/dist",
     "demo-build": "npm-run-all build link demo-prod_build tools-demo-add_version",
