@@ -33,7 +33,7 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
   modelChange: EventEmitter<any | Group> = new EventEmitter<any | Group>();
 
   items: any[] | Group[];
-  cachedResourceService: GrousService;
+  cachedResourcesService: GrousService;
 
   constructor(
     public app: AppService,
@@ -44,7 +44,7 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-    this.cachedResourceService = groupsService.createCache();
+    this.cachedResourcesService = groupsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -70,7 +70,7 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

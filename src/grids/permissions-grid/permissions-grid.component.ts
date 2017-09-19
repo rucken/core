@@ -29,7 +29,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = Permission.meta();
   items: any[] | Permission[];
   selectedItems: any[] | Permission[];
-  cachedResourceService: PermissionsService;
+  cachedResourcesService: PermissionsService;
 
   constructor(
     public permissionsService: PermissionsService,
@@ -39,7 +39,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourceService = permissionsService.createCache();
+    this.cachedResourcesService = permissionsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -63,7 +63,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Permission();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -86,7 +86,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Permission(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -104,12 +104,12 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
   save(itemModal: PermissionModalComponent) {
-    this.cachedResourceService.save(itemModal.item).subscribe(
+    this.cachedResourcesService.save(itemModal.item).subscribe(
       (permission: any | Permission) => {
         itemModal.modal.hide();
       }, (errors: any) => {
@@ -124,7 +124,7 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourceService.remove(this.selectedItems).subscribe(
+    this.cachedResourcesService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

@@ -28,7 +28,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = User.meta();
   items: any[] | User[];
   selectedItems: any[] | User[];
-  cachedResourceService: UsersService;
+  cachedResourcesService: UsersService;
 
   constructor(
     public usersService: UsersService,
@@ -38,7 +38,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourceService = usersService.createCache();
+    this.cachedResourcesService = usersService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -62,7 +62,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -85,7 +85,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -103,12 +103,12 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
   save(itemModal: UserModalComponent) {
-    this.cachedResourceService.save(itemModal.item).subscribe(
+    this.cachedResourcesService.save(itemModal.item).subscribe(
       (user: any | User) => {
         itemModal.modal.hide();
       }, (errors: any) => {
@@ -123,7 +123,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourceService.remove(this.selectedItems).subscribe(
+    this.cachedResourcesService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

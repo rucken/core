@@ -26,7 +26,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
   items: any[];
   searchText = '';
   selectedItems: any[];
-  cachedResourceService: any;
+  cachedResourcesService: any;
   maxSelectCount = 1;
   modalIsOpened: boolean;
 
@@ -38,43 +38,43 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
 
   get meta() {
-    if (this.cachedResourceService) {
-      return this.cachedResourceService.meta;
+    if (this.cachedResourcesService) {
+      return this.cachedResourcesService.meta;
     }
     return {};
   }
   set columns(columns) {
-    if (this.cachedResourceService && JSON.stringify(this.cachedResourceService.columns) !== JSON.stringify(columns)) {
-      this.cachedResourceService.columns = columns;
+    if (this.cachedResourcesService && JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
+      this.cachedResourcesService.columns = columns;
       this.search(true);
     }
   }
   get columns(): any {
-    if (this.cachedResourceService && this.cachedResourceService.columns === undefined) {
-      this.cachedResourceService.columns = { id: { sort: 'desc' } };
-      return this.cachedResourceService.columns;
+    if (this.cachedResourcesService && this.cachedResourcesService.columns === undefined) {
+      this.cachedResourcesService.columns = { id: { sort: 'desc' } };
+      return this.cachedResourcesService.columns;
     }
     return {};
   }
   set mockedItems(items) {
-    if (this.cachedResourceService) {
-      this.cachedResourceService.mockedItems = items;
+    if (this.cachedResourcesService) {
+      this.cachedResourcesService.mockedItems = items;
     }
   }
   get mockedItems() {
-    if (this.cachedResourceService) {
-      return this.cachedResourceService.mockedItems;
+    if (this.cachedResourcesService) {
+      return this.cachedResourcesService.mockedItems;
     }
     return [];
   }
   get statusListMessage() {
-    if (!this.cachedResourceService) {
+    if (!this.cachedResourcesService) {
       return '';
     }
-    if (this.cachedResourceService.statusList === EndpointStatusEnum.Ok) {
+    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
       return '';
     } else {
-      return this.cachedResourceService.statusListMessage;
+      return this.cachedResourcesService.statusListMessage;
     }
   }
 
@@ -82,15 +82,15 @@ export class BaseResourcesGridComponent extends BaseComponent {
     this.onEnter.emit(true);
   }
   pageChanged(event: any): void {
-    if (this.cachedResourceService) {
-      this.cachedResourceService.meta.curPage = event.page;
-      this.cachedResourceService.meta.perPage = event.itemsPerPage;
+    if (this.cachedResourcesService) {
+      this.cachedResourcesService.meta.curPage = event.page;
+      this.cachedResourcesService.meta.perPage = event.itemsPerPage;
       this.search();
     }
   }
   init() {
-    if (this.cachedResourceService) {
-      this.cachedResourceService.items$.subscribe(
+    if (this.cachedResourcesService) {
+      this.cachedResourcesService.items$.subscribe(
         (items: any[]) => {
           this.items = items;
           if (this.items) {
@@ -136,9 +136,9 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
   search(ignoreCache?: boolean) {
     const filter: any = {};
-    if (this.cachedResourceService) {
-      this.cachedResourceService.ignoreCache = ignoreCache;
-      this.cachedResourceService.loadAll(this.searchText, filter);
+    if (this.cachedResourcesService) {
+      this.cachedResourcesService.ignoreCache = ignoreCache;
+      this.cachedResourcesService.loadAll(this.searchText, filter);
     }
   }
 }

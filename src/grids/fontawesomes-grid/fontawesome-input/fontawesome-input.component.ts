@@ -28,7 +28,7 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
   modelChange: EventEmitter<any | Fontawesome> = new EventEmitter<any | Fontawesome>();
 
   items: any | Fontawesome[];
-  cachedResourceService: FontawesomeService;
+  cachedResourcesService: FontawesomeService;
 
   constructor(
     public app: AppService,
@@ -38,7 +38,7 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     public translateService: TranslateService
   ) {
     super(translateService);
-    this.cachedResourceService = fontawesomeService.createCache();
+    this.cachedResourcesService = fontawesomeService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -61,7 +61,7 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
