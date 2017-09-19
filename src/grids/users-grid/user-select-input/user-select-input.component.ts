@@ -32,7 +32,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
   modelChange: EventEmitter<any | User> = new EventEmitter<any | User>();
 
   items: any[] | User[];
-  cachedResourceService: UsersService;
+  cachedResourcesService: UsersService;
 
   constructor(
     public app: AppService,
@@ -43,7 +43,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-    this.cachedResourceService = usersService.createCache();
+    this.cachedResourcesService = usersService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -69,7 +69,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

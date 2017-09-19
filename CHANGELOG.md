@@ -1,3 +1,14 @@
+<a name="1.13.2"></a>
+## [1.13.2](https://github.com/site15/rucken/compare/1.13.1...1.13.2) (2017-09-19)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([52d9f3b](https://github.com/site15/rucken/commit/52d9f3b))
+* **refactor:** Change name cachedResourceService to cachedResourcesService ([ff15ada](https://github.com/site15/rucken/commit/ff15ada))
+
+
+
 <a name="1.13.1"></a>
 ## [1.13.1](https://github.com/site15/rucken/compare/1.13.0...1.13.1) (2017-09-18)
 

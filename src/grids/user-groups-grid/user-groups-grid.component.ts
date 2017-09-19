@@ -38,7 +38,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = UserGroup.meta();
   items: any[] | UserGroup[];
   selectedItems: any[] | UserGroup[];
-  cachedResourceService: UserGroupsService;
+  cachedResourcesService: UserGroupsService;
 
   constructor(
     public userGroupsService: UserGroupsService,
@@ -49,7 +49,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourceService = userGroupsService.createCache();
+    this.cachedResourcesService = userGroupsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -131,7 +131,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   }
   save(itemModal: GroupsListModalComponent) {
     const items: Group[] = itemModal.items;
-    this.cachedResourceService.save(items.map(item => new UserGroup({
+    this.cachedResourcesService.save(items.map(item => new UserGroup({
       id: item.pk,
       group: item
     }))).subscribe(
@@ -149,7 +149,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourceService.remove(this.selectedItems).subscribe(
+    this.cachedResourcesService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

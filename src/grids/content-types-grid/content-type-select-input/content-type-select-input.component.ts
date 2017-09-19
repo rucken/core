@@ -33,7 +33,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
   modelChange: EventEmitter<any | ContentType> = new EventEmitter<any | ContentType>();
 
   items: any[] | ContentType[];
-  cachedResourceService: ContentTypesService;
+  cachedResourcesService: ContentTypesService;
 
   constructor(
     public app: AppService,
@@ -44,12 +44,12 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-    this.cachedResourceService = contentTypeService.createCache();
+    this.cachedResourcesService = contentTypeService.createCache();
   }
   changeInputValue(value: string) {
     const filter: any = {};
-    this.cachedResourceService.ignoreCache = true;
-    this.cachedResourceService.loadAll(value, filter);
+    this.cachedResourcesService.ignoreCache = true;
+    this.cachedResourcesService.loadAll(value, filter);
   }
   get account(): any | User {
     return this.accountService.account;
@@ -75,7 +75,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

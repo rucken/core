@@ -29,7 +29,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = Fontawesome.meta();
   items: any[] | Fontawesome[];
   selectedItems: any[] | Fontawesome[];
-  cachedResourceService: FontawesomeService;
+  cachedResourcesService: FontawesomeService;
 
   constructor(
     public fontawesomeService: FontawesomeService,
@@ -39,7 +39,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourceService = fontawesomeService.createCache();
+    this.cachedResourcesService = fontawesomeService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -63,7 +63,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Fontawesome();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -86,7 +86,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Fontawesome(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -104,12 +104,12 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
   save(itemModal: FontawesomeModalComponent) {
-    this.cachedResourceService.save(itemModal.item).subscribe(
+    this.cachedResourcesService.save(itemModal.item).subscribe(
       (fontawesome: any | Fontawesome) => {
         itemModal.modal.hide();
       }, (errors: any) => {
@@ -124,7 +124,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
       });
   }
   remove(itemModal: ConfirmModalComponent) {
-    this.cachedResourceService.remove(this.selectedItems).subscribe(
+    this.cachedResourcesService.remove(this.selectedItems).subscribe(
       () => {
         itemModal.modal.hide();
       },

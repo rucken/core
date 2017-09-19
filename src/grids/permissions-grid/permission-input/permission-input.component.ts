@@ -28,7 +28,7 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
   modelChange: EventEmitter<any | Permission> = new EventEmitter<any | Permission>();
 
   items: any[] | Permission[];
-  cachedResourceService: PermissionsService;
+  cachedResourcesService: PermissionsService;
 
   constructor(
     public app: AppService,
@@ -38,7 +38,7 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     public translateService: TranslateService
   ) {
     super(translateService);
-    this.cachedResourceService = permissionsService.createCache();
+    this.cachedResourcesService = permissionsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;
@@ -61,7 +61,7 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourceService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
