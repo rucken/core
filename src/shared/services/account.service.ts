@@ -10,12 +10,13 @@ import { User } from './../models/user.model';
 export class AccountService {
   name: string;
   account$: Subject<any | User>;
-  _account: any | User;
   apiUrl: string;
 
   statusMessage: string;
-  _status: EndpointStatusEnum;
   changeStatus$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
+
+  private _account: any | User;
+  private _status: EndpointStatusEnum;
 
   constructor(public endpointHelper: EndpointHelper) {
     this.name = 'account';
@@ -35,7 +36,7 @@ export class AccountService {
   transformModel(item: any) {
     return new User(item);
   }
-  get statusList() {
+  get status() {
     return this._status;
   }
   setStatus(status: EndpointStatusEnum, message?: string) {
