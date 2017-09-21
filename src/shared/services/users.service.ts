@@ -1,4 +1,4 @@
-import { BaseRepositoryService } from './../../base/base-services/base-repository.service';
+import { BaseRepositoryService } from './../base/services/base-repository.service';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';

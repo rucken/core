@@ -1,6 +1,6 @@
 import * as moment from 'moment/moment';
 import * as _ from 'lodash';
-import { translate } from './../../shared/utils/utils';
+import { translate } from './../../utils/utils';
 
 export class BaseResourceModel {
   className = 'ResourceModel';

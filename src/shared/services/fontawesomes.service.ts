@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { Fontawesome } from './../models/fontawesome.model';
-import { BaseRepositoryService } from './../../base/base-services/base-repository.service';
+import { BaseRepositoryService } from './../base/services/base-repository.service';
 import { FontawesomeItemsMock } from './../mocks/fontawesome-items.mock';
 import { RepositoryHelper } from './../helpers/repository.helper';
 @Injectable()

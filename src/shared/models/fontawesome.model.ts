@@ -1,4 +1,4 @@
-import { BaseResourceModel } from './../../base/base-models/base-resource.model';
+import { BaseResourceModel } from './../base/models/base-resource.model';
 import { translate } from './../utils/utils';
 
 export class Fontawesome extends BaseResourceModel {

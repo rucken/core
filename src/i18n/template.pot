@@ -22,46 +22,13 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-msgid "Yes"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
 msgid "Select"
 msgstr ""
 
-msgid "Loading..."
-msgstr ""
-
-msgid "Not found"
-msgstr ""
-
-msgid "Error, you not set perPage count"
-msgstr ""
-
-msgid "Error in creating"
-msgstr ""
-
-msgid "Creating..."
-msgstr ""
-
-msgid "Updating..."
-msgstr ""
-
-msgid "Error in updating"
-msgstr ""
-
-msgid "Removing..."
+msgid "Cancel"
 msgstr ""
 
 msgid "OK"
-msgstr ""
-
-msgid "Error on deleting"
-msgstr ""
-
-msgid "Cancel"
 msgstr ""
 
 msgid "Edit"
@@ -203,6 +170,39 @@ msgid "Home"
 msgstr ""
 
 msgid "Themes"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Not found"
+msgstr ""
+
+msgid "Error, you not set perPage count"
+msgstr ""
+
+msgid "Error in creating"
+msgstr ""
+
+msgid "Creating..."
+msgstr ""
+
+msgid "Updating..."
+msgstr ""
+
+msgid "Error in updating"
+msgstr ""
+
+msgid "Removing..."
+msgstr ""
+
+msgid "Error on deleting"
 msgstr ""
 
 msgid "Unknown error"
