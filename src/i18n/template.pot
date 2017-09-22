@@ -295,6 +295,9 @@ msgstr ""
 msgid "Date of birth"
 msgstr ""
 
+msgid "Password does not match the repeat password"
+msgstr ""
+
 msgid "Login..."
 msgstr ""
 

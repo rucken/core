@@ -31,47 +31,14 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
-msgid "Yes"
-msgstr "Да"
-
-msgid "No"
-msgstr "Нет"
-
 msgid "Select"
 msgstr "Выбрать"
 
-msgid "Loading..."
-msgstr "Загрузка..."
-
-msgid "Not found"
-msgstr "Нет данных"
-
-msgid "Error, you not set perPage count"
-msgstr "Ошибка, вы не установили текущую страницу"
-
-msgid "Error in creating"
-msgstr "Ошибка при создании"
-
-msgid "Creating..."
-msgstr "Создание..."
-
-msgid "Updating..."
-msgstr "Изменение..."
-
-msgid "Error in updating"
-msgstr "Ошибка при изменении"
-
-msgid "Removing..."
-msgstr "Удаление..."
+msgid "Cancel"
+msgstr "Отмена"
 
 msgid "OK"
 msgstr "Ок"
-
-msgid "Error on deleting"
-msgstr "Ошибка при удалении"
-
-msgid "Cancel"
-msgstr "Отмена"
 
 msgid "Edit"
 msgstr "Редактировать"
@@ -214,11 +181,38 @@ msgstr "Домашняя страница"
 msgid "Themes"
 msgstr "Темы"
 
-msgid "Login..."
-msgstr "Вход..."
+msgid "Yes"
+msgstr "Да"
 
-msgid "Logout..."
-msgstr "Выход..."
+msgid "No"
+msgstr "Нет"
+
+msgid "Loading..."
+msgstr "Загрузка..."
+
+msgid "Not found"
+msgstr "Нет данных"
+
+msgid "Error, you not set perPage count"
+msgstr "Ошибка, вы не установили текущую страницу"
+
+msgid "Error in creating"
+msgstr "Ошибка при создании"
+
+msgid "Creating..."
+msgstr "Создание..."
+
+msgid "Updating..."
+msgstr "Изменение..."
+
+msgid "Error in updating"
+msgstr "Ошибка при изменении"
+
+msgid "Removing..."
+msgstr "Удаление..."
+
+msgid "Error on deleting"
+msgstr "Ошибка при удалении"
 
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
@@ -309,6 +303,15 @@ msgstr "Дата регистрации"
 
 msgid "Date of birth"
 msgstr "Дата рождени"
+
+msgid "Password does not match the repeat password"
+msgstr "Введённые пароли отличаются"
+
+msgid "Login..."
+msgstr "Вход..."
+
+msgid "Logout..."
+msgstr "Выход..."
 
 msgid "Language"
 msgstr "Язык"

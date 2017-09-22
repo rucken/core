@@ -73,7 +73,7 @@ export class User extends BaseResourceModel {
     const result: any = {};
     let valid = true;
     if (this.password !== undefined && this.password !== this.rePassword) {
-      result.rePassword = ['Password does not match the repeat password'];
+      result.rePassword = [translate('Password does not match the repeat password')];
       valid = false;
     }
     if (valid === true) {

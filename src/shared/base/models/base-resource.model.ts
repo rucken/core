@@ -3,8 +3,6 @@ import * as _ from 'lodash';
 import { translate } from './../../utils/utils';
 
 export class BaseResourceModel {
-  className = 'ResourceModel';
-
   pkFieldName: string;
   pkIsNumber: boolean;
   dateAsStringFormat = 'DD.MM.YYYY';
