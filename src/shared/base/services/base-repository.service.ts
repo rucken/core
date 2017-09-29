@@ -29,7 +29,7 @@ export class BaseRepositoryService {
   changeStatusList$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
   changeStatusItem$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
 
-  private _mockedItems: any[];
+  protected _mockedItems: any[];
 
   get statusList() {
     return this._statusList;
@@ -38,8 +38,8 @@ export class BaseRepositoryService {
     return this._statusItem;
   }
 
-  private _statusList: EndpointStatusEnum;
-  private _statusItem: EndpointStatusEnum;
+  protected _statusList: EndpointStatusEnum;
+  protected _statusItem: EndpointStatusEnum;
 
   constructor(public repositoryHelper: RepositoryHelper) {
     this.items = [];
