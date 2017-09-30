@@ -1,6 +1,6 @@
 {
     "name": "@rucken/core",
-    "version": "1.13.2",
+    "version": "1.14.0",
     "description": "Core with base class for application maked on Angular4",
     "keywords": [
         "ngx",

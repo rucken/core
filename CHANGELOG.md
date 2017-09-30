@@ -1,3 +1,22 @@
+<a name="1.14.0"></a>
+# [1.14.0](https://github.com/rucken/core/compare/1.13.2...1.14.0) (2017-09-30)
+
+
+### Bug Fixes
+
+* **account-service:** Change status name getter ([03d56e6](https://github.com/rucken/core/commit/03d56e6))
+* **alert-modal:** Fix show error message ([84b1648](https://github.com/rucken/core/commit/84b1648))
+* **base-repository:** Change private prop to protected for use it in extended classes ([d3deaec](https://github.com/rucken/core/commit/d3deaec))
+* **deps:** Update dependencies ([0ae9412](https://github.com/rucken/core/commit/0ae9412))
+* **model:** Remove used on base properties, add translate error for incorrect re password ([7bac521](https://github.com/rucken/core/commit/7bac521))
+
+
+### BREAKING CHANGES
+
+* Package was divided into two core and web ([b0fde20](https://github.com/rucken/core/commit/b0fde20))
+
+
+
 <a name="1.13.2"></a>
 ## [1.13.2](https://github.com/rucken/core/compare/1.13.1...1.13.2) (2017-09-19)
 
