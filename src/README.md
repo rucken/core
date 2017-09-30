@@ -4,13 +4,14 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Core with base class for application maked on Angular4
+Core with Admin UI for web and native application maked on Angular4
 
 ## What is Rucken?
 
-- **Core** - Base core for create web or native applications on `Angular4`.
+- **Core** - Base core for create web applications on `Angular4`.
 - **Admin** - Include work with admin, user groups and permissions.
 - **DI** - With dependency injection you can change base service.
+- **Extends** - Write components with extends from core `rucken` components.
 
 #### Quick links
 
@@ -38,8 +39,8 @@ MIT
 [travis-url]: https://travis-ci.org/rucken/core
 [gitter-image]: https://img.shields.io/gitter/room/rucken/core.js.svg
 [gitter-url]: https://gitter.im/rucken/core
-[npm-image]: https://badge.fury.io/js/%40rucken%2Fcore.svg
-[npm-url]: https://npmjs.org/package/@rucken/core
+[npm-image]: https://badge.fury.io/js/%40rucken%2Fweb.svg
+[npm-url]: https://npmjs.org/package/@rucken/web
 [dependencies-image]: https://david-dm.org/rucken/core/status.svg
 [dependencies-url]: https://david-dm.org/rucken/core
 [telegram-image]: https://img.shields.io/badge/chat-telegram-blue.svg?maxAge=2592000
