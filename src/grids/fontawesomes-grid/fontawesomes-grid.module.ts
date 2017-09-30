@@ -6,7 +6,7 @@ import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
 import { PipesModule } from '../../pipes/pipes.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

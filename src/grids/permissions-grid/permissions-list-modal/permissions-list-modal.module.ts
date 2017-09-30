@@ -3,7 +3,7 @@ import { PermissionsListModalComponent } from './permissions-list-modal.componen
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { PermissionsGridModule } from './../permissions-grid.module';
 import { FooterButtonsModule } from '../../../controls/footer-buttons/footer-buttons.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

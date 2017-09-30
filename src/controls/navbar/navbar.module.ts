@@ -4,7 +4,7 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
 import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

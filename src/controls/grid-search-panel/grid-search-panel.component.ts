@@ -1,7 +1,7 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import { translate } from '../../shared/utils/utils';
+import { translate } from '@rucken/core';
 
 @Component({
   selector: 'grid-search-panel',

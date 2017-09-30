@@ -1,11 +1,11 @@
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
-import { ContentType } from './../../../shared/models/content-type.model';
+import { ContentType } from '@rucken/core';
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { ContentTypesListModalComponent } from './../content-types-list-modal/content-types-list-modal.component';
-import { AppService } from './../../../shared/services/app.service';
-import { AccountService } from './../../../shared/services/account.service';
-import { ContentTypesService } from './../../../shared/services/content-types.service';
-import { User } from './../../../shared/models/user.model';
+import { AppService } from '@rucken/core';
+import { AccountService } from '@rucken/core';
+import { ContentTypesService } from '@rucken/core';
+import { User } from '@rucken/core';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';

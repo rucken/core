@@ -5,16 +5,16 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { User } from './../../../shared/models/user.model';
+import { User } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { AccountService } from './../../../shared/services/account.service';
+import { AccountService } from '@rucken/core';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
-import { Group } from './../../../shared/models/group.model';
-import { UserGroup } from './../../../shared/models/user-group.model';
-import { translate } from './../../../shared/utils/utils';
+import { Group } from '@rucken/core';
+import { UserGroup } from '@rucken/core';
+import { translate } from '@rucken/core';
 import { BaseComponent } from './../../../base/base-component/base-component.component';
-import { EndpointStatusEnum } from '../../../shared/enums/endpoint-status.enum';
+import { EndpointStatusEnum } from '@rucken/core';
 
 @Component({
   selector: 'account-profile-form',

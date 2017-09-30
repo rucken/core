@@ -1,10 +1,10 @@
-import { Permission } from './../../../shared/models/permission.model';
+import { Permission } from '@rucken/core';
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver, ElementRef } from '@angular/core';
 import { PermissionsListModalComponent } from './../permissions-list-modal/permissions-list-modal.component';
-import { AppService } from './../../../shared/services/app.service';
-import { AccountService } from './../../../shared/services/account.service';
-import { PermissionsService } from './../../../shared/services/permissions.service';
-import { User } from './../../../shared/models/user.model';
+import { AppService } from '@rucken/core';
+import { AccountService } from '@rucken/core';
+import { PermissionsService } from '@rucken/core';
+import { User } from '@rucken/core';
 import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { TranslateService } from '@ngx-translate/core';
 

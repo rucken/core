@@ -18,7 +18,7 @@ import { TextInputConfig } from './../../controls/text-input/text-input.config';
 import { SelectInputConfig } from './../../controls/select-input/select-input.config';
 import { TableColumnConfig } from './../../controls/table-column/table-column.config';
 import { AuthHttpFactory } from './../../shared/factories/auth-http.factory';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 
 @NgModule({

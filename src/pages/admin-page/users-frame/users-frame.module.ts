@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { UsersFrameRoutes } from './users-frame.routes';
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { UsersGridModule } from './../../../grids/users-grid/users-grid.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

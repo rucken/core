@@ -7,7 +7,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PermissionsListModalModule } from './../../grids/permissions-grid/permissions-list-modal/permissions-list-modal.module';
 import { PermissionModalModule } from './../../grids/permissions-grid/permission-modal/permission-modal.module';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

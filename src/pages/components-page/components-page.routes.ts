@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { ComponentsPageComponent } from './components-page.component';
 import { ControlsFrameRoutes } from './controls-frame/controls-frame.routes';
-import { translate } from './../../shared/utils/utils';
+import { translate } from '@rucken/core';
 
 const children = [
   { path: '', redirectTo: '/controls', pathMatch: 'full' },

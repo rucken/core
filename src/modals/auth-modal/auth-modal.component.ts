@@ -1,6 +1,6 @@
 import { Component, Output, Input, ViewChild, EventEmitter, ElementRef } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { User } from './../../shared/models/user.model';
+import { User } from '@rucken/core';
 import { TextInputComponent } from './../../controls/text-input/text-input.component';
 import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
 

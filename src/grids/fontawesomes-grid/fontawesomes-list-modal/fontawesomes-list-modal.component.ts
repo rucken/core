@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
-import { Fontawesome } from './../../../shared/models/fontawesome.model';
-import { User } from './../../../shared/models/user.model';
+import { Fontawesome } from '@rucken/core';
+import { User } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { FontawesomesGridComponent } from './../fontawesomes-grid.component';
 import { BaseResourceListModalComponent } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';

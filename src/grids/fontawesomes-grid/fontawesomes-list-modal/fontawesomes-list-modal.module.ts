@@ -3,7 +3,7 @@ import { FontawesomesListModalComponent } from './fontawesomes-list-modal.compon
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { FontawesomesGridModule } from './../fontawesomes-grid.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

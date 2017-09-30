@@ -5,7 +5,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { Fontawesome } from './../../../shared/models/fontawesome.model';
+import { Fontawesome } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';

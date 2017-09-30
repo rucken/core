@@ -3,7 +3,7 @@ import { FontawesomeInputComponent } from './fontawesome-input.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { FormsModule } from '@angular/forms';
 import { FontawesomesListModalModule } from '../fontawesomes-list-modal/fontawesomes-list-modal.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.4\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -181,138 +181,6 @@ msgstr "Домашняя страница"
 msgid "Themes"
 msgstr "Темы"
 
-msgid "Yes"
-msgstr "Да"
-
-msgid "No"
-msgstr "Нет"
-
-msgid "Loading..."
-msgstr "Загрузка..."
-
-msgid "Not found"
-msgstr "Нет данных"
-
-msgid "Error, you not set perPage count"
-msgstr "Ошибка, вы не установили текущую страницу"
-
-msgid "Error in creating"
-msgstr "Ошибка при создании"
-
-msgid "Creating..."
-msgstr "Создание..."
-
-msgid "Updating..."
-msgstr "Изменение..."
-
-msgid "Error in updating"
-msgstr "Ошибка при изменении"
-
-msgid "Removing..."
-msgstr "Удаление..."
-
-msgid "Error on deleting"
-msgstr "Ошибка при удалении"
-
-msgid "Unknown error"
-msgstr "Неизвестная ошибка"
-
-msgid "Id"
-msgstr "Ид."
-
-msgid "Name"
-msgstr "Наименование"
-
-msgid "Title"
-msgstr "Заголовок"
-
-msgid "Icon"
-msgstr "Иконка"
-
-msgid "Code"
-msgstr "Код"
-
-msgid "Class"
-msgstr "Класс"
-
-msgid "Group"
-msgstr "Группа"
-
-msgid "Permission"
-msgstr "Разрешения"
-
-msgid "Total results"
-msgstr "Всего записей"
-
-msgid "Current page"
-msgstr "Текущ. стр."
-
-msgid "Total pages"
-msgstr "Всего стр."
-
-msgid "Per page"
-msgstr "Кол-во стр."
-
-msgid "Content type"
-msgstr "Тип содержимого"
-
-msgid "Url"
-msgstr "Адрес"
-
-msgid "User"
-msgstr "Пользователь"
-
-msgid "Username"
-msgstr "Имя пользователя"
-
-msgid "Password"
-msgstr "Пароль"
-
-msgid "Repeat password"
-msgstr "Пароль (повторно)"
-
-msgid "Username/Email"
-msgstr "Имя пользователя/ Эл. почта"
-
-msgid "Roles"
-msgstr "Роли"
-
-msgid "Staff"
-msgstr "Персонал"
-
-msgid "Administrator"
-msgstr "Администратор"
-
-msgid "Full name"
-msgstr "Полное имя"
-
-msgid "First name"
-msgstr "Имя"
-
-msgid "Last name"
-msgstr "Фамилия"
-
-msgid "Email"
-msgstr "Эл. почта"
-
-msgid "Last login"
-msgstr "Дата последнего входа"
-
-msgid "Date joined"
-msgstr "Дата регистрации"
-
-msgid "Date of birth"
-msgstr "Дата рождени"
-
-msgid "Password does not match the repeat password"
-msgstr "Введённые пароли отличаются"
-
-msgid "Login..."
-msgstr "Вход..."
-
-msgid "Logout..."
-msgstr "Выход..."
-
 msgid "Language"
 msgstr "Язык"
 
@@ -327,6 +195,138 @@ msgstr "Вход"
 
 msgid "Actions"
 msgstr "Действия"
+
+msgid "No"
+msgstr "Нет"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid "Loading..."
+#~ msgstr "Загрузка..."
+
+#~ msgid "Not found"
+#~ msgstr "Нет данных"
+
+#~ msgid "Error, you not set perPage count"
+#~ msgstr "Ошибка, вы не установили текущую страницу"
+
+#~ msgid "Error in creating"
+#~ msgstr "Ошибка при создании"
+
+#~ msgid "Creating..."
+#~ msgstr "Создание..."
+
+#~ msgid "Updating..."
+#~ msgstr "Изменение..."
+
+#~ msgid "Error in updating"
+#~ msgstr "Ошибка при изменении"
+
+#~ msgid "Removing..."
+#~ msgstr "Удаление..."
+
+#~ msgid "Error on deleting"
+#~ msgstr "Ошибка при удалении"
+
+#~ msgid "Unknown error"
+#~ msgstr "Неизвестная ошибка"
+
+#~ msgid "Id"
+#~ msgstr "Ид."
+
+#~ msgid "Name"
+#~ msgstr "Наименование"
+
+#~ msgid "Title"
+#~ msgstr "Заголовок"
+
+#~ msgid "Icon"
+#~ msgstr "Иконка"
+
+#~ msgid "Code"
+#~ msgstr "Код"
+
+#~ msgid "Class"
+#~ msgstr "Класс"
+
+#~ msgid "Group"
+#~ msgstr "Группа"
+
+#~ msgid "Permission"
+#~ msgstr "Разрешения"
+
+#~ msgid "Total results"
+#~ msgstr "Всего записей"
+
+#~ msgid "Current page"
+#~ msgstr "Текущ. стр."
+
+#~ msgid "Total pages"
+#~ msgstr "Всего стр."
+
+#~ msgid "Per page"
+#~ msgstr "Кол-во стр."
+
+#~ msgid "Content type"
+#~ msgstr "Тип содержимого"
+
+#~ msgid "Url"
+#~ msgstr "Адрес"
+
+#~ msgid "User"
+#~ msgstr "Пользователь"
+
+#~ msgid "Username"
+#~ msgstr "Имя пользователя"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Repeat password"
+#~ msgstr "Пароль (повторно)"
+
+#~ msgid "Username/Email"
+#~ msgstr "Имя пользователя/ Эл. почта"
+
+#~ msgid "Roles"
+#~ msgstr "Роли"
+
+#~ msgid "Staff"
+#~ msgstr "Персонал"
+
+#~ msgid "Administrator"
+#~ msgstr "Администратор"
+
+#~ msgid "Full name"
+#~ msgstr "Полное имя"
+
+#~ msgid "First name"
+#~ msgstr "Имя"
+
+#~ msgid "Last name"
+#~ msgstr "Фамилия"
+
+#~ msgid "Email"
+#~ msgstr "Эл. почта"
+
+#~ msgid "Last login"
+#~ msgstr "Дата последнего входа"
+
+#~ msgid "Date joined"
+#~ msgstr "Дата регистрации"
+
+#~ msgid "Date of birth"
+#~ msgstr "Дата рождени"
+
+#~ msgid "Password does not match the repeat password"
+#~ msgstr "Введённые пароли отличаются"
+
+#~ msgid "Login..."
+#~ msgstr "Вход..."
+
+#~ msgid "Logout..."
+#~ msgstr "Выход..."
 
 #~ msgid "Sun"
 #~ msgstr "Вс"

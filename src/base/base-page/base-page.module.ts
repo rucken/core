@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BasePageComponent } from './base-page.component';
 import { RouterModule } from '@angular/router';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

@@ -1,0 +1,25 @@
+{
+    "name": "@rucken/core",
+    "version": "1.13.2",
+    "description": "Core with base class for application maked on Angular4",
+    "keywords": [
+        "ngx",
+        "angular4",
+        "seed",
+        "i18n"
+    ],
+    "peerDependencies": {
+        "@angular/common": "*",
+        "@angular/compiler": "*",
+        "@angular/core": "*",
+        "@angular/forms": "*",
+        "@angular/router": "*"
+    },
+    "dependencies": {
+        "@types/lodash": "*",
+        "@ngx-translate/core": "*",
+        "angular2-jwt": "*",
+        "lodash": "*",
+        "moment": "*"
+    }
+}

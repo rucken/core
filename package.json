@@ -1,18 +1,22 @@
 {
-  "name": "rucken",
+  "name": "@rucken/core",
   "version": "1.13.2",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
-  "bugs": {
-    "url": "https://github.com/site15/rucken/issues"
-  },
   "engines": {
     "node": ">=6",
     "npm": ">=5.3.0"
   },
   "private": true,
-  "description": "Core with Admin UI for web application maked on Angular4",
-  "homepage": "https://github.com/site15/rucken",
+  "description": "Core with Admin UI for web and native application maked on Angular4",
+  "bugs": {
+    "url": "https://github.com/rucken/core/issues"
+  },
+  "homepage": "https://github.com/rucken/core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rucken/core.git"
+  },
   "main": "bundles/rucken.umd.js",
   "module": "index.js",
   "typings": "index.d.ts",
@@ -31,35 +35,45 @@
       "email": "admin@site15.ru"
     }
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/site15/rucken.git"
-  },
   "scripts": {
+    "build-core": "ngm build -p ./core --clean",
+    "link-core": "ngm link -p core --here",
+    "demo-link-core": "npm link core",
+    "tools-change_core_version": "gulp change-core-version",
+    "tools-extract_translate-src-core": "ngx-translate-extract --input ./core --output ./core/i18n/template.pot --format=pot --marker translate --clean",
+    "tools-po2ts-core": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/core-convert.po.to.ts.json",
+    "tools-make_ts_list-core": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/core-make.list.ts.files.json",
+    "tools-prepare-core": "npm-run-all tools-extract_translate-src-core tools-po2ts-core tools-make_ts_list-core",
+
+    "link-src": "ngm link -p src --here",
     "build-src": "ngm build -p ./src --clean",
-    "build": "npm-run-all tools-change_src_version build-src",
+    "demo-link-src": "npm link src",
+    "tools-change_src_version": "gulp change-src-version",
+    "tools-po2ts-src": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
+    "tools-make_ts_list-src": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
+    "tools-extract_translate-src": "ngx-translate-extract --input ./src --output ./src/i18n/template.pot --format=pot --marker translate --clean",
+    "tools-prepare-src": "npm-run-all tools-extract_translate-src tools-po2ts-src tools-make_ts_list-src",
+
+    "build": "npm-run-all tools-change_version build-core link-core build-src",
     "ng": "ng",
     "test": "npm-run-all lint demo-build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "link": "ngm link -p src --here",
+    "link": "npm-run-all link-core link-src",
     "start": "npm-run-all tools-prepare demo-link demo-serve",
     "mockapi": "npm-run-all tools-prepare demo-link demo-serve_mockapi",
-    "demo-link": "npm link src",
+    "demo-link": "npm-run-all demo-link-core demo-link-src",
     "demo-lite_server": "lite-server -c demo/bs-config.json",
     "demo-serve": "ng serve --host 0.0.0.0 --aot",
     "demo-serve_mockapi": "ng serve --host 0.0.0.0 --aot --env=mockapi",
     "demo-gh_pages": "npm-run-all demo-build demo-deploy",
-    "demo-prod_build": "ng build --base-href https://site15.github.io/rucken/ --prod --aot --build-optimizer",
+    "demo-prod_build": "ng build --base-href https://rucken.github.io/core/ --prod --aot --build-optimizer",
     "demo-dev_build": "ng build --base-href / --aot",
     "demo-deploy": "gh-pages -d demo/dist",
     "demo-build": "npm-run-all build link demo-prod_build tools-demo-add_version",
     "tools-demo-add_version": "gulp add-version",
-    "tools-change_src_version": "gulp change-src-version",
-    "tools-extract_translate": "ngx-translate-extract --input ./src --output ./src/i18n/template.pot --format=pot --marker translate --clean",
-    "tools-po2ts": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/convert.po.to.ts.json",
-    "tools-make_ts_list": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
-    "tools-prepare": "npm-run-all tools-extract_translate tools-po2ts tools-make_ts_list"
+    "tools-change_version": "npm-run-all tools-change_core_version tools-change_src_version",
+    "tools-prepare": "npm-run-all tools-prepare-core tools-prepare-src"
   },
   "dependencies": {
     "@angular/animations": "^4.4.3",
@@ -87,6 +101,7 @@
     "core-js": "^2.5.1",
     "intl": "^1.2.5",
     "lodash": "^4.17.4",
+    "moment": "^2.18.1",
     "ngx-bootstrap": "^1.9.3",
     "rxjs": "^5.4.3",
     "text-mask-addons": "^3.6.0",

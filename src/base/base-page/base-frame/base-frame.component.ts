@@ -1,12 +1,12 @@
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from './../../../shared/services/app.service';
+import { AppService } from '@rucken/core';
 import { BaseComponent } from './../../base-component/base-component.component';
-import { AccountService } from './../../../shared/services/account.service';
+import { AccountService } from '@rucken/core';
 import * as _ from 'lodash';
-import { User } from './../../../shared/models/user.model';
-import { SharedService } from './../../../shared/services/shared.service';
+import { User } from '@rucken/core';
+import { SharedService } from '@rucken/core';
 
 @Component({
   selector: 'base-frame',

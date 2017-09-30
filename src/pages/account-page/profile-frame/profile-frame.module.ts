@@ -4,7 +4,7 @@ import { ProfileFrameRoutes } from './profile-frame.routes';
 import { RouterModule } from '@angular/router';
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { AccountProfileFormModule } from './../../../grids/users-grid/account-profile-form/account-profile-form.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

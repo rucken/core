@@ -3,7 +3,7 @@ import { UsersListModalComponent } from './users-list-modal.component';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { UsersGridModule } from './../users-grid.module';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { translate } from '../../shared/utils/utils';
+import { translate } from '@rucken/core';
 
 @Injectable()
 export class TextInputConfig {

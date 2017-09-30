@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { UsersFrameComponent } from './users-frame.component';
-import { translate } from './../../../shared/utils/utils';
+import { translate } from '@rucken/core';
 
 export const UsersFrameRoutes: Routes = [
   {

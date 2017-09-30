@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { AccountPageComponent } from './account-page.component';
 import { ProfileFrameRoutes } from './profile-frame/profile-frame.routes';
-import { translate } from './../../shared/utils/utils';
+import { translate } from '@rucken/core';
 
 const children = [
   { path: '', redirectTo: '/profile', pathMatch: 'full' },

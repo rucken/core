@@ -1,14 +1,14 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
-import { AccountService } from './../../shared/services/account.service';
-import { User } from './../../shared/models/user.model';
-import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
+import { AccountService } from '@rucken/core';
+import { User } from '@rucken/core';
+import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { Router, NavigationStart } from '@angular/router';
-import { AppService } from './../../shared/services/app.service';
+import { AppService } from '@rucken/core';
 import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { ActivatedRoute } from '@angular/router';
-import { SharedService } from '../../shared/services/shared.service';
+import { SharedService } from '@rucken/core';
 import * as _ from 'lodash';
 
 

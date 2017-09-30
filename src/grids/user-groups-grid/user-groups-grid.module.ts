@@ -7,7 +7,7 @@ import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-s
 import { GroupModalModule } from './../../grids/groups-grid/group-modal/group-modal.module';
 import { GroupsListModalModule } from './../../grids/groups-grid/groups-list-modal/groups-list-modal.module';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [
