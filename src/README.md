@@ -1,5 +1,3 @@
-# rucken-web
-
 [![Greenkeeper badge](https://badges.greenkeeper.io/rucken/core.svg)](https://greenkeeper.io/)
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
