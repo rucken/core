@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { ComponentsPageComponent } from 'rucken';
+import { ComponentsPageComponent } from '@rucken/web';
 import { DemoControlsFrameRoutes } from './controls-frame/controls-frame.routes';
-import { translate } from 'rucken';
+import { translate } from '@rucken/core';
 import { DemoControlsFrameModule } from './controls-frame/controls-frame.module';
 
 export const children = [

@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HomePageRoutes } from './home-page.routes';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 import { PipesModule } from '../../pipes/pipes.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

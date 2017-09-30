@@ -1,15 +1,15 @@
-import { User } from './../../shared/models/user.model';
+import { User } from '@rucken/core';
 import { Subscription } from 'rxjs/Rx';
 import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
-import { Group } from './../../shared/models/group.model';
+import { Group } from '@rucken/core';
 import { GroupModalComponent } from './group-modal/group-modal.component';
-import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { GrousService } from './../../shared/services/groups.service';
-import { AppService } from './../../shared/services/app.service';
-import { AccountService } from './../../shared/services/account.service';
-import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
-import { MetaModel } from './../../shared/models/meta.model';
-import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
+import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
+import { GrousService } from '@rucken/core';
+import { AppService } from '@rucken/core';
+import { AccountService } from '@rucken/core';
+import { EndpointStatusEnum } from '@rucken/core';
+import { MetaModel } from '@rucken/core';
+import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'groups-grid',

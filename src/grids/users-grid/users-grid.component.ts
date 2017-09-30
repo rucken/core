@@ -1,14 +1,14 @@
 import { Subscription } from 'rxjs/Rx';
 import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
-import { User } from './../../shared/models/user.model';
+import { User } from '@rucken/core';
 import { UserModalComponent } from './user-modal/user-modal.component';
-import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { AccountService } from './../../shared/services/account.service';
-import { AppService } from './../../shared/services/app.service';
-import { UsersService } from './../../shared/services/users.service';
-import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
-import { MetaModel } from './../../shared/models/meta.model';
-import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
+import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
+import { AccountService } from '@rucken/core';
+import { AppService } from '@rucken/core';
+import { UsersService } from '@rucken/core';
+import { EndpointStatusEnum } from '@rucken/core';
+import { MetaModel } from '@rucken/core';
+import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'users-grid',

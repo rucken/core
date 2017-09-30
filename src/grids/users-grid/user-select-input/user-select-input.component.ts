@@ -1,12 +1,12 @@
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { UsersListModalComponent } from './../users-list-modal/users-list-modal.component';
-import { UsersService } from './../../../shared/services/users.service';
+import { UsersService } from '@rucken/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
-import { User } from './../../../shared/models/user.model';
-import { AppService } from './../../../shared/services/app.service';
-import { AccountService } from './../../../shared/services/account.service';
+import { User } from '@rucken/core';
+import { AppService } from '@rucken/core';
+import { AccountService } from '@rucken/core';
 import { BaseResourceSelectInputConfig } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 

@@ -1,15 +1,15 @@
-import { User } from './../../shared/models/user.model';
+import { User } from '@rucken/core';
 import { Subscription } from 'rxjs/Rx';
 import { Component, Input, Output, HostListener, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
-import { Permission } from './../../shared/models/permission.model';
+import { Permission } from '@rucken/core';
 import { PermissionModalComponent } from './permission-modal/permission-modal.component';
-import { ConfirmModalComponent } from './../../modals/confirm-modal/confirm-modal.component';
-import { PermissionsService } from './../../shared/services/permissions.service';
-import { AppService } from './../../shared/services/app.service';
-import { AccountService } from './../../shared/services/account.service';
-import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
-import { MetaModel } from './../../shared/models/meta.model';
-import { BaseResourcesGridComponent } from './../../base/base-resources-grid/base-resources-grid.component';
+import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
+import { PermissionsService } from '@rucken/core';
+import { AppService } from '@rucken/core';
+import { AccountService } from '@rucken/core';
+import { EndpointStatusEnum } from '@rucken/core';
+import { MetaModel } from '@rucken/core';
+import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'permissions-grid',

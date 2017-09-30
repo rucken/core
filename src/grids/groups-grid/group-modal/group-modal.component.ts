@@ -5,12 +5,12 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { Group } from './../../../shared/models/group.model';
+import { Group } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { GroupPermissionsGridComponent } from './../../group-permissions-grid/group-permissions-grid.component';
-import { Permission } from './../../../shared/models/permission.model';
-import { GroupPermission } from './../../../shared/models/group-permission.model';
+import { Permission } from '@rucken/core';
+import { GroupPermission } from '@rucken/core';
 import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 
 @Component({

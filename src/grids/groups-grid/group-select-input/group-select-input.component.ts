@@ -1,11 +1,11 @@
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
-import { Group } from './../../../shared/models/group.model';
+import { Group } from '@rucken/core';
 import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { GroupsListModalComponent } from './../groups-list-modal/groups-list-modal.component';
-import { AppService } from './../../../shared/services/app.service';
-import { AccountService } from './../../../shared/services/account.service';
-import { GrousService } from './../../../shared/services/groups.service';
-import { User } from './../../../shared/models/user.model';
+import { AppService } from '@rucken/core';
+import { AccountService } from '@rucken/core';
+import { GrousService } from '@rucken/core';
+import { User } from '@rucken/core';
 import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { TranslateService } from '@ngx-translate/core';
 import { BaseResourceSelectInputConfig } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';

@@ -3,7 +3,7 @@ import { PermissionInputComponent } from './permission-input.component';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { FormsModule } from '@angular/forms';
 import { PermissionsListModalModule } from '../permissions-list-modal/permissions-list-modal.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

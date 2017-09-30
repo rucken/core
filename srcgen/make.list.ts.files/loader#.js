@@ -5,8 +5,10 @@ var fs = require('fs'),
   recursive = require('recursive-readdir'),
   replaceExt = require('replace-ext');
 var scanPath = path.resolve(__srcdir, '..', '..', scan.path);
+var package = require(path.resolve(__srcdir, '..', '..', scan.path, 'package.json'));
 console.log('Scan dir:' + scanPath);
-recursive(scanPath, ['!*.ts','*node_modules*'], function (err, files) {
+console.log('Module name: ' + package.name);
+recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
   var exportArray = [];
   var exportEntities = {};
   var delmitters = [
@@ -23,10 +25,7 @@ recursive(scanPath, ['!*.ts','*node_modules*'], function (err, files) {
     'service',
     'pipe'
   ];
-  var moduleName = _.upperFirst(path.basename(scanPath));
-  if (moduleName == 'Src') {
-    moduleName = _.upperFirst(path.basename(path.dirname(scanPath)));
-  }
+  var moduleName = _.upperFirst(_.camelCase(package.name));
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
     var content = srcgen.utils.load(file);
@@ -45,7 +44,7 @@ recursive(scanPath, ['!*.ts','*node_modules*'], function (err, files) {
             if (!exportEntities[entities[e]]) {
               exportEntities[entities[e]] = [];
             }
-            if (classFile.replace('.' + entities[e], '') !== classFile) {
+            if (classFile.replace('.' + entities[e], '') !== classFile && '/index' !== classFile) {
               founded = true;
               if (moduleName + _.upperFirst(entities[e] + 's') !== className) {
                 if (entities[e] === 'component') {
@@ -78,7 +77,7 @@ recursive(scanPath, ['!*.ts','*node_modules*'], function (err, files) {
               founded = true;
             }
           }
-          if (!founded) {
+          if (!founded && '/index' !== classFile) {
             var importLine = 'import { ' + className + ' } from \'.' + classFile + '\';';
             exportArray.push(importLine);
             var exportLine = 'export { ' + className + ' } from \'.' + classFile + '\';';

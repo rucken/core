@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountService } from './../../shared/services/account.service';
-import { AppService } from './../../shared/services/app.service';
+import { AccountService } from '@rucken/core';
+import { AppService } from '@rucken/core';
 import { BasePageComponent } from './../../base/base-page/base-page.component';
-import { SharedService } from './../../shared/services/shared.service';
+import { SharedService } from '@rucken/core';
 
 @Component({
   selector: 'admin-page',

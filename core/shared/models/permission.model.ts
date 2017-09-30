@@ -1,4 +1,4 @@
-import { BaseResourceModel } from './../../base/base-models/base-resource.model';
+import { BaseResourceModel } from './../base/models/base-resource.model';
 import { ContentType } from './content-type.model';
 import { translate } from './../utils/utils';
 

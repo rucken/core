@@ -5,12 +5,12 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
-import { User } from './../../../shared/models/user.model';
+import { User } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
-import { Group } from './../../../shared/models/group.model';
-import { UserGroup } from './../../../shared/models/user-group.model';
+import { Group } from '@rucken/core';
+import { UserGroup } from '@rucken/core';
 import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 
 @Component({

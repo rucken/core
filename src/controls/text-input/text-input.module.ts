@@ -6,7 +6,7 @@ import { DatepickerModule } from 'ngx-bootstrap/datepicker';
 import { TextInputComponent } from './text-input.component';
 import { TextInputConfig } from './text-input.config';
 import { PipesModule } from '../../pipes/pipes.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

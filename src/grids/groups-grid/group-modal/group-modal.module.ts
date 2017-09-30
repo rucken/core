@@ -5,7 +5,7 @@ import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-b
 import { GroupPermissionsGridModule } from './../../group-permissions-grid/group-permissions-grid.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

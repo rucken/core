@@ -1,5 +1,5 @@
-import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
-import { MetaModel } from './../../shared/models/meta.model';
+import { EndpointStatusEnum } from '@rucken/core';
+import { MetaModel } from '@rucken/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { Input, Output, EventEmitter, HostListener, Component } from '@angular/core';
 

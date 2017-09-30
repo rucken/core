@@ -1,7 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { DemoAccountPageRoutes } from './account-page.routes';
-import { AccountPageModule } from 'rucken';
+import { AccountPageModule } from '@rucken/web';
 
 @NgModule({
   imports: [

@@ -1,5 +1,5 @@
 import { HomePageComponent } from './home-page.component';
-import { translate } from './../../shared/utils/utils';
+import { translate } from '@rucken/core';
 export const HomePageRoutes = [{
   path: '',
   component: HomePageComponent,

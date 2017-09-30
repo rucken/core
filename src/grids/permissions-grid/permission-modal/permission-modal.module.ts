@@ -6,7 +6,7 @@ import { TextInputModule } from './../../../controls/text-input/text-input.modul
 import { ContentTypeSelectInputModule } from './../../content-types-grid/content-type-select-input/content-type-select-input.module';
 import { FooterButtonsComponent } from './../../../controls/footer-buttons/footer-buttons.component';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

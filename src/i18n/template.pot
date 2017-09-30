@@ -22,46 +22,13 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-msgid "Yes"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
 msgid "Select"
 msgstr ""
 
-msgid "Loading..."
-msgstr ""
-
-msgid "Not found"
-msgstr ""
-
-msgid "Error, you not set perPage count"
-msgstr ""
-
-msgid "Error in creating"
-msgstr ""
-
-msgid "Creating..."
-msgstr ""
-
-msgid "Updating..."
-msgstr ""
-
-msgid "Error in updating"
-msgstr ""
-
-msgid "Removing..."
+msgid "Cancel"
 msgstr ""
 
 msgid "OK"
-msgstr ""
-
-msgid "Error on deleting"
-msgstr ""
-
-msgid "Cancel"
 msgstr ""
 
 msgid "Edit"
@@ -205,102 +172,6 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-msgid "Unknown error"
-msgstr ""
-
-msgid "Id"
-msgstr ""
-
-msgid "Name"
-msgstr ""
-
-msgid "Title"
-msgstr ""
-
-msgid "Icon"
-msgstr ""
-
-msgid "Code"
-msgstr ""
-
-msgid "Class"
-msgstr ""
-
-msgid "Group"
-msgstr ""
-
-msgid "Permission"
-msgstr ""
-
-msgid "Total results"
-msgstr ""
-
-msgid "Current page"
-msgstr ""
-
-msgid "Total pages"
-msgstr ""
-
-msgid "Per page"
-msgstr ""
-
-msgid "Content type"
-msgstr ""
-
-msgid "Url"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
-msgid "Username"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Repeat password"
-msgstr ""
-
-msgid "Username/Email"
-msgstr ""
-
-msgid "Roles"
-msgstr ""
-
-msgid "Staff"
-msgstr ""
-
-msgid "Administrator"
-msgstr ""
-
-msgid "Full name"
-msgstr ""
-
-msgid "First name"
-msgstr ""
-
-msgid "Last name"
-msgstr ""
-
-msgid "Email"
-msgstr ""
-
-msgid "Last login"
-msgstr ""
-
-msgid "Date joined"
-msgstr ""
-
-msgid "Date of birth"
-msgstr ""
-
-msgid "Login..."
-msgstr ""
-
-msgid "Logout..."
-msgstr ""
-
 msgid "Language"
 msgstr ""
 
@@ -314,4 +185,7 @@ msgid "Login"
 msgstr ""
 
 msgid "Actions"
+msgstr ""
+
+msgid "No"
 msgstr ""

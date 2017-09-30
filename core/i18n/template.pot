@@ -1,0 +1,149 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Not found"
+msgstr ""
+
+msgid "Error, you not set perPage count"
+msgstr ""
+
+msgid "Error in creating"
+msgstr ""
+
+msgid "Creating..."
+msgstr ""
+
+msgid "Updating..."
+msgstr ""
+
+msgid "Error in updating"
+msgstr ""
+
+msgid "Removing..."
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Error on deleting"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""
+
+msgid "Id"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Icon"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Class"
+msgstr ""
+
+msgid "Group"
+msgstr ""
+
+msgid "Permission"
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
+msgid "Total results"
+msgstr ""
+
+msgid "Current page"
+msgstr ""
+
+msgid "Total pages"
+msgstr ""
+
+msgid "Per page"
+msgstr ""
+
+msgid "Content type"
+msgstr ""
+
+msgid "Url"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Repeat password"
+msgstr ""
+
+msgid "Username/Email"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
+msgid "Staff"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Last login"
+msgstr ""
+
+msgid "Date joined"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Date of birth"
+msgstr ""
+
+msgid "Password does not match the repeat password"
+msgstr ""
+
+msgid "Error"
+msgstr ""
+
+msgid "Login..."
+msgstr ""
+
+msgid "Logout..."
+msgstr ""

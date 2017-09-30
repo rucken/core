@@ -1,53 +1,10 @@
 import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { EndpointHelper } from './../helpers/endpoint.helper';
+import { EndpointHelper } from '@rucken/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Location } from '@angular/common';
+import { AppService } from '@rucken/core';
 @Injectable()
-export class AppService {
-  component: any;
-  viewContainerRef: ViewContainerRef;
-  endpointHelper: EndpointHelper
-  translateService: TranslateService;
-  onCurrentPageName: EventEmitter<string> = new EventEmitter<string>();
-  onCurrentPageTitle: EventEmitter<string> = new EventEmitter<string>();
-  onCurrentFrameName: EventEmitter<string> = new EventEmitter<string>();
-  onCurrentFrameTitle: EventEmitter<string> = new EventEmitter<string>();
-  private _currentPageName: string;
-  private _currentPageTitle: string;
-  private _currentFrameName: string;
-  private _currentFrameTitle: string;
-  private _createdModals: any = {};
-  constructor(public location: Location) {
-
-  }
-  set currentFrameTitle(value: string) {
-    this._currentFrameTitle = value;
-    this.onCurrentFrameTitle.emit(value);
-  }
-  get currentFrameTitle(): string {
-    return this._currentFrameTitle;
-  }
-  set currentFrameName(value: string) {
-    this._currentFrameName = value;
-    this.onCurrentFrameName.emit(value);
-  }
-  get currentFrameName(): string {
-    return this._currentFrameName;
-  }
-  set currentPageTitle(value: string) {
-    this._currentPageTitle = value;
-    this.onCurrentPageTitle.emit(value);
-  }
-  get currentPageTitle(): string {
-    return this._currentPageTitle;
-  }
-  set currentPageName(value: string) {
-    this._currentPageName = value;
-    this.onCurrentPageName.emit(value);
-  }
-  get currentPageName(): string {
-    return this._currentPageName;
-  }
+export class WebAppService extends AppService {
   set localVersion(value: string) {
     localStorage.setItem('version', value);
   }
@@ -67,9 +24,6 @@ export class AppService {
       }
     }
     return ver;
-  }
-  get version() {
-    return `${this.translateService.instant('Version')}: ${this.currentVersion}`;
   }
   modals(resolver: ComponentFactoryResolver): any {
     const vm = this;

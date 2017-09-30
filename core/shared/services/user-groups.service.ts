@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 import { UserGroup } from './../models/user-group.model';
-import { BaseRepositoryService } from './../../base/base-services/base-repository.service';
+import { BaseRepositoryService } from './../base/services/base-repository.service';
 import { RepositoryHelper } from './../helpers/repository.helper';
 @Injectable()
 export class UserGroupsService extends BaseRepositoryService {

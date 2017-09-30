@@ -6,7 +6,7 @@ import { UserGroupsGridModule } from './../../user-groups-grid/user-groups-grid.
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import { CheckboxesInputModule } from './../../../controls/checkboxes-input/checkboxes-input.module';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

@@ -1,10 +1,10 @@
 import 'rxjs/add/operator/map';
 import { Injectable, EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { MetaModel } from './../../shared/models/meta.model';
-import { EndpointStatusEnum } from './../../shared/enums/endpoint-status.enum';
-import { RepositoryHelper } from './../../shared/helpers/repository.helper';
-import { translate, inValues } from './../../shared/utils/utils';
+import { MetaModel } from './../../models/meta.model';
+import { EndpointStatusEnum } from './../../enums/endpoint-status.enum';
+import { RepositoryHelper } from './../../helpers/repository.helper';
+import { translate, inValues } from '../../utils/utils';
 import * as _ from 'lodash';
 
 
@@ -29,7 +29,7 @@ export class BaseRepositoryService {
   changeStatusList$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
   changeStatusItem$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
 
-  private _mockedItems: any[];
+  protected _mockedItems: any[];
 
   get statusList() {
     return this._statusList;
@@ -38,8 +38,8 @@ export class BaseRepositoryService {
     return this._statusItem;
   }
 
-  private _statusList: EndpointStatusEnum;
-  private _statusItem: EndpointStatusEnum;
+  protected _statusList: EndpointStatusEnum;
+  protected _statusItem: EndpointStatusEnum;
 
   constructor(public repositoryHelper: RepositoryHelper) {
     this.items = [];

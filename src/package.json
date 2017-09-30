@@ -1,6 +1,6 @@
 {
-    "name": "rucken",
-    "version": "1.13.2",
+    "name": "@rucken/web",
+    "version": "1.14.0",
     "peerDependencies": {
         "@angular/common": "*",
         "@angular/compiler": "*",
@@ -17,6 +17,7 @@
         "angular2-jwt": "*",
         "lodash": "*",
         "ngx-bootstrap": "*",
-        "text-mask-addons": "*"
+        "text-mask-addons": "*",
+        "@rucken/core": "*"
     }
 }

@@ -4,7 +4,7 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { FormsModule } from '@angular/forms';
 import { SelectInputModule } from './../../../controls/select-input/select-input.module';
 import { GroupsListModalModule } from './../../../grids/groups-grid/groups-list-modal/groups-list-modal.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

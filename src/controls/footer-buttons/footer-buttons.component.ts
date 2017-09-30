@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, Input, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import { translate } from '../../shared/utils/utils';
+import { translate } from '@rucken/core';
 
 @Component({
   selector: 'footer-buttons',

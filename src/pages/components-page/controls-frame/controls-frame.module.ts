@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { PageSubHeaderModule } from '../../../controls/page-sub-header/page-sub-header.module';
 import { CheckboxesInputModule } from '../../../controls/checkboxes-input/checkboxes-input.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

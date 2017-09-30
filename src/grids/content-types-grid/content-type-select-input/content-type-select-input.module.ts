@@ -8,7 +8,7 @@ import { TextInputModule } from './../../../controls/text-input/text-input.modul
 import { FormsModule } from '@angular/forms';
 import { ContentTypesListModalModule } from './../../../grids/content-types-grid/content-types-list-modal/content-types-list-modal.module';
 import { PipesModule } from '../../../pipes/pipes.module';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

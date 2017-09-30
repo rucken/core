@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { AccountPageComponent } from 'rucken';
+import { AccountPageComponent } from '@rucken/web';
 import { DemoProfileFrameRoutes } from './profile-frame/profile-frame.routes';
-import { translate } from 'rucken';
+import { translate } from '@rucken/core';
 import { DemoProfileFrameModule } from './profile-frame/profile-frame.module';
 
 export const children = [

@@ -4,7 +4,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterButtonsModule } from './../../controls/footer-buttons/footer-buttons.module';
 import { FormsModule } from '@angular/forms';
 import { PipesModule } from '../../pipes/pipes.module';
-import { SharedModule } from '../../shared/shared.module';
+import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [
