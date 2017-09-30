@@ -39,7 +39,7 @@ MIT
 [travis-url]: https://travis-ci.org/rucken/core
 [gitter-image]: https://img.shields.io/gitter/room/rucken/core.js.svg
 [gitter-url]: https://gitter.im/rucken/core
-[npm-image]: https://badge.fury.io/js/%40rucken%2web.svg
+[npm-image]: https://badge.fury.io/js/%40rucken%2Fweb.svg
 [npm-url]: https://npmjs.org/package/@rucken/web
 [dependencies-image]: https://david-dm.org/rucken/core/status.svg
 [dependencies-url]: https://david-dm.org/rucken/core

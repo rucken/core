@@ -1,3 +1,13 @@
+<a name="1.14.1"></a>
+## [1.14.1](https://github.com/rucken/core/compare/1.14.0...1.14.1) (2017-09-30)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([7120a1b](https://github.com/rucken/core/commit/7120a1b))
+
+
+
 <a name="1.14.0"></a>
 # [1.14.0](https://github.com/rucken/core/compare/1.13.2...1.14.0) (2017-09-30)
 
