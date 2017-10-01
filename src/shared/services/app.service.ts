@@ -1,8 +1,6 @@
-import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { EndpointHelper } from '@rucken/core';
-import { TranslateService } from '@ngx-translate/core';
-import { Location } from '@angular/common';
+import { ComponentFactoryResolver, Injectable } from '@angular/core';
 import { AppService } from '@rucken/core';
+
 @Injectable()
 export class WebAppService extends AppService {
   set localVersion(value: string) {

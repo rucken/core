@@ -1,10 +1,9 @@
 import { Routes } from '@angular/router';
+import { translate } from '@rucken/core';
 import { AdminPageComponent } from '@rucken/web';
+
 import { DemoGroupsFrameRoutes } from './groups-frame/groups-frame.routes';
 import { DemoUsersFrameRoutes } from './users-frame/users-frame.routes';
-import { translate } from '@rucken/core';
-import { DemoUsersFrameModule } from './users-frame/users-frame.module';
-import { DemoGroupsFrameModule } from './groups-frame/groups-frame.module';
 
 export const children = [
   { path: '', redirectTo: '/admin/groups', pathMatch: 'full' },

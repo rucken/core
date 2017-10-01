@@ -1,5 +1,6 @@
-import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+
 import { AppService } from './app.service';
 
 @Injectable()

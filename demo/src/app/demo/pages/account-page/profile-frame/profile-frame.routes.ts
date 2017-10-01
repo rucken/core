@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { ProfileFrameComponent } from '@rucken/web';
 import { translate } from '@rucken/core';
+import { ProfileFrameComponent } from '@rucken/web';
 
 export const DemoProfileFrameRoutes: Routes = [
   {

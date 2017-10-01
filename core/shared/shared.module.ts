@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateService, TranslateModule, TranslateFakeLoader, TranslateLoader } from '@ngx-translate/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import { TranslateStore } from '@ngx-translate/core/src/translate.store';
+
 import { SharedService } from './services/shared.service';
 
 @NgModule({

@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedModule } from '@rucken/core';
+
 import { TableColumnComponent } from './table-column.component';
 import { TableColumnConfig } from './table-column.config';
-import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [SharedModule.forRoot()],

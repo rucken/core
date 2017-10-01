@@ -1,9 +1,10 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { UsersListModalComponent } from './users-list-modal.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedModule } from '@rucken/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { UsersGridModule } from './../users-grid.module';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { SharedModule } from '@rucken/core';
+import { UsersListModalComponent } from './users-list-modal.component';
 
 @NgModule({
   imports: [

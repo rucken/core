@@ -1,9 +1,10 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BasePageComponent } from './base-page.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 import { SharedModule } from '@rucken/core';
+
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+import { BasePageComponent } from './base-page.component';
 
 @NgModule({
   imports: [

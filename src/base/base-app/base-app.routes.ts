@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
+
+import { AccountPageRoutes } from './../../pages/account-page/account-page.routes';
+import { AdminPageRoutes } from './../../pages/admin-page/admin-page.routes';
 import { HomePageRoutes } from './../../pages/home-page/home-page.routes';
 import { ThemesPageRoutes } from './../../pages/themes-page/themes-page.routes';
-import { AdminPageRoutes } from './../../pages/admin-page/admin-page.routes';
-import { AccountPageRoutes } from './../../pages/account-page/account-page.routes';
 
 export const BaseRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

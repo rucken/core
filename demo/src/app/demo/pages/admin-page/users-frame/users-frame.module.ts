@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DemoUsersFrameRoutes } from './users-frame.routes';
 import { UsersFrameModule } from '@rucken/web';
+
+import { DemoUsersFrameRoutes } from './users-frame.routes';
 
 @NgModule({
   imports: [

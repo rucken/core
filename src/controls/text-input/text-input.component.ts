@@ -1,11 +1,11 @@
-import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import emailMask from 'text-mask-addons/dist/emailMask';
-import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-import { BaseComponent } from './../../base/base-component/base-component.component';
 import * as moment from 'moment/moment';
-import * as _ from 'lodash';
+import { TooltipDirective } from 'ngx-bootstrap/tooltip';
+import createNumberMask from 'text-mask-addons/dist/createNumberMask';
+import emailMask from 'text-mask-addons/dist/emailMask';
+
+import { BaseComponent } from './../../base/base-component/base-component.component';
 import { TextInputConfig } from './text-input.config';
 
 @Component({

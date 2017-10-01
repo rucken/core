@@ -1,10 +1,11 @@
-import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, Event, Event as NavigationEvent } from '@angular/router';
-import { Theme } from './../models/theme.model';
-import { BaseRepositoryService } from './../base/services/base-repository.service';
+import { Injectable, ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { ThemeItemsMock } from './../mocks/theme-items.mock';
+
+import { BaseRepositoryService } from './../base/services/base-repository.service';
 import { RepositoryHelper } from './../helpers/repository.helper';
+import { ThemeItemsMock } from './../mocks/theme-items.mock';
+import { Theme } from './../models/theme.model';
+
 @Injectable()
 export class ThemesService extends BaseRepositoryService {
   viewContainerRef: ViewContainerRef;

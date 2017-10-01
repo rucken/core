@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { BasePageComponent } from '@rucken/web';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SharedService, AccountService, AppService } from '@rucken/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AccountService, AppService, SharedService } from '@rucken/core';
+import { BasePageComponent } from '@rucken/web';
 
 @Component({
   selector: 'demo-home-page',

@@ -1,7 +1,7 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { EndpointHelper, AccountService } from '@rucken/core';
+
+import { Injectable } from '@angular/core';
+import { AccountService, EndpointHelper } from '@rucken/core';
 
 @Injectable()
 export class WebAccountService extends AccountService {

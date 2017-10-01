@@ -1,8 +1,8 @@
-import { TooltipDirective } from 'ngx-bootstrap/tooltip';
-import { Component, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { TableColumnConfig } from './table-column.config';
+
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import { TableColumnConfig } from './table-column.config';
 
 @Component({
   selector: 'table-column',

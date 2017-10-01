@@ -1,9 +1,12 @@
+import 'rxjs/add/operator/map';
+
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
-import { Permission } from './../models/permission.model';
+
 import { BaseRepositoryService } from './../base/services/base-repository.service';
 import { RepositoryHelper } from './../helpers/repository.helper';
+import { Permission } from './../models/permission.model';
+
 @Injectable()
 export class PermissionsService extends BaseRepositoryService {
   items$: Subject<Permission[]>;

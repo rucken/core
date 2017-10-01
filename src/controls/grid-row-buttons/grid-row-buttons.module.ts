@@ -1,7 +1,8 @@
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { GridRowButtonsComponent } from './grid-row-buttons.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SharedModule } from '@rucken/core';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
+import { GridRowButtonsComponent } from './grid-row-buttons.component';
 
 @NgModule({
   imports: [

@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BaseModalComponent } from './base-modal.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { BaseModalComponent } from './base-modal.component';
 
 @NgModule({
   imports: [

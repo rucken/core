@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ThemesService } from '@rucken/core';
 import { Theme } from '@rucken/core';
-import { BasePageComponent } from './../../base/base-page/base-page.component';
 import { AccountService } from '@rucken/core';
 import { AppService } from '@rucken/core';
-import { TranslateService } from '@ngx-translate/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '@rucken/core';
+
+import { BasePageComponent } from './../../base/base-page/base-page.component';
 
 @Component({
   selector: 'themes-page',

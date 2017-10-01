@@ -1,11 +1,12 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { AccountProfileFormComponent } from './account-profile-form.component';
-import { UserGroupsGridModule } from './../../user-groups-grid/user-groups-grid.module';
-import { TextInputModule } from './../../../controls/text-input/text-input.module';
-import { CheckboxesInputModule } from './../../../controls/checkboxes-input/checkboxes-input.module';
-import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@rucken/core';
+
+import { CheckboxesInputModule } from './../../../controls/checkboxes-input/checkboxes-input.module';
+import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
+import { TextInputModule } from './../../../controls/text-input/text-input.module';
+import { UserGroupsGridModule } from './../../user-groups-grid/user-groups-grid.module';
+import { AccountProfileFormComponent } from './account-profile-form.component';
 
 @NgModule({
   imports: [

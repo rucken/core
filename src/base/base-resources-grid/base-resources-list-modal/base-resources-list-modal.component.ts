@@ -1,6 +1,6 @@
-import { BaseModalComponent } from './../../base-modal/base-modal.component';
-import { Input, EventEmitter, Output, Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
+import { BaseModalComponent } from './../../base-modal/base-modal.component';
 
 @Component({
   selector: 'base-resources-list-modal',

@@ -1,10 +1,11 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { BasePageComponent } from './../../base/base-page/base-page.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '@rucken/core';
 import { AppService } from '@rucken/core';
-import { TranslateService } from '@ngx-translate/core';
 import { SharedService } from '@rucken/core';
+
+import { BasePageComponent } from './../../base/base-page/base-page.component';
 
 @Component({
   selector: 'home-page',

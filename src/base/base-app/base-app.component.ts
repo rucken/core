@@ -1,14 +1,16 @@
+import 'moment/locale/ru';
+
+import { Component, ComponentFactoryResolver, EventEmitter, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import * as _ from 'lodash';
 import { AppService } from '@rucken/core';
-import { SharedService, RuckenCoreRuI18n } from '@rucken/core';
+import { RuckenCoreRuI18n, SharedService } from '@rucken/core';
+import { translate } from '@rucken/core';
+import * as _ from 'lodash';
+import * as moment from 'moment/moment';
+
 import { RuckenWebRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
-import { EventEmitter, Component, Input, ComponentFactoryResolver, ViewContainerRef, AfterViewInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from './../base-component/base-component.component';
-import { translate } from '@rucken/core';
-import 'moment/locale/ru';
-import * as moment from 'moment/moment';
 
 @Component({
   selector: 'base-app-root',

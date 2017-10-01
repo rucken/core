@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Response, URLSearchParams } from '@angular/http';
 import * as _ from 'lodash';
+import { Observable } from 'rxjs/Observable';
+
+import { MetaModel } from './../models/meta.model';
 import { EndpointHelper } from './endpoint.helper';
 import { HttpHelper } from './http.helper';
-import { MetaModel } from './../models/meta.model';
 
 @Injectable()
 export class RepositoryHelper {

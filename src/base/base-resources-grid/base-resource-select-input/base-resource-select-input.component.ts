@@ -1,8 +1,9 @@
-import { BaseResourceSelectInputConfig } from './base-resource-select-input.config';
-import { BaseComponent } from './../../../base/base-component/base-component.component';
-import { Input, Output, EventEmitter, Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EndpointStatusEnum } from '@rucken/core';
+
+import { BaseComponent } from './../../../base/base-component/base-component.component';
+import { BaseResourceSelectInputConfig } from './base-resource-select-input.config';
 
 @Component({
   selector: 'base-resource-select-input',

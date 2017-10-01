@@ -1,32 +1,47 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, Http, RequestOptions } from '@angular/http';
-import {
-  ComponentLoaderFactory, PositioningService, TooltipConfig,
-  PaginationConfig, TabsetConfig, PopoverConfig
-} from 'ngx-bootstrap';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
-import { TranslateModule, TranslateFakeLoader, TranslateLoader } from '@ngx-translate/core';
-import {
-  RuckenWebServices, AuthHttpFactory,
-  BaseResourceSelectInputConfig,
-  TextInputConfig, SelectInputConfig, TableColumnConfig,
-  TextInputModule, AuthModalModule, AlertModalModule,
-  WebAccountService, WebAppService, WebThemesService
-} from '@rucken/web';
-import { DemoAppComponent } from './app.component';
-import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
+import { Http, HttpModule, RequestOptions } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
+import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import {
+    AccountService,
+    AppService,
+    EndpointHelper,
+    HttpHelper,
+    RepositoryHelper,
+    RuckenCoreServices,
+    SharedModule,
+    ThemesService,
+} from '@rucken/core';
+import {
+    AlertModalModule,
+    AuthHttpFactory,
+    BaseResourceSelectInputConfig,
+    RuckenWebServices,
+    SelectInputConfig,
+    TableColumnConfig,
+    TextInputConfig,
+    WebAccountService,
+    WebAppService,
+    WebThemesService,
+} from '@rucken/web';
+import { AuthHttp } from 'angular2-jwt';
+import { LaddaModule } from 'angular2-ladda';
+import {
+    ComponentLoaderFactory,
+    PaginationConfig,
+    PopoverConfig,
+    PositioningService,
+    TabsetConfig,
+    TooltipConfig,
+} from 'ngx-bootstrap';
+
+import { DemoAppComponent } from './app.component';
 import { DemoRoutes } from './app.routes';
 import { DemoNavbarModule } from './demo/controls/navbar/navbar.module';
-import { LaddaModule } from 'angular2-ladda';
+import { DemoEndpointHelper } from './demo/shared/helpers/endpoint.helper';
 import { DemoHttpHelper } from './demo/shared/helpers/http.helper';
-import {
-  AccountService, ThemesService,
-  AppService, SharedModule, EndpointHelper,
-  RepositoryHelper, HttpHelper, RuckenCoreServices
-} from '@rucken/core';
 
 @NgModule({
   declarations: [

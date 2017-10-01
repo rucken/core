@@ -1,15 +1,20 @@
-import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
+import { Component, ComponentFactoryResolver, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Group } from '@rucken/core';
-import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver } from '@angular/core';
-import { GroupsListModalComponent } from './../groups-list-modal/groups-list-modal.component';
+import { User } from '@rucken/core';
+import { GrousService } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
-import { GrousService } from '@rucken/core';
-import { User } from '@rucken/core';
-import { BaseResourceSelectInputComponent } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
-import { TranslateService } from '@ngx-translate/core';
-import { BaseResourceSelectInputConfig } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
+
+import {
+    BaseResourceSelectInputComponent,
+} from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
+import {
+    BaseResourceSelectInputConfig,
+} from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
+import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
+import { GroupsListModalComponent } from './../groups-list-modal/groups-list-modal.component';
 
 @Component({
   selector: 'group-select-input',

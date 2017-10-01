@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedModule } from '@rucken/core';
+
 import { CustomTranslatePipe } from './custom-translate.pipe';
 import { SafeHtmlPipe } from './safe-html.pipe';
-import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

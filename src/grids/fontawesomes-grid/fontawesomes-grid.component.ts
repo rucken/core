@@ -1,16 +1,15 @@
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
-import { Subscription } from 'rxjs/Rx';
-import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { Fontawesome } from '@rucken/core';
-import { FontawesomeModalComponent } from './fontawesome-modal/fontawesome-modal.component';
 import { FontawesomeService } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
-import { EndpointStatusEnum } from '@rucken/core';
-import { MetaModel } from '@rucken/core';
-import { TranslateService } from '@ngx-translate/core';
-import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
+
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
+import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
+import { FontawesomeModalComponent } from './fontawesome-modal/fontawesome-modal.component';
+
 @Component({
   selector: 'fontawesomes-grid',
   templateUrl: './fontawesomes-grid.component.html',

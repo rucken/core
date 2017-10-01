@@ -1,8 +1,9 @@
-import { Component, Output, Input, ViewChild, EventEmitter, ElementRef } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { User } from '@rucken/core';
-import { TextInputComponent } from './../../controls/text-input/text-input.component';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+
 import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
+import { TextInputComponent } from './../../controls/text-input/text-input.component';
 
 @Component({
   selector: 'auth-modal',

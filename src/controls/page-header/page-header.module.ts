@@ -1,6 +1,7 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { PageHeaderComponent } from './page-header.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SharedModule } from '@rucken/core';
+
+import { PageHeaderComponent } from './page-header.component';
 
 @NgModule({
   imports: [SharedModule.forRoot()],

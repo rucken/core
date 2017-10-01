@@ -1,12 +1,11 @@
-import { Component, Input, EventEmitter, Output, ViewChild, ElementRef, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
-import * as _ from 'lodash';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
-import { SelectInputConfig } from './select-input.config';
-import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
+
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import { SelectInputConfig } from './select-input.config';
 
 @Component({
   selector: 'select-input',

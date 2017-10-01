@@ -1,20 +1,13 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { User } from '@rucken/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
-import { AccountService } from '@rucken/core';
-import { TextInputComponent } from './../../../controls/text-input/text-input.component';
-import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
 import { Group } from '@rucken/core';
 import { UserGroup } from '@rucken/core';
 import { translate } from '@rucken/core';
-import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { EndpointStatusEnum } from '@rucken/core';
+
+import { BaseComponent } from './../../../base/base-component/base-component.component';
+import { TextInputComponent } from './../../../controls/text-input/text-input.component';
+import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
 
 @Component({
   selector: 'account-profile-form',

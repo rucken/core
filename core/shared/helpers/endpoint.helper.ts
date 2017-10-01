@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response, URLSearchParams } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import { Response } from '@angular/http';
 import * as _ from 'lodash';
-import { HttpHelper } from './http.helper';
-import { User } from './../models/user.model';
+import { Observable } from 'rxjs/Observable';
+
 import { isJson, translate } from './../utils/utils';
+import { HttpHelper } from './http.helper';
 
 @Injectable()
 export class EndpointHelper {

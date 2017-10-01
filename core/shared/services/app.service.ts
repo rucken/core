@@ -1,6 +1,7 @@
-import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { EndpointHelper } from './../helpers/endpoint.helper';
+import { ComponentFactoryResolver, EventEmitter, Injectable, ViewContainerRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+
+import { EndpointHelper } from './../helpers/endpoint.helper';
 
 @Injectable()
 export class AppService {

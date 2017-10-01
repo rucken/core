@@ -1,5 +1,6 @@
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, RequestOptions } from '@angular/http';
+import { AuthConfig, AuthHttp } from 'angular2-jwt';
+
 export class AuthHttpFactory {
   static create(http: Http, options: RequestOptions) {
     const tokenGetter = () => localStorage.getItem('token');

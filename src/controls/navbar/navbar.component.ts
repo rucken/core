@@ -1,16 +1,15 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
-import { AccountService } from '@rucken/core';
-import { User } from '@rucken/core';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
-import { Router, NavigationStart } from '@angular/router';
-import { AppService } from '@rucken/core';
-import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
-import { TranslateService } from '@ngx-translate/core';
-import { BaseComponent } from './../../base/base-component/base-component.component';
+import { NavigationStart, Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { User } from '@rucken/core';
+import { AccountService } from '@rucken/core';
 import { SharedService } from '@rucken/core';
-import * as _ from 'lodash';
+import { AppService } from '@rucken/core';
 
+import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
+import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 
 @Component({
   selector: 'navbar',

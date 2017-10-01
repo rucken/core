@@ -1,10 +1,9 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { GroupsFrameComponent } from './groups-frame.component';
-import { RouterModule } from '@angular/router';
-import { GroupsFrameRoutes } from './groups-frame.routes';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedModule } from '@rucken/core';
+
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { GroupsGridModule } from './../../../grids/groups-grid/groups-grid.module';
-import { SharedModule } from '@rucken/core';
+import { GroupsFrameComponent } from './groups-frame.component';
 
 @NgModule({
   imports: [

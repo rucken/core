@@ -1,12 +1,11 @@
-import { TabsModule } from 'ngx-bootstrap/tabs';
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ControlsFrameComponent } from './controls-frame.component';
-import { ControlsFrameRoutes } from './controls-frame.routes';
-import { RouterModule } from '@angular/router';
-import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
-import { PageSubHeaderModule } from '../../../controls/page-sub-header/page-sub-header.module';
-import { CheckboxesInputModule } from '../../../controls/checkboxes-input/checkboxes-input.module';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { SharedModule } from '@rucken/core';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
+import { CheckboxesInputModule } from '../../../controls/checkboxes-input/checkboxes-input.module';
+import { PageSubHeaderModule } from '../../../controls/page-sub-header/page-sub-header.module';
+import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
+import { ControlsFrameComponent } from './controls-frame.component';
 
 @NgModule({
   imports: [

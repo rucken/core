@@ -1,10 +1,11 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { NavbarComponent } from './navbar.component';
-import { CollapseModule } from 'ngx-bootstrap/collapse';
-import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
-import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '@rucken/core';
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+
+import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
+import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
+import { NavbarComponent } from './navbar.component';
 
 @NgModule({
   imports: [

@@ -1,9 +1,10 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ConfirmModalComponent } from './confirm-modal.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { FooterButtonsModule } from './../../controls/footer-buttons/footer-buttons.module';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '@rucken/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { FooterButtonsModule } from './../../controls/footer-buttons/footer-buttons.module';
+import { ConfirmModalComponent } from './confirm-modal.component';
 
 @NgModule({
   imports: [

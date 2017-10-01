@@ -1,14 +1,17 @@
-import { SelectInputModule } from './../../../controls/select-input/select-input.module';
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ContentTypeSelectInputComponent } from './content-type-select-input.component';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
-import { TextInputModule } from './../../../controls/text-input/text-input.module';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ContentTypesListModalModule } from './../../../grids/content-types-grid/content-types-list-modal/content-types-list-modal.module';
-import { PipesModule } from '../../../pipes/pipes.module';
 import { SharedModule } from '@rucken/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+
+import { PipesModule } from '../../../pipes/pipes.module';
+import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
+import { SelectInputModule } from './../../../controls/select-input/select-input.module';
+import { TextInputModule } from './../../../controls/text-input/text-input.module';
+import {
+    ContentTypesListModalModule,
+} from './../../../grids/content-types-grid/content-types-list-modal/content-types-list-modal.module';
+import { ContentTypeSelectInputComponent } from './content-type-select-input.component';
 
 @NgModule({
   imports: [

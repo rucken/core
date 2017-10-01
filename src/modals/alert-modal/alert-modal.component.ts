@@ -1,6 +1,7 @@
-import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
-import { Component, Input, Output, ViewChild, EventEmitter, ElementRef } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+
+import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
 
 @Component({
   selector: 'alert-modal',

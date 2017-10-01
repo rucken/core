@@ -1,12 +1,13 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { GroupsGridComponent } from './groups-grid.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { SharedModule } from '@rucken/core';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
+import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
 import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-search-panel.module';
 import { TableColumnModule } from './../../controls/table-column/table-column.module';
-import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { GroupModalModule } from './../../grids/groups-grid/group-modal/group-modal.module';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
-import { SharedModule } from '@rucken/core';
+import { GroupsGridComponent } from './groups-grid.component';
 
 @NgModule({
   imports: [

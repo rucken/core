@@ -1,21 +1,22 @@
-import { User } from '@rucken/core';
-import { Subscription } from 'rxjs/Rx';
-import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
-import { GroupPermission } from '@rucken/core';
-import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
-import { GroupPermissionsService } from '@rucken/core';
-import { AppService } from '@rucken/core';
+import 'rxjs/add/operator/map';
+
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '@rucken/core';
-import { EndpointStatusEnum } from '@rucken/core';
-import { MetaModel } from '@rucken/core';
-import { PermissionsListModalComponent } from './../permissions-grid/permissions-list-modal/permissions-list-modal.component';
+import { AppService } from '@rucken/core';
 import { Permission } from '@rucken/core';
 import { Group } from '@rucken/core';
-import { PermissionModalComponent } from './../permissions-grid/permission-modal/permission-modal.component';
+import { GroupPermissionsService } from '@rucken/core';
 import { PermissionsService } from '@rucken/core';
+import { GroupPermission } from '@rucken/core';
+import { User } from '@rucken/core';
+
+import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
-import { TranslateService } from '@ngx-translate/core';
-import 'rxjs/add/operator/map';
+import { PermissionModalComponent } from './../permissions-grid/permission-modal/permission-modal.component';
+import {
+    PermissionsListModalComponent,
+} from './../permissions-grid/permissions-list-modal/permissions-list-modal.component';
 
 @Component({
   selector: 'group-permissions-grid',

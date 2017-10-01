@@ -1,5 +1,7 @@
-import { ThemesPageComponent } from './themes-page.component';
 import { translate } from '@rucken/core';
+
+import { ThemesPageComponent } from './themes-page.component';
+
 export const ThemesPageRoutes = [{
   path: '',
   component: ThemesPageComponent,

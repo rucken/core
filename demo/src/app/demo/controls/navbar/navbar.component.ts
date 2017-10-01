@@ -1,12 +1,10 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import {
-  AuthModalComponent, NavbarComponent,
-  ConfirmModalComponent
-} from '@rucken/web';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AccountService, AppService, SharedService } from '@rucken/core';
+import { AuthModalComponent, ConfirmModalComponent, NavbarComponent } from '@rucken/web';
+
 import { DemoRoutes } from './../../../app.routes';
-import { SharedService, AccountService, AppService } from '@rucken/core';
 
 @Component({
   selector: 'demo-navbar',
