@@ -1,6 +1,6 @@
 {
   "name": "@rucken/core",
-  "version": "1.14.8",
+  "version": "1.14.9",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
@@ -52,7 +52,7 @@
     "tools-make_ts_list-src": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/make.list.ts.files.json",
     "tools-extract_translate-src": "ngx-translate-extract --input ./src --output ./src/i18n/template.pot --format=pot --marker translate --clean",
     "tools-prepare-src": "npm-run-all tools-extract_translate-src tools-po2ts-src tools-make_ts_list-src",
-    "build": "npm-run-all tools-prepare tools-change_version build-core link-core build-src",
+    "build": "npm-run-all tools-change_version build-core link-core build-src",
     "ng": "ng",
     "test": "npm-run-all lint demo-build",
     "lint": "ng lint",
