@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 
+import { SharedModule } from '../../../shared/shared.module';
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { UsersGridModule } from './../../../grids/users-grid/users-grid.module';
 import { UsersFrameComponent } from './users-frame.component';

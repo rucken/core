@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { AppService } from './app.service';
+import { AppService } from '@rucken/core';
 
 @Injectable()
 export class SharedService {

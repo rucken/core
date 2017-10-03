@@ -1,8 +1,12 @@
 import { ComponentFactoryResolver, Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '@rucken/core';
 
 @Injectable()
 export class WebAppService extends AppService {
+
+  translateService: TranslateService;
+
   set localVersion(value: string) {
     localStorage.setItem('version', value);
   }

@@ -1,10 +1,10 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '@rucken/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { PipesModule } from '../../../pipes/pipes.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { SelectInputModule } from './../../../controls/select-input/select-input.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';

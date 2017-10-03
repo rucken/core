@@ -1,9 +1,9 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 import { CheckboxesInputModule } from '../../../controls/checkboxes-input/checkboxes-input.module';
 import { PageSubHeaderModule } from '../../../controls/page-sub-header/page-sub-header.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { ControlsFrameComponent } from './controls-frame.component';
 

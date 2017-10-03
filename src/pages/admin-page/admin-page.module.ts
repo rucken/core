@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@rucken/core';
 
+import { SharedModule } from '../../shared/shared.module';
 import { BasePageModule } from './../../base/base-page/base-page.module';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 import { AdminPageComponent } from './admin-page.component';

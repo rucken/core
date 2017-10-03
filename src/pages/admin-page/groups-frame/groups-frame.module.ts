@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 
+import { SharedModule } from '../../../shared/shared.module';
 import { PageHeaderModule } from './../../../controls/page-header/page-header.module';
 import { GroupsGridModule } from './../../../grids/groups-grid/groups-grid.module';
 import { GroupsFrameComponent } from './groups-frame.component';

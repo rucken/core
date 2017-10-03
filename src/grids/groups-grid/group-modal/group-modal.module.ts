@@ -1,12 +1,12 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '@rucken/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import { GroupPermissionsGridModule } from './../../group-permissions-grid/group-permissions-grid.module';
 import { GroupModalComponent } from './group-modal.component';
+import { SharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [

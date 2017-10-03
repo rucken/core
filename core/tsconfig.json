@@ -3,7 +3,7 @@
     "importHelpers": true,
     "outDir": "../dist-core",
     "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -17,7 +17,10 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "lib": ["dom", "es6"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "types": [
       "jasmine"
     ],

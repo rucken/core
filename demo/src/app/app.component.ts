@@ -1,8 +1,8 @@
 import { Component, ComponentFactoryResolver, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService, SharedService } from '@rucken/core';
-import { AlertModalComponent, BaseAppComponent } from '@rucken/web';
+import { AppService } from '@rucken/core';
+import { AlertModalComponent, BaseAppComponent, SharedService } from '@rucken/web';
 
 @Component({
   selector: 'demo-app-root',

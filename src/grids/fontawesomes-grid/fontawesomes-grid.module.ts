@@ -1,8 +1,8 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 import { PipesModule } from '../../pipes/pipes.module';
+import { SharedModule } from '../../shared/shared.module';
 import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
 import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-search-panel.module';
 import { TableColumnModule } from './../../controls/table-column/table-column.module';

@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 
 import { PipesModule } from '../../pipes/pipes.module';
+import { SharedModule } from '../../shared/shared.module';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
 import { HomePageComponent } from './home-page.component';
 

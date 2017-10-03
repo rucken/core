@@ -4,8 +4,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
 import { AccountService } from '@rucken/core';
 import { AppService } from '@rucken/core';
-import { SharedService } from '@rucken/core';
 
+import { SharedService } from '../../../shared/services/shared.service';
 import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
 
 @Component({

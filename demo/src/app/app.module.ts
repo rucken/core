@@ -11,7 +11,6 @@ import {
     HttpHelper,
     RepositoryHelper,
     RuckenCoreServices,
-    SharedModule,
     ThemesService,
 } from '@rucken/core';
 import {
@@ -20,6 +19,7 @@ import {
     BaseResourceSelectInputConfig,
     RuckenWebServices,
     SelectInputConfig,
+    SharedModule,
     TableColumnConfig,
     TextInputConfig,
     WebAccountService,

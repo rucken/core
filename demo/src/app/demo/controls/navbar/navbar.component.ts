@@ -1,8 +1,8 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountService, AppService, SharedService } from '@rucken/core';
-import { AuthModalComponent, ConfirmModalComponent, NavbarComponent } from '@rucken/web';
+import { AccountService, AppService } from '@rucken/core';
+import { AuthModalComponent, ConfirmModalComponent, NavbarComponent, SharedService } from '@rucken/web';
 
 import { DemoRoutes } from './../../../app.routes';
 
@@ -31,8 +31,5 @@ export class DemoNavbarComponent extends NavbarComponent {
   init() {
     super.init();
     this.childrenRoutes = DemoRoutes;
-  }
-  get version() {
-    return this.app.version;
   }
 }

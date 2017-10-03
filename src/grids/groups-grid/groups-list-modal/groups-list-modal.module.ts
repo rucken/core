@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
+import { SharedModule } from '../../../shared/shared.module';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { GroupsGridModule } from './../groups-grid.module';
 import { GroupsListModalComponent } from './groups-list-modal.component';

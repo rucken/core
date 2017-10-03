@@ -3,7 +3,6 @@ import { FormsModule } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from '@rucken/core';
 import { AuthHttp } from 'angular2-jwt';
 import {
     ComponentLoaderFactory,
@@ -14,6 +13,7 @@ import {
     TooltipConfig,
 } from 'ngx-bootstrap';
 
+import { SharedModule } from '../../shared/shared.module';
 import { NavbarModule } from './../../controls/navbar/navbar.module';
 import { SelectInputConfig } from './../../controls/select-input/select-input.config';
 import { TableColumnConfig } from './../../controls/table-column/table-column.config';
@@ -40,7 +40,6 @@ import { BaseRoutes } from './base-app.routes';
     AlertModalModule.forRoot(),
     NavbarModule.forRoot(),
     AuthModalModule.forRoot(),
-    SharedModule.forRoot(),
     RouterModule.forRoot(BaseRoutes, { useHash: true })
   ],
   providers: [

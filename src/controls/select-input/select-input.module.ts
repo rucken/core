@@ -1,12 +1,12 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NguiAutoCompleteModule } from '@ngui/auto-complete';
-import { SharedModule } from '@rucken/core';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { PipesModule } from '../../pipes/pipes.module';
 import { SelectInputComponent } from './select-input.component';
 import { SelectInputConfig } from './select-input.config';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [

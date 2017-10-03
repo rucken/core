@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
 
+import { SharedModule } from '../../shared/shared.module';
 import { ConfirmModalModule } from './../..//modals/confirm-modal/confirm-modal.module';
 import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
 import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-search-panel.module';

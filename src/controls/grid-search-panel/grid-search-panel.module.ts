@@ -1,7 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '@rucken/core';
 
+import { SharedModule } from '../../shared/shared.module';
 import { GridSearchPanelComponent } from './grid-search-panel.component';
 
 @NgModule({

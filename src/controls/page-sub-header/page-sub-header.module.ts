@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { SharedModule } from '@rucken/core';
 
+import { SharedModule } from '../../shared/shared.module';
 import { PageSubHeaderComponent } from './page-sub-header.component';
 
 @NgModule({
