@@ -83,7 +83,7 @@
     "@angular/platform-browser": "^4.4.4",
     "@angular/platform-browser-dynamic": "^4.4.4",
     "@angular/router": "^4.4.4",
-    "@ngui/auto-complete": "^0.15.0",
+    "@ngui/auto-complete": "^0.16.0",
     "@ngx-translate/core": "^8.0.0",
     "@types/jasmine": "2.6.0",
     "@types/lodash": "^4.14.76",
