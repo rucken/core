@@ -1,7 +1,6 @@
-import { Injectable, ViewContainerRef, ComponentFactoryResolver, EventEmitter } from '@angular/core';
-import { Router, NavigationStart, NavigationEnd, Event, Event as NavigationEvent } from '@angular/router';
-import { Subject } from 'rxjs/Subject';
-import { ThemesService, RepositoryHelper, Theme } from '@rucken/core';
+import { Injectable } from '@angular/core';
+import { RepositoryHelper, Theme, ThemesService } from '@rucken/core';
+
 @Injectable()
 export class WebThemesService extends ThemesService {
   constructor(public repositoryHelper: RepositoryHelper) {

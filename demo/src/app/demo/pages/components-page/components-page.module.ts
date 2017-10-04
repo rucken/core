@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { DemoComponentsPageRoutes } from './components-page.routes';
 import { ComponentsPageModule } from '@rucken/web';
+
+import { DemoComponentsPageRoutes } from './components-page.routes';
 
 @NgModule({
   imports: [

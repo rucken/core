@@ -1,14 +1,9 @@
 import { Routes } from '@angular/router';
+
+import { DemoAccountPageRoutes } from './demo/pages/account-page/account-page.routes';
+import { DemoAdminPageRoutes } from './demo/pages/admin-page/admin-page.routes';
 import { DemoHomePageRoutes } from './demo/pages/home-page/home-page.routes';
 import { DemoThemesPageRoutes } from './demo/pages/themes-page/themes-page.routes';
-import { DemoAdminPageRoutes } from './demo/pages/admin-page/admin-page.routes';
-import { DemoAccountPageRoutes } from './demo/pages/account-page/account-page.routes';
-import { DemoComponentsPageRoutes } from './demo/pages/components-page/components-page.routes';
-
-import { DemoHomePageModule } from './demo/pages/home-page/home-page.module';
-import { DemoAdminPageModule } from './demo/pages/admin-page/admin-page.module';
-import { DemoThemesPageModule } from './demo/pages/themes-page/themes-page.module';
-import { DemoAccountPageModule } from './demo/pages/account-page/account-page.module';
 
 export const DemoRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },

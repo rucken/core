@@ -1,7 +1,7 @@
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum } from '@rucken/core';
-import { MetaModel } from '@rucken/core';
+
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import { Input, Output, EventEmitter, HostListener, Component } from '@angular/core';
 
 @Component({
   selector: 'base-resources-grid',

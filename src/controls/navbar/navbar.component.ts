@@ -1,16 +1,15 @@
 import { Component, ComponentFactoryResolver } from '@angular/core';
-import { AccountService } from '@rucken/core';
-import { User } from '@rucken/core';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
-import { Router, NavigationStart } from '@angular/router';
-import { AppService } from '@rucken/core';
-import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
-import { TranslateService } from '@ngx-translate/core';
-import { BaseComponent } from './../../base/base-component/base-component.component';
+import { NavigationStart, Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { SharedService } from '@rucken/core';
-import * as _ from 'lodash';
+import { TranslateService } from '@ngx-translate/core';
+import { AppService } from '@rucken/core';
+import { User } from '@rucken/core';
+import { AccountService } from '@rucken/core';
 
+import { SharedService } from '../../shared/services/shared.service';
+import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
+import { BaseComponent } from './../../base/base-component/base-component.component';
+import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 
 @Component({
   selector: 'navbar',
@@ -60,7 +59,7 @@ export class NavbarComponent extends BaseComponent {
     this.app.component.currentLanguage = lang;
   }
   get version() {
-    return this.app.version;
+    return `${this.translateService.instant('Version')}: ${this.app.currentVersion}`;
   }
   get account(): any | User {
     return this.accountService.account;

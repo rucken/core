@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { FooterButtonsComponent } from './footer-buttons.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { LaddaModule } from 'angular2-ladda';
-import { SharedModule } from '@rucken/core';
+
+import { SharedModule } from '../../shared/shared.module';
+import { FooterButtonsComponent } from './footer-buttons.component';
 
 @NgModule({
   imports: [LaddaModule, SharedModule.forRoot()],

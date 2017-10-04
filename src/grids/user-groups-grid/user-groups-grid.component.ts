@@ -1,19 +1,18 @@
-import { User } from '@rucken/core';
-import { Subscription } from 'rxjs/Rx';
-import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { UserGroup } from '@rucken/core';
-import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
+import { User } from '@rucken/core';
+import { Group } from '@rucken/core';
 import { UserGroupsService } from '@rucken/core';
+import { GrousService } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
-import { EndpointStatusEnum } from '@rucken/core';
-import { MetaModel } from '@rucken/core';
-import { GroupsListModalComponent } from './../groups-grid/groups-list-modal/groups-list-modal.component';
-import { Group } from '@rucken/core';
-import { GroupModalComponent } from './../groups-grid/group-modal/group-modal.component';
-import { GrousService } from '@rucken/core';
+
+import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
-import { TranslateService } from '@ngx-translate/core';
+import { GroupModalComponent } from './../groups-grid/group-modal/group-modal.component';
+import { GroupsListModalComponent } from './../groups-grid/groups-list-modal/groups-list-modal.component';
+
 @Component({
   selector: 'user-groups-grid',
   templateUrl: './user-groups-grid.component.html',

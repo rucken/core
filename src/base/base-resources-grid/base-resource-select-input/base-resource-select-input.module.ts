@@ -1,5 +1,6 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+
 import { BaseResourceSelectInputComponent } from './base-resource-select-input.component';
 
 @NgModule({

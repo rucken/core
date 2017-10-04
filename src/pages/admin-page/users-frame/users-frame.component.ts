@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService } from '@rucken/core';
 import { AppService } from '@rucken/core';
+
+import { SharedService } from '../../../shared/services/shared.service';
 import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
-import { ActivatedRoute, Router } from '@angular/router';
-import { SharedService } from '@rucken/core';
 
 @Component({
   selector: 'users-frame',

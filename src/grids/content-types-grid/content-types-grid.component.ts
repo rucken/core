@@ -1,16 +1,15 @@
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
-import { Subscription } from 'rxjs/Rx';
-import { Component, Input, Output, EventEmitter, ComponentFactoryResolver, ViewChild, ElementRef } from '@angular/core';
 import { ContentType } from '@rucken/core';
-import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { ContentTypesService } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
-import { EndpointStatusEnum } from '@rucken/core';
-import { MetaModel } from '@rucken/core';
+
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
-import { TranslateService } from '@ngx-translate/core';
+import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { ContentTypeModalComponent } from './content-type-modal/content-type-modal.component';
+
 @Component({
   selector: 'content-types-grid',
   templateUrl: './content-types-grid.component.html',

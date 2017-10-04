@@ -1,9 +1,12 @@
+import 'rxjs/add/operator/map';
+
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
-import { Group } from './../models/group.model';
+
 import { BaseRepositoryService } from './../base/services/base-repository.service';
 import { RepositoryHelper } from './../helpers/repository.helper';
+import { Group } from './../models/group.model';
+
 @Injectable()
 export class GrousService extends BaseRepositoryService {
   items$: Subject<Group[]>;

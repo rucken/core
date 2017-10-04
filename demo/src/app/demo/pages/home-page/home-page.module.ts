@@ -1,10 +1,9 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { DemoHomePageComponent } from './home-page.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { PageHeaderModule, PipesModule, SharedModule } from '@rucken/web';
+
+import { DemoHomePageComponent } from './home-page.component';
 import { DemoHomePageRoutes } from './home-page.routes';
-import { PageHeaderModule } from '@rucken/web';
-import { PipesModule } from '@rucken/web';
-import { SharedModule } from '@rucken/core';
 
 @NgModule({
   imports: [

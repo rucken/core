@@ -1,7 +1,5 @@
 import { RuckenCoreRuI18n } from './i18n/ru.i18n';
 export { RuckenCoreRuI18n } from './i18n/ru.i18n';
-import { SharedModule } from './shared/shared.module';
-export { SharedModule } from './shared/shared.module';
 import { EndpointStatusEnum } from './shared/enums/endpoint-status.enum';
 export { EndpointStatusEnum } from './shared/enums/endpoint-status.enum';
 import { EndpointHelper } from './shared/helpers/endpoint.helper';
@@ -46,8 +44,6 @@ import { GrousService } from './shared/services/groups.service';
 export { GrousService } from './shared/services/groups.service';
 import { PermissionsService } from './shared/services/permissions.service';
 export { PermissionsService } from './shared/services/permissions.service';
-import { SharedService } from './shared/services/shared.service';
-export { SharedService } from './shared/services/shared.service';
 import { ThemesService } from './shared/services/themes.service';
 export { ThemesService } from './shared/services/themes.service';
 import { UserGroupsService } from './shared/services/user-groups.service';

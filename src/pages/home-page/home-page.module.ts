@@ -1,10 +1,9 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { HomePageComponent } from './home-page.component';
-import { RouterModule } from '@angular/router';
-import { HomePageRoutes } from './home-page.routes';
-import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+
 import { PipesModule } from '../../pipes/pipes.module';
-import { SharedModule } from '@rucken/core';
+import { SharedModule } from '../../shared/shared.module';
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+import { HomePageComponent } from './home-page.component';
 
 @NgModule({
   imports: [

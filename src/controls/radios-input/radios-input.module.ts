@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { RadiosInputComponent } from './radios-input.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '@rucken/core';
+
+import { RadiosInputComponent } from './radios-input.component';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [

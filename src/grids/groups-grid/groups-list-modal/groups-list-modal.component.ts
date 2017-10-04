@@ -1,10 +1,10 @@
-import {
-  BaseResourceListModalComponent
-} from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
-import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Group } from '@rucken/core';
-import { User } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+
+import {
+    BaseResourceListModalComponent,
+} from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 import { GroupsGridComponent } from './../groups-grid.component';
 
 @Component({

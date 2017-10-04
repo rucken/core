@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ErrorFrameComponent } from './error-frame.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+
+import { SharedModule } from '../../shared/shared.module';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
-import { SharedModule } from '@rucken/core';
+import { ErrorFrameComponent } from './error-frame.component';
 
 @NgModule({
   imports: [

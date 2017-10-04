@@ -1,17 +1,14 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { User } from '@rucken/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
-import { TextInputComponent } from './../../../controls/text-input/text-input.component';
-import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
 import { Group } from '@rucken/core';
 import { UserGroup } from '@rucken/core';
-import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
+import { ModalDirective } from 'ngx-bootstrap/modal';
+
+import {
+    BaseResourceModalComponent,
+} from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
+import { TextInputComponent } from './../../../controls/text-input/text-input.component';
+import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
 
 @Component({
   selector: 'user-modal',

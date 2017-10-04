@@ -1,13 +1,14 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { PermissionsListModalComponent } from './permissions-list-modal.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { PermissionsGridModule } from './../permissions-grid.module';
+
 import { FooterButtonsModule } from '../../../controls/footer-buttons/footer-buttons.module';
-import { SharedModule } from '@rucken/core';
+import { SharedModule } from '../../../shared/shared.module';
+import { PermissionsGridModule } from './../permissions-grid.module';
+import { PermissionsListModalComponent } from './permissions-list-modal.component';
 
 @NgModule({
   imports: [
-    SharedModule.forRoot(), ModalModule.forRoot(), SharedModule.forRoot(),
+    SharedModule.forRoot(), ModalModule.forRoot(),
     FooterButtonsModule.forRoot(), PermissionsGridModule.forRoot(), PermissionsGridModule.forRoot()
   ],
   declarations: [

@@ -1,12 +1,13 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '@rucken/core';
-import { BaseComponent } from './../base-component/base-component.component';
 import { AccountService } from '@rucken/core';
-import * as _ from 'lodash';
 import { User } from '@rucken/core';
-import { SharedService } from '@rucken/core';
+import * as _ from 'lodash';
+
+import { SharedService } from '../../shared/services/shared.service';
+import { BaseComponent } from './../base-component/base-component.component';
 
 @Component({
   selector: 'base-page',

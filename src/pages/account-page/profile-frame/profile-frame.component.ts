@@ -4,9 +4,10 @@ import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
 import { AccountService } from '@rucken/core';
 import { AppService } from '@rucken/core';
-import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
+
+import { SharedService } from '../../../shared/services/shared.service';
 import { AccountProfileFormComponent } from '../../../grids/users-grid/account-profile-form/account-profile-form.component';
-import { SharedService } from '@rucken/core';
+import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
 
 @Component({
   selector: 'profile-frame',

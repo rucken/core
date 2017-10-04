@@ -40,6 +40,9 @@ msgstr ""
 msgid "Search"
 msgstr ""
 
+msgid "Version"
+msgstr ""
+
 msgid "Change log"
 msgstr ""
 

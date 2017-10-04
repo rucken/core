@@ -1,12 +1,13 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { FontawesomesGridComponent } from './fontawesomes-grid.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+
+import { PipesModule } from '../../pipes/pipes.module';
+import { SharedModule } from '../../shared/shared.module';
+import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
 import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-search-panel.module';
 import { TableColumnModule } from './../../controls/table-column/table-column.module';
-import { GridRowButtonsModule } from './../../controls/grid-row-buttons/grid-row-buttons.module';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
-import { PipesModule } from '../../pipes/pipes.module';
-import { SharedModule } from '@rucken/core';
+import { FontawesomesGridComponent } from './fontawesomes-grid.component';
 
 @NgModule({
   imports: [

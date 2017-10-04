@@ -1,10 +1,12 @@
-import { BaseRepositoryService } from './../base/services/base-repository.service';
+import 'rxjs/add/operator/map';
+
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import 'rxjs/add/operator/map';
-import { AppService } from './app.service';
-import { User } from './../models/user.model';
+
+import { BaseRepositoryService } from './../base/services/base-repository.service';
 import { RepositoryHelper } from './../helpers/repository.helper';
+import { User } from './../models/user.model';
+
 @Injectable()
 export class UsersService extends BaseRepositoryService {
   items$: Subject<User[]>;

@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { ControlsFrameComponent } from './controls-frame.component';
 import { translate } from '@rucken/core';
+
+import { ControlsFrameComponent } from './controls-frame.component';
 
 export const ControlsFrameRoutes: Routes = [
   {

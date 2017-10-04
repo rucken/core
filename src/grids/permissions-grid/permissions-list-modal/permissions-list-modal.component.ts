@@ -1,9 +1,11 @@
-import { Component, EventEmitter, Input, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 import { Permission } from '@rucken/core';
-import { User } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+
+import {
+    BaseResourceListModalComponent,
+} from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 import { PermissionsGridComponent } from './../permissions-grid.component';
-import { BaseResourceListModalComponent } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 
 @Component({
   selector: 'permissions-list-modal',

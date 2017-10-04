@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { AccountService } from '@rucken/core';
 import { User } from '@rucken/core';
+
 import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({

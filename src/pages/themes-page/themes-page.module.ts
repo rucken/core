@@ -1,10 +1,9 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ThemesPageComponent } from './themes-page.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
-import { ThemesPageRoutes } from './themes-page.routes';
+
+import { SharedModule } from '../../shared/shared.module';
 import { PageHeaderModule } from './../../controls/page-header/page-header.module';
-import { SharedModule } from '@rucken/core';
+import { ThemesPageComponent } from './themes-page.component';
 
 @NgModule({
   imports: [

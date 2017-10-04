@@ -1,10 +1,10 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ComponentsPageComponent } from './components-page.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ComponentsPageRoutes } from './components-page.routes';
-import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+
+import { SharedModule } from '../../shared/shared.module';
 import { BasePageModule } from './../../base/base-page/base-page.module';
-import { SharedModule } from '@rucken/core';
+import { PageHeaderModule } from './../../controls/page-header/page-header.module';
+import { ComponentsPageComponent } from './components-page.component';
 
 @NgModule({
   imports: [

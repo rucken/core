@@ -1,7 +1,8 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { CheckboxesInputComponent } from './checkboxes-input.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '@rucken/core';
+
+import { SharedModule } from '../../shared/shared.module';
+import { CheckboxesInputComponent } from './checkboxes-input.component';
 
 @NgModule({
   imports: [

@@ -1,10 +1,11 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { ContentTypeModalComponent } from './content-type-modal.component';
+import { ModuleWithProviders, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { SharedModule } from '../../../shared/shared.module';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
-import { FormsModule } from '@angular/forms';
-import { SharedModule } from '@rucken/core';
+import { ContentTypeModalComponent } from './content-type-modal.component';
 
 @NgModule({
   imports: [

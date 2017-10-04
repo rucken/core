@@ -1,5 +1,6 @@
-import { DemoHomePageComponent } from './home-page.component';
 import { translate } from '@rucken/core';
+
+import { DemoHomePageComponent } from './home-page.component';
 
 export const DemoHomePageRoutes = [{
   path: '',

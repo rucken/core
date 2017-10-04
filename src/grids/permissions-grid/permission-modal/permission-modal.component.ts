@@ -1,14 +1,11 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Permission } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+
+import {
+    BaseResourceModalComponent,
+} from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
-import { BaseResourceModalComponent } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 
 @Component({
   selector: 'permission-modal',

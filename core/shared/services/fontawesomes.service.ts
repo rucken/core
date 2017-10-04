@@ -1,10 +1,13 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
-import { Fontawesome } from './../models/fontawesome.model';
+
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+
 import { BaseRepositoryService } from './../base/services/base-repository.service';
-import { FontawesomeItemsMock } from './../mocks/fontawesome-items.mock';
 import { RepositoryHelper } from './../helpers/repository.helper';
+import { FontawesomeItemsMock } from './../mocks/fontawesome-items.mock';
+import { Fontawesome } from './../models/fontawesome.model';
+
 @Injectable()
 export class FontawesomeService extends BaseRepositoryService {
   items$: Subject<Fontawesome[]>;

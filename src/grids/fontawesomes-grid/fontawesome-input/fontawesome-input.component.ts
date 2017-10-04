@@ -1,12 +1,15 @@
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Fontawesome } from '@rucken/core';
-import { Component, Input, EventEmitter, Output, ViewChild, ComponentFactoryResolver, ElementRef } from '@angular/core';
-import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fontawesomes-list-modal.component';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
 import { FontawesomeService } from '@rucken/core';
 import { User } from '@rucken/core';
-import { BaseResourceInputComponent } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
-import { TranslateService } from '@ngx-translate/core';
+
+import {
+    BaseResourceInputComponent,
+} from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
+import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fontawesomes-list-modal.component';
 
 @Component({
   selector: 'fontawesome-input',

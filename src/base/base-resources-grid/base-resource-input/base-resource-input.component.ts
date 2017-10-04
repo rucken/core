@@ -1,7 +1,8 @@
-import { EndpointStatusEnum } from '@rucken/core';
-import { BaseComponent } from './../../../base/base-component/base-component.component';
-import { ElementRef, Input, EventEmitter, Output, Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { EndpointStatusEnum } from '@rucken/core';
+
+import { BaseComponent } from './../../../base/base-component/base-component.component';
 
 
 @Component({

@@ -1,6 +1,6 @@
 import { BaseResourceModel } from './../base/models/base-resource.model';
-import { ContentType } from './content-type.model';
 import { translate } from './../utils/utils';
+import { ContentType } from './content-type.model';
 
 export class Permission extends BaseResourceModel {
   static titles: any = {

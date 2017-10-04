@@ -1,12 +1,13 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { UserModalComponent } from './user-modal.component';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
-import { UserGroupsGridModule } from './../../user-groups-grid/user-groups-grid.module';
-import { TextInputModule } from './../../../controls/text-input/text-input.module';
-import { CheckboxesInputModule } from './../../../controls/checkboxes-input/checkboxes-input.module';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SharedModule } from '@rucken/core';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
+import { SharedModule } from '../../../shared/shared.module';
+import { CheckboxesInputModule } from './../../../controls/checkboxes-input/checkboxes-input.module';
+import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
+import { TextInputModule } from './../../../controls/text-input/text-input.module';
+import { UserGroupsGridModule } from './../../user-groups-grid/user-groups-grid.module';
+import { UserModalComponent } from './user-modal.component';
 
 @NgModule({
   imports: [

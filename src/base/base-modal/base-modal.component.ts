@@ -1,8 +1,7 @@
-import { HostListener, Input, Output, EventEmitter, Component } from '@angular/core';
-import { BaseComponent } from './../../base/base-component/base-component.component';
-import * as _ from 'lodash';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum } from '@rucken/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
+
+import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'base-modal-component',
