@@ -1,3 +1,20 @@
+<a name="1.15.0"></a>
+# [1.15.0](https://github.com/rucken/core/compare/1.14.1...1.15.0) (2017-10-04)
+
+
+### Bug Fixes
+
+* Returned accidentally deleted imports ([20a63fc](https://github.com/rucken/core/commit/20a63fc))
+* **module:** Change compilerOptions on [@rucken](https://github.com/rucken)/core ([58aed72](https://github.com/rucken/core/commit/58aed72))
+* **module:** Change module name to index.js, for correct native script import ([439a084](https://github.com/rucken/core/commit/439a084))
+
+
+### Features
+
+* **modules:** Move shared module and service to [@rucken](https://github.com/rucken)/web ([447f37d](https://github.com/rucken/core/commit/447f37d))
+
+
+
 <a name="1.14.1"></a>
 ## [1.14.1](https://github.com/rucken/core/compare/1.14.0...1.14.1) (2017-09-30)
 
