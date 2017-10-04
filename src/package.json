@@ -1,6 +1,6 @@
 {
     "name": "@rucken/web",
-    "version": "1.14.9",
+    "version": "1.15.0",
     "peerDependencies": {
         "@angular/common": "*",
         "@angular/compiler": "*",
