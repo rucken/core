@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "importHelpers": true,
     "outDir": "../dist-core",
     "target": "es5",
     "module": "commonjs",
@@ -9,7 +8,6 @@
     "experimentalDecorators": true,
     "sourceMap": true,
     "inlineSources": true,
-    "noEmitHelpers": false,
     "noImplicitAny": true,
     "declaration": true,
     "skipLibCheck": false,
@@ -18,6 +16,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "lib": [
+      "es5",
       "es6",
       "dom"
     ],
