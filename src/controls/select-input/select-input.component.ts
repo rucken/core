@@ -6,6 +6,8 @@ import { Subject } from 'rxjs/Subject';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { SelectInputConfig } from './select-input.config';
+import { translate } from '@rucken/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'select-input',
@@ -88,10 +90,10 @@ export class SelectInputComponent extends BaseComponent {
   private _showMe = false;
   private debouncer$: Subject<string> = new Subject<string>();
 
-  getTitle: any;
   constructor(
     public translateService: TranslateService,
-    public config: SelectInputConfig
+    public config: SelectInputConfig,
+    public sanitizer: DomSanitizer
   ) {
     super();
     if (this.tooltipEnable === undefined) {
@@ -142,15 +144,6 @@ export class SelectInputComponent extends BaseComponent {
     this.modelChange.emit(this.model);
   }
   init() {
-    this.getTitle = (item: any) => {
-      if (item && item[this.titleField]) {
-        return item[this.titleField];
-      }
-      if (item && item[this.inputTitleField]) {
-        return item[this.inputTitleField];
-      }
-      return '';
-    };
     if (this.hardValue) {
       this.value = this.hardValue;
     }
@@ -185,6 +178,15 @@ export class SelectInputComponent extends BaseComponent {
       }, 200);
     }
   }
+  getTitle(item: any) {
+    if (item && item[this.titleField]) {
+      return this.safeHtml(this.translate(item[this.titleField]));
+    }
+    if (item && item[this.inputTitleField]) {
+      return this.safeHtml(this.translate(item[this.inputTitleField]));
+    }
+    return '';
+  };
   focus() {
     if (this.autoComplete) {
       this.autoComplete.dropdownVisible = true;
@@ -192,10 +194,10 @@ export class SelectInputComponent extends BaseComponent {
   }
   getInputTitle(item: any) {
     if (item && item[this.inputTitleField]) {
-      return item[this.inputTitleField];
+      return this.translate(item[this.inputTitleField]);
     }
     if (item && item[this.titleField]) {
-      return item[this.titleField];
+      return this.translate(item[this.titleField]);
     }
     return '';
   }

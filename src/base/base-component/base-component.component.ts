@@ -106,6 +106,13 @@ export class BaseComponent implements OnInit, OnDestroy {
       return text;
     }
   }
+  safeHtml(html: string) {
+    if (this.sanitizer) {
+      return this.sanitizer.bypassSecurityTrustHtml(html);
+    } else {
+      return html;
+    }
+  }
   keys(object: {}) {
     return Object.keys(object);
   }

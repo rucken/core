@@ -9,7 +9,7 @@
         (onShown)="showTooltip()" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
     </div>
     <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
-      [show-input-tag]="false" [list-formatter]="getTitle" [source]="items" #autoComplete>
+      [show-input-tag]="false" [list-formatter]="getTitle.bind(this)" [source]="items" #autoComplete>
     </ngui-auto-complete>
     <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="(errorMessage || infoMessage) | safeHtml"></span>
   </div>
@@ -22,7 +22,7 @@
         (onShown)="showTooltip()" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
     </div>
     <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
-      [show-input-tag]="false" [list-formatter]="getTitle" [source]="items" #autoComplete>
+      [show-input-tag]="false" [list-formatter]="getTitle.bind(this)" [source]="items" #autoComplete>
     </ngui-auto-complete>
   </div>
 </div>
