@@ -1,3 +1,14 @@
+<a name="1.15.1"></a>
+## [1.15.1](https://github.com/rucken/core/compare/1.15.0...1.15.1) (2017-10-08)
+
+
+### Bug Fixes
+
+* **package-lock:** Update dependencies ([800d66b](https://github.com/rucken/core/commit/800d66b))
+* **select-input:** Add translate in options ([3432f1f](https://github.com/rucken/core/commit/3432f1f))
+
+
+
 <a name="1.15.0"></a>
 # [1.15.0](https://github.com/rucken/core/compare/1.14.1...1.15.0) (2017-10-04)
 
