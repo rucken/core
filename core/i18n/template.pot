@@ -16,9 +16,6 @@ msgstr ""
 msgid "Not found"
 msgstr ""
 
-msgid "Error, you not set perPage count"
-msgstr ""
-
 msgid "Error in creating"
 msgstr ""
 
@@ -38,6 +35,9 @@ msgid "OK"
 msgstr ""
 
 msgid "Error on deleting"
+msgstr ""
+
+msgid "Error, you not set perPage count"
 msgstr ""
 
 msgid "Unknown error"

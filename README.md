@@ -15,6 +15,12 @@ Core with Admin UI for web and native application maked on Angular4
 - **DI** - With dependency injection you can change base service.
 - **Extends** - Write components with extends from core `rucken` components.
 
+## Usage
+
+- Clone or fork repository https://github.com/rucken/todo-web.git
+- Read [README.md](https://github.com/rucken/todo-web/blob/master/README.md) for run application
+- Modify app for your business logic
+
 #### Quick links
 
 [Source](https://github.com/rucken/core) - Source code.

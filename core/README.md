@@ -12,6 +12,12 @@ Core with base class for application maked on Angular4
 - **Admin** - Include work with admin, user groups and permissions.
 - **DI** - With dependency injection you can change base service.
 
+## Usage
+
+- Clone or fork repository https://github.com/rucken/todo-web.git
+- Read [README.md](https://github.com/rucken/todo-web/blob/master/README.md) for run application
+- Modify app for your business logic
+
 #### Quick links
 
 [Source](https://github.com/rucken/core) - Source code.
