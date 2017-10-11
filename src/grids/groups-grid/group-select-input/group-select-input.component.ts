@@ -2,7 +2,7 @@ import { Component, ComponentFactoryResolver, EventEmitter, Input, Output, ViewC
 import { TranslateService } from '@ngx-translate/core';
 import { Group } from '@rucken/core';
 import { User } from '@rucken/core';
-import { GrousService } from '@rucken/core';
+import { Service } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
@@ -38,12 +38,12 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
   modelChange: EventEmitter<any | Group> = new EventEmitter<any | Group>();
 
   items: any[] | Group[];
-  cachedResourcesService: GrousService;
+  cachedResourcesService: Service;
 
   constructor(
     public app: AppService,
     public accountService: AccountService,
-    public groupsService: GrousService,
+    public groupsService: Service,
     public resolver: ComponentFactoryResolver,
     public translateService: TranslateService,
     public config: BaseResourceSelectInputConfig

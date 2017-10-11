@@ -2,7 +2,7 @@ import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, 
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
 import { Group } from '@rucken/core';
-import { GrousService } from '@rucken/core';
+import { Service } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
 
@@ -28,10 +28,10 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
   modelMeta: any = Group.meta();
   items: any[] | Group[];
   selectedItems: any[] | Group[];
-  cachedResourcesService: GrousService;
+  cachedResourcesService: Service;
 
   constructor(
-    public groupsService: GrousService,
+    public groupsService: Service,
     public accountService: AccountService,
     public app: AppService,
     public resolver: ComponentFactoryResolver,

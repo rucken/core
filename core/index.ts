@@ -40,8 +40,8 @@ import { ContentTypesService } from './shared/services/content-types.service';
 export { ContentTypesService } from './shared/services/content-types.service';
 import { GroupPermissionsService } from './shared/services/group-permissions.service';
 export { GroupPermissionsService } from './shared/services/group-permissions.service';
-import { GrousService } from './shared/services/groups.service';
-export { GrousService } from './shared/services/groups.service';
+import { Service } from './shared/services/groups.service';
+export { Service } from './shared/services/groups.service';
 import { PermissionsService } from './shared/services/permissions.service';
 export { PermissionsService } from './shared/services/permissions.service';
 import { ThemesService } from './shared/services/themes.service';
@@ -67,5 +67,5 @@ export { BaseRepositoryService } from './shared/base/services/base-repository.se
 export const RuckenCoreModules: any[] = [];
 export const RuckenCoreComponents: any[] = [];
 export const RuckenCoreShareds: any[] = [RuckenCoreRuI18n, EndpointStatusEnum, EndpointHelper, HttpHelper, RepositoryHelper, FontawesomeItemsMock, ThemeItemsMock, ContentType, Fontawesome, GroupPermission, Group, MetaModel, Permission, Theme, UserGroup, User, translate, isJson, inValues, BaseResourceModel];
-export const RuckenCoreServices: any[] = [AccountService, AppService, FontawesomeService, ContentTypesService, GroupPermissionsService, GrousService, PermissionsService, ThemesService, UserGroupsService, UsersService, BaseLocalRepositoryService, BaseRemoteRepositoryService, BaseRepositoryService];
+export const RuckenCoreServices: any[] = [AccountService, AppService, FontawesomeService, ContentTypesService, GroupPermissionsService, Service, PermissionsService, ThemesService, UserGroupsService, UsersService, BaseLocalRepositoryService, BaseRemoteRepositoryService, BaseRepositoryService];
 export const RuckenCorePipes: any[] = [];
