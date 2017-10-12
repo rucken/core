@@ -54,7 +54,11 @@ recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
                   }
                 } else {
                   if (className.indexOf('Shared') === -1) {
-                    exportEntities[entities[e]].push(className);
+                    if (entities[e] !== 'module') {
+                      exportEntities[entities[e]].push(className);
+                    } else {
+                      exportEntities[entities[e]].push(className + '.forRoot()');
+                    }
                   }
                 }
               }
