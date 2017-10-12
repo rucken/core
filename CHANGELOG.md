@@ -1,3 +1,16 @@
+<a name="1.15.2"></a>
+## [1.15.2](https://github.com/rucken/core/compare/1.15.1...1.15.2) (2017-10-12)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([a2fc028](https://github.com/rucken/core/commit/a2fc028))
+* **entities-select-input:** Update template for correct work in select mode ([821dadf](https://github.com/rucken/core/commit/821dadf))
+* **rename:** Grous to Groups ([530d341](https://github.com/rucken/core/commit/530d341))
+* **scripts:** Add modules to index.ts ([20e40a0](https://github.com/rucken/core/commit/20e40a0))
+
+
+
 <a name="1.15.1"></a>
 ## [1.15.1](https://github.com/rucken/core/compare/1.15.0...1.15.1) (2017-10-08)
 
