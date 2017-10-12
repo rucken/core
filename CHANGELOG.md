@@ -1,3 +1,14 @@
+<a name="1.15.3"></a>
+## [1.15.3](https://github.com/rucken/core/compare/1.15.2...1.15.3) (2017-10-12)
+
+
+### Bug Fixes
+
+* **rename:** Service => GroupsService ([4ad4971](https://github.com/rucken/core/commit/4ad4971))
+* **RuckenWebModules:** Add forRoot() on export ([c49464f](https://github.com/rucken/core/commit/c49464f))
+
+
+
 <a name="1.15.2"></a>
 ## [1.15.2](https://github.com/rucken/core/compare/1.15.1...1.15.2) (2017-10-12)
 
