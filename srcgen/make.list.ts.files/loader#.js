@@ -53,7 +53,7 @@ recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
                     exportEntities[entities[e]].push(className);
                   }
                 } else {
-                  if (entities[e] !== 'module' && className.indexOf('Shared') === -1) {
+                  if (className.indexOf('Shared') === -1) {
                     exportEntities[entities[e]].push(className);
                   }
                 }
