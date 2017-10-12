@@ -8,7 +8,7 @@ import { RepositoryHelper } from './../helpers/repository.helper';
 import { Group } from './../models/group.model';
 
 @Injectable()
-export class Service extends BaseRepositoryService {
+export class GroupsService extends BaseRepositoryService {
   items$: Subject<Group[]>;
   items: Group[];
   apiUrl: string;
@@ -24,6 +24,6 @@ export class Service extends BaseRepositoryService {
     return new Group(item);
   }
   newCache() {
-    return new Service(this.repositoryHelper);
+    return new GroupsService(this.repositoryHelper);
   }
 }
