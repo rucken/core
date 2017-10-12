@@ -1,8 +1,9 @@
-<div class="form-group" [ngClass]="{'has-error':errorsValue && errorsValue[name]}">
+<div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}">
   <label *ngIf="title" [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
-  <div [ngClass]="{'input-group':!readonly && !select}" [ngClass]="inputFrameClass">
+  <div [ngClass]="{'input-group':!readonly && !select}" class="{{inputFrameClass}}" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
+    triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip">
     <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" [ngClass]="inputClass" disabled/>
-    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" disabled/>
+    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement disabled/>
     <select-input *ngIf="!statusListMessage && select && items && items.length>0" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
       [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">
@@ -12,5 +13,5 @@
     </button>
     </span>
   </div>
-  <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ') | translate}}</span>
+  <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="errorMessage || infoMessage"></span>
 </div>
