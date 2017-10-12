@@ -2,12 +2,12 @@ import { Component, ComponentFactoryResolver } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '@rucken/core';
 import { User } from '@rucken/core';
 import { AccountService } from '@rucken/core';
+import { AppService } from '@rucken/core';
 
-import { SharedService } from '../../shared/services/shared.service';
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
+import { SharedService } from '../../shared/services/shared.service';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 
@@ -37,15 +37,15 @@ export class NavbarComponent extends BaseComponent {
   ) {
     super();
     sharedService.linkTranslateService();
-    this.accountService.account$.subscribe((user: any | User) => {
-      this.init();
-    });
-    this.accountService.info();
     this.router.events
       .map(event => event instanceof NavigationStart)
       .subscribe(() => {
         this.isCollapsed = true;
       });
+    this.accountService.account$.subscribe((user: any | User) => {
+      this.init();
+    });
+    this.accountInfo();
   }
   get languages() {
     return this.app.component.languages;
@@ -97,6 +97,9 @@ export class NavbarComponent extends BaseComponent {
       this.showChangeLog();
       this.app.localVersion = this.app.currentVersion;
     }
+  }
+  accountInfo() {
+    this.accountService.info();
   }
   go(commands: any[]) {
     this.isCollapsed = true;
