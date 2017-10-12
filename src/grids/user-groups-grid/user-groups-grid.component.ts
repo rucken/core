@@ -4,7 +4,7 @@ import { UserGroup } from '@rucken/core';
 import { User } from '@rucken/core';
 import { Group } from '@rucken/core';
 import { UserGroupsService } from '@rucken/core';
-import { Service } from '@rucken/core';
+import { GroupsService } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
 
@@ -41,7 +41,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
 
   constructor(
     public userGroupsService: UserGroupsService,
-    public groupsService: Service,
+    public groupsService: GroupsService,
     public accountService: AccountService,
     public app: AppService,
     public resolver: ComponentFactoryResolver,
