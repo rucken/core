@@ -54,12 +54,12 @@ export class AccountService {
   get account(): any | User {
     return this._account;
   }
-  info() {
+  info(token?: string) {
     const result = new EventEmitter();
     this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    this.endpointHelper.actionRequest(this, 'info', { 'token': this.token }).map(
+    this.endpointHelper.actionRequest(this, 'info', { 'token': (token ? token : this.token) }).map(
       (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);

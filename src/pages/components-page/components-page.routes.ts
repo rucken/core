@@ -18,7 +18,8 @@ export const ComponentsPageRoutes: Routes = [
     data: {
       name: 'components',
       title: translate('Components'),
-      visible: true
+      visible: true,
+      children: children
     },
     children: children
   }

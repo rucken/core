@@ -2,9 +2,9 @@ import 'moment/locale/ru';
 
 import { Component, ComponentFactoryResolver, EventEmitter, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { translate } from '@rucken/core';
-import { RuckenCoreRuI18n } from '@rucken/core';
 import { AppService } from '@rucken/core';
+import { RuckenCoreRuI18n } from '@rucken/core';
+import { translate } from '@rucken/core';
 import * as _ from 'lodash';
 import * as moment from 'moment/moment';
 
@@ -31,7 +31,7 @@ export class BaseAppComponent extends BaseComponent {
     title: translate('English'),
     dic: null
   }]
-  currentLang = 'en';
+  currentLang: string = null;
   defaultLang = 'en';
   autoLoadLang = true;
 
@@ -43,21 +43,24 @@ export class BaseAppComponent extends BaseComponent {
     public sharedService: SharedService
   ) {
     super();
+    this.afterCreate();
+  }
+  afterCreate() {
     // You need this small hack in order to catch application root view container ref
-    app.viewContainerRef = viewContainerRef;
-    app.component = this;
-    app.translateService = translateService;
+    this.app.viewContainerRef = this.viewContainerRef;
+    this.app.component = this;
+    this.app.translateService = this.translateService;
     if (this.autoLoadLang === true) {
       this.loadLang();
     }
-    sharedService.linkTranslateService();
+    this.sharedService.linkTranslateService();
   }
   loadLang() {
     this.translateService.addLangs(this.languages.map(lang => lang.code));
     this.translateService.setDefaultLang(this.defaultLang);
     this.languages.filter(lang => lang.dic).map(lang => this.translateService.setTranslation(lang.code, lang.dic));
     const browserLang: string = this.translateService.getBrowserLang();
-    if (this.languages.filter(lang => lang.code === browserLang).length > 0) {
+    if (this.languages.filter(lang => lang.code === browserLang).length > 0 && !this.currentLang) {
       this.currentLanguage = browserLang;
     } else {
       this.currentLanguage = this.currentLang;

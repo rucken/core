@@ -48,7 +48,10 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-    this.cachedResourcesService = usersService.createCache();
+  }
+  afterCreate() {
+    super.afterCreate();
+    this.cachedResourcesService = this.usersService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;

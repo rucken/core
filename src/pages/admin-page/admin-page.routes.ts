@@ -25,7 +25,8 @@ export const AdminPageRoutes: Routes = [
     data: {
       name: 'admin',
       title: translate('Admin'),
-      visible: true
+      visible: true,
+      children: children
     },
     children: children
   }

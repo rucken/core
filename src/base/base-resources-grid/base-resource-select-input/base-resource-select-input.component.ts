@@ -85,16 +85,19 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     public config: BaseResourceSelectInputConfig
   ) {
     super();
+    this.afterCreate();
+  }
+  afterCreate() {
     if (this.select === undefined) {
-      this.select = config.select;
+      this.select = this.config.select;
     }
     if (this.lookupIcon === undefined) {
-      this.lookupIcon = config.lookupIcon;
+      this.lookupIcon = this.config.lookupIcon;
     }
     if (this.tooltipEnable === undefined) {
-      this.tooltipEnable = config.errorInTooltip;
+      this.tooltipEnable = this.config.errorInTooltip;
     }
-    translateService.onLangChange.subscribe(() => this.init());
+    this.translateService.onLangChange.subscribe(() => this.init());
   }
   init() {
     if (this.inputElement) {

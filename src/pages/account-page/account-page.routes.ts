@@ -18,7 +18,8 @@ export const AccountPageRoutes: Routes = [
     data: {
       name: 'account',
       title: translate('Account'),
-      visible: true
+      visible: true,
+      children: children
     },
     children: children
   }

@@ -57,7 +57,7 @@ recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
                     if (entities[e] !== 'module') {
                       exportEntities[entities[e]].push(className);
                     } else {
-                      if (className.indexOf('PageModule') === -1 && className.indexOf('FrameModule') === -1) {
+                      if (className.indexOf('AppModule') === -1 && className.indexOf('PageModule') === -1 && className.indexOf('FrameModule') === -1) {
                         exportEntities[entities[e]].push(className + '.forRoot()');
                       }
                     }

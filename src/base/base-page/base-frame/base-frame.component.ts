@@ -29,10 +29,13 @@ export class BaseFrameComponent extends BaseComponent {
     public sharedService: SharedService
   ) {
     super();
-    sharedService.linkTranslateService();
-    translateService.onLangChange.subscribe(() => this.init());
-    accountService.account$.subscribe(() => this.init());
-    app.onCurrentPageTitle.subscribe(() => this.init());
+    this.afterCreate();
+  }
+  afterCreate() {
+    this.sharedService.linkTranslateService();
+    this.translateService.onLangChange.subscribe(() => this.init());
+    this.accountService.account$.subscribe(() => this.init());
+    this.app.onCurrentPageTitle.subscribe(() => this.init());
   }
   init() {
     super.init();
