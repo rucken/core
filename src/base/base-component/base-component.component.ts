@@ -70,8 +70,10 @@ export class BaseComponent implements OnInit, OnDestroy {
     if (this.app && this.app.translateService && this.translateService) {
       this.translateService.store = this.app.translateService.store;
     }
+    this.afterCreate();
     this.init();
   }
+  afterCreate() { }
   init() {
     if (this.errors) {
       this.errors.subscribe((data: any) => {

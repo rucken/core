@@ -67,7 +67,6 @@ export class BaseResourceInputComponent extends BaseComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.afterCreate();
   }
   afterCreate() {
     this.translateService.onLangChange.subscribe(() => this.init());

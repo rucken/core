@@ -34,7 +34,6 @@ export class GridRowButtonsComponent extends BaseComponent {
 
   constructor(public translateService: TranslateService) {
     super();
-    this.afterCreate();
   }
   afterCreate() {
     if (this.editTitle === undefined) {

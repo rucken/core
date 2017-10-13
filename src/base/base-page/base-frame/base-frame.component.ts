@@ -29,7 +29,6 @@ export class BaseFrameComponent extends BaseComponent {
     public sharedService: SharedService
   ) {
     super();
-    this.afterCreate();
   }
   afterCreate() {
     this.sharedService.linkTranslateService();

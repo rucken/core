@@ -68,7 +68,6 @@ export class TextInputComponent extends BaseComponent {
     public config: TextInputConfig
   ) {
     super();
-    this.afterCreate();
   }
   afterCreate() {
     if (this.isNativeDateInput === undefined) {

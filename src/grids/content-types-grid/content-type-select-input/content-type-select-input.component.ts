@@ -8,10 +8,10 @@ import { ContentTypesService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 import {
-    BaseResourceSelectInputComponent,
+  BaseResourceSelectInputComponent,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import {
-    BaseResourceSelectInputConfig,
+  BaseResourceSelectInputConfig,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { ContentTypesListModalComponent } from './../content-types-list-modal/content-types-list-modal.component';
 

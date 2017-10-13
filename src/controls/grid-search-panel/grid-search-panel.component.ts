@@ -23,7 +23,6 @@ export class GridSearchPanelComponent extends BaseComponent {
   maxlength = 250;
   constructor(public translateService: TranslateService) {
     super();
-    this.afterCreate();
   }
   afterCreate() {
     if (this.searchTitle === undefined) {

@@ -96,7 +96,6 @@ export class SelectInputComponent extends BaseComponent {
     public sanitizer: DomSanitizer
   ) {
     super();
-    this.afterCreate();
   }
   afterCreate() {
     if (this.tooltipEnable === undefined) {
