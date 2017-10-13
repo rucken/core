@@ -1,3 +1,20 @@
+<a name="1.16.0"></a>
+# [1.16.0](https://github.com/rucken/core/compare/1.15.3...1.16.0) (2017-10-13)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([282a380](https://github.com/rucken/core/commit/282a380))
+* **index:** Remove BaseAppModule from RuckenWebModules ([5816958](https://github.com/rucken/core/commit/5816958))
+
+
+### Features
+
+* **account.service:** Add attribute token in info method ([91ed8f7](https://github.com/rucken/core/commit/91ed8f7))
+* **base-page:** Move load child routes to getter and setter ([b18bc13](https://github.com/rucken/core/commit/b18bc13))
+
+
+
 <a name="1.15.3"></a>
 ## [1.15.3](https://github.com/rucken/core/compare/1.15.2...1.15.3) (2017-10-12)
 
