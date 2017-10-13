@@ -26,6 +26,9 @@ export class HomePageComponent extends BasePageComponent {
     public sharedService: SharedService
   ) {
     super(accountService, app, translateService, activatedRoute, router, sharedService);
+  }
+  afterCreate() {
+    super.afterCreate();
     this.readme = this.readme; // require('html-loader!markdown-loader!./../../../README.md');
   }
 }

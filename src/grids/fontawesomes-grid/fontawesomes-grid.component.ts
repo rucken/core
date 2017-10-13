@@ -38,7 +38,10 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = fontawesomeService.createCache();
+    this.afterCreate();
+  }
+  afterCreate() {
+    this.cachedResourcesService = this.fontawesomeService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;

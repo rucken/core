@@ -37,13 +37,11 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   protected _statusList: EndpointStatusEnum;
   protected _statusItem: EndpointStatusEnum;
 
-  parent: any;
-  cached: any;
+  parent: any = null;
+  cached: any = [];
 
   constructor(public repositoryHelper: RepositoryHelper) {
     super();
-    this.cached = [];
-    this.parent = null;
   }
   newCache(): any {
     return new BaseRemoteRepositoryService(this.repositoryHelper);

@@ -41,7 +41,10 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     public translateService: TranslateService
   ) {
     super(translateService);
-    this.cachedResourcesService = permissionsService.createCache();
+  }
+  afterCreate() {
+    super.afterCreate();
+    this.cachedResourcesService = this.permissionsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;

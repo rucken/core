@@ -38,7 +38,10 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = groupsService.createCache();
+    this.afterCreate();
+  }
+  afterCreate() {
+    this.cachedResourcesService = this.groupsService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;

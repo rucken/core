@@ -96,20 +96,23 @@ export class SelectInputComponent extends BaseComponent {
     public sanitizer: DomSanitizer
   ) {
     super();
+    this.afterCreate();
+  }
+  afterCreate() {
     if (this.tooltipEnable === undefined) {
-      this.tooltipEnable = config.errorInTooltip;
+      this.tooltipEnable = this.config.errorInTooltip;
     }
     if (this.valueField === undefined) {
-      this.valueField = config.valueField;
+      this.valueField = this.config.valueField;
     }
     if (this.titleField === undefined) {
-      this.titleField = config.titleField;
+      this.titleField = this.config.titleField;
     }
     if (this.inputTitleField === undefined) {
-      this.inputTitleField = config.inputTitleField;
+      this.inputTitleField = this.config.inputTitleField;
     }
     if (this.debounceTime === undefined) {
-      this.debounceTime = config.debounceTime;
+      this.debounceTime = this.config.debounceTime;
     }
     this.debouncer$.debounceTime(this.debounceTime)
       .subscribe((value: string) => this.onChangeInputValue.emit(value));

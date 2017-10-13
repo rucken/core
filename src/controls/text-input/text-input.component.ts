@@ -68,20 +68,23 @@ export class TextInputComponent extends BaseComponent {
     public config: TextInputConfig
   ) {
     super();
+    this.afterCreate();
+  }
+  afterCreate() {
     if (this.isNativeDateInput === undefined) {
-      this.isNativeDateInput = config.isNativeDateInput;
+      this.isNativeDateInput = this.config.isNativeDateInput;
     }
     if (this.tooltipEnable === undefined) {
-      this.tooltipEnable = config.errorInTooltip;
+      this.tooltipEnable = this.config.errorInTooltip;
     }
     if (this.maxlength === undefined) {
-      this.maxlength = config.maxlength;
+      this.maxlength = this.config.maxlength;
     }
     if (this.step === undefined) {
-      this.step = config.step;
+      this.step = this.config.step;
     }
     if (this.startingDay === undefined) {
-      this.startingDay = config.startingDay;
+      this.startingDay = this.config.startingDay;
     }
   }
   init() {

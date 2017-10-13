@@ -37,7 +37,10 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-    this.cachedResourcesService = usersService.createCache();
+    this.afterCreate();
+  }
+  afterCreate() {
+    this.cachedResourcesService = this.usersService.createCache();
   }
   get account(): any | User {
     return this.accountService.account;

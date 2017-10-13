@@ -36,7 +36,10 @@ export class NavbarComponent extends BaseComponent {
     public sharedService: SharedService
   ) {
     super();
-    sharedService.linkTranslateService();
+    this.afterCreate();
+  }
+  afterCreate() {
+    this.sharedService.linkTranslateService();
     this.router.events
       .map(event => event instanceof NavigationStart)
       .subscribe(() => {
