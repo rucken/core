@@ -1,5 +1,5 @@
 {
     "scan": {
-        "path": "./src"
+        "path": "./web"
     }
 }

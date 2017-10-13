@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { translate } from '@rucken/core';
 
+import { AuthGuardService } from '../../guards/auth-guard.service';
 import { AdminPageComponent } from './admin-page.component';
 import { GroupsFrameRoutes } from './groups-frame/groups-frame.routes';
 import { UsersFrameRoutes } from './users-frame/users-frame.routes';
@@ -28,6 +29,7 @@ export const AdminPageRoutes: Routes = [
       visible: true,
       children: children
     },
-    children: children
+    children: children,
+    canActivate: [AuthGuardService]
   }
 ];

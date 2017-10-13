@@ -1,12 +1,12 @@
 {
     "po": {
         "input": {
-            "dir": "./src/i18n"
+            "dir": "./web/i18n"
         }
     },
     "ts": {
         "output": {
-            "dir": "./src/i18n"
+            "dir": "./web/i18n"
         }
     }
 }

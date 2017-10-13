@@ -49,6 +49,9 @@ msgstr "Удалить"
 msgid "Search"
 msgstr "Поиск"
 
+msgid "Version"
+msgstr "Версия"
+
 msgid "Change log"
 msgstr "Журнал изменений"
 
@@ -159,6 +162,12 @@ msgstr "Информация о пользователе"
 
 msgid "Are you sure you want to remove a user?"
 msgstr "Вы уверены, что хотите удалить пользователя?"
+
+msgid "You are not logged in"
+msgstr "Вы не авторизованы"
+
+msgid "Not access"
+msgstr "Нет доступа"
 
 msgid "Account"
 msgstr "Личный кабинет"
@@ -405,9 +414,6 @@ msgstr "Нет"
 
 #~ msgid "Codename"
 #~ msgstr "Код"
-
-#~ msgid "Version"
-#~ msgstr "Версия"
 
 #~ msgid "Searching..."
 #~ msgstr "Поиск..."

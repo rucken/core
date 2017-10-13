@@ -154,6 +154,12 @@ msgstr ""
 msgid "Are you sure you want to remove a user?"
 msgstr ""
 
+msgid "You are not logged in"
+msgstr ""
+
+msgid "Not access"
+msgstr ""
+
 msgid "Account"
 msgstr ""
 

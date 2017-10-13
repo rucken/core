@@ -1,5 +1,5 @@
 import { translate } from '@rucken/core';
-import { ThemesPageComponent } from '@rucken/web';
+import { AuthGuardService, ThemesPageComponent } from '@rucken/web';
 
 export const DemoThemesPageRoutes = [{
   path: '',
@@ -8,5 +8,6 @@ export const DemoThemesPageRoutes = [{
     name: 'themes',
     title: translate('Themes'),
     visible: true
-  }
+  },
+  canActivate: [AuthGuardService]
 }];
