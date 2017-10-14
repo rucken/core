@@ -57,7 +57,7 @@
     "app:github_pages": "npm-run-all app:github_full_build app:github_deploy",
     "app:github_build": "ng build --base-href https://rucken.github.io/core/ --prod --aot --build-optimizer",
     "app:github_full_build": "npm-run-all libs:build libs:link app:github_build app:tools-add_version",
-    "app:github_deploy": "gh-pages -d demo/dist-web",
+    "app:github_deploy": "gh-pages -d demo/dist",
     "app:lite_server": "lite-server -c demo/bs-config.json",
     "app:serve_dev": "ng serve --host 0.0.0.0 --aot=false",
     "app:serve_prod": "ng serve --host 0.0.0.0 --aot",
