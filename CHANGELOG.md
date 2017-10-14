@@ -1,3 +1,18 @@
+<a name="1.17.0"></a>
+# [1.17.0](https://github.com/rucken/core/compare/1.16.0...1.17.0) (2017-10-14)
+
+
+### Bug Fixes
+
+* **components:** Move afterCreate from constructor to OnInit ([519bebd](https://github.com/rucken/core/commit/519bebd))
+
+
+### Features
+
+* **guards:** Add simple guard services ([cc82d7d](https://github.com/rucken/core/commit/cc82d7d))
+
+
+
 <a name="1.16.0"></a>
 # [1.16.0](https://github.com/rucken/core/compare/1.15.3...1.16.0) (2017-10-13)
 
