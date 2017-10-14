@@ -49,7 +49,7 @@
     "web:build": "ngm build -p ./web --clean",
     "web:link-npm": "npm link web",
     "web:link-npm-clear": "./node_modules/.bin/del-cli ./web/node_modules",
-    "web:tools-change_version": "gulp core:change-version",
+    "web:tools-change_version": "gulp web:change-version",
     "web:tools-po2ts": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/web-convert.po.to.ts.json",
     "web:tools-make_ts_list": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/web-make.list.ts.files.json",
     "web:tools-extract_translate": "ngx-translate-extract --input ./web --output ./web/i18n/template.pot --format=pot --marker translate --clean",
