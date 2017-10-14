@@ -1,0 +1,12 @@
+{
+    "po": {
+        "input": {
+            "dir": "./web/i18n"
+        }
+    },
+    "ts": {
+        "output": {
+            "dir": "./web/i18n"
+        }
+    }
+}

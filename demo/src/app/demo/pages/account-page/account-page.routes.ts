@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { translate } from '@rucken/core';
-import { AccountPageComponent } from '@rucken/web';
+import { AccountPageComponent, AuthGuardService } from '@rucken/web';
 
 import { DemoProfileFrameRoutes } from './profile-frame/profile-frame.routes';
 
@@ -22,6 +22,7 @@ export const DemoAccountPageRoutes: Routes = [
       visible: true,
       children: children
     },
-    children: children
+    children: children,
+    canActivate: [AuthGuardService]
   }
 ];

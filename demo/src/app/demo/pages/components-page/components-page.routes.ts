@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { translate } from '@rucken/core';
-import { ComponentsPageComponent } from '@rucken/web';
+import { ComponentsPageComponent, AuthGuardService } from '@rucken/web';
 
 import { DemoControlsFrameRoutes } from './controls-frame/controls-frame.routes';
 
@@ -22,6 +22,7 @@ export const DemoComponentsPageRoutes: Routes = [
       visible: true,
       children: children
     },
-    children: children
+    children: children,
+    canActivate: [AuthGuardService]
   }
 ];

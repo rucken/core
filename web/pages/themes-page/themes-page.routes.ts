@@ -1,7 +1,9 @@
 import { translate } from '@rucken/core';
-import { AuthGuardService, ThemesPageComponent } from '@rucken/web';
 
-export const DemoThemesPageRoutes = [{
+import { AuthGuardService } from '../../guards/auth-guard.service';
+import { ThemesPageComponent } from './themes-page.component';
+
+export const ThemesPageRoutes = [{
   path: '',
   component: ThemesPageComponent,
   data: {

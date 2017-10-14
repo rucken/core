@@ -43,5 +43,7 @@ Thumbs.db
 /dist
 /.tmp
 /demo/aot
-/src/node_modules
 /dist-core
+/dist-web
+/core/node_modules
+/web/node_modules
