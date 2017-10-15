@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { AccountService, AppService } from '@rucken/core';
 import { AuthModalComponent, ConfirmModalComponent, NavbarComponent, SharedService } from '@rucken/web';
 
-import { DemoRoutes } from './../../../app.routes';
+import { DemoRoutes } from './../../app.routes';
 
 @Component({
   selector: 'demo-navbar',

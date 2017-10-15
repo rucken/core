@@ -1,12 +1,12 @@
 {
     "po": {
         "input": {
-            "dir": "./core/i18n"
+            "dir": "./libs/core/src/i18n"
         }
     },
     "ts": {
         "output": {
-            "dir": "./core/i18n"
+            "dir": "./libs/core/src/i18n"
         }
     }
 }

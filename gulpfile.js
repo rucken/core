@@ -5,11 +5,11 @@ var angularCli = require('./.angular-cli.json');
 var path = require('path');
 var fs = require('fs');
 
-gulp.task('web:change-version', function (done) {
-  var srcPackage = require('./web/package.json');
+gulp.task('lib-web:change-version', function (done) {
+  var srcPackage = require('./libs/web/src/package.json');
   srcPackage.version = package.version;
   try {
-    fileName = path.resolve('./web/package.json');
+    fileName = path.resolve('./libs/web/src/package.json');
     fs.writeFileSync(fileName, JSON.stringify(srcPackage, null, 4));
   } catch (error) {
     console.error(error);
@@ -17,11 +17,11 @@ gulp.task('web:change-version', function (done) {
   done();
 });
 
-gulp.task('core:change-version', function (done) {
-  var srcPackage = require('./core/package.json');
+gulp.task('lib-core:change-version', function (done) {
+  var srcPackage = require('./libs/core/src/package.json');
   srcPackage.version = package.version;
   try {
-    fileName = path.resolve('./core/package.json');
+    fileName = path.resolve('./libs/core/src/package.json');
     fs.writeFileSync(fileName, JSON.stringify(srcPackage, null, 4));
   } catch (error) {
     console.error(error);
@@ -29,7 +29,7 @@ gulp.task('core:change-version', function (done) {
   done();
 });
 
-gulp.task('app:add-version', function () {
+gulp.task('app-demo:add-versionn', function () {
   return gulp.src(angularCli.apps[0].outDir + '/index.html')
     .pipe(replace('<%VERSION%>', package.version))
     .pipe(gulp.dest(angularCli.apps[0].outDir));

@@ -5,8 +5,9 @@
   },
   "apps": [
     {
-      "root": "./demo/src",
-      "outDir": "./demo/dist",
+      "name": "demo",
+      "root": "./apps/demo/src",
+      "outDir": "./apps/demo/dist",
       "assets": [
         "assets",
         "favicon.ico"
@@ -18,7 +19,7 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "../../node_modules/ladda/css/ladda.scss",
+        "../../../node_modules/ladda/css/ladda.scss",
         "styles.scss"
       ],
       "scripts": [],
@@ -37,12 +38,8 @@
   },
   "lint": [
     {
-      "files": "src/**/*.ts",
-      "project": "src/tsconfig.json"
-    },
-    {
-      "files": "e2e/**/*.ts",
-      "project": "e2e/tsconfig.json"
+      "files": "apps/demo/src/**/*.ts",
+      "project": "apps/demo/src/tsconfig.json"
     }
   ],
   "test": {

@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "importHelpers": true,
-    "outDir": "../dist-web",
+    "outDir": "../dist",
     "target": "es5",
     "module": "es2015",
     "moduleResolution": "node",
@@ -23,14 +23,14 @@
     ],
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
-      "../node_modules/@types/"
+      "../../../node_modules/@types/"
     ]
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "../typings.d.ts",
+    "../../../typings.d.ts",
     "./index.ts"
   ],
   "angularCompilerOptions": {
