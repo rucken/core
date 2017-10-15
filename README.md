@@ -27,7 +27,7 @@ Core with Admin UI for web and native application maked on Angular4+
 
 [Demo](https://rucken.github.io/core) - Demo application with mock data worked.
 
-[Demo source](https://github.com/rucken/core/tree/master/demo) - Source code of demo application.
+[Demo source](https://github.com/rucken/core/tree/master/apps/demo) - Source code of demo application.
 
 #### Sample projects
 
