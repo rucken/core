@@ -1,6 +1,16 @@
 {
     "name": "@rucken/web",
     "version": "1.17.0",
+    "description": "Base components, services and ui for admin entities for application maked on Angular4+",
+    "keywords": [
+        "ngx",
+        "angular4",
+        "i18n",
+        "shared",
+        "components",
+        "rucken",
+        "web"
+    ],
     "peerDependencies": {
         "@angular/common": "*",
         "@angular/compiler": "*",

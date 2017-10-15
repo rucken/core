@@ -2,13 +2,16 @@
     "name": "@rucken/core",
     "main": "index.js",
     "version": "1.17.0",
-    "description": "Core with base class for application maked on Angular4",
+    "description": "Core with base class and admin entities for application maked on Angular4+",
     "keywords": [
         "ngx",
         "angular4",
+        "i18n",
+        "shared",
         "services",
         "models",
-        "i18n"
+        "rucken",
+        "core"
     ],
     "peerDependencies": {
         "@angular/common": "*",
