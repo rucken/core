@@ -25,7 +25,7 @@
     "outDir": "../temp/out-tsc",
     "target": "es5",
     "typeRoots": [
-      "../node_modules/@types"
+      "../../node_modules/@types"
     ]
   }
 }

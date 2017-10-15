@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
-    "importHelpers": true,
-    "outDir": "../dist-web",
+    "outDir": "../dist",
     "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
     "inlineSources": true,
-    "noEmitHelpers": false,
     "noImplicitAny": true,
     "declaration": true,
     "skipLibCheck": false,
@@ -17,24 +15,28 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
-    "lib": ["dom", "es6"],
+    "lib": [
+      "es5",
+      "es6",
+      "dom"
+    ],
     "types": [
       "jasmine"
     ],
     "suppressImplicitAnyIndexErrors": true,
     "typeRoots": [
-      "../node_modules/@types/"
+      "../../../node_modules/@types/"
     ]
   },
   "exclude": [
     "node_modules"
   ],
   "files": [
-    "../typings.d.ts",
+    "../../../typings.d.ts",
     "./index.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "../temp/factories",
+    "genDir": "../temp-core/factories",
     "strictMetadataEmit": true,
     "skipTemplateCodegen": true
   }

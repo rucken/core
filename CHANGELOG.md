@@ -1,3 +1,18 @@
+<a name="1.18.0"></a>
+# [1.18.0](https://github.com/rucken/core/compare/1.17.0...1.18.0) (2017-10-15)
+
+
+### Bug Fixes
+
+* **scripts:** Fix gulp task name ([9aecaab](https://github.com/rucken/core/commit/9aecaab))
+
+
+### Features
+
+* **refactor:** Move demo app to apps folder, update all files for correct work with him ([6a5c9d4](https://github.com/rucken/core/commit/6a5c9d4))
+
+
+
 <a name="1.17.0"></a>
 # [1.17.0](https://github.com/rucken/core/compare/1.16.0...1.17.0) (2017-10-14)
 
