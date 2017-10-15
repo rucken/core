@@ -29,7 +29,7 @@ gulp.task('lib-core:change-version', function (done) {
   done();
 });
 
-gulp.task('app-demo:add-versionn', function () {
+gulp.task('app-demo:add-version', function () {
   return gulp.src(angularCli.apps[0].outDir + '/index.html')
     .pipe(replace('<%VERSION%>', package.version))
     .pipe(gulp.dest(angularCli.apps[0].outDir));
