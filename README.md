@@ -21,7 +21,7 @@ Core with Admin UI for web and native application maked on Angular4+
 - Read [README.md](https://github.com/rucken/todo-web/blob/master/README.md) for run application
 - Modify app for your business logic
 
-#### Quick links
+## Quick links
 
 [Source](https://github.com/rucken/core) - Source code.
 
@@ -29,7 +29,7 @@ Core with Admin UI for web and native application maked on Angular4+
 
 [Demo source](https://github.com/rucken/core/tree/master/apps/demo) - Source code of demo application.
 
-#### Sample projects
+## Sample projects
 
 [Rucken: Todo](https://github.com/rucken/todo-web) - Simple todo application with: projects, tasks, statuses (backend: http://mockapi.io).
 
