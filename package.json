@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
@@ -84,6 +84,7 @@
     "ng": "ng",
     "test": "npm-run-all app-demo:lint app-demo:github_full_build",
     "build": "npm-run-all app-demo:github_full_build",
+    "deploy": "npm-run-all app-demo:github_deploy",
     "start": "npm-run-all app-demo:start-mockapi"
   },
   "dependencies": {
