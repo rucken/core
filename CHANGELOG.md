@@ -1,3 +1,12 @@
+<a name="1.18.1"></a>
+## [1.18.1](https://github.com/rucken/core/compare/1.18.0...1.18.1) (2017-10-17)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies
+
+
 <a name="1.18.0"></a>
 # [1.18.0](https://github.com/rucken/core/compare/1.17.0...1.18.0) (2017-10-15)
 
