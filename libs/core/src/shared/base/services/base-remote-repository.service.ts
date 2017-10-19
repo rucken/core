@@ -181,7 +181,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }
   }
   create(item: any) {
-    if (item.validate() !== true) {
+    if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
     return this.remoteUpdate(item);
@@ -231,7 +231,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }
   }
   update(item: any) {
-    if (item.validate() !== true) {
+    if ((item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
     return this.remoteUpdate(item);
