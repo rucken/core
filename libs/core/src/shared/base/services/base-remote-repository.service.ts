@@ -231,7 +231,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }
   }
   update(item: any) {
-    if ((item.validate && item.validate() !== true) {
+    if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
     return this.remoteUpdate(item);

@@ -1,5 +1,8 @@
 {
     "scan": {
-        "path": "./apps/demo/src/app"
+        "path": "./apps/demo/src/app",
+        "list": {
+            "name": ""
+        }
     }
 }
