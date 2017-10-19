@@ -181,10 +181,10 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }
   }
   create(item: any) {
-    if (item.validate() !== true) {
+    if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
-    return this.remoteUpdate(item);
+    return this.remoteCreate(item);
   }
   validateError(item: any) {
     const result = new EventEmitter();
@@ -231,7 +231,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }
   }
   update(item: any) {
-    if (item.validate() !== true) {
+    if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
     return this.remoteUpdate(item);

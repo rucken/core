@@ -68,7 +68,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     }
   }
   create(item: any) {
-    if (item.validate() !== true) {
+    if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
     if (this._mockedItems !== null) {
@@ -77,7 +77,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     return this.remoteUpdate(item);
   }
   update(item: any) {
-    if (item.validate() !== true) {
+    if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
     if (this._mockedItems !== null) {

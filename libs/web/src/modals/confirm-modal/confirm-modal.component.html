@@ -8,8 +8,7 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <form (ngSubmit)="ok()">
-        <div class="modal-body">
-          {{message | translate}}
+        <div class="modal-body" [innerHTML]="message | safeHtml">
         </div>
         <div class="modal-footer">
           <footer-buttons (onClose)="close()" (onOk)="ok()" okTitle="{{'Yes'||translate}}"

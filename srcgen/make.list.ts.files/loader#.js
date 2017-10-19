@@ -11,6 +11,7 @@ console.log('Module name: ' + package.name);
 recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
   var exportArray = [];
   var exportEntities = {};
+  var list = [];
   var delmitters = [
     { prefix: 'class ', postfix: ' ' },
     { prefix: 'const ', postfix: ' ' },
@@ -63,6 +64,14 @@ recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
                     }
                   }
                 }
+                if (scan.list.name) {
+                  if (classFile.replace('-' + scan.list.name + '.component', '') !== classFile) {
+                    list.push('\'' + _.kebabCase(className.replace(_.upperFirst(scan.list.name) + 'Component', '')) + '\': ' + className);
+                  }
+                  if (classFile.replace('-' + scan.list.name + '-edit-modal.component', '') !== classFile) {
+                    list.push('\'' + _.kebabCase(className.replace(_.upperFirst(scan.list.name) + 'EditModalComponent', '')) + '-edit\': ' + className);
+                  }
+                }
               }
             }
           }
@@ -73,7 +82,7 @@ recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
                 founded = true;
               }
             }
-            if (!founded && delmitter.prefix !== 'interface ') {
+            if (!founded && delmitter.prefix !== 'interface ' && className.indexOf(_.upperFirst(scan.list.name) + 'sList') == -1) {
               exportEntities['shared'].push(className);
             }
           }
@@ -98,6 +107,10 @@ recursive(scanPath, ['!*.ts', '*node_modules*'], function (err, files) {
       exportArray.push('export const ' + moduleName + _.upperFirst(entities[e] + 's') + ': any[] = [' + exportEntities[entities[e]].join(', ') + '];');
     }
   }
+  if (scan.list.name) {
+    exportArray.push('export const ' + moduleName + _.upperFirst(entities[e]) + 'List: any = {' + list.join(', ') + '};');
+  }
+
   if (exportArray.length > 0) {
     var out = exportArray.join('\n') + '\n';
     require("fs").writeFileSync(path.resolve(scanPath, 'index.ts'), out);
