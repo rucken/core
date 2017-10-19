@@ -1,3 +1,15 @@
+<a name="1.18.2"></a>
+## [1.18.2](https://github.com/rucken/core/compare/1.18.1...1.18.2) (2017-10-19)
+
+
+### Bug Fixes
+
+* **base-service:** Change check validate to optionals method ([8c41d83](https://github.com/rucken/core/commit/8c41d83))
+* **base-service:** Error wrong create action detect ([eccc683](https://github.com/rucken/core/commit/eccc683))
+* **model:** Remove convert pk to number if it undefined or null ([ccf8d38](https://github.com/rucken/core/commit/ccf8d38))
+
+
+
 <a name="1.18.1"></a>
 ## [1.18.1](https://github.com/rucken/core/compare/1.18.0...1.18.1) (2017-10-17)
 
