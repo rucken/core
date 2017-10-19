@@ -76,7 +76,7 @@ export class BaseResourceModel {
         }
       }
     }
-    if (this.pkIsNumber) {
+    if (this.pkIsNumber && obj[this.pkFieldName]) {
       this[this.pkFieldName] = +obj[this.pkFieldName];
     }
   }
