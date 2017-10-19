@@ -24,7 +24,7 @@ export class NavbarComponent extends BaseComponent {
   languagesIsCollapsed = true;
   changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
 
-  private _childrenRoutes: any[] = [];
+  protected _childrenRoutes: any[] = [];
 
   constructor(
     public accountService: AccountService,

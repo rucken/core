@@ -4,7 +4,9 @@ import * as _ from 'lodash';
 
 @Pipe({ name: 'customTranslate' })
 export class CustomTranslatePipe implements PipeTransform {
-  constructor(private _translateService: TranslateService) { }
+  constructor(
+    private _translateService: TranslateService
+  ) { }
   transform(value: string, args: any): any {
     const newArgs: any = {};
     let key = '';

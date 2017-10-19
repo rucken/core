@@ -19,7 +19,7 @@ export class BasePageComponent extends BaseComponent {
   title?: string;
   searchTextValue = '';
 
-  private _childrenRoutes: any[] = [];
+  protected _childrenRoutes: any[] = [];
 
   get account(): any | User {
     return this.accountService.account;
