@@ -8,6 +8,8 @@ import { Subject } from 'rxjs/Subject';
 export class BaseComponent implements OnInit, OnDestroy {
 
   @Input()
+  text = '';
+  @Input()
   tooltipEnable: boolean;
   @Input()
   tooltipText = '';

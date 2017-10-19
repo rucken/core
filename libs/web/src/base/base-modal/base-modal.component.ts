@@ -34,22 +34,27 @@ export class BaseModalComponent extends BaseComponent {
 
   @HostListener('window:popstate', ['$event'])
   onPopState(event: any) {
-    this.modal.hide();
+    if (this.modal && this.modal.hide) {
+      this.modal.hide();
+      // todo: fix history.back();
+    }
   }
 
   init() {
     super.init();
-    this.modal.onHidden.subscribe(() => {
-      this.close();
-      this.afterClose();
-    });
-    this.modal.onShown.subscribe(() => {
-      // todo: fix history.pushState(null, null, this.currentLocation + '/' + _.kebabCase(this.name));
-      if (this.focused) {
-        this.focus();
-      }
-      this.afterOpen();
-    });
+    if (this.modal) {
+      this.modal.onHidden.subscribe(() => {
+        this.close();
+        this.afterClose();
+      });
+      this.modal.onShown.subscribe(() => {
+        // todo: fix history.pushState(null, null, this.currentLocation + '/' + _.kebabCase(this.name));
+        if (this.focused) {
+          this.focus();
+        }
+        this.afterOpen();
+      });
+    }
     if (this.title === undefined) {
       this.title = '';
     }
@@ -76,9 +81,11 @@ export class BaseModalComponent extends BaseComponent {
 
   }
   close() {
-    if (this.hideOnClose && this.modal.isShown) {
-      this.modal.hide();
-      // todo: fix history.back();
+    if (this.modal) {
+      if (this.hideOnClose && this.modal.isShown) {
+        this.modal.hide();
+        // todo: fix history.back();
+      }
     }
     this.onClose.emit(this);
     return false;
