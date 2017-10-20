@@ -1,3 +1,13 @@
+<a name="1.18.3"></a>
+## [1.18.3](https://github.com/rucken/core/compare/1.18.2...1.18.3) (2017-10-20)
+
+
+### Bug Fixes
+
+* **errors:** Add guards to frames and fix work with mock items on grid ([658171c](https://github.com/rucken/core/commit/658171c))
+
+
+
 <a name="1.18.2"></a>
 ## [1.18.2](https://github.com/rucken/core/compare/1.18.1...1.18.2) (2017-10-19)
 
