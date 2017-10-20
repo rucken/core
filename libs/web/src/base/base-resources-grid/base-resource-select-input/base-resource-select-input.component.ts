@@ -46,7 +46,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   @Input()
   width: string = null;
   @Input()
-  loadAll?:boolean;
+  loadAll?: boolean;
 
   items: any[];
   cachedResourcesService: any;

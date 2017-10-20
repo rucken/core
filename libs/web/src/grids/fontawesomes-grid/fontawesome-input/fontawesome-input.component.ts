@@ -41,9 +41,6 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     public translateService: TranslateService
   ) {
     super(translateService);
-  }
-  afterCreate() {
-    super.afterCreate();
     this.cachedResourcesService = this.fontawesomeService.createCache();
   }
   get account(): any | User {

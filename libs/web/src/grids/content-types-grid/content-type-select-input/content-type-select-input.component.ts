@@ -48,9 +48,6 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-  }
-  afterCreate() {
-    super.afterCreate();
     this.cachedResourcesService = this.contentTypeService.createCache();
   }
   changeInputValue(value: string) {

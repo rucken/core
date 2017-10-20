@@ -44,8 +44,8 @@ export class BaseResourcesGridComponent extends BaseComponent {
     }
     return {};
   }
-  set columns(columns) {
-    if (this.cachedResourcesService && JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
+  set columns(columns: any) {
+    if (columns && this.cachedResourcesService && JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
       this.cachedResourcesService.columns = columns;
       this.search(true);
     }

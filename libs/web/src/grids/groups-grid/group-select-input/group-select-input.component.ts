@@ -49,9 +49,6 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-  }
-  afterCreate() {
-    super.afterCreate();
     this.cachedResourcesService = this.groupsService.createCache();
   }
   get account(): any | User {
