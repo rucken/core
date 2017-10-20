@@ -36,7 +36,7 @@ export class BaseResourceInputComponent extends BaseComponent {
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  loadAll = false;
+  loadAll?= false;
 
   items: any[];
   cachedResourcesService: any;
@@ -70,12 +70,12 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
   afterCreate() {
     this.translateService.onLangChange.subscribe(() => this.init());
-  }
-  init() {
-    super.init();
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
     }
+  }
+  init() {
+    super.init();
     if (this.select && this.loadAll) {
       this.search();
     }

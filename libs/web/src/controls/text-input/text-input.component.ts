@@ -61,6 +61,7 @@ export class TextInputComponent extends BaseComponent {
   isNativeDateInput?: boolean;
   @Input()
   startingDay: number;
+
   private _dateValue: any;
 
   constructor(

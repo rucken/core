@@ -10,12 +10,14 @@ export const children = [
   {
     path: 'users',
     loadChildren: './users-frame/users-frame.module#DemoUsersFrameModule',
-    data: DemoUsersFrameRoutes[0].data
+    data: DemoUsersFrameRoutes[0].data,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'groups',
     loadChildren: './groups-frame/groups-frame.module#DemoGroupsFrameModule',
-    data: DemoGroupsFrameRoutes[0].data
+    data: DemoGroupsFrameRoutes[0].data,
+    canActivate: [AuthGuardService]
   }
 ];
 export const DemoAdminPageRoutes: Routes = [

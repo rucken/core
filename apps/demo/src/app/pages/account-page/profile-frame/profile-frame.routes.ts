@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { translate } from '@rucken/core';
 import { ProfileFrameComponent } from '@rucken/web';
+import { AuthGuardService } from '@rucken/web';
 
 export const DemoProfileFrameRoutes: Routes = [
   {
@@ -10,6 +11,7 @@ export const DemoProfileFrameRoutes: Routes = [
       name: 'profile',
       title: translate('Profile'),
       visible: true
-    }
+    },
+    canActivate: [AuthGuardService]
   }
 ];

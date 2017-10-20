@@ -42,11 +42,11 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   @Input()
   hardValue: any = null;
   @Input()
-  select: boolean;
+  select?: boolean;
   @Input()
   width: string = null;
   @Input()
-  loadAll = true;
+  loadAll?= false;
 
   items: any[];
   cachedResourcesService: any;

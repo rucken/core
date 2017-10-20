@@ -10,7 +10,8 @@ const children = [
   {
     path: 'profile',
     loadChildren: './profile-frame/profile-frame.module#ProfileFrameModule',
-    data: ProfileFrameRoutes[0].data
+    data: ProfileFrameRoutes[0].data,
+    canActivate: [AuthGuardService]
   }
 ];
 export const AccountPageRoutes: Routes = [

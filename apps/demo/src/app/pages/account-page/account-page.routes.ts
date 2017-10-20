@@ -9,7 +9,8 @@ export const children = [
   {
     path: 'profile',
     loadChildren: './profile-frame/profile-frame.module#DemoProfileFrameModule',
-    data: DemoProfileFrameRoutes[0].data
+    data: DemoProfileFrameRoutes[0].data,
+    canActivate: [AuthGuardService]
   }
 ];
 export const DemoAccountPageRoutes: Routes = [
