@@ -104,9 +104,6 @@ export class BaseResourcesGridComponent extends BaseComponent {
     if (this.onEnterEnabled) {
       this.onEnterEnabled = true;
     }
-    if (this.readonly) {
-      this.readonly = false;
-    }
     if (this.hardReadonly) {
       this.hardReadonly = true;
     }
