@@ -9,7 +9,8 @@ export const children = [
   {
     path: 'controls',
     loadChildren: './controls-frame/controls-frame.module#DemoControlsFrameModule',
-    data: DemoControlsFrameRoutes[0].data
+    data: DemoControlsFrameRoutes[0].data,
+    canActivate: [AuthGuardService]
   }
 ];
 export const DemoComponentsPageRoutes: Routes = [

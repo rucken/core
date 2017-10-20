@@ -2,15 +2,15 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { AuthHttp } from 'angular2-jwt';
 import {
-    ComponentLoaderFactory,
-    PaginationConfig,
-    PopoverConfig,
-    PositioningService,
-    TabsetConfig,
-    TooltipConfig,
+  ComponentLoaderFactory,
+  PaginationConfig,
+  PopoverConfig,
+  PositioningService,
+  TabsetConfig,
+  TooltipConfig,
 } from 'ngx-bootstrap';
 
 import { SharedModule } from '../../shared/shared.module';
@@ -22,7 +22,7 @@ import { AlertModalModule } from './../../modals/alert-modal/alert-modal.module'
 import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
 import { AuthHttpFactory } from './../../shared/factories/auth-http.factory';
 import {
-    BaseResourceSelectInputConfig,
+  BaseResourceSelectInputConfig,
 } from './../base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { BaseAppComponent } from './base-app.component';
 import { BaseRoutes } from './base-app.routes';
@@ -40,7 +40,7 @@ import { BaseRoutes } from './base-app.routes';
     AlertModalModule.forRoot(),
     NavbarModule.forRoot(),
     AuthModalModule.forRoot(),
-    RouterModule.forRoot(BaseRoutes, { useHash: true })
+    RouterModule.forRoot(BaseRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [
     ComponentLoaderFactory,

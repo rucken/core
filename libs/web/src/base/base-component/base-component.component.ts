@@ -10,7 +10,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   @Input()
   text = '';
   @Input()
-  tooltipEnable: boolean;
+  tooltipEnable?= false;
   @Input()
   tooltipText = '';
   @Input()

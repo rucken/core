@@ -7,12 +7,13 @@ import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-b
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import { UserGroupsGridModule } from './../../user-groups-grid/user-groups-grid.module';
 import { AccountProfileFormComponent } from './account-profile-form.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   imports: [
     SharedModule.forRoot(), FormsModule, TextInputModule.forRoot(),
     CheckboxesInputModule.forRoot(), FooterButtonsModule.forRoot(),
-    UserGroupsGridModule.forRoot()
+    UserGroupsGridModule.forRoot(), ModalModule.forRoot()
   ],
   declarations: [
     AccountProfileFormComponent

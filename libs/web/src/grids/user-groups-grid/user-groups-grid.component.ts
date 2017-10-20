@@ -30,7 +30,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   @Output()
   onSelectItems: EventEmitter<any | UserGroup[] | UserGroup>;
   @Input()
-  readonly: boolean;
+  readonly?: boolean;
   @Input()
   hardReadonly = false;
 

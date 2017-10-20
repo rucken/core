@@ -2,9 +2,9 @@ import 'moment/locale/ru';
 
 import { Component, ComponentFactoryResolver, EventEmitter, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '@rucken/core';
-import { RuckenCoreRuI18n } from '@rucken/core';
 import { translate } from '@rucken/core';
+import { RuckenCoreRuI18n } from '@rucken/core';
+import { AppService } from '@rucken/core';
 import * as _ from 'lodash';
 import * as moment from 'moment/moment';
 
@@ -34,6 +34,7 @@ export class BaseAppComponent extends BaseComponent {
   currentLang: string = null;
   defaultLang = 'en';
   autoLoadLang = true;
+  errorModalOpened = false;
 
   constructor(
     public viewContainerRef: ViewContainerRef,
@@ -74,6 +75,9 @@ export class BaseAppComponent extends BaseComponent {
     this.translateService.use(lang);
   }
   showErrorModal(message: string, title?: string, size?: string): EventEmitter<any> {
+    if (this.errorModalOpened) {
+      return new EventEmitter();
+    }
     if (size === undefined) {
       size = 'md';
     }
@@ -87,6 +91,8 @@ export class BaseAppComponent extends BaseComponent {
     alert.size = size;
     alert.buttonText = this.translateService.instant('Close');
     alert.modal.show();
+    this.errorModalOpened = true;
+    alert.onClose.subscribe(() => this.errorModalOpened = false);
     return alert.onClose;
   }
   showInfoModal(message: string, title?: string, size?: string): EventEmitter<any> {

@@ -10,25 +10,26 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 export class BaseResourcesGridComponent extends BaseComponent {
 
   @Input()
-  loadAll?: boolean;
+  loadAll?= true;
   @Output()
   onSelectItems: EventEmitter<any[] | any> = new EventEmitter();
   @Input()
-  onEnterEnabled?= false;
+  onEnterEnabled?= true;
   @Output()
   onEnter: EventEmitter<any[] | any> = new EventEmitter();
   @Input()
-  readonly: boolean;
+  readonly?: boolean;
   @Input()
-  hardReadonly = false;
+  hardReadonly?= true;
 
   modelMeta: any;
   items: any[];
+  mockedItems?: any[];
   searchText = '';
   selectedItems: any[];
   cachedResourcesService: any;
   maxSelectCount = 1;
-  modalIsOpened: boolean;
+  modalIsOpened?: boolean;
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -55,17 +56,6 @@ export class BaseResourcesGridComponent extends BaseComponent {
       return this.cachedResourcesService.columns;
     }
     return {};
-  }
-  set mockedItems(items) {
-    if (this.cachedResourcesService) {
-      this.cachedResourcesService.mockedItems = items;
-    }
-  }
-  get mockedItems() {
-    if (this.cachedResourcesService) {
-      return this.cachedResourcesService.mockedItems;
-    }
-    return [];
   }
   get statusListMessage() {
     if (!this.cachedResourcesService) {
@@ -102,8 +92,6 @@ export class BaseResourcesGridComponent extends BaseComponent {
         });
     }
     super.init();
-    this.loadAll = this.loadAll === undefined ? true : this.loadAll;
-
     if (this.loadAll) {
       this.search();
     }
@@ -138,6 +126,9 @@ export class BaseResourcesGridComponent extends BaseComponent {
     const filter: any = {};
     if (this.cachedResourcesService) {
       this.cachedResourcesService.ignoreCache = ignoreCache;
+      if (this.mockedItems) {
+        this.cachedResourcesService.mockedItems = this.mockedItems;
+      }
       this.cachedResourcesService.loadAll(this.searchText, filter);
     }
   }

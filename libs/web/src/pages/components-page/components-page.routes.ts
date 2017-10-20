@@ -10,7 +10,8 @@ const children = [
   {
     path: 'controls',
     loadChildren: './controls-frame/controls-frame.module#ControlsFrameModule',
-    data: ControlsFrameRoutes[0].data
+    data: ControlsFrameRoutes[0].data,
+    canActivate: [AuthGuardService]
   }
 ];
 export const ComponentsPageRoutes: Routes = [

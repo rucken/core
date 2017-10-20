@@ -39,23 +39,8 @@ export class DemoAppComponent extends BaseAppComponent {
     super(viewContainerRef, app, resolver, translateService, sharedService);
 
     router.events.subscribe((evt) => {
-      if (evt instanceof NavigationStart) {
-        if (window['showPleaseWait']) {
-          this.pleaseWaitVisible = true;
-          setTimeout(() => {
-            if (!this.pleaseWaitVisible) {
-              return;
-            }
-            window['showPleaseWait'](this.translateService.instant('Loading...'));
-          }, 700);
-        }
-      }
       if (evt instanceof NavigationEnd) {
-        this.pleaseWaitVisible = false;
         document.body.scrollTop = 0;
-        if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
-          window['loading_screen'].finish();
-        }
       }
     });
   }

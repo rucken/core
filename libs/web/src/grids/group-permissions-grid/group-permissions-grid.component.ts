@@ -35,7 +35,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
   @Input()
   group: any | Group;
   @Input()
-  readonly: boolean;
+  readonly?: boolean;
   @Input()
   hardReadonly = false;
 

@@ -23,7 +23,7 @@ export class FooterButtonsComponent extends BaseComponent {
   @Input()
   okTitle = translate('OK');
   @Input()
-  readonly: boolean;
+  readonly?: boolean;
   @Output()
   onClose: EventEmitter<boolean | any> = new EventEmitter();
   @Output()
