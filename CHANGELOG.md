@@ -1,3 +1,13 @@
+<a name="1.18.5"></a>
+## [1.18.5](https://github.com/rucken/core/compare/1.18.4...1.18.5) (2017-10-20)
+
+
+### Bug Fixes
+
+* **base-resources-grid:** Remove set default value for readonly property ([3007e10](https://github.com/rucken/core/commit/3007e10))
+
+
+
 <a name="1.18.4"></a>
 ## [1.18.4](https://github.com/rucken/core/compare/1.18.3...1.18.4) (2017-10-20)
 
