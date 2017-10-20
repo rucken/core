@@ -38,8 +38,6 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-  }
-  afterCreate() {
     this.cachedResourcesService = this.contentTypesService.createCache();
   }
   get account(): any | User {

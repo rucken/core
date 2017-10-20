@@ -38,8 +38,6 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     public translateService: TranslateService
   ) {
     super();
-  }
-  afterCreate() {
     this.cachedResourcesService = this.permissionsService.createCache();
   }
   get account(): any | User {
