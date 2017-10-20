@@ -26,9 +26,9 @@ export class AccountProfileFormComponent extends BaseModalComponent {
   @Input()
   class = '';
   @Input()
-  readonly = false;
+  readonly?: boolean;
   @Input()
-  hideOnClose?= true;
+  hideOnClose?: boolean;
   @Input()
   account: any | User = null;
   @Input()
@@ -49,6 +49,14 @@ export class AccountProfileFormComponent extends BaseModalComponent {
         });
       });
     this.userGroups.search();
+  }
+  afterCreate() {
+    if (this.readonly === undefined) {
+      this.readonly = false;
+    }
+    if (this.hideOnClose === undefined) {
+      this.hideOnClose = true;
+    }
   }
 
   cancel() {

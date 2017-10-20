@@ -22,11 +22,11 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   @Input()
   lookupIcon?= 'fa fa-search';
   @Input()
-  readonly = false;
+  readonly?: boolean;
   @Input()
-  hardReadonly = false;
+  hardReadonly?: boolean;
   @Input()
-  inputReadonly = true;
+  inputReadonly?: boolean;
   @Input()
   placeholder = '';
   @Input()
@@ -46,7 +46,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   @Input()
   width: string = null;
   @Input()
-  loadAll?= false;
+  loadAll?:boolean;
 
   items: any[];
   cachedResourcesService: any;
@@ -95,6 +95,18 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     }
     if (this.tooltipEnable === undefined) {
       this.tooltipEnable = this.config.errorInTooltip;
+    }
+    if (this.readonly === undefined) {
+      this.readonly = false;
+    }
+    if (this.hardReadonly === undefined) {
+      this.hardReadonly = false;
+    }
+    if (this.inputReadonly === undefined) {
+      this.inputReadonly = true;
+    }
+    if (this.loadAll === undefined) {
+      this.loadAll = false;
     }
     this.translateService.onLangChange.subscribe(() => this.init());
   }
