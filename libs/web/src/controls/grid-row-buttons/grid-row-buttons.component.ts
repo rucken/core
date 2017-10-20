@@ -28,9 +28,9 @@ export class GridRowButtonsComponent extends BaseComponent {
   @Output()
   onRemove: EventEmitter<boolean | any> = new EventEmitter();
   @Input()
-  showEdit?= true;
+  showEdit?: boolean;
   @Input()
-  showRemove?= true;
+  showRemove?: boolean;
 
   constructor(public translateService: TranslateService) {
     super();
@@ -41,6 +41,12 @@ export class GridRowButtonsComponent extends BaseComponent {
     }
     if (this.removeTitle === undefined) {
       this.removeTitle = translate('Remove');
+    }
+    if (this.showEdit === undefined) {
+      this.showEdit = true;
+    }
+    if (this.showRemove === undefined) {
+      this.showRemove = true;
     }
   }
   edit() {

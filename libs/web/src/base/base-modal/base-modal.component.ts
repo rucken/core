@@ -14,9 +14,9 @@ export class BaseModalComponent extends BaseComponent {
   @Input()
   class = '';
   @Input()
-  hideOnClose?= true;
+  hideOnClose?: boolean;
   @Input()
-  hideButton?= false;
+  hideButton?: boolean;
   @Input()
   size?: string;
   @Input()
@@ -54,6 +54,12 @@ export class BaseModalComponent extends BaseComponent {
         }
         this.afterOpen();
       });
+    }
+    if (this.hideOnClose === undefined) {
+      this.hideOnClose = true;
+    }
+    if (this.hideButton === false) {
+      this.hideButton = false;
     }
     if (this.title === undefined) {
       this.title = '';

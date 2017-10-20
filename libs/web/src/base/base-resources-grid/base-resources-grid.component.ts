@@ -10,17 +10,17 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 export class BaseResourcesGridComponent extends BaseComponent {
 
   @Input()
-  loadAll?= true;
+  loadAll?: boolean;
   @Output()
   onSelectItems: EventEmitter<any[] | any> = new EventEmitter();
   @Input()
-  onEnterEnabled?= true;
+  onEnterEnabled?: boolean;
   @Output()
   onEnter: EventEmitter<any[] | any> = new EventEmitter();
   @Input()
   readonly?: boolean;
   @Input()
-  hardReadonly?= true;
+  hardReadonly?: boolean;
 
   modelMeta: any;
   items: any[];
@@ -94,6 +94,21 @@ export class BaseResourcesGridComponent extends BaseComponent {
     super.init();
     if (this.loadAll) {
       this.search();
+    }
+  }
+  afterCreate() {
+
+    if (this.loadAll) {
+      this.loadAll = true;
+    }
+    if (this.onEnterEnabled) {
+      this.onEnterEnabled = true;
+    }
+    if (this.readonly) {
+      this.readonly = false;
+    }
+    if (this.hardReadonly) {
+      this.hardReadonly = true;
     }
   }
   focus() {

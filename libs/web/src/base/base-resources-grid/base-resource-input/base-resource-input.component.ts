@@ -16,11 +16,11 @@ export class BaseResourceInputComponent extends BaseComponent {
   @Input()
   lookupIcon?= 'fa fa-search';
   @Input()
-  readonly = false;
+  readonly?: boolean;
   @Input()
-  hardReadonly = false;
+  hardReadonly?: boolean;
   @Input()
-  inputReadonly = true;
+  inputReadonly?: boolean;
   @Input()
   name = 'base-resource';
   @Input()
@@ -36,7 +36,7 @@ export class BaseResourceInputComponent extends BaseComponent {
   @Output()
   modelAsStringChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  loadAll?= false;
+  loadAll?: boolean;
 
   items: any[];
   cachedResourcesService: any;
@@ -72,6 +72,18 @@ export class BaseResourceInputComponent extends BaseComponent {
     this.translateService.onLangChange.subscribe(() => this.init());
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
+    }
+    if (this.loadAll === undefined) {
+      this.loadAll = false;
+    }
+    if (this.readonly === undefined) {
+      this.readonly = false;
+    }
+    if (this.hardReadonly === undefined) {
+      this.hardReadonly = false;
+    }
+    if (this.inputReadonly === undefined) {
+      this.inputReadonly = false;
     }
   }
   init() {

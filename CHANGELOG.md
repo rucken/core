@@ -1,3 +1,13 @@
+<a name="1.18.4"></a>
+## [1.18.4](https://github.com/rucken/core/compare/1.18.3...1.18.4) (2017-10-20)
+
+
+### Bug Fixes
+
+* **components:** Move boolean properties to afterCreate ([e42f193](https://github.com/rucken/core/commit/e42f193))
+
+
+
 <a name="1.18.3"></a>
 ## [1.18.3](https://github.com/rucken/core/compare/1.18.2...1.18.3) (2017-10-20)
 
