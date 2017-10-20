@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {
   AccountService,
@@ -62,7 +62,7 @@ import { DemoHttpHelper } from './shared/helpers/http.helper';
     SharedModule.forRoot(),
     AlertModalModule.forRoot(),
     DemoNavbarModule.forRoot(),
-    RouterModule.forRoot(DemoRoutes, { useHash: true })
+    RouterModule.forRoot(DemoRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [
     ComponentLoaderFactory,
