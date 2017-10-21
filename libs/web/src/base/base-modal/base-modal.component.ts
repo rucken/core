@@ -55,10 +55,12 @@ export class BaseModalComponent extends BaseComponent {
         this.afterOpen();
       });
     }
+  }
+  afterCreate() {
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }
-    if (this.hideButton === false) {
+    if (this.hideButton === undefined) {
       this.hideButton = false;
     }
     if (this.title === undefined) {

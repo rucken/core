@@ -2,6 +2,7 @@ import { Component, EventEmitter, HostListener, Input, Output } from '@angular/c
 import { EndpointStatusEnum } from '@rucken/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'base-resources-grid',
@@ -45,7 +46,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
     return {};
   }
   set columns(columns: any) {
-    if (columns && this.cachedResourcesService && JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
+    if (!_.isEmpty(columns) && this.cachedResourcesService && !_.isEqual(this.cachedResourcesService.columns, columns)) {
       this.cachedResourcesService.columns = columns;
       this.search(true);
     }
@@ -97,14 +98,13 @@ export class BaseResourcesGridComponent extends BaseComponent {
     }
   }
   afterCreate() {
-
-    if (this.loadAll) {
+    if (this.loadAll === undefined) {
       this.loadAll = true;
     }
-    if (this.onEnterEnabled) {
+    if (this.onEnterEnabled === undefined) {
       this.onEnterEnabled = true;
     }
-    if (this.hardReadonly) {
+    if (this.hardReadonly === undefined) {
       this.hardReadonly = true;
     }
   }
