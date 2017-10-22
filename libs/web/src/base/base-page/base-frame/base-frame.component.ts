@@ -34,9 +34,9 @@ export class BaseFrameComponent extends BaseComponent {
   }
   afterCreate() {
     this.sharedService.linkTranslateService();
-    this.translateService.onLangChange.subscribe(() => this.init());
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
     this.accountService.account$.takeUntil(this.destroyed$).subscribe(() => this.init());
-    this.app.onCurrentPageTitle.subscribe(() => this.init());
+    this.app.onCurrentPageTitle.takeUntil(this.destroyed$).subscribe(() => this.init());
   }
   init() {
     super.init();
