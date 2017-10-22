@@ -52,9 +52,6 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.userGroupsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   showCreateModal() {
     if (this.modalIsOpened) {
       return;

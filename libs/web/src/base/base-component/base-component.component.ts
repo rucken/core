@@ -1,4 +1,7 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, EventEmitter, Input, OnDestroy, OnInit } from '@angular/core';
+import { AccountService, User } from '@rucken/core';
 import { Subject } from 'rxjs/Subject';
 
 @Component({
@@ -7,6 +10,8 @@ import { Subject } from 'rxjs/Subject';
 })
 export class BaseComponent implements OnInit, OnDestroy {
 
+  @Input()
+  account: any | User;
   @Input()
   text = '';
   @Input()
@@ -31,6 +36,8 @@ export class BaseComponent implements OnInit, OnDestroy {
   [key: string]: any;
 
   destroyed$: Subject<boolean> = new Subject();
+
+  // accountService: AccountService;
 
   get errorMessage(): any {
     const arr: string[] = [];
@@ -96,6 +103,10 @@ export class BaseComponent implements OnInit, OnDestroy {
         }
         this.tooltipText = this.infoMessage;
       });
+    }
+    if (this.accountService) {
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.account = account);
+      this.account = this.accountService.account;
     }
     setTimeout((out: any) => {
       if (this.focused === true) {

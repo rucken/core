@@ -45,9 +45,6 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     super(translateService);
     this.cachedResourcesService = this.permissionsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   onLookup() {
     const itemModal: PermissionsListModalComponent =
       this.app.modals(this.resolver).create(PermissionsListModalComponent);

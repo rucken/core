@@ -52,9 +52,6 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     super(translateService, config);
     this.cachedResourcesService = this.usersService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   onLookup() {
     const itemModal: UsersListModalComponent =
       this.app.modals(this.resolver).create(UsersListModalComponent);

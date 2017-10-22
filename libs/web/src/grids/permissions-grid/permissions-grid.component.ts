@@ -42,9 +42,6 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.permissionsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   get readonly() {
     return this.hardReadonly || !this.account || !this.account.checkPermissions(['add_permission', 'change_permission', 'delete_permission']);
   }

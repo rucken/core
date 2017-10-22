@@ -107,7 +107,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
       this.onEnterEnabled = true;
     }
     if (this.hardReadonly === undefined) {
-      this.hardReadonly = true;
+      this.hardReadonly = false;
     }
   }
   focus() {

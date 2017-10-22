@@ -57,9 +57,6 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     this.cachedResourcesService.ignoreCache = true;
     this.cachedResourcesService.loadAll(value, filter);
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   onLookup() {
     const itemModal: ContentTypesListModalComponent =
       this.app.modals(this.resolver).create(ContentTypesListModalComponent);

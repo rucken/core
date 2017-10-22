@@ -53,9 +53,6 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
     super(translateService, config);
     this.cachedResourcesService = this.groupsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   onLookup() {
     const itemModal: GroupsListModalComponent =
       this.app.modals(this.resolver).create(GroupsListModalComponent);

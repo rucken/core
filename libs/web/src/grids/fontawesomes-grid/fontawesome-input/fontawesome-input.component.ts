@@ -45,9 +45,6 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     super(translateService);
     this.cachedResourcesService = this.fontawesomeService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   onLookup() {
     const itemModal: FontawesomesListModalComponent =
       this.app.modals(this.resolver).create(FontawesomesListModalComponent);

@@ -42,9 +42,6 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.contentTypesService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   get readonly() {
     return this.hardReadonly || !this.account.checkPermissions(['add_content-type', 'change_content-type', 'delete_content-type']);
   }

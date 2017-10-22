@@ -23,10 +23,6 @@ export class BasePageComponent extends BaseComponent {
 
   protected _childrenRoutes: any[] = [];
 
-  get account(): any | User {
-    return this.accountService.account;
-  }
-
   constructor(
     public accountService: AccountService,
     public app: AppService,

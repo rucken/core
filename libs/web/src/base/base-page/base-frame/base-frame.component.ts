@@ -18,9 +18,6 @@ import { BaseComponent } from './../../base-component/base-component.component';
 export class BaseFrameComponent extends BaseComponent {
 
   title?: string;
-  get account(): any | User {
-    return this.accountService.account;
-  }
 
   constructor(
     public accountService: AccountService,

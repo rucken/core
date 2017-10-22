@@ -41,9 +41,6 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.usersService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   get readonly() {
     return this.hardReadonly || !this.account || !this.account.checkPermissions(['add_user', 'change_user', 'delete_user']);
   }

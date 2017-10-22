@@ -56,9 +56,6 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.groupPermissionsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   showCreateModal() {
     if (this.modalIsOpened) {
       return;

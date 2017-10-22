@@ -42,8 +42,8 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.groupsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
+  init() {
+    super.init();
   }
   get readonly() {
     return this.hardReadonly || !this.account || !this.account.checkPermissions(['add_group', 'change_group', 'delete_group']);

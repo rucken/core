@@ -42,9 +42,6 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.fontawesomeService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   get readonly() {
     return this.hardReadonly || !this.account.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
   }

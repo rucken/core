@@ -65,9 +65,6 @@ export class NavbarComponent extends BaseComponent {
   get version() {
     return `${this.translateService.instant('Version')}: ${this.app.currentVersion}`;
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   set childrenRoutes(routes: any[]) {
     this._childrenRoutes = routes;
   }
