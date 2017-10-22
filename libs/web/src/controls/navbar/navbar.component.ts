@@ -1,10 +1,12 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, ComponentFactoryResolver } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { AppService } from '@rucken/core';
 import { User } from '@rucken/core';
 import { AccountService } from '@rucken/core';
-import { AppService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { SharedService } from '../../shared/services/shared.service';
@@ -44,7 +46,7 @@ export class NavbarComponent extends BaseComponent {
       .subscribe(() => {
         this.isCollapsed = true;
       });
-    this.accountService.account$.subscribe((user: any | User) => {
+    this.accountService.account$.takeUntil(this.destroyed$).subscribe((user: any | User) => {
       this.init();
     });
     this.accountInfo();
@@ -118,7 +120,7 @@ export class NavbarComponent extends BaseComponent {
     confirm.message = this.translateService.instant('Do you really want to leave?');
     confirm.onOk.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
-    this.accountService.changeStatus$.subscribe(status =>
+    this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
@@ -144,7 +146,7 @@ export class NavbarComponent extends BaseComponent {
     itemModal.title = this.translateService.instant('Authorization');
     itemModal.onOk.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
-    this.accountService.changeStatus$.subscribe(status =>
+    this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

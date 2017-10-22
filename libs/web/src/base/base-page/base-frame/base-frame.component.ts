@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -33,7 +35,7 @@ export class BaseFrameComponent extends BaseComponent {
   afterCreate() {
     this.sharedService.linkTranslateService();
     this.translateService.onLangChange.subscribe(() => this.init());
-    this.accountService.account$.subscribe(() => this.init());
+    this.accountService.account$.takeUntil(this.destroyed$).subscribe(() => this.init());
     this.app.onCurrentPageTitle.subscribe(() => this.init());
   }
   init() {
@@ -41,6 +43,7 @@ export class BaseFrameComponent extends BaseComponent {
     let frameTitle: string;
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
+      this.app.currentFrameName = this.name;
     }
     if (this._title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
@@ -50,10 +53,9 @@ export class BaseFrameComponent extends BaseComponent {
           frameTitle = this.translateService.instant(_.upperFirst(this.name));
         }
       }
+      frameTitle = `${this.app.currentPageTitle}: ${frameTitle}`;
+      this.app.currentFrameTitle = frameTitle;
+      this.title = frameTitle;
     }
-    frameTitle = `${this.app.currentPageTitle}: ${frameTitle}`;
-    this.app.currentFrameName = this.name;
-    this.app.currentFrameTitle = frameTitle;
-    this.title = frameTitle;
   }
 }

@@ -1,8 +1,10 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum } from '@rucken/core';
+import * as _ from 'lodash';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
-import * as _ from 'lodash';
 
 @Component({
   selector: 'base-resources-grid',
@@ -81,7 +83,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
   init() {
     if (this.cachedResourcesService) {
-      this.cachedResourcesService.items$.subscribe(
+      this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
         (items: any[]) => {
           this.items = items;
           if (this.items) {

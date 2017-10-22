@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EndpointStatusEnum } from '@rucken/core';
@@ -115,7 +117,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
       this.inputElement.hardValue = this.hardValue;
     }
     if (!this.cachedResourcesService) {
-      this.cachedResourcesService.items$.subscribe(
+      this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
         (pageTypes: any[]) => {
           this.items = pageTypes;
           if (this.inputElement) {

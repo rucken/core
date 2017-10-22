@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -38,13 +40,14 @@ export class BasePageComponent extends BaseComponent {
   afterCreate() {
     this.sharedService.linkTranslateService();
     this.translateService.onLangChange.subscribe(() => this.init());
-    this.accountService.account$.subscribe(() => this.init());
+    this.accountService.account$.takeUntil(this.destroyed$).subscribe(() => this.init());
   }
   init() {
     super.init();
     let pageTitle: string;
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
+      this.app.currentPageName = this.name;
     }
     if (this._title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
@@ -54,10 +57,9 @@ export class BasePageComponent extends BaseComponent {
           pageTitle = this.translateService.instant(_.upperFirst(this.name));
         }
       }
+      this.app.currentPageTitle = pageTitle;
+      this.title = pageTitle;
     }
-    this.app.currentPageName = this.name;
-    this.app.currentPageTitle = pageTitle;
-    this.title = pageTitle;
     this.initChildrenRoutes()
   }
   initChildrenRoutes() {
@@ -83,7 +85,7 @@ export class BasePageComponent extends BaseComponent {
     ).map(
       (item: any) => {
         const newItem = item.data;
-        newItem.url = `${this.name}/${newItem.name}`;
+        newItem.url = `/${this.name}/${newItem.name}`;
         return newItem;
       });
     return this.sortChildrenRoutes(items);

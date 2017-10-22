@@ -71,6 +71,9 @@
     "app-demo:start-dev": "npm-run-all libs:tools-prepare libs:link-npm app-demo:serve_dev",
     "app-demo:start-prod": "npm-run-all libs:tools-prepare libs:link-npm app-demo:serve_prod",
     "app-demo:start-mockapi": "npm-run-all libs:tools-prepare libs:link-npm app-demo:serve_mockapi",
+    "app-demo:start-full_dev": "npm-run-all libs:tools-prepare libs:build libs:link app-demo:serve_dev",
+    "app-demo:start-full_prod": "npm-run-all libs:tools-prepare libs:build libs:link app-demo:serve_prod",
+    "app-demo:start-full_mockapi": "npm-run-all libs:tools-prepare libs:build libs:link app-demo:serve_mockapi",
     "app-demo:tools-extract_translate": "ngx-translate-extract --input ./apps/demo/src/app --output ./apps/demo/src/app/i18n/template.pot --format=pot --marker translate --clean",
     "app-demo:tools-po2ts": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/demo-convert.po.to.ts.json",
     "app-demo:tools-make_ts_list": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/demo-make.list.ts.files.json",
@@ -80,7 +83,7 @@
     "libs:clear": "npm-run-all lib-core:clear lib-web:clear",
     "libs:tools-change_version": "npm-run-all lib-core:tools-change_version lib-web:tools-change_version",
     "libs:tools-prepare": "npm-run-all lib-core:tools-prepare lib-web:tools-prepare",
-    "libs:build": "npm-run-all libs:tools-change_version lib-core:build lib-core:link lib-web:build",
+    "libs:build": "npm-run-all libs:clear libs:tools-change_version lib-core:build lib-core:link lib-web:build",
     "libs:link": "npm-run-all lib-core:link lib-web:link",
     "libs:link-npm": "npm-run-all lib-core:link-npm lib-web:link-npm lib-core:link-npm-clear lib-web:link-npm-clear",
     "apps:clear": "npm-run-all app-demo:clear",
@@ -167,7 +170,7 @@
     "shebang-command": "^1.2.0",
     "srcgen": "^0.3.0",
     "ts-node": "~3.3.0",
-    "tslint": "~5.7.0",
+    "tslint": "~5.8.0",
     "typescript": "~2.5.3",
     "typings": "^2.1.1"
   }

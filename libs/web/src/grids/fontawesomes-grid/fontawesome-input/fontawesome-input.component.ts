@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Fontawesome } from '@rucken/core';
@@ -7,7 +9,7 @@ import { FontawesomeService } from '@rucken/core';
 import { User } from '@rucken/core';
 
 import {
-    BaseResourceInputComponent,
+  BaseResourceInputComponent,
 } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fontawesomes-list-modal.component';
 
@@ -64,7 +66,7 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
