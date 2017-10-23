@@ -1,12 +1,22 @@
+<a name="1.19.1"></a>
+## [1.19.1](https://github.com/rucken/core/compare/1.19.0...1.19.1) (2017-10-23)
+
+
+### Bug Fixes
+
+* **base-repository-servce:** Change remoteUpdate => remoteCreate in create method ([3fbc516](https://github.com/rucken/core/commit/3fbc516))
+
+
+
 <a name="1.19.0"></a>
 # [1.19.0](https://github.com/rucken/core/compare/1.18.5...1.19.0) (2017-10-22)
 
 
 ### Bug Fixes
 
-* **base-resources-grid:** Add check to undefined on chenge columns ([fd4438a](https://github.com/rucken/core/commit/fd4438a))
+* **base-resources-grid:** Add check to undefined on change columns ([fd4438a](https://github.com/rucken/core/commit/fd4438a))
 * **components:** Add takeUntil for all subscribe on Subject ([14eb1aa](https://github.com/rucken/core/commit/14eb1aa))
-* **subscribe:** Add takeUntil to page and frame sfterCreate method ([69be165](https://github.com/rucken/core/commit/69be165))
+* **subscribe:** Add takeUntil to page and frame afterCreate method ([69be165](https://github.com/rucken/core/commit/69be165))
 * **web:** Update set default values on afterCreate ([b29f3bf](https://github.com/rucken/core/commit/b29f3bf))
 
 
