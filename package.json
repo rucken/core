@@ -89,7 +89,7 @@
     "apps:clear": "npm-run-all app-demo:clear",
     "apps:tools-prepare": "npm-run-all app-demo:tools-prepare",
     "all:clear": "npm-run-all libs:clear apps:clear",
-    "all:prepare": "npm-run-all all:clear libs:tools-prepare apps:tools-prepare",
+    "all:prepare": "npm-run-all libs:tools-prepare apps:tools-prepare",
     "gh:build": "npm-run-all app-demo:github_full_build",
     "gh:deploy": "npm-run-all app-demo:github_deploy",
     "ng": "ng",
