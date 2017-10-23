@@ -61,7 +61,7 @@
     "app-demo:github_build": "ng build --app=demo --base-href https://rucken.github.io/core/ --prod --aot --env=mockapi --build-optimizer",
     "app-demo:github_full_build": "npm-run-all libs:build libs:link app-demo:github_build app-demo:tools-add_version",
     "app-demo:github_deploy": "gh-pages -d apps/demo/dist",
-    "app-demo:lite_server": "lite-server -c apps/demo/bs-config.json",
+    "app-demo:lite_server": "lite-server -c bs-config.json",
     "app-demo:serve_dev": "ng serve --app=demo --host 0.0.0.0 --aot=false",
     "app-demo:serve_prod": "ng serve --app=demo --host 0.0.0.0 --aot",
     "app-demo:serve_mockapi": "ng serve --app=demo --host 0.0.0.0 --aot --env=mockapi",

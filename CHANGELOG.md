@@ -4,9 +4,9 @@
 
 ### Bug Fixes
 
-* **base-resources-grid:** Add check to undefined on chenge columns ([fd4438a](https://github.com/rucken/core/commit/fd4438a))
+* **base-resources-grid:** Add check to undefined on change columns ([fd4438a](https://github.com/rucken/core/commit/fd4438a))
 * **components:** Add takeUntil for all subscribe on Subject ([14eb1aa](https://github.com/rucken/core/commit/14eb1aa))
-* **subscribe:** Add takeUntil to page and frame sfterCreate method ([69be165](https://github.com/rucken/core/commit/69be165))
+* **subscribe:** Add takeUntil to page and frame afterCreate method ([69be165](https://github.com/rucken/core/commit/69be165))
 * **web:** Update set default values on afterCreate ([b29f3bf](https://github.com/rucken/core/commit/b29f3bf))
 
 
