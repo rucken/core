@@ -1,3 +1,21 @@
+<a name="1.19.0"></a>
+# [1.19.0](https://github.com/rucken/core/compare/1.18.5...1.19.0) (2017-10-22)
+
+
+### Bug Fixes
+
+* **base-resources-grid:** Add check to undefined on chenge columns ([fd4438a](https://github.com/rucken/core/commit/fd4438a))
+* **components:** Add takeUntil for all subscribe on Subject ([14eb1aa](https://github.com/rucken/core/commit/14eb1aa))
+* **subscribe:** Add takeUntil to page and frame sfterCreate method ([69be165](https://github.com/rucken/core/commit/69be165))
+* **web:** Update set default values on afterCreate ([b29f3bf](https://github.com/rucken/core/commit/b29f3bf))
+
+
+### Features
+
+* **base-component:** Move getter to subscribe to change account ([d65d648](https://github.com/rucken/core/commit/d65d648))
+
+
+
 <a name="1.18.5"></a>
 ## [1.18.5](https://github.com/rucken/core/compare/1.18.4...1.18.5) (2017-10-20)
 

@@ -1,16 +1,18 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, ComponentFactoryResolver, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from '@rucken/core';
-import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
+import { AppService } from '@rucken/core';
+import { User } from '@rucken/core';
 import { UsersService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 import {
-    BaseResourceSelectInputComponent,
+  BaseResourceSelectInputComponent,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import {
-    BaseResourceSelectInputConfig,
+  BaseResourceSelectInputConfig,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
 import { UsersListModalComponent } from './../users-list-modal/users-list-modal.component';
@@ -48,13 +50,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-  }
-  afterCreate() {
-    super.afterCreate();
     this.cachedResourcesService = this.usersService.createCache();
-  }
-  get account(): any | User {
-    return this.accountService.account;
   }
   onLookup() {
     const itemModal: UsersListModalComponent =
@@ -77,7 +73,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

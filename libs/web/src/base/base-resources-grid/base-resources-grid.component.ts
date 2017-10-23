@@ -1,5 +1,8 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum } from '@rucken/core';
+import * as _ from 'lodash';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 
@@ -44,8 +47,8 @@ export class BaseResourcesGridComponent extends BaseComponent {
     }
     return {};
   }
-  set columns(columns) {
-    if (this.cachedResourcesService && JSON.stringify(this.cachedResourcesService.columns) !== JSON.stringify(columns)) {
+  set columns(columns: any) {
+    if (!_.isEmpty(columns) && this.cachedResourcesService && !_.isEqual(this.cachedResourcesService.columns, columns)) {
       this.cachedResourcesService.columns = columns;
       this.search(true);
     }
@@ -80,7 +83,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
   }
   init() {
     if (this.cachedResourcesService) {
-      this.cachedResourcesService.items$.subscribe(
+      this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
         (items: any[]) => {
           this.items = items;
           if (this.items) {
@@ -97,15 +100,14 @@ export class BaseResourcesGridComponent extends BaseComponent {
     }
   }
   afterCreate() {
-
-    if (this.loadAll) {
+    if (this.loadAll === undefined) {
       this.loadAll = true;
     }
-    if (this.onEnterEnabled) {
+    if (this.onEnterEnabled === undefined) {
       this.onEnterEnabled = true;
     }
-    if (this.hardReadonly) {
-      this.hardReadonly = true;
+    if (this.hardReadonly === undefined) {
+      this.hardReadonly = false;
     }
   }
   focus() {

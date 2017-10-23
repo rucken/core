@@ -17,8 +17,4 @@ export class PageHeaderComponent extends BaseComponent {
   constructor(public accountService: AccountService) {
     super();
   }
-
-  get account(): any | User {
-    return this.accountService.account;
-  }
 }

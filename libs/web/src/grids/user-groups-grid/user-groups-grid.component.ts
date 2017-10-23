@@ -1,12 +1,14 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { UserGroup } from '@rucken/core';
-import { User } from '@rucken/core';
-import { Group } from '@rucken/core';
 import { UserGroupsService } from '@rucken/core';
-import { GroupsService } from '@rucken/core';
 import { AppService } from '@rucken/core';
 import { AccountService } from '@rucken/core';
+import { Group } from '@rucken/core';
+import { User } from '@rucken/core';
+import { UserGroup } from '@rucken/core';
+import { GroupsService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
@@ -50,9 +52,6 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.userGroupsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   showCreateModal() {
     if (this.modalIsOpened) {
       return;
@@ -94,7 +93,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = item.group;
     itemModal.modal.show();
     this.selectedItems = [item];
-    this.groupsService.changeStatusItem$.subscribe(status =>
+    this.groupsService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

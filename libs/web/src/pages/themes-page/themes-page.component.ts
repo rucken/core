@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -33,7 +35,7 @@ export class ThemesPageComponent extends BasePageComponent {
 
   init() {
     super.init();
-    this.themService.items$.subscribe(
+    this.themService.items$.takeUntil(this.destroyed$).subscribe(
       (themes: any[] | Theme[]) => {
         this.items = themes;
       }, (errors: any) => {

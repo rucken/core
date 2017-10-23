@@ -30,8 +30,6 @@ export class AccountProfileFormComponent extends BaseModalComponent {
   @Input()
   hideOnClose?: boolean;
   @Input()
-  account: any | User = null;
-  @Input()
   title = '';
   @Input()
   item: any | User = new User();

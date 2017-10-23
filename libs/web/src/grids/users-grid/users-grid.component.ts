@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
@@ -39,9 +41,6 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.usersService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   get readonly() {
     return this.hardReadonly || !this.account || !this.account.checkPermissions(['add_user', 'change_user', 'delete_user']);
   }
@@ -61,7 +60,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -84,7 +83,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -102,7 +101,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }

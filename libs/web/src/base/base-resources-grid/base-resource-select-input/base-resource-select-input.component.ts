@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EndpointStatusEnum } from '@rucken/core';
@@ -46,7 +48,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   @Input()
   width: string = null;
   @Input()
-  loadAll?:boolean;
+  loadAll?: boolean;
 
   items: any[];
   cachedResourcesService: any;
@@ -108,14 +110,12 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     if (this.loadAll === undefined) {
       this.loadAll = false;
     }
-    this.translateService.onLangChange.subscribe(() => this.init());
-  }
-  init() {
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;
     }
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
     if (!this.cachedResourcesService) {
-      this.cachedResourcesService.items$.subscribe(
+      this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
         (pageTypes: any[]) => {
           this.items = pageTypes;
           if (this.inputElement) {
@@ -126,6 +126,8 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
           this.items = [];
         });
     }
+  }
+  init() {
     super.init();
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');

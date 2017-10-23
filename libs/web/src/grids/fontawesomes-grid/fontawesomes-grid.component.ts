@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
@@ -40,9 +42,6 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.fontawesomeService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   get readonly() {
     return this.hardReadonly || !this.account.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
   }
@@ -62,7 +61,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Fontawesome();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -85,7 +84,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Fontawesome(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -103,7 +102,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }

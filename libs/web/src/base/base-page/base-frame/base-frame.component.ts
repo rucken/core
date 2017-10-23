@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,9 +18,6 @@ import { BaseComponent } from './../../base-component/base-component.component';
 export class BaseFrameComponent extends BaseComponent {
 
   title?: string;
-  get account(): any | User {
-    return this.accountService.account;
-  }
 
   constructor(
     public accountService: AccountService,
@@ -32,15 +31,16 @@ export class BaseFrameComponent extends BaseComponent {
   }
   afterCreate() {
     this.sharedService.linkTranslateService();
-    this.translateService.onLangChange.subscribe(() => this.init());
-    this.accountService.account$.subscribe(() => this.init());
-    this.app.onCurrentPageTitle.subscribe(() => this.init());
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
+    this.accountService.account$.takeUntil(this.destroyed$).subscribe(() => this.init());
+    this.app.onCurrentPageTitle.takeUntil(this.destroyed$).subscribe(() => this.init());
   }
   init() {
     super.init();
     let frameTitle: string;
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
+      this.app.currentFrameName = this.name;
     }
     if (this._title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
@@ -50,10 +50,9 @@ export class BaseFrameComponent extends BaseComponent {
           frameTitle = this.translateService.instant(_.upperFirst(this.name));
         }
       }
+      frameTitle = `${this.app.currentPageTitle}: ${frameTitle}`;
+      this.app.currentFrameTitle = frameTitle;
+      this.title = frameTitle;
     }
-    frameTitle = `${this.app.currentPageTitle}: ${frameTitle}`;
-    this.app.currentFrameName = this.name;
-    this.app.currentFrameTitle = frameTitle;
-    this.title = frameTitle;
   }
 }

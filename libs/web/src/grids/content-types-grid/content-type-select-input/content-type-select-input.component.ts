@@ -1,10 +1,12 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, ComponentFactoryResolver, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ContentType } from '@rucken/core';
-import { User } from '@rucken/core';
 import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 import { ContentTypesService } from '@rucken/core';
+import { User } from '@rucken/core';
+import { ContentType } from '@rucken/core';
+import { AccountService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 import {
@@ -48,18 +50,12 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     public config: BaseResourceSelectInputConfig
   ) {
     super(translateService, config);
-  }
-  afterCreate() {
-    super.afterCreate();
     this.cachedResourcesService = this.contentTypeService.createCache();
   }
   changeInputValue(value: string) {
     const filter: any = {};
     this.cachedResourcesService.ignoreCache = true;
     this.cachedResourcesService.loadAll(value, filter);
-  }
-  get account(): any | User {
-    return this.accountService.account;
   }
   onLookup() {
     const itemModal: ContentTypesListModalComponent =
@@ -82,7 +78,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

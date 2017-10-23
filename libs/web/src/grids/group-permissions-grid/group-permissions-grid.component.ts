@@ -1,21 +1,22 @@
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/takeUntil';
 
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountService } from '@rucken/core';
-import { AppService } from '@rucken/core';
-import { Permission } from '@rucken/core';
 import { Group } from '@rucken/core';
 import { GroupPermissionsService } from '@rucken/core';
-import { PermissionsService } from '@rucken/core';
 import { GroupPermission } from '@rucken/core';
 import { User } from '@rucken/core';
+import { Permission } from '@rucken/core';
+import { AppService } from '@rucken/core';
+import { AccountService } from '@rucken/core';
+import { PermissionsService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { PermissionModalComponent } from './../permissions-grid/permission-modal/permission-modal.component';
 import {
-    PermissionsListModalComponent,
+  PermissionsListModalComponent,
 } from './../permissions-grid/permissions-list-modal/permissions-list-modal.component';
 
 @Component({
@@ -55,9 +56,6 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.groupPermissionsService.createCache();
   }
-  get account(): any | User {
-    return this.accountService.account;
-  }
   showCreateModal() {
     if (this.modalIsOpened) {
       return;
@@ -79,7 +77,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
       id: itemModal.item.pk,
       permission: itemModal.item
     })];
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -101,7 +99,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = item.permission;
     itemModal.modal.show();
-    this.permissionsService.changeStatusItem$.subscribe(status =>
+    this.permissionsService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -134,7 +132,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }

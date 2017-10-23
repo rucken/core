@@ -20,8 +20,6 @@ export class AuthModalComponent extends BaseModalComponent {
 
   @Input()
   name = 'auth';
-  @Input()
-  account: any | User = null;
   @Output()
   onClose: EventEmitter<AuthModalComponent | any> = new EventEmitter();
   @Output()
