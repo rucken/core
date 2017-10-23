@@ -1,3 +1,13 @@
+<a name="1.19.1"></a>
+## [1.19.1](https://github.com/rucken/core/compare/1.19.0...1.19.1) (2017-10-23)
+
+
+### Bug Fixes
+
+* **base-repository-servce:** Change remoteUpdate => remoteCreate in create method ([3fbc516](https://github.com/rucken/core/commit/3fbc516))
+
+
+
 <a name="1.19.0"></a>
 # [1.19.0](https://github.com/rucken/core/compare/1.18.5...1.19.0) (2017-10-22)
 
