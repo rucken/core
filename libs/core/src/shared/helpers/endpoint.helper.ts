@@ -33,10 +33,10 @@ export class EndpointHelper {
       }
     }
     return url;
-  };
+  }
   actionRequest(endpointService: any, action?: any, data?: any, direct?: boolean): Observable<Response> {
     return this.httpHelper.post(this.actionUrl(endpointService, action, null), this.actionRequestBody(endpointService, action, data));
-  };
+  }
   actionRequestBody(endpointService: any, action?: any, data?: any) {
     if (data === undefined) {
       data = {};
@@ -45,7 +45,7 @@ export class EndpointHelper {
       data = data.format();
     }
     return data;
-  };
+  }
   actionResponse(endpointService: any, action?: any, response?: Response) {
     let data: any;
     if (response.json && _.isFunction(response.json)) {
@@ -54,7 +54,7 @@ export class EndpointHelper {
       data = response;
     }
     return data;
-  };
+  }
   extractError(error: any, message?: string): any {
     if (message === undefined) {
       message = translate('Unknown error');

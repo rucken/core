@@ -17,7 +17,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
   protected _mockedItems: any[];
 
   constructor(public repositoryHelper: RepositoryHelper) {
-    super(repositoryHelper)
+    super(repositoryHelper);
     this._mockedItems = null;
   }
   get mockedItems() {
@@ -26,7 +26,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
         mapItem.pk = null;
       }
       return mapItem;
-    })
+    });
   }
   set mockedItems(_mockedItems: any[]) {
     if (_mockedItems) {
@@ -35,7 +35,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
           mapItem.pk = this.getMockItemsNextPk(mapItem);
         }
         return mapItem;
-      })
+      });
     } else {
       this._mockedItems = _mockedItems;
     }
@@ -109,7 +109,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
           return true;
         } else {
           return false;
-        };
+        }
       });
       this.localLoadAll(this.repositoryHelper.itemsResponse(this, items));
       this.afterLoadAll(result, filter, null, null);

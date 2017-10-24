@@ -142,10 +142,10 @@ export class BaseComponent implements OnInit, OnDestroy {
         break;
       }
       if (inputElement && inputElement.nativeElement) {
-        inputElement = inputElement.nativeElement
+        inputElement = inputElement.nativeElement;
       } else {
         if (inputElement && inputElement.inputElement) {
-          inputElement = inputElement.inputElement
+          inputElement = inputElement.inputElement;
         } else {
           break;
         }

@@ -20,7 +20,7 @@ export class TableColumnComponent extends BaseComponent {
   @Input()
   set columns(columns: any) {
     this.columnsChange.emit(columns);
-  };
+  }
   @Output()
   columnsChange: EventEmitter<any> = new EventEmitter<any>();
 

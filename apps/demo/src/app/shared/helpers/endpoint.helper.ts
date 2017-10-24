@@ -30,5 +30,5 @@ export class DemoEndpointHelper extends EndpointHelper {
       }
     }
     return url;
-  };
+  }
 }

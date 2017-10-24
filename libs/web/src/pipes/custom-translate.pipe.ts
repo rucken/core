@@ -18,7 +18,7 @@ export class CustomTranslatePipe implements PipeTransform {
     value = this._translateService.parser.interpolate(value, newArgs);
     for (key in args) {
       if (args[key]) {
-        value = _.replace(value, new RegExp(args[key], 'g'), this._translateService.instant(args[key]))
+        value = _.replace(value, new RegExp(args[key], 'g'), this._translateService.instant(args[key]));
       }
     }
     return value;

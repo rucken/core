@@ -44,7 +44,7 @@ export class SelectInputComponent extends BaseComponent {
   @Input()
   placeholder = '';
   @Input()
-  valueField: string
+  valueField: string;
   @Input()
   title: string;
   @Input()
@@ -188,7 +188,7 @@ export class SelectInputComponent extends BaseComponent {
       return this.safeHtml(this.translate(item[this.inputTitleField]));
     }
     return '';
-  };
+  }
   focus() {
     if (this.autoComplete) {
       this.autoComplete.dropdownVisible = true;

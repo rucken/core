@@ -14,7 +14,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 
 @Component({
-  selector: 'navbar',
+  selector: 'navbar',// tslint:disable-line
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   entryComponents: [ConfirmModalComponent, AuthModalComponent]

@@ -29,6 +29,18 @@
         "prod": "environments/environment.prod.ts",
         "mockapi": "environments/environment.mockapi.ts"
       }
+    },
+    {
+      "name": "@rucken/core",
+      "root": "./libs/core/src",
+      "outDir": "./libs/core/dist",
+      "appRoot": ""
+    },
+    {
+      "name": "@rucken/web",
+      "root": "./libs/web/src",
+      "outDir": "./libs/web/dist",
+      "appRoot": ""
     }
   ],
   "e2e": {
@@ -38,7 +50,6 @@
   },
   "lint": [
     {
-      "files": "apps/demo/src/**/*.ts",
       "project": "apps/demo/src/tsconfig.json"
     }
   ],
