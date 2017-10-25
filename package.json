@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.19.1",
+  "version": "1.20.0",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
@@ -90,7 +90,7 @@
     "apps:tools-prepare": "npm-run-all app-demo:tools-prepare",
     "all:clear": "npm-run-all libs:clear apps:clear",
     "all:prepare": "npm-run-all libs:tools-prepare apps:tools-prepare",
-    "gh:build": "npm-run-all app-demo:github_full_build",
+    "gh:build": "npm-run-all apps:clear all:prepare app-demo:github_full_build",
     "gh:deploy": "npm-run-all app-demo:github_deploy",
     "ng": "ng",
     "test": "npm-run-all app-demo:lint app-demo:prod_full_build",
