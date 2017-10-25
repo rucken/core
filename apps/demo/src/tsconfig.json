@@ -13,7 +13,10 @@
     "noUnusedParameters": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom"
+    ],
     "suppressImplicitAnyIndexErrors": true,
     "types": [
       "jasmine",
@@ -27,5 +30,18 @@
     "typeRoots": [
       "../../node_modules/@types"
     ]
-  }
+  },
+  "exclude": [
+    "test.ts",
+    "**/*.spec.ts",
+    "**/*.e2e-spec.ts",
+    "node_modules",
+    "**/*/node_modules",
+    "../../libs/**/tmp",
+    "../../apps/**/tmp",
+    "../../libs/**/dist",
+    "../../apps/**/dist",
+    "../../libs/**/.tmp",
+    "../../apps/**/.tmp"
+  ]
 }
