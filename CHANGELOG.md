@@ -1,3 +1,13 @@
+<a name="1.21.0"></a>
+# [1.21.0](https://github.com/rucken/core/compare/1.20.0...1.21.0) (2017-10-25)
+
+
+### Features
+
+* **configs:** Remove config classes from controls, for DI in others projects ([4c3fea4](https://github.com/rucken/core/commit/4c3fea4))
+
+
+
 <a name="1.20.0"></a>
 # [1.20.0](https://github.com/rucken/core/compare/1.19.1...1.20.0) (2017-10-25)
 
