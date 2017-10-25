@@ -7,7 +7,6 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { PipesModule } from '../../pipes/pipes.module';
 import { SharedModule } from '../../shared/shared.module';
 import { TextInputComponent } from './text-input.component';
-import { TextInputConfig } from './text-input.config';
 
 @NgModule({
   imports: [
@@ -23,7 +22,7 @@ export class TextInputModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TextInputModule,
-      providers: [TextInputConfig]
+      providers: []
     };
   }
 }
