@@ -74,7 +74,7 @@ export class NavbarComponent extends BaseComponent {
         item.data &&
         item.data.visible &&
         this.account &&
-        this.account.checkPermissions([`read_${item.data.name}-page`])
+        this.checkPermissions([`read_${item.data.name}-page`])
     ).map(
       item => {
         const newItem = item.data;

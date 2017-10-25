@@ -46,7 +46,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     super.init();
   }
   get readonly() {
-    return this.hardReadonly || !this.account || !this.account.checkPermissions(['add_group', 'change_group', 'delete_group']);
+    return this.hardReadonly || !this.checkPermissions(['add_group', 'change_group', 'delete_group']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -56,7 +56,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.name = 'createGroup';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['add_group']);
+    itemModal.readonly = this.hardReadonly || !this.checkPermissions(['add_group']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new group');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
@@ -76,7 +76,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.name = 'editGroup';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_group']);
+    itemModal.readonly = this.hardReadonly || !this.checkPermissions(['change_group']);
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit group');
     if (itemModal.readonly) {

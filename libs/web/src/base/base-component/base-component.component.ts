@@ -114,6 +114,12 @@ export class BaseComponent implements OnInit, OnDestroy {
       }
     }, 300);
   }
+  checkPermissions(permissionNames: string[]) {
+    if (this.accountService && this.accountService.account) {
+      return this.accountService.account.checkPermissions(permissionNames);
+    }
+    return false;
+  }
   translate(text: string) {
     if (this.translateService) {
       return this.translateService.instant(text);

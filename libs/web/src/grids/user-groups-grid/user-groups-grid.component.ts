@@ -82,7 +82,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.name = 'editUserGroup';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = this.hardReadonly || !this.account || !this.account.checkPermissions(['change_group']) || this.readonly;
+    itemModal.readonly = this.hardReadonly || !this.checkPermissions(['change_group']) || this.readonly;
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit group');
     if (itemModal.readonly) {
