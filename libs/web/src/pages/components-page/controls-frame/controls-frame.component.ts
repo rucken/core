@@ -29,6 +29,6 @@ export class ControlsFrameComponent extends BaseFrameComponent {
     super(accountService, app, translateService, activatedRoute, router, sharedService);
   }
   get readonly() {
-    return !this.account || !this.account.checkPermissions(['change_controls']);
+    return !this.checkPermissions(['change_controls']);
   }
 }

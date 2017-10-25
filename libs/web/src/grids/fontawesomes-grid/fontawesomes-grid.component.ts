@@ -43,7 +43,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     this.cachedResourcesService = this.fontawesomeService.createCache();
   }
   get readonly() {
-    return this.hardReadonly || !this.account.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
+    return this.hardReadonly || !this.checkPermissions(['add_fontawesome', 'change_fontawesome', 'delete_fontawesome']);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -53,7 +53,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
     itemModal.name = 'createFontawesome';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account.checkPermissions(['add_fontawesome']);
+    itemModal.readonly = !this.checkPermissions(['add_fontawesome']);
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new fontawesome');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
@@ -73,7 +73,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
     itemModal.name = 'editFontawesome';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.account.checkPermissions(['change_fontawesome']);
+    itemModal.readonly = !this.checkPermissions(['change_fontawesome']);
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit fontawesome');
     if (itemModal.readonly) {

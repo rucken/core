@@ -1,3 +1,20 @@
+<a name="1.20.0"></a>
+# [1.20.0](https://github.com/rucken/core/compare/1.19.1...1.20.0) (2017-10-25)
+
+
+### Bug Fixes
+
+* **home-guard:** Change firstHomeActivated to false if first visit is activated ([bf60ba7](https://github.com/rucken/core/commit/bf60ba7))
+* **resource-grid:** Fix getter of columns ([0023de9](https://github.com/rucken/core/commit/0023de9))
+
+
+### Features
+
+* **acccount-service:** Add checkPermissions on accountService and store results in _cachedPermissions ([a56041d](https://github.com/rucken/core/commit/a56041d))
+* **repository-service:** Add setTimeout on call remote actions ([bd735ad](https://github.com/rucken/core/commit/bd735ad))
+
+
+
 <a name="1.19.1"></a>
 ## [1.19.1](https://github.com/rucken/core/compare/1.19.0...1.19.1) (2017-10-23)
 

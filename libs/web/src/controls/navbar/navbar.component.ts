@@ -14,7 +14,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 
 @Component({
-  selector: 'navbar',
+  selector: 'navbar',// tslint:disable-line
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   entryComponents: [ConfirmModalComponent, AuthModalComponent]
@@ -74,7 +74,7 @@ export class NavbarComponent extends BaseComponent {
         item.data &&
         item.data.visible &&
         this.account &&
-        this.account.checkPermissions([`read_${item.data.name}-page`])
+        this.checkPermissions([`read_${item.data.name}-page`])
     ).map(
       item => {
         const newItem = item.data;

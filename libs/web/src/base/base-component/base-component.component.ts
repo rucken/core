@@ -114,6 +114,12 @@ export class BaseComponent implements OnInit, OnDestroy {
       }
     }, 300);
   }
+  checkPermissions(permissionNames: string[]) {
+    if (this.accountService && this.accountService.account) {
+      return this.accountService.account.checkPermissions(permissionNames);
+    }
+    return false;
+  }
   translate(text: string) {
     if (this.translateService) {
       return this.translateService.instant(text);
@@ -142,10 +148,10 @@ export class BaseComponent implements OnInit, OnDestroy {
         break;
       }
       if (inputElement && inputElement.nativeElement) {
-        inputElement = inputElement.nativeElement
+        inputElement = inputElement.nativeElement;
       } else {
         if (inputElement && inputElement.inputElement) {
-          inputElement = inputElement.inputElement
+          inputElement = inputElement.inputElement;
         } else {
           break;
         }

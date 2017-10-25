@@ -17,11 +17,13 @@ export class AccountService {
 
   protected _account: any | User;
   protected _status: EndpointStatusEnum;
+  protected _cachedPermissions: { [permissions: string]: boolean };
 
   constructor(public endpointHelper: EndpointHelper) {
     this.name = 'account';
     this.apiUrl = `${endpointHelper.apiUrl}/${this.name}`;
     this.account$ = <Subject<User>>new Subject();
+    this.account$.subscribe(user => this._cachedPermissions = {});
   }
   get token() {
     // you custom code in extended class
@@ -53,6 +55,16 @@ export class AccountService {
   }
   get account(): any | User {
     return this._account;
+  }
+  checkPermissions(permissionNames: string[]) {
+    if (!this.account) {
+      return false;
+    }
+    const key = JSON.stringify(permissionNames);
+    if (this._cachedPermissions[key] === undefined) {
+      this._cachedPermissions[key] = this.account.checkPermissions(permissionNames);
+    }
+    return this._cachedPermissions[key];
   }
   info(token?: string) {
     const result = new EventEmitter();

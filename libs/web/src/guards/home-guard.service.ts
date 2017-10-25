@@ -33,7 +33,7 @@ export class HomeGuardService extends AuthGuardService {
         );
         return false;
       } else {
-        this.firstHomeActivated = true;
+        this.firstHomeActivated = false;
       }
     }
     return true;

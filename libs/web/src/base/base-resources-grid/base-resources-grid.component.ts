@@ -58,7 +58,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
       this.cachedResourcesService.columns = { id: { sort: 'desc' } };
       return this.cachedResourcesService.columns;
     }
-    return {};
+    return this.cachedResourcesService.columns;
   }
   get statusListMessage() {
     if (!this.cachedResourcesService) {

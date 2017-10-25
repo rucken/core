@@ -30,7 +30,7 @@ export class BaseAppComponent extends BaseComponent {
     code: 'en',
     title: translate('English'),
     dic: null
-  }]
+  }];
   currentLang: string = null;
   defaultLang = 'en';
   autoLoadLang = true;

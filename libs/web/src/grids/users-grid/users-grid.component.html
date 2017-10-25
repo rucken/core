@@ -2,7 +2,7 @@
   <div class="app-grid__toolbar--header">
     <div class="row">
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary" (click)="showCreateModal()" *ngIf="hardReadonly !== true && account && account.checkPermissions(['add_user'])">
+        <button type="button" class="btn btn-primary" (click)="showCreateModal()" *ngIf="hardReadonly !== true && checkPermissions(['add_user'])">
 					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
 				</button>
       </div>
@@ -31,13 +31,13 @@
         <th class="app-grid__table__col-groups">
           <table-column [title]="modelMeta.titles.groups" name="groups" [(columns)]="columns"></table-column>
         </th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_user','delete_user'])"
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && checkPermissions(['change_user','delete_user'])"
           translate>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="statusListMessage">
-        <td class="app-grid__table__col-status-message" [attr.colspan]="5+(hardReadonly !== true && account.checkPermissions(['change_user','delete_user'])?1:0)">
+        <td class="app-grid__table__col-status-message" [attr.colspan]="5+(hardReadonly !== true && checkPermissions(['change_user','delete_user'])?1:0)">
           {{statusListMessage | translate}}
         </td>
       </tr>
@@ -48,9 +48,9 @@
         <td class="app-grid__table__col-asString">{{item.asString}}</td>
         <td class="app-grid__table__col-roles">{{item.rolesAsString}}</td>
         <td class="app-grid__table__col-groups">{{item.groupsAsString}}</td>
-        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && account && account.checkPermissions(['change_user','delete_user'])">
-          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && account && account.checkPermissions(['change_user'])"
-            [showRemove]="hardReadonly !== true && account && account.checkPermissions(['delete_user'])"></grid-row-buttons>
+        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && checkPermissions(['change_user','delete_user'])">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && checkPermissions(['change_user'])"
+            [showRemove]="hardReadonly !== true && checkPermissions(['delete_user'])"></grid-row-buttons>
         </td>
       </tr>
     </tbody>

@@ -56,7 +56,7 @@ export class BasePageComponent extends BaseComponent {
       this.app.currentPageTitle = pageTitle;
       this.title = pageTitle;
     }
-    this.initChildrenRoutes()
+    this.initChildrenRoutes();
   }
   initChildrenRoutes() {
     this.childrenRoutes = this.activatedRoute.snapshot.data && this.activatedRoute.snapshot.data.children ?
@@ -64,7 +64,7 @@ export class BasePageComponent extends BaseComponent {
   }
   sortChildrenRoutes(routes: any[]) {
     return _.sortBy(routes, [
-      (route: any) => { return route.title }
+      (route: any) => route.title
     ]);
   }
   set childrenRoutes(routes: any[]) {
