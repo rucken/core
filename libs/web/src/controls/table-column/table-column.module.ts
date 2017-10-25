@@ -1,8 +1,7 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 
-import { TableColumnComponent } from './table-column.component';
-import { TableColumnConfig } from './table-column.config';
 import { SharedModule } from '../../shared/shared.module';
+import { TableColumnComponent } from './table-column.component';
 
 @NgModule({
   imports: [SharedModule.forRoot()],
@@ -14,7 +13,7 @@ export class TableColumnModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: TableColumnModule,
-      providers: [TableColumnConfig]
+      providers: []
     };
   }
 }

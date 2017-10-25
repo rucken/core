@@ -50,9 +50,9 @@ import { BaseRoutes } from './base-app.routes';
     TabsetConfig,
     PopoverConfig,
     BaseResourceSelectInputConfig,
-    TextInputConfig,
     SelectInputConfig,
     TableColumnConfig,
+    TextInputConfig,
     { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] }
   ],
   bootstrap: [BaseAppComponent]
