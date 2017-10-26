@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import { EndpointStatusEnum } from '@rucken/core';
+import { EndpointStatusEnum, User } from '@rucken/core';
 import * as _ from 'lodash';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
@@ -33,6 +33,12 @@ export class BaseResourcesGridComponent extends BaseComponent {
   cachedResourcesService: any;
   maxSelectCount = 1;
   modalIsOpened?: boolean;
+
+  accessToRead = false;
+  accessToAdd = false;
+  accessToChange = false;
+  accessToDelete = false;
+  accessToManage = false;
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
@@ -87,17 +93,29 @@ export class BaseResourcesGridComponent extends BaseComponent {
         (items: any[]) => {
           this.items = items;
           if (this.items) {
-            this.selectItem(this.items[0], null, true);
+            this.selectItem(this.items[0], undefined, true);
           }
         }, (errors: any) => {
           this.items = [];
           this.selectItem(null);
         });
+      this.items = this.cachedResourcesService.items;
+      if (this.accountService) {
+        this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.initAccesses(this.cachedResourcesService.name));
+      }
+      this.initAccesses(this.cachedResourcesService.name);
     }
     super.init();
     if (this.loadAll) {
       this.search();
     }
+  }
+  initAccesses(contentType?: string) {
+    this.accessToRead = this.accessToManage ? this.accessToManage : this.checkPermissions(['read_' + contentType]);
+    this.accessToCreate = this.accessToManage ? this.accessToManage : this.checkPermissions(['create_' + contentType]);
+    this.accessToChange = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_' + contentType]);
+    this.accessToDelete = this.accessToManage ? this.accessToManage : this.checkPermissions(['delete_' + contentType]);
+    this.accessToManage = this.checkPermissions(['manage_' + contentType]) || (this.accessToAdd && this.accessToChange && this.accessToDelete);
   }
   afterCreate() {
     if (this.loadAll === undefined) {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
@@ -7,7 +7,8 @@ import { TableColumnConfig } from './table-column.config';
 @Component({
   selector: 'table-column',
   templateUrl: './table-column.component.html',
-  styleUrls: ['./table-column.component.scss']
+  styleUrls: ['./table-column.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TableColumnComponent extends BaseComponent {

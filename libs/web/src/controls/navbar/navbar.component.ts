@@ -1,12 +1,13 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+import { ChangeDetectionStrategy, Component, ComponentFactoryResolver } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '@rucken/core';
 import { User } from '@rucken/core';
 import { AccountService } from '@rucken/core';
+import * as _ from 'lodash';
 
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { SharedService } from '../../shared/services/shared.service';
@@ -17,7 +18,8 @@ import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.compone
   selector: 'navbar',// tslint:disable-line
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  entryComponents: [ConfirmModalComponent, AuthModalComponent]
+  entryComponents: [ConfirmModalComponent, AuthModalComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class NavbarComponent extends BaseComponent {
@@ -66,22 +68,24 @@ export class NavbarComponent extends BaseComponent {
     return `${this.translateService.instant('Version')}: ${this.app.currentVersion}`;
   }
   set childrenRoutes(routes: any[]) {
-    this._childrenRoutes = routes;
+    this._childrenRoutes = this.sortChildrenRoutes(routes.filter(
+      (item: any) =>
+        item.data &&
+        this.checkPermissions([`read_${item.data.name}-page`])
+    ));
   }
   get childrenRoutes() {
-    const items: any[] = this._childrenRoutes.filter(
-      item =>
-        item.data &&
-        item.data.visible &&
-        this.account &&
-        this.checkPermissions([`read_${item.data.name}-page`])
-    ).map(
-      item => {
+    return this._childrenRoutes.map(
+      (item: any) => {
         const newItem = item.data;
         newItem.url = `/${newItem.name}`;
         return newItem;
       });
-    return items;
+  }
+  sortChildrenRoutes(routes: any[]) {
+    return _.sortBy(routes, [
+      (route: any) => route.title
+    ]);
   }
   showChangeLog() {
     if (this.changelog) {

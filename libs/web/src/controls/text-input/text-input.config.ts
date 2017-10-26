@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TextInputConfig {
-  isNativeDateInput = true;
+  isNativeDateInput = false;
   errorInTooltip = true;
   maxlength = 250;
   step = 'any';

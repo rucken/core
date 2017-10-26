@@ -41,7 +41,7 @@ export class ProfileFrameComponent extends BaseFrameComponent {
     );
   }
   get readonly() {
-    return !this.checkPermissions(['change_profile']);
+    return !this.accessToChange;
   }
   update(account: any | User) {
     this.accountService.update(account).subscribe(

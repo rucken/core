@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as moment from 'moment/moment';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
@@ -7,11 +7,13 @@ import emailMask from 'text-mask-addons/dist/emailMask';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { TextInputConfig } from './text-input.config';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'text-input',
   templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.scss']
+  styleUrls: ['./text-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TextInputComponent extends BaseComponent {
@@ -62,6 +64,8 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   startingDay: number;
 
+  bsDatepickerConfig: Partial<BsDatepickerConfig>;
+
   private _dateValue: any;
 
   constructor(
@@ -86,6 +90,11 @@ export class TextInputComponent extends BaseComponent {
     if (this.startingDay === undefined) {
       this.startingDay = this.config.startingDay;
     }
+    this.translateService.onLangChange.subscribe(
+      (lang: any) => {
+        this.bsDatepickerConfig = { locale: lang };
+      }
+    );
   }
   init() {
     if (this.type === undefined) {

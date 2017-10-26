@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { User } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
@@ -8,7 +8,8 @@ import { TextInputComponent } from './../../controls/text-input/text-input.compo
 @Component({
   selector: 'auth-modal',
   templateUrl: './auth-modal.component.html',
-  styleUrls: ['./auth-modal.component.scss']
+  styleUrls: ['./auth-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class AuthModalComponent extends BaseModalComponent {

@@ -40,10 +40,10 @@ export class BasePageComponent extends BaseComponent {
   }
   init() {
     super.init();
-    let pageTitle: string;
+    let pageTitle = '';
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
-      this.app.currentPageName = this.name;
+      this.app.currentPageName = this.activatedRoute.snapshot.data.name;
     }
     if (this._title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
@@ -68,15 +68,15 @@ export class BasePageComponent extends BaseComponent {
     ]);
   }
   set childrenRoutes(routes: any[]) {
-    this._childrenRoutes = routes;
-  }
-  get childrenRoutes() {
-    const items: any[] = this._childrenRoutes.filter(
+    this._childrenRoutes = this.sortChildrenRoutes(routes.filter(
       (item: any) =>
         item.data &&
-        item.data.visible &&
-        this.account &&
-        this.account.checkPermissions([`read_${item.data.name}-frame`]) &&
+        this.checkPermissions([`read_${item.data.name}-frame`])
+    ));
+  }
+  get childrenRoutes() {
+    return this._childrenRoutes.filter(
+      (item: any) =>
         this.checkWordInSearchText(item.data.title)
     ).map(
       (item: any) => {
@@ -84,7 +84,6 @@ export class BasePageComponent extends BaseComponent {
         newItem.url = `/${this.name}/${newItem.name}`;
         return newItem;
       });
-    return this.sortChildrenRoutes(items);
   }
   checkWordInSearchText(word: string) {
     return this.translateService.instant(word).toLowerCase().indexOf(this.searchTextValue.toLowerCase()) !== -1;

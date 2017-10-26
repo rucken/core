@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
@@ -6,7 +6,8 @@ import { BaseModalComponent } from './../../base/base-modal/base-modal.component
 @Component({
   selector: 'alert-modal',
   templateUrl: './alert-modal.component.html',
-  styleUrls: ['./alert-modal.component.scss']
+  styleUrls: ['./alert-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class AlertModalComponent extends BaseModalComponent {
