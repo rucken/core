@@ -62,8 +62,6 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   isNativeDateInput?: boolean;
   @Input()
-  tooltipEnable?: boolean;
-  @Input()
   startingDay: number;
 
   bsDatepickerConfig: Partial<BsDatepickerConfig>;

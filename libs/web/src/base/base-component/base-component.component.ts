@@ -15,17 +15,17 @@ export class BaseComponent implements OnInit, OnDestroy {
   @Input()
   text = '';
   @Input()
-  tooltipEnable?= false;
+  tooltipEnable?: boolean;
   @Input()
-  tooltipText = '';
+  tooltipText?: string;
   @Input()
-  tooltipPlacement = 'bottom';
+  tooltipPlacement?: string;
   @Input()
-  tooltipTriggers = 'hover focus';
+  tooltipTriggers?: string;
   @Input()
   name?: string;
   @Input()
-  focused = false;
+  focused: boolean;
   @Input()
   errors: EventEmitter<any> = new EventEmitter<any>();
   @Input()
@@ -103,6 +103,21 @@ export class BaseComponent implements OnInit, OnDestroy {
         }
         this.tooltipText = this.infoMessage;
       });
+    }
+    if (this.tooltipEnable === undefined) {
+      this.tooltipEnable = false;
+    }
+    if (this.focused === undefined) {
+      this.focused = false;
+    }
+    if (this.tooltipText === undefined) {
+      this.tooltipText = '';
+    }
+    if (this.tooltipPlacement === undefined) {
+      this.tooltipPlacement = 'bottom';
+    }
+    if (this.tooltipTriggers === undefined) {
+      this.tooltipTriggers = 'hover focus';
     }
     if (this.accountService) {
       this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.account = account);

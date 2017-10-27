@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.22.0",
+  "version": "1.22.1",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
@@ -102,17 +102,17 @@
     "start": "npm-run-all app-demo:start-mockapi"
   },
   "dependencies": {
-    "@angular/animations": "^4.4.6",
-    "@angular/common": "^4.4.6",
-    "@angular/compiler": "^4.4.6",
-    "@angular/core": "^4.4.6",
-    "@angular/forms": "^4.4.6",
-    "@angular/http": "^4.4.6",
-    "@angular/platform-browser": "^4.4.6",
-    "@angular/platform-browser-dynamic": "^4.4.6",
-    "@angular/platform-webworker": "^4.4.6",
-    "@angular/platform-webworker-dynamic": "^4.4.6",
-    "@angular/router": "^4.4.6",
+    "@angular/animations": "^4.4.5",
+    "@angular/common": "^4.4.5",
+    "@angular/compiler": "^4.4.5",
+    "@angular/core": "^4.4.5",
+    "@angular/forms": "^4.4.5",
+    "@angular/http": "^4.4.5",
+    "@angular/platform-browser": "^4.4.5",
+    "@angular/platform-browser-dynamic": "^4.4.5",
+    "@angular/platform-webworker": "^4.4.5",
+    "@angular/platform-webworker-dynamic": "^4.4.5",
+    "@angular/router": "^4.4.5",
     "@ngui/auto-complete": "^0.16.0",
     "@ngx-translate/core": "^8.0.0",
     "@types/jasmine": "2.6.2",
@@ -137,8 +137,8 @@
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@angular/cli": "^1.4.9",
-    "@angular/compiler-cli": "^4.4.6",
+    "@angular/cli": "^1.4.7",
+    "@angular/compiler-cli": "^4.4.5",
     "@biesbjerg/ngx-translate-extract": "^2.3.2",
     "angular2-template-loader": "^0.6.2",
     "codelyzer": "~3.2.2",
