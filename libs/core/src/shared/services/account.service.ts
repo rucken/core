@@ -116,6 +116,9 @@ export class AccountService {
     return result;
   }
   update(account: any | User) {
+    if (account.validate && account.validate() !== true) {
+      return this.validateError(account);
+    }
     const result = new EventEmitter();
     this.setStatus(EndpointStatusEnum.Updating,
       translate('Updating...')
@@ -132,6 +135,14 @@ export class AccountService {
           translate('Error')
         );
       });
+    return result;
+  }
+  validateError(item: any) {
+    const result = new EventEmitter();
+    result.error(item.validate());
+    this.setStatus(EndpointStatusEnum.Invalid,
+      translate('Error')
+    );
     return result;
   }
 }
