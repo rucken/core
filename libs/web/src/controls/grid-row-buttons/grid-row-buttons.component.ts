@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { translate } from '@rucken/core';
 
@@ -7,7 +7,8 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 @Component({
   selector: 'grid-row-buttons',
   templateUrl: './grid-row-buttons.component.html',
-  styleUrls: ['./grid-row-buttons.component.scss']
+  styleUrls: ['./grid-row-buttons.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class GridRowButtonsComponent extends BaseComponent {

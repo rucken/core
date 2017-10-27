@@ -1,11 +1,12 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'radios-input',
   templateUrl: './radios-input.component.html',
-  styleUrls: ['./radios-input.component.scss']
+  styleUrls: ['./radios-input.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class RadiosInputComponent extends BaseComponent {

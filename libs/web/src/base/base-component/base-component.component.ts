@@ -42,7 +42,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   get errorMessage(): any {
     const arr: string[] = [];
     let text = '';
-    if (this.errorsValue && this.errorsValue[this.name]) {
+    if (this.name && this.errorsValue && this.errorsValue[this.name]) {
       for (let i = 0; i < this.errorsValue[this.name].length; i++) {
         if (this.errorsValue[this.name][i]) {
           text = this.translate(this.errorsValue[this.name][i]);
@@ -58,7 +58,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   get infoMessage(): any {
     const arr: string[] = [];
     let text = '';
-    if (this.infoValue && this.infoValue[this.name]) {
+    if (this.name && this.infoValue && this.infoValue[this.name]) {
       for (let i = 0; i < this.infoValue[this.name].length; i++) {
         if (this.infoValue[this.name][i]) {
           text = this.translate(this.infoValue[this.name][i]);
@@ -115,8 +115,8 @@ export class BaseComponent implements OnInit, OnDestroy {
     }, 300);
   }
   checkPermissions(permissionNames: string[]) {
-    if (this.accountService && this.accountService.account) {
-      return this.accountService.account.checkPermissions(permissionNames);
+    if (this.account) {
+      return this.account.checkPermissions(permissionNames);
     }
     return false;
   }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { translate } from '@rucken/core';
 
@@ -7,7 +7,8 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 @Component({
   selector: 'grid-search-panel',
   templateUrl: './grid-search-panel.component.html',
-  styleUrls: ['./grid-search-panel.component.scss']
+  styleUrls: ['./grid-search-panel.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class GridSearchPanelComponent extends BaseComponent {

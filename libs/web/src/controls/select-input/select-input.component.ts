@@ -1,4 +1,14 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    Output,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
@@ -6,14 +16,13 @@ import { Subject } from 'rxjs/Subject';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { SelectInputConfig } from './select-input.config';
-import { translate } from '@rucken/core';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'select-input',
   templateUrl: './select-input.component.html',
   styleUrls: ['./select-input.component.scss'],
-  encapsulation: ViewEncapsulation.None  // Enable dynamic HTML styles
+  encapsulation: ViewEncapsulation.None,  // Enable dynamic HTML styles,
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SelectInputComponent extends BaseComponent {

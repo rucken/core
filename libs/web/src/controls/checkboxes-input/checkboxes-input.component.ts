@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 
@@ -6,7 +6,8 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 @Component({
   selector: 'checkboxes-input',
   templateUrl: './checkboxes-input.component.html',
-  styleUrls: ['./checkboxes-input.component.scss']
+  styleUrls: ['./checkboxes-input.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CheckboxesInputComponent extends BaseComponent {

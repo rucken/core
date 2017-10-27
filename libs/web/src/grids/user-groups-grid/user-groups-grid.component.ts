@@ -52,6 +52,13 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.userGroupsService.createCache();
   }
+  initAccesses(contentType?: string) {
+    this.accessToRead = true;
+    this.accessToManage = this.checkPermissions(['manage_user']);
+    this.accessToAdd = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_user']);
+    this.accessToChange = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_group']);
+    this.accessToDelete = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_user']);
+  }
   showCreateModal() {
     if (this.modalIsOpened) {
       return;
@@ -82,7 +89,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.name = 'editUserGroup';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = this.hardReadonly || !this.checkPermissions(['change_group']) || this.readonly;
+    itemModal.readonly = this.hardReadonly || !this.accessToChange || this.readonly;
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit group');
     if (itemModal.readonly) {
