@@ -8,7 +8,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
   templateUrl: './footer-buttons.component.html',
   styleUrls: ['./footer-buttons.component.scss'],
   encapsulation: ViewEncapsulation.None,  // Enable dynamic HTML styles
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class FooterButtonsComponent extends BaseComponent {

@@ -19,7 +19,7 @@ import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.compone
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   entryComponents: [ConfirmModalComponent, AuthModalComponent],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class NavbarComponent extends BaseComponent {

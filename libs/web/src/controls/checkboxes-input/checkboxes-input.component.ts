@@ -7,7 +7,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
   selector: 'checkboxes-input',
   templateUrl: './checkboxes-input.component.html',
   styleUrls: ['./checkboxes-input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CheckboxesInputComponent extends BaseComponent {

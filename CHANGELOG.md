@@ -1,3 +1,19 @@
+<a name="1.22.0"></a>
+# [1.22.0](https://github.com/rucken/core/compare/1.21.0...1.22.0) (2017-10-27)
+
+
+### Bug Fixes
+
+* **permissions:** Change name Create to Add ([552640b](https://github.com/rucken/core/commit/552640b))
+* **permissions:** Move check permissions from getter to init method in component ([c6786e2](https://github.com/rucken/core/commit/c6786e2))
+
+
+### Features
+
+* **controls:** Change ChangeDetectionStrategy to OnPush ([2ab7706](https://github.com/rucken/core/commit/2ab7706))
+
+
+
 <a name="1.21.0"></a>
 # [1.21.0](https://github.com/rucken/core/compare/1.20.0...1.21.0) (2017-10-25)
 

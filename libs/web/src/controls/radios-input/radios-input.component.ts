@@ -6,7 +6,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
   selector: 'radios-input',
   templateUrl: './radios-input.component.html',
   styleUrls: ['./radios-input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class RadiosInputComponent extends BaseComponent {

@@ -13,7 +13,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
   selector: 'text-input',
   templateUrl: './text-input.component.html',
   styleUrls: ['./text-input.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TextInputComponent extends BaseComponent {
@@ -61,6 +61,8 @@ export class TextInputComponent extends BaseComponent {
   maxDate?: Date = null;
   @Input()
   isNativeDateInput?: boolean;
+  @Input()
+  tooltipEnable?: boolean;
   @Input()
   startingDay: number;
 

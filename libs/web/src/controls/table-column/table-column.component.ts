@@ -8,7 +8,7 @@ import { TableColumnConfig } from './table-column.config';
   selector: 'table-column',
   templateUrl: './table-column.component.html',
   styleUrls: ['./table-column.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class TableColumnComponent extends BaseComponent {
