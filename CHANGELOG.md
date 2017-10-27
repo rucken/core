@@ -1,3 +1,15 @@
+<a name="1.22.1"></a>
+## [1.22.1](https://github.com/rucken/core/compare/1.22.0...1.22.1) (2017-10-27)
+
+
+### Bug Fixes
+
+* **account-service:** Add local validate before sent request to backend ([080acec](https://github.com/rucken/core/commit/080acec))
+* **deps:** Downgrade angular dependencies, for fast build and stable work ([66a8f39](https://github.com/rucken/core/commit/66a8f39))
+* **tooltip:** Fix show error in tooltip ([067ed35](https://github.com/rucken/core/commit/067ed35))
+
+
+
 <a name="1.22.0"></a>
 # [1.22.0](https://github.com/rucken/core/compare/1.21.0...1.22.0) (2017-10-27)
 
