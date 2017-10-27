@@ -54,10 +54,10 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   }
   initAccesses(contentType?: string) {
     this.accessToRead = true;
-    this.accessToCreate = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_user']);
+    this.accessToManage = this.checkPermissions(['manage_user']);
+    this.accessToAdd = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_user']);
     this.accessToChange = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_group']);
     this.accessToDelete = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_user']);
-    this.accessToManage = (this.accessToAdd && this.accessToChange && this.accessToDelete);
   }
   showCreateModal() {
     if (this.modalIsOpened) {

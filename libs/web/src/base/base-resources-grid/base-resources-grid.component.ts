@@ -88,6 +88,29 @@ export class BaseResourcesGridComponent extends BaseComponent {
     }
   }
   init() {
+    super.init();
+    this.initAccesses(this.cachedResourcesService.name);
+    if (this.loadAll) {
+      this.search();
+    }
+  }
+  initAccesses(contentType?: string) {
+    this.accessToManage = this.checkPermissions(['manage_' + contentType]);
+    this.accessToRead = this.accessToManage ? this.accessToManage : this.checkPermissions(['read_' + contentType]);
+    this.accessToAdd = this.accessToManage ? this.accessToManage : this.checkPermissions(['add_' + contentType]);
+    this.accessToChange = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_' + contentType]);
+    this.accessToDelete = this.accessToManage ? this.accessToManage : this.checkPermissions(['delete_' + contentType]);
+  }
+  afterCreate() {
+    if (this.loadAll === undefined) {
+      this.loadAll = true;
+    }
+    if (this.onEnterEnabled === undefined) {
+      this.onEnterEnabled = true;
+    }
+    if (this.hardReadonly === undefined) {
+      this.hardReadonly = false;
+    }
     if (this.cachedResourcesService) {
       this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
         (items: any[]) => {
@@ -103,29 +126,6 @@ export class BaseResourcesGridComponent extends BaseComponent {
       if (this.accountService) {
         this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.initAccesses(this.cachedResourcesService.name));
       }
-      this.initAccesses(this.cachedResourcesService.name);
-    }
-    super.init();
-    if (this.loadAll) {
-      this.search();
-    }
-  }
-  initAccesses(contentType?: string) {
-    this.accessToRead = this.accessToManage ? this.accessToManage : this.checkPermissions(['read_' + contentType]);
-    this.accessToCreate = this.accessToManage ? this.accessToManage : this.checkPermissions(['create_' + contentType]);
-    this.accessToChange = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_' + contentType]);
-    this.accessToDelete = this.accessToManage ? this.accessToManage : this.checkPermissions(['delete_' + contentType]);
-    this.accessToManage = this.checkPermissions(['manage_' + contentType]) || (this.accessToAdd && this.accessToChange && this.accessToDelete);
-  }
-  afterCreate() {
-    if (this.loadAll === undefined) {
-      this.loadAll = true;
-    }
-    if (this.onEnterEnabled === undefined) {
-      this.onEnterEnabled = true;
-    }
-    if (this.hardReadonly === undefined) {
-      this.hardReadonly = false;
     }
   }
   focus() {

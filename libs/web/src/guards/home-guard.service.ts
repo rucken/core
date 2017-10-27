@@ -25,7 +25,7 @@ export class HomeGuardService extends AuthGuardService {
     this.accessToReadAccountPage = this.accountService.account.checkPermissions(['read_account-page']);
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (this.accessToReadAdminPage === undefined) {
+    if (this.accessToReadAccountPage === undefined) {
       this.initAccesses();
     }
     if (this.accountService.account && route.data.name && route.data.name === 'home' && this.firstHomeActivated) {
