@@ -56,6 +56,13 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     super();
     this.cachedResourcesService = this.groupPermissionsService.createCache();
   }
+  initAccesses(contentType?: string) {
+    this.accessToRead = true;
+    this.accessToCreate = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_group']);
+    this.accessToChange = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_permission']);
+    this.accessToDelete = this.accessToManage ? this.accessToManage : this.checkPermissions(['change_group']);
+    this.accessToManage = (this.accessToAdd && this.accessToChange && this.accessToDelete);
+  }
   showCreateModal() {
     if (this.modalIsOpened) {
       return;
@@ -89,7 +96,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.name = 'editGroupPermission';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.checkPermissions(['change_permission']) || this.readonly;
+    itemModal.readonly = !this.accessToChange || this.readonly;
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit permission');
     if (itemModal.readonly) {

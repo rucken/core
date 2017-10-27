@@ -2,7 +2,7 @@
   <div class="app-grid__toolbar--header">
     <div class="row">
       <div class="col-md-3">
-        <button type="button" class="btn btn-primary" (click)="showCreateModal()" *ngIf="hardReadonly !== true && checkPermissions(['add_fontawesome'])">
+        <button type="button" class="btn btn-primary" (click)="showCreateModal()" *ngIf="hardReadonly !== true && accessToAdd">
 					<span class="fa fa-plus"></span> {{ 'Create' | translate }}
 				</button>
       </div>
@@ -25,13 +25,13 @@
         <th class="app-grid__table__col-class">
           <table-column [title]="modelMeta.titles.class" name="class" [(columns)]="columns"></table-column>
         </th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && checkPermissions(['change_fontawesome','delete_fontawesome'])"
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete)"
           translate>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="statusListMessage">
-        <td class="app-grid__table__col-status-message" [attr.colspan]="3+checkPermissions(['change_fontawesome','delete_fontawesome'])?1:0">
+        <td class="app-grid__table__col-status-message" [attr.colspan]="3+(accessToChange || accessToDelete)?1:0">
           {{statusListMessage | translate}}
         </td>
       </tr>
@@ -40,9 +40,9 @@
         <td class="app-grid__table__col-icon" [innerHtml]="item.iconAsHtml | safeHtml"></td>
         <td class="app-grid__table__col-code">{{item.code}}</td>
         <td class="app-grid__table__col-class">{{item.class}}</td>
-        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && checkPermissions(['change_fontawesome','delete_fontawesome'])">
-          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && checkPermissions(['change_fontawesome'])"
-            [showRemove]="hardReadonly !== true && checkPermissions(['delete_fontawesome'])"></grid-row-buttons>
+        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete)">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && accessToChange"
+            [showRemove]="hardReadonly !== true && accessToDelete"></grid-row-buttons>
         </td>
       </tr>
     </tbody>

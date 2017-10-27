@@ -43,7 +43,7 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     this.cachedResourcesService = this.contentTypesService.createCache();
   }
   get readonly() {
-    return this.hardReadonly || !this.checkPermissions(['add_content-type', 'change_content-type', 'delete_content-type']);
+    return this.hardReadonly || !(this.accessToAdd || this.accessToChange || this.accessToDelete);
   }
   showCreateModal() {
     if (this.modalIsOpened) {
@@ -53,7 +53,7 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
     itemModal.name = 'createContentType';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.checkPermissions(['add_content-type']);
+    itemModal.readonly = !this.accessToAdd;
     itemModal.text = this.translateService.instant('Create');
     itemModal.title = this.translateService.instant('Create new content type');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
@@ -73,7 +73,7 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
     itemModal.name = 'editContentType';
     itemModal.account = this.accountService.account;
-    itemModal.readonly = !this.checkPermissions(['change_content-type']);
+    itemModal.readonly = !this.accessToChange;
     itemModal.text = this.translateService.instant('Save');
     itemModal.title = this.translateService.instant('Edit content type');
     if (itemModal.readonly) {

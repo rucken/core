@@ -5,9 +5,9 @@
         <h4>{{modelMeta.group.titles.permissions | translate}}</h4>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-success pull-right" (click)="showCreateModal()" *ngIf="checkPermissions(['change_group']) && !readonly">
-					<span class="fa fa-plus"></span> {{ 'Append' | translate }}
-				</button>
+        <button type="button" class="btn btn-success pull-right" (click)="showCreateModal()" *ngIf="accessToAdd && !readonly">
+          <span class="fa fa-plus"></span> {{ 'Append' | translate }}
+        </button>
       </div>
     </div>
   </div>
@@ -20,13 +20,13 @@
         <th class="app-grid__table__col-permission">
           <table-column [title]="modelMeta.titles.permission" name="permission" [(columns)]="columns"></table-column>
         </th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && checkPermissions(['change_permission','change_group']) && !readonly"
+        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete) && !readonly"
           translate>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="statusListMessage">
-        <td class="app-grid__table__col-status-message" [attr.colspan]="2+(hardReadonly !== true && checkPermissions(['change_permission','change_group']) && !readonly?1:0)">
+        <td class="app-grid__table__col-status-message" [attr.colspan]="2+(hardReadonly !== true && (accessToChange || accessToDelete) && !readonly?1:0)">
           {{statusListMessage | translate}}
         </td>
       </tr>
@@ -34,9 +34,9 @@
         (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
         <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
         <td class="app-grid__table__col-permission">{{item.permissionAsString}}</td>
-        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && checkPermissions(['change_permission','change_group']) && !readonly">
-          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && checkPermissions(['change_permission']) && !readonly"
-            [showRemove]="hardReadonly !== true && checkPermissions(['change_group'])"></grid-row-buttons>
+        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete) && !readonly">
+          <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && accessToChange && !readonly"
+            [showRemove]="hardReadonly !== true && accessToDelete"></grid-row-buttons>
         </td>
       </tr>
     </tbody>
@@ -48,9 +48,9 @@
       <div class="col-md-9">
         <div class="pull-right" *ngIf="meta.totalPages>1 || meta.totalResults>meta.perPage">
           <pagination [directionLinks]="false" (pageChanged)="pageChanged($event)" [boundaryLinks]="true" [totalItems]="meta.totalResults"
-            [rotate]="false" [maxSize]="5" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed"
-            firstText="&laquo;" lastText="&raquo;"></pagination>
-            <!--fix:[(ngModel)]="meta.curPage"-->
+            [rotate]="false" [maxSize]="5" [itemsPerPage]="meta.perPage" class="pagination-md pagination-compressed" firstText="&laquo;"
+            lastText="&raquo;"></pagination>
+          <!--fix:[(ngModel)]="meta.curPage"-->
         </div>
       </div>
     </div>
