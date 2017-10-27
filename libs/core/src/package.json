@@ -1,7 +1,7 @@
 {
     "name": "@rucken/core",
     "main": "index.js",
-    "version": "1.22.0",
+    "version": "1.22.1",
     "description": "Core with base class and admin entities for application maked on Angular4+",
     "keywords": [
         "ngx",
