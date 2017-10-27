@@ -22,7 +22,7 @@ import { SelectInputConfig } from './select-input.config';
   templateUrl: './select-input.component.html',
   styleUrls: ['./select-input.component.scss'],
   encapsulation: ViewEncapsulation.None,  // Enable dynamic HTML styles,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SelectInputComponent extends BaseComponent {

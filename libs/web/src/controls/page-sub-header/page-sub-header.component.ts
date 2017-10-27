@@ -6,7 +6,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
   selector: 'page-sub-header',
   templateUrl: './page-sub-header.component.html',
   styleUrls: ['./page-sub-header.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class PageSubHeaderComponent extends BaseComponent {
