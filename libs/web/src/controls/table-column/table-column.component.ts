@@ -41,6 +41,7 @@ export class TableColumnComponent extends BaseComponent {
     });
   }
   init() {
+    super.init();
     if (this._columns[this.name] && this._columns[this.name]['title']) {
       this.title = this._columns[this.name]['title'];
     }
