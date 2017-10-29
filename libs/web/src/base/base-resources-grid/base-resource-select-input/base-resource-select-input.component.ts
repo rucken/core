@@ -114,7 +114,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
       this.inputElement.hardValue = this.hardValue;
     }
     this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
-    if (!this.cachedResourcesService) {
+    if (this.cachedResourcesService) {
       this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
         (pageTypes: any[]) => {
           this.items = pageTypes;
@@ -138,7 +138,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   }
   search() {
     const filter: any = {};
-    if (!this.cachedResourcesService) {
+    if (this.cachedResourcesService) {
       this.cachedResourcesService.loadAll('', filter);
     }
   }

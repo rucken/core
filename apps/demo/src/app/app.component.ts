@@ -29,7 +29,6 @@ export class DemoAppComponent extends BaseAppComponent {
   }];
 
   currentLang = 'en';
-  pleaseWaitVisible = false;
 
   constructor(
     public viewContainerRef: ViewContainerRef,
@@ -49,9 +48,12 @@ export class DemoAppComponent extends BaseAppComponent {
   }
   init() {
     super.init();
-    if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
-      window['loading_screen'].finish();
-      this.pleaseWaitVisible = false;
+    try {
+      if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
+        window['loading_screen'].finish();
+      }
+    } catch (error) {
+
     }
   }
 }
