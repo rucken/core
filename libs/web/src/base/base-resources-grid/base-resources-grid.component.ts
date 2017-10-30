@@ -158,10 +158,13 @@ export class BaseResourcesGridComponent extends BaseComponent {
     const filter: any = {};
     if (this.cachedResourcesService) {
       this.cachedResourcesService.ignoreCache = ignoreCache;
-      if (this.mockedItems) {
-        this.cachedResourcesService.mockedItems = this.mockedItems;
-      }
-      this.cachedResourcesService.loadAll(this.searchText, filter);
+      this.searchWithMockedItems(filter);
     }
+  }
+  searchWithMockedItems(filter: any) {
+    if (this.mockedItems) {
+      this.cachedResourcesService.mockedItems = this.mockedItems;
+    }
+    this.cachedResourcesService.loadAll(this.searchText, filter);
   }
 }

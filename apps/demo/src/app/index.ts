@@ -1,7 +1,7 @@
-import { DemoAppComponent } from './app.component';
-export { DemoAppComponent } from './app.component';
 import { DemoAppModule } from './app.module';
 export { DemoAppModule } from './app.module';
+import { DemoAppComponent } from './app.component';
+export { DemoAppComponent } from './app.component';
 import { DemoRoutes } from './app.routes';
 export { DemoRoutes } from './app.routes';
 import { RuckenDemoRuI18n } from './i18n/ru.i18n';
