@@ -202,7 +202,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
       this.repositoryHelper.createItemRequest(this, item)
         .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
         .subscribe((createdItem: any) => {
-          this.afterCreate(result, item, null, null);
+          this.afterCreate(result, createdItem, null, null);
         }, (error: any) => {
           this.afterCreate(result, item, null, error);
         });
