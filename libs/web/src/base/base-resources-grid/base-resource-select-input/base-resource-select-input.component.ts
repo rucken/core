@@ -89,6 +89,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     super();
   }
   afterCreate() {
+    super.afterCreate();
     if (this.select === undefined) {
       this.select = this.config.select;
     }

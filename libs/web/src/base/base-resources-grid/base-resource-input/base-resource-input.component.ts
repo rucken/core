@@ -71,6 +71,7 @@ export class BaseResourceInputComponent extends BaseComponent {
     super();
   }
   afterCreate() {
+    super.afterCreate();
     this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
