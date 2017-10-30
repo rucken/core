@@ -72,7 +72,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
       return this.validateError(item);
     }
     if (this._mockedItems !== null) {
-      return this.mockUpdate(item);
+      return this.mockCreate(item);
     }
     return this.remoteCreate(item);
   }

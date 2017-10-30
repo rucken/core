@@ -89,6 +89,7 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     super();
   }
   afterCreate() {
+    super.afterCreate();
     if (this.select === undefined) {
       this.select = this.config.select;
     }
@@ -108,7 +109,11 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
       this.inputReadonly = true;
     }
     if (this.loadAll === undefined) {
-      this.loadAll = false;
+      if (this.select) {
+        this.loadAll = true;
+      } else {
+        this.loadAll = false;
+      }
     }
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;

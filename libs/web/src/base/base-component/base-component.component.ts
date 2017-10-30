@@ -82,7 +82,12 @@ export class BaseComponent implements OnInit, OnDestroy {
     this.afterCreate();
     this.init();
   }
-  afterCreate() { }
+  afterCreate() {
+    if (this.accountService) {
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.account = account);
+      this.account = this.accountService.account;
+    }
+  }
   init() {
     if (this.errors) {
       this.errors.subscribe((data: any) => {
@@ -118,10 +123,6 @@ export class BaseComponent implements OnInit, OnDestroy {
     }
     if (this.tooltipTriggers === undefined) {
       this.tooltipTriggers = 'hover focus';
-    }
-    if (this.accountService) {
-      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.account = account);
-      this.account = this.accountService.account;
     }
     setTimeout((out: any) => {
       if (this.focused === true) {

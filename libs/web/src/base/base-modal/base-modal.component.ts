@@ -57,6 +57,7 @@ export class BaseModalComponent extends BaseComponent {
     }
   }
   afterCreate() {
+    super.afterCreate();
     if (this.hideOnClose === undefined) {
       this.hideOnClose = true;
     }

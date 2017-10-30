@@ -95,6 +95,7 @@ export class BaseResourcesGridComponent extends BaseComponent {
     }
   }
   initAccesses(contentType?: string) {
+    contentType = contentType ? contentType : this.cachedResourcesService.name;
     this.accessToManage = this.checkPermissions(['manage_' + contentType]);
     this.accessToRead = this.accessToManage ? this.accessToManage : this.checkPermissions(['read_' + contentType]);
     this.accessToAdd = this.accessToManage ? this.accessToManage : this.checkPermissions(['add_' + contentType]);
@@ -123,9 +124,15 @@ export class BaseResourcesGridComponent extends BaseComponent {
           this.selectItem(null);
         });
       this.items = this.cachedResourcesService.items;
-      if (this.accountService) {
-        this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.initAccesses(this.cachedResourcesService.name));
-      }
+    }
+    if (this.accountService) {
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => {
+        this.account = account;
+        if (this.cachedResourcesService) {
+          this.initAccesses(this.cachedResourcesService.name);
+        }
+      });
+      this.account = this.accountService.account;
     }
   }
   focus() {

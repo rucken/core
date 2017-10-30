@@ -49,6 +49,7 @@ export class AccountProfileFormComponent extends BaseModalComponent {
     this.userGroups.search();
   }
   afterCreate() {
+    super.afterCreate();
     if (this.readonly === undefined) {
       this.readonly = false;
     }
