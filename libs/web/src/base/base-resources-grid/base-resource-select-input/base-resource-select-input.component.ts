@@ -108,7 +108,11 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
       this.inputReadonly = true;
     }
     if (this.loadAll === undefined) {
-      this.loadAll = false;
+      if (this.select) {
+        this.loadAll = true;
+      } else {
+        this.loadAll = false;
+      }
     }
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;
