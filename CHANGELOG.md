@@ -1,3 +1,14 @@
+<a name="1.22.2"></a>
+## [1.22.2](https://github.com/rucken/core/compare/1.22.1...1.22.2) (2017-10-30)
+
+
+### Bug Fixes
+
+* **base-remote-repository:** Fix error in remoteCreate method ([a440efa](https://github.com/rucken/core/commit/a440efa))
+* **base-resource-select:** Change check service exists in search method ([686c4ac](https://github.com/rucken/core/commit/686c4ac))
+
+
+
 <a name="1.22.1"></a>
 ## [1.22.1](https://github.com/rucken/core/compare/1.22.0...1.22.1) (2017-10-27)
 
