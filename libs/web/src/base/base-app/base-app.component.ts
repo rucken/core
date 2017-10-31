@@ -51,6 +51,7 @@ export class BaseAppComponent extends BaseComponent {
     super();
   }
   afterCreate() {
+    super.afterCreate();
     // You need this small hack in order to catch application root view container ref
     this.app.viewContainerRef = this.viewContainerRef;
     this.app.component = this;

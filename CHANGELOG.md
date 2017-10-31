@@ -1,3 +1,13 @@
+<a name="1.23.1"></a>
+## [1.23.1](https://github.com/rucken/core/compare/1.23.0...1.23.1) (2017-10-31)
+
+
+### Bug Fixes
+
+* **components:** Add call super.afterCreate() in all afterCreate ([fd8f8fc](https://github.com/rucken/core/commit/fd8f8fc))
+
+
+
 <a name="1.23.0"></a>
 # [1.23.0](https://github.com/rucken/core/compare/1.22.2...1.23.0) (2017-10-30)
 

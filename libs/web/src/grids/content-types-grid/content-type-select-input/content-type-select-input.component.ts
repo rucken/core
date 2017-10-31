@@ -54,8 +54,10 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
   }
   changeInputValue(value: string) {
     const filter: any = {};
-    this.cachedResourcesService.ignoreCache = true;
-    this.cachedResourcesService.loadAll(value, filter);
+    if (this.cachedResourcesService) {
+      this.cachedResourcesService.ignoreCache = true;
+      this.cachedResourcesService.loadAll(value, filter);
+    }
   }
   onLookup() {
     const itemModal: ContentTypesListModalComponent =
