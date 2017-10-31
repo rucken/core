@@ -37,11 +37,14 @@ export class TableColumnComponent extends BaseComponent {
   afterCreate() {
     this.columnsChange.subscribe((columns: any) => {
       this._columns = columns;
-      this.init();
+      this.initProps();
     });
   }
   init() {
     super.init();
+    this.initProps();
+  }
+  initProps() {
     if (this._columns[this.name] && this._columns[this.name]['title']) {
       this.title = this._columns[this.name]['title'];
     }

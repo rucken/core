@@ -72,7 +72,9 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
   afterCreate() {
     super.afterCreate();
-    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() =>
+      this.initSearch()
+    );
     if (this.lookupTooltip === undefined) {
       this.lookupTooltip = this.translateService.instant('Select');
     }
@@ -91,6 +93,9 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
   init() {
     super.init();
+    this.initSearch();
+  }
+  initSearch() {
     if (this.select && this.loadAll) {
       this.search();
     }

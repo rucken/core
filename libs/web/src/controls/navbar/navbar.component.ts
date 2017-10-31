@@ -42,15 +42,19 @@ export class NavbarComponent extends BaseComponent {
     super();
   }
   afterCreate() {
+    super.afterCreate();
     this.sharedService.linkTranslateService();
     this.router.events
       .map(event => event instanceof NavigationStart)
       .subscribe(() => {
         this.isCollapsed = true;
       });
-    this.accountService.account$.takeUntil(this.destroyed$).subscribe((user: any | User) => {
-      this.init();
-    });
+    if (this.accountService) {
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => {
+        this.initRoutes();
+        this.initVersion();
+      });
+    }
     this.accountInfo();
   }
   get languages() {
@@ -98,6 +102,13 @@ export class NavbarComponent extends BaseComponent {
   }
   init() {
     super.init();
+    this.initRoutes();
+    this.initVersion();
+  }
+  initRoutes() {
+    // edit in extended class
+  }
+  initVersion() {
     if (this.app.localVersion !== this.app.currentVersion) {
       this.showChangeLog();
       this.app.localVersion = this.app.currentVersion;

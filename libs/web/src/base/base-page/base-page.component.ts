@@ -34,12 +34,25 @@ export class BasePageComponent extends BaseComponent {
     super();
   }
   afterCreate() {
+    super.afterCreate();
     this.sharedService.linkTranslateService();
-    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
-    this.accountService.account$.takeUntil(this.destroyed$).subscribe(() => this.init());
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => {
+      this.initTitle();
+      this.initChildrenRoutes();
+    });
+    if (this.accountService) {
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => {
+        this.initTitle();
+        this.initChildrenRoutes();
+      });
+    }
   }
   init() {
     super.init();
+    this.initTitle();
+    this.initChildrenRoutes();
+  }
+  initTitle() {
     let pageTitle = '';
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
@@ -56,7 +69,6 @@ export class BasePageComponent extends BaseComponent {
       this.app.currentPageTitle = pageTitle;
       this.title = pageTitle;
     }
-    this.initChildrenRoutes();
   }
   initChildrenRoutes() {
     this.childrenRoutes = this.activatedRoute.snapshot.data && this.activatedRoute.snapshot.data.children ?

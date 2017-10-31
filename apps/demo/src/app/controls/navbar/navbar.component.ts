@@ -28,8 +28,7 @@ export class DemoNavbarComponent extends NavbarComponent {
   ) {
     super(accountService, app, translateService, activatedRoute, router, resolver, sharedService);
   }
-  init() {
-    super.init();
+  initRoutes() {
     this.childrenRoutes = DemoRoutes;
   }
 }

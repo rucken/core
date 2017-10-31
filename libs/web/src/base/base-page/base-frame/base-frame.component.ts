@@ -30,13 +30,15 @@ export class BaseFrameComponent extends BaseComponent {
     super();
   }
   afterCreate() {
+    super.afterCreate();
     this.sharedService.linkTranslateService();
-    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.init());
-    this.accountService.account$.takeUntil(this.destroyed$).subscribe(() => this.init());
-    this.app.onCurrentPageTitle.takeUntil(this.destroyed$).subscribe(() => this.init());
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.initTitle());
+    this.app.onCurrentPageTitle.takeUntil(this.destroyed$).subscribe(() => this.initTitle());
+    if (this.accountService) {
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.initTitle());
+    }
   }
-  init() {
-    super.init();
+  initTitle() {
     let frameTitle: string;
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
@@ -54,5 +56,9 @@ export class BaseFrameComponent extends BaseComponent {
       this.app.currentFrameTitle = frameTitle;
       this.title = frameTitle;
     }
+  }
+  init() {
+    super.init();
+    this.initTitle();
   }
 }
