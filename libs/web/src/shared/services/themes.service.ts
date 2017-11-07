@@ -7,7 +7,7 @@ export class WebThemesService extends ThemesService {
     super(repositoryHelper);
   }
   initTheme() {
-    if (localStorage.getItem('theme')) {
+    if (localStorage.getItem('theme') && localStorage.getItem('theme').indexOf('/3/')!==-1) {
       this.setTheme(new Theme({ url: localStorage.getItem('theme'), name: 'User theme' }));
     }
   }

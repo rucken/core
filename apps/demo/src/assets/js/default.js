@@ -35,7 +35,7 @@ function setLocalTheme(value) {
   localStorage.setItem('theme', value);
 }
 function getLocalTheme() {
-  if (localStorage.getItem('theme')) {
+  if (localStorage.getItem('theme') && localStorage.getItem('theme').indexOf('/3/')!==-1) {
     return localStorage.getItem('theme');
   }
   return false;
