@@ -1,8 +1,7 @@
-import { Injectable, ViewContainerRef } from '@angular/core';
+import { Injectable, Injector, ViewContainerRef } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { BaseRepositoryService } from './../base/services/base-repository.service';
-import { RepositoryHelper } from './../helpers/repository.helper';
 import { ThemeItemsMock } from './../mocks/theme-items.mock';
 import { Theme } from './../models/theme.model';
 
@@ -13,11 +12,13 @@ export class ThemesService extends BaseRepositoryService {
   items: Theme[];
   apiUrl: string;
 
-  constructor(public repositoryHelper: RepositoryHelper) {
-    super(repositoryHelper);
+  constructor(
+    public injector: Injector
+  ) {
+    super(injector);
     this.pluralName = 'themes';
     this.name = 'theme';
-    this.apiUrl = `${repositoryHelper.apiUrl}/${this.pluralName}`;
+    this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<Theme[]>>new Subject();
     this.mockedItems = ThemeItemsMock;
     this.meta.perPage = 100;
@@ -30,7 +31,7 @@ export class ThemesService extends BaseRepositoryService {
     return new Theme(item);
   }
   newCache() {
-    return new ThemesService(this.repositoryHelper);
+    return new ThemesService(this.injector);
   }
   setTheme(theme: Theme) {
     if (!theme.url || theme.pk === this.getCurrentTheme().pk) {

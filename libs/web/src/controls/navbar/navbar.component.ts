@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { ChangeDetectionStrategy, Component, ComponentFactoryResolver } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ComponentFactoryResolver, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationStart, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -28,18 +28,20 @@ export class NavbarComponent extends BaseComponent {
   languagesIsCollapsed = true;
   changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
 
+  activatedRoute: ActivatedRoute;
+  router: Router;
+  resolver: ComponentFactoryResolver;
+
   protected _childrenRoutes: any[] = [];
 
   constructor(
-    public accountService: AccountService,
-    public app: AppService,
-    public translateService: TranslateService,
-    public activatedRoute: ActivatedRoute,
-    public router: Router,
-    public resolver: ComponentFactoryResolver,
-    public sharedService: SharedService
+    public injector: Injector,
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
+    this.activatedRoute = injector.get(ActivatedRoute);
+    this.router = injector.get(Router);
+    this.resolver = injector.get(ComponentFactoryResolver);
   }
   afterCreate() {
     super.afterCreate();

@@ -33,9 +33,6 @@ export class GridRowButtonsComponent extends BaseComponent {
   @Input()
   showRemove?: boolean;
 
-  constructor(public translateService: TranslateService) {
-    super();
-  }
   afterCreate() {
     if (this.editTitle === undefined) {
       this.editTitle = translate('Edit');

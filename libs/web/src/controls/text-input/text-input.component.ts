@@ -1,13 +1,12 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, ElementRef, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import * as moment from 'moment/moment';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import emailMask from 'text-mask-addons/dist/emailMask';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { TextInputConfig } from './text-input.config';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'text-input',
@@ -66,13 +65,15 @@ export class TextInputComponent extends BaseComponent {
 
   bsDatepickerConfig: Partial<BsDatepickerConfig>;
 
+  config: TextInputConfig;
+
   private _dateValue: any;
 
   constructor(
-    public translateService: TranslateService,
-    public config: TextInputConfig
+    public injector: Injector
   ) {
-    super();
+    super(injector);
+    this.config = injector.get(TextInputConfig);
   }
   afterCreate() {
     if (this.isNativeDateInput === undefined) {

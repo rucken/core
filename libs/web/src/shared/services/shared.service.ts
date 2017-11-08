@@ -1,12 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-
 import { AppService } from '@rucken/core';
 
 @Injectable()
 export class SharedService {
-  constructor(public app: AppService, public translateService: TranslateService) {
+  
+  app: AppService;
+  translateService: TranslateService;
 
+  constructor(
+    public injector: Injector
+  ) {
+    this.app = injector.get(AppService);
+    this.translateService = injector.get(TranslateService);
   }
   linkTranslateService() {
     if (

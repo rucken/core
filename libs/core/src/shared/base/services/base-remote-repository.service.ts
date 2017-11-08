@@ -1,13 +1,12 @@
 import 'rxjs/add/operator/map';
 
-import { EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Injector } from '@angular/core';
 import * as _ from 'lodash';
 import { Subject } from 'rxjs/Subject';
 
-import { translate, inValues } from '../../utils/utils';
-import { EndpointStatusEnum } from './../../enums/endpoint-status.enum';
-import { MetaModel } from './../../models/meta.model';
+import { translate } from '../../common/utils';
 import { RepositoryHelper } from '../../helpers/repository.helper';
+import { EndpointStatusEnum } from './../../enums/endpoint-status.enum';
 import { BaseLocalRepositoryService } from './base-local-repository.service';
 
 
@@ -37,14 +36,18 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   protected _statusList: EndpointStatusEnum;
   protected _statusItem: EndpointStatusEnum;
 
+  repositoryHelper: RepositoryHelper
   parent: any = null;
   cached: any = [];
 
-  constructor(public repositoryHelper: RepositoryHelper) {
+  constructor(
+    public injector: Injector
+  ) {
     super();
+    this.repositoryHelper = injector.get(RepositoryHelper);
   }
   newCache(): any {
-    return new BaseRemoteRepositoryService(this.repositoryHelper);
+    return new BaseRemoteRepositoryService(this.injector);
   }
   createCache(): any {
     const cache = this.newCache();

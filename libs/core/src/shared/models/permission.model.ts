@@ -1,5 +1,5 @@
 import { BaseResourceModel } from './../base/models/base-resource.model';
-import { translate } from './../utils/utils';
+import { translate } from './../common/utils';
 import { ContentType } from './content-type.model';
 
 export class Permission extends BaseResourceModel {

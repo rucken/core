@@ -1,10 +1,9 @@
 import 'rxjs/add/operator/map';
 
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { BaseRepositoryService } from './../base/services/base-repository.service';
-import { RepositoryHelper } from './../helpers/repository.helper';
 import { Permission } from './../models/permission.model';
 
 @Injectable()
@@ -13,17 +12,19 @@ export class PermissionsService extends BaseRepositoryService {
   items: Permission[];
   apiUrl: string;
 
-  constructor(public repositoryHelper: RepositoryHelper) {
-    super(repositoryHelper);
+  constructor(
+    public injector: Injector
+  ) {
+    super(injector);
     this.pluralName = 'permissions';
     this.name = 'permission';
-    this.apiUrl = `${repositoryHelper.apiUrl}/${this.pluralName}`;
+    this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<Permission[]>>new Subject();
   }
   transformModel(item: any) {
     return new Permission(item);
   }
   newCache() {
-    return new PermissionsService(this.repositoryHelper);
+    return new PermissionsService(this.injector);
   }
 }

@@ -1,8 +1,12 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, EventEmitter, Input, OnDestroy, OnInit } from '@angular/core';
-import { AccountService, User } from '@rucken/core';
+import { Component, EventEmitter, Injector, Input, OnDestroy, OnInit } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
+import { AccountService, AppService, User } from '@rucken/core';
 import { Subject } from 'rxjs/Subject';
+
+import { SharedService } from '../../shared/services/shared.service';
 
 @Component({
   selector: 'base-component',
@@ -37,7 +41,21 @@ export class BaseComponent implements OnInit, OnDestroy {
 
   destroyed$: Subject<boolean> = new Subject();
 
-  // accountService: AccountService;
+  accountService: AccountService;
+  app: AppService;
+  translateService: TranslateService;
+  sharedService: SharedService;
+  sanitizer: DomSanitizer;
+
+  constructor(
+    public injector: Injector
+  ) {
+    this.accountService = injector.get(AccountService);
+    this.app = injector.get(AppService);
+    this.translateService = injector.get(TranslateService);
+    this.sharedService = injector.get(SharedService);
+    this.sanitizer = injector.get(DomSanitizer);
+  }
 
   get errorMessage(): any {
     const arr: string[] = [];
@@ -143,7 +161,7 @@ export class BaseComponent implements OnInit, OnDestroy {
       return text;
     }
   }
-  safeHtml(html: string) {
+  safeHtml(html: string): SafeHtml | string {
     if (this.sanitizer) {
       return this.sanitizer.bypassSecurityTrustHtml(html);
     } else {

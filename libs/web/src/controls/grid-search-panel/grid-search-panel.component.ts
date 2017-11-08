@@ -22,9 +22,7 @@ export class GridSearchPanelComponent extends BaseComponent {
   onSearch: EventEmitter<string> = new EventEmitter<string>();
   @Input()
   maxlength = 250;
-  constructor(public translateService: TranslateService) {
-    super();
-  }
+  
   afterCreate() {
     if (this.searchTitle === undefined) {
       this.searchTitle = translate('Search');

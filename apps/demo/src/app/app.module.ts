@@ -2,39 +2,39 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, PreloadAllModules } from '@angular/router';
+import { PreloadAllModules, RouterModule } from '@angular/router';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import {
-  AccountService,
-  AppService,
-  EndpointHelper,
-  HttpHelper,
-  RepositoryHelper,
-  RuckenCoreServices,
-  ThemesService,
+    AccountService,
+    AppService,
+    EndpointHelper,
+    HttpHelper,
+    RepositoryHelper,
+    RuckenCoreServices,
+    ThemesService,
 } from '@rucken/core';
 import {
-  AlertModalModule,
-  AuthHttpFactory,
-  BaseResourceSelectInputConfig,
-  RuckenWebServices,
-  SelectInputConfig,
-  SharedModule,
-  TableColumnConfig,
-  TextInputConfig,
-  WebAccountService,
-  WebAppService,
-  WebThemesService,
+    AlertModalModule,
+    AuthHttpFactory,
+    BaseResourceSelectInputConfig,
+    RuckenWebServices,
+    SelectInputConfig,
+    SharedModule,
+    TableColumnConfig,
+    TextInputConfig,
+    WebAccountService,
+    WebAppService,
+    WebThemesService,
 } from '@rucken/web';
 import { AuthHttp } from 'angular2-jwt';
 import { LaddaModule } from 'angular2-ladda';
 import {
-  ComponentLoaderFactory,
-  PaginationConfig,
-  PopoverConfig,
-  PositioningService,
-  TabsetConfig,
-  TooltipConfig,
+    ComponentLoaderFactory,
+    PaginationConfig,
+    PopoverConfig,
+    PositioningService,
+    TabsetConfig,
+    TooltipConfig,
 } from 'ngx-bootstrap';
 
 import { DemoAppComponent } from './app.component';
@@ -63,7 +63,7 @@ import { DemoHttpHelper } from './shared/helpers/http.helper';
     AlertModalModule.forRoot(),
     DemoNavbarModule.forRoot(),
     RouterModule.forRoot(DemoRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })
-  ],
+  ],  
   providers: [
     ComponentLoaderFactory,
     PositioningService,

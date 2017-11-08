@@ -1,9 +1,7 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountService } from '@rucken/core';
-import { AppService } from '@rucken/core';
 import { User } from '@rucken/core';
 import { UsersService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
@@ -11,9 +9,6 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import {
   BaseResourceSelectInputComponent,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
-import {
-  BaseResourceSelectInputConfig,
-} from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
 import { UsersListModalComponent } from './../users-list-modal/users-list-modal.component';
 
@@ -41,15 +36,15 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
   items: any[] | User[];
   cachedResourcesService: UsersService;
 
+  usersService: UsersService;
+
   constructor(
-    public app: AppService,
-    public accountService: AccountService,
-    public usersService: UsersService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService,
-    public config: BaseResourceSelectInputConfig
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super(translateService, config);
+    super(injector);
+    this.usersService = injector.get(UsersService);
     this.cachedResourcesService = this.usersService.createCache();
   }
   onLookup() {

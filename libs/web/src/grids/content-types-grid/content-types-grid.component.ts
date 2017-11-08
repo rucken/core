@@ -1,16 +1,13 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { User } from '@rucken/core';
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
 import { ContentType } from '@rucken/core';
 import { ContentTypesService } from '@rucken/core';
-import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { ContentTypeModalComponent } from './content-type-modal/content-type-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'content-types-grid',
@@ -32,14 +29,15 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
   selectedItems: any[] | ContentType[];
   cachedResourcesService: ContentTypesService;
 
+  contentTypesService: ContentTypesService;
+
   constructor(
-    public contentTypesService: ContentTypesService,
-    public accountService: AccountService,
-    public app: AppService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
+    this.contentTypesService = injector.get(ContentTypesService);
     this.cachedResourcesService = this.contentTypesService.createCache();
   }
   get readonly() {

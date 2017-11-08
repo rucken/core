@@ -22,9 +22,6 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-msgid "Select"
-msgstr ""
-
 msgid "Cancel"
 msgstr ""
 
@@ -53,6 +50,9 @@ msgid "Do you really want to leave?"
 msgstr ""
 
 msgid "Authorization"
+msgstr ""
+
+msgid "Select"
 msgstr ""
 
 msgid "Content types"

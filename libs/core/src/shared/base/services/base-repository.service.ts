@@ -1,25 +1,16 @@
 import 'rxjs/add/operator/map';
 
-import { EventEmitter, Injectable } from '@angular/core';
-import * as _ from 'lodash';
-import { Subject } from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
 
-import { translate, inValues } from '../../utils/utils';
-import { EndpointStatusEnum } from './../../enums/endpoint-status.enum';
-import { MetaModel } from './../../models/meta.model';
-import { RepositoryHelper } from '../../helpers/repository.helper';
+import { inValues, translate } from '../../common/utils';
 import { BaseRemoteRepositoryService } from './base-remote-repository.service';
 
 
 @Injectable()
 export class BaseRepositoryService extends BaseRemoteRepositoryService {
 
-  protected _mockedItems: any[];
+  protected _mockedItems: any[] = null;
 
-  constructor(public repositoryHelper: RepositoryHelper) {
-    super(repositoryHelper);
-    this._mockedItems = null;
-  }
   get mockedItems() {
     return this._mockedItems.map((mapItem: any) => {
       if (mapItem && mapItem.pkIsNumber && mapItem.pk < 0) {

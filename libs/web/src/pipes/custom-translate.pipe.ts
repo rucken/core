@@ -1,12 +1,18 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Injector, Pipe, PipeTransform } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
 
 @Pipe({ name: 'customTranslate' })
 export class CustomTranslatePipe implements PipeTransform {
+
+  private _translateService: TranslateService;
+
   constructor(
-    private _translateService: TranslateService
-  ) { }
+    public injector: Injector
+  ) {
+    this._translateService = injector.get(TranslateService);
+  }
+
   transform(value: string, args: any): any {
     const newArgs: any = {};
     let key = '';

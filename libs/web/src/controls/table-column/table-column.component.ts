@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, EventEmitter, Injector, Input, Output } from '@angular/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { TableColumnConfig } from './table-column.config';
@@ -25,14 +24,16 @@ export class TableColumnComponent extends BaseComponent {
   @Output()
   columnsChange: EventEmitter<any> = new EventEmitter<any>();
 
+  config: TableColumnConfig;
+
   sortIcon: string;
   _columns: any = {};
 
   constructor(
-    public translateService: TranslateService,
-    public config: TableColumnConfig
+    public injector: Injector
   ) {
-    super();
+    super(injector);
+    this.config = injector.get(TableColumnConfig);
   }
   afterCreate() {
     this.columnsChange.subscribe((columns: any) => {

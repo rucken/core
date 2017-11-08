@@ -1,10 +1,9 @@
 import 'rxjs/add/operator/map';
 
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { BaseRepositoryService } from './../base/services/base-repository.service';
-import { RepositoryHelper } from './../helpers/repository.helper';
 import { GroupPermission } from './../models/group-permission.model';
 
 @Injectable()
@@ -13,11 +12,13 @@ export class GroupPermissionsService extends BaseRepositoryService {
   items: GroupPermission[];
   apiUrl: string;
 
-  constructor(public repositoryHelper: RepositoryHelper) {
-    super(repositoryHelper);
+  constructor(
+    public injector: Injector
+  ) {
+    super(injector);
     this.pluralName = 'group_permissions';
     this.name = 'group_permission';
-    this.apiUrl = `${repositoryHelper.apiUrl}/${this.pluralName}`;
+    this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<GroupPermission[]>>new Subject();
     this.meta.perPage = 10;
   }
@@ -25,6 +26,6 @@ export class GroupPermissionsService extends BaseRepositoryService {
     return new GroupPermission(item);
   }
   newCache() {
-    return new GroupPermissionsService(this.repositoryHelper);
+    return new GroupPermissionsService(this.injector);
   }
 }

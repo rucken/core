@@ -1,7 +1,7 @@
 import * as _ from 'lodash';
 import * as moment from 'moment/moment';
 
-import { translate } from './../../utils/utils';
+import { translate } from './../../common/utils';
 
 export class BaseResourceModel {
   pkFieldName: string;

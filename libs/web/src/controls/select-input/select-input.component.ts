@@ -1,16 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-  ViewEncapsulation,
-} from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Injector } from '@angular/core';
 import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
-import { TranslateService } from '@ngx-translate/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { Subject } from 'rxjs/Subject';
 
@@ -95,16 +85,17 @@ export class SelectInputComponent extends BaseComponent {
     return this._items;
   }
 
+  config: SelectInputConfig;
+
   private _items: any[] = [];
   private _showMe = false;
   private debouncer$: Subject<string> = new Subject<string>();
 
   constructor(
-    public translateService: TranslateService,
-    public config: SelectInputConfig,
-    public sanitizer: DomSanitizer
+    public injector: Injector
   ) {
-    super();
+    super(injector);
+    this.config = injector.get(SelectInputConfig);
   }
   afterCreate() {
     if (this.tooltipEnable === undefined) {

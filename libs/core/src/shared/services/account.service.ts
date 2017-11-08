@@ -1,9 +1,11 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
+
+import { EventEmitter, Injectable, Injector } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
+
 import { EndpointHelper } from '../helpers/endpoint.helper';
+import { translate } from './../common/utils';
 import { EndpointStatusEnum } from './../enums/endpoint-status.enum';
-import { translate } from './../utils/utils';
 import { User } from './../models/user.model';
 
 @Injectable()
@@ -18,9 +20,14 @@ export class AccountService {
   protected _account: any | User;
   protected _status: EndpointStatusEnum;
 
-  constructor(public endpointHelper: EndpointHelper) {
+  endpointHelper: EndpointHelper;
+
+  constructor(
+    public injector: Injector
+  ) {
+    this.endpointHelper = injector.get(EndpointHelper);
     this.name = 'account';
-    this.apiUrl = `${endpointHelper.apiUrl}/${this.name}`;
+    this.apiUrl = `${this.endpointHelper.apiUrl}/${this.name}`;
     this.account$ = <Subject<User>>new Subject();
   }
   get token() {

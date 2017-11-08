@@ -1,21 +1,15 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '@rucken/core';
+import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { ContentTypesService } from '@rucken/core';
-import { User } from '@rucken/core';
 import { ContentType } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 import {
-  BaseResourceSelectInputComponent,
+    BaseResourceSelectInputComponent,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
-import {
-  BaseResourceSelectInputConfig,
-} from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { ContentTypesListModalComponent } from './../content-types-list-modal/content-types-list-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'content-type-select-input',
@@ -40,17 +34,17 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
 
   items: any[] | ContentType[];
   cachedResourcesService: ContentTypesService;
+  
+  contentTypesService: ContentTypesService;
 
   constructor(
-    public app: AppService,
-    public accountService: AccountService,
-    public contentTypeService: ContentTypesService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService,
-    public config: BaseResourceSelectInputConfig
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super(translateService, config);
-    this.cachedResourcesService = this.contentTypeService.createCache();
+    super(injector);
+    this.contentTypesService = injector.get(ContentTypesService);
+    this.cachedResourcesService = this.contentTypesService.createCache();
   }
   changeInputValue(value: string) {
     const filter: any = {};
@@ -88,3 +82,8 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     return '';
   }
 }
+
+
+
+// WEBPACK FOOTER //
+// C:/Projects/open-sources/@rucken/core/libs/web/src/grids/content-types-grid/content-type-select-input/content-type-select-input.component.ts
