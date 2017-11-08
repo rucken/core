@@ -1,10 +1,8 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { User } from '@rucken/core';
-import { AccountService } from '@rucken/core';
-import { AppService } from '@rucken/core';
 import { UsersService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
@@ -31,14 +29,15 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
   selectedItems: any[] | User[];
   cachedResourcesService: UsersService;
 
+  usersService: UsersService;
+
   constructor(
-    public usersService: UsersService,
-    public accountService: AccountService,
-    public app: AppService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
+    this.usersService = injector.get(UsersService);
     this.cachedResourcesService = this.usersService.createCache();
   }
   get readonly() {

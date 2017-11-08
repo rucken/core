@@ -1,10 +1,9 @@
 import 'rxjs/add/operator/map';
 
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 import { BaseRepositoryService } from './../base/services/base-repository.service';
-import { RepositoryHelper } from './../helpers/repository.helper';
 import { UserGroup } from './../models/user-group.model';
 
 @Injectable()
@@ -13,11 +12,13 @@ export class UserGroupsService extends BaseRepositoryService {
   items: UserGroup[];
   apiUrl: string;
 
-  constructor(public repositoryHelper: RepositoryHelper) {
-    super(repositoryHelper);
+  constructor(
+    public injector: Injector
+  ) {
+    super(injector);
     this.pluralName = 'user_groups';
     this.name = 'user_group';
-    this.apiUrl = `${repositoryHelper.apiUrl}/${this.pluralName}`;
+    this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = <Subject<UserGroup[]>>new Subject();
     this.meta.perPage = 10;
   }
@@ -25,6 +26,6 @@ export class UserGroupsService extends BaseRepositoryService {
     return new UserGroup(item);
   }
   newCache() {
-    return new UserGroupsService(this.repositoryHelper);
+    return new UserGroupsService(this.injector);
   }
 }

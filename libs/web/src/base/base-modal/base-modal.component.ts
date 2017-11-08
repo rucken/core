@@ -26,9 +26,9 @@ export class BaseModalComponent extends BaseComponent {
   @Input()
   okInProcess = false;
   @Output()
-  onClose: EventEmitter<any> = new EventEmitter();
+  onClose: EventEmitter<any> = new EventEmitter<any>();
   @Output()
-  onOk: EventEmitter<any> = new EventEmitter();
+  onOk: EventEmitter<any> = new EventEmitter<any>();
 
   currentLocation = '';
 

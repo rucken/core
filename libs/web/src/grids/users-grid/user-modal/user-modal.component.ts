@@ -5,7 +5,7 @@ import { UserGroup } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 import {
-    BaseResourceModalComponent,
+  BaseResourceModalComponent,
 } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';
@@ -30,9 +30,9 @@ export class UserModalComponent extends BaseResourceModalComponent {
   @Input()
   modelMeta: any = User.meta();
   @Output()
-  onClose: EventEmitter<UserModalComponent | any> = new EventEmitter();
+  onClose: EventEmitter<UserModalComponent | any> = new EventEmitter<any>();
   @Output()
-  onOk: EventEmitter<UserModalComponent | any> = new EventEmitter();
+  onOk: EventEmitter<UserModalComponent | any> = new EventEmitter<any>();
 
   afterOpen() {
     this.userGroups.user = this.item;

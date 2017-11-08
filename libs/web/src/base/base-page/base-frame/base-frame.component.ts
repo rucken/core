@@ -1,15 +1,12 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 import { User } from '@rucken/core';
 import * as _ from 'lodash';
 
-import { SharedService } from '../../../shared/services/shared.service';
 import { BaseComponent } from './../../base-component/base-component.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'base-frame',
@@ -19,15 +16,16 @@ export class BaseFrameComponent extends BaseComponent {
 
   title?: string;
 
+  activatedRoute: ActivatedRoute;
+  router: Router;
+
   constructor(
-    public accountService: AccountService,
-    public app: AppService,
-    public translateService: TranslateService,
-    public activatedRoute: ActivatedRoute,
-    public router: Router,
-    public sharedService: SharedService
+    public injector: Injector,
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
+    this.activatedRoute = injector.get(ActivatedRoute);
+    this.router = injector.get(Router);
   }
   afterCreate() {
     super.afterCreate();

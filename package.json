@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.23.1",
+  "version": "1.24.0",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
@@ -87,16 +87,17 @@
     "app-demo:tools-po2ts": "./node_modules/.bin/srcgen -x -t convert.po.to.ts -f ./srcgen/demo-convert.po.to.ts.json",
     "app-demo:tools-make_ts_list": "./node_modules/.bin/srcgen -x -t make.list.ts.files -f ./srcgen/demo-make.list.ts.files.json",
     "app-demo:tools-prepare": "npm-run-all app-demo:tools-extract_translate app-demo:tools-po2ts app-demo:tools-make_ts_list",
-    "app-demo:lint": "ng lint --app=demo",
     "app-demo:e2e": "ng e2e --app=demo",
     "apps:clear": "npm-run-all app-demo:clear",
     "apps:prepare": "npm-run-all app-demo:tools-prepare",
     "all:clear": "npm-run-all libs:clear apps:clear",
     "all:prepare": "npm-run-all libs:prepare apps:prepare",
-    "gh:build": "npm-run-all apps:clear all:prepare app-demo:github_full_build",
+    "gh:build": "npm-run-all apps:clear all:prepare format app-demo:github_full_build",
     "gh:deploy": "npm-run-all app-demo:github_deploy",
     "ng": "ng",
-    "test": "npm-run-all app-demo:lint app-demo:prod_full_build",
+    "lint": "ng lint",
+    "format": "tsfmt -r",
+    "test": "npm-run-all lint app-demo:prod_full_build",
     "build": "npm-run-all app-demo:prod_full_build",
     "deploy": "npm-run-all app-demo:github_deploy",
     "start": "npm-run-all app-demo:start-mockapi"
@@ -175,6 +176,7 @@
     "ts-node": "~3.3.0",
     "tslint": "~5.8.0",
     "typescript": "~2.5.3",
+    "typescript-formatter": "^7.0.0",
     "typings": "^2.1.1"
   }
 }

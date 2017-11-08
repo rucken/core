@@ -22,9 +22,9 @@ export class AuthModalComponent extends BaseModalComponent {
   @Input()
   name = 'auth';
   @Output()
-  onClose: EventEmitter<AuthModalComponent | any> = new EventEmitter();
+  onClose: EventEmitter<AuthModalComponent | any> = new EventEmitter<any>();
   @Output()
-  onOk: EventEmitter<AuthModalComponent | any> = new EventEmitter();
+  onOk: EventEmitter<AuthModalComponent | any> = new EventEmitter<any>();
 
   modelMeta: any = User.meta();
 

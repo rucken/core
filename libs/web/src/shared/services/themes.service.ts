@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import { RepositoryHelper, Theme, ThemesService } from '@rucken/core';
+import { Theme, ThemesService } from '@rucken/core';
 
 @Injectable()
 export class WebThemesService extends ThemesService {
-  constructor(public repositoryHelper: RepositoryHelper) {
-    super(repositoryHelper);
-  }
+
   initTheme() {
-    if (localStorage.getItem('theme')) {
+    if (localStorage.getItem('theme') && localStorage.getItem('theme').indexOf('/3/') !== -1) {
       this.setTheme(new Theme({ url: localStorage.getItem('theme'), name: 'User theme' }));
     }
   }

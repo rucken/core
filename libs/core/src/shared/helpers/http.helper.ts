@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Headers, Http, RequestOptions, Response } from '@angular/http';
 import { AuthHttp } from 'angular2-jwt';
 import { Observable } from 'rxjs/Observable';
@@ -9,7 +9,14 @@ export class HttpHelper {
   withCredentials = false;
   direct = false;
 
-  constructor(public authHttp: AuthHttp, public http: Http) {
+  authHttp: AuthHttp;
+  http: Http;
+
+  constructor(
+    public injector: Injector
+  ) {
+    this.authHttp = injector.get(AuthHttp);
+    this.http = injector.get(Http);
   }
   getRequestOptions(): RequestOptions {
     const headers = new Headers({ 'Content-Type': 'application/json' });

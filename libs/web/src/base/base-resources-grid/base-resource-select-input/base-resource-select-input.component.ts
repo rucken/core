@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, Inject, Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { EndpointStatusEnum } from '@rucken/core';
 
@@ -53,6 +53,8 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   items: any[];
   cachedResourcesService: any;
 
+  config: BaseResourceSelectInputConfig;
+
   get value() {
     return this.model;
   }
@@ -83,10 +85,10 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   }
 
   constructor(
-    public translateService: TranslateService,
-    public config: BaseResourceSelectInputConfig
+    public injector: Injector
   ) {
-    super();
+    super(injector);
+    this.config = injector.get(BaseResourceSelectInputConfig);
   }
   afterCreate() {
     super.afterCreate();

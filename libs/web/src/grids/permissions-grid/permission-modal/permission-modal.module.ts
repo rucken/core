@@ -6,7 +6,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-buttons.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import {
-    ContentTypeSelectInputModule,
+  ContentTypeSelectInputModule,
 } from './../../content-types-grid/content-type-select-input/content-type-select-input.module';
 import { PermissionModalComponent } from './permission-modal.component';
 

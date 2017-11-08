@@ -1,7 +1,6 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, EventEmitter, Injector, Input, Output } from '@angular/core';
 import { EndpointStatusEnum } from '@rucken/core';
 
 import { BaseComponent } from './../../../base/base-component/base-component.component';
@@ -66,9 +65,9 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
 
   constructor(
-    public translateService: TranslateService
+    public injector: Injector
   ) {
-    super();
+    super(injector);
   }
   afterCreate() {
     super.afterCreate();

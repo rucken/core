@@ -15,6 +15,7 @@
     "allowSyntheticDefaultImports": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
+    "newLine": "LF",
     "lib": [
       "es5",
       "es6",

@@ -1,3 +1,19 @@
+<a name="1.24.0"></a>
+# [1.24.0](https://github.com/rucken/core/compare/1.23.1...1.24.0) (2017-11-08)
+
+
+### Bug Fixes
+
+* **base-resource-grid:** Remove detect column for multiselect on selectItem method ([6286571](https://github.com/rucken/core/commit/6286571))
+* **DI:** Add missing imports ([2a94383](https://github.com/rucken/core/commit/2a94383))
+
+
+### Features
+
+* **DI:** Move inject services from constructor to manual inject with Injector ([1a5ce48](https://github.com/rucken/core/commit/1a5ce48))
+
+
+
 <a name="1.23.1"></a>
 ## [1.23.1](https://github.com/rucken/core/compare/1.23.0...1.23.1) (2017-10-31)
 

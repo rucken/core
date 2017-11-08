@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Response, URLSearchParams } from '@angular/http';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
@@ -9,8 +9,15 @@ import { HttpHelper } from './http.helper';
 
 @Injectable()
 export class RepositoryHelper {
-  constructor(public httpHelper: HttpHelper, public endpointHelper: EndpointHelper) {
 
+  httpHelper: HttpHelper;
+  endpointHelper: EndpointHelper;
+
+  constructor(
+    public injector: Injector
+  ) {
+    this.httpHelper = injector.get(HttpHelper);
+    this.endpointHelper = injector.get(EndpointHelper);
   }
   get mockApiUrl() {
     return this.endpointHelper.apiUrl;

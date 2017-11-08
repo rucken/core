@@ -1,22 +1,16 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '@rucken/core';
+import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { GroupsService } from '@rucken/core';
-import { User } from '@rucken/core';
 import { Group } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 import {
   BaseResourceSelectInputComponent,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
-import {
-  BaseResourceSelectInputConfig,
-} from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.config';
 import { SelectInputComponent } from './../../../controls/select-input/select-input.component';
 import { GroupsListModalComponent } from './../groups-list-modal/groups-list-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'group-select-input',
@@ -42,15 +36,15 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
   items: any[] | Group[];
   cachedResourcesService: GroupsService;
 
+  groupsService: GroupsService;
+
   constructor(
-    public app: AppService,
-    public accountService: AccountService,
-    public groupsService: GroupsService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService,
-    public config: BaseResourceSelectInputConfig
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super(translateService, config);
+    super(injector);
+    this.groupsService = injector.get(GroupsService);
     this.cachedResourcesService = this.groupsService.createCache();
   }
   onLookup() {

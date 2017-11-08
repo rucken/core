@@ -3,7 +3,7 @@ import { ContentType } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 import {
-    BaseResourceListModalComponent,
+  BaseResourceListModalComponent,
 } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 import { ContentTypesGridComponent } from './../content-types-grid.component';
 

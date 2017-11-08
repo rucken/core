@@ -1,15 +1,21 @@
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ElementRef,
+  EventEmitter,
+  Injector,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Group } from '@rucken/core';
-import { GroupPermissionsService } from '@rucken/core';
-import { GroupPermission } from '@rucken/core';
-import { User } from '@rucken/core';
 import { Permission } from '@rucken/core';
-import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
+import { GroupPermission } from '@rucken/core';
+import { GroupPermissionsService } from '@rucken/core';
 import { PermissionsService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
@@ -45,15 +51,17 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
   selectedItems: GroupPermission[];
   cachedResourcesService: GroupPermissionsService;
 
+  groupPermissionsService: GroupPermissionsService;
+  permissionsService: PermissionsService;
+
   constructor(
-    public groupPermissionsService: GroupPermissionsService,
-    public permissionsService: PermissionsService,
-    public accountService: AccountService,
-    public app: AppService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
+    this.groupPermissionsService = injector.get(GroupPermissionsService);
+    this.permissionsService = injector.get(PermissionsService);
     this.cachedResourcesService = this.groupPermissionsService.createCache();
   }
   initAccesses(contentType?: string) {

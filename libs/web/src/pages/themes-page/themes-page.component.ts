@@ -1,14 +1,9 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, Injector } from '@angular/core';
 import { ThemesService } from '@rucken/core';
 import { Theme } from '@rucken/core';
-import { AccountService } from '@rucken/core';
-import { AppService } from '@rucken/core';
 
-import { SharedService } from '../../shared/services/shared.service';
 import { BasePageComponent } from './../../base/base-page/base-page.component';
 
 @Component({
@@ -21,16 +16,13 @@ export class ThemesPageComponent extends BasePageComponent {
 
   items: any[] | Theme[];
 
+  themService: ThemesService;
+
   constructor(
-    public accountService: AccountService,
-    public app: AppService,
-    public translateService: TranslateService,
-    public activatedRoute: ActivatedRoute,
-    public themService: ThemesService,
-    public router: Router,
-    public sharedService: SharedService
+    public injector: Injector
   ) {
-    super(accountService, app, translateService, activatedRoute, router, sharedService);
+    super(injector);
+    this.themService = injector.get(ThemesService);
   }
 
   init() {

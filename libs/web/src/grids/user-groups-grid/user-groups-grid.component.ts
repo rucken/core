@@ -1,13 +1,20 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ElementRef,
+  EventEmitter,
+  Injector,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { UserGroupsService } from '@rucken/core';
-import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
-import { Group } from '@rucken/core';
-import { User } from '@rucken/core';
 import { UserGroup } from '@rucken/core';
+import { User } from '@rucken/core';
+import { Group } from '@rucken/core';
 import { GroupsService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
@@ -41,15 +48,17 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   selectedItems: any[] | UserGroup[];
   cachedResourcesService: UserGroupsService;
 
+  userGroupsService: UserGroupsService;
+  groupsService: GroupsService;
+
   constructor(
-    public userGroupsService: UserGroupsService,
-    public groupsService: GroupsService,
-    public accountService: AccountService,
-    public app: AppService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
+    this.userGroupsService = injector.get(UserGroupsService);
+    this.groupsService = injector.get(GroupsService);
     this.cachedResourcesService = this.userGroupsService.createCache();
   }
   initAccesses(contentType?: string) {

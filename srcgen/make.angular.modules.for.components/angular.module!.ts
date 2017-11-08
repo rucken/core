@@ -6,12 +6,12 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   declarations: [
-    <%=ComponentName%>Component
+    <%=ComponentName %>Component
   ],
   exports: [
-    <%=ComponentName%>Component
+    <%=ComponentName %>Component
   ],
-  entryComponents: [<%=ComponentName%>Component]
+  entryComponents: [<%=ComponentName %>Component]
 })
 export class <%=ComponentName%>Module {
   public static forRoot(): ModuleWithProviders {

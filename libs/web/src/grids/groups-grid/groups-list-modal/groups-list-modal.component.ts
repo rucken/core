@@ -3,7 +3,7 @@ import { Group } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 import {
-    BaseResourceListModalComponent,
+  BaseResourceListModalComponent,
 } from './../../../base/base-resources-grid/base-resources-list-modal/base-resources-list-modal.component';
 import { GroupsGridComponent } from './../groups-grid.component';
 

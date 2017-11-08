@@ -6,6 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noStrictGenericChecks": true,
+    "newLine": "LF",
     "lib": [
       "es2016",
       "dom"
@@ -27,7 +28,10 @@
   },
   "exclude": [
     "node_modules",
-    "**/*/node_modules"
+    "**/*/node_modules",
+    "**/*/.tmp",
+    "**/*/dist",
+    "**/*/srcgen"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

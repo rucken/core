@@ -1,17 +1,23 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ElementRef,
+  EventEmitter,
+  Injector,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Fontawesome } from '@rucken/core';
-import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 import { FontawesomeService } from '@rucken/core';
-import { User } from '@rucken/core';
 
 import {
   BaseResourceInputComponent,
 } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fontawesomes-list-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'fontawesome-input',
@@ -35,14 +41,15 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
   items: any | Fontawesome[];
   cachedResourcesService: FontawesomeService;
 
+  fontawesomeService: FontawesomeService;
+
   constructor(
-    public app: AppService,
-    public accountService: AccountService,
-    public fontawesomeService: FontawesomeService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super(translateService);
+    super(injector);
+    this.fontawesomeService = injector.get(FontawesomeService);
     this.cachedResourcesService = this.fontawesomeService.createCache();
   }
   onLookup() {

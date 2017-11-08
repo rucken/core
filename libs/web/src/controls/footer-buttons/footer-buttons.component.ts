@@ -26,9 +26,9 @@ export class FooterButtonsComponent extends BaseComponent {
   @Input()
   readonly?: boolean;
   @Output()
-  onClose: EventEmitter<boolean | any> = new EventEmitter();
+  onClose: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output()
-  onOk: EventEmitter<boolean | any> = new EventEmitter();
+  onOk: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input()
   okInProcess = false;
   @Input()

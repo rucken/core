@@ -1,8 +1,13 @@
 import 'moment/locale/ru';
 
-import { Component, ComponentFactoryResolver, EventEmitter, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '@rucken/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  EventEmitter,
+  Injector,
+  ViewContainerRef,
+  ViewEncapsulation,
+} from '@angular/core';
 import { RuckenCoreRuI18n } from '@rucken/core';
 import { translate } from '@rucken/core';
 import * as _ from 'lodash';
@@ -10,10 +15,10 @@ import * as moment from 'moment/moment';
 import { defineLocale, getSetGlobalLocale } from 'ngx-bootstrap/bs-moment';
 import { enGb, ru } from 'ngx-bootstrap/locale';
 
-import { SharedService } from '../../shared/services/shared.service';
 import { RuckenWebRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
 import { BaseComponent } from './../base-component/base-component.component';
+import { TranslateService } from '@ngx-translate/core';
 
 defineLocale('ru', ru);
 defineLocale('en', enGb);
@@ -42,13 +47,12 @@ export class BaseAppComponent extends BaseComponent {
   errorModalOpened = false;
 
   constructor(
+    public injector: Injector,
     public viewContainerRef: ViewContainerRef,
-    public app: AppService,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService,
-    public sharedService: SharedService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
   }
   afterCreate() {
     super.afterCreate();
@@ -83,7 +87,7 @@ export class BaseAppComponent extends BaseComponent {
   }
   showErrorModal(message: string, title?: string, size?: string): EventEmitter<any> {
     if (this.errorModalOpened) {
-      return new EventEmitter();
+      return new EventEmitter<any>();
     }
     if (size === undefined) {
       size = 'md';

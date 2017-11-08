@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { AccountService } from '@rucken/core';
+import { Component, Input } from '@angular/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 
@@ -13,8 +12,4 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 export class PageHeaderComponent extends BaseComponent {
   @Input()
   title: string;
-
-  constructor(public accountService: AccountService) {
-    super();
-  }
 }

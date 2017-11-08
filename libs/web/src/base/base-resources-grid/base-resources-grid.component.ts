@@ -15,11 +15,11 @@ export class BaseResourcesGridComponent extends BaseComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<any[] | any> = new EventEmitter();
+  onSelectItems: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   onEnterEnabled?: boolean;
   @Output()
-  onEnter: EventEmitter<any[] | any> = new EventEmitter();
+  onEnter: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   readonly?: boolean;
   @Input()
@@ -134,19 +134,20 @@ export class BaseResourcesGridComponent extends BaseComponent {
     this.modalIsOpened = false;
     super.focus();
   }
-  selectItem(item: any, event?: MouseEvent, checkFirst?: boolean) {
-    if (event && event.toElement.classList.contains('select-col') && this.selectedItems && this.selectedItems.length > 0) {
-      if (this.selectedItems.filter(eachItem => eachItem.pk === item.pk).length > 0) {
-        this.selectedItems = this.selectedItems.filter(eachItem => eachItem.pk !== item.pk);
-      } else {
-        this.selectedItems.push(item);
-      }
+  multiSelectItem(item: any, event?: MouseEvent, checkFirst?: boolean) {
+    if (this.selectedItems.filter(eachItem => eachItem.pk === item.pk).length > 0) {
+      this.selectedItems = this.selectedItems.filter(eachItem => eachItem.pk !== item.pk);
     } else {
-      if (checkFirst === undefined || this.items.filter(
-        eachItem => this.selectedItems && this.selectedItems.filter(
-          selectedItem => selectedItem && selectedItem.pk === eachItem.pk).length > 0).length === 0) {
-        this.selectedItems = [item];
-      }
+      this.selectedItems.push(item);
+    }
+    this.onSelectItems.emit(this.selectedItems);
+    if (this.onEnterEnabled) {
+      this.focus();
+    }
+  }
+  selectItem(item: any, event?: MouseEvent, checkFirst?: boolean) {
+    if (checkFirst === undefined || (item && item.pk)) {
+      this.selectedItems = [item];
     }
     this.onSelectItems.emit(this.selectedItems);
     if (this.onEnterEnabled) {

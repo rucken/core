@@ -1,12 +1,9 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from '@rucken/core';
 import { Permission } from '@rucken/core';
 import { PermissionsService } from '@rucken/core';
-import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
@@ -32,14 +29,15 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
   selectedItems: any[] | Permission[];
   cachedResourcesService: PermissionsService;
 
+  permissionsService: PermissionsService;
+
   constructor(
-    public permissionsService: PermissionsService,
-    public accountService: AccountService,
-    public app: AppService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super();
+    super(injector);
+    this.permissionsService = injector.get(PermissionsService);
     this.cachedResourcesService = this.permissionsService.createCache();
   }
   get readonly() {

@@ -1,14 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { Response } from '@angular/http';
 import * as _ from 'lodash';
 import { Observable } from 'rxjs/Observable';
 
-import { isJson, translate } from './../utils/utils';
+import { isJson, translate } from './../common/utils';
 import { HttpHelper } from './http.helper';
 
 @Injectable()
 export class EndpointHelper {
-  constructor(public httpHelper: HttpHelper) {
+  httpHelper: HttpHelper;
+
+  constructor(
+    public injector: Injector
+  ) {
+    this.httpHelper = injector.get(HttpHelper);
   }
   get apiUrl() {
     return '/api';

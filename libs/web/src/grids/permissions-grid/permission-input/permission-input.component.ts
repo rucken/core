@@ -1,17 +1,23 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ElementRef,
+  EventEmitter,
+  Injector,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { Permission } from '@rucken/core';
-import { AppService } from '@rucken/core';
-import { AccountService } from '@rucken/core';
 import { PermissionsService } from '@rucken/core';
-import { User } from '@rucken/core';
 
 import {
   BaseResourceInputComponent,
 } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { PermissionsListModalComponent } from './../permissions-list-modal/permissions-list-modal.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'permission-input',
@@ -35,14 +41,15 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
   items: any[] | Permission[];
   cachedResourcesService: PermissionsService;
 
+  permissionsService: PermissionsService;
+
   constructor(
-    public app: AppService,
-    public accountService: AccountService,
-    public permissionsService: PermissionsService,
+    public injector: Injector,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService
+    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
-    super(translateService);
+    super(injector);
+    this.permissionsService = injector.get(PermissionsService);
     this.cachedResourcesService = this.permissionsService.createCache();
   }
   onLookup() {
