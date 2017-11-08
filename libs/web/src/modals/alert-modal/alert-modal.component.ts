@@ -28,7 +28,7 @@ export class AlertModalComponent extends BaseModalComponent {
   @Input()
   messageClass = 'text-danger';
   @Output()
-  onClose: EventEmitter<AlertModalComponent | any> = new EventEmitter();
+  onClose: EventEmitter<AlertModalComponent | any> = new EventEmitter<any>();
   init() {
     super.init();
     if (this.content === undefined) {

@@ -30,9 +30,9 @@ export class UserModalComponent extends BaseResourceModalComponent {
   @Input()
   modelMeta: any = User.meta();
   @Output()
-  onClose: EventEmitter<UserModalComponent | any> = new EventEmitter();
+  onClose: EventEmitter<UserModalComponent | any> = new EventEmitter<any>();
   @Output()
-  onOk: EventEmitter<UserModalComponent | any> = new EventEmitter();
+  onOk: EventEmitter<UserModalComponent | any> = new EventEmitter<any>();
 
   afterOpen() {
     this.userGroups.user = this.item;

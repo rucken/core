@@ -15,11 +15,11 @@ export class BaseResourcesGridComponent extends BaseComponent {
   @Input()
   loadAll?: boolean;
   @Output()
-  onSelectItems: EventEmitter<any[] | any> = new EventEmitter();
+  onSelectItems: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   onEnterEnabled?: boolean;
   @Output()
-  onEnter: EventEmitter<any[] | any> = new EventEmitter();
+  onEnter: EventEmitter<any> = new EventEmitter<any>();
   @Input()
   readonly?: boolean;
   @Input()

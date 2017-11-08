@@ -114,9 +114,8 @@ export class User extends BaseResourceModel {
       if (roleName.toLowerCase() === 'user') {
         return true;
       }
-    } else {
-      return false;
     }
+    return false;
   }
   checkPermissions(permissionNames: string[]) {
     if (this.checkRoles(permissionNames)) {

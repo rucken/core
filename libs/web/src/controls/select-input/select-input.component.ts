@@ -1,5 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Injector } from '@angular/core';
+import { SafeHtml } from '@angular/platform-browser';
 import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { Subject } from 'rxjs/Subject';
@@ -180,7 +181,7 @@ export class SelectInputComponent extends BaseComponent {
       }, 200);
     }
   }
-  getTitle(item: any) {
+  getTitle(item: any): SafeHtml | string {
     if (item && item[this.titleField]) {
       return this.safeHtml(this.translate(item[this.titleField]));
     }

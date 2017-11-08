@@ -30,11 +30,11 @@ export class AccountService {
     this.apiUrl = `${this.endpointHelper.apiUrl}/${this.name}`;
     this.account$ = <Subject<User>>new Subject();
   }
-  get token() {
+  get token(): string | null {
     // you custom code in extended class
     return null;
   }
-  set token(value: string) {
+  set token(value: string | null) {
     // you custom code in extended class
   }
   transformModel(item: any) {
@@ -67,8 +67,8 @@ export class AccountService {
     }
     return this.account.checkPermissions(permissionNames);
   }
-  info(token?: string) {
-    const result = new EventEmitter();
+  info(token?: string): EventEmitter<any> {
+    const result = new EventEmitter<any>();
     this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
@@ -88,8 +88,8 @@ export class AccountService {
       });
     return result;
   }
-  login(account: any | User) {
-    const result = new EventEmitter();
+  login(account: any | User): EventEmitter<any> {
+    const result = new EventEmitter<any>();
     this.setStatus(EndpointStatusEnum.Processing,
       translate('Login...')
     );
@@ -109,8 +109,8 @@ export class AccountService {
       });
     return result;
   }
-  logout() {
-    const result = new EventEmitter();
+  logout(): EventEmitter<any> {
+    const result = new EventEmitter<any>();
     this.setStatus(EndpointStatusEnum.Processing,
       translate('Logout...')
     );
@@ -122,11 +122,11 @@ export class AccountService {
     }, 700);
     return result;
   }
-  update(account: any | User) {
+  update(account: any | User): EventEmitter<any> {
     if (account.validate && account.validate() !== true) {
       return this.validateError(account);
     }
-    const result = new EventEmitter();
+    const result = new EventEmitter<any>();
     this.setStatus(EndpointStatusEnum.Updating,
       translate('Updating...')
     );
@@ -144,8 +144,8 @@ export class AccountService {
       });
     return result;
   }
-  validateError(item: any) {
-    const result = new EventEmitter();
+  validateError(item: any): EventEmitter<any> {
+    const result = new EventEmitter<any>();
     result.error(item.validate());
     this.setStatus(EndpointStatusEnum.Invalid,
       translate('Error')

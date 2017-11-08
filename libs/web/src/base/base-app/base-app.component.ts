@@ -87,7 +87,7 @@ export class BaseAppComponent extends BaseComponent {
   }
   showErrorModal(message: string, title?: string, size?: string): EventEmitter<any> {
     if (this.errorModalOpened) {
-      return new EventEmitter();
+      return new EventEmitter<any>();
     }
     if (size === undefined) {
       size = 'md';

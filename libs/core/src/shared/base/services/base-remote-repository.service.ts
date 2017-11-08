@@ -122,11 +122,11 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }, 1);
     return result;
   }
-  beforeLoadAll(filter: any) {
+  beforeLoadAll(filter: any): EventEmitter<any> {
     this.setStatusList(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    return new EventEmitter();
+    return new EventEmitter<any>();
   }
   afterLoadAll(result: EventEmitter<any>, filter: any, response: any, error: any) {
     if (!error) {
@@ -167,11 +167,11 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
       });
     return result;
   }
-  beforeLoad(key: string | number) {
+  beforeLoad(key: string | number): EventEmitter<any> {
     this.setStatusItem(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    return new EventEmitter();
+    return new EventEmitter<any>();
   }
   afterLoad(result: EventEmitter<any>, item: any, response: any, error: any) {
     if (!error) {
@@ -191,8 +191,8 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }
     return this.remoteCreate(item);
   }
-  validateError(item: any) {
-    const result = new EventEmitter();
+  validateError(item: any): EventEmitter<any> {
+    const result = new EventEmitter<any>();
     result.error(item.validate());
     this.setStatusItem(EndpointStatusEnum.Invalid,
       translate('Error in creating')
@@ -212,11 +212,11 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }, 1);
     return result;
   }
-  beforeCreate(item: any) {
+  beforeCreate(item: any): EventEmitter<any> {
     this.setStatusItem(EndpointStatusEnum.Creating,
       translate('Creating...')
     );
-    return new EventEmitter();
+    return new EventEmitter<any>();
   }
   afterCreate(result: EventEmitter<any>, item: any, response: any, error: any) {
     if (!error) {
@@ -256,11 +256,11 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     }, 1);
     return result;
   }
-  beforeUpdate(item: any) {
+  beforeUpdate(item: any): EventEmitter<any> {
     this.setStatusItem(EndpointStatusEnum.Updating,
       translate('Updating...')
     );
-    return new EventEmitter();
+    return new EventEmitter<any>();
   }
   afterUpdate(result: EventEmitter<any>, item: any, response: any, error: any) {
     if (!error) {
@@ -285,11 +285,11 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   remove(items: any[]) {
     return this.remoteRemove(items);
   }
-  beforeRemove(items: any[]) {
+  beforeRemove(items: any[]): EventEmitter<any> {
     this.setStatusItem(EndpointStatusEnum.Removing,
       translate('Removing...')
     );
-    return new EventEmitter();
+    return new EventEmitter<any>();
   }
   afterRemove(result: EventEmitter<any>, items: any[], response: any, error: any) {
     if (!error) {

@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/map';
 
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 import { inValues, translate } from '../../common/utils';
 import { BaseRemoteRepositoryService } from './base-remote-repository.service';
@@ -9,7 +9,7 @@ import { BaseRemoteRepositoryService } from './base-remote-repository.service';
 @Injectable()
 export class BaseRepositoryService extends BaseRemoteRepositoryService {
 
-  protected _mockedItems: any[] = null;
+  protected _mockedItems: any[] | any = null;
 
   get mockedItems() {
     return this._mockedItems.map((mapItem: any) => {
@@ -39,7 +39,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     }
     return null;
   }
-  loadAll(q?: string, filter?: any) {
+  loadAll(q?: string, filter?: any): EventEmitter<any> {
     if (q === undefined) {
       q = '';
     }
@@ -54,11 +54,10 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     }
     if (this._mockedItems !== null) {
       return this.mockLoadAll(filter, this._mockedItems);
-    } else {
-      return this.remoteLoadAll(filter);
     }
+    return this.remoteLoadAll(filter);
   }
-  create(item: any) {
+  create(item: any): EventEmitter<any> {
     if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
@@ -67,7 +66,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     }
     return this.remoteCreate(item);
   }
-  update(item: any) {
+  update(item: any): EventEmitter<any> {
     if (item.validate && item.validate() !== true) {
       return this.validateError(item);
     }
@@ -76,13 +75,13 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     }
     return this.remoteUpdate(item);
   }
-  remove(items: any[]) {
+  remove(items: any[]): EventEmitter<any> {
     if (this._mockedItems !== null) {
       return this.mockRemove(items);
     }
     return this.remoteRemove(items);
   }
-  mockLoadAll(filter: any, mockedItems: any[]) {
+  mockLoadAll(filter: any, mockedItems: any[]): EventEmitter<any> {
     const result = this.beforeLoadAll(filter);
     setTimeout((out: any) => {
       const constItems = this.transformModels(mockedItems.filter((item: any) => inValues(item, filter.q)));
@@ -107,7 +106,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     });
     return result;
   }
-  mockCreate(item: any) {
+  mockCreate(item: any): EventEmitter<any> {
     const result = this.beforeCreate(item);
     setTimeout((out: any) => {
       item.pk = this.getMockItemsNextPk(item);
@@ -116,7 +115,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     });
     return result;
   }
-  mockUpdate(item: any) {
+  mockUpdate(item: any): EventEmitter<any> {
     const result = this.beforeUpdate(item);
     setTimeout((out: any) => {
       let founded = false;
@@ -133,11 +132,11 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     });
     return result;
   }
-  mockRemove(items: any[]) {
+  mockRemove(items: any[]): EventEmitter<any> {
     const result = this.beforeRemove(items);
     setTimeout((out: any) => {
       const keys = items.map(d => d.pk);
-      this._mockedItems.forEach((t, i) => {
+      this._mockedItems.forEach((t: any, i: number) => {
         if (keys.indexOf(t.pk) !== -1) { this._mockedItems.splice(i, 1); }
       });
       this.afterRemove(result, items, null, null);

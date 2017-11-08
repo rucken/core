@@ -25,9 +25,9 @@ export class GridRowButtonsComponent extends BaseComponent {
   @Input()
   removeIconColor?= ''; // 'text-warning';
   @Output()
-  onEdit: EventEmitter<boolean | any> = new EventEmitter();
+  onEdit: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output()
-  onRemove: EventEmitter<boolean | any> = new EventEmitter();
+  onRemove: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Input()
   showEdit?: boolean;
   @Input()
