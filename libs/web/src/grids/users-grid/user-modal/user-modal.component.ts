@@ -5,7 +5,7 @@ import { UserGroup } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 import {
-    BaseResourceModalComponent,
+  BaseResourceModalComponent,
 } from './../../../base/base-resources-grid/base-resource-modal/base-resource-modal.component';
 import { TextInputComponent } from './../../../controls/text-input/text-input.component';
 import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-grid.component';

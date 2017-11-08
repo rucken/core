@@ -4,7 +4,7 @@ import { AppService } from '@rucken/core';
 
 @Injectable()
 export class SharedService {
-  
+
   app: AppService;
   translateService: TranslateService;
 

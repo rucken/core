@@ -2,14 +2,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/takeUntil';
 
 import {
-    Component,
-    ComponentFactoryResolver,
-    ElementRef,
-    EventEmitter,
-    Injector,
-    Input,
-    Output,
-    ViewChild,
+  Component,
+  ComponentFactoryResolver,
+  ElementRef,
+  EventEmitter,
+  Injector,
+  Input,
+  Output,
+  ViewChild,
 } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Group } from '@rucken/core';
@@ -22,7 +22,7 @@ import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { PermissionModalComponent } from './../permissions-grid/permission-modal/permission-modal.component';
 import {
-    PermissionsListModalComponent,
+  PermissionsListModalComponent,
 } from './../permissions-grid/permissions-list-modal/permissions-list-modal.component';
 
 @Component({

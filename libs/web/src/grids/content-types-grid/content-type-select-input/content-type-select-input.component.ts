@@ -6,7 +6,7 @@ import { ContentType } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
 import {
-    BaseResourceSelectInputComponent,
+  BaseResourceSelectInputComponent,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { ContentTypesListModalComponent } from './../content-types-list-modal/content-types-list-modal.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -34,7 +34,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
 
   items: any[] | ContentType[];
   cachedResourcesService: ContentTypesService;
-  
+
   contentTypesService: ContentTypesService;
 
   constructor(

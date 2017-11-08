@@ -9,7 +9,7 @@ import { FooterButtonsModule } from './../../../controls/footer-buttons/footer-b
 import { SelectInputModule } from './../../../controls/select-input/select-input.module';
 import { TextInputModule } from './../../../controls/text-input/text-input.module';
 import {
-    ContentTypesListModalModule,
+  ContentTypesListModalModule,
 } from './../../../grids/content-types-grid/content-types-list-modal/content-types-list-modal.module';
 import { ContentTypeSelectInputComponent } from './content-type-select-input.component';
 

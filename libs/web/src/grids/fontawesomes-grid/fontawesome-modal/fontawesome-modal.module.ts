@@ -14,7 +14,7 @@ import { FontawesomeModalComponent } from './fontawesome-modal.component';
   ],
   declarations: [
     FontawesomeModalComponent
-    ],
+  ],
   exports: [FontawesomeModalComponent],
   entryComponents: [FontawesomeModalComponent]
 })

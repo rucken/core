@@ -7,7 +7,7 @@ import { GridSearchPanelModule } from './../../controls/grid-search-panel/grid-s
 import { TableColumnModule } from './../../controls/table-column/table-column.module';
 import { PermissionModalModule } from './../../grids/permissions-grid/permission-modal/permission-modal.module';
 import {
-    PermissionsListModalModule,
+  PermissionsListModalModule,
 } from './../../grids/permissions-grid/permissions-list-modal/permissions-list-modal.module';
 import { ConfirmModalModule } from './../../modals/confirm-modal/confirm-modal.module';
 import { GroupPermissionsGridComponent } from './group-permissions-grid.component';
