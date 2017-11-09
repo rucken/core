@@ -28,10 +28,10 @@ import { DemoAccountPageModule } from './pages/account-page/account-page.module'
 export { DemoAccountPageModule } from './pages/account-page/account-page.module';
 import { DemoAccountPageRoutes } from './pages/account-page/account-page.routes';
 export { DemoAccountPageRoutes } from './pages/account-page/account-page.routes';
-import { DemoProfileFrameModule } from './pages/account-page/profile-frame/profile-frame.module';
-export { DemoProfileFrameModule } from './pages/account-page/profile-frame/profile-frame.module';
 import { DemoProfileFrameRoutes } from './pages/account-page/profile-frame/profile-frame.routes';
 export { DemoProfileFrameRoutes } from './pages/account-page/profile-frame/profile-frame.routes';
+import { DemoProfileFrameModule } from './pages/account-page/profile-frame/profile-frame.module';
+export { DemoProfileFrameModule } from './pages/account-page/profile-frame/profile-frame.module';
 import { DemoAdminPageModule } from './pages/admin-page/admin-page.module';
 export { DemoAdminPageModule } from './pages/admin-page/admin-page.module';
 import { DemoAdminPageRoutes } from './pages/admin-page/admin-page.routes';

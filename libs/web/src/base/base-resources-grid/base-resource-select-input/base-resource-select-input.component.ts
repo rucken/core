@@ -6,12 +6,13 @@ import { EndpointStatusEnum } from '@rucken/core';
 
 import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { BaseResourceSelectInputConfig } from './base-resource-select-input.config';
+import { BaseResourcesListComponent } from '../base-resources-list/base-resources-list.component';
 
 @Component({
   selector: 'base-resource-select-input',
   template: ''
 })
-export class BaseResourceSelectInputComponent extends BaseComponent {
+export class BaseResourceSelectInputComponent extends BaseResourcesListComponent {
 
   @Input()
   labelClass?= 'control-label';
@@ -47,11 +48,6 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
   select?: boolean;
   @Input()
   width: string = null;
-  @Input()
-  loadAll?: boolean;
-
-  items: any[];
-  cachedResourcesService: any;
 
   config: BaseResourceSelectInputConfig;
 
@@ -73,16 +69,6 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     this.modelAsString = val;
     this.modelAsStringChange.emit(this.modelAsString);
   }
-  get statusListMessage() {
-    if (!this.cachedResourcesService) {
-      return '';
-    }
-    if (this.cachedResourcesService.statusList === EndpointStatusEnum.Ok) {
-      return '';
-    } else {
-      return this.cachedResourcesService.statusListMessage;
-    }
-  }
 
   constructor(
     public injector: Injector
@@ -91,10 +77,17 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     this.config = injector.get(BaseResourceSelectInputConfig);
   }
   afterCreate() {
-    super.afterCreate();
     if (this.select === undefined) {
       this.select = this.config.select;
     }
+    if (this.loadAll === undefined) {
+      if (this.select) {
+        this.loadAll = true;
+      } else {
+        this.loadAll = false;
+      }
+    }
+    super.afterCreate();
     if (this.lookupIcon === undefined) {
       this.lookupIcon = this.config.lookupIcon;
     }
@@ -110,33 +103,17 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     if (this.inputReadonly === undefined) {
       this.inputReadonly = true;
     }
-    if (this.loadAll === undefined) {
-      if (this.select) {
-        this.loadAll = true;
-      } else {
-        this.loadAll = false;
-      }
-    }
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;
     }
     this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.initSearch());
-    if (this.cachedResourcesService) {
-      this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
-        (pageTypes: any[]) => {
-          this.items = pageTypes;
-          if (this.inputElement) {
-            this.inputElement.items = this.items;
-            this.inputElement.init();
-          }
-        }, (errors: any) => {
-          this.items = [];
-        });
-    }
-  }
-  init() {
-    super.init();
-    this.initSearch();
+    this.onLoaded.subscribe((items: any[]) => {
+      this.items = items;
+      if (this.inputElement) {
+        this.inputElement.items = this.items;
+        this.inputElement.init();
+      }
+    });
   }
   initSearch() {
     if (this.lookupTooltip === undefined) {
@@ -144,12 +121,6 @@ export class BaseResourceSelectInputComponent extends BaseComponent {
     }
     if (this.select && this.loadAll) {
       this.search();
-    }
-  }
-  search() {
-    const filter: any = {};
-    if (this.cachedResourcesService) {
-      this.cachedResourcesService.loadAll('', filter);
     }
   }
 }

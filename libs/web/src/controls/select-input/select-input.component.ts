@@ -1,3 +1,6 @@
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Injector } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
@@ -87,10 +90,10 @@ export class SelectInputComponent extends BaseComponent {
   }
 
   config: SelectInputConfig;
+  debouncer$: Subject<string> = new Subject<string>();
 
   private _items: any[] = [];
   private _showMe = false;
-  private debouncer$: Subject<string> = new Subject<string>();
 
   constructor(
     public injector: Injector
