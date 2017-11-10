@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { Component, EventEmitter, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { EndpointStatusEnum, User } from '@rucken/core';
 
 import { BaseComponent } from '../../base-component/base-component.component';
@@ -14,7 +14,7 @@ export class BaseResourcesListComponent extends BaseComponent {
 
   @Input()
   loadAll?: boolean;
-  @Input()
+  @Output()
   onLoaded: EventEmitter<any[]> = new EventEmitter<any[]>();
 
   items: any[];
