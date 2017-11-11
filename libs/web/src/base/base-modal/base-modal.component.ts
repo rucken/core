@@ -34,7 +34,7 @@ export class BaseModalComponent extends BaseComponent {
 
   @HostListener('window:popstate', ['$event'])
   onPopState(event: any) {
-    if (this.modal && this.modal.hide) {
+    if (!this.hideButton && this.modal && this.modal.hide) {
       this.modal.hide();
       // todo: fix history.back();
     }

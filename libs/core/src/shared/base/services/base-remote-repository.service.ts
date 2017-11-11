@@ -1,14 +1,12 @@
-import 'rxjs/add/operator/map';
-
 import { EventEmitter, Injectable, Injector } from '@angular/core';
 import * as _ from 'lodash';
+import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
 import { translate } from '../../common/utils';
 import { RepositoryHelper } from '../../helpers/repository.helper';
 import { EndpointStatusEnum } from './../../enums/endpoint-status.enum';
 import { BaseLocalRepositoryService } from './base-local-repository.service';
-
 
 @Injectable()
 export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
@@ -23,8 +21,8 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   queryProps: any;
   statusListMessage: string;
   statusItemMessage: string;
-  changeStatusList$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
-  changeStatusItem$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
+  changeStatusList$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
+  changeStatusItem$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
 
   get statusList() {
     return this._statusList;
@@ -36,7 +34,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   protected _statusList: EndpointStatusEnum;
   protected _statusItem: EndpointStatusEnum;
 
-  repositoryHelper: RepositoryHelper
+  repositoryHelper: RepositoryHelper;
   parent: any = null;
   cached: any = [];
 
@@ -112,8 +110,9 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     const result = this.beforeLoadAll(filter);
     setTimeout(() => {
       this.repositoryHelper.readItemsRequest(this)
-        .map((response: any) => this.transformModels(this.repositoryHelper.itemsResponse(this, response)))
-        .subscribe((loadedItems: any[]) => {
+        .pipe(
+        map((response: any) => this.transformModels(this.repositoryHelper.itemsResponse(this, response)))
+        ).subscribe((loadedItems: any[]) => {
           this.localLoadAll(loadedItems);
           this.afterLoadAll(result, filter, null, null);
         }, (error: any) => {
@@ -159,7 +158,9 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   loadRemote(key: string | number) {
     const result = this.beforeLoad(key);
     this.repositoryHelper.readItemRequest(this, key)
-      .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response)))
+      .pipe(
+      map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response)))
+      )
       .subscribe((loadedItem: any) => {
         this.afterLoad(result, loadedItem, null, null);
       }, (error: any) => {
@@ -203,7 +204,9 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     const result = this.beforeCreate(item);
     setTimeout(() => {
       this.repositoryHelper.createItemRequest(this, item)
-        .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
+        .pipe(
+        map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
+        )
         .subscribe((createdItem: any) => {
           this.afterCreate(result, createdItem, null, null);
         }, (error: any) => {
@@ -247,8 +250,9 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     const result = this.beforeUpdate(item);
     setTimeout(() => {
       this.repositoryHelper.updateItemRequest(this, item)
-        .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
-        .subscribe((updatedItem: any) => {
+        .pipe(
+        map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
+        ).subscribe((updatedItem: any) => {
           this.afterUpdate(result, updatedItem, null, null);
         }, (error: any) => {
           this.afterUpdate(result, item, null, error);

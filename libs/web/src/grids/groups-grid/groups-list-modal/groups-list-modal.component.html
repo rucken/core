@@ -8,7 +8,7 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <groups-grid #groups (onEnter)="ok()" [onEnterEnabled]="true" (onSelectItems)="selectGroup($event)" [hardReadonly]="hardReadonly"
+        <groups-grid #groups (onEnter)="ok()" [enabledOnEnter]="true" (onSelectItems)="selectGroup($event)" [hardReadonly]="hardReadonly"
           #focusElement></groups-grid>
       </div>
       <div class="modal-footer">

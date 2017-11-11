@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -59,7 +59,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -82,7 +82,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new User(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -100,7 +100,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }

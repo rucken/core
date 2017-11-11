@@ -31,7 +31,7 @@
     "**/*/node_modules",
     "**/*/.tmp",
     "**/*/dist",
-    "**/*/srcgen"
+    "srcgen"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

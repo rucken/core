@@ -1,7 +1,7 @@
-import { DemoAppComponent } from './app.component';
-export { DemoAppComponent } from './app.component';
 import { DemoAppModule } from './app.module';
 export { DemoAppModule } from './app.module';
+import { DemoAppComponent } from './app.component';
+export { DemoAppComponent } from './app.component';
 import { DemoRoutes } from './app.routes';
 export { DemoRoutes } from './app.routes';
 import { RuckenDemoRuI18n } from './i18n/ru.i18n';
@@ -28,10 +28,10 @@ import { DemoAccountPageModule } from './pages/account-page/account-page.module'
 export { DemoAccountPageModule } from './pages/account-page/account-page.module';
 import { DemoAccountPageRoutes } from './pages/account-page/account-page.routes';
 export { DemoAccountPageRoutes } from './pages/account-page/account-page.routes';
-import { DemoProfileFrameRoutes } from './pages/account-page/profile-frame/profile-frame.routes';
-export { DemoProfileFrameRoutes } from './pages/account-page/profile-frame/profile-frame.routes';
 import { DemoProfileFrameModule } from './pages/account-page/profile-frame/profile-frame.module';
 export { DemoProfileFrameModule } from './pages/account-page/profile-frame/profile-frame.module';
+import { DemoProfileFrameRoutes } from './pages/account-page/profile-frame/profile-frame.routes';
+export { DemoProfileFrameRoutes } from './pages/account-page/profile-frame/profile-frame.routes';
 import { DemoAdminPageModule } from './pages/admin-page/admin-page.module';
 export { DemoAdminPageModule } from './pages/admin-page/admin-page.module';
 import { DemoAdminPageRoutes } from './pages/admin-page/admin-page.routes';
@@ -40,10 +40,10 @@ import { DemoGroupsFrameModule } from './pages/admin-page/groups-frame/groups-fr
 export { DemoGroupsFrameModule } from './pages/admin-page/groups-frame/groups-frame.module';
 import { DemoGroupsFrameRoutes } from './pages/admin-page/groups-frame/groups-frame.routes';
 export { DemoGroupsFrameRoutes } from './pages/admin-page/groups-frame/groups-frame.routes';
-import { DemoUsersFrameModule } from './pages/admin-page/users-frame/users-frame.module';
-export { DemoUsersFrameModule } from './pages/admin-page/users-frame/users-frame.module';
 import { DemoUsersFrameRoutes } from './pages/admin-page/users-frame/users-frame.routes';
 export { DemoUsersFrameRoutes } from './pages/admin-page/users-frame/users-frame.routes';
+import { DemoUsersFrameModule } from './pages/admin-page/users-frame/users-frame.module';
+export { DemoUsersFrameModule } from './pages/admin-page/users-frame/users-frame.module';
 import { DemoComponentsPageModule } from './pages/components-page/components-page.module';
 export { DemoComponentsPageModule } from './pages/components-page/components-page.module';
 import { DemoComponentsPageRoutes } from './pages/components-page/components-page.routes';

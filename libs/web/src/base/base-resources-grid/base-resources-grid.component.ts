@@ -1,5 +1,3 @@
-import 'rxjs/add/operator/takeUntil';
-
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum, User } from '@rucken/core';
 import * as _ from 'lodash';
@@ -16,7 +14,7 @@ export class BaseResourcesGridComponent extends BaseResourcesListComponent {
   @Output()
   onSelectItems: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  onEnterEnabled?: boolean;
+  enabledOnEnter?: boolean;
   @Output()
   onEnter: EventEmitter<any> = new EventEmitter<any>();
   @Input()
@@ -31,8 +29,8 @@ export class BaseResourcesGridComponent extends BaseResourcesListComponent {
 
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if (event.key === 'Enter' && this.onEnterEnabled) {
-      this.enter();
+    if (event.key === 'Enter' && this.enabledOnEnter && !this.readonly && !this.hardReadonly) {
+      //this.enter();
     }
   }
 

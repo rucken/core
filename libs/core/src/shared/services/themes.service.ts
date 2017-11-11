@@ -19,7 +19,7 @@ export class ThemesService extends BaseRepositoryService {
     this.pluralName = 'themes';
     this.name = 'theme';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
-    this.items$ = <Subject<Theme[]>>new Subject();
+    this.items$ = new Subject<Theme[]>();
     this.mockedItems = ThemeItemsMock;
     this.meta.perPage = 100;
     this.initTheme();

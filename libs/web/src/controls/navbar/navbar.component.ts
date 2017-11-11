@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { ChangeDetectionStrategy, Component, ComponentFactoryResolver, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -52,7 +52,7 @@ export class NavbarComponent extends BaseComponent {
         this.isCollapsed = true;
       });
     if (this.accountService) {
-      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => {
+      this.accountService.account$.pipe(takeUntil(this.destroyed$)).subscribe((account: any | User) => {
         this.initRoutes();
         this.initVersion();
       });
@@ -81,12 +81,12 @@ export class NavbarComponent extends BaseComponent {
     ));
   }
   get childrenRoutes() {
-    return this._childrenRoutes.map(
+    return this._childrenRoutes ? this._childrenRoutes.map(
       (item: any) => {
         const newItem = item.data;
         newItem.url = `/${newItem.name}`;
         return newItem;
-      });
+      }) : [];
   }
   sortChildrenRoutes(routes: any[]) {
     return _.sortBy(routes, [
@@ -134,7 +134,7 @@ export class NavbarComponent extends BaseComponent {
     confirm.message = this.translateService.instant('Do you really want to leave?');
     confirm.onOk.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
-    this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
+    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
@@ -160,7 +160,7 @@ export class NavbarComponent extends BaseComponent {
     itemModal.title = this.translateService.instant('Authorization');
     itemModal.onOk.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
-    this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
+    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

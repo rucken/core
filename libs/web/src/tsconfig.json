@@ -18,7 +18,10 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "newLine": "LF",
-    "lib": ["dom", "es6"],
+    "lib": [
+      "dom",
+      "es6"
+    ],
     "types": [
       "jasmine"
     ],

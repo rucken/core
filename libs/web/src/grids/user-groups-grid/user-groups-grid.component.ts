@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import {
   Component,
@@ -109,7 +109,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = item.group;
     itemModal.modal.show();
     this.selectedItems = [item];
-    this.groupsService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.groupsService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

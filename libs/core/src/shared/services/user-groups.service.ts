@@ -1,5 +1,3 @@
-import 'rxjs/add/operator/map';
-
 import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
@@ -19,7 +17,7 @@ export class UserGroupsService extends BaseRepositoryService {
     this.pluralName = 'user_groups';
     this.name = 'user_group';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
-    this.items$ = <Subject<UserGroup[]>>new Subject();
+    this.items$ = new Subject<UserGroup[]>();
     this.meta.perPage = 10;
   }
   transformModel(item: any) {
