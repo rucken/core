@@ -1,4 +1,4 @@
-import { takeUntil } from 'rxjs/operators';
+import 'rxjs/add/operator/takeUntil';
 
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { EndpointStatusEnum, User } from '@rucken/core';
@@ -75,7 +75,7 @@ export class BaseResourcesListComponent extends BaseComponent {
       this.loadAll = true;
     }
     if (this.cachedResourcesService) {
-      this.cachedResourcesService.items$.pipe(takeUntil(this.destroyed$)).subscribe(
+      this.cachedResourcesService.items$.takeUntil(this.destroyed$).subscribe(
         (items: any[]) => {
           this.items = items;
           if (this.items) {
@@ -89,7 +89,7 @@ export class BaseResourcesListComponent extends BaseComponent {
       this.onLoaded.emit(this.items);
     }
     if (this.accountService) {
-      this.accountService.account$.pipe(takeUntil(this.destroyed$)).subscribe((account: any | User) => this.initAccesses());
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.initAccesses());
     }
   }
   search(ignoreCache?: boolean) {

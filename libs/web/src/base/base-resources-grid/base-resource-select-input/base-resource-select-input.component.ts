@@ -1,4 +1,4 @@
-import { takeUntil } from 'rxjs/operators';
+import 'rxjs/add/operator/takeUntil';
 
 import { Component, EventEmitter, Input, Output, Inject, Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -106,7 +106,7 @@ export class BaseResourceSelectInputComponent extends BaseResourcesListComponent
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;
     }
-    this.translateService.onLangChange.pipe(takeUntil(this.destroyed$)).subscribe(() => this.initSearch());
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.initSearch());
     this.onLoaded.subscribe((items: any[]) => {
       this.items = items;
       if (this.inputElement) {

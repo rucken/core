@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/takeUntil';
+
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum, User } from '@rucken/core';
 import * as _ from 'lodash';
@@ -30,7 +32,7 @@ export class BaseResourcesGridComponent extends BaseResourcesListComponent {
   @HostListener('document:keypress', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (event.key === 'Enter' && this.enabledOnEnter && !this.readonly && !this.hardReadonly) {
-      //this.enter();
+      this.enter();
     }
   }
 
@@ -59,8 +61,8 @@ export class BaseResourcesGridComponent extends BaseResourcesListComponent {
   }
   afterCreate() {
     super.afterCreate();
-    if (this.onEnterEnabled === undefined) {
-      this.onEnterEnabled = true;
+    if (this.enabledOnEnter === undefined) {
+      this.enabledOnEnter = true;
     }
     if (this.hardReadonly === undefined) {
       this.hardReadonly = false;
@@ -84,7 +86,7 @@ export class BaseResourcesGridComponent extends BaseResourcesListComponent {
       this.selectedItems.push(item);
     }
     this.onSelectItems.emit(this.selectedItems);
-    if (this.onEnterEnabled) {
+    if (this.enabledOnEnter) {
       this.focus();
     }
   }
@@ -93,7 +95,7 @@ export class BaseResourcesGridComponent extends BaseResourcesListComponent {
       this.selectedItems = [item];
     }
     this.onSelectItems.emit(this.selectedItems);
-    if (this.onEnterEnabled) {
+    if (this.enabledOnEnter) {
       this.focus();
     }
   }

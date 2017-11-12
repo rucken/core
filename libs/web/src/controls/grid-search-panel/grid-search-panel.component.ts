@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy, HostListener } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { translate } from '@rucken/core';
 
@@ -10,6 +10,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
   styleUrls: ['./grid-search-panel.component.scss'],
   // changeDetection: ChangeDetectionStrategy.OnPush
 })
+
 export class GridSearchPanelComponent extends BaseComponent {
   @Input()
   searchText: string;
@@ -22,12 +23,6 @@ export class GridSearchPanelComponent extends BaseComponent {
   @Input()
   maxlength = 250;
 
-  @HostListener('document:keypress', ['$event'])
-  handleKeyboardEvent(event: KeyboardEvent) {
-    if (event.key === 'Enter' && this.onEnterEnabled) {
-      this.search();
-    }
-  }
   afterCreate() {
     if (this.searchTitle === undefined) {
       this.searchTitle = translate('Search');

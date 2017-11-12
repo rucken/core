@@ -1,4 +1,4 @@
-import { takeUntil } from 'rxjs/operators';
+import 'rxjs/add/operator/takeUntil';
 
 import { Component, ViewChild } from '@angular/core';
 import { User } from '@rucken/core';
@@ -21,7 +21,7 @@ export class ProfileFrameComponent extends BaseFrameComponent {
 
   init() {
     super.init();
-    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
+    this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
       this.accountProfileForm ? this.accountProfileForm.okInProcessFromStatus(status) : false
     );
   }

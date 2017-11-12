@@ -1,4 +1,4 @@
-import { map } from 'rxjs/operators';
+import 'rxjs/add/operator/map';
 
 import { EventEmitter, Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
@@ -11,7 +11,7 @@ import { User } from './../models/user.model';
 @Injectable()
 export class AccountService {
   name: string;
-  account$: Subject<any | User>;
+  account$: Subject<any | User> = new Subject<any | User>();
   apiUrl: string;
 
   statusMessage: string;
@@ -28,7 +28,6 @@ export class AccountService {
     this.endpointHelper = injector.get(EndpointHelper);
     this.name = 'account';
     this.apiUrl = `${this.endpointHelper.apiUrl}/${this.name}`;
-    this.account$ = new Subject<any | User>();
   }
   get token(): string | null {
     // you custom code in extended class
@@ -72,10 +71,8 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    this.endpointHelper.actionRequest(this, 'info', { 'token': (token ? token : this.token) }).pipe(
-      map(
-        (response: any) => this.endpointHelper.actionResponse(this, 'info', response))
-    ).
+    this.endpointHelper.actionRequest(this, 'info', { 'token': (token ? token : this.token) }).map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
         this.token = data.token;
@@ -95,10 +92,8 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Processing,
       translate('Login...')
     );
-    this.endpointHelper.actionRequest(this, 'login', account.formatToAuth(), true).pipe(
-      map(
-        (response: any) => this.endpointHelper.actionResponse(this, 'login', response))
-    ).
+    this.endpointHelper.actionRequest(this, 'login', account.formatToAuth(), true).map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
         this.token = data.token;
@@ -134,19 +129,18 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Updating,
       translate('Updating...')
     );
-    this.endpointHelper.actionRequest(this, 'update', account).pipe(
-      map(
-        (response: any) => this.endpointHelper.actionResponse(this, 'update', response))
-    ).subscribe((user: any | User) => {
-      this.account = this.transformModel(user);
-      result.emit(this.account);
-      this.setStatus(EndpointStatusEnum.Ok);
-    }, (error: any) => {
-      result.error(this.endpointHelper.extractError(error));
-      this.setStatus(EndpointStatusEnum.Error,
-        translate('Error')
-      );
-    });
+    this.endpointHelper.actionRequest(this, 'update', account).map(
+      (response: any) => this.endpointHelper.actionResponse(this, 'update', response))
+      .subscribe((user: any | User) => {
+        this.account = this.transformModel(user);
+        result.emit(this.account);
+        this.setStatus(EndpointStatusEnum.Ok);
+      }, (error: any) => {
+        result.error(this.endpointHelper.extractError(error));
+        this.setStatus(EndpointStatusEnum.Error,
+          translate('Error')
+        );
+      });
     return result;
   }
   validateError(item: any): EventEmitter<any> {

@@ -1,3 +1,5 @@
+import 'rxjs/add/operator/map';
+
 import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 

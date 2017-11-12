@@ -1,3 +1,6 @@
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Injector } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
@@ -58,7 +61,7 @@ export class SelectInputComponent extends BaseComponent {
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  width: string;
+  width: string = null;
   @Input()
   set items(items: any[]) {
     this._items = items;
@@ -167,7 +170,7 @@ export class SelectInputComponent extends BaseComponent {
       const select: any = this.autoComplete.el.children[0];
       // if (this.items && options.length >= this.items.length) {
       for (let i = 0; i < options.length; i++) {
-        if (this.width === undefined) {
+        if (this.width === null) {
           options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
         } else {
           options[i].style.width = this.width;

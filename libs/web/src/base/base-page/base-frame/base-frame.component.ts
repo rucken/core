@@ -1,4 +1,4 @@
-import { takeUntil } from 'rxjs/operators';
+import 'rxjs/add/operator/takeUntil';
 
 import { Component, Injector } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -30,10 +30,10 @@ export class BaseFrameComponent extends BaseComponent {
   afterCreate() {
     super.afterCreate();
     this.sharedService.linkTranslateService();
-    this.translateService.onLangChange.pipe(takeUntil(this.destroyed$)).subscribe(() => this.initTitle());
-    this.app.onCurrentPageTitle.pipe(takeUntil(this.destroyed$)).subscribe(() => this.initTitle());
+    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() => this.initTitle());
+    this.app.onCurrentPageTitle.takeUntil(this.destroyed$).subscribe(() => this.initTitle());
     if (this.accountService) {
-      this.accountService.account$.pipe(takeUntil(this.destroyed$)).subscribe((account: any | User) => this.initTitle());
+      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.initTitle());
     }
   }
   initTitle() {
