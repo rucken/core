@@ -6,10 +6,10 @@ import { AccountService } from '@rucken/core';
 @Injectable()
 export class WebAccountService extends AccountService {
 
-  get token() {
+  get token(): string | null {
     return localStorage.getItem('token');
   }
-  set token(value: string) {
+  set token(value: string | null) {
     if (value === null) {
       localStorage.removeItem('token');
     } else {

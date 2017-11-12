@@ -1,3 +1,20 @@
+<a name="1.25.0"></a>
+# [1.25.0](https://github.com/rucken/core/compare/1.24.0...1.25.0) (2017-11-12)
+
+
+### Bug Fixes
+
+* **base-resource-list:** Change type of "onLoaded" property Input => Output ([2a8190c](https://github.com/rucken/core/commit/2a8190c))
+* **downgrade:** Downgrade Angular to stable 4.4.5 and revert all changes, because it not worked with sub packages ([a7f8eb7](https://github.com/rucken/core/commit/a7f8eb7))
+* **entity-select-input:** Fix error if selected empty value on modal for list ([73179ba](https://github.com/rucken/core/commit/73179ba))
+
+
+### Features
+
+* **base-resources-grid:** Move base methods and props to base-resources-list from base-resources-grid and base-resources-select-input ([60ad68f](https://github.com/rucken/core/commit/60ad68f))
+
+
+
 <a name="1.24.0"></a>
 # [1.24.0](https://github.com/rucken/core/compare/1.23.1...1.24.0) (2017-11-08)
 

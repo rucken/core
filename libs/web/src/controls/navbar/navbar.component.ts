@@ -81,12 +81,12 @@ export class NavbarComponent extends BaseComponent {
     ));
   }
   get childrenRoutes() {
-    return this._childrenRoutes.map(
+    return this._childrenRoutes ? this._childrenRoutes.map(
       (item: any) => {
         const newItem = item.data;
         newItem.url = `/${newItem.name}`;
         return newItem;
-      });
+      }) : [];
   }
   sortChildrenRoutes(routes: any[]) {
     return _.sortBy(routes, [

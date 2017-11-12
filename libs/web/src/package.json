@@ -3,7 +3,7 @@
     "main": "./web/.tmp/index.js",
     "module": "./web/.tmp/index.js",
     "typings": "./web/.tmp/index.d.ts",
-    "version": "1.24.0",
+    "version": "1.25.0",
     "description": "Base components, services and ui for admin entities for application maked on Angular4+",
     "keywords": [
         "ngx",

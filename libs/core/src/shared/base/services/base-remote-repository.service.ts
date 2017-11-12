@@ -23,8 +23,8 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   queryProps: any;
   statusListMessage: string;
   statusItemMessage: string;
-  changeStatusList$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
-  changeStatusItem$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
+  changeStatusList$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
+  changeStatusItem$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
 
   get statusList() {
     return this._statusList;
@@ -36,7 +36,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   protected _statusList: EndpointStatusEnum;
   protected _statusItem: EndpointStatusEnum;
 
-  repositoryHelper: RepositoryHelper
+  repositoryHelper: RepositoryHelper;
   parent: any = null;
   cached: any = [];
 

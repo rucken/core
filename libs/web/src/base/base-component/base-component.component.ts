@@ -39,7 +39,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   infoValue: any;
   [key: string]: any;
 
-  destroyed$: Subject<boolean> = new Subject();
+  destroyed$: Subject<boolean> = new Subject<boolean>();
 
   accountService: AccountService;
   app: AppService;

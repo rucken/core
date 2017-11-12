@@ -41,7 +41,7 @@ export class BaseAppComponent extends BaseComponent {
     title: translate('English'),
     dic: null
   }];
-  currentLang: string = null;
+  currentLang: string | null = null;
   defaultLang = 'en';
   autoLoadLang = true;
   errorModalOpened = false;

@@ -64,7 +64,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.onOk.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputElement) {
-        this.inputElement.value = this.value.pk;
+        this.inputElement.value = this.value ? this.value.pk : null;
       }
       if (this.inputReadonly === false) {
         this.valueAsString = '';

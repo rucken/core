@@ -19,7 +19,7 @@ export class GroupsService extends BaseRepositoryService {
     this.pluralName = 'groups';
     this.name = 'group';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
-    this.items$ = <Subject<Group[]>>new Subject();
+    this.items$ = new Subject<Group[]>();
   }
   transformModel(item: any) {
     return new Group(item);

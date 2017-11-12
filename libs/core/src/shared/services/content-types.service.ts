@@ -19,7 +19,7 @@ export class ContentTypesService extends BaseRepositoryService {
     this.pluralName = 'content_types';
     this.name = 'content_type';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
-    this.items$ = <Subject<ContentType[]>>new Subject();
+    this.items$ = new Subject<ContentType[]>();
   }
   transformModel(item: any) {
     return new ContentType(item);

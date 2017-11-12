@@ -8,7 +8,7 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <fontawesomes-grid #fontawesomes (onEnter)="ok()" [onEnterEnabled]="true" (onSelectItems)="selectFontawesome($event)" [hardReadonly]="hardReadonly"
+        <fontawesomes-grid #fontawesomes (onEnter)="ok()" [enabledOnEnter]="true" (onSelectItems)="selectFontawesome($event)" [hardReadonly]="hardReadonly"
           #focusElement></fontawesomes-grid>
       </div>
       <div class="modal-footer">

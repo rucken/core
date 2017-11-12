@@ -19,7 +19,7 @@ export class UsersService extends BaseRepositoryService {
     this.pluralName = 'users';
     this.name = 'user';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
-    this.items$ = <Subject<User[]>>new Subject();
+    this.items$ = new Subject<User[]>();
   }
   transformModel(item: any) {
     return new User(item);

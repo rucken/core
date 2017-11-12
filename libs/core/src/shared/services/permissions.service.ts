@@ -19,7 +19,7 @@ export class PermissionsService extends BaseRepositoryService {
     this.pluralName = 'permissions';
     this.name = 'permission';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
-    this.items$ = <Subject<Permission[]>>new Subject();
+    this.items$ = new Subject<Permission[]>();
   }
   transformModel(item: any) {
     return new Permission(item);

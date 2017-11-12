@@ -8,7 +8,7 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <users-grid #users (onEnter)="ok()" [onEnterEnabled]="true" (onSelectItems)="selectUser($event)" [hardReadonly]="hardReadonly"
+        <users-grid #users (onEnter)="ok()" [enabledOnEnter]="true" (onSelectItems)="selectUser($event)" [hardReadonly]="hardReadonly"
           #focusElement></users-grid>
       </div>
       <div class="modal-footer">

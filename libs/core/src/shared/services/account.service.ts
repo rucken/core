@@ -11,11 +11,11 @@ import { User } from './../models/user.model';
 @Injectable()
 export class AccountService {
   name: string;
-  account$: Subject<any | User>;
+  account$: Subject<any | User> = new Subject<any | User>();
   apiUrl: string;
 
   statusMessage: string;
-  changeStatus$: Subject<EndpointStatusEnum> = <Subject<EndpointStatusEnum>>new Subject();
+  changeStatus$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
 
   protected _account: any | User;
   protected _status: EndpointStatusEnum;
@@ -28,7 +28,6 @@ export class AccountService {
     this.endpointHelper = injector.get(EndpointHelper);
     this.name = 'account';
     this.apiUrl = `${this.endpointHelper.apiUrl}/${this.name}`;
-    this.account$ = <Subject<User>>new Subject();
   }
   get token(): string | null {
     // you custom code in extended class
