@@ -9,9 +9,9 @@ import { BaseModalComponent } from './../../base-modal/base-modal.component';
 export class BaseResourceListModalComponent extends BaseModalComponent {
 
   @Input()
-  readonly? = false;
+  readonly?= false;
   @Input()
-  hardReadonly? = false;
+  hardReadonly?= false;
 
   item: any = {};
   items: any[] = [];
