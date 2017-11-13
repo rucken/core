@@ -22,7 +22,7 @@ export class AccountProfileFormComponent extends BaseModalComponent {
   userGroups: UserGroupsGridComponent;
 
   @Input()
-  text = translate('Update');
+  okTitle = translate('Update');
   @Input()
   class = '';
   @Input()
