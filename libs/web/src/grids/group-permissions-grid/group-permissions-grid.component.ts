@@ -11,8 +11,7 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { Group } from '@rucken/core';
+import { Group, translate } from '@rucken/core';
 import { Permission } from '@rucken/core';
 import { GroupPermission } from '@rucken/core';
 import { GroupPermissionsService } from '@rucken/core';
@@ -56,8 +55,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.groupPermissionsService = injector.get(GroupPermissionsService);
@@ -82,8 +80,8 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.permissions.maxSelectCount = 10000;
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.readonly;
-    itemModal.text = this.translateService.instant('Append');
-    itemModal.title = this.translateService.instant('Select permissions for append to group');
+    itemModal.okTitle = translate('Append');
+    itemModal.title = translate('Select permissions for append to group');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Permission();
@@ -105,10 +103,10 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'editGroupPermission';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToChange || this.readonly;
-    itemModal.text = this.translateService.instant('Save');
-    itemModal.title = this.translateService.instant('Edit permission');
+    itemModal.okTitle = translate('Save');
+    itemModal.title = translate('Edit permission');
     if (itemModal.readonly) {
-      itemModal.title = this.translateService.instant('Permission info');
+      itemModal.title = translate('Permission info');
     }
     itemModal.onOk.subscribe(($event: any) => this.savePermission($event));
     itemModal.onClose.subscribe(() => this.focus());
@@ -141,8 +139,8 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.name = 'removeGroupPermission';
     confirm.size = 'md';
-    confirm.title = this.translateService.instant('Remove');
-    confirm.message = this.translateService.instant('Are you sure you want to remove a group permission?');
+    confirm.title = translate('Remove');
+    confirm.message = translate('Are you sure you want to remove a group permission?');
     confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];

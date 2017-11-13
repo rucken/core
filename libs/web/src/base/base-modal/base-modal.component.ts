@@ -1,5 +1,5 @@
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import { EndpointStatusEnum } from '@rucken/core';
+import { EndpointStatusEnum, translate } from '@rucken/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 
@@ -23,6 +23,10 @@ export class BaseModalComponent extends BaseComponent {
   title?: string;
   @Input()
   message?: string;
+  @Input()
+  okTitle = translate('OK');
+  @Input()
+  closeTitle = translate('Close');
   @Input()
   okInProcess = false;
   @Output()

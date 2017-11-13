@@ -20,8 +20,7 @@ export class BaseFrameComponent extends BaseComponent {
   router: Router;
 
   constructor(
-    public injector: Injector,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public injector: Injector
   ) {
     super(injector);
     this.activatedRoute = injector.get(ActivatedRoute);

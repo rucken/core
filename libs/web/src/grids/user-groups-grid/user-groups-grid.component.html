@@ -5,7 +5,7 @@
         <h4>{{modelMeta.user.titles.groups | translate}}</h4>
       </div>
       <div class="col-sm-4">
-        <button type="button" class="btn btn-success pull-right" (click)="showCreateModal()" *ngIf="accessToCreate && !readonly">
+        <button type="button" class="btn btn-success pull-right" (click)="showCreateModal()" *ngIf="accessToAdd && !readonly">
 					<span class="fa fa-plus"></span> {{ 'Append' | translate }}
 				</button>
       </div>

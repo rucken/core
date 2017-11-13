@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { User } from '@rucken/core';
+import { User, translate } from '@rucken/core';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
 import { BaseModalComponent } from './../../base/base-modal/base-modal.component';
@@ -21,6 +21,10 @@ export class AuthModalComponent extends BaseModalComponent {
 
   @Input()
   name = 'auth';
+  @Input()
+  okTitle = translate('Login');
+  @Input()
+  closeTitle = translate('Cancel');
   @Output()
   onClose: EventEmitter<AuthModalComponent | any> = new EventEmitter<any>();
   @Output()

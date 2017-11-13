@@ -1,8 +1,7 @@
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { Group } from '@rucken/core';
+import { Group, translate } from '@rucken/core';
 import { GroupsService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
@@ -33,8 +32,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.groupsService = injector.get(GroupsService);
@@ -55,8 +53,8 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'createGroup';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToAdd;
-    itemModal.text = this.translateService.instant('Create');
-    itemModal.title = this.translateService.instant('Create new group');
+    itemModal.okTitle = translate('Create');
+    itemModal.title = translate('Create new group');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Group();
@@ -75,10 +73,10 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'editGroup';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToChange;
-    itemModal.text = this.translateService.instant('Save');
-    itemModal.title = this.translateService.instant('Edit group');
+    itemModal.okTitle = translate('Save');
+    itemModal.title = translate('Edit group');
     if (itemModal.readonly) {
-      itemModal.title = this.translateService.instant('Group info');
+      itemModal.title = translate('Group info');
     }
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
@@ -97,8 +95,8 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.name = 'removeGroup';
     confirm.size = 'md';
-    confirm.title = this.translateService.instant('Remove');
-    confirm.message = this.translateService.instant('Are you sure you want to remove a group?');
+    confirm.title = translate('Remove');
+    confirm.message = translate('Are you sure you want to remove a group?');
     confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];

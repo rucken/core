@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.25.0",
+  "version": "1.25.1",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
@@ -73,7 +73,7 @@
     "app-demo:lite_server": "lite-server -c bs-config.json",
     "app-demo:serve_dev": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --aot=false",
     "app-demo:serve_prod": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --aot",
-    "app-demo:serve_mockapi": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --prod --aot --env=mockapi",
+    "app-demo:serve_mockapi": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --aot --env=mockapi",
     "app-demo:prod_build": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href / --prod --aot --build-optimizer",
     "app-demo:prod_full_build": "npm-run-all libs:build libs:link app-demo:prod_build app-demo:tools-add_version",
     "app-demo:tools-add_version": "gulp app-demo:add-version",

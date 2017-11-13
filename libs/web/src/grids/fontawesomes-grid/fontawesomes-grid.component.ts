@@ -1,13 +1,12 @@
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
-import { Fontawesome } from '@rucken/core';
+import { Fontawesome, translate } from '@rucken/core';
 import { FontawesomeService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { FontawesomeModalComponent } from './fontawesome-modal/fontawesome-modal.component';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'fontawesomes-grid',
@@ -33,8 +32,7 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.fontawesomeService = injector.get(FontawesomeService);
@@ -52,8 +50,8 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'createFontawesome';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToAdd;
-    itemModal.text = this.translateService.instant('Create');
-    itemModal.title = this.translateService.instant('Create new fontawesome');
+    itemModal.okTitle = translate('Create');
+    itemModal.title = translate('Create new fontawesome');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new Fontawesome();
@@ -72,10 +70,10 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'editFontawesome';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToChange;
-    itemModal.text = this.translateService.instant('Save');
-    itemModal.title = this.translateService.instant('Edit fontawesome');
+    itemModal.okTitle = translate('Save');
+    itemModal.title = translate('Edit fontawesome');
     if (itemModal.readonly) {
-      itemModal.title = this.translateService.instant('Fontawesome info');
+      itemModal.title = translate('Fontawesome info');
     }
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
@@ -94,8 +92,8 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.name = 'removeFontawesome';
     confirm.size = 'md';
-    confirm.title = this.translateService.instant('Remove');
-    confirm.message = this.translateService.instant('Are you sure you want to remove a fontawesome?');
+    confirm.title = translate('Remove');
+    confirm.message = translate('Are you sure you want to remove a fontawesome?');
     confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];

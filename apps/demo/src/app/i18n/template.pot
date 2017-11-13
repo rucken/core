@@ -37,9 +37,6 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-msgid "Language"
-msgstr ""
-
 msgid "Menu"
 msgstr ""
 

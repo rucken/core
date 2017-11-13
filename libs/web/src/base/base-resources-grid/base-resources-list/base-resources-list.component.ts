@@ -85,6 +85,12 @@ export class BaseResourcesListComponent extends BaseComponent {
           this.items = [];
           this.onLoaded.emit(this.items);
         });
+      this.cachedResourcesService.mockedItems$.takeUntil(this.destroyed$).subscribe(
+        (items: any[]) => {
+          this.mockedItems = items;
+        }, (errors: any) => {
+          this.mockedItems = [];
+        });
       this.items = this.cachedResourcesService.items;
       this.onLoaded.emit(this.items);
     }

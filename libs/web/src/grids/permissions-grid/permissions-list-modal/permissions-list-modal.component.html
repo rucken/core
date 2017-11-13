@@ -8,11 +8,11 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <permissions-grid #permissions (onEnter)="ok()" [enabledOnEnter]="true" (onSelectItems)="selectPermission($event)" [hardReadonly]="hardReadonly"
+        <permissions-grid #permissions (onEnter)="ok()" (onSelectItems)="selectPermission($event)" [hardReadonly]="hardReadonly"
           #focusElement></permissions-grid>
       </div>
       <div class="modal-footer">
-        <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" closeTitle="{{'Close'|translate}}"
+        <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="okTitle" [closeTitle]="closeTitle"
           okBtnClass="btn-success" [okInProcess]="okInProcess"></footer-buttons>
       </div>
     </div>

@@ -12,13 +12,12 @@ import { RuckenCoreRuI18n } from '@rucken/core';
 import { translate } from '@rucken/core';
 import * as _ from 'lodash';
 import * as moment from 'moment/moment';
-import { defineLocale, getSetGlobalLocale } from 'ngx-bootstrap/bs-moment';
+import { defineLocale } from 'ngx-bootstrap/bs-moment';
 import { enGb, ru } from 'ngx-bootstrap/locale';
 
 import { RuckenWebRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
 import { BaseComponent } from './../base-component/base-component.component';
-import { TranslateService } from '@ngx-translate/core';
 
 defineLocale('ru', ru);
 defineLocale('en', enGb);
@@ -50,7 +49,6 @@ export class BaseAppComponent extends BaseComponent {
     public injector: Injector,
     public viewContainerRef: ViewContainerRef,
     public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
   ) {
     super(injector);
   }
@@ -81,7 +79,6 @@ export class BaseAppComponent extends BaseComponent {
     return this.translateService.currentLang;
   }
   set currentLanguage(lang: string) {
-    console.log(lang, getSetGlobalLocale(lang));
     moment.locale(lang);
     this.translateService.use(lang);
   }
@@ -93,14 +90,14 @@ export class BaseAppComponent extends BaseComponent {
       size = 'md';
     }
     if (title === undefined) {
-      title = this.translateService.instant('Error');
+      title = translate('Error');
     }
     const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
     alert.name = 'error';
     alert.text = title;
     alert.message = message;
     alert.size = size;
-    alert.buttonText = this.translateService.instant('Close');
+    alert.buttonText = translate('Close');
     alert.modal.show();
     this.errorModalOpened = true;
     alert.onClose.subscribe(() => this.errorModalOpened = false);
@@ -111,7 +108,7 @@ export class BaseAppComponent extends BaseComponent {
       size = 'md';
     }
     if (title === undefined) {
-      title = this.translateService.instant('Info');
+      title = translate('Info');
     }
     const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
     alert.name = 'error';
@@ -120,7 +117,7 @@ export class BaseAppComponent extends BaseComponent {
     alert.messageClass = '';
     alert.size = size;
     alert.buttonClass = 'btn-primary';
-    alert.buttonText = this.translateService.instant('ОК');
+    alert.buttonText = translate('ОК');
     alert.modal.show();
     return alert.onClose;
   }
@@ -129,7 +126,7 @@ export class BaseAppComponent extends BaseComponent {
       size = 'md';
     }
     if (title === undefined) {
-      title = this.translateService.instant('Info');
+      title = translate('Info');
     }
     const alert: AlertModalComponent = this.app.modals(this.resolver).create(AlertModalComponent);
     alert.focused = false;
@@ -139,7 +136,7 @@ export class BaseAppComponent extends BaseComponent {
     alert.messageClass = '';
     alert.size = size;
     alert.buttonClass = 'btn-primary';
-    alert.buttonText = this.translateService.instant('ОК');
+    alert.buttonText = translate('ОК');
     alert.modal.show();
     return alert.onClose;
   }

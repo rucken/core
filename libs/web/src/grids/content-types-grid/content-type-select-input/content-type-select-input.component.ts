@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
-import { ContentTypesService } from '@rucken/core';
+import { ContentTypesService, translate } from '@rucken/core';
 import { ContentType } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
@@ -9,7 +9,6 @@ import {
   BaseResourceSelectInputComponent,
 } from './../../../base/base-resources-grid/base-resource-select-input/base-resource-select-input.component';
 import { ContentTypesListModalComponent } from './../content-types-list-modal/content-types-list-modal.component';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'content-type-select-input',
@@ -39,8 +38,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.contentTypesService = injector.get(ContentTypesService);
@@ -59,8 +57,8 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.name = 'selectContentTypes';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
-    itemModal.text = this.translateService.instant('Select');
-    itemModal.title = this.translateService.instant('Content types');
+    itemModal.okTitle = translate('Select');
+    itemModal.title = translate('Content types');
     itemModal.onOk.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputElement) {

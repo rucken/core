@@ -2,7 +2,7 @@ import 'rxjs/add/operator/takeUntil';
 
 import { Component, EventEmitter, Input, Output, Inject, Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { EndpointStatusEnum } from '@rucken/core';
+import { EndpointStatusEnum, translate } from '@rucken/core';
 
 import { BaseComponent } from './../../../base/base-component/base-component.component';
 import { BaseResourceSelectInputConfig } from './base-resource-select-input.config';
@@ -117,7 +117,7 @@ export class BaseResourceSelectInputComponent extends BaseResourcesListComponent
   }
   initSearch() {
     if (this.lookupTooltip === undefined) {
-      this.lookupTooltip = this.translateService.instant('Select');
+      this.lookupTooltip = this.translateService.instant(translate('Select'));
     }
     if (this.select && this.loadAll) {
       this.search();
