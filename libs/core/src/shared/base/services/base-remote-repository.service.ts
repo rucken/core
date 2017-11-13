@@ -220,13 +220,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   }
   afterCreate(result: EventEmitter<any>, item: any, response: any, error: any) {
     if (!error) {
-      if (item.length) {
-        for (let i = 0; i < item.length; i++) {
-          this.localCreate(item[i]);
-        }
-      } else {
-        this.localCreate(item);
-      }
+      this.localCreate(item);
       result.emit(item);
       this.setStatusItem(EndpointStatusEnum.Ok);
       this.setStatusList(EndpointStatusEnum.Ok);

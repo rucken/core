@@ -81,7 +81,6 @@ export class BaseAppComponent extends BaseComponent {
     return this.translateService.currentLang;
   }
   set currentLanguage(lang: string) {
-    console.log(lang, getSetGlobalLocale(lang));
     moment.locale(lang);
     this.translateService.use(lang);
   }

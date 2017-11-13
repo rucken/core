@@ -31,35 +31,39 @@ export class BaseLocalRepositoryService {
     this.items$.next(this.items);
   }
   localLoad(loadedItem: any) {
-    let notFound = true;
-    this.items.forEach((item, index) => {
-      if (item.pk === loadedItem.pk) {
-        this.items[index] = loadedItem;
-        notFound = false;
+    const loadedItems = _.isArray(loadedItem) ? loadedItem : [loadedItem];
+    loadedItems.forEach((currentLoadedItem: any) => {
+      let notFound = true;
+      this.items.forEach((item, index) => {
+        if (item.pk === currentLoadedItem.pk) {
+          this.items[index] = currentLoadedItem;
+          notFound = false;
+        }
+      });
+      if (notFound) {
+        this.items.push(currentLoadedItem);
       }
     });
-    if (notFound) {
-      this.items.push(loadedItem);
-    }
     this.items$.next(this.items);
   }
   localCreate(createdItem: any) {
-    this.calcMeta(_.toNumber(this.meta.totalResults) + 1);
-    this.items.unshift(createdItem);
-    this.items$.next(this.items);
+    this.localUpdate(createdItem);
   }
   localUpdate(updatedItem: any) {
-    let founded = false;
-    this.items.forEach((eachItem: any, i: number) => {
-      if (eachItem.pk === updatedItem.pk) {
-        this.items[i] = updatedItem;
-        founded = true;
+    const updatedItems = _.isArray(updatedItem) ? updatedItem : [updatedItem];
+    updatedItems.forEach((currentUpdatedItem: any) => {
+      let founded = false;
+      this.items.forEach((eachItem: any, i: number) => {
+        if (eachItem.pk === currentUpdatedItem.pk) {
+          this.items[i] = currentUpdatedItem;
+          founded = true;
+        }
+      });
+      if (!founded) {
+        this.calcMeta(_.toNumber(this.meta.totalResults) + 1);
+        this.items.unshift(currentUpdatedItem);
       }
     });
-    if (!founded) {
-      this.calcMeta(_.toNumber(this.meta.totalResults) + 1);
-      this.items.unshift(updatedItem);
-    }
     this.items$.next(this.items);
   }
   localSave(item: any) {

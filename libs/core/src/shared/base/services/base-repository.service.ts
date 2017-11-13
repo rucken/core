@@ -4,11 +4,14 @@ import { EventEmitter, Injectable } from '@angular/core';
 
 import { inValues, translate } from '../../common/utils';
 import { BaseRemoteRepositoryService } from './base-remote-repository.service';
+import { Subject } from 'rxjs/Subject';
+import * as _ from 'lodash';
 
 
 @Injectable()
 export class BaseRepositoryService extends BaseRemoteRepositoryService {
 
+  mockedItems$: Subject<any[]> = new Subject<any[]>();
   protected _mockedItems: any[] | any = null;
 
   get mockedItems() {
@@ -30,6 +33,7 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
     } else {
       this._mockedItems = _mockedItems;
     }
+    this.mockedItems$.next(this._mockedItems);
   }
   getMockItemsNextPk(item: any) {
     if (item && item.pkIsNumber) {
@@ -109,25 +113,32 @@ export class BaseRepositoryService extends BaseRemoteRepositoryService {
   mockCreate(item: any): EventEmitter<any> {
     const result = this.beforeCreate(item);
     setTimeout((out: any) => {
-      item.pk = this.getMockItemsNextPk(item);
-      this._mockedItems.unshift(item);
-      this.afterCreate(result, item, null, null);
+      let items = _.isArray(item) ? item : [item];
+      items = items.map((currentItem: any) => {
+        currentItem.pk = this.getMockItemsNextPk(currentItem);
+        this._mockedItems.unshift(currentItem);
+        return currentItem;
+      });
+      this.afterCreate(result, items, null, null);
     });
     return result;
   }
   mockUpdate(item: any): EventEmitter<any> {
     const result = this.beforeUpdate(item);
     setTimeout((out: any) => {
-      let founded = false;
-      this._mockedItems.forEach((eachItem: any, i: number) => {
-        if (eachItem.pk === item.pk) {
-          this._mockedItems[i] = item;
-          founded = true;
+      let items = _.isArray(item) ? item : [item];
+      items = items.map((currentItem: any) => {
+        let founded = false;
+        this._mockedItems.forEach((eachItem: any, i: number) => {
+          if (eachItem.pk === currentItem.pk) {
+            this._mockedItems[i] = currentItem;
+            founded = true;
+          }
+        });
+        if (!founded) {
+          this._mockedItems.unshift(currentItem);
         }
       });
-      if (!founded) {
-        this._mockedItems.unshift(item);
-      }
       this.afterUpdate(result, item, null, null);
     });
     return result;
