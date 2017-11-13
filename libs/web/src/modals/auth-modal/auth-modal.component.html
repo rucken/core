@@ -10,9 +10,9 @@
       </div>
       <form (ngSubmit)="ok()">
         <div class="modal-body">
-          <text-input [errors]="errors" [info]="info" name="username" [(model)]="account.username" [title]="modelMeta.titles.usernameOrEmail"
+          <text-input [errors]="errors" [info]="info" name="username" [(model)]="user.username" [title]="modelMeta.titles.usernameOrEmail"
             [focused]="true" #focusElement></text-input>
-          <text-input [errors]="errors" [info]="info" type="password" name="password" [(model)]="account.password" [title]="modelMeta.titles.password"></text-input>
+          <text-input [errors]="errors" [info]="info" type="password" name="password" [(model)]="user.password" [title]="modelMeta.titles.password"></text-input>
         </div>
         <div class="modal-footer">
           <footer-buttons (onClose)="close()" (onOk)="ok()" [okTitle]="okTitle"

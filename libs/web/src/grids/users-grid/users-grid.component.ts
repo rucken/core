@@ -48,7 +48,6 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
     itemModal.name = 'createUser';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToAdd;
     itemModal.okTitle = translate('Create');
     itemModal.title = translate('Create new user');
@@ -68,7 +67,6 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: UserModalComponent = this.app.modals(this.resolver).create(UserModalComponent);
     itemModal.name = 'editUser';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToChange;
     itemModal.okTitle = translate('Save');
     itemModal.title = translate('Edit user');

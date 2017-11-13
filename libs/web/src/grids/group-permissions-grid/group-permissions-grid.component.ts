@@ -78,7 +78,6 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'createGroupPermission';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.permissions.maxSelectCount = 10000;
-    itemModal.account = this.accountService.account;
     itemModal.readonly = this.readonly;
     itemModal.okTitle = translate('Append');
     itemModal.title = translate('Select permissions for append to group');
@@ -101,7 +100,6 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.name = 'editGroupPermission';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToChange || this.readonly;
     itemModal.okTitle = translate('Save');
     itemModal.title = translate('Edit permission');

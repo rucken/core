@@ -50,7 +50,6 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
       this.app.modals(this.resolver).create(GroupsListModalComponent);
     itemModal.name = 'selectGroups';
     itemModal.hardReadonly = this.hardReadonly;
-    itemModal.account = this.account;
     itemModal.okTitle = translate('Select');
     itemModal.title = translate('Groups');
     itemModal.onOk.subscribe(($event: any) => {
@@ -66,8 +65,5 @@ export class GroupSelectInputComponent extends BaseResourceSelectInputComponent 
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
-      itemModal.okInProcessFromStatus(status)
-    );
   }
 }
