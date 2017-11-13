@@ -1,8 +1,7 @@
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { User } from '@rucken/core';
+import { translate, User } from '@rucken/core';
 import { UsersService } from '@rucken/core';
 
 import { ConfirmModalComponent } from '../..//modals/confirm-modal/confirm-modal.component';
@@ -33,8 +32,7 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.usersService = injector.get(UsersService);
@@ -52,8 +50,8 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'createUser';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToAdd;
-    itemModal.text = this.translateService.instant('Create');
-    itemModal.title = this.translateService.instant('Create new user');
+    itemModal.okTitle = translate('Create');
+    itemModal.title = translate('Create new user');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new User();
@@ -72,10 +70,10 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'editUser';
     itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToChange;
-    itemModal.text = this.translateService.instant('Save');
-    itemModal.title = this.translateService.instant('Edit user');
+    itemModal.okTitle = translate('Save');
+    itemModal.title = translate('Edit user');
     if (itemModal.readonly) {
-      itemModal.title = this.translateService.instant('User info');
+      itemModal.title = translate('User info');
     }
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
@@ -94,8 +92,8 @@ export class UsersGridComponent extends BaseResourcesGridComponent {
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.name = 'removeUser';
     confirm.size = 'md';
-    confirm.title = this.translateService.instant('Remove');
-    confirm.message = this.translateService.instant('Are you sure you want to remove a user?');
+    confirm.title = translate('Remove');
+    confirm.message = translate('Are you sure you want to remove a user?');
     confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];

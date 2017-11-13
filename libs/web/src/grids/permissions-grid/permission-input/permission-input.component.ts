@@ -10,14 +10,13 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { Permission } from '@rucken/core';
+import { Permission, translate } from '@rucken/core';
 import { PermissionsService } from '@rucken/core';
 
 import {
   BaseResourceInputComponent,
 } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { PermissionsListModalComponent } from './../permissions-list-modal/permissions-list-modal.component';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'permission-input',
@@ -45,8 +44,7 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.permissionsService = injector.get(PermissionsService);
@@ -58,8 +56,8 @@ export class PermissionInputComponent extends BaseResourceInputComponent {
     itemModal.name = 'selectPermissions';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
-    itemModal.text = this.translateService.instant('Select');
-    itemModal.title = this.translateService.instant('Permissions');
+    itemModal.okTitle = translate('Select');
+    itemModal.title = translate('Permissions');
     itemModal.onOk.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputReadonly === false) {

@@ -186,10 +186,14 @@ export class SelectInputComponent extends BaseComponent {
   }
   getTitle(item: any): SafeHtml | string {
     if (item && item[this.titleField]) {
-      return this.safeHtml(this.translate(item[this.titleField]));
+      return this.sanitizer.bypassSecurityTrustHtml(
+        this.translateService.instant(item[this.titleField])
+      );
     }
     if (item && item[this.inputTitleField]) {
-      return this.safeHtml(this.translate(item[this.inputTitleField]));
+      return this.sanitizer.bypassSecurityTrustHtml(
+        this.translateService.instant(item[this.inputTitleField])
+      );
     }
     return '';
   }
@@ -200,10 +204,10 @@ export class SelectInputComponent extends BaseComponent {
   }
   getInputTitle(item: any) {
     if (item && item[this.inputTitleField]) {
-      return this.translate(item[this.inputTitleField]);
+      return this.translateService.instant(item[this.inputTitleField]);
     }
     if (item && item[this.titleField]) {
-      return this.translate(item[this.titleField]);
+      return this.translateService.instant(item[this.titleField]);
     }
     return '';
   }

@@ -15,8 +15,8 @@
           <text-input [errors]="errors" [info]="info" type="password" name="password" [(model)]="account.password" [title]="modelMeta.titles.password"></text-input>
         </div>
         <div class="modal-footer">
-          <footer-buttons (onClose)="close()" (onOk)="ok()" okTitle="{{'Login'||translate}}"
-            closeTitle="{{'Cancel'|translate}}" #focusElement [okInProcess]="okInProcess"></footer-buttons>
+          <footer-buttons (onClose)="close()" (onOk)="ok()" [okTitle]="okTitle"
+            [closeTitle]="closeTitle" #focusElement [okInProcess]="okInProcess"></footer-buttons>
         </div>
       </form>
     </div>

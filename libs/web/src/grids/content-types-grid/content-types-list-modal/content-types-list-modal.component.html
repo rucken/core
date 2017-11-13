@@ -8,11 +8,11 @@
         <h4 class="modal-title">{{title | translate}}</h4>
       </div>
       <div class="modal-body">
-        <content-types-grid #contentTypes (onEnter)="ok()" [enabledOnEnter]="true" (onSelectItems)="selectContentType($event)" [hardReadonly]="hardReadonly"
+        <content-types-grid #contentTypes (onEnter)="ok()" (onSelectItems)="selectContentType($event)" [hardReadonly]="hardReadonly"
           #focusElement></content-types-grid>
       </div>
       <div class="modal-footer">
-        <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="text" closeTitle="{{'Close'|translate}}"
+        <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="okTitle" [closeTitle]="closeTitle"
           okBtnClass="btn-success" [okInProcess]="okInProcess"></footer-buttons>
       </div>
     </div>

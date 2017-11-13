@@ -1,13 +1,12 @@
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, ComponentFactoryResolver, ElementRef, EventEmitter, Injector, Output, ViewChild } from '@angular/core';
-import { ContentType } from '@rucken/core';
+import { ContentType, translate } from '@rucken/core';
 import { ContentTypesService } from '@rucken/core';
 
 import { BaseResourcesGridComponent } from '../../base/base-resources-grid/base-resources-grid.component';
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { ContentTypeModalComponent } from './content-type-modal/content-type-modal.component';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'content-types-grid',
@@ -33,8 +32,7 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.contentTypesService = injector.get(ContentTypesService);
@@ -52,8 +50,8 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'createContentType';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToAdd;
-    itemModal.text = this.translateService.instant('Create');
-    itemModal.title = this.translateService.instant('Create new content type');
+    itemModal.okTitle = translate('Create');
+    itemModal.title = translate('Create new content type');
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = new ContentType();
@@ -72,10 +70,10 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'editContentType';
     itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToChange;
-    itemModal.text = this.translateService.instant('Save');
-    itemModal.title = this.translateService.instant('Edit content type');
+    itemModal.okTitle = translate('Save');
+    itemModal.title = translate('Edit content type');
     if (itemModal.readonly) {
-      itemModal.title = this.translateService.instant('Content type info');
+      itemModal.title = translate('Content type info');
     }
     itemModal.onOk.subscribe(($event: any) => this.save($event));
     itemModal.onClose.subscribe(() => this.focus());
@@ -94,8 +92,8 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent);
     confirm.name = 'removeContentType';
     confirm.size = 'md';
-    confirm.title = this.translateService.instant('Remove');
-    confirm.message = this.translateService.instant('Are you sure you want to remove a content type?');
+    confirm.title = translate('Remove');
+    confirm.message = translate('Are you sure you want to remove a content type?');
     confirm.onOk.subscribe(($event: any) => this.remove($event));
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];

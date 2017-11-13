@@ -4,6 +4,12 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Russian"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
 msgid "Error"
 msgstr ""
 
@@ -16,16 +22,13 @@ msgstr ""
 msgid "ОК"
 msgstr ""
 
-msgid "Russian"
+msgid "OK"
 msgstr ""
 
-msgid "English"
+msgid "Select"
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
-
-msgid "OK"
 msgstr ""
 
 msgid "Edit"
@@ -35,6 +38,9 @@ msgid "Remove"
 msgstr ""
 
 msgid "Search"
+msgstr ""
+
+msgid "Language"
 msgstr ""
 
 msgid "Version"
@@ -50,9 +56,6 @@ msgid "Do you really want to leave?"
 msgstr ""
 
 msgid "Authorization"
-msgstr ""
-
-msgid "Select"
 msgstr ""
 
 msgid "Content types"
@@ -160,6 +163,15 @@ msgstr ""
 msgid "Not access"
 msgstr ""
 
+msgid "Login"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
 msgid "Account"
 msgstr ""
 
@@ -181,20 +193,11 @@ msgstr ""
 msgid "Themes"
 msgstr ""
 
-msgid "Language"
-msgstr ""
-
 msgid "Menu"
 msgstr ""
 
 msgid "Site name"
 msgstr ""
 
-msgid "Login"
-msgstr ""
-
 msgid "Actions"
-msgstr ""
-
-msgid "No"
 msgstr ""

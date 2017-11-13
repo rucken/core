@@ -2,7 +2,7 @@ import 'rxjs/add/operator/takeUntil';
 
 import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { User } from '@rucken/core';
+import { User, translate } from '@rucken/core';
 import { UsersService } from '@rucken/core';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 
@@ -40,8 +40,7 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.usersService = injector.get(UsersService);
@@ -53,8 +52,8 @@ export class UserSelectInputComponent extends BaseResourceSelectInputComponent {
     itemModal.name = 'selectUsers';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
-    itemModal.text = this.translateService.instant('Select');
-    itemModal.title = this.translateService.instant('Users');
+    itemModal.okTitle = translate('Select');
+    itemModal.title = translate('Users');
     itemModal.onOk.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputElement) {

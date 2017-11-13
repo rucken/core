@@ -1,16 +1,12 @@
 import 'rxjs/add/operator/takeUntil';
 
-import { ChangeDetectionStrategy, Component, ComponentFactoryResolver, Injector } from '@angular/core';
+import { Component, ComponentFactoryResolver, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationStart, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { AppService } from '@rucken/core';
-import { User } from '@rucken/core';
-import { AccountService } from '@rucken/core';
+import { translate, User } from '@rucken/core';
 import * as _ from 'lodash';
 
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
-import { SharedService } from '../../shared/services/shared.service';
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.component';
 
@@ -24,6 +20,8 @@ import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.compone
 
 export class NavbarComponent extends BaseComponent {
 
+  languageTitle = translate('Language');
+  versionTitle = translate('Version');
   isCollapsed = true;
   languagesIsCollapsed = true;
   changelog = ''; // require('html-loader!markdown-loader!./../../../CHANGELOG.md');
@@ -35,8 +33,7 @@ export class NavbarComponent extends BaseComponent {
   protected _childrenRoutes: any[] = [];
 
   constructor(
-    public injector: Injector,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public injector: Injector
   ) {
     super(injector);
     this.activatedRoute = injector.get(ActivatedRoute);
@@ -71,7 +68,7 @@ export class NavbarComponent extends BaseComponent {
     this.app.component.currentLanguage = lang;
   }
   get version() {
-    return `${this.translateService.instant('Version')}: ${this.app.currentVersion}`;
+    return `${this.translateService.instant(this.versionTitle)}: ${this.app.currentVersion}`;
   }
   set childrenRoutes(routes: any[]) {
     this._childrenRoutes = this.sortChildrenRoutes(routes.filter(
@@ -97,7 +94,7 @@ export class NavbarComponent extends BaseComponent {
     if (this.changelog) {
       this.app.component.showContentModal(
         this.changelog,
-        this.translateService.instant('Change log'),
+        translate('Change log'),
         'lg'
       );
     }
@@ -130,8 +127,8 @@ export class NavbarComponent extends BaseComponent {
     this.isCollapsed = true;
     const confirm: ConfirmModalComponent = this.app.modals(this.resolver).create(ConfirmModalComponent, 'logout');
     confirm.name = 'logout';
-    confirm.title = this.translateService.instant('Logout');
-    confirm.message = this.translateService.instant('Do you really want to leave?');
+    confirm.title = translate('Logout');
+    confirm.message = translate('Do you really want to leave?');
     confirm.onOk.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
     this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
@@ -157,7 +154,7 @@ export class NavbarComponent extends BaseComponent {
     }
     this.isCollapsed = true;
     const itemModal: AuthModalComponent = this.app.modals(this.resolver).create(AuthModalComponent, 'login');
-    itemModal.title = this.translateService.instant('Authorization');
+    itemModal.title = translate('Authorization');
     itemModal.onOk.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
     this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>

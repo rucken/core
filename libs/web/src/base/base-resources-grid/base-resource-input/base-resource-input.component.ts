@@ -1,7 +1,7 @@
 import 'rxjs/add/operator/takeUntil';
 
 import { Component, EventEmitter, Injector, Input, Output } from '@angular/core';
-import { EndpointStatusEnum } from '@rucken/core';
+import { EndpointStatusEnum, translate } from '@rucken/core';
 
 import { BaseComponent } from './../../../base/base-component/base-component.component';
 
@@ -75,7 +75,7 @@ export class BaseResourceInputComponent extends BaseComponent {
       this.initSearch()
     );
     if (this.lookupTooltip === undefined) {
-      this.lookupTooltip = this.translateService.instant('Select');
+      this.lookupTooltip = this.translateService.instant(translate('Select'));
     }
     if (this.loadAll === undefined) {
       this.loadAll = false;

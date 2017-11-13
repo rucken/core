@@ -10,14 +10,13 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { Fontawesome } from '@rucken/core';
+import { Fontawesome, translate } from '@rucken/core';
 import { FontawesomeService } from '@rucken/core';
 
 import {
   BaseResourceInputComponent,
 } from './../../../base/base-resources-grid/base-resource-input/base-resource-input.component';
 import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fontawesomes-list-modal.component';
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'fontawesome-input',
@@ -45,8 +44,7 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
 
   constructor(
     public injector: Injector,
-    public resolver: ComponentFactoryResolver,
-    public translateService: TranslateService // todo: for correct work @biesbjerg/ngx-translate-extract
+    public resolver: ComponentFactoryResolver
   ) {
     super(injector);
     this.fontawesomeService = injector.get(FontawesomeService);
@@ -58,8 +56,8 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     itemModal.name = 'selectFontawesomes';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.account = this.account;
-    itemModal.text = this.translateService.instant('Select');
-    itemModal.title = this.translateService.instant('Fontawesomes');
+    itemModal.okTitle = translate('Select');
+    itemModal.title = translate('Fontawesomes');
     itemModal.onOk.subscribe(($event: any) => {
       this.value = itemModal.item;
       if (this.inputReadonly === false) {

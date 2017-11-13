@@ -17,8 +17,6 @@ export class BaseComponent implements OnInit, OnDestroy {
   @Input()
   account: any | User;
   @Input()
-  text = '';
-  @Input()
   tooltipEnable?: boolean;
   @Input()
   tooltipText?: string;
@@ -63,7 +61,7 @@ export class BaseComponent implements OnInit, OnDestroy {
     if (this.name && this.errorsValue && this.errorsValue[this.name]) {
       for (let i = 0; i < this.errorsValue[this.name].length; i++) {
         if (this.errorsValue[this.name][i]) {
-          text = this.translate(this.errorsValue[this.name][i]);
+          text = this.translateService.instant(this.errorsValue[this.name][i]);
           arr.push(text);
         }
       }
@@ -79,7 +77,7 @@ export class BaseComponent implements OnInit, OnDestroy {
     if (this.name && this.infoValue && this.infoValue[this.name]) {
       for (let i = 0; i < this.infoValue[this.name].length; i++) {
         if (this.infoValue[this.name][i]) {
-          text = this.translate(this.infoValue[this.name][i]);
+          text = this.translateService.instant(this.infoValue[this.name][i]);
           arr.push(text);
         }
       }
@@ -153,20 +151,6 @@ export class BaseComponent implements OnInit, OnDestroy {
       return this.account.checkPermissions(permissionNames);
     }
     return false;
-  }
-  translate(text: string) {
-    if (this.translateService) {
-      return this.translateService.instant(text);
-    } else {
-      return text;
-    }
-  }
-  safeHtml(html: string): SafeHtml | string {
-    if (this.sanitizer) {
-      return this.sanitizer.bypassSecurityTrustHtml(html);
-    } else {
-      return html;
-    }
   }
   keys(object: {}) {
     return Object.keys(object);
