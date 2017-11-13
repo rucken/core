@@ -1,3 +1,15 @@
+<a name="1.25.1"></a>
+## [1.25.1](https://github.com/rucken/core/compare/1.25.0...1.25.1) (2017-11-13)
+
+
+### Bug Fixes
+
+* **dummy:** Remove dummy for detect translate with [@biesbjerg](https://github.com/biesbjerg)/ngx-translate-extract, and refactor code for it ([21604a0](https://github.com/rucken/core/commit/21604a0))
+* **mockItems:** Fix work with mockedItems ([e5ccdcd](https://github.com/rucken/core/commit/e5ccdcd))
+* **user-groups-grid:** Change accessToCreate to accessToAdd in template ([c75b9a9](https://github.com/rucken/core/commit/c75b9a9))
+
+
+
 <a name="1.25.0"></a>
 # [1.25.0](https://github.com/rucken/core/compare/1.24.0...1.25.0) (2017-11-12)
 
