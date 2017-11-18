@@ -1,15 +1,16 @@
 import 'rxjs/add/operator/map';
 
 import { Injectable } from '@angular/core';
-import { AccountService } from '@rucken/core';
+import { TokenService } from '@rucken/core';
 
 @Injectable()
-export class WebAccountService extends AccountService {
+export class WebTokenService extends TokenService {
 
-  get token(): string | null {
+  get(): string | null {
     return localStorage.getItem('token');
   }
-  set token(value: string | null) {
+
+  set(value: string | null) {
     if (value === null) {
       localStorage.removeItem('token');
     } else {

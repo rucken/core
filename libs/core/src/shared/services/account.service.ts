@@ -7,6 +7,7 @@ import { EndpointHelper } from '../helpers/endpoint.helper';
 import { translate } from './../common/utils';
 import { EndpointStatusEnum } from './../enums/endpoint-status.enum';
 import { User } from './../models/user.model';
+import { TokenService } from './token.service';
 
 @Injectable()
 export class AccountService {
@@ -21,10 +22,12 @@ export class AccountService {
   protected _status: EndpointStatusEnum;
 
   endpointHelper: EndpointHelper;
+  tokenService: TokenService;
 
   constructor(
     public injector: Injector
   ) {
+    this.tokenService = injector.get(TokenService);
     this.endpointHelper = injector.get(EndpointHelper);
     this.name = 'account';
     this.apiUrl = `${this.endpointHelper.apiUrl}/${this.name}`;
@@ -71,11 +74,11 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    this.endpointHelper.actionRequest(this, 'info', { 'token': (token ? token : this.token) }).map(
+    this.endpointHelper.actionRequest(this, 'info', { 'token': (token ? token : this.tokenService.get()) }).map(
       (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
-        this.token = data.token;
+        this.tokenService.set(data.token);
         result.emit(this.account);
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
@@ -92,11 +95,11 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Processing,
       translate('Login...')
     );
-    this.endpointHelper.actionRequest(this, 'login', account.formatToAuth(), true).map(
+    this.endpointHelper.actionRequest(this, 'login', account ? account.formatToAuth() : account, true).map(
       (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
-        this.token = data.token;
+        this.tokenService.set(data.token);
         result.emit(this.account);
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
@@ -115,7 +118,7 @@ export class AccountService {
     );
     setTimeout((out: any) => {
       this.account = null;
-      this.token = null;
+      this.tokenService.set(null);
       result.emit({ message: 'OK' });
       this.setStatus(EndpointStatusEnum.Ok);
     }, 700);

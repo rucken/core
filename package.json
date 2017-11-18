@@ -122,7 +122,6 @@
     "@types/node": "^8.0.50",
     "@types/requirejs": "^2.1.31",
     "@types/webpack": "^3.8.1",
-    "angular2-jwt": "^0.2.3",
     "angular2-ladda": "^1.2.2",
     "angular2-text-mask": "^8.0.4",
     "awesome-typescript-loader": "^3.3.0",

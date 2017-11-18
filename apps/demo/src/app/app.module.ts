@@ -1,32 +1,23 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Http, HttpModule, RequestOptions } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import {
-  AccountService,
-  AppService,
-  EndpointHelper,
-  HttpHelper,
-  RepositoryHelper,
-  RuckenCoreServices,
-  ThemesService,
-} from '@rucken/core';
+import { AppService, EndpointHelper, HttpHelper, RepositoryHelper, RuckenCoreServices, ThemesService } from '@rucken/core';
+import { TokenService } from '@rucken/core';
 import {
   AlertModalModule,
-  AuthHttpFactory,
   BaseResourceSelectInputConfig,
   RuckenWebServices,
   SelectInputConfig,
   SharedModule,
   TableColumnConfig,
   TextInputConfig,
-  WebAccountService,
   WebAppService,
   WebThemesService,
+  WebTokenService,
 } from '@rucken/web';
-import { AuthHttp } from 'angular2-jwt';
 import { LaddaModule } from 'angular2-ladda';
 import {
   ComponentLoaderFactory,
@@ -50,7 +41,7 @@ import { DemoHttpHelper } from './shared/helpers/http.helper';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     LaddaModule.forRoot({
       style: 'expand-left',
       spinnerColor: 'white',
@@ -79,8 +70,7 @@ import { DemoHttpHelper } from './shared/helpers/http.helper';
     TableColumnConfig,
     { provide: ThemesService, useClass: WebThemesService },
     { provide: AppService, useClass: WebAppService },
-    { provide: AccountService, useClass: WebAccountService },
-    { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] },
+    { provide: TokenService, useClass: WebTokenService },
     { provide: EndpointHelper, useClass: DemoEndpointHelper },
     { provide: RepositoryHelper, useClass: RepositoryHelper },
     { provide: HttpHelper, useClass: DemoHttpHelper }

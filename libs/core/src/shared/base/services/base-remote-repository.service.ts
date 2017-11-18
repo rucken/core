@@ -140,13 +140,14 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
         );
       }
     } else {
-      if (error.json && error.json().detail === 'Invalid page.' && filter.curPage > 1) {
+      const errorBody = error.json && _.isFunction(error.json) ? error.json() : error;
+      if (errorBody && errorBody.detail === 'Invalid page.' && filter.curPage > 1) {
         filter.curPage = 1;
         this.ignoreCache = true;
         this.loadAll(filter.q, filter);
       } else {
         this.items$.next([]);
-        result.error(this.repositoryHelper.extractError(error));
+        result.error(this.repositoryHelper.extractError(errorBody));
         this.setStatusList(EndpointStatusEnum.NotFound,
           translate('Not found')
         );
