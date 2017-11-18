@@ -1,9 +1,9 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Http, HttpModule, RequestOptions } from '@angular/http';
+import { Http, RequestOptions } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { AuthHttp } from 'angular2-jwt';
 import {
   ComponentLoaderFactory,
   PaginationConfig,
@@ -20,7 +20,6 @@ import { TableColumnConfig } from './../../controls/table-column/table-column.co
 import { TextInputConfig } from './../../controls/text-input/text-input.config';
 import { AlertModalModule } from './../../modals/alert-modal/alert-modal.module';
 import { AuthModalModule } from './../../modals/auth-modal/auth-modal.module';
-import { AuthHttpFactory } from './../../shared/factories/auth-http.factory';
 import {
   BaseResourceSelectInputConfig,
 } from './../base-resources-grid/base-resource-select-input/base-resource-select-input.config';
@@ -36,7 +35,7 @@ import { BaseRoutes } from './base-app.routes';
     SharedModule.forRoot(),
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     AlertModalModule.forRoot(),
     NavbarModule.forRoot(),
     AuthModalModule.forRoot(),
@@ -52,8 +51,7 @@ import { BaseRoutes } from './base-app.routes';
     BaseResourceSelectInputConfig,
     SelectInputConfig,
     TableColumnConfig,
-    TextInputConfig,
-    { provide: AuthHttp, useFactory: AuthHttpFactory.create, deps: [Http, RequestOptions] }
+    TextInputConfig
   ],
   bootstrap: [BaseAppComponent]
 })

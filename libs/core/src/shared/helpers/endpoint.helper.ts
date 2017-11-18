@@ -43,7 +43,7 @@ export class EndpointHelper {
     return this.httpHelper.post(this.actionUrl(endpointService, action, null), this.actionRequestBody(endpointService, action, data));
   }
   actionRequestBody(endpointService: any, action?: any, data?: any) {
-    if (data === undefined) {
+    if (!data) {
       data = {};
     }
     if (data.format !== undefined) {
@@ -64,11 +64,11 @@ export class EndpointHelper {
     if (message === undefined) {
       message = translate('Unknown error');
     }
-    if (!error._body || !isJson(error._body) || error.json().type === 'error') {
+    if (!error._body || !isJson(error._body) || error.type === 'error') {
       console.log(error);
       return { message: [error.statusText ? error.statusText : message] };
     } else {
-      const errorBody = error.json();
+      const errorBody = error.json && _.isFunction(error.json) ? error.json() : error;
       if (_.isString(errorBody)) {
         return { message: [errorBody] };
       }

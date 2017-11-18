@@ -75,7 +75,6 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.name = 'selectGroups';
     itemModal.hardReadonly = this.hardReadonly;
     itemModal.groups.maxSelectCount = 10000;
-    itemModal.account = this.accountService.account;
     itemModal.readonly = this.readonly;
     itemModal.okTitle = translate('Append');
     itemModal.title = translate('Select groups for append to user');
@@ -87,6 +86,9 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
       id: itemModal.item.pk,
       group: itemModal.item
     })];
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+      itemModal.okInProcessFromStatus(status)
+    );
   }
   showEditModal(item: any | UserGroup) {
     if (this.modalIsOpened) {
@@ -95,7 +97,6 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: GroupModalComponent = this.app.modals(this.resolver).create(GroupModalComponent);
     itemModal.name = 'editUserGroup';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToChange || this.readonly;
     itemModal.okTitle = translate('Save');
     itemModal.title = translate('Edit group');
@@ -140,6 +141,9 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
+    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+      confirm.okInProcessFromStatus(status)
+    );
   }
   save(itemModal: GroupsListModalComponent) {
     const items: Group[] = itemModal.items;

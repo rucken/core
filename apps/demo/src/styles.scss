@@ -46,6 +46,13 @@ body
             }
             th{
                 vertical-align: top!important;
+                position: relative;
+                padding-right: 18px !important;
+                button{
+                    position: absolute;
+                    top: 6px;
+                    right: -0px;
+                }
             }
         }
         &__col-key

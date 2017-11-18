@@ -1,3 +1,22 @@
+<a name="1.26.0"></a>
+# [1.26.0](https://github.com/rucken/core/compare/1.25.1...1.26.0) (2017-11-18)
+
+
+### Bug Fixes
+
+* **accoun-profile:** Change ok button title ([b74de7b](https://github.com/rucken/core/commit/b74de7b))
+* **entity-list-modal:** Remove onEnter from grid ([f461975](https://github.com/rucken/core/commit/f461975))
+* Remove duplicate set value for account ([aa1067f](https://github.com/rucken/core/commit/aa1067f))
+* **navbar:** Change get auth modal account property to user ([c036cb3](https://github.com/rucken/core/commit/c036cb3))
+* **select-input:** Set height for autocomplete li elements ([4415531](https://github.com/rucken/core/commit/4415531))
+
+
+### Features
+
+* **http:** Change HttpModule to HttpClientModule ([880619b](https://github.com/rucken/core/commit/880619b))
+
+
+
 <a name="1.25.1"></a>
 ## [1.25.1](https://github.com/rucken/core/compare/1.25.0...1.25.1) (2017-11-13)
 

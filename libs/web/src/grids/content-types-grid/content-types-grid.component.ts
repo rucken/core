@@ -48,7 +48,6 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
     itemModal.name = 'createContentType';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToAdd;
     itemModal.okTitle = translate('Create');
     itemModal.title = translate('Create new content type');
@@ -68,7 +67,6 @@ export class ContentTypesGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: ContentTypeModalComponent = this.app.modals(this.resolver).create(ContentTypeModalComponent);
     itemModal.name = 'editContentType';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToChange;
     itemModal.okTitle = translate('Save');
     itemModal.title = translate('Edit content type');

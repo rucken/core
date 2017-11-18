@@ -56,7 +56,6 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
       this.app.modals(this.resolver).create(ContentTypesListModalComponent);
     itemModal.name = 'selectContentTypes';
     itemModal.hardReadonly = this.hardReadonly;
-    itemModal.account = this.account;
     itemModal.okTitle = translate('Select');
     itemModal.title = translate('Content types');
     itemModal.onOk.subscribe(($event: any) => {
@@ -72,9 +71,6 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
-      itemModal.okInProcessFromStatus(status)
-    );
   }
   get statusListMessage() {
     return '';

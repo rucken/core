@@ -7,6 +7,15 @@
 .select-input .ngui-auto-complete .no-match-found{
   display: none;
 }
+.select-input{
+    .ngui-auto-complete{
+        ul{
+            li{    
+                height: 30px;
+            }
+        }
+    }
+}
 .select-input .inner-addon {
   position: relative;
 }

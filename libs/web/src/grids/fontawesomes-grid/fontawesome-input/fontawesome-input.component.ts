@@ -55,7 +55,6 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
       this.app.modals(this.resolver).create(FontawesomesListModalComponent);
     itemModal.name = 'selectFontawesomes';
     itemModal.hardReadonly = this.hardReadonly;
-    itemModal.account = this.account;
     itemModal.okTitle = translate('Select');
     itemModal.title = translate('Fontawesomes');
     itemModal.onOk.subscribe(($event: any) => {
@@ -68,8 +67,5 @@ export class FontawesomeInputComponent extends BaseResourceInputComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = this.value;
     itemModal.modal.show();
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
-      itemModal.okInProcessFromStatus(status)
-    );
   }
 }

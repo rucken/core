@@ -31,9 +31,10 @@ export class AuthModalComponent extends BaseModalComponent {
   onOk: EventEmitter<AuthModalComponent | any> = new EventEmitter<any>();
 
   modelMeta: any = User.meta();
+  user: User | any;
 
   init() {
     super.init();
-    this.account = new User();
+    this.user = new User();
   }
 }

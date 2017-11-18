@@ -48,7 +48,6 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
     itemModal.name = 'createFontawesome';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToAdd;
     itemModal.okTitle = translate('Create');
     itemModal.title = translate('Create new fontawesome');
@@ -68,7 +67,6 @@ export class FontawesomesGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: FontawesomeModalComponent = this.app.modals(this.resolver).create(FontawesomeModalComponent);
     itemModal.name = 'editFontawesome';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = !this.accessToChange;
     itemModal.okTitle = translate('Save');
     itemModal.title = translate('Edit fontawesome');

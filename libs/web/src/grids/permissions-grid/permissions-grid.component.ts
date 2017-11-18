@@ -48,7 +48,6 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.name = 'createPermission';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToAdd;
     itemModal.okTitle = translate('Create');
     itemModal.title = translate('Create new permission');
@@ -68,7 +67,6 @@ export class PermissionsGridComponent extends BaseResourcesGridComponent {
     this.modalIsOpened = true;
     const itemModal: PermissionModalComponent = this.app.modals(this.resolver).create(PermissionModalComponent);
     itemModal.name = 'editPermission';
-    itemModal.account = this.accountService.account;
     itemModal.readonly = this.hardReadonly || !this.accessToChange;
     itemModal.okTitle = translate('Save');
     itemModal.title = translate('Edit permission');
