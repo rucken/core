@@ -162,7 +162,7 @@ export class NavbarComponent extends BaseComponent {
     );
   }
   login(itemModal: AuthModalComponent) {
-    this.accountService.login(itemModal.account).subscribe(
+    this.accountService.login(itemModal.user).subscribe(
       (account: any | User) => {
         itemModal.modal.hide();
       },
@@ -170,8 +170,8 @@ export class NavbarComponent extends BaseComponent {
         if (errors.message) {
           this.app.component.showErrorModal(errors.message.join(', ')).subscribe(
             () => {
-              itemModal.account.username = '';
-              itemModal.account.password = '';
+              itemModal.user.username = '';
+              itemModal.user.password = '';
               itemModal.focus();
             });
         } else {
