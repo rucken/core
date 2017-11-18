@@ -1,9 +1,9 @@
 import { DemoAppComponent } from './app.component';
 export { DemoAppComponent } from './app.component';
-import { DemoAppModule } from './app.module';
-export { DemoAppModule } from './app.module';
 import { DemoRoutes } from './app.routes';
 export { DemoRoutes } from './app.routes';
+import { DemoAppModule } from './app.module';
+export { DemoAppModule } from './app.module';
 import { RuckenDemoRuI18n } from './i18n/ru.i18n';
 export { RuckenDemoRuI18n } from './i18n/ru.i18n';
 import { DemoNavbarComponent } from './controls/navbar/navbar.component';
