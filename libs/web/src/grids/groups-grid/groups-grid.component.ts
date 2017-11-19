@@ -59,7 +59,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Group();
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -81,7 +81,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = new Group(item);
     itemModal.modal.show();
     this.selectedItems = [itemModal.item];
-    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -99,7 +99,7 @@ export class GroupsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
       confirm.okInProcessFromStatus(status)
     );
   }

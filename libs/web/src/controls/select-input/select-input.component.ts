@@ -1,11 +1,9 @@
-import { map } from 'rxjs/operators';
-import { debounceTime } from 'rxjs/operators';
-
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Injector } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
+import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
@@ -90,7 +88,7 @@ export class SelectInputComponent extends BaseComponent {
   }
 
   config: SelectInputConfig;
-  debouncer$: Subject<string> = new Subject<string>();
+  debouncer$: Subject<string>;
 
   private _items: any[] = [];
   private _showMe = false;
@@ -99,6 +97,7 @@ export class SelectInputComponent extends BaseComponent {
     public injector: Injector
   ) {
     super(injector);
+    this.debouncer$ = new Subject<string>();
     this.config = injector.get(SelectInputConfig);
   }
   afterCreate() {

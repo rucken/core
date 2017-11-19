@@ -1,9 +1,8 @@
-import { takeUntil } from 'rxjs/operators';
-
 import { Component, EventEmitter, Injector, Input, OnDestroy, OnInit } from '@angular/core';
-import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountService, AppService, User } from '@rucken/core';
+import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
 import { SharedService } from '../../shared/services/shared.service';
@@ -37,7 +36,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   infoValue: any;
   [key: string]: any;
 
-  destroyed$: Subject<boolean> = new Subject<boolean>();
+  destroyed$: Subject<boolean>;
 
   accountService: AccountService;
   app: AppService;
@@ -48,6 +47,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   constructor(
     public injector: Injector
   ) {
+    this.destroyed$ = new Subject<boolean>();
     this.accountService = injector.get(AccountService);
     this.app = injector.get(AppService);
     this.translateService = injector.get(TranslateService);

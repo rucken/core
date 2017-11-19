@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { AuthModalComponent, ConfirmModalComponent, NavbarComponent } from '@rucken/web';
 
 import { DemoRoutes } from './../../app.routes';
@@ -13,7 +13,7 @@ import { DemoRoutes } from './../../app.routes';
 export class DemoNavbarComponent extends NavbarComponent {
 
   changelog = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
-
+ 
   initRoutes() {
     this.childrenRoutes = DemoRoutes;
   }

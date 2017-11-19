@@ -131,7 +131,7 @@ export class NavbarComponent extends BaseComponent {
     confirm.message = translate('Do you really want to leave?');
     confirm.onOk.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
-    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
+    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
       confirm.okInProcessFromStatus(status)
     );
   }
@@ -157,7 +157,7 @@ export class NavbarComponent extends BaseComponent {
     itemModal.title = translate('Authorization');
     itemModal.onOk.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
-    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
+    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
       itemModal.okInProcessFromStatus(status)
     );
   }

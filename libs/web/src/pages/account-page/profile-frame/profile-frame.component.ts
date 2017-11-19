@@ -1,7 +1,6 @@
-import { takeUntil } from 'rxjs/operators';
-
 import { Component, ViewChild } from '@angular/core';
-import { User } from '@rucken/core';
+import { EndpointStatusEnum, User } from '@rucken/core';
+import { takeUntil } from 'rxjs/operators';
 
 import { AccountProfileFormComponent } from '../../../grids/users-grid/account-profile-form/account-profile-form.component';
 import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-frame.component';
@@ -21,8 +20,8 @@ export class ProfileFrameComponent extends BaseFrameComponent {
 
   init() {
     super.init();
-    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
-      this.accountProfileForm ? this.accountProfileForm.okInProcessFromStatus(status) : false
+    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
+      this.accountProfileForm && status === EndpointStatusEnum.Updating ? this.accountProfileForm.okInProcessFromStatus(status) : false
     );
   }
   get readonly() {
