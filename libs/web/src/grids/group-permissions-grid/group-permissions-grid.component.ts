@@ -1,4 +1,4 @@
-import { map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { takeUntil } from 'rxjs/operators';
 
 import {
