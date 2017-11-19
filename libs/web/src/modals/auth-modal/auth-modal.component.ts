@@ -9,7 +9,7 @@ import { TextInputComponent } from './../../controls/text-input/text-input.compo
   selector: 'auth-modal',
   templateUrl: './auth-modal.component.html',
   styleUrls: ['./auth-modal.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class AuthModalComponent extends BaseModalComponent {

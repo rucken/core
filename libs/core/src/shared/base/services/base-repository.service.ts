@@ -1,19 +1,23 @@
-import { map } from 'rxjs/operators';
-
-import { EventEmitter, Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Injector } from '@angular/core';
+import * as _ from 'lodash';
+import { Subject } from 'rxjs/Subject';
 
 import { inValues, translate } from '../../common/utils';
 import { BaseRemoteRepositoryService } from './base-remote-repository.service';
-import { Subject } from 'rxjs/Subject';
-import * as _ from 'lodash';
 
 
 @Injectable()
 export class BaseRepositoryService extends BaseRemoteRepositoryService {
 
-  mockedItems$: Subject<any[]> = new Subject<any[]>();
+  mockedItems$: Subject<any[]>;
   protected _mockedItems: any[] | any = null;
 
+  constructor(
+    public injector: Injector
+  ) {
+    super(injector);
+    this.mockedItems$ = new Subject<any[]>();
+  }
   get mockedItems() {
     return this._mockedItems.map((mapItem: any) => {
       if (mapItem && mapItem.pkIsNumber && mapItem.pk < 0) {

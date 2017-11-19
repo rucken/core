@@ -1,6 +1,4 @@
-import { map } from 'rxjs/operators';
-
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import * as _ from 'lodash';
 import { Subject } from 'rxjs/Subject';
 
@@ -14,7 +12,9 @@ export class BaseLocalRepositoryService {
   items: any[];
   meta: MetaModel;
 
-  constructor() {
+  constructor(
+    public injector: Injector
+  ) {
     this.items = [];
     this.meta = new MetaModel();
     this.meta.curPage = 1;

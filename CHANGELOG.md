@@ -1,3 +1,14 @@
+<a name="1.27.1"></a>
+## [1.27.1](https://github.com/rucken/core/compare/1.27.0...1.27.1) (2017-11-19)
+
+
+### Bug Fixes
+
+* **libs:** Change main file of [@rucken](https://github.com/rucken)/web ([78b111c](https://github.com/rucken/core/commit/78b111c))
+* **rxjs:** Move create Subject from class body to constructor ([b2deac9](https://github.com/rucken/core/commit/b2deac9))
+
+
+
 <a name="1.27.0"></a>
 ## [1.27.0](https://github.com/rucken/core/compare/1.26.0...1.27.0) (2017-11-19)
 

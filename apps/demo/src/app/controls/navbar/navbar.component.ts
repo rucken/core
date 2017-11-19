@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injector } from '@angular/core';
 import { AuthModalComponent, ConfirmModalComponent, NavbarComponent } from '@rucken/web';
 
 import { DemoRoutes } from './../../app.routes';

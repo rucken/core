@@ -11,11 +11,11 @@ import { TokenService } from './token.service';
 @Injectable()
 export class AccountService {
   name: string;
-  account$: Subject<any | User> = new Subject<any | User>();
+  account$: Subject<any | User>;
   apiUrl: string;
 
   statusMessage: string;
-  changeStatus$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
+  changeStatus$: Subject<EndpointStatusEnum>;
 
   protected _account: any | User;
   protected _status: EndpointStatusEnum;
@@ -26,6 +26,9 @@ export class AccountService {
   constructor(
     public injector: Injector
   ) {
+    this.account$ = new Subject<any | User>();
+    this.changeStatus$ = new Subject<EndpointStatusEnum>();
+
     this.tokenService = injector.get(TokenService);
     this.endpointHelper = injector.get(EndpointHelper);
     this.name = 'account';

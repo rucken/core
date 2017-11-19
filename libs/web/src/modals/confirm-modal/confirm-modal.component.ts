@@ -8,7 +8,7 @@ import { translate } from '@rucken/core';
   selector: 'confirm-modal',
   templateUrl: './confirm-modal.component.html',
   styleUrls: ['./confirm-modal.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class ConfirmModalComponent extends BaseModalComponent {

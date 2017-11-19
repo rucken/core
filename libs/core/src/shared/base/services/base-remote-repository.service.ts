@@ -1,7 +1,6 @@
-import { map } from 'rxjs/operators';
-
 import { EventEmitter, Injectable, Injector } from '@angular/core';
 import * as _ from 'lodash';
+import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
 import { translate } from '../../common/utils';
@@ -23,8 +22,8 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   queryProps: any;
   statusListMessage: string;
   statusItemMessage: string;
-  changeStatusList$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
-  changeStatusItem$: Subject<EndpointStatusEnum> = new Subject<EndpointStatusEnum>();
+  changeStatusList$: Subject<EndpointStatusEnum>;
+  changeStatusItem$: Subject<EndpointStatusEnum>;
 
   get statusList() {
     return this._statusList;
@@ -43,7 +42,9 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   constructor(
     public injector: Injector
   ) {
-    super();
+    super(injector);
+    this.changeStatusList$ = new Subject<EndpointStatusEnum>();
+    this.changeStatusItem$ = new Subject<EndpointStatusEnum>();
     this.repositoryHelper = injector.get(RepositoryHelper);
   }
   newCache(): any {
