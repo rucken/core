@@ -1,5 +1,5 @@
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
+import { debounceTime } from 'rxjs/operators';
 
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Injector } from '@angular/core';
@@ -117,7 +117,7 @@ export class SelectInputComponent extends BaseComponent {
     if (this.debounceTime === undefined) {
       this.debounceTime = this.config.debounceTime;
     }
-    this.debouncer$.debounceTime(this.debounceTime)
+    this.debouncer$.pipe(debounceTime(this.debounceTime))
       .subscribe((value: string) => this.onChangeInputValue.emit(value));
   }
   get inputReadonly() {

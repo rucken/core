@@ -62,7 +62,7 @@ export class EndpointHelper {
       console.log(errorResponse);
       return { message: [errorResponse.statusText ? errorResponse.statusText : message] };
     } else {
-      const errorBody = errorResponse.error ? errorResponse.error : errorResponse;
+      const errorBody = _.cloneDeep(errorResponse.error ? errorResponse.error : errorResponse);
       if (_.isString(errorBody)) {
         return { message: [errorBody] };
       }

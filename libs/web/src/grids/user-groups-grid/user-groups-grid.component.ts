@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import {
   Component,
@@ -86,7 +86,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
       id: itemModal.item.pk,
       group: itemModal.item
     })];
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -108,7 +108,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     itemModal.item = item.group;
     itemModal.modal.show();
     this.selectedItems = [item];
-    this.groupsService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.groupsService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -141,7 +141,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
