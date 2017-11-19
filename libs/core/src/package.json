@@ -2,10 +2,10 @@
     "name": "@rucken/core",
     "main": "index.js",
     "version": "1.26.0",
-    "description": "Core with base class and admin entities for application maked on Angular4+",
+    "description": "Core with base class and admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
-        "angular4",
+        "angular5",
         "i18n",
         "shared",
         "services",
