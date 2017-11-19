@@ -13,7 +13,7 @@ import { DemoRoutes } from './../../app.routes';
 export class DemoNavbarComponent extends NavbarComponent {
 
   changelog = require('html-loader!markdown-loader!./../../../../../../CHANGELOG.md');
- 
+
   initRoutes() {
     this.childrenRoutes = DemoRoutes;
   }
