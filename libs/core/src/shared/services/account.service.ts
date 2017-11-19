@@ -1,6 +1,5 @@
-import { map} from 'rxjs/operators';
-
 import { EventEmitter, Injectable, Injector } from '@angular/core';
+import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
 import { EndpointHelper } from '../helpers/endpoint.helper';
@@ -74,8 +73,8 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Loading,
       translate('Loading...')
     );
-    this.endpointHelper.actionRequest(this, 'info', { 'token': (token ? token : this.tokenService.get()) }).map(
-      (response: any) => this.endpointHelper.actionResponse(this, 'info', response)).
+    this.endpointHelper.actionRequest(this, 'info', { 'token': (token ? token : this.tokenService.get()) }).pipe(
+      map((response: any) => this.endpointHelper.actionResponse(this, 'info', response))).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
         this.tokenService.set(data.token);
@@ -95,8 +94,8 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Processing,
       translate('Login...')
     );
-    this.endpointHelper.actionRequest(this, 'login', account ? account.formatToAuth() : account, true).map(
-      (response: any) => this.endpointHelper.actionResponse(this, 'login', response)).
+    this.endpointHelper.actionRequest(this, 'login', account ? account.formatToAuth() : account, true).pipe(
+      map((response: any) => this.endpointHelper.actionResponse(this, 'login', response))).
       subscribe((data: { user: any, token: string } | any) => {
         this.account = this.transformModel(data.user);
         this.tokenService.set(data.token);
@@ -132,8 +131,8 @@ export class AccountService {
     this.setStatus(EndpointStatusEnum.Updating,
       translate('Updating...')
     );
-    this.endpointHelper.actionRequest(this, 'update', account).map(
-      (response: any) => this.endpointHelper.actionResponse(this, 'update', response))
+    this.endpointHelper.actionRequest(this, 'update', account).pipe(
+      map((response: any) => this.endpointHelper.actionResponse(this, 'update', response)))
       .subscribe((user: any | User) => {
         this.account = this.transformModel(user);
         result.emit(this.account);

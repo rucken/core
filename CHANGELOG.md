@@ -1,3 +1,17 @@
+<a name="1.27.0"></a>
+## [1.27.0](https://github.com/rucken/core/compare/1.26.0...1.27.0) (2017-11-19)
+
+### Bug Fixes
+
+* Bump version of angular, new version: Angular 5.0.2
+
+### Bug Fixes
+
+* **errors-handler:** Update method for detect errors ([d2c742a](https://github.com/rucken/core/commit/d2c742a))
+* **refactor:** Update all usage '...rxjs/operators...' ([9aaec68](https://github.com/rucken/core/commit/9aaec68))
+
+
+
 <a name="1.26.0"></a>
 # [1.26.0](https://github.com/rucken/core/compare/1.25.1...1.26.0) (2017-11-18)
 
