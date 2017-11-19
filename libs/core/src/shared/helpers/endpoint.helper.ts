@@ -52,23 +52,17 @@ export class EndpointHelper {
     return data;
   }
   actionResponse(endpointService: any, action?: any, response?: Response) {
-    let data: any;
-    if (response.json && _.isFunction(response.json)) {
-      data = response.json();
-    } else {
-      data = response;
-    }
-    return data;
+    return response;
   }
-  extractError(error: any, message?: string): any {
+  extractError(errorResponse: any, message?: string): any {
     if (message === undefined) {
       message = translate('Unknown error');
     }
-    if (!error._body || !isJson(error._body) || error.type === 'error') {
-      console.log(error);
-      return { message: [error.statusText ? error.statusText : message] };
+    if (!errorResponse.error) {
+      console.log(errorResponse);
+      return { message: [errorResponse.statusText ? errorResponse.statusText : message] };
     } else {
-      const errorBody = error.json && _.isFunction(error.json) ? error.json() : error;
+      const errorBody = errorResponse.error ? errorResponse.error : errorResponse;
       if (_.isString(errorBody)) {
         return { message: [errorBody] };
       }

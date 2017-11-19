@@ -140,16 +140,16 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
         );
       }
     } else {
-      const errorBody = error.json && _.isFunction(error.json) ? error.json() : error;
-      if (errorBody && errorBody.detail === 'Invalid page.' && filter.curPage > 1) {
+      const errorBody = this.repositoryHelper.extractError(error);
+      if (errorBody && errorBody.message && errorBody.message[0] === 'Invalid page.' && filter.curPage > 1) {
         filter.curPage = 1;
         this.ignoreCache = true;
         this.loadAll(filter.q, filter);
       } else {
         this.items$.next([]);
-        result.error(this.repositoryHelper.extractError(errorBody));
+        result.error(errorBody);
         this.setStatusList(EndpointStatusEnum.NotFound,
-          translate('Not found')
+          errorBody.message && errorBody.message[0] ? translate(errorBody.message[0]) : translate('Not found')
         );
       }
     }
@@ -180,9 +180,10 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
       result.emit(item);
       this.setStatusItem(EndpointStatusEnum.Ok);
     } else {
-      result.error(this.repositoryHelper.extractError(error));
+      const errorBody = this.repositoryHelper.extractError(error);
+      result.error(errorBody);
       this.setStatusItem(EndpointStatusEnum.NotFound,
-        translate('Not found')
+        errorBody.message && errorBody.message[0] ? translate(errorBody.message[0]) : translate('Not found')
       );
     }
   }
