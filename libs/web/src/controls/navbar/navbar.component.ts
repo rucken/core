@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { Component, ComponentFactoryResolver, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -49,7 +49,7 @@ export class NavbarComponent extends BaseComponent {
         this.isCollapsed = true;
       });
     if (this.accountService) {
-      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => {
+      this.accountService.account$.pipe(takeUntil(this.destroyed$)).subscribe((account: any | User) => {
         this.initRoutes();
         this.initVersion();
       });
@@ -131,7 +131,7 @@ export class NavbarComponent extends BaseComponent {
     confirm.message = translate('Do you really want to leave?');
     confirm.onOk.subscribe(($event: any) => this.logout($event));
     confirm.modal.show();
-    this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
+    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }
@@ -157,7 +157,7 @@ export class NavbarComponent extends BaseComponent {
     itemModal.title = translate('Authorization');
     itemModal.onOk.subscribe(($event: any) => this.login($event));
     itemModal.modal.show();
-    this.accountService.changeStatus$.takeUntil(this.destroyed$).subscribe(status =>
+    this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }

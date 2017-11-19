@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { Component, Injector } from '@angular/core';
 import { ThemesService } from '@rucken/core';
@@ -27,7 +27,7 @@ export class ThemesPageComponent extends BasePageComponent {
 
   init() {
     super.init();
-    this.themService.items$.takeUntil(this.destroyed$).subscribe(
+    this.themService.items$.pipe(takeUntil(this.destroyed$)).subscribe(
       (themes: any[] | Theme[]) => {
         this.items = themes;
       }, (errors: any) => {

@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { Component, EventEmitter, Injector, Input, Output } from '@angular/core';
 import { EndpointStatusEnum, translate } from '@rucken/core';
@@ -71,7 +71,7 @@ export class BaseResourceInputComponent extends BaseComponent {
   }
   afterCreate() {
     super.afterCreate();
-    this.translateService.onLangChange.takeUntil(this.destroyed$).subscribe(() =>
+    this.translateService.onLangChange.pipe(takeUntil(this.destroyed$)).subscribe(() =>
       this.initSearch()
     );
     if (this.lookupTooltip === undefined) {

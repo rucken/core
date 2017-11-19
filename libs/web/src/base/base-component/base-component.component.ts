@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { Component, EventEmitter, Injector, Input, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
@@ -100,7 +100,7 @@ export class BaseComponent implements OnInit, OnDestroy {
   }
   afterCreate() {
     if (this.accountService) {
-      this.accountService.account$.takeUntil(this.destroyed$).subscribe((account: any | User) => this.account = account);
+      this.accountService.account$.pipe(takeUntil(this.destroyed$)).subscribe((account: any | User) => this.account = account);
       this.account = this.accountService.account;
     }
   }

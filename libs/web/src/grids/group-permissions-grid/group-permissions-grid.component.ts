@@ -1,5 +1,5 @@
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/takeUntil';
+import { map } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 
 import {
   Component,
@@ -89,7 +89,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
       id: itemModal.item.pk,
       permission: itemModal.item
     })];
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -110,7 +110,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     itemModal.onClose.subscribe(() => this.focus());
     itemModal.item = item.permission;
     itemModal.modal.show();
-    this.permissionsService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.permissionsService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       itemModal.okInProcessFromStatus(status)
     );
   }
@@ -143,7 +143,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     confirm.onClose.subscribe(() => this.focus());
     this.selectedItems = [item];
     confirm.modal.show();
-    this.cachedResourcesService.changeStatusItem$.takeUntil(this.destroyed$).subscribe(status =>
+    this.cachedResourcesService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe(status =>
       confirm.okInProcessFromStatus(status)
     );
   }

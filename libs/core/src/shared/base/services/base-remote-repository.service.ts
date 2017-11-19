@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 import { EventEmitter, Injectable, Injector } from '@angular/core';
 import * as _ from 'lodash';
@@ -112,7 +112,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     const result = this.beforeLoadAll(filter);
     setTimeout(() => {
       this.repositoryHelper.readItemsRequest(this)
-        .map((response: any) => this.transformModels(this.repositoryHelper.itemsResponse(this, response)))
+        .pipe(map((response: any) => this.transformModels(this.repositoryHelper.itemsResponse(this, response))))
         .subscribe((loadedItems: any[]) => {
           this.localLoadAll(loadedItems);
           this.afterLoadAll(result, filter, null, null);
@@ -140,16 +140,16 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
         );
       }
     } else {
-      const errorBody = error.json && _.isFunction(error.json) ? error.json() : error;
-      if (errorBody && errorBody.detail === 'Invalid page.' && filter.curPage > 1) {
+      const errorBody = this.repositoryHelper.extractError(error);
+      if (errorBody && errorBody.message && errorBody.message[0] === 'Invalid page.' && filter.curPage > 1) {
         filter.curPage = 1;
         this.ignoreCache = true;
         this.loadAll(filter.q, filter);
       } else {
         this.items$.next([]);
-        result.error(this.repositoryHelper.extractError(errorBody));
+        result.error(errorBody);
         this.setStatusList(EndpointStatusEnum.NotFound,
-          translate('Not found')
+          errorBody.message && errorBody.message[0] ? translate(errorBody.message[0]) : translate('Not found')
         );
       }
     }
@@ -160,7 +160,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   loadRemote(key: string | number) {
     const result = this.beforeLoad(key);
     this.repositoryHelper.readItemRequest(this, key)
-      .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response)))
+      .pipe(map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response))))
       .subscribe((loadedItem: any) => {
         this.afterLoad(result, loadedItem, null, null);
       }, (error: any) => {
@@ -180,9 +180,10 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
       result.emit(item);
       this.setStatusItem(EndpointStatusEnum.Ok);
     } else {
-      result.error(this.repositoryHelper.extractError(error));
+      const errorBody = this.repositoryHelper.extractError(error);
+      result.error(errorBody);
       this.setStatusItem(EndpointStatusEnum.NotFound,
-        translate('Not found')
+        errorBody.message && errorBody.message[0] ? translate(errorBody.message[0]) : translate('Not found')
       );
     }
   }
@@ -204,7 +205,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     const result = this.beforeCreate(item);
     setTimeout(() => {
       this.repositoryHelper.createItemRequest(this, item)
-        .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
+        .pipe(map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item))))
         .subscribe((createdItem: any) => {
           this.afterCreate(result, createdItem, null, null);
         }, (error: any) => {
@@ -242,7 +243,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
     const result = this.beforeUpdate(item);
     setTimeout(() => {
       this.repositoryHelper.updateItemRequest(this, item)
-        .map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item)))
+        .pipe(map((response: any) => this.transformModel(this.repositoryHelper.itemResponse(this, response, item))))
         .subscribe((updatedItem: any) => {
           this.afterUpdate(result, updatedItem, null, null);
         }, (error: any) => {

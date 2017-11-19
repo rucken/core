@@ -4,11 +4,11 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Base components, services and ui for admin entities for application maked on Angular4+
+Base components, services and ui for admin entities for application maked on Angular5+
 
 ## What is Rucken?
 
-- **Core** - Base core for create applications on `Angular4+`.
+- **Core** - Base core for create applications on `Angular5+`.
 - **Admin** - Include work with admin, user groups and permissions.
 - **DI** - With dependency injection you can change base service.
 - **Extends** - Write components with extends from core `rucken` components.

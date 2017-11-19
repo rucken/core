@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/map';
+import { map } from 'rxjs/operators';
 
 import { EventEmitter, Injectable } from '@angular/core';
 

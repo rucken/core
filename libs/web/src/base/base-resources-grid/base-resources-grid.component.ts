@@ -1,4 +1,4 @@
-import 'rxjs/add/operator/takeUntil';
+import { takeUntil } from 'rxjs/operators';
 
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum, User } from '@rucken/core';

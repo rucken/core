@@ -1,10 +1,9 @@
-import 'rxjs/add/operator/takeUntil';
-
 import { Component, ComponentFactoryResolver, Injector, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { RuckenCoreRuI18n, translate } from '@rucken/core';
 import { AlertModalComponent, BaseAppComponent, RuckenWebRuI18n } from '@rucken/web';
 import * as _ from 'lodash';
+import { takeUntil } from 'rxjs/operators';
 
 import { RuckenDemoRuI18n } from './i18n/ru.i18n';
 
@@ -36,7 +35,7 @@ export class DemoAppComponent extends BaseAppComponent {
     public router: Router
   ) {
     super(injector, viewContainerRef, resolver);
-    router.events.takeUntil(this.destroyed$).subscribe((evt) => {
+    router.events.pipe(takeUntil(this.destroyed$)).subscribe((evt) => {
       if (evt instanceof NavigationEnd) {
         document.body.scrollTop = 0;
       }
