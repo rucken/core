@@ -115,7 +115,7 @@
     "@angular/platform-webworker-dynamic": "^5.0.2",
     "@angular/router": "^5.0.2",
     "@ngui/auto-complete": "^0.16.0",
-    "@ngx-translate/core": "^8.0.0",
+    "@ngx-translate/core": "^9.0.0",
     "@types/jasmine": "2.8.2",
     "@types/lodash": "^4.14.85",
     "@types/marked": "0.3.0",
