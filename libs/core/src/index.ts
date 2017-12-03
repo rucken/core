@@ -1,13 +1,13 @@
 import { RuckenCoreRuI18n } from './i18n/ru.i18n';
 export { RuckenCoreRuI18n } from './i18n/ru.i18n';
-import { EndpointStatusEnum } from './shared/enums/endpoint-status.enum';
-export { EndpointStatusEnum } from './shared/enums/endpoint-status.enum';
 import { translate } from './shared/common/utils';
 export { translate } from './shared/common/utils';
 import { isJson } from './shared/common/utils';
 export { isJson } from './shared/common/utils';
 import { inValues } from './shared/common/utils';
 export { inValues } from './shared/common/utils';
+import { EndpointStatusEnum } from './shared/enums/endpoint-status.enum';
+export { EndpointStatusEnum } from './shared/enums/endpoint-status.enum';
 import { EndpointHelper } from './shared/helpers/endpoint.helper';
 export { EndpointHelper } from './shared/helpers/endpoint.helper';
 import { HttpHelper } from './shared/helpers/http.helper';
@@ -68,6 +68,6 @@ import { BaseRepositoryService } from './shared/base/services/base-repository.se
 export { BaseRepositoryService } from './shared/base/services/base-repository.service';
 export const RuckenCoreModules: any[] = [];
 export const RuckenCoreComponents: any[] = [];
-export const RuckenCoreShareds: any[] = [RuckenCoreRuI18n, EndpointStatusEnum, translate, isJson, inValues, EndpointHelper, HttpHelper, RepositoryHelper, FontawesomeItemsMock, ThemeItemsMock, ContentType, Fontawesome, GroupPermission, Group, MetaModel, Permission, Theme, UserGroup, User, BaseResourceModel];
+export const RuckenCoreShareds: any[] = [RuckenCoreRuI18n, translate, isJson, inValues, EndpointStatusEnum, EndpointHelper, HttpHelper, RepositoryHelper, FontawesomeItemsMock, ThemeItemsMock, ContentType, Fontawesome, GroupPermission, Group, MetaModel, Permission, Theme, UserGroup, User, BaseResourceModel];
 export const RuckenCoreServices: any[] = [AccountService, AppService, ContentTypesService, FontawesomeService, GroupPermissionsService, GroupsService, PermissionsService, ThemesService, TokenService, UserGroupsService, UsersService, BaseLocalRepositoryService, BaseRemoteRepositoryService, BaseRepositoryService];
 export const RuckenCorePipes: any[] = [];

@@ -1,8 +1,0 @@
-{
-    "scan": {
-        "path": "./libs/core/src",
-        "list": {
-            "name": ""
-        }
-    }
-}
