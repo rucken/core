@@ -1,8 +1,0 @@
-{
-    "scan": {
-        "path": "./libs/web/src",
-        "list": {
-            "name": ""
-        }
-    }
-}
