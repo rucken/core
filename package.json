@@ -1,5 +1,5 @@
 {
-  "name": "@rucken/demo",
+  "name": "rucken",
   "version": "1.28.0",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
@@ -36,10 +36,10 @@
     }
   ],
   "scripts": {
-    "libs:build": "node ./node_modules/@rucken/cli/bin/rucken commands build ~~lib @rucken/core link ~~lib @rucken/core build ~~lib --verbose",
-    "libs:link": "node ./node_modules/@rucken/cli/bin/rucken commands link ~~lib --verbose",
-    "libs:link-npm": "node ./node_modules/@rucken/cli/bin/rucken commands link-npm ~~lib --verbose",
-    "all:prepare": "node ./node_modules/@rucken/cli/bin/rucken commands clear prepare --verbose",
+    "libs:build": "node ./node_modules/@rucken/cli/bin/rucken commands build ~~lib @rucken/core link ~~lib @rucken/core build ~~lib",
+    "libs:link": "node ./node_modules/@rucken/cli/bin/rucken commands link ~~lib",
+    "libs:link-npm": "node ./node_modules/@rucken/cli/bin/rucken commands link-npm ~~lib",
+    "all:prepare": "node ./node_modules/@rucken/cli/bin/rucken commands clear prepare",
     "app-demo:github_pages": "npm-run-all app-demo:github_full_build app-demo:github_deploy",
     "app-demo:github_build": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href https://rucken.github.io/core/ --prod --aot --env=mockapi --build-optimizer",
     "app-demo:github_full_build": "npm-run-all app-demo:prepare libs:build libs:link app-demo:github_build app-demo:prepare",
