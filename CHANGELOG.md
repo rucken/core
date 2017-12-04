@@ -1,3 +1,19 @@
+<a name="1.28.0"></a>
+# [1.28.0](https://github.com/rucken/core/compare/1.27.1...1.28.0) (2017-12-04)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([c54156b](https://github.com/rucken/core/commit/c54156b))
+* **shared.module:** Remove use translate.store ([12ac53f](https://github.com/rucken/core/commit/12ac53f))
+
+
+### Features
+
+* **deps:** Remove srcgen and ngm replace it with [@rucken](https://github.com/rucken)/cli ([646c6d5](https://github.com/rucken/core/commit/646c6d5))
+
+
+
 <a name="1.27.1"></a>
 ## [1.27.1](https://github.com/rucken/core/compare/1.27.0...1.27.1) (2017-11-19)
 
