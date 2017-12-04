@@ -47,7 +47,7 @@
     "app-demo:lite_server": "lite-server -c bs-config.json",
     "app-demo:serve_dev": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --aot=false",
     "app-demo:serve_prod": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --aot",
-    "app-demo:serve_mockapi": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --aot --env=mockapi --build-optimizer false",
+    "app-demo:serve_mockapi": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng serve --app=demo --preserve-symlinks --host 0.0.0.0 --aot --env=mockapi",
     "app-demo:prod_build": "node --max_old_space_size=2048 ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href / --prod --aot --build-optimizer",
     "app-demo:prod_full_build": "npm-run-all app-demo:prepare libs:build libs:link app-demo:prod_build app-demo:prepare",
     "app-demo:start-dev": "npm-run-all all:prepare libs:link-npm app-demo:serve_dev",
@@ -105,7 +105,7 @@
   "devDependencies": {
     "@angular/cli": "1.5.5",
     "@angular/compiler-cli": "5.0.5",
-    "@rucken/cli": "^1.3.1",
+    "@rucken/cli": "^1.3.2",
     "codelyzer": "~4.0.1",
     "conventional-changelog-cli": "^1.3.5",
     "conventional-commits-detector": "^0.1.1",
