@@ -56,7 +56,7 @@ msgid "Menu"
 msgstr "Меню"
 
 msgid "Rucken: Demo"
-msgstr "Rucken: Todo"
+msgstr "Rucken: Demo"
 
 msgid "Logout"
 msgstr "Выйти"

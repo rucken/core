@@ -26,7 +26,7 @@ export const RuckenDemoRuI18n = {
     'Themes': 'Темы',
     'Language': 'Язык',
     'Menu': 'Меню',
-    'Rucken: Demo': 'Rucken: Todo',
+    'Rucken: Demo': 'Rucken: Demo',
     'Logout': 'Выйти',
     'Login': 'Вход'
 };
