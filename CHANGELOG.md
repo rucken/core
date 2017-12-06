@@ -1,3 +1,13 @@
+<a name="1.28.1"></a>
+## [1.28.1](https://github.com/rucken/core/compare/1.28.0...1.28.1) (2017-12-06)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([2bcba4d](https://github.com/rucken/core/commit/2bcba4d))
+
+
+
 <a name="1.28.0"></a>
 # [1.28.0](https://github.com/rucken/core/compare/1.27.1...1.28.0) (2017-12-04)
 
