@@ -72,7 +72,7 @@
     "@angular/animations": "5.0.5",
     "@angular/common": "5.0.5",
     "@angular/compiler": "5.0.5",
-    "@angular/core": "5.0.5",
+    "@angular/core": "5.1.0",
     "@angular/forms": "5.0.5",
     "@angular/http": "5.0.5",
     "@angular/platform-browser": "5.0.5",
