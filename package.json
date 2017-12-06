@@ -104,7 +104,7 @@
   },
   "devDependencies": {
     "@angular/cli": "1.5.5",
-    "@angular/compiler-cli": "5.0.5",
+    "@angular/compiler-cli": "5.1.0",
     "@rucken/cli": "^1.4.0",
     "codelyzer": "~4.0.1",
     "conventional-changelog-cli": "^1.3.5",
