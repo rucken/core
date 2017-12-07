@@ -1,3 +1,13 @@
+<a name="1.28.2"></a>
+## [1.28.2](https://github.com/rucken/core/compare/1.28.1...1.28.2) (2017-12-07)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies for Angular 5.1.0 ([2565d4f](https://github.com/rucken/core/commit/2565d4f))
+
+
+
 <a name="1.28.1"></a>
 ## [1.28.1](https://github.com/rucken/core/compare/1.28.0...1.28.1) (2017-12-06)
 
