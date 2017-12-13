@@ -68,7 +68,7 @@
     "start": "npm-run-all app-demo:start-mockapi"
   },
   "dependencies": {
-    "@angular/animations": "5.1.0",
+    "@angular/animations": "5.1.1",
     "@angular/common": "5.1.0",
     "@angular/compiler": "5.1.0",
     "@angular/core": "5.1.0",
