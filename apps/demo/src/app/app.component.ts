@@ -13,7 +13,7 @@ defineLocale('ru', ru);
 defineLocale('en', enGb);
 
 @Component({
-  selector: 'demo-app-root',
+  selector: 'demo-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   entryComponents: [AlertModalComponent],
