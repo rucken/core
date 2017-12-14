@@ -62,7 +62,9 @@ export class AccountService {
   }
   set account(user: any | User) {
     this._account = user;
-    this._account.fullAccess = this.fullAccess;
+    if (this._account) {
+      this._account.fullAccess = this.fullAccess;
+    }
     this.account$.next(this._account);
   }
   get account(): any | User {
