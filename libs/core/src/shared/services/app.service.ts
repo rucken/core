@@ -1,13 +1,11 @@
 import { ComponentFactoryResolver, EventEmitter, Injectable, ViewContainerRef } from '@angular/core';
 
-import { EndpointHelper } from './../helpers/endpoint.helper';
-
 @Injectable()
 export class AppService {
   component: any;
   viewContainerRef: ViewContainerRef;
-  endpointHelper: EndpointHelper;
   translateService: any;
+
   onCurrentPageName: EventEmitter<string> = new EventEmitter<string>();
   onCurrentPageTitle: EventEmitter<string> = new EventEmitter<string>();
   onCurrentFrameName: EventEmitter<string> = new EventEmitter<string>();

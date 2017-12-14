@@ -27,11 +27,8 @@
     }
   },
   "exclude": [
-    "node_modules",
-    "**/*/node_modules",
     "**/*/.tmp",
-    "**/*/dist",
-    "srcgen"
+    "**/*/dist"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

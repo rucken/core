@@ -26,6 +26,7 @@ import {
   PositioningService,
   TabsetConfig,
   TooltipConfig,
+  BsLocaleService
 } from 'ngx-bootstrap';
 
 import { DemoAppComponent } from './app.component';
@@ -62,6 +63,7 @@ import { DemoHttpHelper } from './shared/helpers/http.helper';
     PaginationConfig,
     TabsetConfig,
     PopoverConfig,
+    BsLocaleService,
     RuckenCoreServices,
     RuckenWebServices,
     BaseResourceSelectInputConfig,

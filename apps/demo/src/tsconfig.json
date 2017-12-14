@@ -35,14 +35,6 @@
   "exclude": [
     "test.ts",
     "**/*.spec.ts",
-    "**/*.e2e-spec.ts",
-    "node_modules",
-    "**/*/node_modules",
-    "../../libs/**/tmp",
-    "../../apps/**/tmp",
-    "../../libs/**/dist",
-    "../../apps/**/dist",
-    "../../libs/**/.tmp",
-    "../../apps/**/.tmp"
+    "**/*.e2e-spec.ts"
   ]
 }

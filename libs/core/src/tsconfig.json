@@ -29,10 +29,6 @@
       "../../../node_modules/@types/"
     ]
   },
-  "exclude": [
-    "node_modules",
-    "**/*/node_modules"
-  ],
   "files": [
     "../../../typings.d.ts",
     "./index.ts"

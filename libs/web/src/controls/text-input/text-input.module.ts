@@ -13,7 +13,6 @@ import { TextInputComponent } from './text-input.component';
     FormsModule, SharedModule.forRoot(), DatepickerModule.forRoot(),
     PipesModule.forRoot(), TextMaskModule, TooltipModule.forRoot()
   ],
-
   declarations: [TextInputComponent],
   exports: [TextInputComponent],
   entryComponents: [TextInputComponent]

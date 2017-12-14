@@ -13,9 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-msgid "Loading..."
-msgstr "Загрузка..."
-
 msgid "Russian"
 msgstr "Русский"
 
@@ -49,17 +46,20 @@ msgstr "Домашняя страница"
 msgid "Themes"
 msgstr "Темы"
 
-msgid "Language"
-msgstr "Язык"
-
 msgid "Menu"
 msgstr "Меню"
 
 msgid "Rucken: Demo"
-msgstr "Rucken: Demo"
+msgstr "Rucken: Демо"
 
 msgid "Logout"
 msgstr "Выйти"
 
 msgid "Login"
 msgstr "Вход"
+
+#~ msgid "Loading..."
+#~ msgstr "Загрузка..."
+
+#~ msgid "Language"
+#~ msgstr "Язык"

@@ -3,10 +3,14 @@ import { NavigationEnd, Router } from '@angular/router';
 import { RuckenCoreRuI18n, translate } from '@rucken/core';
 import { AlertModalComponent, BaseAppComponent, RuckenWebRuI18n } from '@rucken/web';
 import * as _ from 'lodash';
+import { defineLocale } from 'ngx-bootstrap/bs-moment';
+import { enGb, ru } from 'ngx-bootstrap/locale';
 import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs/Subject';
 
-import { RuckenDemoRuI18n } from './i18n/ru.i18n';
+import { DemoRuI18n } from './i18n/ru.i18n';
+
+defineLocale('ru', ru);
+defineLocale('en', enGb);
 
 @Component({
   selector: 'demo-app-root',
@@ -20,7 +24,7 @@ export class DemoAppComponent extends BaseAppComponent {
   languages = [{
     code: 'ru',
     title: translate('Russian'),
-    dic: _.merge(RuckenCoreRuI18n, RuckenWebRuI18n, RuckenDemoRuI18n)
+    dic: _.merge(RuckenCoreRuI18n, RuckenWebRuI18n, DemoRuI18n)
   }, {
     code: 'en',
     title: translate('English'),

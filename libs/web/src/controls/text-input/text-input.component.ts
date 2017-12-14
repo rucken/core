@@ -7,6 +7,8 @@ import emailMask from 'text-mask-addons/dist/emailMask';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { TextInputConfig } from './text-input.config';
+import { DatePickerComponent } from 'ngx-bootstrap/datepicker';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'text-input',
@@ -17,6 +19,8 @@ import { TextInputConfig } from './text-input.config';
 
 export class TextInputComponent extends BaseComponent {
 
+  @ViewChild('picker')
+  picker: DatePickerComponent;
   @ViewChild('inputElement')
   inputElement: ElementRef;
   @ViewChild('tooltip')
@@ -63,14 +67,13 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   startingDay: number;
 
-  bsDatepickerConfig: Partial<BsDatepickerConfig>;
-
   config: TextInputConfig;
 
   private _dateValue: any;
 
   constructor(
-    public injector: Injector
+    public injector: Injector,
+    public changeDetectorRef: ChangeDetectorRef,
   ) {
     super(injector);
     this.config = injector.get(TextInputConfig);
@@ -92,10 +95,19 @@ export class TextInputComponent extends BaseComponent {
       this.startingDay = this.config.startingDay;
     }
     this.translateService.onLangChange.subscribe(
-      (lang: any) => {
-        this.bsDatepickerConfig = { locale: lang };
+      (langData: any) => {
+        this.initLang(langData.lang);
       }
     );
+  }
+  initLang(lang: string) {
+    this.bsDatepickerConfig = { locale: lang };
+    if (this.picker) {
+      this.picker.config.locale = lang;
+      this.picker.config.showWeeks = false;
+      this.picker.config.startingDay = this.startingDay;
+      this.picker.configureOptions();
+    }
   }
   init() {
     if (this.type === undefined) {
@@ -124,6 +136,8 @@ export class TextInputComponent extends BaseComponent {
       }
     }
     super.init();
+    this.changeDetectorRef.detectChanges();
+    this.initLang(this.app.component.currentLanguage);
   }
   get dateValue() {
     return this._dateValue;

@@ -29,6 +29,7 @@ export class HomeGuardService extends AuthGuardService {
       this.initAccesses();
     }
     if (this.accountService.account && route.data.name && route.data.name === 'home' && this.firstHomeActivated) {
+      /*
       let founded = false;
       if (!founded && this.accessToReadAdminPage) {
         founded = true;
@@ -45,7 +46,7 @@ export class HomeGuardService extends AuthGuardService {
         return false;
       } else {
         this.firstHomeActivated = false;
-      }
+      }*/
     }
     return true;
   }

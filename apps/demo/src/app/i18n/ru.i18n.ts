@@ -1,4 +1,4 @@
-export const RuckenDemoRuI18n = {
+export const DemoRuI18n = {
     '': {
         'project-id-version': '',
         'pot-creation-date': '',
@@ -12,7 +12,6 @@ export const RuckenDemoRuI18n = {
         'x-generator': 'Poedit 2.0.4',
         'plural-forms': 'nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);'
     },
-    'Loading...': 'Загрузка...',
     'Russian': 'Русский',
     'English': 'Английский',
     'Account': 'Личный кабинет',
@@ -24,9 +23,8 @@ export const RuckenDemoRuI18n = {
     'Controls': 'Контролы',
     'Home': 'Домашняя страница',
     'Themes': 'Темы',
-    'Language': 'Язык',
     'Menu': 'Меню',
-    'Rucken: Demo': 'Rucken: Demo',
+    'Rucken: Demo': 'Rucken: Демо',
     'Logout': 'Выйти',
     'Login': 'Вход'
 };
