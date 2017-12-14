@@ -1,4 +1,4 @@
-@rucken/web@1.29.0
+@rucken/web@1.29.1
 MIT
 MIT License
 
@@ -86,7 +86,7 @@ MIT
 MIT
 MIT
 
-@rucken/core@1.29.0
+@rucken/core@1.29.1
 MIT
 MIT License
 
