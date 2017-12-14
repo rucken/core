@@ -25,9 +25,6 @@ msgstr "Загрузка..."
 msgid "Not found"
 msgstr "Нет данных"
 
-msgid "Error, you not set perPage count"
-msgstr "Ошибка, вы не установили текущую страницу"
-
 msgid "Error in creating"
 msgstr "Ошибка при создании"
 
@@ -48,6 +45,9 @@ msgstr "Ок"
 
 msgid "Error on deleting"
 msgstr "Ошибка при удалении"
+
+msgid "Error, you not set perPage count"
+msgstr "Ошибка, вы не установили текущую страницу"
 
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
@@ -143,7 +143,7 @@ msgid "Groups"
 msgstr "Группы"
 
 msgid "Date of birth"
-msgstr "Дата рождени"
+msgstr "Дата рождения"
 
 msgid "Password does not match the repeat password"
 msgstr "Введённые пароли отличаются"

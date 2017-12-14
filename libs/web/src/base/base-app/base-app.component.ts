@@ -12,15 +12,13 @@ import { RuckenCoreRuI18n } from '@rucken/core';
 import { translate } from '@rucken/core';
 import * as _ from 'lodash';
 import * as moment from 'moment/moment';
-import { defineLocale } from 'ngx-bootstrap/bs-moment';
-import { enGb, ru } from 'ngx-bootstrap/locale';
+import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { listLocales } from 'ngx-bootstrap/bs-moment';
 
 import { RuckenWebRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
 import { BaseComponent } from './../base-component/base-component.component';
 
-defineLocale('ru', ru);
-defineLocale('en', enGb);
 
 @Component({
   selector: 'base-app-root',
@@ -44,6 +42,8 @@ export class BaseAppComponent extends BaseComponent {
   defaultLang = 'en';
   autoLoadLang = true;
   errorModalOpened = false;
+  fullAccess = false;
+  bsLocaleService: BsLocaleService;
 
   constructor(
     public injector: Injector,
@@ -51,6 +51,7 @@ export class BaseAppComponent extends BaseComponent {
     public resolver: ComponentFactoryResolver,
   ) {
     super(injector);
+    this.bsLocaleService = injector.get(BsLocaleService);
   }
   afterCreate() {
     super.afterCreate();
@@ -63,6 +64,7 @@ export class BaseAppComponent extends BaseComponent {
     }
     this.sharedService.linkTranslateService();
   }
+  // todo: move to app service
   loadLang() {
     this.translateService.addLangs(this.languages.map(lang => lang.code));
     this.translateService.setDefaultLang(this.defaultLang);
@@ -81,6 +83,7 @@ export class BaseAppComponent extends BaseComponent {
   set currentLanguage(lang: string) {
     moment.locale(lang);
     this.translateService.use(lang);
+    this.bsLocaleService.use(lang);
   }
   showErrorModal(message: string, title?: string, size?: string): EventEmitter<any> {
     if (this.errorModalOpened) {
@@ -117,7 +120,7 @@ export class BaseAppComponent extends BaseComponent {
     alert.messageClass = '';
     alert.size = size;
     alert.buttonClass = 'btn-primary';
-    alert.buttonText = translate('ОК');
+    alert.buttonText = translate('OK');
     alert.modal.show();
     return alert.onClose;
   }
@@ -136,7 +139,7 @@ export class BaseAppComponent extends BaseComponent {
     alert.messageClass = '';
     alert.size = size;
     alert.buttonClass = 'btn-primary';
-    alert.buttonText = translate('ОК');
+    alert.buttonText = translate('OK');
     alert.modal.show();
     return alert.onClose;
   }

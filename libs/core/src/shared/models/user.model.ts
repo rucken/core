@@ -47,6 +47,8 @@ export class User extends BaseResourceModel {
   groups: Group[];
   dateOfBirth: Date;
 
+  fullAccess = false;
+
   static meta(): any {
     const meta: any = User;
     meta.group = Group;
@@ -118,7 +120,7 @@ export class User extends BaseResourceModel {
     return false;
   }
   checkPermissions(permissionNames: string[]) {
-    if (this.checkRoles(permissionNames)) {
+    if (this.fullAccess || this.checkRoles(permissionNames)) {
       return true;
     } else {
       return this.groups && this.groups.filter((group) =>

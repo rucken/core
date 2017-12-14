@@ -14,6 +14,8 @@ export class AccountService {
   account$: Subject<any | User>;
   apiUrl: string;
 
+  fullAccess = false;
+
   statusMessage: string;
   changeStatus$: Subject<EndpointStatusEnum>;
 
@@ -60,6 +62,7 @@ export class AccountService {
   }
   set account(user: any | User) {
     this._account = user;
+    this._account.fullAccess = this.fullAccess;
     this.account$.next(this._account);
   }
   get account(): any | User {
