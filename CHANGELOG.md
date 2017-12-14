@@ -1,3 +1,14 @@
+<a name="1.29.1"></a>
+## [1.29.1](https://github.com/rucken/core/compare/1.29.0...1.29.1) (2017-12-14)
+
+
+### Bug Fixes
+
+* **account:** Fix set fullAccess prop to account ([a48b6eb](https://github.com/rucken/core/commit/a48b6eb))
+* **please-wait:** Add remove logo if not set ([3cd3be6](https://github.com/rucken/core/commit/3cd3be6))
+
+
+
 <a name="1.29.0"></a>
 # [1.29.0](https://github.com/rucken/core/compare/1.28.2...1.29.0) (2017-12-14)
 
