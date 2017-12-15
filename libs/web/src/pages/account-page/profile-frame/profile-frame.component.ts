@@ -21,7 +21,7 @@ export class ProfileFrameComponent extends BaseFrameComponent {
   init() {
     super.init();
     this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
-      this.accountProfileForm && status === EndpointStatusEnum.Updating ? this.accountProfileForm.okInProcessFromStatus(status) : false
+      this.accountProfileForm ? this.accountProfileForm.okInProcessFromStatus(status) : false
     );
   }
   get readonly() {
