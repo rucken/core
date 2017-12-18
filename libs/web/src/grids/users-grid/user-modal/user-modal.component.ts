@@ -35,19 +35,23 @@ export class UserModalComponent extends BaseResourceModalComponent {
   onOk: EventEmitter<UserModalComponent | any> = new EventEmitter<any>();
 
   afterOpen() {
-    this.userGroups.user = this.item;
-    this.userGroups.mockedItems =
-      this.item.groups.map((group: any | Group) => {
-        return new UserGroup({
-          id: group.pk,
-          group: group
+    if (this.userGroups) {
+      this.userGroups.user = this.item;
+      this.userGroups.mockedItems =
+        this.item.groups.map((group: any | Group) => {
+          return new UserGroup({
+            id: group.pk,
+            group: group
+          });
         });
-      });
-    this.userGroups.search();
+      this.userGroups.search();
+    }
   }
   ok() {
-    this.item.groups =
-      this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+    if (this.userGroups) {
+      this.item.groups =
+        this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+    }
     return super.ok();
   }
 }
