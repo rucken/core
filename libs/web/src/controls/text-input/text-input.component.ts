@@ -156,7 +156,7 @@ export class TextInputComponent extends BaseComponent {
     }
     this.setDateValueFromString(this.value);
     if (!this._dateValue || this._dateValue.toString() === 'Invalid Date') {
-      this._dateValue = new Date();
+      this._dateValue = null;
     }
   }
   get value() {
