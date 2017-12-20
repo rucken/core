@@ -1,10 +1,10 @@
 import { map } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
-import { IBaseService } from '../base/interfaces/base-service.interface';
 
 @Injectable()
-export class TokenService implements IBaseService {
+export class TokenService {
+  [key: string]: any;
 
   headerName = 'Authorization';
   headerPrefix = 'JWT';

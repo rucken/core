@@ -1,9 +1,5 @@
 import { RuckenCoreRuI18n } from './i18n/ru.i18n';
 export { RuckenCoreRuI18n } from './i18n/ru.i18n';
-import { IBaseModel } from './shared/base/interfaces/base-model.interface';
-export { IBaseModel } from './shared/base/interfaces/base-model.interface';
-import { IBaseService } from './shared/base/interfaces/base-service.interface';
-export { IBaseService } from './shared/base/interfaces/base-service.interface';
 import { BaseResourceModel } from './shared/base/models/base-resource.model';
 export { BaseResourceModel } from './shared/base/models/base-resource.model';
 import { BaseLocalRepositoryService } from './shared/base/services/base-local-repository.service';

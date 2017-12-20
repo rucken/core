@@ -12,6 +12,7 @@ import { SharedService } from '../../shared/services/shared.service';
   template: ''
 })
 export class BaseComponent implements OnInit, OnDestroy {
+  [key: string]: any;
 
   @Input()
   account: any | User;
@@ -34,7 +35,6 @@ export class BaseComponent implements OnInit, OnDestroy {
 
   errorsValue: any;
   infoValue: any;
-  [key: string]: any;
 
   destroyed$: Subject<boolean>;
 

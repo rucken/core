@@ -2,9 +2,10 @@ import * as _ from 'lodash';
 import * as moment from 'moment/moment';
 
 import { translate } from './../../common/utils';
-import { IBaseModel } from './../interfaces/base-model.interface';
 
-export class BaseResourceModel implements IBaseModel {
+export class BaseResourceModel {
+  [key: string]: any;
+
   pkFieldName: string;
   pkIsNumber: boolean;
   dateAsStringFormat = 'DD.MM.YYYY';
