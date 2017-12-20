@@ -3,10 +3,11 @@ import * as _ from 'lodash';
 import { Subject } from 'rxjs/Subject';
 
 import { MetaModel } from '../../models/meta.model';
+import { IBaseService } from './../interfaces/base-service.interface';
 
 
 @Injectable()
-export class BaseLocalRepositoryService {
+export class BaseLocalRepositoryService implements IBaseService {
 
   items$: Subject<any[]>;
   items: any[];

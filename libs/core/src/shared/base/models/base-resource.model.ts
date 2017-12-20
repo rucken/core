@@ -2,13 +2,13 @@ import * as _ from 'lodash';
 import * as moment from 'moment/moment';
 
 import { translate } from './../../common/utils';
+import { IBaseModel } from './../interfaces/base-model.interface';
 
-export class BaseResourceModel {
+export class BaseResourceModel implements IBaseModel {
   pkFieldName: string;
   pkIsNumber: boolean;
   dateAsStringFormat = 'DD.MM.YYYY';
   dateInputFormat = 'YYYY-MM-DD';
-  [key: string]: any;
 
   get pk(): string | number {
     const key = this.pkFieldName;

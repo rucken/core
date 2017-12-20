@@ -7,9 +7,10 @@ import { translate } from './../common/utils';
 import { EndpointStatusEnum } from './../enums/endpoint-status.enum';
 import { User } from './../models/user.model';
 import { TokenService } from './token.service';
+import { IBaseService } from '../base/interfaces/base-service.interface';
 
 @Injectable()
-export class AccountService {
+export class AccountService implements IBaseService {
   name: string;
   account$: Subject<any | User>;
   apiUrl: string;

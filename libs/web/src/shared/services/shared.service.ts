@@ -1,9 +1,10 @@
 import { Injectable, Injector } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '@rucken/core';
+import { IBaseService } from '@rucken/core';
 
 @Injectable()
-export class SharedService {
+export class SharedService implements IBaseService {
 
   app: AppService;
   translateService: TranslateService;

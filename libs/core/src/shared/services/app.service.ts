@@ -1,7 +1,8 @@
 import { ComponentFactoryResolver, EventEmitter, Injectable, ViewContainerRef } from '@angular/core';
+import { IBaseService } from '../base/interfaces/base-service.interface';
 
 @Injectable()
-export class AppService {
+export class AppService implements IBaseService {
   component: any;
   viewContainerRef: ViewContainerRef;
   translateService: any;
