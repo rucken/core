@@ -1,6 +1,6 @@
 import { takeUntil } from 'rxjs/operators';
 
-import { Component, Injector } from '@angular/core';
+import { Component, Injector, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '@rucken/core';
 import * as _ from 'lodash';
@@ -14,7 +14,9 @@ import { BaseComponent } from './../base-component/base-component.component';
 })
 export class BasePageComponent extends BaseComponent {
 
+  @Input()
   title?: string;
+  @Input()
   searchTextValue = '';
 
   activatedRoute: ActivatedRoute;
@@ -54,7 +56,7 @@ export class BasePageComponent extends BaseComponent {
       this.name = this.activatedRoute.snapshot.data.name;
       this.app.currentPageName = this.activatedRoute.snapshot.data.name;
     }
-    if (this._title === undefined) {
+    if (this.title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
         pageTitle = this.translateService.instant(this.activatedRoute.snapshot.data.title);
       } else {
