@@ -100,7 +100,7 @@
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.1",
+    "@angular/cli": "1.6.2",
     "@angular/compiler-cli": "5.1.1",
     "@rucken/cli": "^1.5.4",
     "codelyzer": "~4.0.2",
