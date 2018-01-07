@@ -1,113 +1,72 @@
-body
-{
-    //min-height: 2000px;
+body {
     padding-top: 70px;
 }
-.app-navbar
-{
-    &__item
-    {
-        &.active
-        {
-            font-weight: 700;
-        }
-    }
-}
-.app-sidebar
-{
-    &__item
-    {
-        &.active
-        {
-            font-weight: 700;
-        }
-    }
-}
-.app-grid
-{
-    &__toolbar
-    {
-        &--header
-        {
+
+.grid {
+    &__toolbar {
+        &--header {
             padding-bottom: 5px;
         }
-        &--footer
-        {
+        &--footer {
             padding-top: 5px;
         }
     }
-    &__table
-    {
+    &__table {
         margin-bottom: 0px;
-
-        tr{
-            td{
-                cursor:pointer;
+        tr {
+            td {
+                cursor: pointer;
             }
-            th{
+            th {
                 vertical-align: top!important;
                 position: relative;
                 padding-right: 18px !important;
-                button{
+                button {
                     position: absolute;
                     top: 6px;
                     right: -0px;
                 }
             }
         }
-        &__col-key
-        {
+        &__col-key {
             width: 100px;
-
             text-align: left;
         }
-        &__col-id
-        {
+        &__col-id {
             width: 70px;
-
             text-align: right;
         }
-        &__col-icon
-        {
+        &__col-icon {
             width: 70px;
-
             text-align: center;
         }
-        &__col-action
-        {
+        &__col-action {
             width: 100px;
-
             text-align: center;
         }
-        &__col-status-message
-        {
+        &__col-status-message {
             text-align: center;
         }
     }
 }
-.input-group{
-    .dropdown-menu
-    {
-        >li{
-            >a{
+
+.input-group {
+    .dropdown-menu {
+        >li {
+            >a {
                 line-height: 0;
             }
         }
-        .divider{
+        .divider {
             margin: 0px 0;
         }
     }
 }
-.pointer{
-    cursor:pointer;
-}
-.page-header
-{
+
+.page-header {
     margin: 0 0 20px;
 }
-tabset>.nav-tabs{
-  margin-bottom: 10px;
-}
+
 .pagination-compressed {
     margin-top: 0px;
 }
