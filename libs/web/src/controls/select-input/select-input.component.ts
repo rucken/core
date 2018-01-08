@@ -1,7 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Injector } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
-import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
@@ -12,17 +11,13 @@ import { SelectInputConfig } from './select-input.config';
 @Component({
   selector: 'select-input',
   templateUrl: './select-input.component.html',
-  styleUrls: ['./select-input.component.scss'],
-  encapsulation: ViewEncapsulation.None,  // Enable dynamic HTML styles,
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./select-input.component.scss']
 })
 
 export class SelectInputComponent extends BaseComponent {
 
   @ViewChild('tooltip')
   tooltip: TooltipDirective;
-  @ViewChild('autoComplete')
-  autoComplete: NguiAutoCompleteComponent;
   @ViewChild('inputElement')
   inputElement: ElementRef;
 
@@ -63,33 +58,25 @@ export class SelectInputComponent extends BaseComponent {
   @Input()
   set items(items: any[]) {
     this._items = items;
-    if (this.autoComplete) {
-      if (JSON.stringify(this.autoComplete.source) === JSON.stringify(items)) {
-        return;
-      }
-      this.autoComplete.source = items;
-      if (this.showMe) {
-        this._showMe = false;
-        this.autoComplete.reloadList('');
-        setTimeout(() => {
-          this.resizeList();
-          this._showMe = true;
-        }, 300);
-      } else {
-        this.autoComplete.reloadList('');
-        setTimeout(() => {
-          this.resizeList();
-        }, 300);
-      }
-    }
   }
   get items() {
     return this._items;
+  }
+  @Input()
+  set textValue(textValue: string) {
+    this._textValue = textValue;
+    if (this._textValue === '') {
+      this.value = null;
+    }
+  }
+  get textValue() {
+    return this._textValue;
   }
 
   config: SelectInputConfig;
   debouncer$: Subject<string>;
 
+  private _textValue: string;
   private _items: any[] = [];
   private _showMe = false;
 
@@ -122,21 +109,6 @@ export class SelectInputComponent extends BaseComponent {
   get inputReadonly() {
     return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length === 0;
   }
-  onKey(value: string) {
-    if (!value && !this.inputReadonly) {
-      this.value = null;
-    }
-    this.debouncer$.next(value);
-  }
-  get showMe() {
-    return this._showMe;
-  }
-  set showMe(val: any) {
-    setTimeout(() => {
-      this.resizeList();
-      this._showMe = val;
-    }, 300);
-  }
   get value() {
     return this.model;
   }
@@ -145,43 +117,27 @@ export class SelectInputComponent extends BaseComponent {
       delete this.errorsValue[this.name];
       this.tooltipText = '';
     }
-    this.model = val;
+    if (val && val[this.inputTitleField]) {
+      this.textValue = val[this.inputTitleField];
+      this.model = val;
+    } else {
+      // this.textValue = '';
+      this.model = null;
+    }
+    this.debouncer$.next(this.textValue);
     this.modelChange.emit(this.model);
+  }
+  onTypeaheadNoResults(typeaheadNoResults: boolean) {
+    if (typeaheadNoResults) {
+      this.value = null;
+    }
   }
   init() {
     if (this.hardValue) {
       this.value = this.hardValue;
     }
+    this.value = this.value;
     super.init();
-  }
-  resizeList() {
-    if (this.value && this.value[this.valueField]) {
-      this.items.map((item: any, index: number) => {
-        if (item && this.value && item[this.valueField] === this.value[this.valueField]) {
-          this.autoComplete.itemIndex = index;
-        }
-      });
-    }
-    if (this.autoComplete && this.autoComplete.el &&
-      this.autoComplete.el.children[0] && this.autoComplete.el.children[0].children[0] &&
-      this.inputElement && this.inputElement.nativeElement) {
-      const options: any = this.autoComplete.el.children[0].children[0].children;
-      const select: any = this.autoComplete.el.children[0];
-      // if (this.items && options.length >= this.items.length) {
-      for (let i = 0; i < options.length; i++) {
-        if (this.width === null) {
-          options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
-        } else {
-          options[i].style.width = this.width;
-        }
-      }
-      select.style.display = '';
-      // }
-    } else {
-      setTimeout(() => {
-        this.resizeList();
-      }, 200);
-    }
   }
   getTitle(item: any): SafeHtml | string {
     if (item && item[this.titleField]) {
@@ -195,11 +151,6 @@ export class SelectInputComponent extends BaseComponent {
       );
     }
     return '';
-  }
-  focus() {
-    if (this.autoComplete) {
-      this.autoComplete.dropdownVisible = true;
-    }
   }
   getInputTitle(item: any) {
     if (item && item[this.inputTitleField]) {

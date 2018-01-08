@@ -1,5 +1,5 @@
-import * as _ from 'lodash';
-import * as moment from 'moment/moment';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
+import * as momentImported from 'moment'; const moment = momentImported;
 
 import { translate } from './../../common/utils';
 

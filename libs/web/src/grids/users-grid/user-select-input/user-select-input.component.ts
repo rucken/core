@@ -1,5 +1,3 @@
-import { takeUntil } from 'rxjs/operators';
-
 import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { User, translate } from '@rucken/core';

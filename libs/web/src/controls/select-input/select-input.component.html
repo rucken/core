@@ -1,28 +1,22 @@
 <div class="select-input" [ngClass]="{'auto-width':autoWidth}">
   <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}" *ngIf="inFormGroup">
     <label [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
-    <div [ngClass]="{'inner-addon right-addon':!readonly}" class="{{inputFrameClass}}">
-      <i *ngIf="!readonly" class="fa fa-chevron-down"></i>
-      <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
-        [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
-        [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable"
-        (onShown)="showTooltip()" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
+    <div class="{{inputFrameClass}}">
+      <input [(ngModel)]="textValue" [typeahead]="items" [typeaheadOptionField]="inputTitleField" [typeaheadScrollable]="true"
+        [typeaheadOptionsInScrollableView]="5" [typeaheadMinLength]="0" [attr.placeholder]="placeholder" (typeaheadOnSelect)="value = $event.item"
+        (typeaheadNoResults)="onTypeaheadNoResults($event)" [ngClass]="inputClass" [disabled]="readonly && inputReadonly" [attr.id]="'input'+name"
+        [attr.name]="'input'+name" [tooltip]="tooltipText" tooltipPlacement="{{tooltipPlacement}}" tooltipTrigger="{{tooltipTriggers}}"
+        [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement/>
     </div>
-    <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
-      [show-input-tag]="false" [list-formatter]="getTitle.bind(this)" [source]="items" #autoComplete>
-    </ngui-auto-complete>
     <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="(errorMessage || infoMessage) | safeHtml"></span>
   </div>
   <div *ngIf="!inFormGroup">
-    <div [ngClass]="{'inner-addon right-addon':!readonly}" class="{{inputFrameClass}}">
-      <i *ngIf="!readonly" class="fa fa-chevron-down"></i>
-      <input [value]="getInputTitle(value)" (focus)="showMe=true" (blur)="showMe=false" [ngClass]="inputClass" [readonly]="showMe && inputReadonly"
-        [disabled]="readonly && inputReadonly" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
-        [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable"
-        (onShown)="showTooltip()" #tooltip="bs-tooltip" (keyup)="onKey(inputElement.value)" autocomplete="off" #inputElement/>
+    <div class="{{inputFrameClass}}">
+      <input [(ngModel)]="textValue" [typeahead]="items" [typeaheadOptionField]="inputTitleField" [typeaheadScrollable]="true"
+        [typeaheadOptionsInScrollableView]="5" [typeaheadMinLength]="0" [attr.placeholder]="placeholder" (typeaheadOnSelect)="value = $event.item"
+        (typeaheadNoResults)="onTypeaheadNoResults($event)" [ngClass]="inputClass" [disabled]="readonly && inputReadonly" [attr.id]="'input'+name"
+        [attr.name]="'input'+name" [tooltip]="tooltipText" tooltipPlacement="{{tooltipPlacement}}" tooltipTrigger="{{tooltipTriggers}}"
+        [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement/>
     </div>
-    <ngui-auto-complete [hidden]="!showMe || !(!readonly && items && items.length>0)" (valueSelected)="value = $event" show-dropdown-on-init="ignore"
-      [show-input-tag]="false" [list-formatter]="getTitle.bind(this)" [source]="items" #autoComplete>
-    </ngui-auto-complete>
   </div>
 </div>

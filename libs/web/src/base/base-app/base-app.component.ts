@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 import { RuckenCoreRuI18n } from '@rucken/core';
 import { translate } from '@rucken/core';
-import * as _ from 'lodash';
-import * as moment from 'moment/moment';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
+import * as momentImported from 'moment'; const moment = momentImported;
 import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { listLocales } from 'ngx-bootstrap/bs-moment';
 
@@ -24,8 +24,7 @@ import { BaseComponent } from './../base-component/base-component.component';
   selector: 'base-app-root',
   templateUrl: './base-app.component.html',
   styleUrls: ['./base-app.component.scss'],
-  entryComponents: [AlertModalComponent],
-  encapsulation: ViewEncapsulation.None
+  entryComponents: [AlertModalComponent]
 })
 export class BaseAppComponent extends BaseComponent {
 

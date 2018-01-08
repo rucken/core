@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
-import * as moment from 'moment/moment';
+import * as momentImported from 'moment'; const moment = momentImported;
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';

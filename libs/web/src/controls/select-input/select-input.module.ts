@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NguiAutoCompleteModule } from '@ngui/auto-complete';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 import { PipesModule } from '../../pipes/pipes.module';
@@ -9,10 +9,12 @@ import { SelectInputComponent } from './select-input.component';
 
 @NgModule({
   imports: [
-    FormsModule, SharedModule.forRoot(), TooltipModule.forRoot(), PipesModule.forRoot(),
-    NguiAutoCompleteModule
+    FormsModule,
+    SharedModule.forRoot(),
+    TooltipModule.forRoot(),
+    PipesModule.forRoot(),
+    TypeaheadModule.forRoot()
   ],
-
   declarations: [SelectInputComponent],
   exports: [SelectInputComponent],
   entryComponents: [SelectInputComponent]

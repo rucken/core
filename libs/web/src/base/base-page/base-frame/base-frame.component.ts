@@ -3,7 +3,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Component, Injector, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '@rucken/core';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 
 import { BaseComponent } from './../../base-component/base-component.component';
 import { TranslateService } from '@ngx-translate/core';

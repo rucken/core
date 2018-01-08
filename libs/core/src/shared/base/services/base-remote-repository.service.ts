@@ -1,5 +1,5 @@
 import { EventEmitter, Injectable, Injector } from '@angular/core';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 

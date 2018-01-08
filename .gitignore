@@ -4,6 +4,7 @@
 .tmp
 dist
 tmp
+.ng_pkg_build
 out-tsc
 *.tgz
 

@@ -1,5 +1,5 @@
 import { Injectable, Injector } from '@angular/core';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 import { Subject } from 'rxjs/Subject';
 
 import { MetaModel } from '../../models/meta.model';

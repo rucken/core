@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 
 export function translate(key: string): string {
   return key;

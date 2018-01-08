@@ -1,6 +1,5 @@
 {
     "name": "@rucken/web",
-    "main": "index.js",
     "version": "1.29.1",
     "description": "Base components, services and ui for admin entities for application maked on Angular5+",
     "keywords": [
@@ -18,8 +17,6 @@
         "@angular/core": "*",
         "@angular/forms": "*",
         "@angular/router": "*",
-        "@ngui/auto-complete": "*",
-        "angular2-ladda": "*",
         "angular2-text-mask": "*"
     },
     "dependencies": {

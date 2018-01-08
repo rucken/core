@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 
 import { BaseResourceModel } from './../base/models/base-resource.model';
 import { translate } from './../common/utils';
