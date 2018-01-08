@@ -11,7 +11,6 @@ import { GroupModalComponent } from './group-modal/group-modal.component';
 @Component({
   selector: 'groups-grid',
   templateUrl: './groups-grid.component.html',
-  styleUrls: ['./groups-grid.component.scss'],
   entryComponents: [GroupModalComponent, ConfirmModalComponent]
 })
 

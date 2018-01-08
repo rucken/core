@@ -26,7 +26,6 @@ import {
 @Component({
   selector: 'group-permissions-grid',
   templateUrl: './group-permissions-grid.component.html',
-  styleUrls: ['./group-permissions-grid.component.scss'],
   entryComponents: [PermissionModalComponent, PermissionsListModalComponent, ConfirmModalComponent]
 })
 

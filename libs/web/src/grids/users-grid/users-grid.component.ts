@@ -11,7 +11,6 @@ import { UserModalComponent } from './user-modal/user-modal.component';
 @Component({
   selector: 'users-grid',
   templateUrl: './users-grid.component.html',
-  styleUrls: ['./users-grid.component.scss'],
   entryComponents: [UserModalComponent, ConfirmModalComponent]
 })
 

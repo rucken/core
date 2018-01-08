@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, Injector, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Component, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { RuckenCoreRuI18n, translate } from '@rucken/core';
 import { AlertModalComponent, BaseAppComponent, RuckenWebRuI18n } from '@rucken/web';
@@ -15,9 +15,7 @@ defineLocale('en', enGb);
 @Component({
   selector: 'demo-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  entryComponents: [AlertModalComponent],
-  encapsulation: ViewEncapsulation.None
+  entryComponents: [AlertModalComponent]
 })
 export class DemoAppComponent extends BaseAppComponent {
 

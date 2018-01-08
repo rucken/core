@@ -23,7 +23,6 @@ import { BaseComponent } from './../base-component/base-component.component';
 @Component({
   selector: 'base-app-root',
   templateUrl: './base-app.component.html',
-  styleUrls: ['./base-app.component.scss'],
   entryComponents: [AlertModalComponent]
 })
 export class BaseAppComponent extends BaseComponent {

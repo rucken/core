@@ -11,7 +11,6 @@ import { ContentTypeModalComponent } from './content-type-modal/content-type-mod
 @Component({
   selector: 'content-types-grid',
   templateUrl: './content-types-grid.component.html',
-  styleUrls: ['./content-types-grid.component.scss'],
   entryComponents: [ContentTypeModalComponent, ConfirmModalComponent]
 })
 

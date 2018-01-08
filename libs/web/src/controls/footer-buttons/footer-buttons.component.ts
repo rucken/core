@@ -5,8 +5,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 
 @Component({
   selector: 'footer-buttons',
-  templateUrl: './footer-buttons.component.html',
-  styleUrls: ['./footer-buttons.component.scss']
+  templateUrl: './footer-buttons.component.html'
 })
 
 export class FooterButtonsComponent extends BaseComponent {

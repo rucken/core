@@ -9,8 +9,7 @@ import { FontawesomesGridComponent } from './../fontawesomes-grid.component';
 
 @Component({
   selector: 'fontawesomes-list-modal',
-  templateUrl: './fontawesomes-list-modal.component.html',
-  styleUrls: ['./fontawesomes-list-modal.component.scss']
+  templateUrl: './fontawesomes-list-modal.component.html'
 })
 
 export class FontawesomesListModalComponent extends BaseResourceListModalComponent {

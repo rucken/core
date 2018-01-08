@@ -10,8 +10,7 @@ import { SelectInputConfig } from './select-input.config';
 
 @Component({
   selector: 'select-input',
-  templateUrl: './select-input.component.html',
-  styleUrls: ['./select-input.component.scss']
+  templateUrl: './select-input.component.html'
 })
 
 export class SelectInputComponent extends BaseComponent {

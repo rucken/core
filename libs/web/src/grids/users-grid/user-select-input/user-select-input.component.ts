@@ -13,7 +13,6 @@ import { UsersListModalComponent } from './../users-list-modal/users-list-modal.
 @Component({
   selector: 'user-select-input',
   templateUrl: './user-select-input.component.html',
-  styleUrls: ['./user-select-input.component.scss'],
   entryComponents: [UsersListModalComponent]
 })
 

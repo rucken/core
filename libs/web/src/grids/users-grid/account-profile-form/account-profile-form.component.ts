@@ -10,8 +10,7 @@ import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-gr
 
 @Component({
   selector: 'account-profile-form',
-  templateUrl: './account-profile-form.component.html',
-  styleUrls: ['./account-profile-form.component.scss']
+  templateUrl: './account-profile-form.component.html'
 })
 
 export class AccountProfileFormComponent extends BaseModalComponent {

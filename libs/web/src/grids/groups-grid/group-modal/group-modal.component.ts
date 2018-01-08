@@ -12,8 +12,7 @@ import { GroupPermissionsGridComponent } from './../../group-permissions-grid/gr
 
 @Component({
   selector: 'group-modal',
-  templateUrl: './group-modal.component.html',
-  styleUrls: ['./group-modal.component.scss']
+  templateUrl: './group-modal.component.html'
 })
 
 export class GroupModalComponent extends BaseResourceModalComponent {

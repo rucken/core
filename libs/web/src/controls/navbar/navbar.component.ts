@@ -13,9 +13,7 @@ import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.compone
 @Component({
   selector: 'navbar',// tslint:disable-line
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  entryComponents: [ConfirmModalComponent, AuthModalComponent],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  entryComponents: [ConfirmModalComponent, AuthModalComponent]
 })
 
 export class NavbarComponent extends BaseComponent {

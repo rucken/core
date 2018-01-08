@@ -12,8 +12,7 @@ import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-gr
 
 @Component({
   selector: 'user-modal',
-  templateUrl: './user-modal.component.html',
-  styleUrls: ['./user-modal.component.scss']
+  templateUrl: './user-modal.component.html'
 })
 
 export class UserModalComponent extends BaseResourceModalComponent {

@@ -9,8 +9,7 @@ import { UsersGridComponent } from './../users-grid.component';
 
 @Component({
   selector: 'users-list-modal',
-  templateUrl: './users-list-modal.component.html',
-  styleUrls: ['./users-list-modal.component.scss']
+  templateUrl: './users-list-modal.component.html'
 })
 
 export class UsersListModalComponent extends BaseResourceListModalComponent {

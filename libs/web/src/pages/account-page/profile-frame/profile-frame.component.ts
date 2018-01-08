@@ -7,8 +7,7 @@ import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-fr
 
 @Component({
   selector: 'profile-frame',
-  templateUrl: './profile-frame.component.html',
-  styleUrls: ['./profile-frame.component.scss']
+  templateUrl: './profile-frame.component.html'
 })
 export class ProfileFrameComponent extends BaseFrameComponent {
 

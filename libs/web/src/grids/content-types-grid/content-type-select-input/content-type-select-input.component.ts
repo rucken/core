@@ -11,7 +11,6 @@ import { ContentTypesListModalComponent } from './../content-types-list-modal/co
 @Component({
   selector: 'content-type-select-input',
   templateUrl: './content-type-select-input.component.html',
-  styleUrls: ['./content-type-select-input.component.scss'],
   entryComponents: [ContentTypesListModalComponent]
 })
 

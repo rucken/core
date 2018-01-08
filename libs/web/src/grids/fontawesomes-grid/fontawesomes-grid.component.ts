@@ -11,7 +11,6 @@ import { FontawesomeModalComponent } from './fontawesome-modal/fontawesome-modal
 @Component({
   selector: 'fontawesomes-grid',
   templateUrl: './fontawesomes-grid.component.html',
-  styleUrls: ['./fontawesomes-grid.component.scss'],
   entryComponents: [FontawesomeModalComponent, ConfirmModalComponent]
 })
 

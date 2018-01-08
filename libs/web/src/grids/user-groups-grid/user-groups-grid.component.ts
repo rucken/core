@@ -24,7 +24,6 @@ import { GroupsListModalComponent } from './../groups-grid/groups-list-modal/gro
 @Component({
   selector: 'user-groups-grid',
   templateUrl: './user-groups-grid.component.html',
-  styleUrls: ['./user-groups-grid.component.scss'],
   entryComponents: [GroupsListModalComponent, GroupModalComponent, ConfirmModalComponent]
 })
 

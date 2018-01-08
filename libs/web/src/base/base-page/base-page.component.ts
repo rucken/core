@@ -9,8 +9,7 @@ import { BaseComponent } from './../base-component/base-component.component';
 
 @Component({
   selector: 'base-page',
-  templateUrl: './base-page.component.html',
-  styleUrls: ['./base-page.component.scss']
+  templateUrl: './base-page.component.html'
 })
 export class BasePageComponent extends BaseComponent {
 

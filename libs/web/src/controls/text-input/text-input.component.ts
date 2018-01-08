@@ -12,9 +12,7 @@ import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'text-input',
-  templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './text-input.component.html'
 })
 
 export class TextInputComponent extends BaseComponent {

@@ -9,8 +9,7 @@ import { TextInputComponent } from './../../../controls/text-input/text-input.co
 
 @Component({
   selector: 'permission-modal',
-  templateUrl: './permission-modal.component.html',
-  styleUrls: ['./permission-modal.component.scss']
+  templateUrl: './permission-modal.component.html'
 })
 
 export class PermissionModalComponent extends BaseResourceModalComponent {

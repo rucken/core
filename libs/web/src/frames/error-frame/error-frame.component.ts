@@ -4,8 +4,7 @@ import { BaseComponent } from '../../base/base-component/base-component.componen
 
 @Component({
   selector: 'error-frame',
-  templateUrl: './error-frame.component.html',
-  styleUrls: ['./error-frame.component.scss']
+  templateUrl: './error-frame.component.html'
 })
 
 export class ErrorFrameComponent extends BaseComponent {
