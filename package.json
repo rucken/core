@@ -82,7 +82,7 @@
     "@types/jasmine": "2.8.2",
     "@types/lodash": "^4.14.89",
     "@types/marked": "0.3.0",
-    "@types/node": "^8.5.1",
+    "@types/node": "^9.3.0",
     "@types/requirejs": "^2.1.31",
     "@types/webpack": "^3.8.1",
     "angular2-ladda": "^1.2.2",
