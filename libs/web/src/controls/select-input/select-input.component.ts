@@ -1,9 +1,11 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Injector } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
+import { TypeaheadDirective } from 'ngx-bootstrap/typeahead';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
+import { setTimeout } from 'timers';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { SelectInputConfig } from './select-input.config';
@@ -17,6 +19,8 @@ export class SelectInputComponent extends BaseComponent {
 
   @ViewChild('tooltip')
   tooltip: TooltipDirective;
+  @ViewChild('typeahead')
+  typeahead: TypeaheadDirective;
   @ViewChild('inputElement')
   inputElement: ElementRef;
 
@@ -24,6 +28,8 @@ export class SelectInputComponent extends BaseComponent {
   debounceTime?: number;
   @Output()
   onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  onInputFocus: EventEmitter<string> = new EventEmitter<string>();
   @Input()
   labelClass?= 'control-label';
   @Input()
@@ -55,10 +61,16 @@ export class SelectInputComponent extends BaseComponent {
   @Input()
   width: string = null;
   @Input()
-  set items(items: any[]) {
+  dataSource: Subject<any[]>;
+  @Input()
+  set items(items: any) {
     this._items = items;
+    this.resizeList();
   }
-  get items() {
+  get items(): any {
+    if (this.dataSource) {
+      return this.dataSource;
+    }
     return this._items;
   }
   @Input()
@@ -67,6 +79,7 @@ export class SelectInputComponent extends BaseComponent {
     if (this._textValue === '') {
       this.value = null;
     }
+    this.debouncer$.next(this.textValue);
   }
   get textValue() {
     return this._textValue;
@@ -80,7 +93,8 @@ export class SelectInputComponent extends BaseComponent {
   private _showMe = false;
 
   constructor(
-    public injector: Injector
+    public injector: Injector,
+    public changeDetectorRef: ChangeDetectorRef
   ) {
     super(injector);
     this.debouncer$ = new Subject<string>();
@@ -105,6 +119,9 @@ export class SelectInputComponent extends BaseComponent {
     this.debouncer$.pipe(debounceTime(this.debounceTime))
       .subscribe((value: string) => this.onChangeInputValue.emit(value));
   }
+  inputFocus(value: string) {
+    this.onInputFocus.emit(value);
+  }
   get inputReadonly() {
     return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length === 0;
   }
@@ -123,7 +140,6 @@ export class SelectInputComponent extends BaseComponent {
       // this.textValue = '';
       this.model = null;
     }
-    this.debouncer$.next(this.textValue);
     this.modelChange.emit(this.model);
   }
   onTypeaheadNoResults(typeaheadNoResults: boolean) {
@@ -135,8 +151,10 @@ export class SelectInputComponent extends BaseComponent {
     if (this.hardValue) {
       this.value = this.hardValue;
     }
-    this.value = this.value;
     super.init();
+    if (!this.textValue) {
+      this.value = this.value;
+    }
   }
   getTitle(item: any): SafeHtml | string {
     if (item && item[this.titleField]) {
@@ -159,5 +177,27 @@ export class SelectInputComponent extends BaseComponent {
       return this.translateService.instant(item[this.titleField]);
     }
     return '';
+  }
+  loading(status: boolean) {
+    if (!status) {
+      this.resizeList();
+    }
+  }
+  resizeList() {
+    setTimeout(() => {
+      if (this.changeDetectorRef) {
+        this.changeDetectorRef.detectChanges();
+        if (this.typeahead && this.typeahead._container) {
+          if (this.typeahead._container.element.nativeElement.children[0]) {
+            const list: any = this.typeahead._container.element.nativeElement.children[0];
+            if (this.width === null) {
+              list.style.width = this.inputElement.nativeElement.offsetWidth + 'px';
+            } else {
+              list.style.width = this.width;
+            }
+          }
+        }
+      }
+    }, 1);
   }
 }

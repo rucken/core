@@ -14,7 +14,7 @@
             [readonly]="readonly" [focused]="true" #focusElement></text-input>
           <text-input [errors]="errors" [info]="info" name="title" [(model)]="item.title" [title]="modelMeta.titles.title" [readonly]="readonly"></text-input>
           <content-type-select-input [errors]="errors" [info]="info" name="contentType" [(model)]="item.contentType"
-            [title]="modelMeta.titles.contentType" [select]="true" [readonly]="readonly"></content-type-select-input>
+            [title]="modelMeta.titles.contentType" [select]="item.pk" [readonly]="readonly"></content-type-select-input>
         </div>
         <div class="modal-footer">
           <footer-buttons (onClose)="close()" (onOk)="ok()" [readonly]="readonly" [okTitle]="okTitle" [okInProcess]="okInProcess"></footer-buttons>

@@ -6,7 +6,8 @@
         [typeaheadOptionsInScrollableView]="5" [typeaheadMinLength]="0" [attr.placeholder]="placeholder" (typeaheadOnSelect)="value = $event.item"
         (typeaheadNoResults)="onTypeaheadNoResults($event)" [ngClass]="inputClass" [disabled]="readonly && inputReadonly" [attr.id]="'input'+name"
         [attr.name]="'input'+name" [tooltip]="tooltipText" tooltipPlacement="{{tooltipPlacement}}" tooltipTrigger="{{tooltipTriggers}}"
-        [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement/>
+        [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" (focus)="inputFocus(textValue)" (typeaheadLoading)="loading($event)"
+        autocomplete="off" #typeahead="bs-typeahead" #inputElement/>
     </div>
     <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="(errorMessage || infoMessage) | safeHtml"></span>
   </div>
@@ -16,7 +17,8 @@
         [typeaheadOptionsInScrollableView]="5" [typeaheadMinLength]="0" [attr.placeholder]="placeholder" (typeaheadOnSelect)="value = $event.item"
         (typeaheadNoResults)="onTypeaheadNoResults($event)" [ngClass]="inputClass" [disabled]="readonly && inputReadonly" [attr.id]="'input'+name"
         [attr.name]="'input'+name" [tooltip]="tooltipText" tooltipPlacement="{{tooltipPlacement}}" tooltipTrigger="{{tooltipTriggers}}"
-        [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement/>
+        [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" (focus)="inputFocus(textValue)" (typeaheadLoading)="loading($event)"
+        autocomplete="off" #typeahead="bs-typeahead" #inputElement/>
     </div>
   </div>
 </div>

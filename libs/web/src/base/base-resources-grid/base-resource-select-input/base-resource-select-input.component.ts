@@ -51,6 +51,8 @@ export class BaseResourceSelectInputComponent extends BaseResourcesListComponent
 
   config: BaseResourceSelectInputConfig;
 
+  prevValue: string;
+
   get value() {
     return this.model;
   }
@@ -121,6 +123,21 @@ export class BaseResourceSelectInputComponent extends BaseResourcesListComponent
     }
     if (this.select && this.loadAll) {
       this.search();
+    }
+  }
+  changeInputValue(value: string) {
+    const filter: any = {};
+    if (this.cachedResourcesService && this.prevValue !== value) {
+      this.cachedResourcesService.ignoreCache = true;
+      this.cachedResourcesService.loadAll(value, filter);
+    }
+    this.prevValue = value;
+  }
+  focusInput(value: string) {
+    const filter: any = {};
+    if (this.cachedResourcesService) {
+      this.cachedResourcesService.ignoreCache = true;
+      this.cachedResourcesService.loadAll(value, filter);
     }
   }
 }

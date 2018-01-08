@@ -2,15 +2,18 @@
   <label *ngIf="title" [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
   <div [ngClass]="{'input-group':!readonly && !select}" class="{{inputFrameClass}}" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
     triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip">
-    <input *ngIf="statusListMessage || (select && !items.length)" value="{{statusListMessage | translate}}" [ngClass]="inputClass" disabled/>
-    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement disabled/>
-    <select-input *ngIf="!statusListMessage && select && items && items.length>0" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
-      [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" #inputElement></select-input>
+    <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" [ngClass]="inputClass" readonly/>
+    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement readonly/>
+    <select-input *ngIf="!statusListMessage && select" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
+      [readonly]="readonly" (onChangeInputValue)="changeInputValue($event)" [dataSource]="cachedResourcesService.items$" (onInputFocus)="focusInput($event)"
+      [inFormGroup]="false" [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">
-      <button class="btn btn-success" type="button" (click)="onLookup()"
-              tooltip="{{lookupTooltip}}" placement="left"  container="body">
-          <span [ngClass]="[lookupIcon]"></span>
-    </button>
+      <button class="btn btn-default" type="button" (click)="value=null">
+        <span class="fa fa-times"></span>
+      </button>
+      <button class="btn btn-success" type="button" (click)="onLookup()" tooltip="{{lookupTooltip}}" placement="left" container="body">
+        <span [ngClass]="[lookupIcon]"></span>
+      </button>
     </span>
   </div>
   <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="(errorMessage || infoMessage) | safeHtml"></span>
