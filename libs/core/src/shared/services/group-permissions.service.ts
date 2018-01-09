@@ -18,7 +18,6 @@ export class GroupPermissionsService extends BaseRepositoryService {
     this.name = 'group_permission';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = new Subject<GroupPermission[]>();
-    this.meta.perPage = 10;
   }
   transformModel(item: any) {
     return new GroupPermission(item);

@@ -110,6 +110,9 @@ export class BaseResourcesListComponent extends BaseComponent {
   searchWithMockedItems(filter: any) {
     if (this.mockedItems) {
       this.cachedResourcesService.mockedItems = this.mockedItems;
+      if (!this.cachedResourcesService.meta.perPage) {
+        this.cachedResourcesService.meta.perPage = 10;
+      }
     }
     this.cachedResourcesService.loadAll(this.searchText, filter);
   }

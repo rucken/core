@@ -18,7 +18,6 @@ export class UserGroupsService extends BaseRepositoryService {
     this.name = 'user_group';
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = new Subject<UserGroup[]>();
-    this.meta.perPage = 10;
   }
   transformModel(item: any) {
     return new UserGroup(item);
