@@ -1,6 +1,7 @@
 import { BaseResourceModel } from './../base/models/base-resource.model';
 import { translate } from './../common/utils';
 import { Group } from './group.model';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 
 export class User extends BaseResourceModel {
   static titles: any = {
@@ -118,6 +119,26 @@ export class User extends BaseResourceModel {
       }
     }
     return false;
+  }
+  checkGroups(groupNames: string[]) {
+    const result = this.groups && this.groups.filter(
+      group => groupNames.filter(
+        groupName => _.camelCase(group.name).toLowerCase() === _.camelCase(groupName).toLowerCase()
+      ).length > 0
+    ).length > 0;
+    if (!result) {
+      groupNames = groupNames.map(groupName => {
+        return groupName
+          .replace(groupName.split('_')[0], 'manage');
+      });
+      return this.groups && this.groups.filter(
+        group => groupNames.filter(
+          groupName => _.camelCase(group.name).toLowerCase() === _.camelCase(groupName).toLowerCase()
+        ).length > 0
+      ).length > 0;
+    } else {
+      return result;
+    }
   }
   checkPermissions(permissionNames: string[]) {
     if (this.fullAccess || this.checkRoles(permissionNames)) {
