@@ -9,8 +9,8 @@
   </div>
 </div>
 <ng-template #input>
-  <div class="{{inputFrameClass}}" placement="{{tooltipPlacement}}" [triggers]="tooltipTriggers" [isDisabled]="!tooltipEnable"
-    (onShown)="showTooltip()" [tooltip]="tooltipText" #tooltip="bs-tooltip">
+  <div class="{{inputFrameClass}}" [containerClass]="errorMessage?'error-tooltip':'success-tooltip'" placement="{{tooltipPlacement}}"
+    [triggers]="tooltipTriggers" [isDisabled]="!tooltipEnable" [tooltip]="tooltipText" #tooltip="bs-tooltip">
     <input [(ngModel)]="textValue" [typeahead]="items" [typeaheadOptionField]="inputTitleField" [typeaheadScrollable]="true"
       [typeaheadOptionsInScrollableView]="5" [typeaheadMinLength]="0" [attr.placeholder]="placeholder" (typeaheadOnSelect)="value = $event.item"
       (typeaheadNoResults)="onTypeaheadNoResults($event)" [ngClass]="inputClass" [disabled]="readonly && inputReadonly" [attr.id]="'input'+name"

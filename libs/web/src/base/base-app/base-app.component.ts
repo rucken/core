@@ -11,14 +11,11 @@ import {
 import { RuckenCoreRuI18n } from '@rucken/core';
 import { translate } from '@rucken/core';
 import * as lodashImported from 'lodash'; const _ = lodashImported;
-import * as momentImported from 'moment'; const moment = momentImported;
-import { BsDatepickerConfig, BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { listLocales } from 'ngx-bootstrap/bs-moment';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 import { RuckenWebRuI18n } from './../../i18n/ru.i18n';
 import { AlertModalComponent } from './../../modals/alert-modal/alert-modal.component';
 import { BaseComponent } from './../base-component/base-component.component';
-
 
 @Component({
   selector: 'base-app-root',
@@ -41,7 +38,6 @@ export class BaseAppComponent extends BaseComponent {
   autoLoadLang = true;
   errorModalOpened = false;
   fullAccess = false;
-  bsLocaleService: BsLocaleService;
 
   constructor(
     public injector: Injector,
@@ -49,7 +45,6 @@ export class BaseAppComponent extends BaseComponent {
     public resolver: ComponentFactoryResolver,
   ) {
     super(injector);
-    this.bsLocaleService = injector.get(BsLocaleService);
   }
   afterCreate() {
     super.afterCreate();
@@ -79,9 +74,7 @@ export class BaseAppComponent extends BaseComponent {
     return this.translateService.currentLang;
   }
   set currentLanguage(lang: string) {
-    moment.locale(lang);
     this.translateService.use(lang);
-    this.bsLocaleService.use(lang);
   }
   showErrorModal(message: string, title?: string, size?: string): EventEmitter<any> {
     if (this.errorModalOpened) {

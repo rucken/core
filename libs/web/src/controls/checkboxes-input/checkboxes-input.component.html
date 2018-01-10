@@ -2,7 +2,8 @@
   <label [ngClass]="labelClass">{{title | translate}}</label>
   <div [ngClass]="inputFrameClass">
     <label [ngClass]="inputClass" *ngFor="let key of keys(values)" [hidden]="!checkboxesTitles[key]">
-        <input type="checkbox" [attr.id]="'input'+key" [(ngModel)]="values[key]" (change)="updateModels()" [disabled]="readonly" [ngModelOptions]="{standalone: true}"> {{ checkboxesTitles[key] | translate }}
+      <input type="checkbox" [attr.id]="'input'+key" [(ngModel)]="values[key]" (change)="updateModels()" [disabled]="readonly"
+        [ngModelOptions]="{standalone: true}"> {{ checkboxesTitles[key] | translate }}
     </label>
   </div>
   <span class="help-block" *ngIf="errorsValue && errorsValue[name]">{{errorsValue[name].join(', ') | translate}}</span>

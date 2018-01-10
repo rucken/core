@@ -1,7 +1,7 @@
 <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}">
   <label [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
-  <div [ngClass]="inputFrameClass" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
-    [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip">
+  <div class="{{inputFrameClass}}" containerClass="{{errorMessage?'error-tooltip':'success-tooltip'}}" [tooltip]="tooltipText"
+    placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" #tooltip="bs-tooltip">
     <div *ngIf="type!=='date' && type!=='textarea'">
       <ng-container *ngTemplateOutlet="input"></ng-container>
     </div>

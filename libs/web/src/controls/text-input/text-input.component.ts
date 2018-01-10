@@ -100,6 +100,7 @@ export class TextInputComponent extends BaseComponent {
   }
   initLang(lang: string) {
     this._localeService.use(lang);
+    moment.locale(lang);
   }
   init() {
     if (this.type === undefined) {

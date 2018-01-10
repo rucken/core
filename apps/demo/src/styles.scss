@@ -3,6 +3,7 @@ body {
 }
 
 @import '../../../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
+
 .grid {
     &__toolbar {
         &--header {
@@ -67,7 +68,22 @@ body {
 .page-header {
     margin: 0 0 20px;
 }
-
 .pagination-compressed {
     margin-top: 0px;
+}
+.error-tooltip{
+    .tooltip-inner{
+        background-color: #ff0039;
+    }
+    .tooltip-arrow.arrow{
+        border-bottom-color: #ff0039;
+    }
+}
+.success-tooltip{
+    .tooltip-inner {
+        background-color:#3fb618;
+    }
+    .tooltip-arrow.arrow {
+        border-bottom-color: #3fb618;
+    }
 }
