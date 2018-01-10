@@ -5,7 +5,6 @@ import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import { TypeaheadDirective } from 'ngx-bootstrap/typeahead';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
-import { setTimeout } from 'timers';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { SelectInputConfig } from './select-input.config';

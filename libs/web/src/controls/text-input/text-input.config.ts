@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TextInputConfig {
-  isNativeDateInput = false;
   errorInTooltip = true;
   maxlength = 250;
   step = 'any';
+  // masks
   currencyMask = {
     prefix: '',
     decimalLimit: 4,
@@ -16,13 +16,19 @@ export class TextInputConfig {
     prefix: '',
     thousandsSeparatorSymbol: ' '
   };
-  nativeInputDateFormat = 'YYYY-MM-DD';
-  inputDateFormat = 'DD.MM.YYYY';
   phoneMask = {
     mask: ['+', /\d/, '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
   };
-  dateMask = {
-    mask: [/[0-3]/, /[0-9]/, '.', /[0,1]/, /[0-9]/, '.', /[1-2]/, /[0,9]/, /[0-9]/, /[0-9]/]
+  // date
+  nativeInputDateFormat = 'YYYY-MM-DD';
+  isNativeDateInput = false;
+  bsDatepickerConfig = {
+    containerClass: 'theme-green',
+    showWeekNumbers: false
   };
-  startingDay = 1;
+  dateMask = {
+    day: [/[0-3]/, /[0-9]/],
+    month: [/[0,1]/, /[0-9]/],
+    year: [/[1-2]/, /[0,9]/, /[0-9]/, /[0-9]/]
+  };
 }

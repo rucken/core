@@ -2,6 +2,7 @@ body {
     padding-top: 70px;
 }
 
+@import '../../../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 .grid {
     &__toolbar {
         &--header {
