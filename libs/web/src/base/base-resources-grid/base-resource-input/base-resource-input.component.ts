@@ -15,7 +15,7 @@ export class BaseResourceInputComponent extends BaseComponent {
   @Input()
   lookupTooltip?: string;
   @Input()
-  lookupIcon?= 'fa fa-search';
+  lookupIcon = 'fa fa-search';
   @Input()
   readonly?: boolean;
   @Input()

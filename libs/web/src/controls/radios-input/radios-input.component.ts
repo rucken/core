@@ -15,11 +15,11 @@ export class RadiosInputComponent extends BaseComponent {
   inputElement: ElementRef;
 
   @Input()
-  labelClass?= 'control-label';
+  labelClass = 'control-label';
   @Input()
-  inputClass?= 'control-label checkbox-inline';
+  inputClass = 'control-label checkbox-inline';
   @Input()
-  inputFrameClass?= 'form-control form-radio-controls';
+  inputFrameClass = 'form-control form-radio-controls';
   @Input()
   readonly = false;
   @Input()

@@ -24,17 +24,17 @@ export class SelectInputComponent extends BaseComponent {
   inputElement: ElementRef;
 
   @Input()
-  debounceTime?: number;
+  debounceTime: number;
   @Output()
   onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
   @Output()
   onInputFocus: EventEmitter<string> = new EventEmitter<string>();
   @Input()
-  labelClass?= 'control-label';
+  labelClass = 'control-label';
   @Input()
-  inputClass?= 'form-control';
+  inputClass = 'form-control';
   @Input()
-  inputFrameClass?= '';
+  inputFrameClass = '';
   @Input()
   inFormGroup = true;
   @Input()
