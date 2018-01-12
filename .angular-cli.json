@@ -19,7 +19,6 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "../../../node_modules/ladda/css/ladda.scss",
         "styles.scss"
       ],
       "scripts": [],

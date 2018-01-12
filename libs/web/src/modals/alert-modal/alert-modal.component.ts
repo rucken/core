@@ -5,9 +5,7 @@ import { BaseModalComponent } from './../../base/base-modal/base-modal.component
 
 @Component({
   selector: 'alert-modal',
-  templateUrl: './alert-modal.component.html',
-  styleUrls: ['./alert-modal.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './alert-modal.component.html'
 })
 
 export class AlertModalComponent extends BaseModalComponent {

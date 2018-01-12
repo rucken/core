@@ -10,8 +10,7 @@ import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-gr
 
 @Component({
   selector: 'account-profile-form',
-  templateUrl: './account-profile-form.component.html',
-  styleUrls: ['./account-profile-form.component.scss']
+  templateUrl: './account-profile-form.component.html'
 })
 
 export class AccountProfileFormComponent extends BaseModalComponent {
@@ -38,15 +37,17 @@ export class AccountProfileFormComponent extends BaseModalComponent {
 
   init() {
     super.init();
-    this.userGroups.user = this.item;
-    this.userGroups.mockedItems =
-      this.item.groups.map((group: any | Group) => {
-        return new UserGroup({
-          id: group.pk,
-          group: group
+    if (this.userGroups) {
+      this.userGroups.user = this.item;
+      this.userGroups.mockedItems =
+        this.item.groups.map((group: any | Group) => {
+          return new UserGroup({
+            id: group.pk,
+            group: group
+          });
         });
-      });
-    this.userGroups.search();
+      this.userGroups.search();
+    }
   }
   afterCreate() {
     super.afterCreate();
@@ -63,8 +64,10 @@ export class AccountProfileFormComponent extends BaseModalComponent {
     return false;
   }
   ok() {
-    this.item.groups =
-      this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+    if (this.userGroups) {
+      this.item.groups =
+        this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+    }
     this.onOk.emit(this.item);
     return false;
   }

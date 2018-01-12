@@ -1,6 +1,6 @@
 import { Injectable, Injector } from '@angular/core';
 import { Response, URLSearchParams } from '@angular/http';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 import { Observable } from 'rxjs/Observable';
 
 import { MetaModel } from './../models/meta.model';

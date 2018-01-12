@@ -6,7 +6,6 @@ import { DemoRoutes } from './../../app.routes';
 @Component({
   selector: 'demo-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
   entryComponents: [ConfirmModalComponent, AuthModalComponent]
 })
 

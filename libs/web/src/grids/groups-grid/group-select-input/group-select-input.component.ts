@@ -1,5 +1,3 @@
-import { takeUntil } from 'rxjs/operators';
-
 import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { GroupsService, translate } from '@rucken/core';
 import { Group } from '@rucken/core';
@@ -14,7 +12,6 @@ import { GroupsListModalComponent } from './../groups-list-modal/groups-list-mod
 @Component({
   selector: 'group-select-input',
   templateUrl: './group-select-input.component.html',
-  styleUrls: ['./group-select-input.component.scss'],
   entryComponents: [GroupsListModalComponent]
 })
 

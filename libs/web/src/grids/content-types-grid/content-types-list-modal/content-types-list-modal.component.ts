@@ -9,8 +9,7 @@ import { ContentTypesGridComponent } from './../content-types-grid.component';
 
 @Component({
   selector: 'content-types-list-modal',
-  templateUrl: './content-types-list-modal.component.html',
-  styleUrls: ['./content-types-list-modal.component.scss']
+  templateUrl: './content-types-list-modal.component.html'
 })
 
 export class ContentTypesListModalComponent extends BaseResourceListModalComponent {

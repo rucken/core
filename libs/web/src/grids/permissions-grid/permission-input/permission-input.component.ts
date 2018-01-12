@@ -1,5 +1,3 @@
-import { takeUntil } from 'rxjs/operators';
-
 import {
   Component,
   ComponentFactoryResolver,
@@ -21,7 +19,6 @@ import { PermissionsListModalComponent } from './../permissions-list-modal/permi
 @Component({
   selector: 'permission-input',
   templateUrl: './permission-input.component.html',
-  styleUrls: ['./permission-input.component.scss'],
   entryComponents: [PermissionsListModalComponent]
 })
 

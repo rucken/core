@@ -1,9 +1,9 @@
 import { takeUntil } from 'rxjs/operators';
 
-import { Component, Injector } from '@angular/core';
+import { Component, Injector, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '@rucken/core';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 
 import { BaseComponent } from './../../base-component/base-component.component';
 import { TranslateService } from '@ngx-translate/core';
@@ -14,6 +14,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class BaseFrameComponent extends BaseComponent {
 
+  @Input()
   title?: string;
 
   activatedRoute: ActivatedRoute;
@@ -41,7 +42,7 @@ export class BaseFrameComponent extends BaseComponent {
       this.name = this.activatedRoute.snapshot.data.name;
       this.app.currentFrameName = this.name;
     }
-    if (this._title === undefined) {
+    if (this.title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
         frameTitle = this.translateService.instant(this.activatedRoute.snapshot.data.title);
       } else {

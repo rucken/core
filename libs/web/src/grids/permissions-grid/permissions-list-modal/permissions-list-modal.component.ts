@@ -9,8 +9,7 @@ import { PermissionsGridComponent } from './../permissions-grid.component';
 
 @Component({
   selector: 'permissions-list-modal',
-  templateUrl: './permissions-list-modal.component.html',
-  styleUrls: ['./permissions-list-modal.component.scss']
+  templateUrl: './permissions-list-modal.component.html'
 })
 
 export class PermissionsListModalComponent extends BaseResourceListModalComponent {

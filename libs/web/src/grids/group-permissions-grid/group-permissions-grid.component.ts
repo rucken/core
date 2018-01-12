@@ -1,4 +1,3 @@
-import { map } from 'rxjs/operators';
 import { takeUntil } from 'rxjs/operators';
 
 import {
@@ -27,7 +26,6 @@ import {
 @Component({
   selector: 'group-permissions-grid',
   templateUrl: './group-permissions-grid.component.html',
-  styleUrls: ['./group-permissions-grid.component.scss'],
   entryComponents: [PermissionModalComponent, PermissionsListModalComponent, ConfirmModalComponent]
 })
 
@@ -108,7 +106,7 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
     }
     itemModal.onOk.subscribe(($event: any) => this.savePermission($event));
     itemModal.onClose.subscribe(() => this.focus());
-    itemModal.item = item.permission;
+    itemModal.item = new Permission(item.permission);
     itemModal.modal.show();
     this.permissionsService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
       itemModal.okInProcessFromStatus(status)
@@ -117,6 +115,12 @@ export class GroupPermissionsGridComponent extends BaseResourcesGridComponent {
   savePermission(itemModal: PermissionModalComponent) {
     this.permissionsService.save(itemModal.item).subscribe(
       (permission: any | Permission) => {
+        this.items = this.items.map(item => {
+          if (item.pk === permission.pk) {
+            item.permission = permission;
+          }
+          return item;
+        });
         itemModal.modal.hide();
       }, (errors: any) => {
         if (errors.message) {

@@ -5,8 +5,7 @@ import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-fr
 
 @Component({
   selector: 'controls-frame',
-  templateUrl: './controls-frame.component.html',
-  styleUrls: ['./controls-frame.component.scss']
+  templateUrl: './controls-frame.component.html'
 })
 export class ControlsFrameComponent extends BaseFrameComponent {
 

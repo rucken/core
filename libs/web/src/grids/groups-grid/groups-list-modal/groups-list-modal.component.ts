@@ -9,8 +9,7 @@ import { GroupsGridComponent } from './../groups-grid.component';
 
 @Component({
   selector: 'groups-list-modal',
-  templateUrl: './groups-list-modal.component.html',
-  styleUrls: ['./groups-list-modal.component.scss']
+  templateUrl: './groups-list-modal.component.html'
 })
 
 export class GroupsListModalComponent extends BaseResourceListModalComponent {

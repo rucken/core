@@ -4,8 +4,7 @@ import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-fr
 
 @Component({
   selector: 'groups-frame',
-  templateUrl: './groups-frame.component.html',
-  styleUrls: ['./groups-frame.component.scss']
+  templateUrl: './groups-frame.component.html'
 })
 
 export class GroupsFrameComponent extends BaseFrameComponent {

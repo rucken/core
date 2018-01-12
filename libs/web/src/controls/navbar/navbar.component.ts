@@ -4,7 +4,7 @@ import { Component, ComponentFactoryResolver, Injector } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavigationStart, Router } from '@angular/router';
 import { translate, User } from '@rucken/core';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 
 import { ConfirmModalComponent } from '../../modals/confirm-modal/confirm-modal.component';
 import { BaseComponent } from './../../base/base-component/base-component.component';
@@ -13,9 +13,7 @@ import { AuthModalComponent } from './../../modals/auth-modal/auth-modal.compone
 @Component({
   selector: 'navbar',// tslint:disable-line
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  entryComponents: [ConfirmModalComponent, AuthModalComponent],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  entryComponents: [ConfirmModalComponent, AuthModalComponent]
 })
 
 export class NavbarComponent extends BaseComponent {

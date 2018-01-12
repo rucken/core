@@ -12,8 +12,7 @@ import { UserGroupsGridComponent } from './../../user-groups-grid/user-groups-gr
 
 @Component({
   selector: 'user-modal',
-  templateUrl: './user-modal.component.html',
-  styleUrls: ['./user-modal.component.scss']
+  templateUrl: './user-modal.component.html'
 })
 
 export class UserModalComponent extends BaseResourceModalComponent {
@@ -35,19 +34,23 @@ export class UserModalComponent extends BaseResourceModalComponent {
   onOk: EventEmitter<UserModalComponent | any> = new EventEmitter<any>();
 
   afterOpen() {
-    this.userGroups.user = this.item;
-    this.userGroups.mockedItems =
-      this.item.groups.map((group: any | Group) => {
-        return new UserGroup({
-          id: group.pk,
-          group: group
+    if (this.userGroups) {
+      this.userGroups.user = this.item;
+      this.userGroups.mockedItems =
+        this.item.groups.map((group: any | Group) => {
+          return new UserGroup({
+            id: group.pk,
+            group: group
+          });
         });
-      });
-    this.userGroups.search();
+      this.userGroups.search();
+    }
   }
   ok() {
-    this.item.groups =
-      this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+    if (this.userGroups) {
+      this.item.groups =
+        this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+    }
     return super.ok();
   }
 }

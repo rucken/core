@@ -1,26 +1,23 @@
 import { Component, ElementRef, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
-import * as moment from 'moment/moment';
-import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
+import { ChangeDetectorRef } from '@angular/core';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
+import * as momentImported from 'moment'; const moment = momentImported;
+import { getLocale } from 'ngx-bootstrap/bs-moment/locale/locales.service';
+import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
 import emailMask from 'text-mask-addons/dist/emailMask';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { TextInputConfig } from './text-input.config';
-import { DatePickerComponent } from 'ngx-bootstrap/datepicker';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'text-input',
-  templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './text-input.component.html'
 })
 
 export class TextInputComponent extends BaseComponent {
 
-  @ViewChild('picker')
-  picker: DatePickerComponent;
   @ViewChild('inputElement')
   inputElement: ElementRef;
   @ViewChild('tooltip')
@@ -65,34 +62,35 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   isNativeDateInput?: boolean;
   @Input()
-  startingDay: number;
-
-  config: TextInputConfig;
+  bsDatepickerConfig: any;
 
   private _dateValue: any;
+  private _config: TextInputConfig;
+  private _localeService: BsLocaleService;
 
   constructor(
     public injector: Injector,
-    public changeDetectorRef: ChangeDetectorRef,
+    public changeDetectorRef: ChangeDetectorRef
   ) {
     super(injector);
-    this.config = injector.get(TextInputConfig);
+    this._config = injector.get(TextInputConfig);
+    this._localeService = injector.get(BsLocaleService);
   }
   afterCreate() {
     if (this.isNativeDateInput === undefined) {
-      this.isNativeDateInput = this.config.isNativeDateInput;
+      this.isNativeDateInput = this._config.isNativeDateInput;
     }
     if (this.tooltipEnable === undefined) {
-      this.tooltipEnable = this.config.errorInTooltip;
+      this.tooltipEnable = this._config.errorInTooltip;
     }
     if (this.maxlength === undefined) {
-      this.maxlength = this.config.maxlength;
+      this.maxlength = this._config.maxlength;
     }
     if (this.step === undefined) {
-      this.step = this.config.step;
+      this.step = this._config.step;
     }
-    if (this.startingDay === undefined) {
-      this.startingDay = this.config.startingDay;
+    if (this.bsDatepickerConfig === undefined) {
+      this.bsDatepickerConfig = this._config.bsDatepickerConfig;
     }
     this.translateService.onLangChange.subscribe(
       (langData: any) => {
@@ -101,13 +99,8 @@ export class TextInputComponent extends BaseComponent {
     );
   }
   initLang(lang: string) {
-    this.bsDatepickerConfig = { locale: lang };
-    if (this.picker) {
-      this.picker.config.locale = lang;
-      this.picker.config.showWeeks = false;
-      this.picker.config.startingDay = this.startingDay;
-      this.picker.configureOptions();
-    }
+    this._localeService.use(lang);
+    moment.locale(lang);
   }
   init() {
     if (this.type === undefined) {
@@ -122,17 +115,13 @@ export class TextInputComponent extends BaseComponent {
         this.mask.mask = emailMask;
       }
       if (this.type === 'currency') {
-        const numberMask = createNumberMask(this.config.currencyMask);
+        const numberMask = createNumberMask(this._config.currencyMask);
         this.type = 'text';
         this.mask.mask = numberMask;
       }
       if (this.type === 'phone') {
         this.type = 'text';
-        this.mask = this.config.phoneMask;
-      }
-      if (this.type === 'date' && !this.isNativeDateInput) {
-        this.mask = this.config.dateMask;
-        this.dateInputChange(this.value);
+        this.mask = this._config.phoneMask;
       }
     }
     super.init();
@@ -140,6 +129,9 @@ export class TextInputComponent extends BaseComponent {
     this.initLang(this.app.component.currentLanguage);
   }
   get dateValue() {
+    if (this._dateValue === undefined) {
+      this.setDateValueFromString(this.value);
+    }
     return this._dateValue;
   }
   set dateValue(value: any) {
@@ -148,23 +140,44 @@ export class TextInputComponent extends BaseComponent {
       this.value = this.getStringFromDateValue();
     }
   }
-  dateInputChange(value: any) {
-    if (value.target && value.target.value) {
-      this.value = value.target.value;
-    } else {
-      this.value = value;
-    }
-    this.setDateValueFromString(this.value);
-    if (!this._dateValue || this._dateValue.toString() === 'Invalid Date') {
-      this._dateValue = new Date();
-    }
+  get inputDateFormat(): any {
+    const locale: any = getLocale(this._localeService.currentLocale);
+    return locale._longDateFormat && locale._longDateFormat.L ? locale._longDateFormat.L : this._config.nativeInputDateFormat;
+  }
+  get inputDateMask(): any {
+    const inputDateFormat = this.inputDateFormat;
+    const inline = inputDateFormat.replace(new RegExp('DD', 'ig'), 'D').replace(new RegExp('MM', 'ig'), 'M').replace(new RegExp('YYYY', 'ig'), 'Y');
+    let mask: any[] = [];
+    inline.split('').forEach((ch: string) => {
+      switch (ch) {
+        case 'D': {
+          mask = _.concat(mask, this._config.dateMask.day);
+          break;
+        }
+        case 'M': {
+          mask = _.concat(mask, this._config.dateMask.month);
+          break;
+        }
+        case 'Y': {
+          mask = _.concat(mask, this._config.dateMask.year);
+          break;
+        }
+        default: {
+          mask = _.concat(mask, [ch]);
+          break;
+        }
+      }
+    });
+    return {
+      mask: mask
+    };
   }
   get value() {
     if (this.hardValue !== null) {
       return this.hardValue;
     }
     if (this.type === 'date' && !this.isNativeDateInput) {
-      return moment(moment(this.model, this.config.nativeInputDateFormat).toDate()).format(this.config.inputDateFormat);
+      return moment(moment(this.model, this._config.nativeInputDateFormat).toDate()).format(this.inputDateFormat);
     }
     return this.model;
   }
@@ -175,7 +188,7 @@ export class TextInputComponent extends BaseComponent {
       this.tooltipText = '';
     }
     if (this.type === 'date' && !this.isNativeDateInput) {
-      newValue = moment(moment(value, this.config.inputDateFormat).toDate()).format(this.config.nativeInputDateFormat);
+      newValue = moment(moment(value, this.inputDateFormat).toDate()).format(this._config.nativeInputDateFormat);
     }
     if (newValue === 'Invalid date' && !this.model) {
       newValue = this.model;
@@ -192,7 +205,7 @@ export class TextInputComponent extends BaseComponent {
     let value: string;
     value = '';
     try {
-      value = moment(this._dateValue).format(this.config.inputDateFormat);
+      value = moment(this._dateValue).format(this.inputDateFormat);
     } catch (err) {
       value = '';
     }
@@ -203,7 +216,7 @@ export class TextInputComponent extends BaseComponent {
   }
   setDateValueFromString(value: any) {
     try {
-      value = moment(value, this.config.inputDateFormat).toDate();
+      value = moment(value, this.inputDateFormat).toDate();
     } catch (err) {
       value = null;
     }

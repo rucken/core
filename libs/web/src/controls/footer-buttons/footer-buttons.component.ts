@@ -1,14 +1,11 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { translate } from '@rucken/core';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 
 @Component({
   selector: 'footer-buttons',
-  templateUrl: './footer-buttons.component.html',
-  styleUrls: ['./footer-buttons.component.scss'],
-  encapsulation: ViewEncapsulation.None,  // Enable dynamic HTML styles
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './footer-buttons.component.html'
 })
 
 export class FooterButtonsComponent extends BaseComponent {

@@ -6,9 +6,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 
 @Component({
   selector: 'grid-row-buttons',
-  templateUrl: './grid-row-buttons.component.html',
-  styleUrls: ['./grid-row-buttons.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './grid-row-buttons.component.html'
 })
 
 export class GridRowButtonsComponent extends BaseComponent {

@@ -1,8 +1,6 @@
-import { takeUntil } from 'rxjs/operators';
-
 import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { EndpointStatusEnum, User } from '@rucken/core';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { BaseResourcesListComponent } from './base-resources-list/base-resources-list.component';

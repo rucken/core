@@ -2,6 +2,8 @@ import { ComponentFactoryResolver, EventEmitter, Injectable, ViewContainerRef } 
 
 @Injectable()
 export class AppService {
+  [key: string]: any;
+
   component: any;
   viewContainerRef: ViewContainerRef;
   translateService: any;

@@ -10,6 +10,8 @@ import { TokenService } from './token.service';
 
 @Injectable()
 export class AccountService {
+  [key: string]: any;
+
   name: string;
   account$: Subject<any | User>;
   apiUrl: string;

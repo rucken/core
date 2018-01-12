@@ -6,9 +6,7 @@ import { BaseComponent } from './../../base/base-component/base-component.compon
 
 @Component({
   selector: 'grid-search-panel',
-  templateUrl: './grid-search-panel.component.html',
-  styleUrls: ['./grid-search-panel.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './grid-search-panel.component.html'
 })
 
 export class GridSearchPanelComponent extends BaseComponent {

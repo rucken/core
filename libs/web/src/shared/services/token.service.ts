@@ -1,5 +1,3 @@
-import { map } from 'rxjs/operators';
-
 import { Injectable } from '@angular/core';
 import { TokenService } from '@rucken/core';
 

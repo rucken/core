@@ -12,6 +12,7 @@ import { SharedService } from '../../shared/services/shared.service';
   template: ''
 })
 export class BaseComponent implements OnInit, OnDestroy {
+  [key: string]: any;
 
   @Input()
   account: any | User;
@@ -34,7 +35,6 @@ export class BaseComponent implements OnInit, OnDestroy {
 
   errorsValue: any;
   infoValue: any;
-  [key: string]: any;
 
   destroyed$: Subject<boolean>;
 
@@ -174,23 +174,6 @@ export class BaseComponent implements OnInit, OnDestroy {
           break;
         }
       }
-    }
-  }
-  showTooltip() {
-    const tooltip: any = this.tooltip;
-    if (!tooltip._tooltip || !tooltip._tooltip._componentRef || !tooltip._tooltip._componentRef.location.nativeElement) {
-      return;
-    }
-    const tooltipInner: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-inner')[0];
-    const tooltipArrow: any = tooltip._tooltip._componentRef.location.nativeElement.getElementsByClassName('tooltip-arrow')[0];
-    if (this.inputElement.inputElement) {
-      tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.inputElement.nativeElement).borderColor;
-    } else {
-      tooltipInner.style.backgroundColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderTopColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
-      tooltipArrow.style.borderBottomColor = getComputedStyle(this.inputElement.nativeElement).borderColor;
     }
   }
 }

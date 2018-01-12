@@ -24,7 +24,6 @@ import { GroupsListModalComponent } from './../groups-grid/groups-list-modal/gro
 @Component({
   selector: 'user-groups-grid',
   templateUrl: './user-groups-grid.component.html',
-  styleUrls: ['./user-groups-grid.component.scss'],
   entryComponents: [GroupsListModalComponent, GroupModalComponent, ConfirmModalComponent]
 })
 
@@ -43,8 +42,8 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   hardReadonly = false;
 
   modelMeta: any = UserGroup.meta();
-  items: any[] | UserGroup[];
-  selectedItems: any[] | UserGroup[];
+  items: UserGroup[];
+  selectedItems: UserGroup[];
   cachedResourcesService: UserGroupsService;
 
   userGroupsService: UserGroupsService;
@@ -105,7 +104,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     }
     itemModal.onOk.subscribe(($event: any) => this.saveGroup($event));
     itemModal.onClose.subscribe(() => this.focus());
-    itemModal.item = item.group;
+    itemModal.item = new Group(item.group);
     itemModal.modal.show();
     this.selectedItems = [item];
     this.groupsService.changeStatusItem$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
@@ -116,6 +115,12 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
     this.groupsService.save(itemModal.item).subscribe(
       (group: any | Group) => {
         itemModal.modal.hide();
+        this.items = this.items.map(item => {
+          if (item.pk === group.pk) {
+            item.group = group;
+          }
+          return item;
+        });
       }, (errors: any) => {
         if (errors.message) {
           this.app.component.showErrorModal(errors.message.join(', ')).subscribe(

@@ -9,8 +9,7 @@ import { TextInputComponent } from './../../../controls/text-input/text-input.co
 
 @Component({
   selector: 'content-type-modal',
-  templateUrl: './content-type-modal.component.html',
-  styleUrls: ['./content-type-modal.component.scss']
+  templateUrl: './content-type-modal.component.html'
 })
 
 export class ContentTypeModalComponent extends BaseResourceModalComponent {

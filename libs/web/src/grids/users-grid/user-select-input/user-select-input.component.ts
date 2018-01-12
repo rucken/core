@@ -1,5 +1,3 @@
-import { takeUntil } from 'rxjs/operators';
-
 import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { User, translate } from '@rucken/core';
@@ -15,7 +13,6 @@ import { UsersListModalComponent } from './../users-list-modal/users-list-modal.
 @Component({
   selector: 'user-select-input',
   templateUrl: './user-select-input.component.html',
-  styleUrls: ['./user-select-input.component.scss'],
   entryComponents: [UsersListModalComponent]
 })
 

@@ -1,7 +1,6 @@
 {
     "name": "@rucken/core",
-    "main": "index.js",
-    "version": "1.29.1",
+    "version": "1.30.0",
     "description": "Core with base class and admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
@@ -14,13 +13,13 @@
         "core"
     ],
     "peerDependencies": {
-        "@angular/common": "*",
-        "@angular/compiler": "*",
-        "@angular/core": "*"
+        "@angular/common": "5.2.0",
+        "@angular/compiler": "5.2.0",
+        "@angular/core": "5.2.0"
     },
     "dependencies": {
-        "@types/lodash": "*",
-        "lodash": "*",
-        "moment": "*"
+        "@types/lodash": "^4.14.92",
+        "lodash": "^4.17.4",
+        "moment": "^2.20.1"
     }
 }

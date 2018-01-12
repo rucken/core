@@ -7,8 +7,7 @@ import { BaseFrameComponent } from './../../../base/base-page/base-frame/base-fr
 
 @Component({
   selector: 'profile-frame',
-  templateUrl: './profile-frame.component.html',
-  styleUrls: ['./profile-frame.component.scss']
+  templateUrl: './profile-frame.component.html'
 })
 export class ProfileFrameComponent extends BaseFrameComponent {
 
@@ -21,7 +20,7 @@ export class ProfileFrameComponent extends BaseFrameComponent {
   init() {
     super.init();
     this.accountService.changeStatus$.pipe(takeUntil(this.destroyed$)).subscribe((status: any) =>
-      this.accountProfileForm && status === EndpointStatusEnum.Updating ? this.accountProfileForm.okInProcessFromStatus(status) : false
+      this.accountProfileForm ? this.accountProfileForm.okInProcessFromStatus(status) : false
     );
   }
   get readonly() {

@@ -1,9 +1,8 @@
-import { map } from 'rxjs/operators';
-
 import { Injectable } from '@angular/core';
 
 @Injectable()
 export class TokenService {
+  [key: string]: any;
 
   headerName = 'Authorization';
   headerPrefix = 'JWT';

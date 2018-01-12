@@ -1,15 +1,13 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 col-md-2">
-            <div class="app-sidebar">
-                <ul class="nav nav-sidebar">
-                    <li [class.active]="currentTheme.pk===theme.pk" *ngFor="let theme of items" class="app-sidebar__item">
-                        <a (click)="changeTheme(theme)" class="pointer">{{theme.name}}</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-9 col-md-10">
+  <div class="row">
+    <div class="col-sm-3 col-md-2">
+      <ul class="nav nav-sidebar">
+        <li [class.active]="currentTheme.pk===theme.pk" *ngFor="let theme of items">
+          <a (click)="changeTheme(theme)">{{theme.name}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-md-10">
 
       <!-- Navbar
       ================================================== -->
@@ -35,18 +33,36 @@
 
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                      <li class="active"><a href="javascript:void(0)">Link <span class="sr-only">(current)</span></a></li>
-                      <li><a href="javascript:void(0)">Link</a></li>
+                      <li class="active">
+                        <a href="javascript:void(0)">Link
+                          <span class="sr-only">(current)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">Link</a>
+                      </li>
                       <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                          <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="javascript:void(0)">Action</a></li>
-                          <li><a href="javascript:void(0)">Another action</a></li>
-                          <li><a href="javascript:void(0)">Something else here</a></li>
+                          <li>
+                            <a href="javascript:void(0)">Action</a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)">Another action</a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)">Something else here</a>
+                          </li>
                           <li class="divider"></li>
-                          <li><a href="javascript:void(0)">Separated link</a></li>
+                          <li>
+                            <a href="javascript:void(0)">Separated link</a>
+                          </li>
                           <li class="divider"></li>
-                          <li><a href="javascript:void(0)">One more separated link</a></li>
+                          <li>
+                            <a href="javascript:void(0)">One more separated link</a>
+                          </li>
                         </ul>
                       </li>
                     </ul>
@@ -57,7 +73,9 @@
                       <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="javascript:void(0)">Link</a></li>
+                      <li>
+                        <a href="javascript:void(0)">Link</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -79,18 +97,36 @@
 
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                     <ul class="nav navbar-nav">
-                      <li class="active"><a href="javascript:void(0)">Link <span class="sr-only">(current)</span></a></li>
-                      <li><a href="javascript:void(0)">Link</a></li>
+                      <li class="active">
+                        <a href="javascript:void(0)">Link
+                          <span class="sr-only">(current)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">Link</a>
+                      </li>
                       <li class="dropdown">
-                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown
+                          <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a href="javascript:void(0)">Action</a></li>
-                          <li><a href="javascript:void(0)">Another action</a></li>
-                          <li><a href="javascript:void(0)">Something else here</a></li>
+                          <li>
+                            <a href="javascript:void(0)">Action</a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)">Another action</a>
+                          </li>
+                          <li>
+                            <a href="javascript:void(0)">Something else here</a>
+                          </li>
                           <li class="divider"></li>
-                          <li><a href="javascript:void(0)">Separated link</a></li>
+                          <li>
+                            <a href="javascript:void(0)">Separated link</a>
+                          </li>
                           <li class="divider"></li>
-                          <li><a href="javascript:void(0)">One more separated link</a></li>
+                          <li>
+                            <a href="javascript:void(0)">One more separated link</a>
+                          </li>
                         </ul>
                       </li>
                     </ul>
@@ -101,12 +137,15 @@
                       <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                     <ul class="nav navbar-nav navbar-right">
-                      <li><a href="javascript:void(0)">Link</a></li>
+                      <li>
+                        <a href="javascript:void(0)">Link</a>
+                      </li>
                     </ul>
                   </div>
                 </div>
               </nav>
-            </div><!-- /example -->
+            </div>
+            <!-- /example -->
 
           </div>
         </div>
@@ -152,61 +191,111 @@
               <div class="btn-toolbar bs-component" style="margin: 0;">
                 <div class="btn-group">
                   <a href="javascript:void(0)" class="btn btn-default">Default</a>
-                  <a href="javascript:void(0)" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                  <a href="javascript:void(0)" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Another action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Something else here</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Separated link</a>
+                    </li>
                   </ul>
                 </div>
 
                 <div class="btn-group">
                   <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
-                  <a href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                  <a href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Another action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Something else here</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Separated link</a>
+                    </li>
                   </ul>
                 </div>
 
                 <div class="btn-group">
                   <a href="javascript:void(0)" class="btn btn-success">Success</a>
-                  <a href="javascript:void(0)" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                  <a href="javascript:void(0)" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Another action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Something else here</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Separated link</a>
+                    </li>
                   </ul>
                 </div>
 
                 <div class="btn-group">
                   <a href="javascript:void(0)" class="btn btn-info">Info</a>
-                  <a href="javascript:void(0)" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                  <a href="javascript:void(0)" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Another action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Something else here</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Separated link</a>
+                    </li>
                   </ul>
                 </div>
 
                 <div class="btn-group">
                   <a href="javascript:void(0)" class="btn btn-warning">Warning</a>
-                  <a href="javascript:void(0)" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                  <a href="javascript:void(0)" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Another action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Something else here</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Separated link</a>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -258,10 +347,16 @@
                       <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a href="javascript:void(0)">Dropdown link</a></li>
-                      <li><a href="javascript:void(0)">Dropdown link</a></li>
-                      <li><a href="javascript:void(0)">Dropdown link</a></li>
-                     </ul>
+                      <li>
+                        <a href="javascript:void(0)">Dropdown link</a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">Dropdown link</a>
+                      </li>
+                      <li>
+                        <a href="javascript:void(0)">Dropdown link</a>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -269,10 +364,10 @@
 
             <div class="bs-component">
               <div class="btn-group-vertical">
-                  <a href="javascript:void(0)" class="btn btn-default">Button</a>
-                  <a href="javascript:void(0)" class="btn btn-default">Button</a>
-                  <a href="javascript:void(0)" class="btn btn-default">Button</a>
-                  <a href="javascript:void(0)" class="btn btn-default">Button</a>
+                <a href="javascript:void(0)" class="btn btn-default">Button</a>
+                <a href="javascript:void(0)" class="btn btn-default">Button</a>
+                <a href="javascript:void(0)" class="btn btn-default">Button</a>
+                <a href="javascript:void(0)" class="btn btn-default">Button</a>
               </div>
             </div>
 
@@ -308,11 +403,18 @@
           <div class="col-lg-4">
             <div class="bs-component">
               <h2>Example body text</h2>
-              <p>Nullam quis risus eget <a href="javascript:void(0)">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
-              <p><small>This line of text is meant to be treated as fine print.</small></p>
-              <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
-              <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
-              <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+              <p>Nullam quis risus eget
+                <a href="javascript:void(0)">urna mollis ornare</a> vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+                ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
+              <p>
+                <small>This line of text is meant to be treated as fine print.</small>
+              </p>
+              <p>The following snippet of text is
+                <strong>rendered as bold text</strong>.</p>
+              <p>The following snippet of text is
+                <em>rendered as italicized text</em>.</p>
+              <p>An abbreviation of the word attribute is
+                <abbr title="attribute">attr</abbr>.</p>
             </div>
 
           </div>
@@ -342,7 +444,9 @@
             <div class="bs-component">
               <blockquote>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                <small>Someone famous in
+                  <cite title="Source Title">Source Title</cite>
+                </small>
               </blockquote>
             </div>
           </div>
@@ -350,7 +454,9 @@
             <div class="bs-component">
               <blockquote class="blockquote-reverse">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+                <small>Someone famous in
+                  <cite title="Source Title">Source Title</cite>
+                </small>
               </blockquote>
             </div>
           </div>
@@ -422,7 +528,8 @@
                   </tr>
                 </tbody>
               </table>
-            </div><!-- /example -->
+            </div>
+            <!-- /example -->
           </div>
         </div>
       </div>
@@ -473,14 +580,12 @@
                     <div class="col-lg-10">
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                          Option one is this
+                          <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> Option one is this
                         </label>
                       </div>
                       <div class="radio">
                         <label>
-                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                          Option two can be something else
+                          <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Option two can be something else
                         </label>
                       </div>
                     </div>
@@ -517,58 +622,58 @@
           </div>
           <div class="col-lg-4 col-lg-offset-1">
 
-              <form class="bs-component">
-                <div class="form-group">
-                  <label class="control-label" for="focusedInput">Focused input</label>
-                  <input class="form-control" id="focusedInput" type="text" value="This is focused...">
-                </div>
+            <form class="bs-component">
+              <div class="form-group">
+                <label class="control-label" for="focusedInput">Focused input</label>
+                <input class="form-control" id="focusedInput" type="text" value="This is focused...">
+              </div>
 
-                <div class="form-group">
-                  <label class="control-label" for="disabledInput">Disabled input</label>
-                  <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
-                </div>
+              <div class="form-group">
+                <label class="control-label" for="disabledInput">Disabled input</label>
+                <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
+              </div>
 
-                <div class="form-group has-warning">
-                  <label class="control-label" for="inputWarning">Input warning</label>
-                  <input type="text" class="form-control" id="inputWarning">
-                </div>
+              <div class="form-group has-warning">
+                <label class="control-label" for="inputWarning">Input warning</label>
+                <input type="text" class="form-control" id="inputWarning">
+              </div>
 
-                <div class="form-group has-error">
-                  <label class="control-label" for="inputError">Input error</label>
-                  <input type="text" class="form-control" id="inputError">
-                </div>
+              <div class="form-group has-error">
+                <label class="control-label" for="inputError">Input error</label>
+                <input type="text" class="form-control" id="inputError">
+              </div>
 
-                <div class="form-group has-success">
-                  <label class="control-label" for="inputSuccess">Input success</label>
-                  <input type="text" class="form-control" id="inputSuccess">
-                </div>
+              <div class="form-group has-success">
+                <label class="control-label" for="inputSuccess">Input success</label>
+                <input type="text" class="form-control" id="inputSuccess">
+              </div>
 
-                <div class="form-group">
-                  <label class="control-label" for="inputLarge">Large input</label>
-                  <input class="form-control input-lg" type="text" id="inputLarge">
-                </div>
+              <div class="form-group">
+                <label class="control-label" for="inputLarge">Large input</label>
+                <input class="form-control input-lg" type="text" id="inputLarge">
+              </div>
 
-                <div class="form-group">
-                  <label class="control-label" for="inputDefault">Default input</label>
-                  <input type="text" class="form-control" id="inputDefault">
-                </div>
+              <div class="form-group">
+                <label class="control-label" for="inputDefault">Default input</label>
+                <input type="text" class="form-control" id="inputDefault">
+              </div>
 
-                <div class="form-group">
-                  <label class="control-label" for="inputSmall">Small input</label>
-                  <input class="form-control input-sm" type="text" id="inputSmall">
-                </div>
+              <div class="form-group">
+                <label class="control-label" for="inputSmall">Small input</label>
+                <input class="form-control input-sm" type="text" id="inputSmall">
+              </div>
 
-                <div class="form-group">
-                  <label class="control-label">Input addons</label>
-                  <div class="input-group">
-                    <span class="input-group-addon">$</span>
-                    <input type="text" class="form-control">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Button</button>
-                    </span>
-                  </div>
+              <div class="form-group">
+                <label class="control-label">Input addons</label>
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="form-control">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Button</button>
+                  </span>
                 </div>
-              </form>
+              </div>
+            </form>
 
           </div>
         </div>
@@ -591,32 +696,55 @@
             <h2 id="nav-tabs">Tabs</h2>
             <div class="bs-component">
               <ul class="nav nav-tabs">
-                <li class="active"><a href="javascript:void(0)" data-toggle="tab">Home</a></li>
-                <li><a href="javascript:void(0)" data-toggle="tab" translate>Profile</a></li>
-                <li class="disabled"><a>Disabled</a></li>
+                <li class="active">
+                  <a href="javascript:void(0)" data-toggle="tab">Home</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" data-toggle="tab" translate>Profile</a>
+                </li>
+                <li class="disabled">
+                  <a>Disabled</a>
+                </li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
-                    Dropdown <span class="caret"></span>
+                    Dropdown
+                    <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)" data-toggle="tab">Action</a></li>
+                    <li>
+                      <a href="javascript:void(0)" data-toggle="tab">Action</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)" data-toggle="tab">Another action</a></li>
+                    <li>
+                      <a href="javascript:void(0)" data-toggle="tab">Another action</a>
+                    </li>
                   </ul>
                 </li>
               </ul>
               <div id="myTabContent" class="tab-content">
                 <div class="tab-pane fade active in" id="home">
-                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+                  <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro
+                    synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher
+                    retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip
+                    placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
                 </div>
                 <div class="tab-pane fade" id="profile">
-                  <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
+                  <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1
+                    labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft
+                    beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad
+                    vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
                 </div>
                 <div class="tab-pane fade" id="dropdown1">
-                  <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+                  <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny
+                    pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard
+                    locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid
+                    8-bit cred pitchfork.</p>
                 </div>
                 <div class="tab-pane fade" id="dropdown2">
-                  <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
+                  <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse
+                    gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore
+                    wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold
+                    out farm-to-table VHS viral locavore cosby sweater.</p>
                 </div>
               </div>
             </div>
@@ -625,19 +753,34 @@
             <h2 id="nav-pills">Pills</h2>
             <div class="bs-component">
               <ul class="nav nav-pills">
-                <li class="active"><a href="javascript:void(0)">Home</a></li>
-                <li><a href="javascript:void(0)" translate>Profile</a></li>
-                <li class="disabled"><a href="javascript:void(0)">Disabled</a></li>
+                <li class="active">
+                  <a href="javascript:void(0)">Home</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" translate>Profile</a>
+                </li>
+                <li class="disabled">
+                  <a href="javascript:void(0)">Disabled</a>
+                </li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
-                    Dropdown <span class="caret"></span>
+                    Dropdown
+                    <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Another action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Something else here</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Separated link</a>
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -645,19 +788,34 @@
             <br>
             <div class="bs-component">
               <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="javascript:void(0)">Home</a></li>
-                <li><a href="javascript:void(0)" translate>Profile</a></li>
-                <li class="disabled"><a href="javascript:void(0)">Disabled</a></li>
+                <li class="active">
+                  <a href="javascript:void(0)">Home</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)" translate>Profile</a>
+                </li>
+                <li class="disabled">
+                  <a href="javascript:void(0)">Disabled</a>
+                </li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">
-                    Dropdown <span class="caret"></span>
+                    Dropdown
+                    <span class="caret"></span>
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript:void(0)">Action</a></li>
-                    <li><a href="javascript:void(0)">Another action</a></li>
-                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Another action</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)">Something else here</a>
+                    </li>
                     <li class="divider"></li>
-                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li>
+                      <a href="javascript:void(0)">Separated link</a>
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -671,13 +829,19 @@
               </ul>
 
               <ul class="breadcrumb">
-                <li><a href="javascript:void(0)">Home</a></li>
+                <li>
+                  <a href="javascript:void(0)">Home</a>
+                </li>
                 <li class="active">Library</li>
               </ul>
 
               <ul class="breadcrumb">
-                <li><a href="javascript:void(0)">Home</a></li>
-                <li><a href="javascript:void(0)">Library</a></li>
+                <li>
+                  <a href="javascript:void(0)">Home</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Library</a>
+                </li>
                 <li class="active">Data</li>
               </ul>
             </div>
@@ -691,31 +855,69 @@
             <h2 id="pagination">Pagination</h2>
             <div class="bs-component">
               <ul class="pagination">
-                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                <li class="active"><a href="javascript:void(0)">1</a></li>
-                <li><a href="javascript:void(0)">2</a></li>
-                <li><a href="javascript:void(0)">3</a></li>
-                <li><a href="javascript:void(0)">4</a></li>
-                <li><a href="javascript:void(0)">5</a></li>
-                <li><a href="javascript:void(0)">&raquo;</a></li>
+                <li class="disabled">
+                  <a href="javascript:void(0)">&laquo;</a>
+                </li>
+                <li class="active">
+                  <a href="javascript:void(0)">1</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">2</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">3</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">4</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">5</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">&raquo;</a>
+                </li>
               </ul>
 
               <ul class="pagination pagination-lg">
-                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                <li class="active"><a href="javascript:void(0)">1</a></li>
-                <li><a href="javascript:void(0)">2</a></li>
-                <li><a href="javascript:void(0)">3</a></li>
-                <li><a href="javascript:void(0)">&raquo;</a></li>
+                <li class="disabled">
+                  <a href="javascript:void(0)">&laquo;</a>
+                </li>
+                <li class="active">
+                  <a href="javascript:void(0)">1</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">2</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">3</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">&raquo;</a>
+                </li>
               </ul>
 
               <ul class="pagination pagination-sm">
-                <li class="disabled"><a href="javascript:void(0)">&laquo;</a></li>
-                <li class="active"><a href="javascript:void(0)">1</a></li>
-                <li><a href="javascript:void(0)">2</a></li>
-                <li><a href="javascript:void(0)">3</a></li>
-                <li><a href="javascript:void(0)">4</a></li>
-                <li><a href="javascript:void(0)">5</a></li>
-                <li><a href="javascript:void(0)">&raquo;</a></li>
+                <li class="disabled">
+                  <a href="javascript:void(0)">&laquo;</a>
+                </li>
+                <li class="active">
+                  <a href="javascript:void(0)">1</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">2</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">3</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">4</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">5</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">&raquo;</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -723,13 +925,21 @@
             <h2 id="pager">Pager</h2>
             <div class="bs-component">
               <ul class="pager">
-                <li><a href="javascript:void(0)">Previous</a></li>
-                <li><a href="javascript:void(0)">Next</a></li>
+                <li>
+                  <a href="javascript:void(0)">Previous</a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Next</a>
+                </li>
               </ul>
 
               <ul class="pager">
-                <li class="previous disabled"><a href="javascript:void(0)">&larr; Older</a></li>
-                <li class="next"><a href="javascript:void(0)">Newer &rarr;</a></li>
+                <li class="previous disabled">
+                  <a href="javascript:void(0)">&larr; Older</a>
+                </li>
+                <li class="next">
+                  <a href="javascript:void(0)">Newer &rarr;</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -758,7 +968,9 @@
               <div class="alert alert-dismissible alert-warning">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <h4>Warning!</h4>
-                <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, <a href="javascript:void(0)" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
+                <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo
+                  cursus magna,
+                  <a href="javascript:void(0)" class="alert-link">vel scelerisque nisl consectetur et</a>.</p>
               </div>
             </div>
           </div>
@@ -768,7 +980,8 @@
             <div class="bs-component">
               <div class="alert alert-dismissible alert-danger">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Oh snap!</strong> <a href="javascript:void(0)" class="alert-link">Change a few things up</a> and try submitting again.
+                <strong>Oh snap!</strong>
+                <a href="javascript:void(0)" class="alert-link">Change a few things up</a> and try submitting again.
               </div>
             </div>
           </div>
@@ -776,7 +989,8 @@
             <div class="bs-component">
               <div class="alert alert-dismissible alert-success">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Well done!</strong> You successfully read <a href="javascript:void(0)" class="alert-link">this important alert message</a>.
+                <strong>Well done!</strong> You successfully read
+                <a href="javascript:void(0)" class="alert-link">this important alert message</a>.
               </div>
             </div>
           </div>
@@ -784,7 +998,8 @@
             <div class="bs-component">
               <div class="alert alert-dismissible alert-info">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Heads up!</strong> This <a href="javascript:void(0)" class="alert-link">alert needs your attention</a>, but it's not super important.
+                <strong>Heads up!</strong> This
+                <a href="javascript:void(0)" class="alert-link">alert needs your attention</a>, but it's not super important.
               </div>
             </div>
           </div>
@@ -805,9 +1020,21 @@
             <h2>Badges</h2>
             <div class="bs-component">
               <ul class="nav nav-pills">
-                <li class="active"><a href="javascript:void(0)">Home <span class="badge">42</span></a></li>
-                <li><a href="javascript:void(0)">Profile <span class="badge"></span></a></li>
-                <li><a href="javascript:void(0)">Messages <span class="badge">3</span></a></li>
+                <li class="active">
+                  <a href="javascript:void(0)">Home
+                    <span class="badge">42</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Profile
+                    <span class="badge"></span>
+                  </a>
+                </li>
+                <li>
+                  <a href="javascript:void(0)">Messages
+                    <span class="badge">3</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -900,8 +1127,11 @@
             <div class="bs-component">
               <div class="jumbotron">
                 <h1>Jumbotron</h1>
-                <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+                <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content
+                  or information.</p>
+                <p>
+                  <a class="btn btn-primary btn-lg">Learn more</a>
+                </p>
               </div>
             </div>
           </div>
@@ -1134,6 +1364,6 @@
         </div>
       </div>
 
-        </div>
     </div>
+  </div>
 </div>

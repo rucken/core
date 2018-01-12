@@ -1,5 +1,5 @@
-<div class="app-grid group-permissions-grid" *ngIf="account">
-  <div class="app-grid__toolbar--header">
+<div class="grid group-permissions-grid" *ngIf="account">
+  <div class="grid__toolbar--header">
     <div class="row">
       <div class="col-sm-8">
         <h4>{{modelMeta.group.titles.permissions | translate}}</h4>
@@ -11,37 +11,37 @@
       </div>
     </div>
   </div>
-  <table class="app-grid__table table table-bordered table-hover">
+  <table class="grid__table table table-bordered table-hover">
     <thead>
       <tr>
-        <th class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">
+        <th class="grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">
           <table-column [title]="modelMeta.titles.id" name="id" [(columns)]="columns"></table-column>
         </th>
-        <th class="app-grid__table__col-permission">
+        <th class="grid__table__col-permission">
           <table-column [title]="modelMeta.titles.permission" name="permission" [(columns)]="columns"></table-column>
         </th>
-        <th class="app-grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete) && !readonly"
+        <th class="grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete) && !readonly"
           translate>Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngIf="statusListMessage">
-        <td class="app-grid__table__col-status-message" [attr.colspan]="2+(hardReadonly !== true && (accessToChange || accessToDelete) && !readonly?1:0)">
+        <td class="grid__table__col-status-message" [attr.colspan]="2+(hardReadonly !== true && (accessToChange || accessToDelete) && !readonly?1:0)">
           {{statusListMessage | translate}}
         </td>
       </tr>
       <tr *ngFor="let item of items | slice:0:meta.perPage" (click)="selectItem(item, $event)" [ngClass]="{'info':isSelectedItem(item)}"
         (dblclick)="showEditModal(item)" [hidden]="statusListMessage">
-        <td class="app-grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
-        <td class="app-grid__table__col-permission">{{item.permissionAsString}}</td>
-        <td class="app-grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete) && !readonly">
+        <td class="grid__table__col-id" [ngClass]="{'select-col':maxSelectCount>1}">{{item.pk}}</td>
+        <td class="grid__table__col-permission">{{item.permissionAsString}}</td>
+        <td class="grid__table__col-action" *ngIf="hardReadonly !== true && (accessToChange || accessToDelete) && !readonly">
           <grid-row-buttons (onEdit)="showEditModal(item)" (onRemove)="showRemoveModal(item)" [showEdit]="hardReadonly !== true && accessToChange && !readonly"
             [showRemove]="hardReadonly !== true && accessToDelete"></grid-row-buttons>
         </td>
       </tr>
     </tbody>
   </table>
-  <div class="app-grid__toolbar--footer" [hidden]="statusListMessage">
+  <div class="grid__toolbar--footer" [hidden]="statusListMessage">
     <div class="row">
       <div class="col-md-3">
       </div>

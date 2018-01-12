@@ -9,8 +9,7 @@ import { TextInputComponent } from './../../../controls/text-input/text-input.co
 
 @Component({
   selector: 'fontawesome-modal',
-  templateUrl: './fontawesome-modal.component.html',
-  styleUrls: ['./fontawesome-modal.component.scss']
+  templateUrl: './fontawesome-modal.component.html'
 })
 
 export class FontawesomeModalComponent extends BaseResourceModalComponent {

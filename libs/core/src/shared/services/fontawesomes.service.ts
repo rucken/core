@@ -1,5 +1,3 @@
-import { map } from 'rxjs/operators';
-
 import { Injectable, Injector } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
@@ -22,7 +20,6 @@ export class FontawesomeService extends BaseRepositoryService {
     this.apiUrl = `${this.repositoryHelper.apiUrl}/${this.pluralName}`;
     this.items$ = new Subject<Fontawesome[]>();
     this.mockedItems = FontawesomeItemsMock;
-    this.meta.perPage = 10;
   }
   transformModel(item: any) {
     return new Fontawesome(item);

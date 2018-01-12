@@ -11,25 +11,25 @@ export const BaseRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
-    loadChildren: './../../pages/home-page/home-page.module#HomePageModule',
+    // loadChildren: './../../pages/home-page/home-page.module#HomePageModule',
     data: HomePageRoutes[0].data,
     canActivate: [HomeGuardService]
   },
   {
     path: 'themes',
-    loadChildren: './../../pages/themes-page/themes-page.module#ThemesPageModule',
+    // loadChildren: './../../pages/themes-page/themes-page.module#ThemesPageModule',
     data: ThemesPageRoutes[0].data,
     canActivate: [AuthGuardService]
   },
   {
     path: 'admin',
-    loadChildren: './../../pages/admin-page/admin-page.module#AdminPageModule',
+    // loadChildren: './../../pages/admin-page/admin-page.module#AdminPageModule',
     data: AdminPageRoutes[0].data,
     canActivate: [AuthGuardService]
   },
   {
     path: 'account',
-    loadChildren: './../../pages/account-page/account-page.module#AccountPageModule',
+    // loadChildren: './../../pages/account-page/account-page.module#AccountPageModule',
     data: AccountPageRoutes[0].data,
     canActivate: [AuthGuardService]
   },

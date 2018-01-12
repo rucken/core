@@ -1,5 +1,3 @@
-import { takeUntil } from 'rxjs/operators';
-
 import {
   Component,
   ComponentFactoryResolver,
@@ -21,7 +19,6 @@ import { FontawesomesListModalComponent } from './../fontawesomes-list-modal/fon
 @Component({
   selector: 'fontawesome-input',
   templateUrl: './fontawesome-input.component.html',
-  styleUrls: ['./fontawesome-input.component.scss'],
   entryComponents: [FontawesomesListModalComponent]
 })
 

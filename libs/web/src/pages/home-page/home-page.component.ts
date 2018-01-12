@@ -4,8 +4,7 @@ import { BasePageComponent } from './../../base/base-page/base-page.component';
 
 @Component({
   selector: 'home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  templateUrl: './home-page.component.html'
 })
 
 export class HomePageComponent extends BasePageComponent {

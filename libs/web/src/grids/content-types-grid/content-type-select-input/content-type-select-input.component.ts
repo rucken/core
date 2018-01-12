@@ -1,5 +1,3 @@
-import { takeUntil } from 'rxjs/operators';
-
 import { Component, ComponentFactoryResolver, EventEmitter, Injector, Input, Output, ViewChild } from '@angular/core';
 import { ContentTypesService, translate } from '@rucken/core';
 import { ContentType } from '@rucken/core';
@@ -13,7 +11,6 @@ import { ContentTypesListModalComponent } from './../content-types-list-modal/co
 @Component({
   selector: 'content-type-select-input',
   templateUrl: './content-type-select-input.component.html',
-  styleUrls: ['./content-type-select-input.component.scss'],
   entryComponents: [ContentTypesListModalComponent]
 })
 
@@ -31,6 +28,7 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
   @Output()
   modelChange: EventEmitter<any | ContentType> = new EventEmitter<any | ContentType>();
 
+  loadAll = false;
   items: any[] | ContentType[];
   cachedResourcesService: ContentTypesService;
 
@@ -43,13 +41,6 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     super(injector);
     this.contentTypesService = injector.get(ContentTypesService);
     this.cachedResourcesService = this.contentTypesService.createCache();
-  }
-  changeInputValue(value: string) {
-    const filter: any = {};
-    if (this.cachedResourcesService) {
-      this.cachedResourcesService.ignoreCache = true;
-      this.cachedResourcesService.loadAll(value, filter);
-    }
   }
   onLookup() {
     const itemModal: ContentTypesListModalComponent =
@@ -76,8 +67,3 @@ export class ContentTypeSelectInputComponent extends BaseResourceSelectInputComp
     return '';
   }
 }
-
-
-
-// WEBPACK FOOTER //
-// C:/Projects/open-sources/@rucken/core/libs/web/src/grids/content-types-grid/content-type-select-input/content-type-select-input.component.ts

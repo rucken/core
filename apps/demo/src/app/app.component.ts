@@ -1,8 +1,8 @@
-import { Component, ComponentFactoryResolver, Injector, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { Component, ComponentFactoryResolver, Injector, ViewContainerRef } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { RuckenCoreRuI18n, translate } from '@rucken/core';
 import { AlertModalComponent, BaseAppComponent, RuckenWebRuI18n } from '@rucken/web';
-import * as _ from 'lodash';
+import * as lodashImported from 'lodash'; const _ = lodashImported;
 import { defineLocale } from 'ngx-bootstrap/bs-moment';
 import { enGb, ru } from 'ngx-bootstrap/locale';
 import { takeUntil } from 'rxjs/operators';
@@ -15,9 +15,7 @@ defineLocale('en', enGb);
 @Component({
   selector: 'demo-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  entryComponents: [AlertModalComponent],
-  encapsulation: ViewEncapsulation.None
+  entryComponents: [AlertModalComponent]
 })
 export class DemoAppComponent extends BaseAppComponent {
 

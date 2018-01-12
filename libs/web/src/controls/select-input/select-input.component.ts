@@ -1,8 +1,8 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Injector } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
-import { NguiAutoCompleteComponent } from '@ngui/auto-complete';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
+import { TypeaheadDirective } from 'ngx-bootstrap/typeahead';
 import { debounceTime } from 'rxjs/operators';
 import { Subject } from 'rxjs/Subject';
 
@@ -11,18 +11,15 @@ import { SelectInputConfig } from './select-input.config';
 
 @Component({
   selector: 'select-input',
-  templateUrl: './select-input.component.html',
-  styleUrls: ['./select-input.component.scss'],
-  encapsulation: ViewEncapsulation.None,  // Enable dynamic HTML styles,
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  templateUrl: './select-input.component.html'
 })
 
 export class SelectInputComponent extends BaseComponent {
 
   @ViewChild('tooltip')
   tooltip: TooltipDirective;
-  @ViewChild('autoComplete')
-  autoComplete: NguiAutoCompleteComponent;
+  @ViewChild('typeahead')
+  typeahead: TypeaheadDirective;
   @ViewChild('inputElement')
   inputElement: ElementRef;
 
@@ -30,6 +27,8 @@ export class SelectInputComponent extends BaseComponent {
   debounceTime?: number;
   @Output()
   onChangeInputValue: EventEmitter<string> = new EventEmitter<string>();
+  @Output()
+  onInputFocus: EventEmitter<string> = new EventEmitter<string>();
   @Input()
   labelClass?= 'control-label';
   @Input()
@@ -40,6 +39,8 @@ export class SelectInputComponent extends BaseComponent {
   inFormGroup = true;
   @Input()
   readonly = false;
+  @Input()
+  inputReadonly = false;
   @Input()
   name = 'select';
   @Input()
@@ -61,40 +62,43 @@ export class SelectInputComponent extends BaseComponent {
   @Input()
   width: string = null;
   @Input()
-  set items(items: any[]) {
+  dataSource: Subject<any[]>;
+  @Input()
+  set items(items: any) {
     this._items = items;
-    if (this.autoComplete) {
-      if (JSON.stringify(this.autoComplete.source) === JSON.stringify(items)) {
-        return;
-      }
-      this.autoComplete.source = items;
-      if (this.showMe) {
-        this._showMe = false;
-        this.autoComplete.reloadList('');
-        setTimeout(() => {
-          this.resizeList();
-          this._showMe = true;
-        }, 300);
-      } else {
-        this.autoComplete.reloadList('');
-        setTimeout(() => {
-          this.resizeList();
-        }, 300);
-      }
-    }
+    this.resizeList();
   }
-  get items() {
-    return this._items;
+  get items(): any {
+    if (this.dataSource) {
+      return this.dataSource;
+    }
+    return this._items.map(item => {
+      item[this.inputTitleField] = this.getInputTitle(item);
+      return item;
+    });
+  }
+  @Input()
+  set textValue(textValue: string) {
+    this._textValue = textValue;
+    if (this._textValue === '') {
+      this.value = null;
+    }
+    this.debouncer$.next(this.textValue);
+  }
+  get textValue() {
+    return this._textValue;
   }
 
   config: SelectInputConfig;
   debouncer$: Subject<string>;
 
+  private _textValue: string;
   private _items: any[] = [];
   private _showMe = false;
 
   constructor(
-    public injector: Injector
+    public injector: Injector,
+    public changeDetectorRef: ChangeDetectorRef
   ) {
     super(injector);
     this.debouncer$ = new Subject<string>();
@@ -119,23 +123,8 @@ export class SelectInputComponent extends BaseComponent {
     this.debouncer$.pipe(debounceTime(this.debounceTime))
       .subscribe((value: string) => this.onChangeInputValue.emit(value));
   }
-  get inputReadonly() {
-    return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length === 0;
-  }
-  onKey(value: string) {
-    if (!value && !this.inputReadonly) {
-      this.value = null;
-    }
-    this.debouncer$.next(value);
-  }
-  get showMe() {
-    return this._showMe;
-  }
-  set showMe(val: any) {
-    setTimeout(() => {
-      this.resizeList();
-      this._showMe = val;
-    }, 300);
+  inputFocus(value: string) {
+    this.onInputFocus.emit(value);
   }
   get value() {
     return this.model;
@@ -145,42 +134,27 @@ export class SelectInputComponent extends BaseComponent {
       delete this.errorsValue[this.name];
       this.tooltipText = '';
     }
-    this.model = val;
+    if (val && val[this.inputTitleField]) {
+      this.textValue = this.getInputTitle(val);
+      this.model = val;
+    } else {
+      // this.textValue = '';
+      this.model = null;
+    }
     this.modelChange.emit(this.model);
+  }
+  onTypeaheadNoResults(typeaheadNoResults: boolean) {
+    if (typeaheadNoResults) {
+      this.value = null;
+    }
   }
   init() {
     if (this.hardValue) {
       this.value = this.hardValue;
     }
     super.init();
-  }
-  resizeList() {
-    if (this.value && this.value[this.valueField]) {
-      this.items.map((item: any, index: number) => {
-        if (item && this.value && item[this.valueField] === this.value[this.valueField]) {
-          this.autoComplete.itemIndex = index;
-        }
-      });
-    }
-    if (this.autoComplete && this.autoComplete.el &&
-      this.autoComplete.el.children[0] && this.autoComplete.el.children[0].children[0] &&
-      this.inputElement && this.inputElement.nativeElement) {
-      const options: any = this.autoComplete.el.children[0].children[0].children;
-      const select: any = this.autoComplete.el.children[0];
-      // if (this.items && options.length >= this.items.length) {
-      for (let i = 0; i < options.length; i++) {
-        if (this.width === null) {
-          options[i].style.width = this.inputElement.nativeElement.offsetWidth + 'px';
-        } else {
-          options[i].style.width = this.width;
-        }
-      }
-      select.style.display = '';
-      // }
-    } else {
-      setTimeout(() => {
-        this.resizeList();
-      }, 200);
+    if (!this.textValue) {
+      this.value = this.value;
     }
   }
   getTitle(item: any): SafeHtml | string {
@@ -196,11 +170,6 @@ export class SelectInputComponent extends BaseComponent {
     }
     return '';
   }
-  focus() {
-    if (this.autoComplete) {
-      this.autoComplete.dropdownVisible = true;
-    }
-  }
   getInputTitle(item: any) {
     if (item && item[this.inputTitleField]) {
       return this.translateService.instant(item[this.inputTitleField]);
@@ -209,5 +178,27 @@ export class SelectInputComponent extends BaseComponent {
       return this.translateService.instant(item[this.titleField]);
     }
     return '';
+  }
+  loading(status: boolean) {
+    if (!status) {
+      this.resizeList();
+    }
+  }
+  resizeList() {
+    setTimeout(() => {
+      if (this.changeDetectorRef) {
+        this.changeDetectorRef.detectChanges();
+        if (this.typeahead && this.typeahead._container) {
+          if (this.typeahead._container.element.nativeElement.children[0]) {
+            const list: any = this.typeahead._container.element.nativeElement.children[0];
+            if (this.width === null) {
+              list.style.width = this.inputElement.nativeElement.offsetWidth + 'px';
+            } else {
+              list.style.width = this.width;
+            }
+          }
+        }
+      }
+    }, 1);
   }
 }

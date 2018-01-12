@@ -1,10 +1,10 @@
 <div [ngClass]="{'btn-group':showEdit && showRemove}">
   <button type="button" class="btn btn-default btn-sm" (click)="edit()" *ngIf="showEdit" tooltip="{{editTitle | translate}}"
     placement="left" container="body">
-		<span [ngClass]="[editIcon, editIconColor]"></span>
-	</button>
+    <span [ngClass]="[editIcon, editIconColor]"></span>
+  </button>
   <button type="button" class="btn btn-default btn-sm" (click)="remove()" *ngIf="showRemove" tooltip="{{removeTitle | translate}}"
     placement="left" container="body">
-		<span [ngClass]="[removeIcon, removeIconColor]"></span>
-	</button>
+    <span [ngClass]="[removeIcon, removeIconColor]"></span>
+  </button>
 </div>

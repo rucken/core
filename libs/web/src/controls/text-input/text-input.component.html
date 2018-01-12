@@ -1,31 +1,36 @@
 <div class="form-group" [ngClass]="{'has-error':errorMessage, 'has-success':infoMessage}">
   <label [ngClass]="labelClass" [attr.for]="'input'+name">{{title | translate}}</label>
-  <div [ngClass]="inputFrameClass" *ngIf="type!=='date' || isNativeDateInput">
-    <input [textMask]="mask" *ngIf="type!=='textarea'" [attr.type]="type" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
-      [attr.placeholder]="placeholder" [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
-      [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
-      container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement>
-    <textarea *ngIf="type==='textarea'" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
-      [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [tooltip]="tooltipText" placement="{{tooltipPlacement}}"
-      triggers="{{tooltipTriggers}}" container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip"
-      #inputElement></textarea>
-  </div>
-  <div [ngClass]="inputFrameClass" *ngIf="type==='date' && !isNativeDateInput">
-    <div class="input-group" [ngClass]="{'input-group':!readonly}">
-      <input [ngModel]="value" [textMask]="mask" (change)="dateInputChange($event)" type="text" [ngClass]="inputClass" [attr.id]="'input'+name"
-        [attr.name]="'input'+name" [attr.placeholder]="placeholder" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step"
-        [attr.min]="min" [attr.max]="max" [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}"
-        container="body" [isDisabled]="!tooltipEnable" (onShown)="showTooltip()" #tooltip="bs-tooltip" #inputElement>
-      <span class="input-group-btn" *ngIf="!readonly">
-        <button type="button" class="btn btn-default" (click)="showDatePicker = !showDatePicker">
-            <i class="fa fa-calendar"></i>
-        </button>
-      </span>
+  <div class="{{inputFrameClass}}" containerClass="{{errorMessage?'error-tooltip':'success-tooltip'}}" [tooltip]="tooltipText"
+    placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" #tooltip="bs-tooltip">
+    <div *ngIf="type!=='date' && type!=='textarea'">
+      <ng-container *ngTemplateOutlet="input"></ng-container>
     </div>
-    <div [hidden]="!(showDatePicker && !isNativeDateInput)" style="position: absolute; z-index:10; min-height:290px;">
-      <datepicker [(ngModel)]="dateValue" [minDate]="minDate" [maxDate]="maxDate" [showWeeks]="false" [startingDay]="startingDay"
-        (selectionDone)="showDatePicker=false" #picker></datepicker>
+    <div *ngIf="type==='textarea'">
+      <ng-container *ngTemplateOutlet="textarea"></ng-container>
+    </div>
+    <div *ngIf="type==='date' && !isNativeDateInput">
+      <ng-container *ngTemplateOutlet="date"></ng-container>
+    </div>
+    <div *ngIf="type==='date' && isNativeDateInput">
+      <ng-container *ngTemplateOutlet="input"></ng-container>
     </div>
   </div>
   <span class="help-block" *ngIf="!tooltipEnable && (errorMessage || infoMessage)" [innerHtml]="(errorMessage || infoMessage) | safeHtml"></span>
 </div>
+
+<ng-template #input>
+  <input [textMask]="mask" [attr.type]="type" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder"
+    [(ngModel)]="value" [readonly]="readonly" [attr.maxlength]="maxlength" [attr.step]="step" [attr.min]="min" [attr.max]="max"
+    #inputElement>
+</ng-template>
+
+<ng-template #textarea>
+  <textarea [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name" [attr.placeholder]="placeholder" [(ngModel)]="value"
+    [readonly]="readonly" [attr.maxlength]="maxlength" #inputElement></textarea>
+</ng-template>
+
+<ng-template #date>
+  <input type="text" class="form-control" [minDate]="minDate" [bsConfig]="bsDatepickerConfig" [maxDate]="maxDate" bsDatepicker
+    [(bsValue)]="dateValue" [textMask]="inputDateMask" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
+    [attr.placeholder]="placeholder" [readonly]="true" #inputElement/>
+</ng-template>

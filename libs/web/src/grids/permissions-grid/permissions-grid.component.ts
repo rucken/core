@@ -11,7 +11,6 @@ import { PermissionModalComponent } from './permission-modal/permission-modal.co
 @Component({
   selector: 'permissions-grid',
   templateUrl: './permissions-grid.component.html',
-  styleUrls: ['./permissions-grid.component.scss'],
   entryComponents: [PermissionModalComponent, ConfirmModalComponent]
 })
 
