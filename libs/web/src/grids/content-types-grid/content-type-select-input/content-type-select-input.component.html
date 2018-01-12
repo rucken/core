@@ -5,7 +5,7 @@
     <input *ngIf="statusListMessage" value="{{statusListMessage | translate}}" [ngClass]="inputClass" readonly/>
     <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement readonly/>
     <select-input *ngIf="!statusListMessage && select" [(model)]="value" [title]="title" titleField="asSelectOptionHtml" inputTitleField="asString"
-      [readonly]="readonly" (onChangeInputValue)="changeInputValue($event)" [dataSource]="cachedResourcesService.items$" (onInputFocus)="focusInput($event)"
+      [readonly]="readonly" [inputReadonly]="inputReadonly" [name]="name" (onChangeInputValue)="changeInputValue($event)" [dataSource]="cachedResourcesService.items$" (onInputFocus)="focusInput($event)"
       [inFormGroup]="false" [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">
       <button class="btn btn-default" type="button" (click)="value=null">

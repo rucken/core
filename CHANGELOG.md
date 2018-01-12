@@ -1,3 +1,30 @@
+<a name="1.30.0"></a>
+# [1.30.0](https://github.com/rucken/core/compare/1.29.1...1.30.0) (2018-01-10)
+
+
+### Bug Fixes
+
+* **base:** Add @Input to title for base page and frame ([3a6bd4f](https://github.com/rucken/core/commit/3a6bd4f))
+* **base:** Remove interfaces change its to classes [#83](https://github.com/rucken/core/issues/83) ([aace802](https://github.com/rucken/core/commit/aace802))
+* **base-resource-list:** If used mock items and not set perPage, set default to 10 items on per page ([22e4405](https://github.com/rucken/core/commit/22e4405))
+* **deps:** Remove [@ngui](https://github.com/ngui)/auto-complete and angular2-ladda ([140abe6](https://github.com/rucken/core/commit/140abe6))
+* **deps:** Update dependencies ([92b7850](https://github.com/rucken/core/commit/92b7850))
+* **profile-frame:** Fix error in update profile [#82](https://github.com/rucken/core/issues/82) ([8eb1821](https://github.com/rucken/core/commit/8eb1821))
+* **select-input:** Fix work typeahead and add async loading [#81](https://github.com/rucken/core/issues/81) ([bf2d031](https://github.com/rucken/core/commit/bf2d031))
+* **styles:** Remove custom styles like "app-grid-...." and others [#101](https://github.com/rucken/core/issues/101) ([5ce1ee2](https://github.com/rucken/core/commit/5ce1ee2))
+* **text-input:** Set null if date value is invalid ([9baed6d](https://github.com/rucken/core/commit/9baed6d))
+* **user-components:** Add check userGroups before set/get values from its ([4bc7576](https://github.com/rucken/core/commit/4bc7576))
+* Add update local items on change mock items ([6b55cbf](https://github.com/rucken/core/commit/6b55cbf))
+
+
+### Features
+
+* **base:** Add interfaces for service and model and implements all from its [#83](https://github.com/rucken/core/issues/83) ([f043bec](https://github.com/rucken/core/commit/f043bec))
+* **text-input:** Change datepicker component for new ngx-bootstrap style [#81](https://github.com/rucken/core/issues/81) ([4272629](https://github.com/rucken/core/commit/4272629))
+* **user.model:** Add checkGroups method ([7849399](https://github.com/rucken/core/commit/7849399))
+
+
+
 <a name="1.29.1"></a>
 ## [1.29.1](https://github.com/rucken/core/compare/1.29.0...1.29.1) (2017-12-14)
 

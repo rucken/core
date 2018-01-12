@@ -13,8 +13,8 @@
     [triggers]="tooltipTriggers" [isDisabled]="!tooltipEnable" [tooltip]="tooltipText" #tooltip="bs-tooltip">
     <input [(ngModel)]="textValue" [typeahead]="items" [typeaheadOptionField]="inputTitleField" [typeaheadScrollable]="true"
       [typeaheadOptionsInScrollableView]="5" [typeaheadMinLength]="0" [attr.placeholder]="placeholder" (typeaheadOnSelect)="value = $event.item"
-      (typeaheadNoResults)="onTypeaheadNoResults($event)" [ngClass]="inputClass" [disabled]="readonly && inputReadonly" [attr.id]="'input'+name"
-      [attr.name]="'input'+name" (focus)="inputFocus(textValue)" (typeaheadLoading)="loading($event)" autocomplete="off" #typeahead="bs-typeahead"
-      #inputElement/>
+      (typeaheadNoResults)="onTypeaheadNoResults($event)" [ngClass]="inputClass" [disabled]="readonly" [readonly]="inputReadonly"
+      [attr.id]="'input'+name" [attr.name]="'input'+name" (focus)="inputFocus(textValue)" (typeaheadLoading)="loading($event)"
+      autocomplete="off" #typeahead="bs-typeahead" #inputElement/>
   </div>
 </ng-template>

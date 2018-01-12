@@ -40,6 +40,8 @@ export class SelectInputComponent extends BaseComponent {
   @Input()
   readonly = false;
   @Input()
+  inputReadonly = false;
+  @Input()
   name = 'select';
   @Input()
   placeholder = '';
@@ -70,7 +72,10 @@ export class SelectInputComponent extends BaseComponent {
     if (this.dataSource) {
       return this.dataSource;
     }
-    return this._items;
+    return this._items.map(item => {
+      item[this.inputTitleField] = this.getInputTitle(item);
+      return item;
+    });
   }
   @Input()
   set textValue(textValue: string) {
@@ -121,9 +126,6 @@ export class SelectInputComponent extends BaseComponent {
   inputFocus(value: string) {
     this.onInputFocus.emit(value);
   }
-  get inputReadonly() {
-    return this.onChangeInputValue.observers && this.onChangeInputValue.observers.length === 0;
-  }
   get value() {
     return this.model;
   }
@@ -133,7 +135,7 @@ export class SelectInputComponent extends BaseComponent {
       this.tooltipText = '';
     }
     if (val && val[this.inputTitleField]) {
-      this.textValue = val[this.inputTitleField];
+      this.textValue = this.getInputTitle(val);
       this.model = val;
     } else {
       // this.textValue = '';
