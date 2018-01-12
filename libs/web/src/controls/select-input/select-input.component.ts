@@ -73,7 +73,12 @@ export class SelectInputComponent extends BaseComponent {
       return this.dataSource;
     }
     return this._items.map(item => {
-      item[this.inputTitleField] = this.getInputTitle(item);
+      // todo: refactor
+      try {
+        item[this.inputTitleField] = this.getInputTitle(item);
+      } catch (error) {
+
+      }
       return item;
     });
   }
