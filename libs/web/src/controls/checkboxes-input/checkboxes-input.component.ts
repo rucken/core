@@ -16,11 +16,11 @@ export class CheckboxesInputComponent extends BaseComponent {
   inputElement: ElementRef;
 
   @Input()
-  labelClass?= 'control-label';
+  labelClass = 'control-label';
   @Input()
-  inputClass?= 'control-label checkbox-inline';
+  inputClass = 'control-label checkbox-inline';
   @Input()
-  inputFrameClass?= 'form-control form-checkbox-controls';
+  inputFrameClass = 'form-control form-checkbox-controls';
   @Input()
   readonly = false;
   @Input()

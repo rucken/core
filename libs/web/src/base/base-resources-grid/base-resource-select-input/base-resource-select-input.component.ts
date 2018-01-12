@@ -15,15 +15,15 @@ import { BaseResourcesListComponent } from '../base-resources-list/base-resource
 export class BaseResourceSelectInputComponent extends BaseResourcesListComponent {
 
   @Input()
-  labelClass?= 'control-label';
+  labelClass = 'control-label';
   @Input()
-  inputClass?= 'form-control';
+  inputClass = 'form-control';
   @Input()
-  inputFrameClass?= '';
+  inputFrameClass = '';
   @Input()
-  lookupTooltip?: string;
+  lookupTooltip: string;
   @Input()
-  lookupIcon?= 'fa fa-search';
+  lookupIcon = 'fa fa-search';
   @Input()
   readonly?: boolean;
   @Input()
@@ -103,7 +103,7 @@ export class BaseResourceSelectInputComponent extends BaseResourcesListComponent
       this.hardReadonly = false;
     }
     if (this.inputReadonly === undefined) {
-      this.inputReadonly = true;
+      this.inputReadonly = false;
     }
     if (this.inputElement) {
       this.inputElement.hardValue = this.hardValue;

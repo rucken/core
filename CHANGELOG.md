@@ -1,3 +1,15 @@
+<a name="1.30.1"></a>
+## [1.30.1](https://github.com/rucken/core/compare/1.30.0...1.30.1) (2018-01-12)
+
+
+### Bug Fixes
+
+* **base-resource-select-input:** Set default value for inputReadonly to false ([d70152a](https://github.com/rucken/core/commit/d70152a))
+* **navbar:** Remove show changelog modal on first open site ([20d40e3](https://github.com/rucken/core/commit/20d40e3))
+* **select-input:** Add ignore errors if item prop is readonly ([c4038fc](https://github.com/rucken/core/commit/c4038fc))
+
+
+
 <a name="1.30.0"></a>
 # [1.30.0](https://github.com/rucken/core/compare/1.29.1...1.30.0) (2018-01-10)
 

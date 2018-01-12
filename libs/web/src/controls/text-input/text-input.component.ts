@@ -24,9 +24,9 @@ export class TextInputComponent extends BaseComponent {
   tooltip: TooltipDirective;
 
   @Input()
-  labelClass?= 'control-label';
+  labelClass = 'control-label';
   @Input()
-  inputClass?= 'form-control';
+  inputClass = 'form-control';
   @Input()
   inputFrameClass?: string;
   @Input()

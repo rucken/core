@@ -15,13 +15,13 @@ export class GridRowButtonsComponent extends BaseComponent {
   @Input()
   removeTitle?: string;
   @Input()
-  editIcon?= 'fa fa-pencil-square-o';
+  editIcon = 'fa fa-pencil-square-o';
   @Input()
-  removeIcon?= 'fa fa-remove';
+  removeIcon = 'fa fa-remove';
   @Input()
-  editIconColor?= ''; // text-primary';
+  editIconColor = ''; // text-primary';
   @Input()
-  removeIconColor?= ''; // 'text-warning';
+  removeIconColor = ''; // 'text-warning';
   @Output()
   onEdit: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output()

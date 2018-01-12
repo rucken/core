@@ -107,7 +107,6 @@ export class NavbarComponent extends BaseComponent {
   }
   initVersion() {
     if (this.app.localVersion !== this.app.currentVersion) {
-      this.showChangeLog();
       this.app.localVersion = this.app.currentVersion;
     }
   }
