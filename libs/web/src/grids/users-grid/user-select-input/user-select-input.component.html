@@ -3,10 +3,11 @@
   <div [ngClass]="{'input-group':!readonly && !select}" class="{{inputFrameClass}}" [containerClass]="errorMessage?'error-tooltip':'success-tooltip'"
     [tooltip]="tooltipText" placement="{{tooltipPlacement}}" triggers="{{tooltipTriggers}}" [isDisabled]="!tooltipEnable" #tooltip="bs-tooltip">
     <input *ngIf="statusListMessage || (select && !items.length)" value="{{statusListMessage | translate}}" [ngClass]="inputClass"
-      disabled/>
-    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement disabled/>
+      readonly/>
+    <input *ngIf="!statusListMessage && !select" [(ngModel)]="value && value.asString" [ngClass]="inputClass" #inputElement readonly/>
     <select-input *ngIf="!statusListMessage && select && items && items.length>0" [(model)]="value" [title]="title" titleField="asSelectOptionHtml"
-      inputTitleField="asString" [readonly]="readonly" [items]="items" [inFormGroup]="false" [width]="width" #inputElement></select-input>
+      inputTitleField="asString" [readonly]="readonly" [inputReadonly]="inputReadonly" [name]="name" [items]="items" [inFormGroup]="false"
+      [width]="width" #inputElement></select-input>
     <span class="input-group-btn" *ngIf="!readonly && !select">
       <button class="btn btn-success" type="button" (click)="onLookup()" tooltip="{{lookupTooltip}}" placement="left" container="body">
         <span [ngClass]="[lookupIcon]"></span>

@@ -1,6 +1,6 @@
 {
     "name": "@rucken/web",
-    "version": "1.29.1",
+    "version": "1.30.0",
     "description": "Base components, services and ui for admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
@@ -12,19 +12,19 @@
         "web"
     ],
     "peerDependencies": {
-        "@angular/common": "*",
-        "@angular/compiler": "*",
-        "@angular/core": "*",
-        "@angular/forms": "*",
-        "@angular/router": "*",
-        "angular2-text-mask": "*"
+        "@angular/common": "5.2.0",
+        "@angular/compiler": "5.2.0",
+        "@angular/core": "5.2.0",
+        "@angular/forms": "5.2.0",
+        "@angular/router": "5.2.0",
+        "angular2-text-mask": "^8.0.4"
     },
     "dependencies": {
-        "@types/lodash": "*",
-        "@ngx-translate/core": "*",
-        "lodash": "*",
-        "ngx-bootstrap": "*",
-        "text-mask-addons": "*",
+        "@types/lodash": "^4.14.92",
+        "@ngx-translate/core": "^9.0.2",
+        "lodash": "^4.17.4",
+        "ngx-bootstrap": "^2.0.0-rc.0",
+        "text-mask-addons": "^3.7.1",
         "@rucken/core": "*"
     }
 }
