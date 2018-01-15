@@ -65,15 +65,7 @@ export class SelectInputComponent extends BaseComponent {
   dataSource: Subject<any[]>;
   @Input()
   set items(items: any) {
-    this._items = items;
-    this.resizeList();
-  }
-  get items(): any {
-    if (this.dataSource) {
-      return this.dataSource;
-    }
-    return this._items.map(item => {
-      // todo: refactor
+    this._items = items.map((item: any) => {
       try {
         item[this.inputTitleField] = this.getInputTitle(item);
       } catch (error) {
@@ -81,6 +73,12 @@ export class SelectInputComponent extends BaseComponent {
       }
       return item;
     });
+  }
+  get items(): any {
+    if (this.dataSource) {
+      return this.dataSource;
+    }
+    return this._items;
   }
   @Input()
   set textValue(textValue: string) {
