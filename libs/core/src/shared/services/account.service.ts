@@ -92,6 +92,7 @@ export class AccountService {
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
         this.account = null;
+        this.tokenService.set(null);
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(EndpointStatusEnum.Error,
           translate('Error')
