@@ -59,12 +59,16 @@ export class User extends BaseResourceModel {
     super(obj);
   }
   get roles(): any {
-    return { isActive: this.isActive, isStaff: this.isStaff, isSuperuser: this.isSuperuser };
+    return {
+      isActive: !!this.isActive,
+      isStaff: !!this.isStaff,
+      isSuperuser: !!this.isSuperuser
+    };
   }
   set roles(roles: any) {
-    this.isActive = roles['isActive'];
-    this.isStaff = roles['isStaff'];
-    this.isSuperuser = roles['isSuperuser'];
+    this.isActive = !!roles['isActive'];
+    this.isStaff = !!roles['isStaff'];
+    this.isSuperuser = !!roles['isSuperuser'];
   }
   parse(obj: any) {
     this.parseByFields(obj, User.meta());
