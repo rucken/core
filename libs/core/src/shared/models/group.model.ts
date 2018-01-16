@@ -34,7 +34,7 @@ export class Group extends BaseResourceModel {
   format() {
     const result = this.formatByFields(Group.meta());
     result.permissions = result.permissions && result.permissions.length ?
-      result.permissions.map((permission: Permission) => permission.pk) : [];
+      result.permissions.map((permission: Permission) => permission.format()) : [];
     return result;
   }
   checkPermissions(permissionNames: string[]) {

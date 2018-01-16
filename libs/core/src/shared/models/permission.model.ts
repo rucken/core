@@ -30,7 +30,7 @@ export class Permission extends BaseResourceModel {
   }
   format() {
     const result = this.formatByFields(Permission.meta());
-    result.contentType = result.contentType ? result.contentType.pk : null;
+    result.contentType = result.contentType ? result.contentType.format() : null;
     return result;
   }
   get asString() {

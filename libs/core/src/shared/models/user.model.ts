@@ -87,7 +87,7 @@ export class User extends BaseResourceModel {
   format() {
     const result = this.formatByFields(User.meta());
     result.groups = result.groups && result.groups.length ?
-      result.groups.map((group: Group) => group.pk) : [];
+      result.groups.map((group: Group) => group.format()) : [];
     return result;
   }
   get asString() {
