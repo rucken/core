@@ -108,7 +108,7 @@
     "conventional-recommended-bump": "^1.1.0",
     "es6-promise-loader": "^1.0.2",
     "gh-pages": "^1.1.0",
-    "html-loader": "0.5.4",
+    "html-loader": "0.5.5",
     "jasmine-core": "^2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~2.0.0",
