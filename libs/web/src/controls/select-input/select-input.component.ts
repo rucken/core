@@ -50,7 +50,16 @@ export class SelectInputComponent extends BaseComponent {
   @Input()
   title: string;
   @Input()
-  model: any;
+  set model(model: any) {
+    this._model = model;
+    if (!model) {
+      this.value = null;
+      this.textValue = '';
+    }
+  }
+  get model(): any {
+    return this._model;
+  }
   @Input()
   hardValue: any = null;
   @Input()
@@ -87,6 +96,7 @@ export class SelectInputComponent extends BaseComponent {
       this.value = null;
     }
     this.debouncer$.next(this.textValue);
+    this.changeDetectorRef.detectChanges();
   }
   get textValue() {
     return this._textValue;
@@ -95,9 +105,9 @@ export class SelectInputComponent extends BaseComponent {
   config: SelectInputConfig;
   debouncer$: Subject<string>;
 
+  private _model: any;
   private _textValue: string;
   private _items: any[] = [];
-  private _showMe = false;
 
   constructor(
     public injector: Injector,
