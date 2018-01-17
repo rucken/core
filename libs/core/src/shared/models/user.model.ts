@@ -74,6 +74,9 @@ export class User extends BaseResourceModel {
     this.parseByFields(obj, User.meta());
     this.groups = obj.groups && obj.groups.length ?
       obj.groups.map((group: any) => new Group(group)) : [];
+    this.isActive = !!this.isActive;
+    this.isStaff = !!this.isStaff;
+    this.isSuperuser = !!this.isSuperuser;
     this.rePassword = this.password;
   }
   validate() {
