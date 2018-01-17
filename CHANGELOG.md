@@ -1,3 +1,19 @@
+<a name="1.30.2"></a>
+## [1.30.2](https://github.com/rucken/core/compare/1.30.1...1.30.2) (2018-01-17)
+
+
+### Bug Fixes
+
+* **account.service:** Change response for account update ([4546de9](https://github.com/rucken/core/commit/4546de9))
+* **account.service:** If email with password not found in users, clear token ([3fa960c](https://github.com/rucken/core/commit/3fa960c))
+* **models:** Change format methods for models ([90a7938](https://github.com/rucken/core/commit/90a7938))
+* **select-input:** Move translate select options to getter items ([bd82ddd](https://github.com/rucken/core/commit/bd82ddd))
+* **select-input:** Add support change value on select-input in runtime ([8bd9553](https://github.com/rucken/core/commit/8bd9553))
+* **select-input:** Remove resize from items setter ([6ce94f3](https://github.com/rucken/core/commit/6ce94f3))
+* **user.model:** Convert bool properties to bool in constructor ([7a467be](https://github.com/rucken/core/commit/7a467be))
+
+
+
 <a name="1.30.1"></a>
 ## [1.30.1](https://github.com/rucken/core/compare/1.30.0...1.30.1) (2018-01-12)
 
