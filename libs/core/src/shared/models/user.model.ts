@@ -59,17 +59,24 @@ export class User extends BaseResourceModel {
     super(obj);
   }
   get roles(): any {
-    return { isActive: this.isActive, isStaff: this.isStaff, isSuperuser: this.isSuperuser };
+    return {
+      isActive: !!this.isActive,
+      isStaff: !!this.isStaff,
+      isSuperuser: !!this.isSuperuser
+    };
   }
   set roles(roles: any) {
-    this.isActive = roles['isActive'];
-    this.isStaff = roles['isStaff'];
-    this.isSuperuser = roles['isSuperuser'];
+    this.isActive = !!roles['isActive'];
+    this.isStaff = !!roles['isStaff'];
+    this.isSuperuser = !!roles['isSuperuser'];
   }
   parse(obj: any) {
     this.parseByFields(obj, User.meta());
     this.groups = obj.groups && obj.groups.length ?
       obj.groups.map((group: any) => new Group(group)) : [];
+    this.isActive = !!this.isActive;
+    this.isStaff = !!this.isStaff;
+    this.isSuperuser = !!this.isSuperuser;
     this.rePassword = this.password;
   }
   validate() {
@@ -87,7 +94,7 @@ export class User extends BaseResourceModel {
   format() {
     const result = this.formatByFields(User.meta());
     result.groups = result.groups && result.groups.length ?
-      result.groups.map((group: Group) => group.pk) : [];
+      result.groups.map((group: Group) => group.format()) : [];
     return result;
   }
   get asString() {

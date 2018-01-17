@@ -92,6 +92,7 @@ export class AccountService {
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
         this.account = null;
+        this.tokenService.set(null);
         result.error(this.endpointHelper.extractError(error));
         this.setStatus(EndpointStatusEnum.Error,
           translate('Error')
@@ -143,8 +144,9 @@ export class AccountService {
     );
     this.endpointHelper.actionRequest(this, 'update', account).pipe(
       map((response: any) => this.endpointHelper.actionResponse(this, 'update', response)))
-      .subscribe((user: any | User) => {
-        this.account = this.transformModel(user);
+      .subscribe((data: { user: any, token: string } | any) => {
+        this.account = this.transformModel(data.user);
+        this.tokenService.set(data.token);
         result.emit(this.account);
         this.setStatus(EndpointStatusEnum.Ok);
       }, (error: any) => {
