@@ -31,7 +31,7 @@ export class PermissionsListModalComponent extends BaseResourceListModalComponen
   modelMeta: any = Permission.meta();
 
   selectPermission(items: any[] | Permission[]) {
-    this.item = items[0];
+    this.item = items ? items[0] : null;
     this.items = items;
   }
 }

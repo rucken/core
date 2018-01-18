@@ -31,7 +31,7 @@ export class GroupsListModalComponent extends BaseResourceListModalComponent {
   modelMeta: any = Group.meta();
 
   selectGroup(items: any[] | Group[]) {
-    this.item = items[0];
+    this.item = items ? items[0] : null;
     this.items = items;
   }
 }
