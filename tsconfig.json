@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "sourceMap": true,
+    "moduleResolution": "node",
     "noStrictGenericChecks": true,
     "newLine": "LF",
     "lib": [
       "es2016",
       "dom"
     ],
-    "outDir": "../out-tsc/app",
+    "outDir": "../.tmp",
     "target": "es5",
     "module": "commonjs",
     "baseUrl": "",
