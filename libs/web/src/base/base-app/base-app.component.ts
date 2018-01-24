@@ -33,7 +33,7 @@ export class BaseAppComponent extends BaseComponent {
     title: translate('English'),
     dic: null
   }];
-  currentLang: string | null = null;
+  currentLang?: string;
   defaultLang = 'en';
   autoLoadLang = true;
   errorModalOpened = false;
@@ -61,12 +61,12 @@ export class BaseAppComponent extends BaseComponent {
   loadLang() {
     this.translateService.addLangs(this.languages.map(lang => lang.code));
     this.translateService.setDefaultLang(this.defaultLang);
-    this.languages.filter(lang => lang.dic).map(lang => this.translateService.setTranslation(lang.code, lang.dic));
+    this.languages.filter(lang => lang.dic).map((lang: any) => this.translateService.setTranslation(lang.code, lang.dic));
     const browserLang: string = this.translateService.getBrowserLang();
     if (this.languages.filter(lang => lang.code === browserLang).length > 0 && !this.currentLang) {
       this.currentLanguage = browserLang;
     } else {
-      this.currentLanguage = this.currentLang;
+      this.currentLanguage = this.currentLang ? this.currentLang : 'en';
     }
     this.sharedService.linkTranslateService();
   }

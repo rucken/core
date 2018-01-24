@@ -69,7 +69,7 @@ export class SelectInputComponent extends BaseComponent {
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  width: string = null;
+  width?: string;
   @Input()
   dataSource: Subject<any[]>;
   @Input()

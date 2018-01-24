@@ -39,7 +39,7 @@ import { DemoHttpHelper } from './shared/helpers/http.helper';
     DemoAppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'demo' }),
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
@@ -48,7 +48,7 @@ import { DemoHttpHelper } from './shared/helpers/http.helper';
     SharedModule.forRoot(),
     AlertModalModule.forRoot(),
     DemoNavbarModule.forRoot(),
-    RouterModule.forRoot(DemoRoutes, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(DemoRoutes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' })
   ],
   providers: [
     ComponentLoaderFactory,

@@ -21,7 +21,7 @@ export class EndpointHelper {
   get mockApiUrl() {
     return '/api';
   }
-  actionUrl(endpointService: any, action: any, data: any, customUrl?: string) {
+  actionUrl(endpointService: any, action: any, data: any, customUrl: string | null) {
     let url: string = endpointService.apiUrl;
     if (customUrl) {
       url = customUrl;
@@ -40,7 +40,7 @@ export class EndpointHelper {
     return url;
   }
   actionRequest(endpointService: any, action?: any, data?: any, direct?: boolean): Observable<Response> {
-    return this.httpHelper.post(this.actionUrl(endpointService, action, null), this.actionRequestBody(endpointService, action, data));
+    return this.httpHelper.post(this.actionUrl(endpointService, action, null, null), this.actionRequestBody(endpointService, action, data));
   }
   actionRequestBody(endpointService: any, action?: any, data?: any) {
     if (!data) {

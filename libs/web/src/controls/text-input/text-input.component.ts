@@ -42,7 +42,7 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   model = '';
   @Input()
-  hardValue: string = null;
+  hardValue?: string;
   @Output()
   modelChange: EventEmitter<string> = new EventEmitter<string>();
   @Input()
@@ -56,9 +56,9 @@ export class TextInputComponent extends BaseComponent {
   @Input()
   max = '';
   @Input()
-  minDate?: Date = null;
+  minDate?: Date;
   @Input()
-  maxDate?: Date = null;
+  maxDate?: Date;
   @Input()
   isNativeDateInput?: boolean;
   @Input()

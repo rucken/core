@@ -39,7 +39,7 @@ export class UserGroupsGridComponent extends BaseResourcesGridComponent {
   @Input()
   readonly?: boolean;
   @Input()
-  hardReadonly = false;
+  hardReadonly?= false;
 
   modelMeta: any = UserGroup.meta();
   items: UserGroup[];

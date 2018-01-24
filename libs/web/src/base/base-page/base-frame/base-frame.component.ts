@@ -37,10 +37,10 @@ export class BaseFrameComponent extends BaseComponent {
     }
   }
   initTitle() {
-    let frameTitle: string;
+    let frameTitle = '';
     if (this.name === undefined && this.activatedRoute.snapshot.data.name) {
       this.name = this.activatedRoute.snapshot.data.name;
-      this.app.currentFrameName = this.name;
+      this.app.currentFrameName = this.name ? this.name : '';
     }
     if (this.title === undefined) {
       if (this.activatedRoute.snapshot.data.title) {

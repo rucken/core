@@ -45,8 +45,8 @@ export class GroupModalComponent extends BaseResourceModalComponent {
   }
 
   ok() {
-    this.item.permissions =
-      this.groupPermissions.mockedItems.map((groupPermission: GroupPermission) => groupPermission.permission);
+    this.item.permissions = this.groupPermissions.mockedItems ?
+      this.groupPermissions.mockedItems.map((groupPermission: GroupPermission) => groupPermission.permission) : [];
     return super.ok();
   }
 }

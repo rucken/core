@@ -48,8 +48,8 @@ export class UserModalComponent extends BaseResourceModalComponent {
   }
   ok() {
     if (this.userGroups) {
-      this.item.groups =
-        this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+      this.item.groups = this.userGroups.mockedItems ?
+        this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group) : [];
     }
     return super.ok();
   }
