@@ -55,7 +55,6 @@ export class BaseAppComponent extends BaseComponent {
     if (this.autoLoadLang === true) {
       this.loadLang();
     }
-    this.sharedService.linkTranslateService();
   }
   // todo: move to app service
   loadLang() {
@@ -68,7 +67,6 @@ export class BaseAppComponent extends BaseComponent {
     } else {
       this.currentLanguage = this.currentLang ? this.currentLang : 'en';
     }
-    this.sharedService.linkTranslateService();
   }
   get currentLanguage() {
     return this.translateService.currentLang;

@@ -16,6 +16,8 @@ export class BaseFrameComponent extends BaseComponent {
 
   @Input()
   title?: string;
+  @Input()
+  customTitle?: string;
 
   activatedRoute: ActivatedRoute;
   router: Router;
@@ -29,7 +31,6 @@ export class BaseFrameComponent extends BaseComponent {
   }
   afterCreate() {
     super.afterCreate();
-    this.sharedService.linkTranslateService();
     this.translateService.onLangChange.pipe(takeUntil(this.destroyed$)).subscribe(() => this.initTitle());
     this.app.onCurrentPageTitle.pipe(takeUntil(this.destroyed$)).subscribe(() => this.initTitle());
     if (this.accountService) {
@@ -42,17 +43,19 @@ export class BaseFrameComponent extends BaseComponent {
       this.name = this.activatedRoute.snapshot.data.name;
       this.app.currentFrameName = this.name ? this.name : '';
     }
-    if (this.title === undefined) {
+    if (this.customTitle === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
-        frameTitle = this.translateService.instant(this.activatedRoute.snapshot.data.title);
+        frameTitle = this.activatedRoute.snapshot.data.title;
       } else {
         if (this.name) {
-          frameTitle = this.translateService.instant(_.upperFirst(this.name));
+          frameTitle = _.upperFirst(this.name);
         }
       }
-      frameTitle = `${this.app.currentPageTitle}: ${frameTitle}`;
       this.app.currentFrameTitle = frameTitle;
-      this.title = frameTitle;
+      this.title =
+        `${this.translateService.instant(this.app.currentPageTitle)}: ${this.translateService.instant(frameTitle)}`;
+    } else {
+      this.title = this.customTitle;
     }
   }
   init() {

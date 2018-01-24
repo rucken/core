@@ -2,7 +2,6 @@ import { Component, ElementRef, EventEmitter, Injector, Input, Output, ViewChild
 import { ChangeDetectorRef } from '@angular/core';
 import * as lodashImported from 'lodash'; const _ = lodashImported;
 import * as momentImported from 'moment'; const moment = momentImported;
-import { getLocale } from 'ngx-bootstrap/bs-moment/locale/locales.service';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { TooltipDirective } from 'ngx-bootstrap/tooltip';
 import createNumberMask from 'text-mask-addons/dist/createNumberMask';
@@ -10,6 +9,7 @@ import emailMask from 'text-mask-addons/dist/emailMask';
 
 import { BaseComponent } from './../../base/base-component/base-component.component';
 import { TextInputConfig } from './text-input.config';
+import { getLocale } from 'ngx-bootstrap/chronos/locale/locales';
 
 @Component({
   selector: 'text-input',

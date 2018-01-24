@@ -15,6 +15,7 @@ export class AuthGuardService implements CanActivate {
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if (
+      this.app.component &&
       !this.accountService.account &&
       this.accountService.status !== EndpointStatusEnum.Loading
     ) {

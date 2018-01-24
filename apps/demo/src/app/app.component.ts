@@ -3,8 +3,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { RuckenCoreRuI18n, translate } from '@rucken/core';
 import { AlertModalComponent, BaseAppComponent, RuckenWebRuI18n } from '@rucken/web';
 import * as lodashImported from 'lodash'; const _ = lodashImported;
-import { defineLocale } from 'ngx-bootstrap/bs-moment';
-import { enGb, ru } from 'ngx-bootstrap/locale';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { takeUntil } from 'rxjs/operators';
 
 import { DemoRuI18n } from './i18n/ru.i18n';
@@ -12,8 +12,8 @@ import { DemoRuI18n } from './i18n/ru.i18n';
 import { PLATFORM_ID, Inject } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
-defineLocale('ru', ru);
-defineLocale('en', enGb);
+defineLocale('ru', ruLocale);
+defineLocale('en', enGbLocale);
 
 @Component({
   selector: 'demo-root',
