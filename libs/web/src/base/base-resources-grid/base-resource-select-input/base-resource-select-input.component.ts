@@ -47,7 +47,7 @@ export class BaseResourceSelectInputComponent extends BaseResourcesListComponent
   @Input()
   select?: boolean;
   @Input()
-  width: string = null;
+  width?: string;
 
   config: BaseResourceSelectInputConfig;
 
@@ -57,7 +57,7 @@ export class BaseResourceSelectInputComponent extends BaseResourcesListComponent
     return this.model;
   }
   set value(val) {
-    if (this.errorsValue && this.errorsValue[this.name]) {
+    if (this.errorsValue && this.name && this.errorsValue[this.name]) {
       delete this.errorsValue[this.name];
       this.tooltipText = '';
     }

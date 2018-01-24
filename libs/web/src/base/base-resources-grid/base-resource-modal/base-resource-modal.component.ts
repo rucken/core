@@ -9,7 +9,7 @@ import { BaseModalComponent } from './../../base-modal/base-modal.component';
 export class BaseResourceModalComponent extends BaseModalComponent {
 
   @Input()
-  readonly = false;
+  readonly?= false;
   @Input()
   item: any = {};
   @Input()

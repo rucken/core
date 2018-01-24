@@ -12,7 +12,7 @@ export class Permission extends BaseResourceModel {
   static fields: any = ['id', 'contentType', 'title', 'name'];
 
   id: number;
-  contentType: ContentType;
+  contentType?: ContentType;
   title: string;
   name: string;
 
@@ -26,7 +26,7 @@ export class Permission extends BaseResourceModel {
   }
   parse(obj: any) {
     this.parseByFields(obj, Permission.meta());
-    this.contentType = obj.contentType ? new ContentType(obj.contentType) : null;
+    this.contentType = obj.contentType ? new ContentType(obj.contentType) : undefined;
   }
   format() {
     const result = this.formatByFields(Permission.meta());

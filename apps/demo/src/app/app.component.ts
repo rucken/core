@@ -3,14 +3,17 @@ import { NavigationEnd, Router } from '@angular/router';
 import { RuckenCoreRuI18n, translate } from '@rucken/core';
 import { AlertModalComponent, BaseAppComponent, RuckenWebRuI18n } from '@rucken/web';
 import * as lodashImported from 'lodash'; const _ = lodashImported;
-import { defineLocale } from 'ngx-bootstrap/bs-moment';
-import { enGb, ru } from 'ngx-bootstrap/locale';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { takeUntil } from 'rxjs/operators';
 
 import { DemoRuI18n } from './i18n/ru.i18n';
 
-defineLocale('ru', ru);
-defineLocale('en', enGb);
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+
+defineLocale('ru', ruLocale);
+defineLocale('en', enGbLocale);
 
 @Component({
   selector: 'demo-root',
@@ -32,6 +35,7 @@ export class DemoAppComponent extends BaseAppComponent {
   currentLang = 'en';
 
   constructor(
+    @Inject(PLATFORM_ID) public platformId: Object,
     public injector: Injector,
     public viewContainerRef: ViewContainerRef,
     public resolver: ComponentFactoryResolver,
@@ -39,19 +43,12 @@ export class DemoAppComponent extends BaseAppComponent {
   ) {
     super(injector, viewContainerRef, resolver);
     router.events.pipe(takeUntil(this.destroyed$)).subscribe((evt) => {
-      if (evt instanceof NavigationEnd) {
-        document.body.scrollTop = 0;
+      if (isPlatformBrowser(this.platformId)) {
+        const doc = (document as any);
+        if (doc && evt instanceof NavigationEnd) {
+          doc.body.scrollTop = 0;
+        }
       }
     });
-  }
-  init() {
-    super.init();
-    try {
-      if (window && window['loading_screen'] && window['loading_screen'].finish !== false) {
-        window['loading_screen'].finish();
-      }
-    } catch (error) {
-
-    }
   }
 }

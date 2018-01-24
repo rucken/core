@@ -14,7 +14,11 @@ export class AuthGuardService implements CanActivate {
 
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    if (!this.accountService.account && this.accountService.status !== EndpointStatusEnum.Loading) {
+    if (
+      this.app.component &&
+      !this.accountService.account &&
+      this.accountService.status !== EndpointStatusEnum.Loading
+    ) {
       this.app.component.showErrorModal(
         this.translateService.instant('You are not logged in')
       );

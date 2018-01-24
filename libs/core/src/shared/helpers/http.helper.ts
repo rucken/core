@@ -24,7 +24,7 @@ export class HttpHelper {
     return { headers: new HttpHeaders(headers), withCredentials: this.withCredentials };
   }
   getAuthRequestOptions() {
-    const headers = { 'Content-Type': 'application/json' };
+    const headers: any = { 'Content-Type': 'application/json' };
     headers[this.tokenService.headerName] = `${this.tokenService.headerPrefix} ${this.tokenService.get()}`;
     return { headers: new HttpHeaders(headers), withCredentials: this.withCredentials };
   }

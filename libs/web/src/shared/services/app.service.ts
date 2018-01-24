@@ -1,28 +1,53 @@
-import { ComponentFactoryResolver, Injectable } from '@angular/core';
+import { ComponentFactoryResolver, Injectable, Inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AppService } from '@rucken/core';
+import { PLATFORM_ID, Injector } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Meta } from '@angular/platform-browser';
 
 @Injectable()
 export class WebAppService extends AppService {
 
+  component: any;
   translateService: TranslateService;
 
+  constructor(
+    @Inject(PLATFORM_ID) public platformId: Object,
+    public injector: Injector
+  ) {
+    super();
+    this.translateService = injector.get(TranslateService);
+  }
   set localVersion(value: string) {
-    localStorage.setItem('version', value);
+    if (isPlatformBrowser(this.platformId)) {
+      if (localStorage && value) {
+        localStorage.setItem('version', value);
+      }
+    }
   }
   get localVersion(): string {
-    if (localStorage.getItem('version')) {
-      return localStorage.getItem('version');
+    if (isPlatformBrowser(this.platformId)) {
+      if (
+        localStorage &&
+        localStorage.getItem('version')
+      ) {
+        return (localStorage.getItem('version') as string);
+      }
     }
     return '';
   }
   get currentVersion() {
     let ver = 'none';
-    const metaList = document.getElementsByTagName('meta');
-    for (let i = 0; i < metaList.length; i++) {
-      const meta = metaList[i];
-      if (meta.getAttribute('name') !== null && meta.getAttribute('name').indexOf('version') === 0) {
-        ver = meta.getAttribute('content');
+    if (isPlatformBrowser(this.platformId)) {
+      const metaList = document.getElementsByTagName('meta');
+      for (let i = 0; i < metaList.length; i++) {
+        const meta = metaList[i];
+        if (
+          meta.getAttribute('name') !== null &&
+          (meta.getAttribute('name') as string).indexOf('version') === 0
+        ) {
+          ver = (meta.getAttribute('content') as string);
+        }
       }
     }
     return ver;
@@ -34,7 +59,10 @@ export class WebAppService extends AppService {
         return vm._createdModals[name] !== undefined;
       },
       create(modal: { new(): any }, name?: string): any {
-        const inModal = document.body.classList.contains('modal-open');
+        let inModal: boolean;
+        if (isPlatformBrowser(this.platformId)) {
+          inModal = document.body.classList.contains('modal-open');
+        }
         const factory = resolver.resolveComponentFactory(modal);
         const ref = vm.viewContainerRef.createComponent(factory);
         if (name !== undefined) {
@@ -47,8 +75,10 @@ export class WebAppService extends AppService {
           if (name !== undefined) {
             delete vm._createdModals[name];
           }
-          if (inModal && !document.body.classList.contains('modal-open')) {
-            document.body.classList.add('modal-open');
+          if (isPlatformBrowser(this.platformId)) {
+            if (inModal && !document.body.classList.contains('modal-open')) {
+              document.body.classList.add('modal-open');
+            }
           }
         });
         ref.instance.modal.config = {};
