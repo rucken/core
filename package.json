@@ -62,7 +62,7 @@
     "test": "npm-run-all lint app:build-full_prod",
     "e2e": "ng e2e --app=demo --preserve-symlinks",
     "build": "npm-run-all app:build-full_prod",
-    "start": "npm-run-all app:start-mockapi",
+    "start": "npm-run-all ssr:start",
     "gh:build-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href https://rucken.github.io/core/ --prod --env=mockapi --build-optimizer",
     "gh:build": "npm-run-all clear prepare format libs:build libs:link gh:build-mockapi",
     "gh:deploy": "gh-pages -d apps/demo/dist",
@@ -70,8 +70,12 @@
     "ssr:build-mockapi": "npm run ssr:client-and-server-bundles-mockapi && npm run ssr:webpack-server",
     "ssr:client-and-server-bundles-mockapi": "npm run app:build-mono_mockapi && npm run ssr:build-server-mockapi",
     "ssr:webpack-server": "webpack --config webpack.server.config.js --progress --colors",
-    "ssr:start": "node ./server.js"
+    "ssr:start": "node ./server.js",
+    "heroku-postbuild": "npm-run-all ssr:build-mockapi"
   },
+  "cacheDirectories": [
+    "node_modules"
+  ],
   "dependencies": {
     "@angular/animations": "5.2.1",
     "@angular/common": "5.2.1",
