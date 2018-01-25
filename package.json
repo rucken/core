@@ -27,7 +27,8 @@
     "web application",
     "seed",
     "i18n",
-    "bootstrap"
+    "bootstrap",
+    "ssr"
   ],
   "maintainers": [
     {

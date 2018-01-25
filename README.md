@@ -37,6 +37,8 @@ npm start
 
 [Demo](https://rucken.github.io/core) - Demo application with mock data worked.
 
+[Demo (SSR)](https://rucken.herokuapp.com) - Demo application with server side rendering.
+
 [Demo source](https://github.com/rucken/core/tree/master/apps/demo) - Source code of demo application.
 
 ## Sample projects
@@ -46,10 +48,6 @@ npm start
 [Rucken: Demo (NestJS)](https://github.com/rucken/core-nestjs) - Simple application demonstrating the basic usage of permissions with NestJS (JWT, PasswordHash, User, Group, Permission, ContentType) (backend: NestJS).
 
 [Rucken: Todo (Django)](https://github.com/rucken/todo-django) - Simple todo application with: auth, groups, permissions, projects, tasks, statuses (backend: Django + plugins).
-
-[Rucken: Todo (NativeScript)](https://github.com/rucken/todo-nativescript) - Simple todo nativescript application with: projects, tasks, statuses (backend: Django + plugins).
-
-[Rucken: Todo (Electron)](https://github.com/rucken/todo-electron) - Simple todo electron application with: projects, tasks, statuses (backend: Django + plugins).
 
 ## License
 
