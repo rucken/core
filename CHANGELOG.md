@@ -1,3 +1,13 @@
+<a name="1.30.4"></a>
+## [1.30.4](https://github.com/rucken/core/compare/1.30.3...1.30.4) (2018-01-25)
+
+
+### Bug Fixes
+
+* **package:** Add copy index.html to 404.html for "gh:deploy" script ([d41a782](https://github.com/rucken/core/commit/d41a782))
+
+
+
 <a name="1.30.3"></a>
 ## [1.30.3](https://github.com/rucken/core/compare/1.30.2...1.30.3) (2018-01-25)
 
