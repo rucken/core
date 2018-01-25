@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "1.30.3",
+  "version": "1.30.4",
   "license": "MIT",
   "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
@@ -65,7 +65,7 @@
     "start": "npm-run-all ssr:start",
     "gh:build-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href https://rucken.github.io/core/ --prod --env=mockapi --build-optimizer --no-sourcemap",
     "gh:build": "npm-run-all clear prepare format libs:build libs:link gh:build-mockapi",
-    "gh:deploy": "cp-cli ./apps/demo/dist/browser/index.html ./apps/demo/dist/browser/404.html",
+    "gh:deploy": "cp-cli ./apps/demo/dist/browser/index.html ./apps/demo/dist/browser/404.html && gh-pages -d apps/demo/dist/browser",
     "ssr:build-server-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo-server --preserve-symlinks --prod --env=mockapi --output-hashing=false",
     "ssr:build-mockapi": "npm run ssr:client-and-server-bundles-mockapi && npm run ssr:webpack-server",
     "ssr:client-and-server-bundles-mockapi": "npm run app:build-mono_mockapi && npm run ssr:build-server-mockapi",
