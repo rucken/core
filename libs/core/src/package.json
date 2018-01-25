@@ -13,12 +13,12 @@
         "core"
     ],
     "peerDependencies": {
-        "@angular/common": "5.2.1",
-        "@angular/compiler": "5.2.1",
-        "@angular/core": "5.2.1"
+        "@angular/common": "5.2.2",
+        "@angular/compiler": "5.2.2",
+        "@angular/core": "5.2.2"
     },
     "dependencies": {
-        "@types/lodash": "^4.14.95",
+        "@types/lodash": "^4.14.96",
         "lodash": "^4.17.4",
         "moment": "^2.20.1"
     }
