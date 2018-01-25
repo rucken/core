@@ -4,7 +4,7 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Core with base class and admin entities for application maked on Angular5+
+Core with Admin UI for web and native application maked on Angular5+
 
 ## What is Rucken?
 
@@ -19,23 +19,33 @@ Core with base class and admin entities for application maked on Angular5+
 - Read [README.md](https://github.com/rucken/todo-web/blob/master/README.md) for run application
 - Modify app for your business logic
 
-#### Quick links
+## Create empty application with [@ruken/cli](https://github.com/rucken/cli)
+
+```
+npm install -g @rucken/cli
+rucken new my-app
+cd my-app
+npm install
+npm start
+```
+
+## Quick links
 
 [Source](https://github.com/rucken/core) - Source code.
 
 [Demo](https://rucken.github.io/core) - Demo application with mock data worked.
 
-[Demo source](https://github.com/rucken/core/tree/master/demo) - Source code of demo application.
+[Demo (SSR)](https://rucken.herokuapp.com) - Demo application with server side rendering.
 
-#### Sample projects
+[Demo source](https://github.com/rucken/core/tree/master/apps/demo) - Source code of demo application.
+
+## Sample projects
 
 [Rucken: Todo](https://github.com/rucken/todo-web) - Simple todo application with: projects, tasks, statuses (backend: http://mockapi.io).
 
+[Rucken: Demo (NestJS)](https://github.com/rucken/core-nestjs) - Simple application demonstrating the basic usage of permissions with NestJS (JWT, PasswordHash, User, Group, Permission, ContentType) (backend: NestJS).
+
 [Rucken: Todo (Django)](https://github.com/rucken/todo-django) - Simple todo application with: auth, groups, permissions, projects, tasks, statuses (backend: Django + plugins).
-
-[Rucken: Todo (NativeScript)](https://github.com/rucken/todo-nativescript) - Simple todo nativescript application with: projects, tasks, statuses (backend: Django + plugins).
-
-[Rucken: Todo (Electron)](https://github.com/rucken/todo-electron) - Simple todo electron application with: projects, tasks, statuses (backend: Django + plugins).
 
 ## License
 
@@ -45,8 +55,8 @@ MIT
 [travis-url]: https://travis-ci.org/rucken/core
 [gitter-image]: https://img.shields.io/gitter/room/rucken/core.js.svg
 [gitter-url]: https://gitter.im/rucken/core
-[npm-image]: https://badge.fury.io/js/%40rucken%2Fcore.svg
-[npm-url]: https://npmjs.org/package/@rucken/core
+[npm-image]: https://badge.fury.io/js/%40rucken%2Fweb.svg
+[npm-url]: https://npmjs.org/package/@rucken/web
 [dependencies-image]: https://david-dm.org/rucken/core/status.svg
 [dependencies-url]: https://david-dm.org/rucken/core
 [telegram-image]: https://img.shields.io/badge/chat-telegram-blue.svg?maxAge=2592000
