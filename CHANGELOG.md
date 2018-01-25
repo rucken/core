@@ -1,3 +1,18 @@
+<a name="1.30.3"></a>
+## [1.30.3](https://github.com/rucken/core/compare/1.30.2...1.30.3) (2018-01-25)
+
+
+### Bug Fixes
+
+* **assets:** Remove no used assets ([f984785](https://github.com/rucken/core/commit/f984785))
+* **deps:** Update dependencies and change sources for it ([e863c2b](https://github.com/rucken/core/commit/e863c2b))
+* **links:** Add javascript:void(0) to links without href ([f958625](https://github.com/rucken/core/commit/f958625))
+* **modals:** Fix errors on get item from null array ([89f7f20](https://github.com/rucken/core/commit/89f7f20))
+* **ssr:** Add basic support ssr ([480efe0](https://github.com/rucken/core/commit/480efe0))
+* **tsconfigs:** Update tsconfig ([69b8157](https://github.com/rucken/core/commit/69b8157))
+
+
+
 <a name="1.30.2"></a>
 ## [1.30.2](https://github.com/rucken/core/compare/1.30.1...1.30.2) (2018-01-17)
 
