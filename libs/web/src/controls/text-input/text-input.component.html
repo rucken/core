@@ -32,5 +32,5 @@
 <ng-template #date>
   <input type="text" class="form-control" [minDate]="minDate" [bsConfig]="bsDatepickerConfig" [maxDate]="maxDate" bsDatepicker
     [(bsValue)]="dateValue" [textMask]="inputDateMask" [ngClass]="inputClass" [attr.id]="'input'+name" [attr.name]="'input'+name"
-    [attr.placeholder]="placeholder" [readonly]="true" #inputElement/>
+    [attr.placeholder]="placeholder" [readonly]="readonly" #inputElement/>
 </ng-template>

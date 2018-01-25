@@ -31,7 +31,7 @@ export class UsersListModalComponent extends BaseResourceListModalComponent {
   modelMeta: any = User.meta();
 
   selectUser(items: any[] | User[]) {
-    this.item = items[0];
+    this.item = items ? items[0] : null;
     this.items = items;
   }
 }

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { EndpointStatusEnum, User } from '@rucken/core';
+import { User } from '@rucken/core';
 import { takeUntil } from 'rxjs/operators';
 
 import { AccountProfileFormComponent } from '../../../grids/users-grid/account-profile-form/account-profile-form.component';

@@ -31,7 +31,7 @@ export class FontawesomesListModalComponent extends BaseResourceListModalCompone
   modelMeta: any = Fontawesome.meta();
 
   selectFontawesome(items: any[] | Fontawesome[]) {
-    this.item = items[0];
+    this.item = items ? items[0] : null;
     this.items = items;
   }
 }

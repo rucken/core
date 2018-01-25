@@ -7,7 +7,7 @@
     {
       "name": "demo",
       "root": "./apps/demo/src",
-      "outDir": "./apps/demo/dist",
+      "outDir": "./apps/demo/dist/browser",
       "assets": [
         "assets",
         "favicon.ico"
@@ -17,6 +17,32 @@
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "styles": [
+        "styles.scss"
+      ],
+      "scripts": [],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts",
+        "mockapi": "environments/environment.mockapi.ts"
+      }
+    },
+    {
+      "name": "demo-server",
+      "platform": "server",
+      "root": "./apps/demo/src",
+      "outDir": "./apps/demo/dist/server",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.server.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.server.json",
       "prefix": "app",
       "styles": [
         "styles.scss"

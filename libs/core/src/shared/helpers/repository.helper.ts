@@ -30,7 +30,7 @@ export class RepositoryHelper {
   }
   itemUrl(repositoryService: any, key: any, data: any, action: string): string {
     let url = repositoryService.apiUrl;
-    let customUrl: string;
+    let customUrl: string | null = null;
     if (action && repositoryService.getApiUrl) {
       customUrl = repositoryService.getApiUrl(action, key, data);
     }

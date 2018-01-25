@@ -16,6 +16,8 @@ export class BasePageComponent extends BaseComponent {
   @Input()
   title?: string;
   @Input()
+  customTitle?: string;
+  @Input()
   searchTextValue = '';
 
   activatedRoute: ActivatedRoute;
@@ -32,7 +34,6 @@ export class BasePageComponent extends BaseComponent {
   }
   afterCreate() {
     super.afterCreate();
-    this.sharedService.linkTranslateService();
     this.translateService.onLangChange.pipe(takeUntil(this.destroyed$)).subscribe(() => {
       this.initTitle();
       this.initChildrenRoutes();
@@ -55,16 +56,18 @@ export class BasePageComponent extends BaseComponent {
       this.name = this.activatedRoute.snapshot.data.name;
       this.app.currentPageName = this.activatedRoute.snapshot.data.name;
     }
-    if (this.title === undefined) {
+    if (this.customTitle === undefined) {
       if (this.activatedRoute.snapshot.data.title) {
-        pageTitle = this.translateService.instant(this.activatedRoute.snapshot.data.title);
+        pageTitle = this.activatedRoute.snapshot.data.title;
       } else {
         if (this.name) {
-          pageTitle = this.translateService.instant(_.upperFirst(this.name));
+          pageTitle = _.upperFirst(this.name);
         }
       }
       this.app.currentPageTitle = pageTitle;
-      this.title = pageTitle;
+      this.title = this.translateService.instant(pageTitle);
+    } else {
+      this.title = this.customTitle;
     }
   }
   initChildrenRoutes() {

@@ -69,7 +69,7 @@ export class SelectInputComponent extends BaseComponent {
   @Output()
   modelChange: EventEmitter<any> = new EventEmitter<any>();
   @Input()
-  width: string = null;
+  width?: string;
   @Input()
   dataSource: Subject<any[]>;
   @Input()
@@ -118,6 +118,8 @@ export class SelectInputComponent extends BaseComponent {
     this.config = injector.get(SelectInputConfig);
   }
   afterCreate() {
+    super.afterCreate();
+
     if (this.tooltipEnable === undefined) {
       this.tooltipEnable = this.config.errorInTooltip;
     }

@@ -31,7 +31,7 @@ export class ContentTypesListModalComponent extends BaseResourceListModalCompone
   modelMeta: any = ContentType.meta();
 
   selectContentType(items: any[] | ContentType[]) {
-    this.item = items[0];
+    this.item = items ? items[0] : null;
     this.items = items;
   }
 }

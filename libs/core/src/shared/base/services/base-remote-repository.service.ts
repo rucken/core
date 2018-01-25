@@ -18,7 +18,7 @@ export class BaseRemoteRepositoryService extends BaseLocalRepositoryService {
   props: any = null;
   apiUrlWithProps: string;
   apiUrl: string;
-  ignoreCache: boolean;
+  ignoreCache?: boolean;
   queryProps: any;
   statusListMessage: string;
   statusItemMessage: string;

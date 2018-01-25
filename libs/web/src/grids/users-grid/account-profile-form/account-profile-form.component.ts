@@ -65,8 +65,8 @@ export class AccountProfileFormComponent extends BaseModalComponent {
   }
   ok() {
     if (this.userGroups) {
-      this.item.groups =
-        this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group);
+      this.item.groups = this.userGroups.mockedItems ?
+        this.userGroups.mockedItems.map((userGroup: UserGroup) => userGroup.group) : [];
     }
     this.onOk.emit(this.item);
     return false;
