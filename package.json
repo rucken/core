@@ -73,9 +73,6 @@
     "ssr:start": "node ./server.js",
     "heroku-postbuild": "npm-run-all ssr:build-mockapi"
   },
-  "cacheDirectories": [
-    "node_modules"
-  ],
   "dependencies": {
     "@angular/animations": "5.2.2",
     "@angular/common": "5.2.2",
