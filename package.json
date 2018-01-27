@@ -48,6 +48,7 @@
     "app:start-mockapi": "npm-run-all clear prepare format libs:link-npm app:serve-mockapi",
     "app:start-full_dev": "npm-run-all clear prepare format libs:build libs:link app:serve-dev",
     "app:start-full_prod": "npm-run-all clear prepare format libs:build libs:link app:serve-prod",
+    "app:build-mono_prod": "npm-run-all clear prepare format libs:link-npm app:build-prod",
     "app:start-full_mockapi": "npm-run-all clear prepare format libs:build libs:link app:serve-mockapi",
     "app:build-prod": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --prod --build-optimizer --no-sourcemap",
     "app:build-full_prod": "npm-run-all clear prepare format libs:build libs:link app:build-prod",
@@ -69,12 +70,14 @@
     "ssr:build-server-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo-server --preserve-symlinks --prod --env=mockapi --output-hashing=false",
     "ssr:build-mockapi": "npm run ssr:client-and-server-bundles-mockapi && npm run ssr:webpack-server",
     "ssr:client-and-server-bundles-mockapi": "npm run app:build-mono_mockapi && npm run ssr:build-server-mockapi",
+    "ssr:build-server-prod": "node ./node_modules/@angular/cli/bin/ng build --app=demo-server --preserve-symlinks --prod --env=prod --output-hashing=false",
+    "ssr:build-prod": "npm run ssr:client-and-server-bundles-prod && npm run ssr:webpack-server",
+    "ssr:client-and-server-bundles-prod": "npm run app:build-mono_prod && npm run ssr:build-server-prod",
     "ssr:webpack-server": "webpack --config webpack.server.config.js --progress --colors",
     "ssr:start": "node ./server.js",
     "heroku-postbuild": "npm-run-all ssr:build-mockapi"
   },
-  "cacheDirectories": [
-  ],
+  "cacheDirectories": [],
   "dependencies": {
     "@angular/animations": "5.2.2",
     "@angular/common": "5.2.2",
@@ -97,7 +100,6 @@
     "@types/marked": "0.3.0",
     "@types/moment": "^2.13.0",
     "@types/node": "^9.3.0",
-    "@types/requirejs": "^2.1.31",
     "@types/webpack": "^3.8.3",
     "angular2-text-mask": "^8.0.4",
     "awesome-typescript-loader": "^3.4.1",
