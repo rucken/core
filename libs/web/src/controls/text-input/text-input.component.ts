@@ -173,7 +173,7 @@ export class TextInputComponent extends BaseComponent {
     };
   }
   get value() {
-    if (this.hardValue !== null) {
+    if (this.hardValue !== undefined && this.hardValue !== null) {
       return this.hardValue;
     }
     if (this.type === 'date' && !this.isNativeDateInput) {
@@ -190,7 +190,7 @@ export class TextInputComponent extends BaseComponent {
     if (this.type === 'date' && !this.isNativeDateInput) {
       newValue = moment(moment(value, this.inputDateFormat).toDate()).format(this._config.nativeInputDateFormat);
     }
-    if (newValue === 'Invalid date' && !this.model) {
+    if (this.type === 'date' && newValue === 'Invalid date' && !this.model) {
       newValue = this.model;
     }
     if (this.model !== newValue) {
