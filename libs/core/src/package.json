@@ -1,6 +1,6 @@
 {
     "name": "@rucken/core",
-    "version": "1.30.4",
+    "version": "1.30.5",
     "description": "Core with base class and admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
@@ -18,7 +18,7 @@
         "@angular/core": "5.2.2"
     },
     "dependencies": {
-        "@types/lodash": "^4.14.96",
+        "@types/lodash": "^4.14.97",
         "lodash": "^4.17.4",
         "moment": "^2.20.1"
     }
