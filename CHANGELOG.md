@@ -1,3 +1,14 @@
+<a name="1.30.5"></a>
+## [1.30.5](https://github.com/rucken/core/compare/1.30.4...1.30.5) (2018-01-28)
+
+
+### Bug Fixes
+
+* **package:** Remove cacheDirectories ([4a5f5d9](https://github.com/rucken/core/commit/4a5f5d9))
+* **text-input:** Fix update if value is undefined ([0e9a966](https://github.com/rucken/core/commit/0e9a966))
+
+
+
 <a name="1.30.4"></a>
 ## [1.30.4](https://github.com/rucken/core/compare/1.30.3...1.30.4) (2018-01-25)
 

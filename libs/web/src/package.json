@@ -1,6 +1,6 @@
 {
     "name": "@rucken/web",
-    "version": "1.30.4",
+    "version": "1.30.5",
     "description": "Base components, services and ui for admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
@@ -20,7 +20,7 @@
         "angular2-text-mask": "^8.0.4"
     },
     "dependencies": {
-        "@types/lodash": "^4.14.96",
+        "@types/lodash": "^4.14.97",
         "@ngx-translate/core": "^9.1.1",
         "lodash": "^4.17.4",
         "ngx-bootstrap": "^2.0.2",
