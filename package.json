@@ -102,7 +102,7 @@
     "@types/node": "^9.4.0",
     "@types/webpack": "^3.8.4",
     "angular2-text-mask": "^8.0.4",
-    "awesome-typescript-loader": "^3.4.1",
+    "awesome-typescript-loader": "^4.0.0",
     "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.3",
     "intl": "^1.2.5",
