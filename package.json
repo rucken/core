@@ -100,7 +100,7 @@
     "@types/marked": "0.3.0",
     "@types/moment": "^2.13.0",
     "@types/node": "^9.4.0",
-    "@types/webpack": "^3.8.4",
+    "@types/webpack": "^4.0.0",
     "angular2-text-mask": "^8.0.4",
     "awesome-typescript-loader": "^3.4.1",
     "classlist.js": "^1.1.20150312",
