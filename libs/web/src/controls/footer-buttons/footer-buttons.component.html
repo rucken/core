@@ -1,8 +1,0 @@
-<div class="footer-buttons">
-  <button type="button" class="btn" [ngClass]="[closeBtnClass]" (click)="close()" *ngIf="!closeHidden">{{(readonly?'Close':closeTitle) | translate}}</button>
-  <button type="button" class="btn" [ngClass]="[okBtnClass,okInProcess?'disabled':'']" (click)="ok()" *ngIf="!readonly" #inputElement>
-    <i class="fa fa-spinner fa-pulse fa-fw" *ngIf="okInProcess"></i>
-    {{okTitle | translate}}
-  </button>
-  <button type="submit" class="hidden"></button>
-</div>

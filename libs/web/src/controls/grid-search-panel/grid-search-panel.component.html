@@ -1,9 +1,0 @@
-<form (ngSubmit)="search()" class="form-inline">
-    <div class="input-group">
-        <input type="search" class="form-control" id="inputSearchText" name="inputSearchText" placeholder="" [(ngModel)]="searchTextValue"
-            [attr.maxlength]="maxlength">
-        <span class="input-group-btn">
-            <button (click)="search()" class="btn btn-info" type="button">{{searchTitle | translate}}</button>
-        </span>
-    </div>
-</form>

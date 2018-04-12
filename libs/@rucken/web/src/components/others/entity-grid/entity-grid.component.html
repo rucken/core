@@ -1,0 +1,135 @@
+<div class="entity-grid-header">
+  <span #headerRef>
+    <ng-content select="[entityGridHeader]"></ng-content>
+  </span>
+  <span *ngIf="headerRef.children.length == 0">
+    <div *ngIf="!isAppendFromGridMode">
+      <div class="row" *ngIf="isEnableCreate">
+        <div class="col-sm-4">
+          <button type="button" class="pull-left" [ngClass]="createClass" (click)="onCreate()">
+            <span class="fa fa-plus"></span> {{ createTitle | translate }}
+          </button>
+        </div>
+        <div class="col-sm-8">
+          <form class="form-inline pull-right">
+            <ng-container *ngTemplateOutlet="searchFieldTemplate"></ng-container>
+          </form>
+        </div>
+      </div>
+      <div class="row" *ngIf="!isEnableCreate">
+        <div class="col-sm-12">
+          <form>
+            <ng-container *ngTemplateOutlet="searchFieldTemplate"></ng-container>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isAppendFromGridMode">
+      <div class="row" *ngIf="isEnableAppendFromGrid">
+        <div class="col-sm-8">
+          <h4>{{title | translate}}</h4>
+        </div>
+        <div class="col-sm-4">
+          <button type="button" class="btn btn-success pull-right" (click)="onAppendFromGrid()">
+            <span class="fa fa-plus"></span> {{ 'Append' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="row" *ngIf="!isEnableAppendFromGrid">
+        <div class="col-sm-12">
+          <h4>{{title | translate}}</h4>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
+<div class="entity-grid">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th *ngFor="let col of columns" class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:''}}" [ngClass]="{'text-center':col==='action','width-100': enableUpdateAndDelete && col==='action','width-50': enableOnlyUpdateOrDelete && col==='action'}">
+          <ng-container *ngTemplateOutlet="gridFieldTemplate ? gridFieldTemplate : defaultGridFieldTemplate, context: { $implicit: {field:{name:col}} }"></ng-container>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngIf="!processing && (!items || !items.length)">
+        <td [attr.colspan]="columns.length" class="text-center" translate>No data</td>
+      </tr>
+      <tr *ngIf="processing">
+        <td [attr.colspan]="columns.length" class="text-center" translate>
+          <i class="fa fa-spinner fa-pulse fa-fw" *ngIf="processing"></i> Loading...
+        </td>
+      </tr>
+      <tr *ngFor="let item of items; trackBy: trackByFn;" (dblclick)="onDblClick(item)" [ngClass]="{'info':isSelected(item)}">
+        <td *ngFor="let col of columns" (click)="clearSelected();toggle(item);" [ngClass]="{'text-center':col==='action'}">
+          <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {field:{name:col},item:item} }"></ng-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="entity-grid-footer">
+  <span #footerRef>
+    <ng-content select="[entityGridFooter]"></ng-content>
+  </span>
+  <span *ngIf="footerRef.children.length == 0">
+    <div class="row">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-9">
+        <div class="pull-right" *ngIf="paginationMeta && (paginationMeta.totalPages>1 || paginationMeta.totalResults>paginationMeta.perPage)">
+          <pagination [directionLinks]="false" [boundaryLinks]="true" [totalItems]="paginationMeta.totalResults" [rotate]="false" [itemsPerPage]="paginationMeta.perPage"
+            (pageChanged)="onChangePage($event)" [maxSize]="paginationMeta.perPage" class="pagination-sm" firstText="&laquo;"
+            lastText="&raquo;"></pagination>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>
+<ng-template #defaultGridFieldTemplate let-ctx>
+  <ng-container *ngTemplateOutlet="ctx.field.name==='action' ? gridFieldActionContent : gridFieldContent, context: { $implicit: ctx }"></ng-container>
+</ng-template>
+<ng-template #gridFieldContent let-ctx>
+  <span translate>{{strings[ctx.field.name]}}</span>
+  <div class="pull-right entity-field-buttons" *ngIf="!orderColumns||orderColumns.indexOf(ctx.field.name)!==-1">
+    <button type="button" class="btn btn-link btn-xs" (click)="onChangeOrder(ctx.field.name)">
+      <i class="fa " [ngClass]="{'fa-sort':ctx.field.name!==orderBy && '-'+ctx.field.name!==orderBy,'fa-sort-amount-asc':ctx.field.name===orderBy,'fa-sort-amount-desc':'-'+ctx.field.name===orderBy}"
+        aria-hidden="true"></i>
+    </button>
+  </div>
+</ng-template>
+<ng-template #gridFieldActionContent let-ctx>
+  <span translate>
+    Action
+  </span>
+</ng-template>
+<ng-template #defaultGridCellTemplate let-ctx>
+  <ng-container *ngTemplateOutlet="ctx.field.name==='action' ? gridCellActionContent : (translatedCells.indexOf(ctx.field.name)!==-1?gridCellTranslatedContent:gridCellContent), context: { $implicit: ctx }"></ng-container>
+</ng-template>
+<ng-template #gridCellContent let-ctx>
+  {{ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name]}}
+</ng-template>
+<ng-template #gridCellTranslatedContent let-ctx>
+  {{(ctx.item[ctx.field.name+'AsString'] || ctx.item[ctx.field.name])|customTranslate}}
+</ng-template>
+<ng-template #gridCellActionContent let-ctx>
+  <button type="button" class="btn btn-default btn-sm" (click)="onUpdate(ctx.item)" *ngIf="isEnableUpdate">
+    <span class="fa fa-pencil-square-o"></span>
+  </button>
+  <button type="button" class="btn btn-default btn-sm" (click)="onDelete(ctx.item)" *ngIf="isEnableDelete">
+    <span class="fa fa-remove"></span>
+  </button>
+</ng-template>
+<ng-template #searchFieldTemplate let-ctx>
+  <div class="form-group">
+    <div class="input-group" *ngIf="!readonly">
+      <input type="search" class="form-control" [formControl]="searchField">
+      <span class="input-group-btn">
+        <button class="btn btn-success" (click)="onSearch(searchField.value)" type="button" [disabled]="processing">
+          <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
+  </div>
+</ng-template>

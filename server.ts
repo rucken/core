@@ -6,6 +6,29 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import { readFileSync } from 'fs';
+import * as domino from 'domino';
+import * as compression from 'compression';
+import * as bodyParser from 'body-parser';
+import * as cookieParser from 'cookie-parser';
+
+const PORT = process.env.PORT || 4200;
+const DIST_FOLDER = join(process.cwd(), 'apps', 'demo', 'dist');
+
+// Our index.html we'll use as our template
+const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
+const win = domino.createWindow(template);
+global['window'] = win;
+Object.defineProperty(win.document.body.style, 'transform', {
+  value: () => {
+    return {
+      enumerable: true,
+      configurable: true
+    };
+  },
+});
+global['document'] = win.document;
+global['CSS'] = null;
+global['Prism'] = null;
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -13,14 +36,47 @@ enableProdMode();
 // Express server
 const app = express();
 
-const PORT = process.env.PORT || 4200;
-const DIST_FOLDER = join(process.cwd(), 'apps', 'demo', 'dist');
+// app.use(compression());
+// app.use(bodyParser.json());
+app.use(cookieParser());
 
-// Our index.html we'll use as our template
-const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
+const redirectowww = false;
+const redirectohttps = false;
+const wwwredirecto = true;
+
+app.use((req, res, next) => {
+  // for domain/index.html
+  if (req.url === '/index.html') {
+    res.redirect(301, 'https://' + req.hostname);
+  }
+
+  // check if it is a secure (https) request
+  // if not redirect to the equivalent https url
+  if (redirectohttps && req.headers['x-forwarded-proto'] !== 'https' && req.hostname !== 'localhost') {
+    // special for robots.txt
+    if (req.url === '/robots.txt') {
+      next();
+      return;
+    }
+    res.redirect(301, 'https://' + req.hostname + req.url);
+  }
+
+  // www or not
+  if (redirectowww && !req.hostname.startsWith('www.')) {
+    res.redirect(301, 'https://www.' + req.hostname + req.url);
+  }
+
+  // www or not
+  if (wwwredirecto && req.hostname.startsWith('www.')) {
+    const host = req.hostname.slice(4, req.hostname.length);
+    res.redirect(301, 'https://' + host + req.url);
+  }
+
+  next();
+});
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const { DemoAppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./apps/demo/dist/server/main.bundle');
+const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./apps/demo/dist/server/main.bundle');
 
 // Express Engine
 import { ngExpressEngine } from '@nguniversal/express-engine';
@@ -29,7 +85,7 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({
-  bootstrap: DemoAppServerModuleNgFactory,
+  bootstrap: AppServerModuleNgFactory,
   providers: [
     provideModuleMap(LAZY_MODULE_MAP)
   ]
@@ -43,13 +99,22 @@ app.set('views', join(DIST_FOLDER, 'browser'));
 */
 
 // Server static files from /browser
-app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
-  maxAge: '1y'
-}));
+app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
 
 // ALl regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render('index', { req });
+  res.render(join(DIST_FOLDER, 'browser', 'index.html'), {
+    req: req,
+    res: res,
+    providers: [
+      {
+        provide: 'REQUEST', useValue: (req)
+      },
+      {
+        provide: 'RESPONSE', useValue: (res)
+      }
+    ]
+  });
 });
 
 // Start up the Node server

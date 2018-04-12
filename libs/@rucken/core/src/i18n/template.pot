@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Id"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "Add new content type"
+msgstr ""
+
+msgid "Content type #{{id}}"
+msgstr ""
+
+msgid "Update content type #{{id}}"
+msgstr ""
+
+msgid "Delete content type #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete content type?"
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
+msgid "Add new group"
+msgstr ""
+
+msgid "Group #{{id}}"
+msgstr ""
+
+msgid "Update group #{{id}}"
+msgstr ""
+
+msgid "Delete group #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete group?"
+msgstr ""
+
+msgid "Content type"
+msgstr ""
+
+msgid "Add new permission"
+msgstr ""
+
+msgid "Permission #{{id}}"
+msgstr ""
+
+msgid "Update permission #{{id}}"
+msgstr ""
+
+msgid "Delete permission #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete permission?"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Repeat password"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Staff"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Last login"
+msgstr ""
+
+msgid "Date joined"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Date of birth"
+msgstr ""
+
+msgid "Add new user"
+msgstr ""
+
+msgid "Update user #{{id}}"
+msgstr ""
+
+msgid "Delete user #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete user?"
+msgstr ""

@@ -1,0 +1,11 @@
+
+    .message-box{
+        &.error-modal{
+            .modal-title{
+                color: red;
+            }
+        }
+        .modal-message{
+            word-wrap: break-word;
+        }
+    }

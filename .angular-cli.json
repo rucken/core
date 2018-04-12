@@ -6,8 +6,8 @@
   "apps": [
     {
       "name": "demo",
-      "root": "./apps/demo/src",
-      "outDir": "./apps/demo/dist/browser",
+      "root": "apps/demo/src",
+      "outDir": "apps/demo/dist/browser",
       "assets": [
         "assets",
         "favicon.ico"
@@ -17,7 +17,8 @@
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
-      "prefix": "app",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "",
       "styles": [
         "styles.scss"
       ],
@@ -43,7 +44,7 @@
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.server.json",
-      "prefix": "app",
+      "prefix": "",
       "styles": [
         "styles.scss"
       ],
@@ -57,14 +58,14 @@
     },
     {
       "name": "@rucken/core",
-      "root": "./libs/core/src",
-      "outDir": "./libs/core/dist",
+      "root": "./libs/@rucken/core/src",
+      "outDir": "./libs/@rucken/core/dist",
       "appRoot": ""
     },
     {
       "name": "@rucken/web",
-      "root": "./libs/web/src",
-      "outDir": "./libs/web/dist",
+      "root": "./libs/@rucken/web/src",
+      "outDir": "./libs/@rucken/web/dist",
       "appRoot": ""
     }
   ],
@@ -75,7 +76,16 @@
   },
   "lint": [
     {
-      "project": "apps/demo/src/tsconfig.json"
+      "project": "apps/demo/src/tsconfig.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "apps/demo/src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
     }
   ],
   "test": {
@@ -84,6 +94,7 @@
     }
   },
   "defaults": {
-    "styleExt": "scss"
+    "styleExt": "scss",
+    "component": {}
   }
 }

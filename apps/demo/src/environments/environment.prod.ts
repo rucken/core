@@ -1,5 +1,5 @@
 export const environment = {
-  type: 'django',
+  type: 'backend',
   production: true,
   apiUrl: '/api'
 };

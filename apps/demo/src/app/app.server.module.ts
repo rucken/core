@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
-import { ServerModule } from '@angular/platform-server';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
-
-import { DemoAppModule } from './app.module';
-import { DemoAppComponent } from './app.component';
+import { AppComponent } from './app.component';
+import { AppModule } from './app.module';
+import { CookiesModule, BrowserCookiesService, BackendCookiesService } from '@rucken/core';
 
 @NgModule({
   imports: [
     // The AppServerModule should import your AppModule followed
     // by the ServerModule from @angular/platform-server.
-    DemoAppModule,
+    AppModule,
     ServerModule,
-    ModuleMapLoaderModule // <-- *Important* to have lazy-loaded routes work
+    ModuleMapLoaderModule, // <-- *Important* to have lazy-loaded routes work
+    ServerTransferStateModule,
+    CookiesModule.forRoot()
+  ],
+  providers: [
+    { provide: BrowserCookiesService, useClass: BackendCookiesService }
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.
-  bootstrap: [DemoAppComponent],
+  bootstrap: [AppComponent],
 })
-export class DemoAppServerModule { }
+export class AppServerModule {
+}
