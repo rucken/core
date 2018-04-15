@@ -82,19 +82,7 @@
   },
   "lint": [
     {
-      "project": "libs/@rucken/core/src/tsconfig.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "libs/@rucken/web/src/tsconfig.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
       "project": "apps/demo/src/tsconfig.json",
-      "exclude": "**/node_modules/**"
-    },
-    {
-      "project": "apps/demo/src/tsconfig.server.json",
       "exclude": "**/node_modules/**"
     },
     {
