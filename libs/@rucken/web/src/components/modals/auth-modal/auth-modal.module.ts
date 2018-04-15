@@ -13,9 +13,9 @@ import { AuthModalComponent } from './auth-modal.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    FormGroupModule.forRoot(),
-    PromptFormModalModule.forRoot(),
-    DirectivesModule.forRoot()
+    FormGroupModule,
+    PromptFormModalModule,
+    DirectivesModule
   ],
   declarations: [
     AuthModalComponent

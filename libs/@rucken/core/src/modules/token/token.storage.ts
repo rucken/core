@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { BrowserCookiesService } from '../cookies/browser-cookies.service';
+import { CookiesService } from '@ngx-utils/cookies';
 
 @Injectable()
 export class TokenStorage {
@@ -10,21 +10,21 @@ export class TokenStorage {
   storageKeyName = 'token';
 
   get(): string {
-    const token = this._cookiesStorage.getItem(this.storageKeyName);
-    if (token) {
+    const token = this._cookies.getObject(this.storageKeyName) as string;
+    if (token && token !== 'undefined') {
       return token;
     }
     return undefined;
   }
   set(token?: string) {
-    if (token === undefined) {
-      this._cookiesStorage.removeItem(this.storageKeyName);
+    if (!token) {
+      this._cookies.remove(this.storageKeyName);
     } else {
-      this._cookiesStorage.setItem(this.storageKeyName, token);
+      this._cookies.putObject(this.storageKeyName, token);
     }
   }
   constructor(
-    private _cookiesStorage: BrowserCookiesService
+    private _cookies: CookiesService
   ) {
   }
 }

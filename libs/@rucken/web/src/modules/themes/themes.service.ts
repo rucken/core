@@ -5,7 +5,7 @@ import { Theme } from './theme';
 import { ThemeItemsMock } from './theme-items.mock';
 import { ThemesStorage } from './themes.storage';
 
-export function themesServiceInitializeApp(themesService: ThemesService, themesStorage: ThemesStorage) {
+export function themesServiceInitializeApp(themesService: ThemesService) {
   return () => themesService.initializeApp();
 }
 

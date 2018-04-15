@@ -11,10 +11,10 @@ import { GroupPermissionsGridComponent } from './group-permissions-grid.componen
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    EntityGridModule.forRoot(),
-    PermissionsGridModalModule.forRoot(),
+    EntityGridModule,
+    PermissionsGridModalModule,
     ModalModule.forRoot(),
-    PipesModule.forRoot()
+    PipesModule
   ],
   declarations: [
     GroupPermissionsGridComponent

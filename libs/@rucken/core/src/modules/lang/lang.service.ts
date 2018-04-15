@@ -41,7 +41,7 @@ export class LangService {
         lang.translations.map(translation =>
           translations = { ...translations, ...translation }
         );
-        this._translateService.setTranslation(lang.code, translations)
+        this._translateService.setTranslation(lang.code, translations);
       }
     );
     this._translateService.onLangChange.subscribe(

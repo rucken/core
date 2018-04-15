@@ -16,11 +16,11 @@ import { PermissionModalComponent } from './permission-modal.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    FormGroupModule.forRoot(),
-    PromptFormModalModule.forRoot(),
-    ContentTypeInputModule.forRoot(),
-    ContentTypeSelectModule.forRoot(),
-    DirectivesModule.forRoot(),
+    FormGroupModule,
+    PromptFormModalModule,
+    ContentTypeInputModule,
+    ContentTypeSelectModule,
+    DirectivesModule,
     TypeaheadModule.forRoot()
   ],
   declarations: [

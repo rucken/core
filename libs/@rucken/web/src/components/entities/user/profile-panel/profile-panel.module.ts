@@ -15,11 +15,11 @@ import { ProfilePanelComponent } from './profile-panel.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    FormGroupModule.forRoot(),
+    FormGroupModule,
     BsDatepickerModule,
-    UserGroupsGridModule.forRoot(),
-    DirectivesModule.forRoot(),
-    PipesModule.forRoot()
+    UserGroupsGridModule,
+    DirectivesModule,
+    PipesModule
   ],
   declarations: [
     ProfilePanelComponent

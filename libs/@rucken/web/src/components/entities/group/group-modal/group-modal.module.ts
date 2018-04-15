@@ -14,10 +14,10 @@ import { GroupModalComponent } from './group-modal.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    FormGroupModule.forRoot(),
-    PromptFormModalModule.forRoot(),
-    DirectivesModule.forRoot(),
-    GroupPermissionsGridModule.forRoot()
+    FormGroupModule,
+    PromptFormModalModule,
+    DirectivesModule,
+    GroupPermissionsGridModule
   ],
   declarations: [
     GroupModalComponent

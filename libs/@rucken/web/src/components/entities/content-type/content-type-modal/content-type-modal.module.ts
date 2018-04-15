@@ -13,9 +13,9 @@ import { ContentTypeModalComponent } from './content-type-modal.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    FormGroupModule.forRoot(),
-    PromptFormModalModule.forRoot(),
-    DirectivesModule.forRoot()
+    FormGroupModule,
+    PromptFormModalModule,
+    DirectivesModule
   ],
   declarations: [
     ContentTypeModalComponent

@@ -12,11 +12,11 @@ import { PermissionsGridComponent } from './permissions-grid.component';
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    EntityGridModule.forRoot(),
-    EntityModalModule.forRoot(),
-    PermissionModalModule.forRoot(),
-    ModalModule.forRoot(),
-    PipesModule.forRoot()
+    EntityGridModule,
+    EntityModalModule,
+    PermissionModalModule,
+    ModalModule,
+    PipesModule
   ],
   declarations: [
     PermissionsGridComponent

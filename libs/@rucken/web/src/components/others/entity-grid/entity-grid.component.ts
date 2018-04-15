@@ -49,7 +49,7 @@ export class EntityGridComponent<TModel extends IModel> {
   @Input()
   set items(items: TModel[]) {
     this._items = items;
-    if (this.selected === undefined) {
+    if (!this.selected) {
       if (this._items && this._items.length) {
         this.selected = [this._items[0]];
       } else {

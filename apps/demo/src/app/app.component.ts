@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountConfig, AccountService, ErrorsExtractor, LangService, TokenService, User, translate } from '@rucken/core';
@@ -7,15 +7,20 @@ import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { environment } from '../environments/environment';
 import { AppRoutes } from './app.routes';
+import { isPlatformBrowser } from '@angular/common';
+import { Subject } from 'rxjs/Subject';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html'
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   title = 'Rucken: Demo';
 
   routes = AppRoutes;
+
+  private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     public accountService: AccountService,
@@ -27,22 +32,35 @@ export class AppComponent {
     private _messageModalService: MessageModalService,
     private _bsLocaleService: BsLocaleService,
     private _router: Router,
-    private _accountConfig: AccountConfig
+    private _accountConfig: AccountConfig,
+    @Inject(PLATFORM_ID) private _platformId: Object
   ) {
-    this.langService.current$.subscribe(
-      lang => {
-        this._bsLocaleService.use(lang);
-      }
-    );
     this.accountService.repository.useRest({
       apiUrl: environment.apiUrl,
       pluralName: environment.type === 'mockapi' ? 'account/1' : 'account',
       ...this._accountConfig
     });
-    this._tokenService.tokenHasExpired$.subscribe(result =>
-      this.onInfo()
-    );
+    if (isPlatformBrowser(this._platformId)) {
+      this.langService.current$.pipe(
+        takeUntil(this._destroyed$)
+      ).subscribe(
+        lang => {
+          this._bsLocaleService.use(lang);
+        }
+        );
+      this._tokenService.tokenHasExpired$.pipe(
+        takeUntil(this._destroyed$)
+      ).subscribe(result => {
+        if (result === true) {
+          this.onInfo();
+        }
+      });
+    }
     this.onInfo();
+  }
+  ngOnDestroy() {
+    this._destroyed$.next(true);
+    this._destroyed$.complete();
   }
   onInfo() {
     const token = this._tokenService.current;
@@ -61,19 +79,21 @@ export class AppComponent {
             )
           );
       } else {
-        this.accountService.info(token).subscribe(
-          data =>
-            this.onLoginOrInfoSuccess(undefined, data),
-          error => {
-            if (this._errorsExtractor.getErrorMessage(error)) {
-              this.onError(error);
+        if (!this.accountService.current) {
+          this.accountService.info(token).subscribe(
+            data =>
+              this.onLoginOrInfoSuccess(undefined, data),
+            error => {
+              if (this._errorsExtractor.getErrorMessage(error)) {
+                this.onError(error);
+              }
+              this.accountService.logout().subscribe(
+                data =>
+                  this.onLogoutSuccess(undefined)
+              );
             }
-            this.accountService.logout().subscribe(
-              data =>
-                this.onLogoutSuccess(undefined)
-            );
-          }
-        );
+          );
+        }
       }
     }
   }
@@ -125,7 +145,9 @@ export class AppComponent {
     if (modal) {
       modal.hide();
     }
-    this._tokenService.startCheckTokenHasExpired();
+    if (isPlatformBrowser(this._platformId)) {
+      this._tokenService.startCheckTokenHasExpired();
+    }
   }
   onLogoutSuccess(modal: AuthModalComponent) {
     if (modal) {
@@ -140,7 +162,7 @@ export class AppComponent {
   }
   onError(error: any) {
     this._messageModalService.error({
-      error: this._errorsExtractor.getErrorMessage(error),
+      error: error,
       onTop: true
     }).subscribe();
   }

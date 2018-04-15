@@ -12,8 +12,8 @@ import { PermissionsGridModalComponent } from './permissions-grid-modal.componen
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    EntityGridModalModule.forRoot(),
-    PermissionsGridModule.forRoot()
+    EntityGridModalModule,
+    PermissionsGridModule
   ],
   declarations: [
     PermissionsGridModalComponent

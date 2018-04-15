@@ -3,7 +3,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { TokenStorage } from './token.storage';
 import { decode } from 'jsonwebtoken';
 
-export function tokenServiceInitializeApp(tokenService: TokenService, tokenStorage: TokenStorage) {
+export function tokenServiceInitializeApp(tokenService: TokenService) {
   return () => tokenService.initializeApp();
 }
 
@@ -18,7 +18,7 @@ export class TokenService {
     this.current$.next(value);
   }
   current$ = new BehaviorSubject<string>(undefined);
-  tokenHasExpired$ = new BehaviorSubject<boolean>(false);
+  tokenHasExpired$ = new BehaviorSubject<boolean | undefined>(undefined);
 
   private _checkTokenHasExpiredIntervalRef;
 

@@ -3,7 +3,8 @@ import { ServerModule, ServerTransferStateModule } from '@angular/platform-serve
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
-import { CookiesModule, BrowserCookiesService, BackendCookiesService } from '@rucken/core';
+import { ServerCookiesModule, ServerCookiesService } from '@ngx-utils/cookies/server';
+import { CookiesService } from '@ngx-utils/cookies';
 
 @NgModule({
   imports: [
@@ -13,10 +14,13 @@ import { CookiesModule, BrowserCookiesService, BackendCookiesService } from '@ru
     ServerModule,
     ModuleMapLoaderModule, // <-- *Important* to have lazy-loaded routes work
     ServerTransferStateModule,
-    CookiesModule.forRoot()
+    ServerCookiesModule.forRoot()
   ],
   providers: [
-    { provide: BrowserCookiesService, useClass: BackendCookiesService }
+    {
+      provide: CookiesService,
+      useClass: ServerCookiesService,
+    }
   ],
   // Since the bootstrapped component is not inherited from your
   // imported AppModule, it needs to be repeated here.

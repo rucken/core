@@ -12,11 +12,11 @@ import { ContentTypesGridComponent } from './content-types-grid.component';
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    EntityGridModule.forRoot(),
-    EntityModalModule.forRoot(),
-    ContentTypeModalModule.forRoot(),
+    EntityGridModule,
+    EntityModalModule,
+    ContentTypeModalModule,
     ModalModule.forRoot(),
-    PipesModule.forRoot()
+    PipesModule
   ],
   declarations: [
     ContentTypesGridComponent

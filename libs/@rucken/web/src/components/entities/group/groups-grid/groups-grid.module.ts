@@ -12,11 +12,11 @@ import { GroupsGridComponent } from './groups-grid.component';
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    EntityGridModule.forRoot(),
-    EntityModalModule.forRoot(),
-    GroupModalModule.forRoot(),
+    EntityGridModule,
+    EntityModalModule,
+    GroupModalModule,
     ModalModule.forRoot(),
-    PipesModule.forRoot()
+    PipesModule
   ],
   declarations: [
     GroupsGridComponent

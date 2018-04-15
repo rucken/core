@@ -1,20 +1,18 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MessageModalModule, PipesModule, ProfilePanelModule } from '@rucken/web';
-import { NgxPermissionsModule } from 'ngx-permissions';
+import { ProfilePanelModule } from '@rucken/web';
 import { SharedModule } from '../../../../shared/shared.module';
 import { ProfileFrameComponent } from './profile-frame.component';
 import { ProfileFrameRoutes } from './profile-frame.routes';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
-    SharedModule.forRoot(),
-    ProfilePanelModule.forRoot(),
-    MessageModalModule.forRoot(),
+    SharedModule,
     NgxPermissionsModule.forChild(),
+    ProfilePanelModule,
     RouterModule.forChild(ProfileFrameRoutes),
-    PipesModule.forRoot(),
     FormsModule
   ],
   declarations: [

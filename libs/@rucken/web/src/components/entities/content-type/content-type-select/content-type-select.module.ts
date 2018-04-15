@@ -10,8 +10,8 @@ import { ContentTypeSelectComponent } from './content-type-select.component';
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    EntitySelectModule.forRoot(),
-    ContentTypesGridModalModule.forRoot(),
+    EntitySelectModule,
+    ContentTypesGridModalModule,
     ModalModule.forRoot()
   ],
   declarations: [

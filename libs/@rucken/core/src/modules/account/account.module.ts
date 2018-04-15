@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule, APP_INITIALIZER } from '@angular/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { AccountService } from './account.service';
+import { AccountService, accountServiceInitializeApp } from './account.service';
 import { AccountStorage } from './account.storage';
-import { CookiesModule } from '../cookies/cookies.module';
+import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
 
 @NgModule({
   imports: [
     CommonModule,
-    CookiesModule.forRoot(),
-    NgxPermissionsModule.forChild()
+    BrowserCookiesModule.forRoot(),
+    NgxPermissionsModule
   ],
   providers: [
     AccountService,
@@ -18,6 +18,21 @@ import { CookiesModule } from '../cookies/cookies.module';
 })
 export class AccountModule {
   static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: AccountModule,
+      providers: [
+        AccountService,
+        AccountStorage,
+        {
+          provide: APP_INITIALIZER,
+          useFactory: accountServiceInitializeApp,
+          multi: true,
+          deps: [AccountService]
+        }
+      ]
+    };
+  }
+  static forChild(): ModuleWithProviders {
     return {
       ngModule: AccountModule,
       providers: [

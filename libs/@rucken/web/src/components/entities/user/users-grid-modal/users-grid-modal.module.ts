@@ -12,8 +12,8 @@ import { UsersGridModalComponent } from './users-grid-modal.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    EntityGridModalModule.forRoot(),
-    UsersGridModule.forRoot()
+    EntityGridModalModule,
+    UsersGridModule
   ],
   declarations: [
     UsersGridModalComponent

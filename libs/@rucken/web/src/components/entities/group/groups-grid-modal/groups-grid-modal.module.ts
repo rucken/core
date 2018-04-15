@@ -12,8 +12,8 @@ import { GroupsGridModalComponent } from './groups-grid-modal.component';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    EntityGridModalModule.forRoot(),
-    GroupsGridModule.forRoot()
+    EntityGridModalModule,
+    GroupsGridModule
   ],
   declarations: [
     GroupsGridModalComponent

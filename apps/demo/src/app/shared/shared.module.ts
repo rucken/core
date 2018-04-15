@@ -1,20 +1,26 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule } from '@rucken/web';
+import { PipesModule, MessageModalModule } from '@rucken/web';
 import { NgxRepositoryModule } from 'ngx-repository';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
     CommonModule,
+    NgxPermissionsModule,
     NgxRepositoryModule.forRoot(),
-    PipesModule.forRoot(),
+    MessageModalModule.forRoot(),
+    PipesModule,
     TranslateModule.forChild(),
   ],
   exports: [
     CommonModule,
-    TranslateModule,
-    PipesModule
+    NgxPermissionsModule,
+    NgxRepositoryModule,
+    MessageModalModule,
+    PipesModule,
+    TranslateModule
   ]
 })
 export class SharedModule {

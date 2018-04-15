@@ -11,9 +11,9 @@ import { PromptFormModalComponent } from './prompt-form-modal.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    DirectivesModule.forRoot(),
+    DirectivesModule,
     TranslateModule.forChild(),
-    PipesModule.forRoot()
+    PipesModule
   ],
   declarations: [
     PromptFormModalComponent

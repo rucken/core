@@ -1,9 +1,11 @@
-import { Component, Input, forwardRef } from '@angular/core';
+import { Component, Input, OnDestroy, forwardRef } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AccountConfig, AccountService, ErrorsExtractor, Group, User } from '@rucken/core';
-import { first } from 'rxjs/operators';
+import { Subject } from 'rxjs/Subject';
+import { takeUntil } from 'rxjs/operators';
 import { MessageModalService } from '../../../../components/modals/message-modal/message-modal.service';
 import { BasePromptPanelComponent } from '../../../base/base-prompt-panel.component';
+import { NgxPermissionsService } from 'ngx-permissions';
 
 @Component({
   selector: 'profile-panel',
@@ -13,23 +15,34 @@ import { BasePromptPanelComponent } from '../../../base/base-prompt-panel.compon
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => ProfilePanelComponent), multi: true }
   ]
 })
-export class ProfilePanelComponent extends BasePromptPanelComponent<User> {
+export class ProfilePanelComponent extends BasePromptPanelComponent<User> implements OnDestroy {
 
   @Input()
   apiUrl?: string;
   @Input()
   enableSave = true;
 
+  private _destroyed$: Subject<boolean> = new Subject<boolean>();
+
   constructor(
     private _errorsExtractor: ErrorsExtractor,
     private _accountService: AccountService,
     private _accountConfig: AccountConfig,
-    private _messageModalService: MessageModalService
+    private _messageModalService: MessageModalService,
+    private _permissionsService: NgxPermissionsService
   ) {
     super(User);
-    this._accountService.current$.pipe(first()).subscribe(
-      user => this.data = user
-    );
+    this._accountService.current$.pipe(
+      takeUntil(this._destroyed$)
+    ).subscribe(user => {
+      if (user) {
+        this.data = user;
+      }
+    });
+  }
+  ngOnDestroy() {
+    this._destroyed$.next(true);
+    this._destroyed$.complete();
   }
   get isReadonly() {
     return this.readonly || !this.enableSave;
@@ -54,7 +67,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> {
   }
   onError(error: any) {
     this._messageModalService.error({
-      error: this._errorsExtractor.getErrorMessage(error)
+      error: error
     }).subscribe();
   }
   onSaveError(error: any) {

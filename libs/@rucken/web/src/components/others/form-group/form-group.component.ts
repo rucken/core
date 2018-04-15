@@ -53,7 +53,7 @@ export class FormGroupComponent implements AfterViewInit {
       if (!input.classList.contains('form-control')) {
         this._renderer.addClass(input, 'form-control');
       }
-      if (!input.attributes.getNamedItem('id')) {
+      if (!input.id) {
         this._renderer.setAttribute(input, 'id', this.name);
       }
       this._renderer.setAttribute(input, 'autocomplete', 'off');

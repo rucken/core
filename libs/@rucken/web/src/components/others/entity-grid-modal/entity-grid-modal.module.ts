@@ -11,9 +11,9 @@ import { EntityGridModalComponent } from './entity-grid-modal.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    DirectivesModule.forRoot(),
+    DirectivesModule,
     TranslateModule.forChild(),
-    FormGroupModule.forRoot()
+    FormGroupModule
   ],
   declarations: [
     EntityGridModalComponent

@@ -14,7 +14,7 @@ import { PipesModule } from '../../../shared/pipes/pipes.module';
     ReactiveFormsModule,
     PaginationModule.forRoot(),
     TranslateModule.forChild(),
-    PipesModule.forRoot()
+    PipesModule
   ],
   declarations: [
     EntityGridComponent,

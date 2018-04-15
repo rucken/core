@@ -27,7 +27,10 @@
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
-        "mockapi": "environments/environment.mockapi.ts"
+        "mockapi": "environments/environment.mockapi.ts",
+        "server-dev": "environments/environment-server.ts",
+        "server-prod": "environments/environment-server.prod.ts",
+        "server-mockapi": "environments/environment-server.mockapi.ts"
       }
     },
     {
@@ -53,7 +56,10 @@
       "environments": {
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts",
-        "mockapi": "environments/environment.mockapi.ts"
+        "mockapi": "environments/environment.mockapi.ts",
+        "server-dev": "environments/environment-server.ts",
+        "server-prod": "environments/environment-server.prod.ts",
+        "server-mockapi": "environments/environment-server.mockapi.ts"
       }
     },
     {

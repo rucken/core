@@ -10,8 +10,8 @@ import { ContentTypeInputComponent } from './content-type-input.component';
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    EntityInputModule.forRoot(),
-    ContentTypesGridModalModule.forRoot(),
+    EntityInputModule,
+    ContentTypesGridModalModule,
     ModalModule.forRoot()
   ],
   declarations: [

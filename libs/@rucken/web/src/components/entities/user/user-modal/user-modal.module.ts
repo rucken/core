@@ -16,12 +16,12 @@ import { PipesModule } from '../../../../shared/pipes/pipes.module';
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    FormGroupModule.forRoot(),
+    FormGroupModule,
     BsDatepickerModule,
-    UserGroupsGridModule.forRoot(),
-    DirectivesModule.forRoot(),
-    PipesModule.forRoot(),
-    PromptFormModalModule.forRoot()
+    UserGroupsGridModule,
+    DirectivesModule,
+    PipesModule,
+    PromptFormModalModule
   ],
   declarations: [
     UserModalComponent

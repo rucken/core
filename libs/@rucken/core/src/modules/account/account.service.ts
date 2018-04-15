@@ -5,8 +5,9 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { User } from '../../shared/models/user';
 import { AccountStorage } from './account.storage';
+import { NgxPermissionsService } from 'ngx-permissions';
 
-export function accountServiceInitializeApp(accountService: AccountService, accountStorage: AccountStorage) {
+export function accountServiceInitializeApp(accountService: AccountService) {
   return () => accountService.initializeApp();
 }
 
@@ -17,7 +18,17 @@ export class AccountService {
     return this.current$.getValue();
   }
   set current(value: User) {
-    this._accountStorage.set(value);
+    if (!value) {
+      this._accountStorage.set(undefined);
+      this._permissionsService.flushPermissions();
+    } else {
+      if (value.permissionNames.length) {
+        this._accountStorage.set(value);
+        this._permissionsService.loadPermissions(
+          value.permissionNames
+        );
+      }
+    }
     this.current$.next(value);
   }
   current$ = new BehaviorSubject<User>(undefined);
@@ -25,7 +36,8 @@ export class AccountService {
 
   constructor(
     private _accountStorage: AccountStorage,
-    private _dynamicRepository: DynamicRepository
+    private _dynamicRepository: DynamicRepository,
+    private _permissionsService: NgxPermissionsService,
   ) {
     this.repository = this._dynamicRepository.fork<User>(User);
   }

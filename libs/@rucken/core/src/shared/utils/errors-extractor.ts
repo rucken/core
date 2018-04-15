@@ -13,6 +13,7 @@ export class ErrorsExtractor {
     if (error && error instanceof HttpErrorResponse && error.error && !!error.error.nonFieldErrors) {
       return error && error.error && error.error.nonFieldErrors;
     }
+    console.log(error);
     return undefined;
   }
 }

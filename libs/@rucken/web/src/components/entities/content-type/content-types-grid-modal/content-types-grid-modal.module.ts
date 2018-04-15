@@ -12,8 +12,8 @@ import { ContentTypesGridModalComponent } from './content-types-grid-modal.compo
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),
-    EntityGridModalModule.forRoot(),
-    ContentTypesGridModule.forRoot()
+    EntityGridModalModule,
+    ContentTypesGridModule
   ],
   declarations: [
     ContentTypesGridModalComponent

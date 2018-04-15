@@ -1,14 +1,14 @@
 import { EventEmitter, Input, Output, isDevMode } from '@angular/core';
 import { ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { IFactoryModel, IModel, IRestProviderOptions, Repository } from 'ngx-repository';
+import { IFactoryModel, IModel, Repository } from 'ngx-repository';
 import { forkJoin } from 'rxjs/observable/forkJoin';
 import { first } from 'rxjs/operators';
+import { IBaseEntityListModal } from '../base/base-entity-list-modal.interface';
 import { MessageModalService } from '../modals/message-modal/message-modal.service';
+import { IEntityGridFilter } from '../others/entity-grid/entity-grid-filter.interface';
 import { EntityModalComponent } from '../others/entity-modal/entity-modal.component';
 import { IBaseEntityList } from './base-entity-list.interface';
-import { IEntityGridFilter } from '../others/entity-grid/entity-grid-filter.interface';
-import { IBaseEntityListModal } from '../..';
 
 export class BaseEntityListComponent<TModel extends IModel> implements IBaseEntityList<TModel> {
 
@@ -85,14 +85,12 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     }
     if (this.messageModalService && this.errorsExtractor) {
       this.messageModalService.error({
-        error: this.errorsExtractor.getErrorMessage(error)
+        error: error
       }).subscribe();
     } else {
       if (isDevMode()) {
         console.warn('MessageModalService is not injected', this);
       }
-      alert(this.errorsExtractor.getErrorMessage(error));
-      console.error(error);
     }
   }
   defaultCreateViewModal(item: TModel): BsModalRef {

@@ -29,6 +29,7 @@ Object.defineProperty(win.document.body.style, 'transform', {
 global['document'] = win.document;
 global['CSS'] = null;
 global['Prism'] = null;
+// global['XMLHttpRequest'] = null;
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -39,41 +40,6 @@ const app = express();
 // app.use(compression());
 // app.use(bodyParser.json());
 app.use(cookieParser());
-
-const redirectowww = false;
-const redirectohttps = false;
-const wwwredirecto = true;
-
-app.use((req, res, next) => {
-  // for domain/index.html
-  if (req.url === '/index.html') {
-    res.redirect(301, 'https://' + req.hostname);
-  }
-
-  // check if it is a secure (https) request
-  // if not redirect to the equivalent https url
-  if (redirectohttps && req.headers['x-forwarded-proto'] !== 'https' && req.hostname !== 'localhost') {
-    // special for robots.txt
-    if (req.url === '/robots.txt') {
-      next();
-      return;
-    }
-    res.redirect(301, 'https://' + req.hostname + req.url);
-  }
-
-  // www or not
-  if (redirectowww && !req.hostname.startsWith('www.')) {
-    res.redirect(301, 'https://www.' + req.hostname + req.url);
-  }
-
-  // www or not
-  if (wwwredirecto && req.hostname.startsWith('www.')) {
-    const host = req.hostname.slice(4, req.hostname.length);
-    res.redirect(301, 'https://' + host + req.url);
-  }
-
-  next();
-});
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
 const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./apps/demo/dist/server/main.bundle');
@@ -103,18 +69,21 @@ app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
 
 // ALl regular routes use the Universal engine
 app.get('*', (req, res) => {
-  res.render(join(DIST_FOLDER, 'browser', 'index.html'), {
-    req: req,
-    res: res,
-    providers: [
-      {
-        provide: 'REQUEST', useValue: (req)
-      },
-      {
-        provide: 'RESPONSE', useValue: (res)
-      }
-    ]
-  });
+  res.render(
+    'index',
+    {
+      req: req,
+      res: res,
+      providers: [
+        {
+          provide: 'REQUEST', useValue: (req)
+        },
+        {
+          provide: 'RESPONSE', useValue: (res)
+        }
+      ]
+    }
+  );
 });
 
 // Start up the Node server

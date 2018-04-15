@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { BrowserCookiesService } from '../cookies/browser-cookies.service';
+import { CookiesService } from '@ngx-utils/cookies';
 
 @Injectable()
 export class LangStorage {
@@ -7,21 +7,21 @@ export class LangStorage {
   storageKeyName = 'lang';
 
   get(): string {
-    const lang = this._cookiesStorage.getItem(this.storageKeyName);
-    if (lang) {
+    const lang = this._cookies.getObject(this.storageKeyName) as string;
+    if (lang && lang !== 'undefined') {
       return lang;
     }
     return undefined;
   }
   set(value?: string) {
-    if (value === undefined) {
-      this._cookiesStorage.removeItem(this.storageKeyName);
+    if (!value) {
+      this._cookies.remove(this.storageKeyName);
     } else {
-      this._cookiesStorage.setItem(this.storageKeyName, value);
+      this._cookies.putObject(this.storageKeyName, value);
     }
   }
   constructor(
-    private _cookiesStorage: BrowserCookiesService
+    private _cookies: CookiesService
   ) {
   }
 }

@@ -9,7 +9,7 @@ import { NavSidebarComponent } from './nav-sidebar.component';
   imports: [
     CommonModule,
     TranslateModule.forChild(),
-    NgxPermissionsModule.forChild(),
+    NgxPermissionsModule,
     RouterModule
   ],
   declarations: [

@@ -11,7 +11,7 @@ import { NavbarComponent } from './navbar.component';
     CommonModule,
     TranslateModule.forChild(),
     CollapseModule.forRoot(),
-    NgxPermissionsModule.forChild(),
+    NgxPermissionsModule,
     RouterModule
   ],
   declarations: [
