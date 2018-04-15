@@ -67,7 +67,9 @@
     "build": "npm-run-all app:build-full_prod",
     "build:dev": "npm-run-all app:build-full_dev",
     "build:mockapi": "npm-run-all app:build-full_mockapi",
-    "start": "npm-run-all app:start-dev",
+    "start": "npm-run-all app:start-mockapi",
+    "start-dev": "npm-run-all app:start-dev",
+    "start-prod": "npm-run-all app:start-prod",
     "gh:build-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href https://rucken.github.io/core/ --prod --env=mockapi --build-optimizer --no-sourcemap",
     "gh:build": "npm-run-all clear prepare format libs:build libs:link gh:build-mockapi",
     "gh:deploy": "cp-cli ./apps/demo/dist/browser/index.html ./apps/demo/dist/browser/404.html && gh-pages -d apps/demo/dist/browser",
@@ -83,6 +85,7 @@
     "ssr:build-dev": "npm run ssr:client-and-server-bundles-dev && npm run ssr:webpack-server",
     "ssr:start": "node ./server.js",
     "ssr:full_start": "npm run ssr:build-dev && npm run ssr:start",
+    "ssr:full_mockapi": "npm run ssr:build-mockapi && npm run ssr:start",
     "heroku-postbuild": "npm-run-all ssr:build-mockapi"
   },
   "dependencies": {

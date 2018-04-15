@@ -37,8 +37,8 @@ export class AppComponent implements OnDestroy {
   ) {
     this.accountService.repository.useRest({
       apiUrl: environment.apiUrl,
-      pluralName: environment.type === 'mockapi' ? 'account/1' : 'account',
-      ...this._accountConfig
+      ...this._accountConfig,
+      pluralName: environment.type === 'mockapi' ? 'account/1' : 'account'
     });
     if (isPlatformBrowser(this._platformId)) {
       this.langService.current$.pipe(
@@ -65,7 +65,10 @@ export class AppComponent implements OnDestroy {
   onInfo() {
     const token = this._tokenService.current;
     if (token) {
-      if (this._tokenService.tokenHasExpired()) {
+      if (
+        this._tokenService.tokenHasExpired() &&
+        environment.type !== 'mockapi'
+      ) {
         this._tokenService.stopCheckTokenHasExpired();
         this._messageModalService.error({
           error: translate('Your session has expired, please re-login'),
@@ -145,7 +148,7 @@ export class AppComponent implements OnDestroy {
     if (modal) {
       modal.hide();
     }
-    if (isPlatformBrowser(this._platformId)) {
+    if (environment.type !== 'mockapi') {
       this._tokenService.startCheckTokenHasExpired();
     }
   }

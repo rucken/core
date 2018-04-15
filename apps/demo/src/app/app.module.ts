@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { DemoRuI18n } from './i18n/ru.i18n';
 import { CustomErrorHandler } from './shared/exceptions/error.handler';
+import { environment } from '../environments/environment';
 
 defineLocale('ru', ruLocale);
 defineLocale('en', enGbLocale);
@@ -44,7 +45,8 @@ defineLocale('en', enGbLocale);
     TokenModule.forRoot({
       withoutTokenUrls: [
         '/api/account/info',
-        '/api/account/login'
+        '/api/account/login',
+        ...(environment.type === 'mockapi' ? ['/'] : [])
       ]
     }),
     AccountModule.forRoot(),

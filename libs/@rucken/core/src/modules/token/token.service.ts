@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
+import { isPlatformServer } from '@angular/common';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { decode } from 'jsonwebtoken';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { TokenStorage } from './token.storage';
-import { decode } from 'jsonwebtoken';
 
 export function tokenServiceInitializeApp(tokenService: TokenService) {
   return () => tokenService.initializeApp();
@@ -23,7 +24,8 @@ export class TokenService {
   private _checkTokenHasExpiredIntervalRef;
 
   constructor(
-    private _tokenStorage: TokenStorage
+    private _tokenStorage: TokenStorage,
+    @Inject(PLATFORM_ID) private _platformId: Object
   ) {
   }
   initializeApp() {
@@ -33,16 +35,20 @@ export class TokenService {
     });
   }
   stopCheckTokenHasExpired() {
-    if (this._checkTokenHasExpiredIntervalRef) {
-      clearInterval(this._checkTokenHasExpiredIntervalRef);
+    if (!isPlatformServer(this._platformId)) {
+      if (this._checkTokenHasExpiredIntervalRef) {
+        clearInterval(this._checkTokenHasExpiredIntervalRef);
+      }
     }
   }
   startCheckTokenHasExpired() {
-    this._checkTokenHasExpiredIntervalRef = setInterval(_ => {
-      if (this.tokenHasExpired()) {
-        this.tokenHasExpired$.next(true);
-      }
-    }, 30 * 1000);
+    if (!isPlatformServer(this._platformId)) {
+      this._checkTokenHasExpiredIntervalRef = setInterval(_ => {
+        if (this.tokenHasExpired()) {
+          this.tokenHasExpired$.next(true);
+        }
+      }, 30 * 1000);
+    }
   }
   getTokenData(token: string): { payload: { exp: number } } {
     return decode(token, { complete: true }) as any;
