@@ -10,22 +10,18 @@ Core with Admin UI for web application maked on Angular5+
 
 ## What is Rucken?
 
-- **Core** - Base core for create applications on `Angular5+`.
-- **Admin** - Include work with admin, user groups and permissions.
-- **DI** - With dependency injection you can change base service.
-- **Extends** - Write components with extends from core `rucken` components.
+- **Core** - Base entities and services for create applications on `Angular5+`, include work with users, groups and permissions.
+- **Web** - Base ui grids and inputs and etc. for manage users, groups and permissions.
 
 ## Quick links
 
 [Source](https://github.com/rucken/core) - Source code.
 
-[Demo](https://rucken.github.io/core) - Demo application with mock data worked.
+[Live demo](https://rucken.github.io/core) - Demo application (backend: http://www.mockapi.io).
 
-[Demo (SSR)](https://rucken.herokuapp.com) - Demo application with server side rendering.
+[Live demo (SSR)](https://rucken.herokuapp.com) - Demo application with server side rendering (backend: http://www.mockapi.io).
 
-[Todo demo (http://mockapi.io)](https://github.com/rucken/todo-web) - Simple todo application with: projects, tasks, statuses.
-
-[Todo demo (NestJS)](https://github.com/rucken/core-nestjs) - Simple application demonstrating the basic usage of permissions with NestJS (JWT, PasswordHash, User, Group, Permission, ContentType).
+[Live demo (NestJS)](https://rucken-core-nestjs.herokuapp.com) - Demo application with live backend (backend: https://nestjs.com).
 
 ## License
 
