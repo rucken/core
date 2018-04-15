@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { AfterContentInit, Directive, ElementRef, Inject, Input, PLATFORM_ID, Renderer } from '@angular/core';
+import { AfterContentInit, Directive, ElementRef, Inject, Input, PLATFORM_ID, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[focused]'
@@ -11,7 +11,7 @@ export class FocusedDirective implements AfterContentInit {
 
   constructor(
     private ele: ElementRef,
-    private renderer: Renderer,
+    private renderer: Renderer2,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
   }
