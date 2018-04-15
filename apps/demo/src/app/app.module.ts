@@ -1,80 +1,73 @@
-import { HttpClientModule } from '@angular/common/http';
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { AppService, EndpointHelper, HttpHelper, RepositoryHelper, RuckenCoreServices, ThemesService } from '@rucken/core';
-import { TokenService } from '@rucken/core';
-import {
-  AlertModalModule,
-  BaseResourceSelectInputConfig,
-  RuckenWebServices,
-  SelectInputConfig,
-  SharedModule,
-  TableColumnConfig,
-  TextInputConfig,
-  WebAppService,
-  WebThemesService,
-  WebTokenService,
-} from '@rucken/web';
-import {
-  ComponentLoaderFactory,
-  PaginationConfig,
-  PopoverConfig,
-  PositioningService,
-  TabsetConfig,
-  TooltipConfig,
-  BsLocaleService
-} from 'ngx-bootstrap';
+import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
+import { AccountConfig, AccountModule, AccountService, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig, RuckenCoreRuI18n, TokenInterceptor, TokenModule, TokenService, UsersConfig, accountServiceInitializeApp, tokenServiceInitializeApp, translate, TransferHttpCacheModule } from '@rucken/core';
+import { AuthModalModule, NavbarModule, RuckenWebRuI18n, ThemesModule, ThemesService, themesServiceInitializeApp } from '@rucken/web';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NgxPermissionsModule } from 'ngx-permissions';
+import { SharedModule } from '.';
+import { AppComponent } from './app.component';
+import { AppRoutes } from './app.routes';
+import { DemoRuI18n } from './i18n/ru.i18n';
+import { CustomErrorHandler } from './shared/exceptions/error.handler';
+import { environment } from '../environments/environment';
 
-import { DemoAppComponent } from './app.component';
-import { DemoRoutes } from './app.routes';
-import { DemoNavbarModule } from './controls/navbar/navbar.module';
-import { DemoEndpointHelper } from './shared/helpers/endpoint.helper';
-import { DemoHttpHelper } from './shared/helpers/http.helper';
+defineLocale('ru', ruLocale);
+defineLocale('en', enGbLocale);
 
 @NgModule({
   declarations: [
-    DemoAppComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'demo' }),
-    FormsModule,
+    SharedModule,
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: { provide: TranslateLoader, useClass: TranslateFakeLoader }
+    BrowserModule.withServerTransition({ appId: 'demo' }),
+    TransferHttpCacheModule.forRoot(),
+    BrowserCookiesModule.forRoot(),
+    LangModule.forRoot({
+      languages: [{
+        title: translate('Russian'),
+        code: 'ru',
+        translations: [RuckenWebRuI18n, RuckenCoreRuI18n, DemoRuI18n]
+      }, {
+        title: translate('English'),
+        code: 'en',
+        translations: []
+      }]
     }),
-    SharedModule.forRoot(),
-    AlertModalModule.forRoot(),
-    DemoNavbarModule.forRoot(),
-    RouterModule.forRoot(DemoRoutes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' })
+    NgxPermissionsModule.forRoot(),
+    TokenModule.forRoot({
+      withoutTokenUrls: [
+        '/api/account/info',
+        '/api/account/login',
+        ...(environment.type === 'mockapi' ? ['/'] : [])
+      ]
+    }),
+    AccountModule.forRoot(),
+    ThemesModule.forRoot(),
+    RouterModule.forRoot(AppRoutes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }),
+    ModalModule.forRoot(),
+    AuthModalModule,
+    NavbarModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
-    ComponentLoaderFactory,
-    PositioningService,
-    TooltipConfig,
-    PaginationConfig,
-    TabsetConfig,
-    PopoverConfig,
-    BsLocaleService,
-    RuckenCoreServices,
-    RuckenWebServices,
-    BaseResourceSelectInputConfig,
-    TextInputConfig,
-    SelectInputConfig,
-    TableColumnConfig,
-    { provide: ThemesService, useClass: WebThemesService },
-    { provide: AppService, useClass: WebAppService },
-    { provide: TokenService, useClass: WebTokenService },
-    { provide: EndpointHelper, useClass: DemoEndpointHelper },
-    { provide: RepositoryHelper, useClass: RepositoryHelper },
-    { provide: HttpHelper, useClass: DemoHttpHelper }
+    { provide: ErrorHandler, useClass: CustomErrorHandler },
+    ErrorsExtractor,
+    AccountConfig,
+    GroupsConfig,
+    PermissionsConfig,
+    ContentTypesConfig,
+    UsersConfig,
+    BsLocaleService
   ],
-  bootstrap: [DemoAppComponent]
+  bootstrap: [AppComponent]
 })
-export class DemoAppModule {
-  static forRoot(): ModuleWithProviders {
-    return { ngModule: DemoAppModule };
-  }
+export class AppModule {
 }

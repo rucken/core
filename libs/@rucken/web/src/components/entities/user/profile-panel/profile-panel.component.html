@@ -1,0 +1,73 @@
+<form [formGroup]="form" novalidate>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <div class="col-md-12">
+          <form-group [form]="form" name="username" [title]="strings.username">
+            <input formControlName="username" [readonly]="isReadonly" focused/>
+          </form-group>
+        </div>
+        <div class="col-md-6">
+          <form-group [form]="form" name="email" [title]="strings.email">
+            <input formControlName="email" [readonly]="isReadonly" />
+          </form-group>
+        </div>
+        <div class="col-md-6">
+          <form-group [form]="form" name="dateOfBirth" [title]="strings.dateOfBirth">
+            <input bsDatepicker formControlName="dateOfBirth" [readonly]="isReadonly" />
+          </form-group>
+        </div>
+        <div class="col-md-6">
+          <form-group [form]="form" name="password" [title]="strings.password">
+            <input formControlName="password" type="password" [readonly]="isReadonly" />
+          </form-group>
+        </div>
+        <div class="col-md-6">
+          <form-group [form]="form" name="rePassword" [title]="strings.rePassword">
+            <input formControlName="rePassword" type="password" [readonly]="isReadonly" />
+          </form-group>
+        </div>
+        <div class="col-md-6">
+          <form-group [form]="form" name="lastName" [title]="strings.lastName">
+            <input formControlName="lastName" [readonly]="isReadonly" />
+          </form-group>
+        </div>
+        <div class="col-md-6">
+          <form-group [form]="form" name="firstName" [title]="strings.firstName">
+            <input formControlName="firstName" [readonly]="isReadonly" />
+          </form-group>
+        </div>
+        <div class="col-md-12" *ngIf="!isReadonly">
+          <button type="submit" [ngClass]="yesClass" (click)="onSaveClick()" [disabled]="processing || isReadonly">
+            <i class="fa fa-spinner fa-pulse fa-fw" *ngIf="processing"></i> {{yesTitle | translate}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <form-group [title]="strings.roles">
+        <div class="checkboxes-group form-control">
+          <div class="checkbox">
+            <label>
+              <input formControlName="isActive" type="checkbox" [readonly]="isReadonly"> {{strings.isActive | translate}}
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input formControlName="isStaff" type="checkbox" [readonly]="isReadonly"> {{strings.isStaff | translate}}
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input formControlName="isSuperuser" type="checkbox" [readonly]="isReadonly"> {{strings.isSuperuser | translate}}
+            </label>
+          </div>
+        </div>
+      </form-group>
+    </div>
+    <div class="col-md-6" *ngIf="data?.groups">
+      <user-groups-grid [mockedItems]="data.groups" (mockedItemsChange)="onGroupsChange($event)" [readonly]="isReadonly" [title]="strings.groups"
+        [apiUrl]="apiUrl"></user-groups-grid>
+    </div>
+  </div>
+</form>

@@ -1,3 +1,24 @@
+<a name="2.0.0"></a>
+# [2.0.0](https://github.com/rucken/core/compare/1.30.5...2.0.0) (2018-04-15)
+
+
+### Bug Fixes
+
+* **demo:** Fix work with mockapi ([be70758](https://github.com/rucken/core/commit/be70758))
+* **modules:** Remove unused method "forChild()" ([55935ae](https://github.com/rucken/core/commit/55935ae))
+
+
+### Features
+
+* **ssr:** Add support store JWT in cookie for correct render with ssr ([187f136](https://github.com/rucken/core/commit/187f136))
+
+
+### Performance Improvements
+
+* Rewrite all project ([a5f4c89](https://github.com/rucken/core/commit/a5f4c89))
+
+
+
 <a name="1.30.5"></a>
 ## [1.30.5](https://github.com/rucken/core/compare/1.30.4...1.30.5) (2018-01-28)
 

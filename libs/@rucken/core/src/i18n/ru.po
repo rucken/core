@@ -1,0 +1,150 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Id"
+msgstr "Ид."
+
+msgid "Name"
+msgstr "Наименование"
+
+msgid "Title"
+msgstr "Заголовок"
+
+msgid "Add new content type"
+msgstr "Создание новой типа содержимого"
+
+msgid "Content type #{{id}}"
+msgstr "Изменить тип содержимого #{{id}}"
+
+msgid "Update content type #{{id}}"
+msgstr "Изменить тип содержимого #{{id}}"
+
+msgid "Delete content type #{{id}}"
+msgstr "Удалить тип содержимого #{{id}}"
+
+msgid "Do you really want to delete content type?"
+msgstr "Вы действительно хотите удалить этот тип содержимого?"
+
+msgid "Permissions"
+msgstr "Разрешения"
+
+msgid "Add new group"
+msgstr "Создание новой группы"
+
+msgid "Group #{{id}}"
+msgstr "Информация о группе #{{id}}"
+
+msgid "Update group #{{id}}"
+msgstr "Изменить группу #{{id}}"
+
+msgid "Delete group #{{id}}"
+msgstr "Удалить группу #{{id}}"
+
+msgid "Do you really want to delete group?"
+msgstr "Вы действительно хотите удалить эту группу?"
+
+msgid "Content type"
+msgstr "Тип содержимого"
+
+msgid "Add new permission"
+msgstr "Добавление нового разрешения"
+
+msgid "Permission #{{id}}"
+msgstr "Информация о разрешении #{{id}}"
+
+msgid "Update permission #{{id}}"
+msgstr "Изменить разрешение  #{{id}}"
+
+msgid "Delete permission #{{id}}"
+msgstr "Удалить разрешение  #{{id}}"
+
+msgid "Do you really want to delete permission?"
+msgstr "Вы действительно хотите удалить разрешение?"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Repeat password"
+msgstr "Пароль (повторно)"
+
+msgid "Roles"
+msgstr "Роли"
+
+msgid "Administrator"
+msgstr "Администратор"
+
+msgid "Staff"
+msgstr "Персонал"
+
+msgid "User"
+msgstr "Пользователь"
+
+msgid "Full name"
+msgstr "Полное имя"
+
+msgid "First name"
+msgstr "Имя"
+
+msgid "Last name"
+msgstr "Фамилия"
+
+msgid "Email"
+msgstr "Эл. почта"
+
+msgid "Last login"
+msgstr "Дата последнего входа"
+
+msgid "Date joined"
+msgstr "Дата регистрации"
+
+msgid "Groups"
+msgstr "Группы"
+
+msgid "Date of birth"
+msgstr "Дата рождения"
+
+msgid "Add new user"
+msgstr "Добавление нового пользователя"
+
+msgid "Update user #{{id}}"
+msgstr "Изменить пользователя  #{{id}}"
+
+msgid "Delete user #{{id}}"
+msgstr "Удалить пользователя  #{{id}}"
+
+msgid "Do you really want to delete user?"
+msgstr "Вы действительно хотите удалить пользователя?"
+
+#~ msgid "Select groups for append to user"
+#~ msgstr "Выберите группы для добавления"
+
+#~ msgid "Delete group"
+#~ msgstr "Удалить группу"
+
+#~ msgid "Do you really want to delete group \"{{title}}\" from user?"
+#~ msgstr ""
+#~ "Вы действительно хотите удалить группу \"{{title}}\" у пользователя?"
+
+#~ msgid "Select permissions for append to group"
+#~ msgstr "Выберите разрешение для добавления в группу"
+
+#~ msgid "Delete permission"
+#~ msgstr "Удалить разрешение"
+
+#~ msgid "Do you really want to delete permission \"{{title}}\" from group?"
+#~ msgstr "Вы действительно хотите удалить разрешение \"{{title}}\" у группы?"
