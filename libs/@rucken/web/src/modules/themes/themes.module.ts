@@ -30,13 +30,4 @@ export class ThemesModule {
       ]
     };
   }
-  static forChild(): ModuleWithProviders {
-    return {
-      ngModule: ThemesModule,
-      providers: [
-        ThemesService,
-        ThemesStorage
-      ]
-    };
-  }
 }

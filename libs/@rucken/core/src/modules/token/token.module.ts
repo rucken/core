@@ -35,13 +35,4 @@ export class TokenModule {
       ]
     };
   }
-  static forChild(): ModuleWithProviders {
-    return {
-      ngModule: TokenModule,
-      providers: [
-        TokenService,
-        TokenStorage
-      ]
-    };
-  }
 }

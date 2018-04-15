@@ -32,13 +32,4 @@ export class AccountModule {
       ]
     };
   }
-  static forChild(): ModuleWithProviders {
-    return {
-      ngModule: AccountModule,
-      providers: [
-        AccountService,
-        AccountStorage
-      ]
-    };
-  }
 }
