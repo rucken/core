@@ -106,7 +106,7 @@
     "@types/jsonwebtoken": "7.2.6",
     "core-js": "2.5.5",
     "jsonwebtoken": "8.2.1",
-    "ngx-bootstrap": "2.0.3",
+    "ngx-bootstrap": "2.0.4",
     "ngx-cookie-service": "1.0.10",
     "ngx-dynamic-form-builder": "0.3.2",
     "ngx-permissions": "4.1.0",
