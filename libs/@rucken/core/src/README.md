@@ -11,15 +11,31 @@ Core with Admin UI for web application maked on Angular5+
 - **Core** - Base entities and services for create applications on `Angular5+`, include work with users, groups and permissions.
 - **Web** - Base ui grids and inputs and etc. for manage users, groups and permissions.
 
+## Usage
+```
+git clone https://github.com/rucken/core.git my-app
+cd my-app
+npm install
+npm run app:start-mockapi
+```
+
+## Usage with cli
+```
+npm install -g @rucken/cli
+rucken new my-app
+cd my-app
+npm install
+npm run app:start-mockapi
+```
+
 ## Quick links
 
-[Source](https://github.com/rucken/core) - Source code.
+[Live demo](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: http://www.mockapi.io).
 
-[Live demo](https://rucken.github.io/core) - Demo application (backend: http://www.mockapi.io).
+[Live demo (SSR)](https://rucken.herokuapp.com) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: http://www.mockapi.io).
 
-[Live demo (SSR)](https://rucken.herokuapp.com) - Demo application with server side rendering (backend: http://www.mockapi.io).
+[Live demo (NestJS)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
-[Live demo (NestJS)](https://rucken-core-nestjs.herokuapp.com) - Demo application with live backend (backend: https://nestjs.com).
 
 ## License
 
