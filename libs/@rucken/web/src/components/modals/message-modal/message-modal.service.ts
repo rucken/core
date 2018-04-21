@@ -1,6 +1,7 @@
 import { isPlatformServer } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { ErrorsExtractor } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -15,6 +16,7 @@ export class MessageModalService {
   constructor(
     private _translateService: TranslateService,
     private _modalService: BsModalService,
+    private _errorsExtractor: ErrorsExtractor,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
 
@@ -60,9 +62,6 @@ export class MessageModalService {
         });
     }).pipe(first());
   }
-  extractErrorMessage(error: string | any): string {
-    return error && error.message ? error.message : (error && error.toString ? error.toString() : error);
-  }
   error(options: { error: string | any, title?: string, class?: string, onTop?: boolean }) {
     if (this._onTopIsActive) {
       return of(false);
@@ -71,7 +70,7 @@ export class MessageModalService {
       return of(false);
     }
     return new Observable(observe => {
-      const message = this.extractErrorMessage(options.error);
+      const message = this._errorsExtractor.getErrorMessage(options.error);
       this.onErrorInConsole(options.error, message);
       if (options.title === undefined) {
         options.title = this._translateService.instant('Error');

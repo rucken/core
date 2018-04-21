@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ContentType, ContentTypesConfig, ErrorsExtractor } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository } from 'ngx-repository';
+import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { ContentTypesGridComponent } from '../content-types-grid/content-types-grid.component';
 
 
@@ -23,14 +24,16 @@ export class ContentTypeSelectComponent extends ContentTypesGridComponent implem
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected contentTypesConfig: ContentTypesConfig
+    protected contentTypesConfig: ContentTypesConfig,
+    protected messageModalService: MessageModalService
   ) {
     super(
       modalService,
       errorsExtractor,
       translateService,
       dynamicRepository,
-      contentTypesConfig
+      contentTypesConfig,
+      messageModalService
     );
   }
   ngOnInit() {

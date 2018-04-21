@@ -6,6 +6,7 @@ import { DynamicRepository, ProviderActionEnum } from 'ngx-repository';
 import { PermissionModalComponent } from '../../permission/permission-modal/permission-modal.component';
 import { PermissionsGridModalComponent } from '../../permission/permissions-grid-modal/permissions-grid-modal.component';
 import { PermissionsGridComponent } from '../../permission/permissions-grid/permissions-grid.component';
+import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 
 @Component({
   selector: 'group-permissions-grid',
@@ -21,14 +22,16 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected permissionsConfig: PermissionsConfig
+    protected permissionsConfig: PermissionsConfig,
+    protected messageModalService: MessageModalService
   ) {
     super(
       modalService,
       errorsExtractor,
       translateService,
       dynamicRepository,
-      permissionsConfig
+      permissionsConfig,
+      messageModalService
     );
   }
   ngOnInit() {

@@ -4,6 +4,7 @@ import { ErrorsExtractor, Permission, PermissionsConfig, translate } from '@ruck
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, PaginationMeta } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
+import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionModalComponent } from '../permission-modal/permission-modal.component';
 
 
@@ -22,7 +23,8 @@ export class PermissionsGridComponent extends BaseEntityListComponent<Permission
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected permissionsConfig: PermissionsConfig
+    protected permissionsConfig: PermissionsConfig,
+    protected messageModalService: MessageModalService
   ) {
     super(
       dynamicRepository.fork<Permission>(Permission),

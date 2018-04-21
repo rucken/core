@@ -6,6 +6,7 @@ import { DynamicRepository, ProviderActionEnum } from 'ngx-repository';
 import { GroupModalComponent } from '../../group/group-modal/group-modal.component';
 import { GroupsGridModalComponent } from '../../group/groups-grid-modal/groups-grid-modal.component';
 import { GroupsGridComponent } from '../../group/groups-grid/groups-grid.component';
+import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 
 @Component({
   selector: 'user-groups-grid',
@@ -21,14 +22,16 @@ export class UserGroupsGridComponent extends GroupsGridComponent implements OnIn
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected groupsConfig: GroupsConfig
+    protected groupsConfig: GroupsConfig,
+    protected messageModalService: MessageModalService
   ) {
     super(
       modalService,
       errorsExtractor,
       translateService,
       dynamicRepository,
-      groupsConfig
+      groupsConfig,
+      messageModalService
     );
   }
   ngOnInit() {
