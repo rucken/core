@@ -1,3 +1,15 @@
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/rucken/core/compare/2.0.0...2.0.1) (2018-04-21)
+
+
+### Bug Fixes
+
+* **directives:** Restore use Renderer ([e51aeff](https://github.com/rucken/core/commit/e51aeff))
+* **errors:** Update error-extractor ([9fb6ff5](https://github.com/rucken/core/commit/9fb6ff5))
+* **message-modal.service:** Add MessageService to all grid components ([91d13d4](https://github.com/rucken/core/commit/91d13d4))
+
+
+
 <a name="2.0.0"></a>
 # [2.0.0](https://github.com/rucken/core/compare/1.30.5...2.0.0) (2018-04-15)
 
