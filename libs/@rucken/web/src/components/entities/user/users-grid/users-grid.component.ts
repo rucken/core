@@ -4,6 +4,7 @@ import { ErrorsExtractor, User, UsersConfig, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, PaginationMeta } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
+import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UserModalComponent } from '../user-modal/user-modal.component';
 
 
@@ -19,7 +20,8 @@ export class UsersGridComponent extends BaseEntityListComponent<User> implements
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected usersConfig: UsersConfig
+    protected usersConfig: UsersConfig,
+    protected messageModalService: MessageModalService
   ) {
     super(
       dynamicRepository.fork<User>(User),

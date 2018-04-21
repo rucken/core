@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, PaginationMeta } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { ContentTypeModalComponent } from '../content-type-modal/content-type-modal.component';
+import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class ContentTypesGridComponent extends BaseEntityListComponent<ContentTy
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected contentTypesConfig: ContentTypesConfig
+    protected contentTypesConfig: ContentTypesConfig,
+    protected messageModalService: MessageModalService
   ) {
     super(
       dynamicRepository.fork<ContentType>(ContentType),

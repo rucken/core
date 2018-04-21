@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { DirectivesModule } from '../../../../directives/directives.module';
 import { PipesModule } from '../../../../shared/pipes/pipes.module';
+import { MessageModalModule } from '../../../modals/message-modal/message-modal.module';
 import { FormGroupModule } from '../../../others/form-group/form-group.module';
 import { UserGroupsGridModule } from '../user-groups-grid/user-groups-grid.module';
 import { ProfilePanelComponent } from './profile-panel.component';
@@ -12,6 +13,7 @@ import { ProfilePanelComponent } from './profile-panel.component';
 @NgModule({
   imports: [
     CommonModule,
+    MessageModalModule,
     ReactiveFormsModule,
     FormsModule,
     TranslateModule.forChild(),

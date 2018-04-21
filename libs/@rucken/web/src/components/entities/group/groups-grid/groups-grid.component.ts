@@ -5,6 +5,7 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, PaginationMeta } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { GroupModalComponent } from '../group-modal/group-modal.component';
+import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class GroupsGridComponent extends BaseEntityListComponent<Group> implemen
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected groupsConfig: GroupsConfig
+    protected groupsConfig: GroupsConfig,
+    protected messageModalService: MessageModalService
   ) {
     super(
       dynamicRepository.fork<Group>(Group),
