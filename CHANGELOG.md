@@ -1,3 +1,13 @@
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/rucken/core/compare/2.0.1...2.0.2) (2018-04-22)
+
+
+### Bug Fixes
+
+* **modules:** Remove duplicated imports ([47b8ec1](https://github.com/rucken/core/commit/47b8ec1))
+
+
+
 <a name="2.0.1"></a>
 ## [2.0.1](https://github.com/rucken/core/compare/2.0.0...2.0.1) (2018-04-21)
 
