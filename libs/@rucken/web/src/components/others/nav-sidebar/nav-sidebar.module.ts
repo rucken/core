@@ -16,7 +16,9 @@ import { NavSidebarComponent } from './nav-sidebar.component';
     NavSidebarComponent
   ],
   exports: [
-    NavSidebarComponent
+    NavSidebarComponent,
+    NgxPermissionsModule,
+    RouterModule
   ]
 })
 export class NavSidebarModule {

@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 import { EntityGridModalModule } from '../../../others/entity-grid-modal/entity-grid-modal.module';
 import { GroupsGridModule } from '../groups-grid/groups-grid.module';
 import { GroupsGridModalComponent } from './groups-grid-modal.component';
@@ -9,9 +7,6 @@ import { GroupsGridModalComponent } from './groups-grid-modal.component';
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    TranslateModule.forChild(),
     EntityGridModalModule,
     GroupsGridModule
   ],
@@ -22,7 +17,9 @@ import { GroupsGridModalComponent } from './groups-grid-modal.component';
     GroupsGridModalComponent
   ],
   exports: [
-    GroupsGridModalComponent
+    GroupsGridModalComponent,
+    EntityGridModalModule,
+    GroupsGridModule
   ]
 })
 export class GroupsGridModalModule {

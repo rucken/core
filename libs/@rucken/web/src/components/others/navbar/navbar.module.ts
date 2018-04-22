@@ -18,7 +18,9 @@ import { NavbarComponent } from './navbar.component';
     NavbarComponent
   ],
   exports: [
-    NavbarComponent
+    NavbarComponent,
+    NgxPermissionsModule,
+    RouterModule
   ]
 })
 export class NavbarModule {

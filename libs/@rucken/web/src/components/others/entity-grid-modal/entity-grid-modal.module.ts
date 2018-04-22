@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { DirectivesModule } from '../../../directives/directives.module';
 import { FormGroupModule } from '../../others/form-group/form-group.module';
 import { EntityGridModalComponent } from './entity-grid-modal.component';
+import { EntityModalModule } from '../entity-modal/entity-modal.module';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { EntityGridModalComponent } from './entity-grid-modal.component';
     FormsModule,
     DirectivesModule,
     TranslateModule.forChild(),
-    FormGroupModule
+    FormGroupModule,
+    EntityModalModule
   ],
   declarations: [
     EntityGridModalComponent
@@ -22,7 +24,12 @@ import { EntityGridModalComponent } from './entity-grid-modal.component';
     EntityGridModalComponent
   ],
   exports: [
-    EntityGridModalComponent
+    EntityGridModalComponent,
+    ReactiveFormsModule,
+    FormsModule,
+    DirectivesModule,
+    FormGroupModule,
+    EntityModalModule
   ]
 })
 export class EntityGridModalModule {

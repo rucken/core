@@ -1,8 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { TranslateModule } from '@ngx-translate/core';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { MessageModalModule } from '../../../modals/message-modal/message-modal.module';
 import { EntitySelectModule } from '../../../others/entity-select/entity-select.module';
 import { ContentTypesGridModalModule } from '../content-types-grid-modal/content-types-grid-modal.module';
 import { ContentTypeSelectComponent } from './content-type-select.component';
@@ -10,17 +7,16 @@ import { ContentTypeSelectComponent } from './content-type-select.component';
 @NgModule({
   imports: [
     CommonModule,
-    MessageModalModule,
-    TranslateModule.forChild(),
     EntitySelectModule,
-    ContentTypesGridModalModule,
-    ModalModule.forRoot()
+    ContentTypesGridModalModule
   ],
   declarations: [
     ContentTypeSelectComponent
   ],
   exports: [
-    ContentTypeSelectComponent
+    ContentTypeSelectComponent,
+    EntitySelectModule,
+    ContentTypesGridModalModule
   ]
 })
 export class ContentTypeSelectModule {

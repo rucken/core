@@ -10,7 +10,7 @@ import { MessageModalService } from './message-modal.service';
   imports: [
     CommonModule,
     ModalModule.forRoot(),
-    DirectivesModule.forRoot(),
+    DirectivesModule,
     TranslateModule.forChild()
   ],
   providers: [
@@ -21,6 +21,10 @@ import { MessageModalService } from './message-modal.service';
   ],
   entryComponents: [
     MessageModalComponent
+  ],
+  exports: [
+    MessageModalComponent,
+    DirectivesModule
   ]
 })
 export class MessageModalModule {

@@ -1,7 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
 import { EntityGridModalModule } from '../../../others/entity-grid-modal/entity-grid-modal.module';
 import { ContentTypesGridModule } from '../content-types-grid/content-types-grid.module';
 import { ContentTypesGridModalComponent } from './content-types-grid-modal.component';
@@ -9,9 +7,6 @@ import { ContentTypesGridModalComponent } from './content-types-grid-modal.compo
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule,
-    FormsModule,
-    TranslateModule.forChild(),
     EntityGridModalModule,
     ContentTypesGridModule
   ],
@@ -22,7 +17,9 @@ import { ContentTypesGridModalComponent } from './content-types-grid-modal.compo
     ContentTypesGridModalComponent
   ],
   exports: [
-    ContentTypesGridModalComponent
+    ContentTypesGridModalComponent,
+    EntityGridModalModule,
+    ContentTypesGridModule
   ]
 })
 export class ContentTypesGridModalModule {
