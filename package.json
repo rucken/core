@@ -98,7 +98,7 @@
     "@angular/platform-server": "5.2.10",
     "@angular/router": "5.2.10",
     "@nguniversal/common": "5.0.0",
-    "@nguniversal/express-engine": "5.0.0",
+    "@nguniversal/express-engine": "6.0.0-rc.0",
     "@nguniversal/module-map-ngfactory-loader": "5.0.0",
     "@ngx-translate/core": "9.1.1",
     "@ngx-utils/cookies": "3.0.1",
