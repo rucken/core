@@ -1,3 +1,13 @@
+<a name="2.0.5"></a>
+## [2.0.5](https://github.com/rucken/core/compare/2.0.4...2.0.5) (2018-04-25)
+
+
+### Bug Fixes
+
+* **entiy-grid:** Run selectedChange on set items ([ab368cf](https://github.com/rucken/core/commit/ab368cf))
+
+
+
 <a name="2.0.4"></a>
 ## [2.0.4](https://github.com/rucken/core/compare/2.0.3...2.0.4) (2018-04-25)
 
