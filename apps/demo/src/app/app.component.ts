@@ -47,7 +47,7 @@ export class AppComponent implements OnDestroy {
         lang => {
           this._bsLocaleService.use(lang);
         }
-        );
+      );
       this._tokenService.tokenHasExpired$.pipe(
         takeUntil(this._destroyed$)
       ).subscribe(result => {
@@ -80,7 +80,7 @@ export class AppComponent implements OnDestroy {
               data =>
                 this.onLogoutSuccess(undefined)
             )
-          );
+        );
       } else {
         if (!this.accountService.current) {
           this.accountService.info(token).subscribe(
@@ -125,7 +125,8 @@ export class AppComponent implements OnDestroy {
       initialState: {
         title: this._translateService.instant('Authorization'),
         yesTitle: this._translateService.instant('Sign in'),
-        data: {}
+        data: {},
+        checkIsDirty: true
       }
     });
     bsModalRef.content.yes.subscribe(

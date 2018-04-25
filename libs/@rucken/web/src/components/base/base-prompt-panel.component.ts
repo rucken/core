@@ -8,6 +8,8 @@ import { IFactoryModel, IModel } from 'ngx-repository';
 export class BasePromptPanelComponent<TModel extends IModel> implements ControlValueAccessor, OnChanges {
 
   @Input()
+  checkIsDirty?: boolean;
+  @Input()
   processing: boolean;
   @Input()
   title: string;

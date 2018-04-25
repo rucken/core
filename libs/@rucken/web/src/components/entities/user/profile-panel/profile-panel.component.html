@@ -3,37 +3,37 @@
     <div class="col-md-6">
       <div class="row">
         <div class="col-md-12">
-          <form-group [form]="form" name="username" [title]="strings.username">
+          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="username" [title]="strings.username">
             <input formControlName="username" [readonly]="isReadonly" focused/>
           </form-group>
         </div>
         <div class="col-md-6">
-          <form-group [form]="form" name="email" [title]="strings.email">
+          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="email" [title]="strings.email">
             <input formControlName="email" [readonly]="isReadonly" />
           </form-group>
         </div>
         <div class="col-md-6">
-          <form-group [form]="form" name="dateOfBirth" [title]="strings.dateOfBirth">
+          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="dateOfBirth" [title]="strings.dateOfBirth">
             <input bsDatepicker formControlName="dateOfBirth" [readonly]="isReadonly" />
           </form-group>
         </div>
         <div class="col-md-6">
-          <form-group [form]="form" name="password" [title]="strings.password">
+          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="password" [title]="strings.password">
             <input formControlName="password" type="password" [readonly]="isReadonly" />
           </form-group>
         </div>
         <div class="col-md-6">
-          <form-group [form]="form" name="rePassword" [title]="strings.rePassword">
+          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="rePassword" [title]="strings.rePassword">
             <input formControlName="rePassword" type="password" [readonly]="isReadonly" />
           </form-group>
         </div>
         <div class="col-md-6">
-          <form-group [form]="form" name="lastName" [title]="strings.lastName">
+          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="lastName" [title]="strings.lastName">
             <input formControlName="lastName" [readonly]="isReadonly" />
           </form-group>
         </div>
         <div class="col-md-6">
-          <form-group [form]="form" name="firstName" [title]="strings.firstName">
+          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="firstName" [title]="strings.firstName">
             <input formControlName="firstName" [readonly]="isReadonly" />
           </form-group>
         </div>
@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="col-md-6">
-      <form-group [title]="strings.roles">
+      <form-group [checkIsDirty]="checkIsDirty" [title]="strings.roles">
         <div class="checkboxes-group form-control">
           <div class="checkbox">
             <label>

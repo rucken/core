@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { BasePromptFormModalComponent } from '../../base/base-prompt-form-modal.component';

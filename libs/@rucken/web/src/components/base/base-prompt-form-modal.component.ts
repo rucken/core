@@ -8,6 +8,8 @@ import { IFactoryModel, IModel } from 'ngx-repository';
 export class BasePromptFormModalComponent<TModel extends IModel> {
 
   @Input()
+  checkIsDirty?: boolean;
+  @Input()
   processing: boolean;
   @Input()
   title: string;
