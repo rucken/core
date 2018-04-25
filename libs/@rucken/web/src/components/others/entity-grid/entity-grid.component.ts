@@ -16,6 +16,8 @@ export class EntityGridComponent<TModel extends IModel> {
   @ContentChild(EntityGridCellDirective, { read: TemplateRef }) gridCellTemplate;
 
   @Input()
+  selectFirst?: boolean;
+  @Input()
   processing: boolean;
   @Input()
   searchField: FormControl = new FormControl();
@@ -50,14 +52,19 @@ export class EntityGridComponent<TModel extends IModel> {
   strings: any;
   @Input()
   set items(items: TModel[]) {
-    this._items = items;
-    if (!this.selected) {
-      if (this._items && this._items.length) {
-        this.selected = [this._items[0]];
-      } else {
-        this.selected = [];
-      }
+    if (
+      this.selectFirst !== false &&
+      items &&
+      items.length &&
+      items.filter(item =>
+        this.selected &&
+        this.selected.length &&
+        this.selected[0].id === item.id
+      ).length === 0
+    ) {
+      this.selected = [items[0]];
     }
+    this._items = items;
   }
   get items() {
     return this._items;
@@ -118,7 +125,7 @@ export class EntityGridComponent<TModel extends IModel> {
       distinctUntilChanged()
     ).subscribe(
       value => this.onSearch(value)
-      );
+    );
   }
   get isEnableAppendFromGrid() {
     return !this.readonly && this.enableAppendFromGrid;
@@ -220,6 +227,9 @@ export class EntityGridComponent<TModel extends IModel> {
     this.appendFromGrid.emit(true);
   }
   onSelectedChange(items: TModel[]) {
+    if (this.selectFirst !== false && items && items.length === 0 && this._items && this._items.length) {
+      items = [this._items[0]];
+    }
     this.selected = items;
     this.selectedChange.emit(this.selected);
   }
