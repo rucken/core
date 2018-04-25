@@ -55,7 +55,7 @@ SOFTWARE.
 MIT
 MIT
 
-ngx-repository@0.3.5
+ngx-repository@0.3.6
 MIT
 The MIT License (MIT)
 
