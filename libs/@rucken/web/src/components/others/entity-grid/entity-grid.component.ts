@@ -52,19 +52,20 @@ export class EntityGridComponent<TModel extends IModel> {
   strings: any;
   @Input()
   set items(items: TModel[]) {
+    this._items = items;
     if (
       this.selectFirst !== false &&
-      items &&
-      items.length &&
-      items.filter(item =>
+      this._items &&
+      this._items.length &&
+      this._items.filter(item =>
         this.selected &&
         this.selected.length &&
         this.selected[0].id === item.id
       ).length === 0
     ) {
-      this.selected = [items[0]];
+      this.selected = [this._items[0]];
+      this.selectedChange.emit(this.selected);
     }
-    this._items = items;
   }
   get items() {
     return this._items;
