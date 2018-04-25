@@ -10,8 +10,11 @@ import { map } from 'rxjs/operators';
 })
 export class FormGroupComponent implements AfterViewInit {
 
+  @Input()
+  checkIsDirty?: boolean;
+
   get errors(): Observable<IShortValidationErrors | string[]> | Observable<any[]> {
-    if (this.form && this.form.dirty) {
+    if (this.form && (this.checkIsDirty === false || this.form.dirty)) {
       return this.form.customValidateErrors.pipe(
         map(customValidateErrors =>
           customValidateErrors[this.name] ? customValidateErrors[this.name] : []
@@ -44,19 +47,22 @@ export class FormGroupComponent implements AfterViewInit {
   ) {
   }
   ngAfterViewInit() {
-    const input = this._elementRef.nativeElement.querySelector('input');
-    if (
-      input &&
-      input.type !== 'checkbox' &&
-      input.type !== 'radio'
-    ) {
-      if (!input.classList.contains('form-control')) {
-        this._renderer.addClass(input, 'form-control');
+    const tags = ['input', 'textarea'];
+    tags.forEach(tag => {
+      const input = this._elementRef.nativeElement.querySelector(tag);
+      if (
+        input &&
+        input.type !== 'checkbox' &&
+        input.type !== 'radio'
+      ) {
+        if (!input.classList.contains('form-control')) {
+          this._renderer.addClass(input, 'form-control');
+        }
+        if (!input.id) {
+          this._renderer.setAttribute(input, 'id', this.name);
+        }
+        this._renderer.setAttribute(input, 'autocomplete', 'off');
       }
-      if (!input.id) {
-        this._renderer.setAttribute(input, 'id', this.name);
-      }
-      this._renderer.setAttribute(input, 'autocomplete', 'off');
-    }
+    });
   }
 }
