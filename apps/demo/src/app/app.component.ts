@@ -47,7 +47,7 @@ export class AppComponent implements OnDestroy {
         lang => {
           this._bsLocaleService.use(lang);
         }
-      );
+        );
       this._tokenService.tokenHasExpired$.pipe(
         takeUntil(this._destroyed$)
       ).subscribe(result => {
@@ -80,7 +80,7 @@ export class AppComponent implements OnDestroy {
               data =>
                 this.onLogoutSuccess(undefined)
             )
-        );
+          );
       } else {
         if (!this.accountService.current) {
           this.accountService.info(token).subscribe(

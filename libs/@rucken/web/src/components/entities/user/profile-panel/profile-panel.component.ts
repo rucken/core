@@ -61,7 +61,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     ).subscribe(
       data => this.onSave(data),
       error => this.onSaveError(error)
-    );
+      );
   }
   onSave(data: { token: string; user: User; }) {
     this.processing = false;

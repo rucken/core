@@ -1,6 +1,6 @@
 {
     "name": "@rucken/web",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "Base components, services and ui for admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
