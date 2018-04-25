@@ -23,6 +23,5 @@ export class UserModalComponent extends BasePromptFormModalComponent<User> {
     const data: User = this.data;
     data.groups = groups;
     this.data = data;
-    this.onYesClick();
   }
 }

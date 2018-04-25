@@ -55,6 +55,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     this.onSaveClick();
   }
   onSaveClick() {
+    this.processing = true;
     this._accountService.update(
       this.data
     ).subscribe(
@@ -63,6 +64,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
       );
   }
   onSave(data: { token: string; user: User; }) {
+    this.processing = false;
     this.data = data.user;
   }
   onError(error: any) {
@@ -71,6 +73,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     }).subscribe();
   }
   onSaveError(error: any) {
+    this.processing = false;
     this.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
     if (!this.form.externalErrors) {
       this.onError(error);

@@ -5,6 +5,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 export class BasePromptModalComponent {
 
   @Input()
+  checkIsDirty?: boolean;
+  @Input()
   processing: boolean;
   @Input()
   data?: any;
