@@ -28,7 +28,15 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   @Input()
   strings: any;
   @Input()
-  selected: TModel[] = [];
+  set selected(selected: TModel[]) {
+    this._selected = selected;
+    this.selectedChange.emit(this._selected);
+  }
+  get selected() {
+    return this._selected;
+  }
+  @Output()
+  selectedChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
   @Input()
   readonly: boolean;
   @Input()
@@ -37,6 +45,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   filter: IEntityGridFilter = { searchText: '', sort: '-id' };
 
   private _mockedItems: TModel[];
+  private _selected: TModel[] = [];
 
   constructor(
     public repository: Repository<TModel>,
@@ -332,7 +341,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
               modal.hide();
             },
             error => this.onAppendFromGridError(modal, error)
-            );
+          );
         } else {
           modal.hide();
         }
