@@ -34,6 +34,8 @@ export class EntityGridComponent<TModel extends IModel> {
   @Input()
   orderBy: string;
   @Input()
+  multiSelectColumns: string[];
+  @Input()
   set columns(columns: string[]) {
     this._columns = columns;
   }
@@ -116,7 +118,7 @@ export class EntityGridComponent<TModel extends IModel> {
       distinctUntilChanged()
     ).subscribe(
       value => this.onSearch(value)
-      );
+    );
   }
   get isEnableAppendFromGrid() {
     return !this.readonly && this.enableAppendFromGrid;
@@ -224,14 +226,14 @@ export class EntityGridComponent<TModel extends IModel> {
   trackByFn(index, item) {
     return item.id;
   }
-  clearSelected() {
-    this.onSelectedChange([]);
-  }
   isSelected(item: TModel) {
     const index = this.selected.findIndex(eachItem => eachItem && eachItem.id === item.id);
     return index !== -1;
   }
-  toggle(item: TModel) {
+  toggle(item: TModel, col: string) {
+    if (!this.multiSelectColumns || this.multiSelectColumns.indexOf(col) === -1) {
+      this.selected = [];
+    }
     const selected = this.selected;
     const index = selected.findIndex(eachItem => eachItem && eachItem.id === item.id);
     if (index === -1) {

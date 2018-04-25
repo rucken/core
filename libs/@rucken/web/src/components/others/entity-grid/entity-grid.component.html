@@ -3,7 +3,7 @@
     <ng-content select="[entityGridHeader]"></ng-content>
   </span>
   <span *ngIf="headerRef.children.length == 0">
-    <div *ngIf="!isAppendFromGridMode">
+    <form [ngClass]="{'form-inline':isEnableCreate || title}" *ngIf="!isAppendFromGridMode">
       <div class="row" *ngIf="isEnableCreate">
         <div class="col-sm-4">
           <button type="button" class="pull-left" [ngClass]="createClass" (click)="onCreate()">
@@ -11,19 +11,29 @@
           </button>
         </div>
         <div class="col-sm-8">
-          <form class="form-inline pull-right">
-            <ng-container *ngTemplateOutlet="searchFieldTemplate"></ng-container>
-          </form>
+          <div class="pull-right">
+            <div class="form-group">
+              <ng-container *ngTemplateOutlet="searchFieldTemplate"></ng-container>
+            </div>
+          </div>
         </div>
       </div>
       <div class="row" *ngIf="!isEnableCreate">
-        <div class="col-sm-12">
-          <form>
-            <ng-container *ngTemplateOutlet="searchFieldTemplate"></ng-container>
-          </form>
+        <div class="col-sm-12" *ngIf="!title">
+          <ng-container *ngTemplateOutlet="searchFieldTemplate"></ng-container>
+        </div>
+        <div class="col-sm-8" *ngIf="title">
+          <h4>{{title | translate}}</h4>
+        </div>
+        <div class="col-sm-4" *ngIf="title">
+          <div class="pull-right">
+            <div class="form-group">
+              <ng-container *ngTemplateOutlet="searchFieldTemplate"></ng-container>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
     <div *ngIf="isAppendFromGridMode">
       <div class="row" *ngIf="isEnableAppendFromGrid">
         <div class="col-sm-8">
@@ -62,7 +72,8 @@
         </td>
       </tr>
       <tr *ngFor="let item of items; trackBy: trackByFn;" (dblclick)="onDblClick(item)" [ngClass]="{'info':isSelected(item)}">
-        <td *ngFor="let col of columns" (click)="clearSelected();toggle(item);" [ngClass]="{'text-center':col==='action'}">
+        <td *ngFor="let col of columns" (click)="toggle(item, col)" class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:''}}"
+          [ngClass]="{'text-center':col==='action','width-100': enableUpdateAndDelete && col==='action','width-50': enableOnlyUpdateOrDelete && col==='action'}">
           <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {field:{name:col},item:item} }"></ng-container>
         </td>
       </tr>
@@ -122,14 +133,12 @@
   </button>
 </ng-template>
 <ng-template #searchFieldTemplate let-ctx>
-  <div class="form-group">
-    <div class="input-group" *ngIf="!readonly">
-      <input type="search" class="form-control" [formControl]="searchField">
-      <span class="input-group-btn">
-        <button class="btn btn-success" (click)="onSearch(searchField.value)" type="button" [disabled]="processing">
-          <i class="fa fa-search"></i>
-        </button>
-      </span>
-    </div>
+  <div class="input-group" *ngIf="!readonly">
+    <input type="search" class="form-control" [formControl]="searchField">
+    <span class="input-group-btn">
+      <button class="btn btn-success" (click)="onSearch(searchField.value)" type="button" [disabled]="processing">
+        <i class="fa fa-search"></i>
+      </button>
+    </span>
   </div>
 </ng-template>
