@@ -27,16 +27,8 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   mockedItemsChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
   @Input()
   strings: any;
-  @Input()
-  set selected(selected: TModel[]) {
-    this._selected = selected;
-    this.selectedChange.emit(this._selected);
-  }
-  get selected() {
-    return this._selected;
-  }
   @Output()
-  selectedChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
+  selected: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
   @Input()
   readonly: boolean;
   @Input()
@@ -62,6 +54,13 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
         return acc;
       }, {});
     }
+  }
+  getSelected() {
+    return this._selected;
+  }
+  onSelected(selected: TModel[]) {
+    this._selected = selected;
+    this.selected.emit(this._selected);
   }
   onChangePage(meta: { page: number, itemsPerPage: number }) {
     this.repository.setOptions({
@@ -320,7 +319,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       (modal: IBaseEntityListModal<TModel>) => {
         modal.processing = true;
         const observables = [];
-        (modal.grid.selected as TModel[]).forEach(slectedItem => {
+        (modal.grid.getSelected() as TModel[]).forEach(slectedItem => {
           const foundedGroup = this.mockedItems && this.mockedItems.find(item => item.id === slectedItem.id);
           if (!foundedGroup) {
             observables.push(this.repository.create(slectedItem));

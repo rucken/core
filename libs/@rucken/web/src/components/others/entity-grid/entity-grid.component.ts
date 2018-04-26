@@ -1,4 +1,4 @@
-import { Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewContainerRef, isDevMode } from '@angular/core';
+import { Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewContainerRef, isDevMode, ChangeDetectorRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { IModel, PaginationMeta } from 'ngx-repository';
@@ -55,16 +55,15 @@ export class EntityGridComponent<TModel extends IModel> {
     this._items = items;
     if (
       this.selectFirst !== false &&
-      this._items &&
-      this._items.length &&
-      this._items.filter(item =>
-        this.selected &&
-        this.selected.length &&
-        this.selected[0].id === item.id
+      items &&
+      items.length &&
+      items.filter(item =>
+        this._selected &&
+        this._selected.length &&
+        this._selected[0].id === item.id
       ).length === 0
     ) {
-      this.selected = [this._items[0]];
-      this.selectedChange.emit(this.selected);
+      this.onSelected([]);
     }
   }
   get items() {
@@ -86,10 +85,8 @@ export class EntityGridComponent<TModel extends IModel> {
   changeOrder: EventEmitter<string> = new EventEmitter<string>();
   @Output()
   appendFromGrid: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Input()
-  selected: TModel[];
   @Output()
-  selectedChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
+  selected: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
   @Output()
   changePage: EventEmitter<{ page: number, itemsPerPage: number }> = new EventEmitter<{ page: number, itemsPerPage: number }>();
   @Input()
@@ -115,6 +112,7 @@ export class EntityGridComponent<TModel extends IModel> {
     return this.appendFromGrid.observers.length > 0;
   }
 
+  private _selected: TModel[];
   private _items: TModel[];
   private _columns: string[];
 
@@ -155,14 +153,12 @@ export class EntityGridComponent<TModel extends IModel> {
     if (isDevMode() && this.changePage.observers.length === 0) {
       console.warn('No subscribers found for "onChangePage"', this.parent);
     }
-    this.onSelectedChange([]);
     this.changePage.emit(meta);
   }
   onSearch(text: string) {
     if (isDevMode() && this.search.observers.length === 0) {
       console.warn('No subscribers found for "search"', this.parent);
     }
-    this.onSelectedChange([]);
     this.search.emit(text);
   }
   onDelete(item: TModel) {
@@ -227,47 +223,48 @@ export class EntityGridComponent<TModel extends IModel> {
     }
     this.appendFromGrid.emit(true);
   }
-  onSelectedChange(items: TModel[]) {
+  clearSelected() {
+    this._selected = [];
+  }
+  onSelected(items: TModel[]) {
     if (this.selectFirst !== false && items && items.length === 0 && this._items && this._items.length) {
       items = [this._items[0]];
     }
-    this.selected = items;
-    this.selectedChange.emit(this.selected);
+    this._selected = items;
+    this.selected.emit(items);
   }
   trackByFn(index, item) {
     return item.id;
   }
   isSelected(item: TModel) {
-    const index = this.selected.findIndex(eachItem => eachItem && eachItem.id === item.id);
+    const index = this._selected.findIndex(eachItem => eachItem && item && eachItem.id === item.id);
     return index !== -1;
   }
   toggle(item: TModel, col: string) {
     if (!this.multiSelectColumns || this.multiSelectColumns.indexOf(col) === -1) {
-      this.selected = [];
+      this._selected = [];
     }
-    const selected = this.selected;
-    const index = selected.findIndex(eachItem => eachItem && eachItem.id === item.id);
+    const selected = this._selected ? this._selected : [];
+    const index = selected.findIndex(eachItem => eachItem && item && eachItem.id === item.id);
     if (index === -1) {
       selected.push(item);
     } else {
       selected.splice(index, 1);
     }
-    this.onSelectedChange(selected);
+    this.onSelected(selected);
   }
   isAllSelected() {
-    const numSelected = this.selected ? this.selected.length : -1;
+    const numSelected = this._selected ? this._selected.length : -1;
     const numRows = this.items ? this.items.length : 0;
     return numSelected === numRows;
   }
   masterToggle() {
-    let selected = this.selected;
+    let selected = this._selected;
     if (this.isAllSelected()) {
       selected = [];
     } else {
       selected = [...this.items];
     }
-    this.onSelectedChange(selected);
+    this.onSelected(selected);
   }
-
-
 }

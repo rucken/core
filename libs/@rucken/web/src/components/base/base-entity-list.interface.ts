@@ -9,12 +9,11 @@ export interface IBaseEntityList<TModel extends IModel> {
   apiUrl?: string;
   mockedItems?: TModel[];
   mockedItemsChange: EventEmitter<TModel[]>;
-  selected: TModel[];
+  selected: EventEmitter<TModel[]>;
   readonly: boolean;
   title: string;
-
   strings: any;
   repository: Repository<TModel>;
-
   modalService: BsModalService;
+  getSelected(): TModel[];
 }
