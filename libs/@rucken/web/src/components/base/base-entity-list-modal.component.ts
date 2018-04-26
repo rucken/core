@@ -49,7 +49,7 @@ export class BaseEntityListModalComponent<TModel extends IModel> {
   mockedItemsChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
 
   get disabled() {
-    return this.grid && this.grid.selected && this.grid.selected.length > 0;
+    return this.grid && this.grid.selected && this.grid.getSelected().length > 0;
   }
 
   private _mockedItems: TModel[];
