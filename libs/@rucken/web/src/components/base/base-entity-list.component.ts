@@ -340,7 +340,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
               modal.hide();
             },
             error => this.onAppendFromGridError(modal, error)
-          );
+            );
         } else {
           modal.hide();
         }
