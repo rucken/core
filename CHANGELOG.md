@@ -1,3 +1,13 @@
+<a name="2.0.6"></a>
+## [2.0.6](https://github.com/rucken/core/compare/2.0.5...2.0.6) (2018-04-26)
+
+
+### Bug Fixes
+
+* **entity-grid:** Update work with selected items ([48e5fc9](https://github.com/rucken/core/commit/48e5fc9))
+
+
+
 <a name="2.0.5"></a>
 ## [2.0.5](https://github.com/rucken/core/compare/2.0.4...2.0.5) (2018-04-25)
 

@@ -124,7 +124,7 @@ export class EntityGridComponent<TModel extends IModel> {
       distinctUntilChanged()
     ).subscribe(
       value => this.onSearch(value)
-    );
+      );
   }
   get isEnableAppendFromGrid() {
     return !this.readonly && this.enableAppendFromGrid;
