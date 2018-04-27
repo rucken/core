@@ -1,7 +1,7 @@
 {
     "name": "@rucken/web",
-    "version": "2.0.7",
-    "description": "Base components, services and ui for admin entities for application maked on Angular5+",
+    "version": "2.0.8",
+    "description": "Base components and ui for admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
         "angular5",
@@ -23,5 +23,21 @@
         "ngx-permissions": "*",
         "ngx-repository": "*",
         "@rucken/core": "*"
-    }
+    },
+    "license": "MIT",
+    "author": "EndyKaufman <admin@site15.ru>",
+    "bugs": {
+        "url": "https://github.com/rucken/core/issues"
+    },
+    "homepage": "https://github.com/rucken/core",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rucken/core.git"
+    },
+    "maintainers": [
+        {
+            "name": "EndyKaufman",
+            "email": "admin@site15.ru"
+        }
+    ]
 }

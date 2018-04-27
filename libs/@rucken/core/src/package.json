@@ -1,6 +1,6 @@
 {
     "name": "@rucken/core",
-    "version": "2.0.7",
+    "version": "2.0.8",
     "description": "Core with base class and admin entities for application maked on Angular5+",
     "keywords": [
         "ngx",
@@ -21,5 +21,21 @@
         "ngx-permissions": "*",
         "ngx-repository": "*",
         "@ngx-translate/core": "*"
-    }
+    },
+    "license": "MIT",
+    "author": "EndyKaufman <admin@site15.ru>",
+    "bugs": {
+        "url": "https://github.com/rucken/core/issues"
+    },
+    "homepage": "https://github.com/rucken/core",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/rucken/core.git"
+    },
+    "maintainers": [
+        {
+            "name": "EndyKaufman",
+            "email": "admin@site15.ru"
+        }
+    ]
 }
