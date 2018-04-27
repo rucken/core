@@ -12,6 +12,8 @@ export class FormGroupComponent implements AfterViewInit {
 
   @Input()
   checkIsDirty?: boolean;
+  @Input()
+  tooltipPlacement?: string;
 
   get errors(): Observable<IShortValidationErrors | string[]> | Observable<any[]> {
     if (this.form && (this.checkIsDirty !== true || this.form.dirty)) {
