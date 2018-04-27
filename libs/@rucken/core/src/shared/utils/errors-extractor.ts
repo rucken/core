@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ErrorsExtractor {
   getValidationErrors(error: any) {
-    if (error && error instanceof HttpErrorResponse && (!error.error || (error.error && !error.error.nonFieldErrors))) {
-      return error && error.error;
+    if (error && error instanceof HttpErrorResponse && error.error.validationErrors) {
+      return error && error.error.validationErrors;
     }
     return undefined;
   }
@@ -13,8 +13,8 @@ export class ErrorsExtractor {
     if (typeof error === 'string') {
       return error;
     }
-    if (error && error instanceof HttpErrorResponse && error.error && !!error.error.nonFieldErrors) {
-      return error && error.error && error.error.nonFieldErrors;
+    if (error && error instanceof HttpErrorResponse && error.error.message) {
+      return error && error.error && error.error.message;
     }
     if (error && error.message) {
       return error.message;
