@@ -8,7 +8,7 @@ export function transformStringToDate(value: string) {
   return value && value.substring ? new Date(value.substring(0, 10)) : value;
 }
 export function transformDateToString(value: Date) {
-  if (value) {
+  if (value && value.getDate && value.getMonth && value.getFullYear) {
     const curr_date = value.getDate();
     const curr_month = value.getMonth() + 1;
     const curr_year = value.getFullYear();
