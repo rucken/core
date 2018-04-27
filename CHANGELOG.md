@@ -1,3 +1,17 @@
+<a name="2.0.7"></a>
+## [2.0.7](https://github.com/rucken/core/compare/2.0.6...2.0.7) (2018-04-27)
+
+
+### Bug Fixes
+
+* **base-entity-list:** Set filter as optional ([3803ca1](https://github.com/rucken/core/commit/3803ca1))
+* **custom-transforms:** Update "transformDateToString", add check exists "value.getDate" in convert date to string ([0f9f1aa](https://github.com/rucken/core/commit/0f9f1aa))
+* **entity-grid:** Disable row onClick on action cell ([8ba739e](https://github.com/rucken/core/commit/8ba739e))
+* **form-group:** Add tooltipPlacement input for change position of tooltip ([6558e0f](https://github.com/rucken/core/commit/6558e0f))
+* **grid-modals:** Remove disabled modal with grid ([d8802b4](https://github.com/rucken/core/commit/d8802b4))
+
+
+
 <a name="2.0.6"></a>
 ## [2.0.6](https://github.com/rucken/core/compare/2.0.5...2.0.6) (2018-04-26)
 

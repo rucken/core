@@ -67,7 +67,10 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       paginationMeta: { curPage: meta.page, perPage: meta.itemsPerPage }
     });
   }
-  onChangeFilter(filter: IEntityGridFilter) {
+  onChangeFilter(filter?: IEntityGridFilter) {
+    if (!filter) {
+      filter = {};
+    }
     this.processing = true;
     for (const key in filter) {
       if (filter.hasOwnProperty(key)) {

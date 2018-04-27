@@ -82,9 +82,6 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-msgid "{{strings[ctx.field.name]}}"
-msgstr ""
-
 msgid "Action"
 msgstr ""
 

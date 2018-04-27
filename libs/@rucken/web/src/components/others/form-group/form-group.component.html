@@ -1,5 +1,5 @@
 <div class="form-group" [ngClass]="{'has-error': (errors | async)[0]}" [containerClass]="(errors | async)[0]?'error-tooltip':'success-tooltip'"
-  [tooltip]="(errors | async)[0] | translate" placement="bottom">
+  [tooltip]="(errors | async)[0] | translate" [placement]="tooltipPlacement?tooltipPlacement:'bottom'">
   <label class="control-label" [attr.for]="name" *ngIf="title">{{title | translate}}</label>
   <ng-container *ngTemplateOutlet="contentWrapper"></ng-container>
 </div>

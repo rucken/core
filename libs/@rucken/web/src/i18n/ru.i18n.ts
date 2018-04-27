@@ -9,7 +9,7 @@ export const RuckenWebRuI18n = {
     'mime-version': '1.0',
     'content-type': 'text/plain; charset=UTF-8',
     'content-transfer-encoding': '8bit',
-    'x-generator': 'Poedit 2.0.6',
+    'x-generator': 'Poedit 2.0.7',
     'plural-forms': 'nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);'
   },
   'Cancel': 'Отмена',
@@ -36,8 +36,8 @@ export const RuckenWebRuI18n = {
   'Password': 'Пароль',
   'Info': 'Информация',
   'Error': 'Ошибка',
-  'Filter': 'Фильтр',
   'No data': 'Нет данных',
+  'Loading...': 'Загрузка...',
   'Action': 'Действие',
   'Language': 'Язык',
   'Menu': 'Меню',

@@ -1,5 +1,5 @@
-<entity-grid-modal [title]="title" [yesTitle]="yesTitle" [readonly]="readonly" [disabled]="!(grid?.selected?.length>0)" [noTitle]="noTitle"
-  (yes)="onYesClick()" (no)="onNoClick()" [processing]="processing">
+<entity-grid-modal [title]="title" [yesTitle]="yesTitle" [readonly]="readonly" [noTitle]="noTitle" (yes)="onYesClick()" (no)="onNoClick()"
+  [processing]="processing">
   <content-types-grid [apiUrl]="apiUrl" #grid>
   </content-types-grid>
 </entity-grid-modal>
