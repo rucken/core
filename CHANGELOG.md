@@ -1,3 +1,13 @@
+<a name="2.0.8"></a>
+## [2.0.8](https://github.com/rucken/core/compare/2.0.7...2.0.8) (2018-04-27)
+
+
+### Bug Fixes
+
+* **error-extractor:** Change validation errors extractor ([5875f2d](https://github.com/rucken/core/commit/5875f2d))
+
+
+
 <a name="2.0.7"></a>
 ## [2.0.7](https://github.com/rucken/core/compare/2.0.6...2.0.7) (2018-04-27)
 
