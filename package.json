@@ -1,13 +1,13 @@
 {
   "name": "rucken",
   "version": "2.0.7",
-  "license": "MIT",
-  "author": "EndyKaufman <admin@site15.ru>",
   "engines": {
     "node": "8.11.x",
     "npm": "5.8.x"
   },
   "private": true,
+  "license": "MIT",
+  "author": "EndyKaufman <admin@site15.ru>",
   "description": "Core with Admin UI for web and native application maked on Angular5+",
   "bugs": {
     "url": "https://github.com/rucken/core/issues"
