@@ -1,4 +1,4 @@
-import { Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewContainerRef, isDevMode, ChangeDetectorRef } from '@angular/core';
+import { Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewContainerRef, isDevMode } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { IModel, PaginationMeta } from 'ngx-repository';
@@ -14,6 +14,41 @@ export class EntityGridComponent<TModel extends IModel> {
 
   @ContentChild(EntityGridFieldDirective, { read: TemplateRef }) gridFieldTemplate;
   @ContentChild(EntityGridCellDirective, { read: TemplateRef }) gridCellTemplate;
+
+  @ContentChild('#defaultGridFieldContent')
+  defaultGridFieldContent: TemplateRef<any>;
+  @ContentChild('#defaultGridFieldActionContent')
+  defaultGridFieldActionContent: TemplateRef<any>;
+  @ContentChild('#defaultGridCellContent')
+  defaultGridCellContent: TemplateRef<any>;
+  @ContentChild('#defaultGridCellTranslatedContent')
+  defaultGridCellTranslatedContent: TemplateRef<any>;
+  @ContentChild('#defaultGridCellActionContent')
+  defaultGridCellActionContent: TemplateRef<any>;
+  @ContentChild('#defaultSearchFieldTemplate')
+  defaultSearchFieldTemplate: TemplateRef<any>;
+  @ContentChild('#defaultEntityGridFooterTemplate')
+  defaultEntityGridFooterTemplate: TemplateRef<any>;
+  @ContentChild('#defaultEntityGridHeaderTemplate')
+  defaultEntityGridHeaderTemplate: TemplateRef<any>;
+
+
+  @Input()
+  gridFieldContent: TemplateRef<any>;
+  @Input()
+  gridFieldActionContent: TemplateRef<any>;
+  @Input()
+  gridCellContent: TemplateRef<any>;
+  @Input()
+  gridCellTranslatedContent: TemplateRef<any>;
+  @Input()
+  gridCellActionContent: TemplateRef<any>;
+  @Input()
+  searchFieldTemplate: TemplateRef<any>;
+  @Input()
+  entityGridFooterTemplate: TemplateRef<any>;
+  @Input()
+  entityGridHeaderTemplate: TemplateRef<any>;
 
   @Input()
   selectFirst?: boolean;
