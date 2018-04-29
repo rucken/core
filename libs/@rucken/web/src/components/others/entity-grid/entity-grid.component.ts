@@ -32,7 +32,7 @@ export class EntityGridComponent<TModel extends IModel> {
   @ContentChild('#defaultEntityGridHeaderTemplate')
   defaultEntityGridHeaderTemplate: TemplateRef<any>;
 
-  
+
   @Input()
   gridFieldContent: TemplateRef<any>;
   @Input()
@@ -159,7 +159,7 @@ export class EntityGridComponent<TModel extends IModel> {
       distinctUntilChanged()
     ).subscribe(
       value => this.onSearch(value)
-    );
+      );
   }
   get isEnableAppendFromGrid() {
     return !this.readonly && this.enableAppendFromGrid;
