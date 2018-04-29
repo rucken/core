@@ -1,3 +1,13 @@
+<a name="2.0.9"></a>
+## [2.0.9](https://github.com/rucken/core/compare/2.0.8...2.0.9) (2018-04-29)
+
+
+### Bug Fixes
+
+* **entity-grid:** Add other ng-templates for replace ([77f0eb6](https://github.com/rucken/core/commit/77f0eb6))
+
+
+
 <a name="2.0.8"></a>
 ## [2.0.8](https://github.com/rucken/core/compare/2.0.7...2.0.8) (2018-04-27)
 
