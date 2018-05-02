@@ -121,7 +121,7 @@
     "@rucken/cli": "^2.0.3",
     "@types/jasmine": "2.8.6",
     "@types/jasminewd2": "2.0.3",
-    "@types/node": "9.6.6",
+    "@types/node": "10.0.3",
     "body-parser": "1.18.2",
     "bootstrap-sass": "3.3.7",
     "bootswatch-sass": "3.2.0",
