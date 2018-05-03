@@ -95,7 +95,7 @@
     "@angular/http": "5.2.10",
     "@angular/platform-browser": "5.2.10",
     "@angular/platform-browser-dynamic": "5.2.10",
-    "@angular/platform-server": "5.2.10",
+    "@angular/platform-server": "6.0.0",
     "@angular/router": "5.2.10",
     "@nguniversal/common": "5.0.0",
     "@nguniversal/express-engine": "5.0.0",
