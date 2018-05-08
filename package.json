@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "engines": {
     "node": "8.11.x",
     "npm": "5.8.x"
@@ -47,9 +47,9 @@
     "app:start-full_dev": "npm-run-all clear prepare format libs:build libs:link app:serve-dev",
     "app:start-full_prod": "npm-run-all clear prepare format libs:build libs:link app:serve-prod",
     "app:start-full_mockapi": "npm-run-all clear prepare format libs:build libs:link app:serve-mockapi",
-    "app:build-dev": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --prod --env=dev --build-optimizer --no-sourcemap",
-    "app:build-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --prod --env=mockapi --build-optimizer --no-sourcemap",
-    "app:build-prod": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --prod --build-optimizer --no-sourcemap",
+    "app:build-dev": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --prod --env=dev",
+    "app:build-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --prod --env=mockapi",
+    "app:build-prod": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --prod",
     "app:build-full_dev": "npm-run-all clear prepare format libs:build libs:link app:build-dev",
     "app:build-full_prod": "npm-run-all clear prepare format libs:build libs:link app:build-prod",
     "app:build-full_mockapi": "npm-run-all clear prepare format libs:build libs:link app:build-mockapi",
@@ -69,7 +69,7 @@
     "ssr:start": "node ./server.js",
     "ssr:full_start": "npm run ssr:build-dev && npm run ssr:start",
     "ssr:full_mockapi-start": "npm run ssr:build-mockapi && npm run ssr:start",
-    "gh:build-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href https://rucken.github.io/core/ --prod --env=mockapi --build-optimizer --no-sourcemap",
+    "gh:build-mockapi": "node ./node_modules/@angular/cli/bin/ng build --app=demo --preserve-symlinks --base-href https://rucken.github.io/core/ --prod --env=mockapi",
     "gh:build": "npm-run-all clear prepare format libs:build libs:link gh:build-mockapi",
     "gh:deploy": "cp-cli ./apps/demo/dist/browser/index.html ./apps/demo/dist/browser/404.html && gh-pages -d apps/demo/dist/browser",
     "format": "tsfmt -r",
