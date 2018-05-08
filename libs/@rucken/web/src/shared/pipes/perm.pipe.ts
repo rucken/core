@@ -19,17 +19,17 @@ export class PermPipe implements PipeTransform, OnDestroy {
     this._destroyed$.next(true);
     this._destroyed$.complete();
   }
-  transform(value: string | string[], args: any): any {
+  transform(key: string | string[], defaultValue: boolean = true, trueValue: any = true, falseValue: any = false): any {
     return new Observable<boolean>(observer =>
       this._permissionsService.permissions$.pipe(
         takeUntil(this._destroyed$)
       ).subscribe(permissions => {
         if (Object.keys(permissions).length) {
-          this._permissionsService.hasPermission(value).then(result => {
-            observer.next(result);
+          this._permissionsService.hasPermission(key).then(result => {
+            observer.next(result ? trueValue : falseValue);
           });
         } else {
-          observer.next(true);
+          observer.next(defaultValue ? trueValue : falseValue);
         }
       })
     );

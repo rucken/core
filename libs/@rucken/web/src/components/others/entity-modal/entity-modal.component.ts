@@ -12,11 +12,11 @@ export class EntityModalComponent extends BasePromptFormModalComponent<any> {
   ignoredFields = ['id'];
 
   set form(form: DynamicFormGroup<any>) {
-    this.keys = Object.keys(form.controls).filter(key =>
+    this.keys = form.controls ? Object.keys(form.controls).filter(key =>
       this.ignoredFields.indexOf(
         key.toLowerCase()
       ) === -1
-    );
+    ) : [];
     this._form = form;
   }
   get form() {
