@@ -19,8 +19,6 @@ export class ThemesModule {
     return {
       ngModule: ThemesModule,
       providers: [
-        ThemesService,
-        ThemesStorage,
         {
           provide: APP_INITIALIZER,
           useFactory: themesServiceInitializeApp,

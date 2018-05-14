@@ -21,8 +21,6 @@ export class TokenModule {
     return {
       ngModule: TokenModule,
       providers: [
-        TokenService,
-        TokenStorage,
         TokenInterceptor,
         {
           provide: APP_INITIALIZER,

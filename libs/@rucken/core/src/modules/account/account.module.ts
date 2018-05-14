@@ -21,8 +21,6 @@ export class AccountModule {
     return {
       ngModule: AccountModule,
       providers: [
-        AccountService,
-        AccountStorage,
         {
           provide: APP_INITIALIZER,
           useFactory: accountServiceInitializeApp,
