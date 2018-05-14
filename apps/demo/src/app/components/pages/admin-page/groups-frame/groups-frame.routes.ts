@@ -13,5 +13,5 @@ export const GroupsFrameRoutes = [{
       only: 'read_groups-frame'
     }
   },
-  ...(environment.server ? {} : { canActivate: [NgxPermissionsGuard] })
+  canActivate: environment.server ? [] : [NgxPermissionsGuard]
 }];

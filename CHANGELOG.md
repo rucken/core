@@ -1,3 +1,13 @@
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/rucken/core/compare/2.1.0...2.1.1) (2018-05-14)
+
+
+### Bug Fixes
+
+* **modules:** Remove duplicate providers ([b15c863](https://github.com/rucken/core/commit/b15c863))
+
+
+
 <a name="2.1.0"></a>
 # [2.1.0](https://github.com/rucken/core/compare/2.0.9...2.1.0) (2018-05-08)
 

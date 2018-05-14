@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { AccountModule } from '@rucken/core';
 import { CustomTranslatePipe } from './custom-translate.pipe';
 import { PermPipe } from './perm.pipe';
 import { SafeHtmlPipe } from './safe-html.pipe';
@@ -11,8 +10,7 @@ import { UserPermPipe } from './user-perm.pipe';
 @NgModule({
   imports: [
     CommonModule,
-    TranslateModule.forChild(),
-    AccountModule
+    TranslateModule.forChild()
   ],
   declarations: [
     CustomTranslatePipe,
@@ -25,18 +23,19 @@ import { UserPermPipe } from './user-perm.pipe';
     SafeHtmlPipe,
     PermPipe,
     UserPermPipe
+  ],
+  providers: [
+    CustomTranslatePipe,
+    SafeHtmlPipe,
+    PermPipe,
+    UserPermPipe
   ]
 })
 export class PipesModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: PipesModule,
-      providers: [
-        CustomTranslatePipe,
-        SafeHtmlPipe,
-        PermPipe,
-        UserPermPipe
-      ]
+      providers: []
     };
   }
 }

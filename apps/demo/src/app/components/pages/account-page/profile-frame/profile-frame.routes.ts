@@ -13,5 +13,5 @@ export const ProfileFrameRoutes = [{
       only: 'read_profile-frame'
     }
   },
-  ...(environment.server ? {} : { canActivate: [NgxPermissionsGuard] })
+  canActivate: environment.server ? [] : [NgxPermissionsGuard]
 }];

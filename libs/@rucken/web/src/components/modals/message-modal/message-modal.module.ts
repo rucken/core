@@ -31,9 +31,7 @@ export class MessageModalModule {
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: MessageModalModule,
-      providers: [
-        MessageModalService
-      ]
+      providers: []
     };
   }
 }

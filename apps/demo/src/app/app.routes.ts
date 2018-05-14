@@ -19,11 +19,13 @@ export const AppRoutes: Routes = [
   {
     path: 'account',
     loadChildren: './components/pages/account-page/account-page.module#AccountPageModule',
+    canActivate: AccountPageRoutes[0].canActivate,
     data: AccountPageRoutes[0].data
   },
   {
     path: 'admin',
     loadChildren: './components/pages/admin-page/admin-page.module#AdminPageModule',
+    canActivate: AdminPageRoutes[0].canActivate,
     data: AdminPageRoutes[0].data
   },
   {

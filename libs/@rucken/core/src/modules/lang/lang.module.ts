@@ -24,8 +24,6 @@ export class LangModule {
     return {
       ngModule: LangModule,
       providers: [
-        LangStorage,
-        LangService,
         { provide: LANGUAGES, useValue: config.languages },
         { provide: APP_LANG, useValue: config.appLang },
         { provide: DEFAULT_LANG, useValue: config.defaultLang },
