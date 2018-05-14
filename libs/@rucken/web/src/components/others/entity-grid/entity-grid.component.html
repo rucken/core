@@ -12,10 +12,10 @@
     </thead>
     <tbody>
       <tr *ngIf="!processing && (!items || !items.length)">
-        <td [attr.colspan]="columns.length" class="text-center" translate>No data</td>
+        <td [attr.colspan]="columns?.length" class="text-center" translate>No data</td>
       </tr>
       <tr *ngIf="processing">
-        <td [attr.colspan]="columns.length" class="text-center" translate>
+        <td [attr.colspan]="columns?.length" class="text-center" translate>
           <i class="fa fa-spinner fa-pulse fa-fw" *ngIf="processing"></i>
           <span translate>Loading...</span>
         </td>
