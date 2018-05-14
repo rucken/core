@@ -14,6 +14,6 @@ export const AdminPageRoutes = [{
       only: 'read_admin-page'
     }
   },
-  ...(environment.server ? {} : { canActivate: [NgxPermissionsGuard] }),
+  canActivate: environment.server ? [] : [NgxPermissionsGuard],
   children: AdminPageChildrenRoutes
 }];

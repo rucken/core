@@ -14,6 +14,6 @@ export const AccountPageRoutes = [{
       only: 'read_account-page'
     }
   },
-  ...(environment.server ? {} : { canActivate: [NgxPermissionsGuard] }),
+  canActivate: environment.server ? [] : [NgxPermissionsGuard],
   children: AccountPageChildrenRoutes
 }];

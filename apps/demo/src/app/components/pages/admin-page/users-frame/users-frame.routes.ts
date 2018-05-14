@@ -13,5 +13,5 @@ export const UsersFrameRoutes = [{
       only: 'read_users-frame'
     }
   },
-  ...(environment.server ? {} : { canActivate: [NgxPermissionsGuard] })
+  canActivate: environment.server ? [] : [NgxPermissionsGuard]
 }];
