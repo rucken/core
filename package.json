@@ -75,7 +75,7 @@
     "format": "tsfmt -r",
     "clear": "node ./node_modules/@rucken/cli/bin/rucken clear",
     "prepare": "node ./node_modules/@rucken/cli/bin/rucken prepare",
-    "test": "npm-run-all build",
+    "test": "npm-run-all gh:build",
     "lite-server": "lite-server -c bs-config.json",
     "heroku-postbuild": "npm-run-all ssr:build-mockapi",
     "build": "npm-run-all app:build-full_prod",
