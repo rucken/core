@@ -51,7 +51,11 @@ defineLocale('en', enGbLocale);
     }),
     AccountModule.forRoot(),
     ThemesModule.forRoot(),
-    RouterModule.forRoot(AppRoutes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }),
+    RouterModule.forRoot(AppRoutes,
+      environment.type === 'backend' ?
+        { preloadingStrategy: PreloadAllModules } :
+        { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }
+    ),
     ModalModule.forRoot(),
     AuthModalModule,
     NavbarModule,

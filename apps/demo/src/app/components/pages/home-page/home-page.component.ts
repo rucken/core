@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'home-page',
@@ -7,8 +8,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomePageComponent {
 
-  readme = require('html-loader!markdown-loader!./../../../../../../../README.md')
-    .replace('<h1 id="rucken">rucken</h1>', '');
+  readme = environment.type === 'backend' ?
+    require('html-loader!markdown-loader!./../../../../../../../../README.md') :
+    require('html-loader!markdown-loader!./../../../../../../../README.md')
+      .replace('<h1 id="todo">todo</h1>', '');
 
   constructor(
     public activatedRoute: ActivatedRoute
