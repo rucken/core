@@ -1,6 +1,18 @@
-<entity-grid [title]="title" [items]="repository.items$ | async" [columnsClasses]="{title:'width-150'}"
-  (selected)="onSelected($event)" [readonly]="readonly" [columns]="['title', 'permissions', 'action']" [strings]="strings" (delete)="onDeleteClick($event)"
-  (appendFromGrid)="onAppendFromGridClick()" (view)="onViewClick($event)" [paginationMeta]="repository.paginationMeta$ | async"
-  [enableAppendFromGrid]="'change_user' | perm | async" [enableUpdate]="false" [enableDelete]="'change_user' | perm | async"
-  (changePage)="onChangePage($event)" [processing]="processing">
+<entity-grid
+    [title]="title"
+    [items]="repository.items$ | async"
+    [columnsClasses]="{title:'width-150'}"
+    (selected)="onSelected($event)"
+    [readonly]="readonly"
+    [columns]="['title', 'permissions', 'action']"
+    [strings]="strings"
+    (delete)="onDeleteClick($event)"
+    (appendFromGrid)="onAppendFromGridClick()"
+    (view)="onViewClick($event)"
+    [paginationMeta]="repository.paginationMeta$ | async"
+    [enableAppendFromGrid]="'change_user' | perm | async"
+    [enableUpdate]="false"
+    [enableDelete]="'change_user' | perm | async"
+    (changePage)="onChangePage($event)"
+    [processing]="processing">
 </entity-grid>
