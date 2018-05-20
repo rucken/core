@@ -1,4 +1,6 @@
-export const ThemeItemsMock = [
+import { Theme } from './theme';
+
+export const ThemeItemsMock: Theme[] = [
   {
     name: 'Default',
     url: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'

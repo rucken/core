@@ -1,6 +1,7 @@
 import { IModel } from 'ngx-repository';
 
 export class Theme implements IModel {
-  id?: string;
+  id?: number;
   url?: string;
+  name?: string;
 }

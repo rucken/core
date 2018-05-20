@@ -27,9 +27,8 @@ export class ThemesService {
   ) {
     this.repository = this._dynamicRepository.fork<Theme>(Theme);
     const items = ThemeItemsMock.map((item, index) => {
-      const newItem = item as any;
-      newItem.id = index + 1;
-      return newItem;
+      item.id = index + 1;
+      return item;
     });
     this.repository.useMock({
       items: items,
