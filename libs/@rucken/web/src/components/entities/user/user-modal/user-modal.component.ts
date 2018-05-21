@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Group, User } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-modal.component';
 
 @Component({
   selector: 'user-modal',
-  templateUrl: './user-modal.component.html'
+  templateUrl: './user-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserModalComponent extends BasePromptFormModalComponent<User> {
 

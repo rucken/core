@@ -5,7 +5,7 @@
     [noTitle]="noTitle"
     (yes)="onYesClick()"
     (no)="onNoClick()"
-    [processing]="processing">
+    [processing]="processing$ | async">
     <permissions-grid
         [apiUrl]="apiUrl"
         #grid>

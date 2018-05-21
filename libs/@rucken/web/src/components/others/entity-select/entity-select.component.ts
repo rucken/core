@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, EventEmitter, Input, Output, ViewContainerRef, isDevMode } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewContainerRef, isDevMode } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
@@ -6,7 +6,8 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'entity-select',
-  templateUrl: './entity-select.component.html'
+  templateUrl: './entity-select.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntitySelectComponent implements AfterViewInit {
 

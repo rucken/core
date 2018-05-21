@@ -9,11 +9,18 @@ import { MessageModalService } from '../modals/message-modal/message-modal.servi
 import { IEntityGridFilter } from '../others/entity-grid/entity-grid-filter.interface';
 import { EntityModalComponent } from '../others/entity-modal/entity-modal.component';
 import { IBaseEntityList } from './base-entity-list.interface';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class BaseEntityListComponent<TModel extends IModel> implements IBaseEntityList<TModel> {
 
   @Input()
-  processing: boolean;
+  set processing(value: boolean) {
+    this.processing$.next(value);
+  }
+  get processing() {
+    return this.processing$.getValue();
+  }
+  processing$ = new BehaviorSubject(false);
   @Input()
   apiUrl?: string;
   @Input()

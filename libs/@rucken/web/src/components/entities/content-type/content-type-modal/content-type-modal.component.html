@@ -10,7 +10,7 @@
         (no)="onNoClick()"
         (yes)="onYesClick()"
         [data]="data"
-        [processing]="processing">
+        [processing]="processing$ | async">
         <form-group
             [checkIsDirty]="checkIsDirty"
             [form]="form"

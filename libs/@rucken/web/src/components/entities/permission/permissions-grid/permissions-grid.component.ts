@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Permission, PermissionsConfig, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { DynamicRepository, PaginationMeta } from 'ngx-repository';
+import { DynamicRepository } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionModalComponent } from '../permission-modal/permission-modal.component';
@@ -10,14 +10,14 @@ import { PermissionModalComponent } from '../permission-modal/permission-modal.c
 
 @Component({
   selector: 'permissions-grid',
-  templateUrl: './permissions-grid.component.html'
+  templateUrl: './permissions-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PermissionsGridComponent extends BaseEntityListComponent<Permission> implements OnInit {
 
   @Input()
   apiUrl?: string;
 
-  public paginationMeta: PaginationMeta;
   constructor(
     public modalService: BsModalService,
     protected errorsExtractor: ErrorsExtractor,

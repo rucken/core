@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { Group, Permission } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-modal.component';
 
 @Component({
   selector: 'group-modal',
-  templateUrl: './group-modal.component.html'
+  templateUrl: './group-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupModalComponent extends BasePromptFormModalComponent<Group> {
 

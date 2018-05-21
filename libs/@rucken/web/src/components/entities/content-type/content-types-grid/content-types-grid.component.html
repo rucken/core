@@ -16,5 +16,5 @@
     [enableUpdate]="'change_content-type' | perm | async"
     [enableDelete]="'delete_content-type' | perm | async"
     (changePage)="onChangePage($event)"
-    [processing]="processing">
+    [processing]="processing$ | async">
 </entity-grid>

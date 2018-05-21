@@ -1,27 +1,25 @@
-import { Component, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountConfig, AccountService, ErrorsExtractor, LangService, TokenService, User, translate } from '@rucken/core';
 import { AuthModalComponent, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { environment } from '../environments/environment';
-import { AppRoutes } from './app.routes';
-import { isPlatformBrowser } from '@angular/common';
 import { Subject } from 'rxjs/Subject';
 import { takeUntil } from 'rxjs/operators';
+import { environment } from '../environments/environment';
+import { AppRoutes } from './app.routes';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnDestroy {
-  title = 'Rucken: Demo';
-
-  routes = AppRoutes;
-
+  public title = 'Rucken: Demo';
+  public routes = AppRoutes;
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
-
   constructor(
     public accountService: AccountService,
     public langService: LangService,

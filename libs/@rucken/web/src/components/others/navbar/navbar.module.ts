@@ -5,6 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { NavbarComponent } from './navbar.component';
+import { PipesModule } from '../../../shared/pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -12,15 +13,15 @@ import { NavbarComponent } from './navbar.component';
     TranslateModule.forChild(),
     CollapseModule.forRoot(),
     NgxPermissionsModule,
-    RouterModule
+    RouterModule,
+    PipesModule
   ],
   declarations: [
     NavbarComponent
   ],
   exports: [
     NavbarComponent,
-    NgxPermissionsModule,
-    RouterModule
+    PipesModule
   ]
 })
 export class NavbarModule {

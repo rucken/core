@@ -30,22 +30,22 @@
             [collapse]="isCollapsed">
             <ul
                 class="nav navbar-nav navbar-left"
-                *ngIf="leftRoutes?.length">
+                *ngIf="(leftRoutes$ | async).length">
                 <ng-template
                     ngFor
                     let-item="$implicit"
-                    [ngForOf]="leftRoutes"
+                    [ngForOf]="leftRoutes$ | async"
                     let-i="index">
                     <ng-container *ngTemplateOutlet="menuItemRef;context:{item:item}"></ng-container>
                 </ng-template>
             </ul>
             <ul
                 class="nav navbar-nav navbar-right"
-                *ngIf="rightRoutes?.length">
+                *ngIf="(rightRoutes$ | async).length">
                 <ng-template
                     ngFor
                     let-item="$implicit"
-                    [ngForOf]="rightRoutes"
+                    [ngForOf]="rightRoutes$ | async"
                     let-i="index">
                     <ng-container *ngTemplateOutlet="menuItemRef;context:{item:item}"></ng-container>
                 </ng-template>
@@ -101,18 +101,9 @@
 <ng-template
     let-item="item"
     #menuItemRef>
-    <ng-container *ngIf="item?.permissions?.only; else menuItemContentRef">
-        <ng-template
-            permissions
-            [ngxPermissionsOnly]="[item?.permissions?.only]">
-            <ng-container *ngTemplateOutlet="menuItemContentRef"></ng-container>
-        </ng-template>
-    </ng-container>
-    <ng-template #menuItemContentRef>
-        <li
-            *ngIf="item"
-            [class.active]="router.isActive(item.url)">
-            <a [routerLink]="[item.url]">{{item.title | translate}}</a>
-        </li>
-    </ng-template>
+    <li
+        *ngIf="item && item.permissions && (item.permissions.only | perm | async)"
+        [class.active]="router.isActive(parentUrl+item.url)">
+        <a [routerLink]="[item.path]">{{item.title | translate}}</a>
+    </li>
 </ng-template>

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, User, UsersConfig, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { DynamicRepository, PaginationMeta } from 'ngx-repository';
+import { DynamicRepository } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UserModalComponent } from '../user-modal/user-modal.component';
@@ -10,11 +10,11 @@ import { UserModalComponent } from '../user-modal/user-modal.component';
 
 @Component({
   selector: 'users-grid',
-  templateUrl: './users-grid.component.html'
+  templateUrl: './users-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UsersGridComponent extends BaseEntityListComponent<User> implements OnInit {
 
-  public paginationMeta: PaginationMeta;
   constructor(
     public modalService: BsModalService,
     protected errorsExtractor: ErrorsExtractor,

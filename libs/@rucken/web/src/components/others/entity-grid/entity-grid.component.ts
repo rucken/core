@@ -1,19 +1,15 @@
-import { Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewContainerRef, isDevMode } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, Output, TemplateRef, ViewContainerRef, isDevMode } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { IModel, PaginationMeta } from 'ngx-repository';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { EntityGridCellDirective } from './entity-grid-cell.directive';
-import { EntityGridFieldDirective } from './entity-grid-field.directive';
 
 @Component({
   selector: 'entity-grid',
-  templateUrl: './entity-grid.component.html'
+  templateUrl: './entity-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntityGridComponent<TModel extends IModel> {
-
-  @ContentChild(EntityGridFieldDirective, { read: TemplateRef }) gridFieldTemplate;
-  @ContentChild(EntityGridCellDirective, { read: TemplateRef }) gridCellTemplate;
 
   @ContentChild('#defaultGridFieldContent')
   defaultGridFieldContent: TemplateRef<any>;
@@ -33,6 +29,10 @@ export class EntityGridComponent<TModel extends IModel> {
   defaultEntityGridHeaderTemplate: TemplateRef<any>;
 
 
+  @Input()
+  gridFieldTemplate: TemplateRef<any>;
+  @Input()
+  gridCellTemplate: TemplateRef<any>;
   @Input()
   gridFieldContent: TemplateRef<any>;
   @Input()
@@ -163,7 +163,7 @@ export class EntityGridComponent<TModel extends IModel> {
       distinctUntilChanged()
     ).subscribe(
       value => this.onSearch(value)
-      );
+    );
   }
   get isEnableAppendFromGrid() {
     return !this.readonly && this.enableAppendFromGrid;

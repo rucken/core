@@ -4,13 +4,20 @@ import { ValidatorOptions } from 'class-validator';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class BasePromptFormModalComponent<TModel extends IModel> {
 
   @Input()
-  checkIsDirty?: boolean;
+  set processing(value: boolean) {
+    this.processing$.next(value);
+  }
+  get processing() {
+    return this.processing$.getValue();
+  }
+  processing$ = new BehaviorSubject(false);
   @Input()
-  processing: boolean;
+  checkIsDirty?: boolean;
   @Input()
   title: string;
   @Input()

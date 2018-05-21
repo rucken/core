@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, Renderer2, ChangeDetectionStrategy } from '@angular/core';
 import { DynamicFormGroup, IShortValidationErrors } from 'ngx-dynamic-form-builder';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -6,7 +6,8 @@ import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'form-group',
-  templateUrl: './form-group.component.html'
+  templateUrl: './form-group.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormGroupComponent implements AfterViewInit {
 

@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, forwardRef } from '@angular/core';
+import { Component, Input, OnDestroy, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { AccountConfig, AccountService, ErrorsExtractor, Group, User } from '@rucken/core';
 import { Subject } from 'rxjs/Subject';
@@ -10,6 +10,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
 @Component({
   selector: 'profile-panel',
   templateUrl: './profile-panel.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => ProfilePanelComponent), multi: true },
     { provide: NG_VALIDATORS, useExisting: forwardRef(() => ProfilePanelComponent), multi: true }

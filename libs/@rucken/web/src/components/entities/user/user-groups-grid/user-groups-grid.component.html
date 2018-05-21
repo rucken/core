@@ -14,5 +14,5 @@
     [enableUpdate]="false"
     [enableDelete]="'change_user' | perm | async"
     (changePage)="onChangePage($event)"
-    [processing]="processing">
+    [processing]="processing$ | async">
 </entity-grid>

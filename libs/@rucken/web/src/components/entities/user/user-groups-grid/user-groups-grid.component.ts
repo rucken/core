@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, GroupsConfig, User, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -10,7 +10,8 @@ import { MessageModalService } from '../../../modals/message-modal/message-modal
 
 @Component({
   selector: 'user-groups-grid',
-  templateUrl: './user-groups-grid.component.html'
+  templateUrl: './user-groups-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserGroupsGridComponent extends GroupsGridComponent implements OnInit {
 

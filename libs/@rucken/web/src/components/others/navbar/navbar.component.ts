@@ -1,10 +1,12 @@
-import { Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, isDevMode } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, isDevMode } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'navbar',
-  templateUrl: './navbar.component.html'
+  templateUrl: './navbar.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavbarComponent {
   @ViewChild('languagesDropdown')
@@ -17,11 +19,11 @@ export class NavbarComponent {
   title: string;
   @Input()
   set routes(routes: any[]) {
-    this.allowedRoutes = routes ? routes.filter(
+    this.allowedRoutes$.next(routes ? routes.filter(
       (item: any) =>
         item.data && item.data.visible !== false
-    ) : [];
-    const allowedRoutes = this.allowedRoutes.map(
+    ) : []);
+    const allowedRoutes = this.allowedRoutes$.getValue().map(
       (item: any) => {
         const newItem = item.data;
         if (item.path) {
@@ -32,12 +34,12 @@ export class NavbarComponent {
         return newItem;
       }
     );
-    this.rightRoutes = allowedRoutes.filter(
+    this.rightRoutes$.next(allowedRoutes.filter(
       (item: any) => item.align !== 'left'
-    );
-    this.leftRoutes = allowedRoutes.filter(
+    ));
+    this.leftRoutes$.next(allowedRoutes.filter(
       (item: any) => item.align === 'left'
-    );
+    ));
   }
   @Output()
   login = new EventEmitter();
@@ -50,11 +52,12 @@ export class NavbarComponent {
   @Output()
   currentLangChange = new EventEmitter<string>();
 
-  isCollapsed = true;
-  langsIsCollapsed = true;
-  allowedRoutes: any[];
-  rightRoutes: any[];
-  leftRoutes: any[];
+  public allowedRoutes$ = new BehaviorSubject([]);
+  public rightRoutes$ = new BehaviorSubject([]);
+  public leftRoutes$ = new BehaviorSubject([]);
+
+  public isCollapsed = true;
+  public langsIsCollapsed = true;
 
   constructor(
     public router: Router

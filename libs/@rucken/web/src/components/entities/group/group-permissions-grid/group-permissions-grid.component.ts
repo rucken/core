@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, Permission, PermissionsConfig, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -10,7 +10,8 @@ import { MessageModalService } from '../../../modals/message-modal/message-modal
 
 @Component({
   selector: 'group-permissions-grid',
-  templateUrl: './group-permissions-grid.component.html'
+  templateUrl: './group-permissions-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupPermissionsGridComponent extends PermissionsGridComponent implements OnInit {
 

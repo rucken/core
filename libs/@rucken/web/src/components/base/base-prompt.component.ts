@@ -1,10 +1,17 @@
 import { EventEmitter, Input, Output, isDevMode } from '@angular/core';
 import { translate } from '@rucken/core';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class BasePromptComponent {
 
   @Input()
-  processing: boolean;
+  set processing(value: boolean) {
+    this.processing$.next(value);
+  }
+  get processing() {
+    return this.processing$.getValue();
+  }
+  processing$ = new BehaviorSubject(false);
   @Input()
   data?: any;
   @Input()

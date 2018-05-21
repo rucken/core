@@ -3,11 +3,18 @@ import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { IModel } from 'ngx-repository';
 import { IBaseEntityList } from './base-entity-list.interface';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class BaseEntityListModalComponent<TModel extends IModel> {
 
   @Input()
-  processing: boolean;
+  set processing(value: boolean) {
+    this.processing$.next(value);
+  }
+  get processing() {
+    return this.processing$.getValue();
+  }
+  processing$ = new BehaviorSubject(false);
   @Input()
   title: string;
   @Input()

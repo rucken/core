@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output, ViewContainerRef, isDevMode } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewContainerRef, isDevMode, ChangeDetectionStrategy } from '@angular/core';
 
 
 
 @Component({
   selector: 'entity-input',
-  templateUrl: './entity-input.component.html'
+  templateUrl: './entity-input.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntityInputComponent {
 

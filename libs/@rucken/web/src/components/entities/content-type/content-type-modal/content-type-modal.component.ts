@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ContentType } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-modal.component';
 
 @Component({
   selector: 'content-type-modal',
-  templateUrl: './content-type-modal.component.html'
+  templateUrl: './content-type-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentTypeModalComponent extends BasePromptFormModalComponent<ContentType> {
 

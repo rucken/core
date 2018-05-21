@@ -98,10 +98,6 @@ import { EntityGridModalComponent } from './components/others/entity-grid-modal/
 export { EntityGridModalComponent } from './components/others/entity-grid-modal/entity-grid-modal.component';
 import { EntityGridModalModule } from './components/others/entity-grid-modal/entity-grid-modal.module';
 export { EntityGridModalModule } from './components/others/entity-grid-modal/entity-grid-modal.module';
-import { EntityGridCellDirective } from './components/others/entity-grid/entity-grid-cell.directive';
-export { EntityGridCellDirective } from './components/others/entity-grid/entity-grid-cell.directive';
-import { EntityGridFieldDirective } from './components/others/entity-grid/entity-grid-field.directive';
-export { EntityGridFieldDirective } from './components/others/entity-grid/entity-grid-field.directive';
 import { IEntityGridFilter } from './components/others/entity-grid/entity-grid-filter.interface';
 export { IEntityGridFilter } from './components/others/entity-grid/entity-grid-filter.interface';
 import { EntityGridComponent } from './components/others/entity-grid/entity-grid.component';
@@ -166,6 +162,6 @@ import { UserPermPipe } from './shared/pipes/user-perm.pipe';
 export { UserPermPipe } from './shared/pipes/user-perm.pipe';
 export const RuckenWebModules: any[] = [ContentTypeInputModule.forRoot(), ContentTypeModalModule.forRoot(), ContentTypeSelectModule.forRoot(), ContentTypesGridModalModule.forRoot(), ContentTypesGridModule.forRoot(), GroupModalModule.forRoot(), GroupPermissionsGridModule.forRoot(), GroupsGridModalModule.forRoot(), GroupsGridModule.forRoot(), PermissionModalModule.forRoot(), PermissionsGridModalModule.forRoot(), PermissionsGridModule.forRoot(), ProfilePanelModule.forRoot(), UserGroupsGridModule.forRoot(), UserModalModule.forRoot(), UsersGridModalModule.forRoot(), UsersGridModule.forRoot(), AuthModalModule.forRoot(), MessageModalModule.forRoot(), EntityGridModalModule.forRoot(), EntityGridModule.forRoot(), EntityInputModule.forRoot(), EntityModalModule.forRoot(), EntitySelectModule.forRoot(), FormGroupModule.forRoot(), NavSidebarModule.forRoot(), NavbarModule.forRoot(), PromptFormModalModule.forRoot(), DirectivesModule.forRoot(), ThemesModule.forRoot(), PipesModule.forRoot()];
 export const RuckenWebComponents: any[] = [ContentTypeInputComponent, ContentTypeModalComponent, ContentTypeSelectComponent, ContentTypesGridModalComponent, ContentTypesGridComponent, GroupModalComponent, GroupPermissionsGridComponent, GroupsGridModalComponent, GroupsGridComponent, PermissionModalComponent, PermissionsGridModalComponent, PermissionsGridComponent, ProfilePanelComponent, UserGroupsGridComponent, UserModalComponent, UsersGridModalComponent, UsersGridComponent, AuthModalComponent, MessageModalComponent, EntityGridModalComponent, EntityGridComponent, EntityInputComponent, EntityModalComponent, EntitySelectComponent, FormGroupComponent, NavSidebarComponent, NavbarComponent, PromptFormModalComponent];
-export const RuckenWebShareds: any[] = [AuthModalModel, EntityGridCellDirective, EntityGridFieldDirective, FocusedDirective, RuckenWebRuI18n, ThemeItemsMock, Theme, ThemesStorage];
+export const RuckenWebShareds: any[] = [AuthModalModel, FocusedDirective, RuckenWebRuI18n, ThemeItemsMock, Theme, ThemesStorage];
 export const RuckenWebServices: any[] = [MessageModalService, ThemesService, themesServiceInitializeApp];
 export const RuckenWebPipes: any[] = [CustomTranslatePipe, PermPipe, SafeHtmlPipe, UserPermPipe];

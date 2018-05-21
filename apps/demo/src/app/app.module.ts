@@ -52,7 +52,7 @@ defineLocale('en', enGbLocale);
     AccountModule.forRoot(),
     ThemesModule.forRoot(),
     RouterModule.forRoot(AppRoutes,
-      environment.type === 'backend' ?
+      (environment.type === 'backend' || environment.type === 'development') ?
         { preloadingStrategy: PreloadAllModules } :
         { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }
     ),
@@ -62,7 +62,7 @@ defineLocale('en', enGbLocale);
     BsDatepickerModule.forRoot()
   ],
   providers: [
-    { provide: ErrorHandler, useClass: CustomErrorHandler },
+    // { provide: ErrorHandler, useClass: CustomErrorHandler },
     ErrorsExtractor,
     AccountConfig,
     GroupsConfig,

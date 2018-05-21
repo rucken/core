@@ -1,10 +1,10 @@
 <ul
     class="nav nav-sidebar nav-sidebar-left"
-    *ngIf="sidebardRoutes?.length">
+    *ngIf="(sidebardRoutes$ |async).length">
     <ng-template
         ngFor
         let-item="$implicit"
-        [ngForOf]="sidebardRoutes"
+        [ngForOf]="sidebardRoutes$.getValue()"
         let-i="index">
         <ng-container *ngTemplateOutlet="menuItemRef;context:{item:item, parentUrl:parentUrl}"></ng-container>
     </ng-template>
@@ -13,18 +13,9 @@
     let-item="item"
     let-parentUrl="parentUrl"
     #menuItemRef>
-    <ng-container *ngIf="item?.permissions?.only; else menuItemContentRef">
-        <ng-template
-            permissions
-            [ngxPermissionsOnly]="[item?.permissions?.only]">
-            <ng-container *ngTemplateOutlet="menuItemContentRef"></ng-container>
-        </ng-template>
-    </ng-container>
-    <ng-template #menuItemContentRef>
-        <li
-            *ngIf="item"
-            [class.active]="router.isActive(parentUrl+item.url)">
-            <a [routerLink]="[item.path]">{{item.title | translate}}</a>
-        </li>
-    </ng-template>
+    <li
+        *ngIf="item && item.permissions && (item.permissions.only | perm | async)"
+        [class.active]="router.isActive(parentUrl+item.url)">
+        <a [routerLink]="[item.path]">{{item.title | translate}}</a>
+    </li>
 </ng-template>

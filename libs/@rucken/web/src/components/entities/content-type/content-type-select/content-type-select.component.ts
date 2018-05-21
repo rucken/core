@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ContentType, ContentTypesConfig, ErrorsExtractor } from '@rucken/core';
@@ -10,7 +10,8 @@ import { ContentTypesGridComponent } from '../content-types-grid/content-types-g
 
 @Component({
   selector: 'content-type-select',
-  templateUrl: './content-type-select.component.html'
+  templateUrl: './content-type-select.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentTypeSelectComponent extends ContentTypesGridComponent implements OnInit {
 

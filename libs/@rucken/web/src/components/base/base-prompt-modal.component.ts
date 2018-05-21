@@ -1,13 +1,20 @@
 import { EventEmitter, Input, Output, isDevMode } from '@angular/core';
 import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export class BasePromptModalComponent {
 
   @Input()
-  checkIsDirty?: boolean;
+  set processing(value: boolean) {
+    this.processing$.next(value);
+  }
+  get processing() {
+    return this.processing$.getValue();
+  }
+  processing$ = new BehaviorSubject(false);
   @Input()
-  processing: boolean;
+  checkIsDirty?: boolean;
   @Input()
   data?: any;
   @Input()

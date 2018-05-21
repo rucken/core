@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ContentType, ContentTypesConfig, ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -10,7 +10,8 @@ import { ContentTypesGridComponent } from '../content-types-grid/content-types-g
 
 @Component({
   selector: 'content-type-input',
-  templateUrl: './content-type-input.component.html'
+  templateUrl: './content-type-input.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentTypeInputComponent extends ContentTypesGridComponent implements OnInit {
 

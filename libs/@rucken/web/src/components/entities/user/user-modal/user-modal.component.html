@@ -10,7 +10,7 @@
         (no)="onNoClick()"
         (yes)="onYesClick()"
         [data]="data"
-        [processing]="processing">
+        [processing]="processing$ | async">
         <div class="row">
             <div class="col-md-6">
                 <div class="row">

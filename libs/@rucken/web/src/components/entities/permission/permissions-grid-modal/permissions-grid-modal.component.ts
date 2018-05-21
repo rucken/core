@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Permission } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BaseEntityListModalComponent } from '../../../base/base-entity-list-modal.component';
@@ -6,7 +6,8 @@ import { PermissionsGridComponent } from '../permissions-grid/permissions-grid.c
 
 @Component({
   selector: 'permissions-grid-modal',
-  templateUrl: './permissions-grid-modal.component.html'
+  templateUrl: './permissions-grid-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PermissionsGridModalComponent extends BaseEntityListModalComponent<Permission> {
 

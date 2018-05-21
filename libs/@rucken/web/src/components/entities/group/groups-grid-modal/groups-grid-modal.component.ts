@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Group } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BaseEntityListModalComponent } from '../../../base/base-entity-list-modal.component';
@@ -6,7 +6,8 @@ import { GroupsGridComponent } from '../groups-grid/groups-grid.component';
 
 @Component({
   selector: 'groups-grid-modal',
-  templateUrl: './groups-grid-modal.component.html'
+  templateUrl: './groups-grid-modal.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupsGridModalComponent extends BaseEntityListModalComponent<Group> {
 

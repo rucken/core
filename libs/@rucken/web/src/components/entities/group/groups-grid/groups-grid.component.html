@@ -17,5 +17,5 @@
     [enableDelete]="'delete_group' | perm | async"
     (changePage)="onChangePage($event)"
     (changeOrder)="onChangeFilter({sort:$event})"
-    [processing]="processing">
+    [processing]="processing$ | async">
 </entity-grid>

@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, GroupsConfig, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { DynamicRepository, PaginationMeta } from 'ngx-repository';
+import { DynamicRepository } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
-import { GroupModalComponent } from '../group-modal/group-modal.component';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
+import { GroupModalComponent } from '../group-modal/group-modal.component';
 
 
 @Component({
   selector: 'groups-grid',
-  templateUrl: './groups-grid.component.html'
+  templateUrl: './groups-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupsGridComponent extends BaseEntityListComponent<Group> implements OnInit {
 
-  public paginationMeta: PaginationMeta;
   constructor(
     public modalService: BsModalService,
     protected errorsExtractor: ErrorsExtractor,
