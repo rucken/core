@@ -111,7 +111,7 @@
     "ngx-cookie-service": "1.0.10",
     "ngx-dynamic-form-builder": "0.3.2",
     "ngx-permissions": "4.1.0",
-    "ngx-repository": "^0.3.6",
+    "ngx-repository": "^0.4.0",
     "object-path": "^0.11.4",
     "rxjs": "5.5.10",
     "zone.js": "0.8.26"
