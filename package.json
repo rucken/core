@@ -102,7 +102,7 @@
     "@nguniversal/module-map-ngfactory-loader": "5.0.0",
     "@ngx-translate/core": "9.1.1",
     "@ngx-utils/cookies": "3.0.1",
-    "@types/express": "4.11.1",
+    "@types/express": "4.16.0",
     "@types/jsonwebtoken": "7.2.6",
     "@types/object-path": "^0.9.29",
     "core-js": "2.5.5",
