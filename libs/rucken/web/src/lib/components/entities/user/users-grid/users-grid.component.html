@@ -1,0 +1,20 @@
+<entity-grid
+    title="Users"
+    [items]="repository.items$ | async"
+    (selected)="onSelected($event)"
+    [columns]="['username', 'fullName', 'roles', 'groups', 'action']"
+    [readonly]="readonly"
+    [strings]="strings"
+    (create)="onCreateClick()"
+    (update)="onUpdateClick($event)"
+    (delete)="onDeleteClick($event)"
+    (view)="onViewClick($event)"
+    (search)="onChangeFilter({searchText:$event})"
+    (changeOrder)="onChangeFilter({sort:$event})"
+    [paginationMeta]="repository.paginationMeta$ | async"
+    [enableCreate]="'add_user' | perm:false | async"
+    [enableUpdate]="'change_user' | perm:false | async"
+    [enableDelete]="'delete_user' | perm:false | async"
+    (changePage)="onChangePage($event)"
+    [processing]="processing$ | async">
+</entity-grid>

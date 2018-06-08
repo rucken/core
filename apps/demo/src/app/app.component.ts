@@ -6,7 +6,7 @@ import { AccountConfig, AccountService, ErrorsExtractor, LangService, TokenServi
 import { AuthModalComponent, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AppRoutes } from './app.routes';
@@ -45,7 +45,7 @@ export class AppComponent implements OnDestroy {
         lang => {
           this._bsLocaleService.use(lang);
         }
-        );
+      );
       this._tokenService.tokenHasExpired$.pipe(
         takeUntil(this._destroyed$)
       ).subscribe(result => {
@@ -78,7 +78,7 @@ export class AppComponent implements OnDestroy {
               data =>
                 this.onLogoutSuccess(undefined)
             )
-          );
+        );
       } else {
         if (!this.accountService.current) {
           this.accountService.info(token).subscribe(

@@ -1,0 +1,50 @@
+{
+  "name": "@rucken/core",
+  "version": "2.1.1",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=6.1.0"
+  },
+  "description": "Core with base class and admin entities for application maked on Angular6+",
+  "keywords": [
+    "ngx",
+    "angular6",
+    "i18n",
+    "shared",
+    "services",
+    "models",
+    "rucken",
+    "core"
+  ],
+  "license": "MIT",
+  "author": "EndyKaufman <admin@site15.ru>",
+  "bugs": {
+    "url": "https://github.com/rucken/core/issues"
+  },
+  "homepage": "https://github.com/rucken/core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rucken/core.git"
+  },
+  "maintainers": [
+    {
+      "name": "EndyKaufman",
+      "email": "admin@site15.ru"
+    }
+  ],
+  "peerDependencies": {
+    "rxjs": "^6.0.0",
+    "@angular/forms": "^6.0.3",
+    "@angular/common": "^6.0.3",
+    "@angular/compiler": "^6.0.3",
+    "@angular/core": "^6.0.3"
+  },
+  "dependencies": {
+    "@ngx-translate/core": "^10.0.2",
+    "@ngx-utils/cookies": "^3.0.1",
+    "@types/jsonwebtoken": "^7.2.7",
+    "jsonwebtoken": "^8.2.2",
+    "ngx-permissions": "^5.0.0",
+    "ngx-repository": "^0.4.1"
+  }
+}

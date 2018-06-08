@@ -3,8 +3,17 @@ import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
-import { AccountConfig, AccountModule, AccountService, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig, RuckenCoreRuI18n, TokenInterceptor, TokenModule, TokenService, UsersConfig, accountServiceInitializeApp, tokenServiceInitializeApp, translate, TransferHttpCacheModule } from '@rucken/core';
-import { AuthModalModule, NavbarModule, RuckenWebRuI18n, ThemesModule, ThemesService, themesServiceInitializeApp } from '@rucken/web';
+import {
+  AccountConfig, AccountModule, AccountService, ContentTypesConfig,
+  ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig,
+  TokenInterceptor, TokenModule, TokenService, UsersConfig, accountServiceInitializeApp,
+  tokenServiceInitializeApp, translate, TransferHttpCacheModule,
+  RuI18n as CoreRuI18n
+} from '@rucken/core';
+import {
+  AuthModalModule, NavbarModule, ThemesModule, ThemesService,
+  themesServiceInitializeApp, RuI18n as WebRuI18n
+} from '@rucken/web';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
@@ -13,7 +22,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { SharedModule } from '.';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
-import { DemoRuI18n } from './i18n/ru.i18n';
+import { RuI18n } from './i18n/ru.i18n';
 import { CustomErrorHandler } from './shared/exceptions/error.handler';
 import { environment } from '../environments/environment';
 
@@ -34,7 +43,7 @@ defineLocale('en', enGbLocale);
       languages: [{
         title: translate('Russian'),
         code: 'ru',
-        translations: [RuckenWebRuI18n, RuckenCoreRuI18n, DemoRuI18n]
+        translations: [WebRuI18n, CoreRuI18n, RuI18n]
       }, {
         title: translate('English'),
         code: 'en',

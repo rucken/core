@@ -48,11 +48,11 @@ import { ThemesPageModule } from './components/pages/themes-page/themes-page.mod
 export { ThemesPageModule } from './components/pages/themes-page/themes-page.module';
 import { ThemesPageRoutes } from './components/pages/themes-page/themes-page.routes';
 export { ThemesPageRoutes } from './components/pages/themes-page/themes-page.routes';
-import { DemoRuI18n } from './i18n/ru.i18n';
-export { DemoRuI18n } from './i18n/ru.i18n';
+import { RuI18n } from './i18n/ru.i18n';
+export { RuI18n } from './i18n/ru.i18n';
 import { SharedModule } from './shared/shared.module';
 export { SharedModule } from './shared/shared.module';
 import { CustomErrorHandler } from './shared/exceptions/error.handler';
 export { CustomErrorHandler } from './shared/exceptions/error.handler';
-export const DemoComponents: any[] = [AppComponent, AccountPageComponent, ProfileFrameComponent, AdminPageComponent, GroupsFrameComponent, UsersFrameComponent, HomePageComponent, ThemesPageComponent];
-export const DemoShareds: any[] = [AppRoutes, AccountPageChildrenRoutes, AccountPageRoutes, ProfileFrameRoutes, AdminPageChildrenRoutes, AdminPageRoutes, GroupsFrameRoutes, UsersFrameRoutes, HomePageRoutes, ThemesPageRoutes, DemoRuI18n, CustomErrorHandler];
+export const Components: any[] = [AppComponent, AccountPageComponent, ProfileFrameComponent, AdminPageComponent, GroupsFrameComponent, UsersFrameComponent, HomePageComponent, ThemesPageComponent];
+export const Shareds: any[] = [AppRoutes, AccountPageChildrenRoutes, AccountPageRoutes, ProfileFrameRoutes, AdminPageChildrenRoutes, AdminPageRoutes, GroupsFrameRoutes, UsersFrameRoutes, HomePageRoutes, ThemesPageRoutes, RuI18n, CustomErrorHandler];

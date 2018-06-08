@@ -1,0 +1,18 @@
+<entity-grid
+    [title]="title"
+    [items]="repository.items$ | async"
+    (selected)="onSelected($event)"
+    [readonly]="readonly"
+    [columnsClasses]="{title:'width-150'}"
+    [columns]="['title', 'contentType', 'action']"
+    [strings]="strings"
+    (delete)="onDeleteClick($event)"
+    (appendFromGrid)="onAppendFromGridClick()"
+    (view)="onViewClick($event)"
+    [paginationMeta]="repository.paginationMeta$ | async"
+    [enableAppendFromGrid]="'change_group' | perm:false | async"
+    [enableUpdate]="false"
+    [enableDelete]="'change_group' | perm:false | async"
+    (changePage)="onChangePage($event)"
+    [processing]="processing$ | async">
+</entity-grid>

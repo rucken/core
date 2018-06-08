@@ -1,4 +1,4 @@
-export const DemoRuI18n = {
+export const RuI18n = {
     '': {
         'project-id-version': '',
         'pot-creation-date': '',
