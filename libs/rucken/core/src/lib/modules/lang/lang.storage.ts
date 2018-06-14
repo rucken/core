@@ -1,5 +1,5 @@
-import { Inject, Injectable } from '@angular/core';
-import { CookiesService } from '@ngx-utils/cookies';
+import { Injectable, Inject } from '@angular/core';
+import { AppStorage } from '@rucken/core';
 
 @Injectable()
 export class LangStorage {
@@ -7,7 +7,7 @@ export class LangStorage {
   storageKeyName = 'lang';
 
   get(): string {
-    const lang = this._cookies.getObject(this.storageKeyName) as string;
+    const lang = this._cookies.getItem(this.storageKeyName) as string;
     if (lang && lang !== 'undefined') {
       return lang;
     }
@@ -15,13 +15,13 @@ export class LangStorage {
   }
   set(value?: string) {
     if (!value) {
-      this._cookies.remove(this.storageKeyName);
+      this._cookies.removeItem(this.storageKeyName);
     } else {
-      this._cookies.putObject(this.storageKeyName, value);
+      this._cookies.setItem(this.storageKeyName, value);
     }
   }
   constructor(
-    private _cookies: CookiesService
+    @Inject(AppStorage) private _cookies: Storage
   ) {
   }
 }

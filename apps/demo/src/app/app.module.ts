@@ -1,30 +1,19 @@
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { APP_INITIALIZER, ErrorHandler, NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
-import {
-  AccountConfig, AccountModule, AccountService, ContentTypesConfig,
-  ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig,
-  TokenInterceptor, TokenModule, TokenService, UsersConfig, accountServiceInitializeApp,
-  tokenServiceInitializeApp, translate, TransferHttpCacheModule,
-  RuI18n as CoreRuI18n
-} from '@rucken/core';
-import {
-  AuthModalModule, NavbarModule, ThemesModule, ThemesService,
-  themesServiceInitializeApp, RuI18n as WebRuI18n
-} from '@rucken/web';
+import { AccountConfig, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig, RuI18n as CoreRuI18n, translate, UsersConfig } from '@rucken/core';
+import { AuthModalModule, NavbarModule, RuI18n as WebRuI18n, ThemesModule } from '@rucken/web';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { NgxPermissionsModule } from 'ngx-permissions';
-import { SharedModule } from '.';
+import { CookieService } from 'ngx-cookie-service';
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { RuI18n } from './i18n/ru.i18n';
-import { CustomErrorHandler } from './shared/exceptions/error.handler';
-import { environment } from '../environments/environment';
+import { SharedModule } from './shared/shared.module';
 
 defineLocale('ru', ruLocale);
 defineLocale('en', enGbLocale);
@@ -34,11 +23,9 @@ defineLocale('en', enGbLocale);
     AppComponent
   ],
   imports: [
+    BrowserModule.withServerTransition({ appId: 'demo' }),
     SharedModule,
     HttpClientModule,
-    BrowserModule.withServerTransition({ appId: 'demo' }),
-    TransferHttpCacheModule.forRoot(),
-    BrowserCookiesModule.forRoot(),
     LangModule.forRoot({
       languages: [{
         title: translate('Russian'),
@@ -50,18 +37,9 @@ defineLocale('en', enGbLocale);
         translations: []
       }]
     }),
-    NgxPermissionsModule.forRoot(),
-    TokenModule.forRoot({
-      withoutTokenUrls: [
-        '/api/account/info',
-        '/api/account/login',
-        ...(environment.type === 'mockapi' ? ['/'] : [])
-      ]
-    }),
-    AccountModule.forRoot(),
     ThemesModule.forRoot(),
     RouterModule.forRoot(AppRoutes,
-      (environment.type === 'backend' || environment.type === 'development') ?
+      (environment.type === 'prod' || environment.type === 'development') ?
         { preloadingStrategy: PreloadAllModules } :
         { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }
     ),
@@ -72,6 +50,7 @@ defineLocale('en', enGbLocale);
   ],
   providers: [
     // { provide: ErrorHandler, useClass: CustomErrorHandler },
+    CookieService,
     ErrorsExtractor,
     AccountConfig,
     GroupsConfig,

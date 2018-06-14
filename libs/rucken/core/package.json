@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "@ngx-translate/core": "^10.0.2",
-    "@ngx-utils/cookies": "^3.0.1",
     "@types/jsonwebtoken": "^7.2.7",
     "jsonwebtoken": "^8.2.2",
     "ngx-permissions": "^5.0.0",

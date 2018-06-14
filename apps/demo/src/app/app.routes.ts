@@ -3,6 +3,7 @@ import { AccountPageRoutes } from './components/pages/account-page/account-page.
 import { AdminPageRoutes } from './components/pages/admin-page/admin-page.routes';
 import { HomePageRoutes } from './components/pages/home-page/home-page.routes';
 import { ThemesPageRoutes } from './components/pages/themes-page/themes-page.routes';
+import { ThemesPageComponent } from './components/pages/themes-page/themes-page.component';
 
 export const AppRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -13,7 +14,8 @@ export const AppRoutes: Routes = [
   },
   {
     path: 'themes',
-    loadChildren: './components/pages/themes-page/themes-page.module#ThemesPageModule',
+    component: ThemesPageComponent,
+    // loadChildren: './components/pages/themes-page/themes-page.module#ThemesPageModule',
     data: ThemesPageRoutes[0].data
   },
   {

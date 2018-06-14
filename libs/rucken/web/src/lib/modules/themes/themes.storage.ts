@@ -1,6 +1,6 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { CookiesService } from '@ngx-utils/cookies';
+import { AppStorage } from '@rucken/core';
 @Injectable()
 export class ThemesStorage {
 
@@ -8,16 +8,16 @@ export class ThemesStorage {
 
   set(url: string) {
     if (!url) {
-      this._cookies.remove(this.storageKeyName);
+      this._cookies.removeItem(this.storageKeyName);
     } else {
-      this._cookies.putObject(this.storageKeyName, url);
+      this._cookies.setItem(this.storageKeyName, url);
     }
     this.setStyleLinkHref(url);
   }
   get() {
-    const theme = this._cookies.getObject(this.storageKeyName);
+    const theme = this._cookies.getItem(this.storageKeyName);
     if (theme && theme !== 'undefined') {
-      return this._cookies.getObject(this.storageKeyName) as string;
+      return this._cookies.getItem(this.storageKeyName) as string;
     }
     return this.getStyleLinkHref();
   }
@@ -66,7 +66,7 @@ export class ThemesStorage {
     return undefined;
   }
   constructor(
-    private _cookies: CookiesService,
+    @Inject(AppStorage) private _cookies: Storage,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
   }

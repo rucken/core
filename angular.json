@@ -32,14 +32,14 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "dev": {
               "fileReplacements": [
                 {
                   "replace": "apps/demo/src/environments/environment.ts",
-                  "with": "apps/demo/src/environments/environment.prod.ts"
+                  "with": "apps/demo/src/environments/environment.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": false,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
@@ -47,7 +47,24 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": false
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false
             },
             "mockapi": {
               "fileReplacements": [
@@ -56,7 +73,7 @@
                   "with": "apps/demo/src/environments/environment.mockapi.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": false,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
@@ -64,7 +81,7 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": false
             }
           }
         },
@@ -74,6 +91,9 @@
             "browserTarget": "demo:build"
           },
           "configurations": {
+            "dev": {
+              "browserTarget": "demo:build:dev"
+            },
             "production": {
               "browserTarget": "demo:build:production"
             },
@@ -116,6 +136,58 @@
               "**/node_modules/**"
             ]
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/demo-server",
+            "main": "apps/demo/src/main.server.ts",
+            "tsConfig": "apps/demo/tsconfig.server.json"
+          },
+          "configurations": {
+            "dev": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment-server.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            },
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment-server.prod.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            },
+            "mockapi": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment-server.mockapi.ts"
+                }
+              ],
+              "optimization": false,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            }
+          }
         }
       }
     },
@@ -130,6 +202,9 @@
             "devServerTarget": "demo:serve"
           },
           "configurations": {
+            "dev": {
+              "devServerTarget": "demo:serve:dev"
+            },
             "production": {
               "devServerTarget": "demo:serve:production"
             },

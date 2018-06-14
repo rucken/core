@@ -41,7 +41,6 @@
   },
   "dependencies": {
     "@ngx-translate/core": "^10.0.2",
-    "@ngx-utils/cookies": "^3.0.1",
     "@types/object-path": "^0.9.29",
     "ngx-bootstrap": "^3.0.0",
     "ngx-dynamic-form-builder": "^0.4.2",

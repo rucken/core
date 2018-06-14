@@ -1,3 +1,5 @@
+import { AppBrowserModule } from './app.browser.module';
+export { AppBrowserModule } from './app.browser.module';
 import { AppComponent } from './app.component';
 export { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
@@ -54,5 +56,6 @@ import { SharedModule } from './shared/shared.module';
 export { SharedModule } from './shared/shared.module';
 import { CustomErrorHandler } from './shared/exceptions/error.handler';
 export { CustomErrorHandler } from './shared/exceptions/error.handler';
+export const Modules: any[] = [AppBrowserModule.forRoot()];
 export const Components: any[] = [AppComponent, AccountPageComponent, ProfileFrameComponent, AdminPageComponent, GroupsFrameComponent, UsersFrameComponent, HomePageComponent, ThemesPageComponent];
 export const Shareds: any[] = [AppRoutes, AccountPageChildrenRoutes, AccountPageRoutes, ProfileFrameRoutes, AdminPageChildrenRoutes, AdminPageRoutes, GroupsFrameRoutes, UsersFrameRoutes, HomePageRoutes, ThemesPageRoutes, RuI18n, CustomErrorHandler];

@@ -4,12 +4,10 @@ import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-tran
 import { LangModuleConfig } from './lang-module.config';
 import { APP_LANG, DEFAULT_LANG, LANGUAGES, LangService } from './lang.service';
 import { LangStorage } from './lang.storage';
-import { BrowserCookiesModule } from '@ngx-utils/cookies/browser';
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserCookiesModule.forRoot(),
     TranslateModule.forRoot({
       loader: { provide: TranslateLoader, useClass: TranslateFakeLoader }
     })

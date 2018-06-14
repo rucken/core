@@ -1,5 +1,5 @@
-import { Injectable, Inject } from '@angular/core';
-import { CookiesService } from '@ngx-utils/cookies';
+import { Inject, Injectable } from '@angular/core';
+import { AppStorage } from '@rucken/core';
 
 @Injectable()
 export class TokenStorage {
@@ -10,7 +10,7 @@ export class TokenStorage {
   storageKeyName = 'token';
 
   get(): string {
-    const token = this._cookies.getObject(this.storageKeyName) as string;
+    const token = this._cookies.getItem(this.storageKeyName) as string;
     if (token && token !== 'undefined') {
       return token;
     }
@@ -18,13 +18,13 @@ export class TokenStorage {
   }
   set(token?: string) {
     if (!token) {
-      this._cookies.remove(this.storageKeyName);
+      this._cookies.removeItem(this.storageKeyName);
     } else {
-      this._cookies.putObject(this.storageKeyName, token);
+      this._cookies.setItem(this.storageKeyName, token);
     }
   }
   constructor(
-    private _cookies: CookiesService
+    @Inject(AppStorage) private _cookies: Storage
   ) {
   }
 }

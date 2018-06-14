@@ -20,6 +20,7 @@ export class AppComponent implements OnDestroy {
   public title = 'Rucken: Demo';
   public routes = AppRoutes;
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
+
   constructor(
     public accountService: AccountService,
     public langService: LangService,
@@ -64,7 +65,7 @@ export class AppComponent implements OnDestroy {
     const token = this._tokenService.current;
     if (token) {
       if (
-        this._tokenService.tokenHasExpired() &&
+        this._tokenService.tokenHasExpired(token) &&
         environment.type !== 'mockapi'
       ) {
         this._tokenService.stopCheckTokenHasExpired();
@@ -167,6 +168,7 @@ export class AppComponent implements OnDestroy {
       error: error,
       onTop: true
     }).subscribe();
+    throw error;
   }
   onLoginError(modal: AuthModalComponent, error: any) {
     if (modal) {

@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
+import { NgxPermissionsService } from 'ngx-permissions';
 import { DynamicRepository, Repository } from 'ngx-repository';
-import { BehaviorSubject } from 'rxjs';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { User } from '../../shared/models/user';
 import { AccountStorage } from './account.storage';
-import { NgxPermissionsService } from 'ngx-permissions';
 
 export function accountServiceInitializeApp(accountService: AccountService) {
   return () => accountService.initializeApp();
@@ -37,7 +35,7 @@ export class AccountService {
   constructor(
     private _accountStorage: AccountStorage,
     private _dynamicRepository: DynamicRepository,
-    private _permissionsService: NgxPermissionsService,
+    private _permissionsService: NgxPermissionsService
   ) {
     this.repository = this._dynamicRepository.fork<User>(User);
   }
