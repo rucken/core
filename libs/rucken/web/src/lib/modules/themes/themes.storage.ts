@@ -23,43 +23,40 @@ export class ThemesStorage {
   }
   setStyleLinkHref(url: string) {
     if (url) {
-      if (isPlatformBrowser(this._platformId)) {
-        const links = document.getElementsByTagName('link');
-        if (links && links.length && url) {
-          for (let i = 0; i < links.length; i++) {
-            const link = links[i];
-            if (
-              link &&
-              link.getAttribute('rel') &&
-              (
-                link.getAttribute('rel') as string
-              ).indexOf('style') !== -1 &&
-              link.getAttribute('title') &&
-              link.getAttribute('title') === 'bootstrap'
-            ) {
-              link.setAttribute('href', url);
-            }
+      const links = document.getElementsByTagName('link');
+      if (links && links.length && url) {
+        for (let i = 0; i < links.length; i++) {
+          const link = links[i];
+          if (
+            link &&
+            link.getAttribute('rel') &&
+            (
+              link.getAttribute('rel') as string
+            ).indexOf('style') !== -1 &&
+            link.getAttribute('title') &&
+            link.getAttribute('title') === 'bootstrap' &&
+            link.getAttribute('href') !== url
+          ) {
+            link.setAttribute('href', url);
           }
         }
       }
     }
   }
   getStyleLinkHref() {
-    if (isPlatformBrowser(this._platformId)) {
-      const links = document.getElementsByTagName('link');
-      if (links && links.length) {
-        for (let i = 0; i < links.length; i++) {
-          const link = links[i];
-          if (
-            link &&
-            link.getAttribute('rel') &&
-            link.getAttribute('rel').indexOf('style') !== -1 &&
-            link.getAttribute('title') &&
-            link.getAttribute('title') === 'bootstrap' &&
-            link.getAttribute('href').indexOf('/3/') === -1
-          ) {
-            return link.getAttribute('href');
-          }
+    const links = document.getElementsByTagName('link');
+    if (links && links.length) {
+      for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        if (
+          link &&
+          link.getAttribute('rel') &&
+          link.getAttribute('rel').indexOf('style') !== -1 &&
+          link.getAttribute('title') &&
+          link.getAttribute('title') === 'bootstrap' &&
+          link.getAttribute('href').indexOf('/3/') === -1
+        ) {
+          return link.getAttribute('href');
         }
       }
     }

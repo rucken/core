@@ -5,6 +5,7 @@ import { AppStorage, CookieStorage, AccountService, AccountConfig, TokenService 
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { initializeApp } from './shared/utils/initialize-app';
+import { ThemesService } from '@rucken/web';
 
 @NgModule({
     bootstrap: [
@@ -29,7 +30,8 @@ import { initializeApp } from './shared/utils/initialize-app';
             deps: [
                 AccountService,
                 AccountConfig,
-                TokenService
+                TokenService,
+                ThemesService
             ]
         }
     ]

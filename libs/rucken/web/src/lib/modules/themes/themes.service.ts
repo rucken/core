@@ -41,12 +41,7 @@ export class ThemesService {
     return new Promise((resolve, reject) => {
       this.current = this._themesStorage.get();
       if (isPlatformBrowser(this._platformId)) {
-        setTimeout(
-          _ =>
-            resolve()
-          ,
-          100
-        );
+        setTimeout(_ => resolve(), 100);
       } else {
         resolve();
       }
