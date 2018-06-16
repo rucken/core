@@ -9,7 +9,7 @@ import { ProfileFrameRoutes } from './profile-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule.forChild(),
+    NgxPermissionsModule,
     ProfilePanelModule,
     RouterModule.forChild(ProfileFrameRoutes)
   ],

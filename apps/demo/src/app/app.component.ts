@@ -34,11 +34,6 @@ export class AppComponent implements OnDestroy {
     private _accountConfig: AccountConfig,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
-    this.accountService.repository.useRest({
-      apiUrl: environment.apiUrl,
-      ...this._accountConfig,
-      pluralName: environment.type === 'mockapi' ? 'account/1' : 'account'
-    });
     if (isPlatformBrowser(this._platformId)) {
       this.langService.current$.pipe(
         takeUntil(this._destroyed$)
@@ -55,7 +50,6 @@ export class AppComponent implements OnDestroy {
         }
       });
     }
-    this.onInfo();
   }
   ngOnDestroy() {
     this._destroyed$.next(true);

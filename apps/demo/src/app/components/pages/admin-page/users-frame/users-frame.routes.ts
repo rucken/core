@@ -1,17 +1,16 @@
-import { translate } from '@rucken/core';
-import { NgxPermissionsGuard } from 'ngx-permissions';
+import { translate, PermissionsGuard } from '@rucken/core';
 import { UsersFrameComponent } from './users-frame.component';
-import { environment } from '../../../../../environments/environment';
 
 export const UsersFrameRoutes = [{
   path: '',
   component: UsersFrameComponent,
+  canActivate: [PermissionsGuard],
   data: {
     name: 'users',
     title: translate('Users'),
     permissions: {
-      only: 'read_users-frame'
+      only: 'read_users-frame',
+      redirectTo: '/home'
     }
-  },
-  canActivate: environment.server ? [] : [NgxPermissionsGuard]
+  }
 }];

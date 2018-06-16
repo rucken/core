@@ -58,7 +58,7 @@ export class User implements IModel {
   @Transform(transformDateToString, { toPlainOnly: true })
   dateOfBirth: Date = undefined;
   get permissionNames() {
-    const permissions = ['__empty__'];
+    const permissions = [];
     this.groups.forEach(group => group.permissions.forEach(permission => permissions.push(permission.name)));
     return permissions;
   }

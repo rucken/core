@@ -2,13 +2,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { AccountConfig, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig, RuI18n as CoreRuI18n, translate, UsersConfig } from '@rucken/core';
+import { AccountConfig, AccountModule, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig, PermissionsGuard, RuI18n as CoreRuI18n, TokenModule, TransferHttpCacheModule, translate, UsersConfig } from '@rucken/core';
 import { AuthModalModule, NavbarModule, RuI18n as WebRuI18n, ThemesModule } from '@rucken/web';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
@@ -23,9 +24,20 @@ defineLocale('en', enGbLocale);
     AppComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'demo' }),
+    RouterModule,
     SharedModule,
     HttpClientModule,
+    BrowserModule.withServerTransition({ appId: 'demo' }),
+    TransferHttpCacheModule.forRoot(),
+    NgxPermissionsModule.forRoot(),
+    TokenModule.forRoot({
+      withoutTokenUrls: [
+        '/api/account/info',
+        '/api/account/login',
+        ...(environment.type === 'mockapi' ? ['/'] : [])
+      ]
+    }),
+    AccountModule.forRoot(),
     LangModule.forRoot({
       languages: [{
         title: translate('Russian'),
@@ -38,10 +50,9 @@ defineLocale('en', enGbLocale);
       }]
     }),
     ThemesModule.forRoot(),
-    RouterModule.forRoot(AppRoutes,
-      (environment.type === 'prod' || environment.type === 'development') ?
-        { preloadingStrategy: PreloadAllModules } :
-        { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }
+    RouterModule.forRoot(
+      AppRoutes,
+      { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }
     ),
     ModalModule.forRoot(),
     AuthModalModule,
@@ -57,7 +68,8 @@ defineLocale('en', enGbLocale);
     PermissionsConfig,
     ContentTypesConfig,
     UsersConfig,
-    BsLocaleService
+    BsLocaleService,
+    PermissionsGuard
   ],
   bootstrap: [AppComponent]
 })

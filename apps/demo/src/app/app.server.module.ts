@@ -1,24 +1,14 @@
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
-import { AccountModule, AppStorage, TokenModule, UniversalStorage } from '@rucken/core';
-import { NgxPermissionsModule } from 'ngx-permissions';
-import { environment } from '../environments/environment';
+import { AppStorage, UniversalStorage, AccountService, AccountConfig, TokenService } from '@rucken/core';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
+import { initializeApp } from './shared/utils/initialize-app';
 
 @NgModule({
   imports: [
-    NgxPermissionsModule.forRoot(),
-    TokenModule.forRoot({
-      withoutTokenUrls: [
-        '/api/account/info',
-        '/api/account/login',
-        ...(environment.type === 'mockapi' ? ['/'] : [])
-      ]
-    }),
-    AccountModule.forRoot(),
     AppModule,
     ServerModule,
     ModuleMapLoaderModule,
@@ -31,11 +21,20 @@ import { AppModule } from './app.module';
   providers: [
     {
       provide: AppStorage, useClass: UniversalStorage
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      multi: true,
+      deps: [
+        AccountService,
+        AccountConfig,
+        TokenService
+      ]
     }
   ]
 })
 export class AppServerModule {
   static forRoot() {
-
   }
 }

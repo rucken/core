@@ -9,7 +9,7 @@ import { GroupsFrameRoutes } from './groups-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule.forChild(),
+    NgxPermissionsModule,
     RouterModule.forChild(GroupsFrameRoutes),
     GroupsGridModule
   ],

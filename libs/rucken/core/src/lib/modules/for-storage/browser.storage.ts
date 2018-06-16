@@ -27,14 +27,14 @@ export class CookieStorage implements Storage {
   }
 
   public removeItem(key: string): void {
-    this.cookieService.delete(key);
+    this.cookieService.delete(key, '/');
   }
 
   public setItem(key: string, data: any): void {
     try {
-      this.cookieService.set(key, JSON.stringify(data));
+      this.cookieService.set(key, JSON.stringify(data), undefined, '/');
     } catch (error) {
-      this.cookieService.set(key, data);
+      this.cookieService.set(key, data, undefined, '/');
     }
   }
 }

@@ -10,7 +10,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule.forChild(),
+    NgxPermissionsModule,
     RouterModule.forChild(UsersFrameRoutes),
     UsersGridModule,
     FormsModule

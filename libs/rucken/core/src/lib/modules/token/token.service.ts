@@ -30,7 +30,9 @@ export class TokenService {
   }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      this.current = this._tokenStorage.get();
+      if (this.current !== this._tokenStorage.get()) {
+        this.current = this._tokenStorage.get();
+      }
       resolve();
     });
   }
