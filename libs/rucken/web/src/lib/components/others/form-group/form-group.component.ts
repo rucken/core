@@ -64,7 +64,9 @@ export class FormGroupComponent implements AfterViewInit {
         if (!input.id) {
           this._renderer.setAttribute(input, 'id', this.name);
         }
-        this._renderer.setAttribute(input, 'autocomplete', 'off');
+        if (input.autocomplete !== 'on') {
+          this._renderer.setAttribute(input, 'autocomplete', 'off');
+        }
       }
     });
   }
