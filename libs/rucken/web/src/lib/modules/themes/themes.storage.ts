@@ -1,11 +1,17 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { AppStorage } from '@rucken/core';
+import { DOCUMENT } from '@angular/platform-browser';
 @Injectable()
 export class ThemesStorage {
 
   storageKeyName = 'theme';
 
+  constructor(
+    @Inject(AppStorage) private _cookies: Storage,
+    @Inject(DOCUMENT) private _document: any
+  ) {
+  }
   set(url: string) {
     if (!url) {
       this._cookies.removeItem(this.storageKeyName);
@@ -23,7 +29,7 @@ export class ThemesStorage {
   }
   setStyleLinkHref(url: string) {
     if (url) {
-      const links = document.getElementsByTagName('link');
+      const links = this._document.getElementsByTagName('link');
       if (links && links.length && url) {
         for (let i = 0; i < links.length; i++) {
           const link = links[i];
@@ -44,7 +50,7 @@ export class ThemesStorage {
     }
   }
   getStyleLinkHref() {
-    const links = document.getElementsByTagName('link');
+    const links = this._document.getElementsByTagName('link');
     if (links && links.length) {
       for (let i = 0; i < links.length; i++) {
         const link = links[i];
@@ -61,10 +67,5 @@ export class ThemesStorage {
       }
     }
     return undefined;
-  }
-  constructor(
-    @Inject(AppStorage) private _cookies: Storage,
-    @Inject(PLATFORM_ID) private _platformId: Object
-  ) {
   }
 }
