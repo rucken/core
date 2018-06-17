@@ -1,6 +1,10 @@
 <div class="container-fluid">
-  <h3 class="page-header">
-    {{ (activatedRoute.parent.parent.data | async)?.title | translate}}: {{(activatedRoute.data | async)?.title | translate}}
-  </h3>
-  <profile-panel [yesTitle]="'Update'|translate" [apiUrl]="apiUrl" [enableSave]="'change_profile' | perm | async"></profile-panel>
+    <h3 class="page-header">
+        <span *ngIf="activatedRoute.parent.parent.data | async as parentData">{{ parentData?.title | translate}}:</span>
+        <span *ngIf="activatedRoute.data | async as data">{{ data?.title | translate}}</span>
+    </h3>
+    <profile-panel
+        [yesTitle]="'Update'|translate"
+        [apiUrl]="apiUrl"
+        [enableSave]="'change_profile' | perm:false | async"></profile-panel>
 </div>

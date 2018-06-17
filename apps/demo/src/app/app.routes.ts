@@ -5,7 +5,11 @@ import { HomePageRoutes } from './components/pages/home-page/home-page.routes';
 import { ThemesPageRoutes } from './components/pages/themes-page/themes-page.routes';
 
 export const AppRoutes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
   {
     path: 'home',
     loadChildren: './components/pages/home-page/home-page.module#HomePageModule',
@@ -19,13 +23,11 @@ export const AppRoutes: Routes = [
   {
     path: 'account',
     loadChildren: './components/pages/account-page/account-page.module#AccountPageModule',
-    canActivate: AccountPageRoutes[0].canActivate,
     data: AccountPageRoutes[0].data
   },
   {
     path: 'admin',
     loadChildren: './components/pages/admin-page/admin-page.module#AdminPageModule',
-    canActivate: AdminPageRoutes[0].canActivate,
     data: AdminPageRoutes[0].data
   },
   {

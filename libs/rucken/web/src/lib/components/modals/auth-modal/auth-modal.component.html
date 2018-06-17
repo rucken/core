@@ -1,0 +1,34 @@
+<form
+    [formGroup]="form"
+    novalidate>
+    <prompt-form-modal
+        [title]="title"
+        [message]="message"
+        [readonly]="readonly"
+        [noTitle]="noTitle"
+        [yesTitle]="yesTitle"
+        (no)="onNoClick()"
+        (yes)="onYesClick()"
+        [data]="data"
+        [processing]="processing$ | async">
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="username"
+            [title]="strings.username">
+            <input
+                autocomplete="on"
+                formControlName="username"
+                focused>
+        </form-group>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="password"
+            [title]="strings.password">
+            <input
+                formControlName="password"
+                type="password">
+        </form-group>
+    </prompt-form-modal>
+</form>

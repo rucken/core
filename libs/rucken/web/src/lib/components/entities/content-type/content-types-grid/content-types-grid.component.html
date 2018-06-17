@@ -1,0 +1,20 @@
+<entity-grid
+    title="Content types"
+    [items]="repository.items$ | async"
+    (selected)="onSelected($event)"
+    [columns]="['title', 'action']"
+    [readonly]="readonly"
+    [strings]="strings"
+    (create)="onCreateClick()"
+    (update)="onUpdateClick($event)"
+    (delete)="onDeleteClick($event)"
+    (view)="onViewClick($event)"
+    (search)="onChangeFilter({searchText:$event})"
+    (changeOrder)="onChangeFilter({sort:$event})"
+    [paginationMeta]="repository.paginationMeta$ | async"
+    [enableCreate]="'add_content-type' | perm:false | async"
+    [enableUpdate]="'change_content-type' | perm:false | async"
+    [enableDelete]="'delete_content-type' | perm:false | async"
+    (changePage)="onChangePage($event)"
+    [processing]="processing$ | async">
+</entity-grid>

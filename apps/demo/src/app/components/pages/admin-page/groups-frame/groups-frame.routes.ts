@@ -1,17 +1,16 @@
-import { translate } from '@rucken/core';
-import { NgxPermissionsGuard } from 'ngx-permissions';
+import { translate, PermissionsGuard } from '@rucken/core';
 import { GroupsFrameComponent } from './groups-frame.component';
-import { environment } from '../../../../../environments/environment';
 
 export const GroupsFrameRoutes = [{
   path: '',
   component: GroupsFrameComponent,
+  canActivate: [PermissionsGuard],
   data: {
     name: 'groups',
     title: translate('Groups'),
     permissions: {
-      only: 'read_groups-frame'
+      only: 'read_groups-frame',
+      redirectTo: '/home'
     }
-  },
-  canActivate: environment.server ? [] : [NgxPermissionsGuard]
+  }
 }];

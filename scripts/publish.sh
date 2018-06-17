@@ -1,3 +1,3 @@
 #!/bin/bash
-npm publish ./libs/@rucken/core/dist
-npm publish ./libs/@rucken/web/dist
+npm publish ./dist/rucken/core
+npm publish ./dist/rucken/web

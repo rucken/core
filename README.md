@@ -6,11 +6,11 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Core with Admin UI for web application maked on Angular5+
+Core with Admin UI for web application maked on Angular6+
 
 ## What is Rucken?
 
-- **Core** - Base entities and services for create applications on `Angular5+`, include work with users, groups and permissions.
+- **Core** - Base entities and services for create applications on `Angular6+`, include work with users, groups and permissions.
 - **Web** - Base ui grids and inputs and etc. for manage users, groups and permissions.
 
 ## Usage

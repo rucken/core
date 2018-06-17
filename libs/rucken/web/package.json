@@ -1,0 +1,51 @@
+{
+  "name": "@rucken/web",
+  "version": "3.0.0",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=6.1.0"
+  },
+  "description": "Base components and ui for admin entities for application maked on Angular6+",
+  "keywords": [
+    "ngx",
+    "angular",
+    "angular6",
+    "i18n",
+    "shared",
+    "components",
+    "rucken",
+    "web"
+  ],
+  "license": "MIT",
+  "author": "EndyKaufman <admin@site15.ru>",
+  "bugs": {
+    "url": "https://github.com/rucken/core/issues"
+  },
+  "homepage": "https://github.com/rucken/core",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rucken/core.git"
+  },
+  "maintainers": [
+    {
+      "name": "EndyKaufman",
+      "email": "admin@site15.ru"
+    }
+  ],
+  "peerDependencies": {
+    "rxjs": "^6.0.0",
+    "@angular/forms": "^6.0.5",
+    "@angular/common": "^6.0.5",
+    "@angular/compiler": "^6.0.5",
+    "@angular/core": "^6.0.5"
+  },
+  "dependencies": {
+    "@ngx-translate/core": ">=10.0.2",
+    "@types/object-path": ">=0.9.29",
+    "ngx-bootstrap": ">=3.0.0",
+    "ngx-dynamic-form-builder": ">=0.4.2",
+    "ngx-permissions": ">=5.0.0",
+    "ngx-repository": ">=0.4.1",
+    "object-path": ">=0.11.4"
+  }
+}

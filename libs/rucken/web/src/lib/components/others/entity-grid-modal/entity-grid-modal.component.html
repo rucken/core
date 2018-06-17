@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">{{title | translate}}</h4>
+    <button
+        type="button"
+        class="close pull-right"
+        [attr.aria-label]="'Close' | translate"
+        (click)="onNoClick()">
+        <span aria-hidden="true">×</span>
+    </button>
+</div>
+<div class="modal-body">
+    <ng-content></ng-content>
+</div>
+<div class="modal-footer">
+    <button
+        type="button"
+        class="btn btn-default"
+        (click)="onNoClick()">
+        {{noTitle | translate}}
+    </button>
+    <button
+        type="submit"
+        [ngClass]="yesClass"
+        (click)="onYesClick()"
+        [disabled]="processing || disabled"
+        [focused]="focused">
+        <i
+            class="fa fa-spinner fa-pulse fa-fw"
+            *ngIf="processing"></i>
+        {{yesTitle | translate}}
+    </button>
+</div>

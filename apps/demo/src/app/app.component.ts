@@ -1,25 +1,24 @@
-import { Component, Inject, PLATFORM_ID, OnDestroy } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { AccountConfig, AccountService, ErrorsExtractor, LangService, TokenService, User, translate } from '@rucken/core';
 import { AuthModalComponent, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AppRoutes } from './app.routes';
-import { isPlatformBrowser } from '@angular/common';
-import { Subject } from 'rxjs/Subject';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnDestroy {
-  title = 'Rucken: Demo';
-
-  routes = AppRoutes;
-
+  public title = 'Rucken: Demo';
+  public routes = AppRoutes;
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
@@ -35,11 +34,6 @@ export class AppComponent implements OnDestroy {
     private _accountConfig: AccountConfig,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
-    this.accountService.repository.useRest({
-      apiUrl: environment.apiUrl,
-      ...this._accountConfig,
-      pluralName: environment.type === 'mockapi' ? 'account/1' : 'account'
-    });
     if (isPlatformBrowser(this._platformId)) {
       this.langService.current$.pipe(
         takeUntil(this._destroyed$)
@@ -47,7 +41,7 @@ export class AppComponent implements OnDestroy {
         lang => {
           this._bsLocaleService.use(lang);
         }
-        );
+      );
       this._tokenService.tokenHasExpired$.pipe(
         takeUntil(this._destroyed$)
       ).subscribe(result => {
@@ -56,7 +50,6 @@ export class AppComponent implements OnDestroy {
         }
       });
     }
-    this.onInfo();
   }
   ngOnDestroy() {
     this._destroyed$.next(true);
@@ -66,7 +59,7 @@ export class AppComponent implements OnDestroy {
     const token = this._tokenService.current;
     if (token) {
       if (
-        this._tokenService.tokenHasExpired() &&
+        this._tokenService.tokenHasExpired(token) &&
         environment.type !== 'mockapi'
       ) {
         this._tokenService.stopCheckTokenHasExpired();
@@ -80,7 +73,7 @@ export class AppComponent implements OnDestroy {
               data =>
                 this.onLogoutSuccess(undefined)
             )
-          );
+        );
       } else {
         if (!this.accountService.current) {
           this.accountService.info(token).subscribe(
@@ -169,6 +162,7 @@ export class AppComponent implements OnDestroy {
       error: error,
       onTop: true
     }).subscribe();
+    throw error;
   }
   onLoginError(modal: AuthModalComponent, error: any) {
     if (modal) {

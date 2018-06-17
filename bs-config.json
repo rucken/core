@@ -1,4 +1,6 @@
 {
-    "port": 4201,
-    "server": { "baseDir": "./apps/demo/dist/browser" }
+  "port": 4201,
+  "server": {
+    "baseDir": "./dist/demo"
   }
+}

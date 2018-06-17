@@ -1,19 +1,18 @@
-import { translate } from '@rucken/core';
-import { NgxPermissionsGuard } from 'ngx-permissions';
+import { translate, PermissionsGuard } from '@rucken/core';
 import { AccountPageChildrenRoutes } from './account-page.children-routes';
 import { AccountPageComponent } from './account-page.component';
-import { environment } from '../../../../environments/environment';
 
 export const AccountPageRoutes = [{
   path: '',
   component: AccountPageComponent,
+  canActivate: [PermissionsGuard],
   data: {
     name: 'account',
     title: translate('Account'),
     permissions: {
-      only: 'read_account-page'
+      only: 'read_account-page',
+      redirectTo: '/home'
     }
   },
-  canActivate: environment.server ? [] : [NgxPermissionsGuard],
   children: AccountPageChildrenRoutes
 }];
