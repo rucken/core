@@ -2,7 +2,7 @@
   "name": "rucken",
   "version": "3.0.0",
   "engines": {
-    "node": ">=8",
+    "node": "8",
     "npm": ">=6.1.0"
   },
   "private": true,
