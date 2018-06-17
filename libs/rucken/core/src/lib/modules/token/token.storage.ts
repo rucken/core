@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
-import { AppStorage } from '@rucken/core';
+import { Storage } from '../for-storage/storage';
+import { AppStorage } from '../for-storage/universal.inject';
 
 @Injectable()
 export class TokenStorage {

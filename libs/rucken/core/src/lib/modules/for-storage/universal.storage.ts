@@ -1,5 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
+import { Storage } from './storage';
 
 @Injectable()
 export class UniversalStorage implements Storage {

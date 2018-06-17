@@ -12,6 +12,8 @@ import { AccountStorage } from './lib/modules/account/account.storage';
 export { AccountStorage } from './lib/modules/account/account.storage';
 import { CookieStorage } from './lib/modules/for-storage/browser.storage';
 export { CookieStorage } from './lib/modules/for-storage/browser.storage';
+import { Storage } from './lib/modules/for-storage/storage';
+export { Storage } from './lib/modules/for-storage/storage';
 import { AppStorage } from './lib/modules/for-storage/universal.inject';
 export { AppStorage } from './lib/modules/for-storage/universal.inject';
 import { UniversalStorage } from './lib/modules/for-storage/universal.storage';
