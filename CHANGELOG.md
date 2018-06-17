@@ -1,3 +1,29 @@
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/rucken/core/compare/2.1.1...3.0.0) (2018-06-16)
+
+
+### Bug Fixes
+
+* **entity-grid:** Add check columns?.length in template ([3f787a8](https://github.com/rucken/core/commit/3f787a8))
+* **form-group:** Add support autocomplete=on for inputs ([3ce76af](https://github.com/rucken/core/commit/3ce76af))
+* **ssr:** Add PermissionsGuard for custom canActivate for check access to lazy route components, original NgxPermissionsGuard work is incorrect ([c7da58c](https://github.com/rucken/core/commit/c7da58c))
+* **theme-module:** Update theme model ([2085a1a](https://github.com/rucken/core/commit/2085a1a))
+* **themes:** Add support change them in ssr mode ([06d2d77](https://github.com/rucken/core/commit/06d2d77))
+* **themes:** Remove apply theme css only in browser ([19e7b38](https://github.com/rucken/core/commit/19e7b38))
+
+
+### Features
+
+* Update to Angular 6 and Rx 6 ([c840b43](https://github.com/rucken/core/commit/c840b43))
+* **ssr:** Add basic ssr support ([5061f3d](https://github.com/rucken/core/commit/5061f3d))
+
+
+### BREAKING CHANGES
+
+* Minimum required Node version: 8,  npm: 6.1.0, angular: 6.0.3, rxjs: 6.0.0
+
+
+
 <a name="2.1.1"></a>
 ## [2.1.1](https://github.com/rucken/core/compare/2.1.0...2.1.1) (2018-05-14)
 

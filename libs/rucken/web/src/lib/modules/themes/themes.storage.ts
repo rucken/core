@@ -1,7 +1,8 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { AppStorage } from '@rucken/core';
+import { AppStorage, Storage } from '@rucken/core';
 import { DOCUMENT } from '@angular/platform-browser';
+
 @Injectable()
 export class ThemesStorage {
 
