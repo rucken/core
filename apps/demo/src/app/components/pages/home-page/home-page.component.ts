@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
+declare var require: any;
+
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
