@@ -106,7 +106,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "core-js": "^2.5.7",
     "cors": "~2.8.4",
-    "@types/node": "~8.9.4",
+    "@types/node": "~10.3.4",
     "dotenv": "^6.0.0",
     "@types/dotenv": "^4.0.3",
     "@ngx-translate/core": "^10.0.2",
