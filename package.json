@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "engines": {
     "node": "8",
     "npm": ">=6.1.0"
@@ -82,7 +82,7 @@
     "build-github": "run-s config:prod app:build-github app:predeploy-github",
     "ssr:prebuild-mockapi": "ng run demo:server:mockapi",
     "ssr:build-mockapi": "run-s app:build-mockapi ssr:prebuild-mockapi ssr:webpack",
-    "ssr:build-mockapi:mono": "run-s app:build-mockapi:mono ssr:prebuild-mockapi ssr:webpack",
+    "ssr:build-mockapi:mono": "run-s app:build-mockapi:mono ssr:prebuild-mockapi ssr:webpack"
   },
   "postinstall": "node scripts/patch.js",
   "dependencies": {
