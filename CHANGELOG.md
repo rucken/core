@@ -1,3 +1,13 @@
+<a name="3.0.1"></a>
+## [3.0.1](https://github.com/rucken/core/compare/3.0.0...3.0.1) (2018-07-10)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies and refactor source for it ([1df92cc](https://github.com/rucken/core/commit/1df92cc))
+
+
+
 <a name="3.0.0"></a>
 # [3.0.0](https://github.com/rucken/core/compare/2.1.1...3.0.0) (2018-06-16)
 
