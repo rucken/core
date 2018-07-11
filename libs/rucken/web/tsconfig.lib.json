@@ -11,7 +11,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "types": [],
+    "types": [
+      "jasmine",
+      "node"
+    ],
     "lib": [
       "dom",
       "es2015"
