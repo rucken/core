@@ -238,7 +238,7 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/rucken/core/tsconfig.prod-lib.json",
+              "tsConfig": "libs/rucken/core/tsconfig.lib.json",
               "project": "libs/rucken/core/ng-package.prod.json"
             }
           }
@@ -279,7 +279,7 @@
           },
           "configurations": {
             "production": {
-              "tsConfig": "libs/rucken/web/tsconfig.prod-lib.json",
+              "tsConfig": "libs/rucken/web/tsconfig.lib.json",
               "project": "libs/rucken/web/ng-package.prod.json"
             }
           }
