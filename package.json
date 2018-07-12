@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "engines": {
     "node": "8",
     "npm": ">=6.1.0"
@@ -74,12 +74,12 @@
     "app:build-mockapi": "run-s lib:build app:prebuild-mockapi",
     "app:build-github": "run-s lib:build app:prebuild-github",
     "app:build-mockapi:mono": "run-s prepare:prod app:prebuild-mockapi",
-    "app:predeploy-github": "cp-cli ./dist/demo/index.html ./dist/demo/404.html",
-    "app:deploy-github": "gh-pages -d dist/demo",
     "serve-mockapi": "ng serve -c=mockapi",
     "run-mockapi": "run-s prepare:dev serve-mockapi",
     "build-mockapi": "run-s config:prod app:build-mockapi",
-    "build-github": "run-s config:prod app:build-github app:predeploy-github",
+    "prebuild-github": "cp-cli ./dist/demo/index.html ./dist/demo/404.html",
+    "build-github": "run-s config:prod app:build-github prebuild-github",
+    "deploy-github": "gh-pages -d dist/demo",
     "ssr:prebuild-mockapi": "ng run demo:server:mockapi",
     "ssr:build-mockapi": "run-s app:build-mockapi ssr:prebuild-mockapi ssr:webpack",
     "ssr:build-mockapi:mono": "run-s app:build-mockapi:mono ssr:prebuild-mockapi ssr:webpack"
