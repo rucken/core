@@ -16,7 +16,7 @@ Core with Admin UI for web application maked on Angular6+
 git clone https://github.com/rucken/core.git my-app
 cd my-app
 npm install
-npm run app:start-mockapi
+npm run run-mockapi
 ```
 
 ## Usage with cli
@@ -25,7 +25,7 @@ npm install -g @rucken/cli
 rucken new my-app
 cd my-app
 npm install
-npm run app:start-mockapi
+npm run run-mockapi
 ```
 
 ## Quick links
