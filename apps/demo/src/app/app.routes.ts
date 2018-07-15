@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AccountPageRoutes } from './components/pages/account-page/account-page.routes';
 import { AdminPageRoutes } from './components/pages/admin-page/admin-page.routes';
+import { EntitiesPageRoutes } from './components/pages/entities-page/entities-page.routes';
 import { HomePageRoutes } from './components/pages/home-page/home-page.routes';
 import { ThemesPageRoutes } from './components/pages/themes-page/themes-page.routes';
 
@@ -14,6 +15,11 @@ export const AppRoutes: Routes = [
     path: 'home',
     loadChildren: './components/pages/home-page/home-page.module#HomePageModule',
     data: HomePageRoutes[0].data
+  },
+  {
+    path: 'entities',
+    loadChildren: './components/pages/entities-page/entities-page.module#EntitiesPageModule',
+    data: EntitiesPageRoutes[0].data
   },
   {
     path: 'themes',

@@ -50,8 +50,17 @@ msgstr "Профиль"
 msgid "Administration"
 msgstr "Администрирование"
 
+msgid "Content types"
+msgstr "Типы содержимого"
+
+msgid "Entities"
+msgstr "Сущности"
+
 msgid "Groups"
 msgstr "Группы"
+
+msgid "Permissions"
+msgstr "Разрешения"
 
 msgid "Users"
 msgstr "Пользователи"

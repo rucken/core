@@ -40,7 +40,16 @@ msgstr ""
 msgid "Administration"
 msgstr ""
 
+msgid "Content types"
+msgstr ""
+
+msgid "Entities"
+msgstr ""
+
 msgid "Groups"
+msgstr ""
+
+msgid "Permissions"
 msgstr ""
 
 msgid "Users"

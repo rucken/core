@@ -7,8 +7,5 @@
         </span>
         <span *ngIf="activatedRoute.data | async as data">{{ data?.title | translate}}</span>
     </h3>
-    <profile-panel
-        [yesTitle]="'Update'|translate"
-        [apiUrl]="apiUrl"
-        [enableSave]="'change_profile' | perm:false | async"></profile-panel>
+    <permissions-grid [apiUrl]="apiUrl"></permissions-grid>
 </div>
