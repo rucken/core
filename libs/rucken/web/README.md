@@ -16,7 +16,7 @@ Core with Admin UI for web application maked on Angular6+
 git clone https://github.com/rucken/core.git my-app
 cd my-app
 npm install
-npm run run-mockapi
+npm run start:prod
 ```
 
 ## Usage with cli
@@ -25,14 +25,14 @@ npm install -g @rucken/cli
 rucken new my-app
 cd my-app
 npm install
-npm run run-mockapi
+npm run start:prod
 ```
 
 ## Quick links
 
-[Live demo](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: http://www.mockapi.io).
+[Live demo](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: https://rucken-core-nestjs.now.sh).
 
-[Live demo (SSR)](https://rucken.herokuapp.com) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: http://www.mockapi.io).
+[Live demo (SSR)](https://rucken.herokuapp.com) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: https://rucken-core-nestjs.now.sh).
 
 [Live demo (NestJS)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 

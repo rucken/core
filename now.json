@@ -1,0 +1,8 @@
+{
+    "alias": [
+        "rucken-core.now.sh"
+    ],
+    "env": {
+        "DEBUG": "@debug"
+    }
+}

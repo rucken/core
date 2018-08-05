@@ -59,8 +59,7 @@ export class AppComponent implements OnDestroy {
     const token = this._tokenService.current;
     if (token) {
       if (
-        this._tokenService.tokenHasExpired(token) &&
-        environment.type !== 'mockapi'
+        this._tokenService.tokenHasExpired(token)
       ) {
         this._tokenService.stopCheckTokenHasExpired();
         this._messageModalService.error({
@@ -142,9 +141,7 @@ export class AppComponent implements OnDestroy {
     if (modal) {
       modal.hide();
     }
-    if (environment.type !== 'mockapi') {
-      this._tokenService.startCheckTokenHasExpired();
-    }
+    this._tokenService.startCheckTokenHasExpired();
   }
   onLogoutSuccess(modal: AuthModalComponent) {
     if (modal) {

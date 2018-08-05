@@ -10,8 +10,7 @@ export function initializeApp(
 ) {
     accountService.repository.useRest({
         apiUrl: environment.apiUrl,
-        ...accountConfig,
-        pluralName: environment.type === 'mockapi' ? 'account/1' : 'account'
+        ...accountConfig
     });
     return () => new Promise((resolve, reject) =>
         themesService.initializeApp().then(_ =>

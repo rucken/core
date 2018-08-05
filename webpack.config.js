@@ -6,18 +6,28 @@ const webpack = require('webpack');
 module.exports = {
   mode: 'development',
   externals: [/(node_modules|main\..*\.js)/],
-
   entry: {
     // This is our Express server for Dynamic universal
     server: './server.ts'
   },
+  target: 'node',
+  mode: 'none',
   resolve: { extensions: [".js", ".ts"] },
   output: {
     // Puts the output at the root of the dist folder
     path: path.join(__dirname),
     filename: '[name].js'
   },
-
+  module: {
+    rules: [
+      { test: /\.ts$/, loader: 'ts-loader' },
+      {
+        type: 'javascript/auto',
+        test: /\.mjs$/,
+        use: []
+      }
+    ]
+  },
   plugins: [
     new webpack.ContextReplacementPlugin(
       // fixes WARNING Critical dependency: the request of a dependency is an expression
@@ -35,5 +45,5 @@ module.exports = {
   target: 'node',
   node: {
     __dirname: false
-  },
+  }
 };

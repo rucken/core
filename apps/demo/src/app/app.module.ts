@@ -33,8 +33,7 @@ defineLocale('en', enGbLocale);
     TokenModule.forRoot({
       withoutTokenUrls: [
         '/api/account/info',
-        '/api/account/login',
-        ...(environment.type === 'mockapi' ? ['/'] : [])
+        '/api/account/login'
       ]
     }),
     AccountModule.forRoot(),
