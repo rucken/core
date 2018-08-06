@@ -1,6 +1,13 @@
 {
     "alias": [
-        "rucken-core.now.sh"
+        "rucken.now.sh",
+        "rucken-todo.now.sh",
+        "rucken-material.now.sh",
+        "rucken-material-todo.now.sh",
+        "rucken-ionic.now.sh",
+        "rucken-ionic-todo.now.sh",
+        "rucken-nestjs.now.sh",
+        "rucken-todo-nestjs.now.sh"
     ],
     "env": {
         "DEBUG": "@debug"
