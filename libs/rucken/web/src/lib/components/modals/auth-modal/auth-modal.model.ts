@@ -4,12 +4,12 @@ import { IModel } from 'ngx-repository';
 
 export class AuthModalModel implements IModel {
   static strings = {
-    username: translate('Username/Email'),
+    email: translate('Email'),
     password: translate('Password')
   };
   id: number = undefined;
   @IsNotEmpty()
-  username: string = undefined;
+  email: string = undefined;
   @IsNotEmpty()
   password: string = undefined;
 }

@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { LangStorage } from './lang.storage';
 import { LanguagesItem } from './languages-item';
+import { AppStorage } from 'dist/rucken/core';
 
 export const LANGUAGES = new InjectionToken<LanguagesItem[]>('LANGUAGES');
 export const APP_LANG = new InjectionToken<string>('APP_LANG');
@@ -14,10 +15,19 @@ export class LangService {
   get languages() {
     return this._languages;
   }
-  get current() {
+  get current() {/*
+    const lang = this._cookies.getItem(this.storageKeyName) as string;
+    if (lang && lang !== 'undefined') {
+      return lang;
+    }*/
     return this._translateService.currentLang;
   }
   set current(value: string) {
+    /*if (!value) {
+      this._cookies.removeItem(this.storageKeyName);
+    } else {
+      this._cookies.setItem(this.storageKeyName, value);
+    }*/
     this._translateService.use(value);
     this._langStorage.set(value);
     this.current$.next(value);
@@ -25,6 +35,7 @@ export class LangService {
   current$ = new BehaviorSubject<string>(undefined);
 
   constructor(
+    @Inject(AppStorage) private _cookies: Storage,
     private _langStorage: LangStorage,
     private _translateService: TranslateService,
     @Inject(LANGUAGES) private _languages: LanguagesItem[] = [],

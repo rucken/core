@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform, Injector } from '@angular/core';
-import { AccountService, User } from '@rucken/core';
+import { AuthService, User } from '@rucken/core';
 import { has, get } from 'object-path';
 
 @Pipe({
@@ -7,15 +7,15 @@ import { has, get } from 'object-path';
 })
 export class UserPermPipe implements PipeTransform {
 
-  private _accountService: AccountService;
+  private _authService: AuthService;
   constructor(
     public injector: Injector
   ) {
-    this._accountService = injector.get(AccountService);
+    this._authService = injector.get(AuthService);
   }
 
   transform(item: any, path = 'users', defaultValue: boolean = false, trueValue: any = true, falseValue: any = false): any {
-    const currentUser = this._accountService.current;
+    const currentUser = this._authService.current;
     if (item && has(item, path) && currentUser && currentUser.id) {
       if (Array.isArray(get(item, path))) {
         const users = get(item, path) as Array<User>;

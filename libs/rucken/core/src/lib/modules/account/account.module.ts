@@ -1,30 +1,29 @@
 import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
-import { NgxPermissionsModule } from 'ngx-permissions';
-import { AccountService, accountServiceInitializeApp } from './account.service';
-import { AccountStorage } from './account.storage';
-
+import { accountConfigs } from './configs';
+import { AccountService } from './account.service';
+import { ACCOUNT_CONFIG_TOKEN, defaultAccountConfig } from './configs/account.config';
 @NgModule({
   imports: [
-    CommonModule,
-    NgxPermissionsModule
+    CommonModule
   ],
   providers: [
-    AccountService,
-    AccountStorage
+    AccountService
   ]
 })
 export class AccountModule {
-  static forRoot(): ModuleWithProviders {
+  static forRoot(options?: { apiUri?: string }): ModuleWithProviders {
     return {
       ngModule: AccountModule,
       providers: [
         {
-          provide: APP_INITIALIZER,
-          useFactory: accountServiceInitializeApp,
-          multi: true,
-          deps: [AccountService]
-        }
+          provide: ACCOUNT_CONFIG_TOKEN,
+          useValue: {
+            ...defaultAccountConfig,
+            apiUri: options.apiUri
+          }
+        },
+        AccountService
       ]
     };
   }

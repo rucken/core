@@ -2,7 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountConfig, AccountService, ErrorsExtractor, LangService, TokenService, User, translate } from '@rucken/core';
+import { ErrorsExtractor, LangService, TokenService, User, translate, AuthService, UserTokenDto } from '@rucken/core';
 import { AuthModalComponent, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -22,7 +22,7 @@ export class AppComponent implements OnDestroy {
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    public accountService: AccountService,
+    public authService: AuthService,
     public langService: LangService,
     private _errorsExtractor: ErrorsExtractor,
     private _tokenService: TokenService,
@@ -31,7 +31,6 @@ export class AppComponent implements OnDestroy {
     private _messageModalService: MessageModalService,
     private _bsLocaleService: BsLocaleService,
     private _router: Router,
-    private _accountConfig: AccountConfig,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     if (isPlatformBrowser(this._platformId)) {
@@ -68,21 +67,21 @@ export class AppComponent implements OnDestroy {
           onTop: true
         }).subscribe(
           result =>
-            this.accountService.logout().subscribe(
+            this.authService.logout().subscribe(
               data =>
                 this.onLogoutSuccess(undefined)
             )
         );
       } else {
-        if (!this.accountService.current) {
-          this.accountService.info(token).subscribe(
+        if (!this.authService.current) {
+          this.authService.info(token).subscribe(
             data =>
               this.onLoginOrInfoSuccess(undefined, data),
             error => {
               if (this._errorsExtractor.getErrorMessage(error)) {
                 this.onError(error);
               }
-              this.accountService.logout().subscribe(
+              this.authService.logout().subscribe(
                 data =>
                   this.onLogoutSuccess(undefined)
               );
@@ -105,7 +104,7 @@ export class AppComponent implements OnDestroy {
     bsModalRef.content.yes.subscribe(
       (modal: AuthModalComponent) => {
         modal.processing = true;
-        this.accountService.logout().subscribe(
+        this.authService.logout().subscribe(
           data =>
             this.onLogoutSuccess(modal)
         );
@@ -124,7 +123,7 @@ export class AppComponent implements OnDestroy {
     bsModalRef.content.yes.subscribe(
       (modal: AuthModalComponent) => {
         modal.processing = true;
-        this.accountService.login(modal.data.username, modal.data.password).subscribe(
+        this.authService.login(modal.data.email, modal.data.password).subscribe(
           data =>
             this.onLoginOrInfoSuccess(modal, data),
           error =>
@@ -132,12 +131,12 @@ export class AppComponent implements OnDestroy {
         );
       });
   }
-  onLoginOrInfoSuccess(modal: AuthModalComponent, data: { token: string; user: User; }) {
+  onLoginOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
     if (modal) {
       modal.processing = false;
     }
     this._tokenService.current = data.token;
-    this.accountService.current = data.user;
+    this.authService.current = data.user;
     if (modal) {
       modal.hide();
     }
@@ -148,7 +147,7 @@ export class AppComponent implements OnDestroy {
       modal.processing = false;
     }
     this._tokenService.current = undefined;
-    this.accountService.current = undefined;
+    this.authService.current = undefined;
     this._router.navigate(['home']);
     if (modal) {
       modal.hide();

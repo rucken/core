@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AccountConfig, AccountService, ErrorsExtractor, Group, User } from '@rucken/core';
+import { AccountService, AuthService, ErrorsExtractor, Group, User } from '@rucken/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MessageModalService } from '../../../../components/modals/message-modal/message-modal.service';
@@ -27,13 +27,13 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
 
   constructor(
     private _errorsExtractor: ErrorsExtractor,
+    private _authService: AuthService,
     private _accountService: AccountService,
-    private _accountConfig: AccountConfig,
     private _messageModalService: MessageModalService,
     private _permissionsService: NgxPermissionsService
   ) {
     super(User);
-    this._accountService.current$.pipe(
+    this._authService.current$.pipe(
       takeUntil(this._destroyed$)
     ).subscribe(user => {
       if (user) {
@@ -64,9 +64,9 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
       error => this.onSaveError(error)
     );
   }
-  onSave(data: { token: string; user: User; }) {
+  onSave(user: User) {
     this.processing = false;
-    this.data = data.user;
+    this.data = user;
   }
   onError(error: any) {
     this._messageModalService.error({

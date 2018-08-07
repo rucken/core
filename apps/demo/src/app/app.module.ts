@@ -2,7 +2,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { AccountConfig, AccountModule, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig, PermissionsGuard, RuI18n as CoreRuI18n, TokenModule, TransferHttpCacheModule, translate, UsersConfig } from '@rucken/core';
+import {
+  AccountModule, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule,
+  PermissionsConfig, PermissionsGuard, RuI18n as CoreRuI18n, TransferHttpCacheModule,
+  translate, UsersConfig, AuthModule, ACCOUNT_CONFIG_TOKEN, GOOGLE_PLUS_CONFIG_TOKEN,
+  FACEBOOK_CONFIG_TOKEN, JWT_CONFIG_TOKEN, AUTH_CONFIG_TOKEN, defaultAuthConfig,
+  defaultJwtConfig, defaultFacebookConfig, defaultGooglePlusConfig, defaultAccountConfig
+} from '@rucken/core';
 import { AuthModalModule, NavbarModule, RuI18n as WebRuI18n, ThemesModule } from '@rucken/web';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
@@ -18,7 +24,6 @@ import { SharedModule } from './shared/shared.module';
 
 defineLocale('ru', ruLocale);
 defineLocale('en', enGbLocale);
-
 @NgModule({
   declarations: [
     AppComponent
@@ -30,13 +35,12 @@ defineLocale('en', enGbLocale);
     BrowserModule.withServerTransition({ appId: 'demo' }),
     TransferHttpCacheModule.forRoot(),
     NgxPermissionsModule.forRoot(),
-    TokenModule.forRoot({
-      withoutTokenUrls: [
-        '/api/account/info',
-        '/api/account/login'
-      ]
+    AuthModule.forRoot({
+      apiUri: environment.apiUrl
     }),
-    AccountModule.forRoot(),
+    AccountModule.forRoot({
+      apiUri: environment.apiUrl
+    }),
     LangModule.forRoot({
       languages: [{
         title: translate('Russian'),
@@ -62,7 +66,6 @@ defineLocale('en', enGbLocale);
     // { provide: ErrorHandler, useClass: CustomErrorHandler },
     CookieService,
     ErrorsExtractor,
-    AccountConfig,
     GroupsConfig,
     PermissionsConfig,
     ContentTypesConfig,

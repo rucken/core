@@ -1,14 +1,21 @@
-<div class="input-group" *ngIf="!readonly">
-  <ng-container *ngTemplateOutlet="contentWrapper"></ng-container>
-  <span class="input-group-btn">
-    <button class="btn btn-success" (click)="onSelectClick()" type="button">
-      <i class="fa fa-search"></i>
-    </button>
-  </span>
+<div
+    class="input-group"
+    *ngIf="!readonly">
+    <ng-container *ngTemplateOutlet="contentWrapper"></ng-container>
+    <span class="input-group-btn">
+        <button
+            class="btn btn-success"
+            (click)="onSelectClick()"
+            type="button">
+            <i
+                class="fa fa-search"
+                style="line-height: inherit;"></i>
+        </button>
+    </span>
 </div>
 <span *ngIf="readonly">
-  <ng-container *ngTemplateOutlet="contentWrapper"></ng-container>
+    <ng-container *ngTemplateOutlet="contentWrapper"></ng-container>
 </span>
 <ng-template #contentWrapper>
-  <ng-content></ng-content>
+    <ng-content></ng-content>
 </ng-template>

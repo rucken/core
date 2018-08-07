@@ -1,8 +1,8 @@
 <navbar
     [title]="title"
     [routes]="routes"
-    [showLogin]="!(accountService.current$ | async)"
-    [showLogout]="accountService.current$ | async"
+    [showLogin]="!(authService?.current$ | async)"
+    [showLogout]="authService?.current$ | async"
     (login)="onLogin()"
     (logout)="onLogout()"
     [languages]="langService.languages"

@@ -1,7 +1,7 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
-import { AppStorage, CookieStorage, AccountService, AccountConfig, TokenService } from '@rucken/core';
+import { AppStorage, CookieStorage, AuthService, TokenService } from '@rucken/core';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { initializeApp } from './shared/utils/initialize-app';
@@ -28,8 +28,7 @@ import { ThemesService } from '@rucken/web';
             useFactory: initializeApp,
             multi: true,
             deps: [
-                AccountService,
-                AccountConfig,
+                AuthService,
                 TokenService,
                 ThemesService
             ]

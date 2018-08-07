@@ -2,7 +2,9 @@ import { isPlatformServer } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { decode } from 'jsonwebtoken';
 import { BehaviorSubject } from 'rxjs';
-import { TokenStorage } from './token.storage';
+import { AppStorage } from '../../for-storage/universal.inject';
+import { JWT_CONFIG_TOKEN, defaultJwtConfig } from '../configs/jwt.config';
+import { IJwtConfig } from '../interfaces/jwt-config.interface';
 
 export function tokenServiceInitializeApp(tokenService: TokenService) {
   return () => tokenService.initializeApp();
@@ -12,11 +14,20 @@ export function tokenServiceInitializeApp(tokenService: TokenService) {
 export class TokenService {
 
   get current() {
+    const token = this._cookies.getItem(this._jwtConfig.storageKeyName) as string;
+    if (token && token !== 'undefined') {
+      return token;
+    }
     return this.current$.getValue();
   }
   set current(value: string) {
-    this._tokenStorage.set(value);
-    this.current$.next(value);
+    if (!value) {
+      this._cookies.removeItem(this._jwtConfig.storageKeyName);
+      this.current$.next(undefined);
+    } else {
+      this._cookies.setItem(this._jwtConfig.storageKeyName, value);
+      this.current$.next(value);
+    }
   }
   current$ = new BehaviorSubject<string>(undefined);
   tokenHasExpired$ = new BehaviorSubject<boolean | undefined>(undefined);
@@ -24,15 +35,15 @@ export class TokenService {
   private _checkTokenHasExpiredIntervalRef;
 
   constructor(
-    private _tokenStorage: TokenStorage,
+    @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
+    @Inject(AppStorage) private _cookies: Storage,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
+    this._jwtConfig = { ...defaultJwtConfig, ...this._jwtConfig };
   }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      if (this.current !== this._tokenStorage.get()) {
-        this.current = this._tokenStorage.get();
-      }
+      this.current = this.current;
       resolve();
     });
   }
@@ -68,7 +79,7 @@ export class TokenService {
   }
   getHeader() {
     const headers = {};
-    headers[this._tokenStorage.headerName] = this._tokenStorage.headerPrefix + ' ' + this._tokenStorage.get();
+    headers[this._jwtConfig.headerName] = this._jwtConfig.headerPrefix + ' ' + this.current;
     return headers;
   }
 }
