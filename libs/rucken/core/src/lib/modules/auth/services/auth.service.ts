@@ -62,9 +62,9 @@ export class AuthService {
   protected loadPermissions(value: User) {
     this._permissionsService.loadPermissions(value.permissionNames);
   }
-  login(email: string, password: string): Observable<UserTokenDto> {
+  signIn(email: string, password: string): Observable<UserTokenDto> {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.loginUri, {
+      .post(this._authConfig.apiUri + this._authConfig.signInUri, {
         email,
         password
       })
@@ -77,10 +77,10 @@ export class AuthService {
       })
       .pipe(map(data => plainToClass(UserTokenDto, data)));
   }
-  logout(): Observable<boolean> {
+  signOut(): Observable<boolean> {
     return of(true);
   }
-  register(
+  signUp(
     email: string,
     password: string,
     username?: string,
@@ -88,7 +88,7 @@ export class AuthService {
     lastName?: string
   ): Observable<UserTokenDto> {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.registerUri, {
+      .post(this._authConfig.apiUri + this._authConfig.signUpUri, {
         email,
         password,
         username,

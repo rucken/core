@@ -34,8 +34,8 @@ export class AuthModule {
           useValue: {
             apiUri: options.apiUri ? options.apiUri : defaultAuthConfig.apiUri,
             infoUri: defaultAuthConfig.infoUri,
-            loginUri: defaultAuthConfig.loginUri,
-            registerUri: defaultAuthConfig.registerUri
+            signInUri: defaultAuthConfig.signInUri,
+            signUpUri: defaultAuthConfig.signUpUri
           }
         },
         {
@@ -56,7 +56,7 @@ export class AuthModule {
               ? options.apiUri
               : defaultFacebookConfig.apiUri,
             redirectUri: defaultFacebookConfig.redirectUri,
-            signinUri: defaultFacebookConfig.signinUri
+            signInUri: defaultFacebookConfig.signInUri
           }
         },
         {
@@ -66,7 +66,7 @@ export class AuthModule {
               ? options.apiUri
               : defaultGooglePlusConfig.apiUri,
             redirectUri: defaultGooglePlusConfig.redirectUri,
-            signinUri: defaultGooglePlusConfig.signinUri
+            signInUri: defaultGooglePlusConfig.signInUri
           }
         },
         AuthService,

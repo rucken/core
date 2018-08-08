@@ -79,31 +79,31 @@ export class AppComponent implements OnDestroy {
           })
           .subscribe(result =>
             this.authService
-              .logout()
-              .subscribe(data => this.onLogoutSuccess(undefined))
+              .signOut()
+              .subscribe(data => this.onSignOutSuccess(undefined))
           );
       } else {
         if (!this.authService.current) {
           this.authService.info(token).subscribe(
-            data => this.onLoginOrInfoSuccess(undefined, data),
+            data => this.onSignInOrInfoSuccess(undefined, data),
             error => {
               if (this._errorsExtractor.getErrorMessage(error)) {
                 this.onError(error);
               }
               this.authService
-                .logout()
-                .subscribe(data => this.onLogoutSuccess(undefined));
+                .signOut()
+                .subscribe(data => this.onSignOutSuccess(undefined));
             }
           );
         }
       }
     }
   }
-  onLogout() {
+  onSignOut() {
     const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
       class: 'modal-md',
       initialState: {
-        title: this._translateService.instant('Logout'),
+        title: this._translateService.instant('Sign out'),
         message: this._translateService.instant('Do you really want to leave?'),
         yesTitle: this._translateService.instant('Yes'),
         noTitle: this._translateService.instant('No')
@@ -111,10 +111,10 @@ export class AppComponent implements OnDestroy {
     });
     bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
-      this.authService.logout().subscribe(data => this.onLogoutSuccess(modal));
+      this.authService.signOut().subscribe(data => this.onSignOutSuccess(modal));
     });
   }
-  onLogin() {
+  onSignIn() {
     const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
       class: 'modal-sm',
       initialState: {
@@ -127,14 +127,14 @@ export class AppComponent implements OnDestroy {
     bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
       this.authService
-        .login(modal.data.email, modal.data.password)
+        .signIn(modal.data.email, modal.data.password)
         .subscribe(
-          data => this.onLoginOrInfoSuccess(modal, data),
-          error => this.onLoginError(modal, error)
+          data => this.onSignInOrInfoSuccess(modal, data),
+          error => this.onSignInError(modal, error)
         );
     });
   }
-  onLoginOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
+  onSignInOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
     if (modal) {
       modal.processing = false;
     }
@@ -145,7 +145,7 @@ export class AppComponent implements OnDestroy {
     }
     this._tokenService.startCheckTokenHasExpired();
   }
-  onLogoutSuccess(modal: AuthModalComponent) {
+  onSignOutSuccess(modal: AuthModalComponent) {
     if (modal) {
       modal.processing = false;
     }
@@ -165,7 +165,7 @@ export class AppComponent implements OnDestroy {
       .subscribe();
     throw error;
   }
-  onLoginError(modal: AuthModalComponent, error: any) {
+  onSignInError(modal: AuthModalComponent, error: any) {
     if (modal) {
       modal.processing = false;
     }

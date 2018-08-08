@@ -100,10 +100,10 @@ msgstr "Язык"
 msgid "Menu"
 msgstr "Меню"
 
-msgid "Logout"
+msgid "Sign out"
 msgstr "Выйти"
 
-msgid "Login"
+msgid "Sign in"
 msgstr "Вход"
 
 #~ msgid "Filter"

@@ -22,9 +22,9 @@ export class NavbarComponent {
   @ViewChild('languagesDropdown')
   languagesDropdown: ElementRef;
   @Input()
-  showLogin: boolean;
+  showSignIn: boolean;
   @Input()
-  showLogout: boolean;
+  showSignOut: boolean;
   @Input()
   title: string;
   @Input()
@@ -51,9 +51,9 @@ export class NavbarComponent {
     );
   }
   @Output()
-  login = new EventEmitter();
+  signIn = new EventEmitter();
   @Output()
-  logout = new EventEmitter();
+  signOut = new EventEmitter();
   @Input()
   languages: any;
   @Input()
@@ -68,7 +68,7 @@ export class NavbarComponent {
   public isCollapsed = true;
   public langsIsCollapsed = true;
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
   @HostListener('document:click', ['$event'])
   onMouseClick(ev: MouseEvent) {
     if (
@@ -78,17 +78,17 @@ export class NavbarComponent {
       this.langsIsCollapsed = true;
     }
   }
-  onLoginClick() {
-    if (isDevMode() && this.login.observers.length === 0) {
-      console.warn('No subscribers found for "login"', this);
+  onSignInClick() {
+    if (isDevMode() && this.signIn.observers.length === 0) {
+      console.warn('No subscribers found for "signIn"', this);
     }
-    this.login.emit(true);
+    this.signIn.emit(true);
   }
-  onLogoutClick() {
-    if (isDevMode() && this.logout.observers.length === 0) {
-      console.warn('No subscribers found for "logout"', this);
+  onSignOutClick() {
+    if (isDevMode() && this.signOut.observers.length === 0) {
+      console.warn('No subscribers found for "signOut"', this);
     }
-    this.logout.emit(true);
+    this.signOut.emit(true);
   }
   changeCurrentLang(value: string) {
     this.currentLang = value;

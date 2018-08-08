@@ -40,7 +40,6 @@ export class LangService {
     @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
     private _translateService: TranslateService
   ) {
-    console.log(this._langConfig);
     this._translateService.setDefaultLang(this._langConfig.appLang);
     this._translateService.addLangs(
       this._langConfig.languages.map(lang => lang.code)

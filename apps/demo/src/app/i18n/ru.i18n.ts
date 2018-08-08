@@ -1,5 +1,5 @@
 export const RuI18n = {
-  Logout: 'Выйти',
+  'Sign out': 'Выйти',
   'Do you really want to leave?': 'Вы действительно хотите выйти?',
   Yes: 'Да',
   No: 'Нет',

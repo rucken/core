@@ -1,5 +1,5 @@
 export interface IFacebookConfig {
   apiUri?: string;
-  signinUri?: string;
+  signInUri?: string;
   redirectUri?: string;
 }

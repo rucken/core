@@ -1,5 +1,5 @@
 export interface IGooglePlusConfig {
   apiUri?: string;
-  signinUri?: string;
+  signInUri?: string;
   redirectUri?: string;
 }

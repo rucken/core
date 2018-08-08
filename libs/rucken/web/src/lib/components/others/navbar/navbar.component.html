@@ -12,7 +12,7 @@
                 <span
                     class="sr-only"
                     translate>
-                    Menu
+                    {{'Menu' | translate}}
                 </span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -78,20 +78,18 @@
                         </li>
                     </ul>
                 </li>
-                <li *ngIf="showLogout">
+                <li *ngIf="showSignOut">
                     <a
-                        (click)="onLogoutClick()"
-                        href="javascript:void(0)"
-                        translate>
-                        Logout
+                        (click)="onSignOutClick()"
+                        href="javascript:void(0)">
+                        {{'Sign out' | translate}}
                     </a>
                 </li>
-                <li *ngIf="showLogin">
+                <li *ngIf="showSignIn">
                     <a
-                        (click)="onLoginClick()"
-                        href="javascript:void(0)"
-                        translate>
-                        Login
+                        (click)="onSignInClick()"
+                        href="javascript:void(0)">
+                        {{'Sign in' | translate}}
                     </a>
                 </li>
             </ul>

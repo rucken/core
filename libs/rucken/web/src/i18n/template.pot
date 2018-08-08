@@ -94,10 +94,10 @@ msgstr ""
 msgid "Menu"
 msgstr ""
 
-msgid "Logout"
+msgid "Sign out"
 msgstr ""
 
-msgid "Login"
+msgid "Sign in"
 msgstr ""
 
 msgid "Username/Email"

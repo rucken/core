@@ -1,7 +1,7 @@
 import { IJwtConfig } from '../interfaces/jwt-config.interface';
 
 export const defaultJwtConfig: IJwtConfig = {
-  withoutTokenUrls: ['auth/login', 'auth/register', 'auth/info'],
+  withoutTokenUrls: ['auth/signin', 'auth/signup', 'auth/info'],
   headerName: 'Authorization',
   headerPrefix: 'JWT',
   tokenName: 'token',

@@ -28,6 +28,6 @@ export const RuI18n = {
   Action: 'Действие',
   Language: 'Язык',
   Menu: 'Меню',
-  Logout: 'Выйти',
-  Login: 'Вход'
+  'Sign out': 'Выйти',
+  'Sign in': 'Вход'
 };
