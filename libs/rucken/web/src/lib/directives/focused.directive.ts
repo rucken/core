@@ -17,9 +17,9 @@ export class FocusedDirective implements AfterContentInit {
   focused: boolean | string;
 
   constructor(
+    @Inject(PLATFORM_ID) private _platformId: Object,
     private ele: ElementRef,
-    private renderer: Renderer,
-    @Inject(PLATFORM_ID) private _platformId: Object
+    private renderer: Renderer
   ) {}
 
   ngAfterContentInit() {

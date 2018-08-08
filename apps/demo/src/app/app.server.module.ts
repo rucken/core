@@ -6,7 +6,7 @@ import {
 } from '@angular/platform-server';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
 import {
-  AppStorage,
+  STORAGE_CONFIG_TOKEN,
   UniversalStorage,
   AuthService,
   TokenService
@@ -27,7 +27,7 @@ import { ThemesService } from '@rucken/web';
   bootstrap: [AppComponent],
   providers: [
     {
-      provide: AppStorage,
+      provide: STORAGE_CONFIG_TOKEN,
       useClass: UniversalStorage
     },
     {

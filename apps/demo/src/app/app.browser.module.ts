@@ -2,8 +2,8 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
 import {
-  AppStorage,
-  CookieStorage,
+  STORAGE_CONFIG_TOKEN,
+  BrowserStorage,
   AuthService,
   TokenService
 } from '@rucken/core';
@@ -22,7 +22,7 @@ import { ThemesService } from '@rucken/web';
         return { headers: { cookie: document.cookie } };
       }
     },
-    { provide: AppStorage, useClass: CookieStorage },
+    { provide: STORAGE_CONFIG_TOKEN, useClass: BrowserStorage },
     { provide: 'ORIGIN_URL', useValue: location.origin },
     {
       provide: APP_INITIALIZER,

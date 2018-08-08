@@ -68,11 +68,12 @@ export * from './lib/components/others/prompt-form-modal/prompt-form-modal.compo
 export * from './lib/components/others/prompt-form-modal/prompt-form-modal.module';
 export * from './lib/directives/directives.module';
 export * from './lib/directives/focused.directive';
-export * from './lib/modules/themes/theme-items.mock';
-export * from './lib/modules/themes/theme';
 export * from './lib/modules/themes/themes.module';
-export * from './lib/modules/themes/themes.service';
-export * from './lib/modules/themes/themes.storage';
+export * from './lib/modules/themes/configs/index';
+export * from './lib/modules/themes/configs/themes.config';
+export * from './lib/modules/themes/interfaces/themes-config.interface';
+export * from './lib/modules/themes/models/theme';
+export * from './lib/modules/themes/services/themes.service';
 export * from './lib/shared/pipes/custom-translate.pipe';
 export * from './lib/shared/pipes/perm.pipe';
 export * from './lib/shared/pipes/pipes.module';

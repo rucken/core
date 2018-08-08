@@ -1,4 +1,4 @@
-export interface Storage {
+export interface IStorage {
   readonly length: number;
   clear(): void;
   getItem(key: string): string | null;

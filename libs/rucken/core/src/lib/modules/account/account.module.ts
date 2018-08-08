@@ -18,8 +18,10 @@ export class AccountModule {
         {
           provide: ACCOUNT_CONFIG_TOKEN,
           useValue: {
-            ...defaultAccountConfig,
             apiUri: options.apiUri
+              ? options.apiUri
+              : defaultAccountConfig.apiUri,
+            updateUri: defaultAccountConfig.updateUri
           }
         },
         AccountService

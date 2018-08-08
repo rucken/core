@@ -45,7 +45,6 @@ export class AuthService {
     private _httpClient: HttpClient,
     private _permissionsService: NgxPermissionsService
   ) {
-    this._authConfig = { ...defaultAuthConfig, ...this._authConfig };
     this.initPermissions();
   }
   initializeApp() {

@@ -15,9 +15,7 @@ export class TokenInterceptor implements HttpInterceptor {
   constructor(
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
     private _tokenService: TokenService
-  ) {
-    this._jwtConfig = { ...defaultJwtConfig, ...this._jwtConfig };
-  }
+  ) {}
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler

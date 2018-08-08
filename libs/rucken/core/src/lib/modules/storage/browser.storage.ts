@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { Storage } from './storage';
+import { IStorage } from './interfaces/storage.interface';
 
 @Injectable()
-export class CookieStorage implements Storage {
+export class BrowserStorage implements IStorage {
   [index: number]: string;
   [key: string]: any;
   length: number;

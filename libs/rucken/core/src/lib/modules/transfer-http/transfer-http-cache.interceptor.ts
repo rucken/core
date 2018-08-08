@@ -17,8 +17,8 @@ import { ITransferHttpResponse } from './transfer-http-response.interface';
 @Injectable()
 export class TransferHttpCacheInterceptor implements HttpInterceptor {
   constructor(
-    private transferState: TransferState,
-    @Inject(PLATFORM_ID) private _platformId: Object
+    @Inject(PLATFORM_ID) private _platformId: Object,
+    private transferState: TransferState
   ) {}
   getHeadersMap(headers: HttpHeaders) {
     const headersMap: { [name: string]: string[] } = {};

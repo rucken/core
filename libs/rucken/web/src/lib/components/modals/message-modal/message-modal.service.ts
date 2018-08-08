@@ -13,10 +13,10 @@ export class MessageModalService {
   private _onTopIsActive = false;
 
   constructor(
+    @Inject(PLATFORM_ID) private _platformId: Object,
     private _translateService: TranslateService,
     private _modalService: BsModalService,
-    private _errorsExtractor: ErrorsExtractor,
-    @Inject(PLATFORM_ID) private _platformId: Object
+    private _errorsExtractor: ErrorsExtractor
   ) {}
   info(options: {
     message: string | any;

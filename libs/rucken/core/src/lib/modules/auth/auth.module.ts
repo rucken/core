@@ -32,29 +32,41 @@ export class AuthModule {
         {
           provide: AUTH_CONFIG_TOKEN,
           useValue: {
-            ...defaultAuthConfig,
-            apiUri: options.apiUri
+            apiUri: options.apiUri ? options.apiUri : defaultAuthConfig.apiUri,
+            infoUri: defaultAuthConfig.infoUri,
+            loginUri: defaultAuthConfig.loginUri,
+            registerUri: defaultAuthConfig.registerUri
           }
         },
         {
           provide: JWT_CONFIG_TOKEN,
           useValue: {
-            ...defaultJwtConfig,
-            apiUri: options.apiUri
+            apiUri: options.apiUri ? options.apiUri : defaultJwtConfig.apiUri,
+            headerName: defaultJwtConfig.headerName,
+            headerPrefix: defaultJwtConfig.headerPrefix,
+            storageKeyName: defaultJwtConfig.storageKeyName,
+            tokenName: defaultJwtConfig.tokenName,
+            withoutTokenUrls: defaultJwtConfig.withoutTokenUrls
           }
         },
         {
           provide: FACEBOOK_CONFIG_TOKEN,
           useValue: {
-            ...defaultFacebookConfig,
             apiUri: options.apiUri
+              ? options.apiUri
+              : defaultFacebookConfig.apiUri,
+            redirectUri: defaultFacebookConfig.redirectUri,
+            signinUri: defaultFacebookConfig.signinUri
           }
         },
         {
           provide: GOOGLE_PLUS_CONFIG_TOKEN,
           useValue: {
-            ...defaultGooglePlusConfig,
             apiUri: options.apiUri
+              ? options.apiUri
+              : defaultGooglePlusConfig.apiUri,
+            redirectUri: defaultGooglePlusConfig.redirectUri,
+            signinUri: defaultGooglePlusConfig.signinUri
           }
         },
         AuthService,

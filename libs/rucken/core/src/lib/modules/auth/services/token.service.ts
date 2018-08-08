@@ -2,9 +2,10 @@ import { isPlatformServer } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { decode } from 'jsonwebtoken';
 import { BehaviorSubject } from 'rxjs';
-import { AppStorage } from '../../for-storage/universal.inject';
+import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
 import { JWT_CONFIG_TOKEN, defaultJwtConfig } from '../configs/jwt.config';
 import { IJwtConfig } from '../interfaces/jwt-config.interface';
+import { IStorage } from '../../storage/interfaces/storage.interface';
 
 export function tokenServiceInitializeApp(tokenService: TokenService) {
   return () => tokenService.initializeApp();
@@ -37,11 +38,9 @@ export class TokenService {
 
   constructor(
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
-    @Inject(AppStorage) private _cookies: Storage,
+    @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
-  ) {
-    this._jwtConfig = { ...defaultJwtConfig, ...this._jwtConfig };
-  }
+  ) {}
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.current = this.current;
