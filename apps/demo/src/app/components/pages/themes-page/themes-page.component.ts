@@ -7,9 +7,5 @@ import { ThemesService } from '@rucken/web';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThemesPageComponent {
-
-  constructor(
-    public themesService: ThemesService
-  ) {
-  }
+  constructor(public themesService: ThemesService) {}
 }

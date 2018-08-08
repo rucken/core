@@ -1,5 +1,15 @@
-import { AfterViewInit, Component, ElementRef, Input, Renderer2, ChangeDetectionStrategy } from '@angular/core';
-import { DynamicFormGroup, IShortValidationErrors } from 'ngx-dynamic-form-builder';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  Renderer2,
+  ChangeDetectionStrategy
+} from '@angular/core';
+import {
+  DynamicFormGroup,
+  IShortValidationErrors
+} from 'ngx-dynamic-form-builder';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -10,7 +20,6 @@ import { map } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FormGroupComponent implements AfterViewInit {
-
   @Input()
   checkIsDirty?: boolean;
   @Input()
@@ -19,8 +28,11 @@ export class FormGroupComponent implements AfterViewInit {
   get errors(): Observable<any> {
     if (this.form && (this.checkIsDirty !== true || this.form.dirty)) {
       return this.form.customValidateErrors.pipe(
-        map(customValidateErrors =>
-          customValidateErrors[this.name] ? customValidateErrors[this.name] as string[] : []
+        map(
+          customValidateErrors =>
+            customValidateErrors[this.name]
+              ? (customValidateErrors[this.name] as string[])
+              : []
         )
       );
     } else {
@@ -44,20 +56,12 @@ export class FormGroupComponent implements AfterViewInit {
   }
   private _name: string;
 
-  constructor(
-    private _renderer: Renderer2,
-    private _elementRef: ElementRef
-  ) {
-  }
+  constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
   ngAfterViewInit() {
     const tags = ['input', 'textarea'];
     tags.forEach(tag => {
       const input = this._elementRef.nativeElement.querySelector(tag);
-      if (
-        input &&
-        input.type !== 'checkbox' &&
-        input.type !== 'radio'
-      ) {
+      if (input && input.type !== 'checkbox' && input.type !== 'radio') {
         if (!input.classList.contains('form-control')) {
           this._renderer.addClass(input, 'form-control');
         }

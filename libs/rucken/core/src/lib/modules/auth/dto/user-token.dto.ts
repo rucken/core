@@ -3,7 +3,7 @@ import { serializeModel } from '../../../shared/utils/custom-transforms';
 import { Type } from 'class-transformer';
 
 export class UserTokenDto {
-    token: string;
-    @Type(serializeModel(User))
-    user: User;
+  token: string;
+  @Type(serializeModel(User))
+  user: User;
 }

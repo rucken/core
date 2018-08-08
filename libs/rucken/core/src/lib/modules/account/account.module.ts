@@ -2,14 +2,13 @@ import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 import { accountConfigs } from './configs';
 import { AccountService } from './account.service';
-import { ACCOUNT_CONFIG_TOKEN, defaultAccountConfig } from './configs/account.config';
+import {
+  ACCOUNT_CONFIG_TOKEN,
+  defaultAccountConfig
+} from './configs/account.config';
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  providers: [
-    AccountService
-  ]
+  imports: [CommonModule],
+  providers: [AccountService]
 })
 export class AccountModule {
   static forRoot(options?: { apiUri?: string }): ModuleWithProviders {

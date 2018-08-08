@@ -13,9 +13,7 @@ import { GroupsFrameRoutes } from './groups-frame.routes';
     RouterModule.forChild(GroupsFrameRoutes),
     GroupsGridModule
   ],
-  declarations: [
-    GroupsFrameComponent
-  ]
+  declarations: [GroupsFrameComponent]
 })
 export class GroupsFrameModule {
   static forRoot(): ModuleWithProviders {

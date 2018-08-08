@@ -13,19 +13,10 @@ import { MessageModalService } from './message-modal.service';
     DirectivesModule,
     TranslateModule.forChild()
   ],
-  providers: [
-    MessageModalService
-  ],
-  declarations: [
-    MessageModalComponent
-  ],
-  entryComponents: [
-    MessageModalComponent
-  ],
-  exports: [
-    MessageModalComponent,
-    DirectivesModule
-  ]
+  providers: [MessageModalService],
+  declarations: [MessageModalComponent],
+  entryComponents: [MessageModalComponent],
+  exports: [MessageModalComponent, DirectivesModule]
 })
 export class MessageModalModule {
   static forRoot(): ModuleWithProviders {

@@ -17,12 +17,8 @@ import { PromptFormModalComponent } from './prompt-form-modal.component';
     PipesModule,
     FormGroupModule
   ],
-  declarations: [
-    PromptFormModalComponent
-  ],
-  entryComponents: [
-    PromptFormModalComponent
-  ],
+  declarations: [PromptFormModalComponent],
+  entryComponents: [PromptFormModalComponent],
   exports: [
     PromptFormModalComponent,
     ReactiveFormsModule,

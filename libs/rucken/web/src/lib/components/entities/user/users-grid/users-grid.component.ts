@@ -7,14 +7,13 @@ import { BaseEntityListComponent } from '../../../base/base-entity-list.componen
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UserModalComponent } from '../user-modal/user-modal.component';
 
-
 @Component({
   selector: 'users-grid',
   templateUrl: './users-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersGridComponent extends BaseEntityListComponent<User> implements OnInit {
-
+export class UsersGridComponent extends BaseEntityListComponent<User>
+  implements OnInit {
   constructor(
     public modalService: BsModalService,
     protected errorsExtractor: ErrorsExtractor,
@@ -23,11 +22,7 @@ export class UsersGridComponent extends BaseEntityListComponent<User> implements
     protected usersConfig: UsersConfig,
     protected messageModalService: MessageModalService
   ) {
-    super(
-      dynamicRepository.fork<User>(User),
-      modalService,
-      User
-    );
+    super(dynamicRepository.fork<User>(User), modalService, User);
   }
   ngOnInit() {
     if (!this.mockedItems) {

@@ -9,8 +9,5 @@ import { environment } from '../../../../../environments/environment';
 })
 export class GroupsFrameComponent {
   public apiUrl = environment.apiUrl;
-  constructor(
-    public activatedRoute: ActivatedRoute
-  ) {
-  }
+  constructor(public activatedRoute: ActivatedRoute) {}
 }

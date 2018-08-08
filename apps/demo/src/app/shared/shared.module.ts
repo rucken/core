@@ -10,7 +10,7 @@ import { NgxRepositoryModule } from 'ngx-repository';
     NgxRepositoryModule.forRoot(),
     MessageModalModule.forRoot(),
     PipesModule,
-    TranslateModule.forChild(),
+    TranslateModule.forChild()
   ],
   exports: [
     CommonModule,

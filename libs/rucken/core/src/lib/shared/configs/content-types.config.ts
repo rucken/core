@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { plainToClass } from 'class-transformer';
-import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
+import {
+  IRestProviderOptions,
+  PaginationMeta,
+  ProviderActionEnum
+} from 'ngx-repository';
 import { ContentType } from '../models/content-type';
 
 @Injectable()
@@ -23,7 +27,10 @@ export class ContentTypesConfig implements IRestProviderOptions<ContentType> {
         }
       }
     },
-    responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
+    responsePaginationMeta: (
+      data: any,
+      action: ProviderActionEnum
+    ): PaginationMeta => {
       return { totalResults: data.body.meta.totalResults, perPage: undefined };
     }
   };
@@ -32,5 +39,5 @@ export class ContentTypesConfig implements IRestProviderOptions<ContentType> {
     pageQueryParam: 'cur_page',
     searchTextQueryParam: 'q'
   };
-  constructor() { }
+  constructor() {}
 }

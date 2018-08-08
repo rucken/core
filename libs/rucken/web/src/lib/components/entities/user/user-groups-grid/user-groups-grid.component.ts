@@ -1,6 +1,17 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Group, GroupsConfig, User, translate } from '@rucken/core';
+import {
+  ErrorsExtractor,
+  Group,
+  GroupsConfig,
+  User,
+  translate
+} from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, ProviderActionEnum } from 'ngx-repository';
 import { GroupModalComponent } from '../../group/group-modal/group-modal.component';
@@ -13,8 +24,8 @@ import { MessageModalService } from '../../../modals/message-modal/message-modal
   templateUrl: './user-groups-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserGroupsGridComponent extends GroupsGridComponent implements OnInit {
-
+export class UserGroupsGridComponent extends GroupsGridComponent
+  implements OnInit {
   @Input()
   user: User;
 
@@ -42,7 +53,10 @@ export class UserGroupsGridComponent extends GroupsGridComponent implements OnIn
         autoload: !!this.user.id,
         ...this.groupsConfig,
         globalEventResolver: (data: any, action: ProviderActionEnum) => {
-          return action !== ProviderActionEnum.Create && action !== ProviderActionEnum.Delete;
+          return (
+            action !== ProviderActionEnum.Create &&
+            action !== ProviderActionEnum.Delete
+          );
         }
       });
     }
@@ -52,7 +66,10 @@ export class UserGroupsGridComponent extends GroupsGridComponent implements OnIn
         autoload: true,
         ...this.groupsConfig,
         globalEventResolver: (data: any, action: ProviderActionEnum) => {
-          return action !== ProviderActionEnum.Create && action !== ProviderActionEnum.Delete;
+          return (
+            action !== ProviderActionEnum.Create &&
+            action !== ProviderActionEnum.Delete
+          );
         }
       });
     }
@@ -62,7 +79,9 @@ export class UserGroupsGridComponent extends GroupsGridComponent implements OnIn
       class: 'modal-md',
       initialState: {
         title: translate('Delete group'),
-        message: translate('Do you really want to delete group "{{title}}" from user?'),
+        message: translate(
+          'Do you really want to delete group "{{title}}" from user?'
+        ),
         yesTitle: translate('Delete'),
         data: item,
         apiUrl: this.apiUrl

@@ -5,9 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class SafeHtmlPipe implements PipeTransform {
   private _sanitizer: DomSanitizer;
 
-  constructor(
-    public injector: Injector
-  ) {
+  constructor(public injector: Injector) {
     this._sanitizer = injector.get(DomSanitizer);
   }
 

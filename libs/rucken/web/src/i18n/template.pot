@@ -76,6 +76,9 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
+msgid "Error Log"
+msgstr ""
+
 msgid "No data"
 msgstr ""
 

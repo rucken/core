@@ -9,13 +9,10 @@ import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-mod
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserModalComponent extends BasePromptFormModalComponent<User> {
-
   @Input()
   apiUrl?: string;
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
+  constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
     this.group(User);
   }

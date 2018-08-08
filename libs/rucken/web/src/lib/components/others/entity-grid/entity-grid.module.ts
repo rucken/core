@@ -18,12 +18,8 @@ import { EntityGridComponent } from './entity-grid.component';
     MessageModalModule,
     ModalModule.forRoot()
   ],
-  declarations: [
-    EntityGridComponent
-  ],
-  entryComponents: [
-    EntityGridComponent
-  ],
+  declarations: [EntityGridComponent],
+  entryComponents: [EntityGridComponent],
   exports: [
     EntityGridComponent,
     FormsModule,

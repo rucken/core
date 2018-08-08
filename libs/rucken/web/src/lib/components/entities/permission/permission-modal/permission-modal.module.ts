@@ -14,17 +14,13 @@ import { PermissionModalComponent } from './permission-modal.component';
     ContentTypeSelectModule,
     TypeaheadModule.forRoot()
   ],
-  declarations: [
-    PermissionModalComponent
-  ],
-  entryComponents: [
-    PermissionModalComponent
-  ],
+  declarations: [PermissionModalComponent],
+  entryComponents: [PermissionModalComponent],
   exports: [
     PermissionModalComponent,
     PromptFormModalModule,
     ContentTypeInputModule,
-    ContentTypeSelectModule,
+    ContentTypeSelectModule
   ]
 })
 export class PermissionModalModule {

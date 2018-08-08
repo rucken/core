@@ -3,7 +3,6 @@ import { translate } from '@rucken/core';
 import { BehaviorSubject } from 'rxjs';
 
 export class BasePromptComponent {
-
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);

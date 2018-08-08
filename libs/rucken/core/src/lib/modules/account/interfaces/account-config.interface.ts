@@ -1,4 +1,4 @@
 export interface IAccountConfig {
-    apiUri?: string;
-    updateUri?: string;
+  apiUri?: string;
+  updateUri?: string;
 }

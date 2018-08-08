@@ -23,12 +23,8 @@ import { ProfilePanelComponent } from './profile-panel.component';
     DirectivesModule,
     PipesModule
   ],
-  declarations: [
-    ProfilePanelComponent
-  ],
-  exports: [
-    ProfilePanelComponent
-  ]
+  declarations: [ProfilePanelComponent],
+  exports: [ProfilePanelComponent]
 })
 export class ProfilePanelModule {
   static forRoot(): ModuleWithProviders {

@@ -17,12 +17,8 @@ import { EntityModalModule } from '../entity-modal/entity-modal.module';
     FormGroupModule,
     EntityModalModule
   ],
-  declarations: [
-    EntityGridModalComponent
-  ],
-  entryComponents: [
-    EntityGridModalComponent
-  ],
+  declarations: [EntityGridModalComponent],
+  entryComponents: [EntityGridModalComponent],
   exports: [
     EntityGridModalComponent,
     ReactiveFormsModule,

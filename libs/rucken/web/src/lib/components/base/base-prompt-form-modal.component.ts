@@ -7,7 +7,6 @@ import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
 
 export class BasePromptFormModalComponent<TModel extends IModel> {
-
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -68,11 +67,7 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
       customValidatorOptions?: ValidatorOptions;
     }
   ) {
-    this.group(
-      _factoryModel,
-      _controlsConfig,
-      _extra
-    );
+    this.group(_factoryModel, _controlsConfig, _extra);
   }
   group(
     factoryModel?: IFactoryModel<TModel>,
@@ -106,9 +101,13 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
       if (!controlsConfig) {
         controlsConfig = {};
         const keys = Object.keys(newObject);
-        keys.map(key => controlsConfig[key] = '');
+        keys.map(key => (controlsConfig[key] = ''));
       }
-      this.form = this.formBuilder.group(this._factoryModel, controlsConfig, extra);
+      this.form = this.formBuilder.group(
+        this._factoryModel,
+        controlsConfig,
+        extra
+      );
     }
   }
   onYesClick(): void {

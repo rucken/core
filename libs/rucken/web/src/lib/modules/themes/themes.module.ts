@@ -4,13 +4,8 @@ import { ThemesService, themesServiceInitializeApp } from './themes.service';
 import { ThemesStorage } from './themes.storage';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  providers: [
-    ThemesService,
-    ThemesStorage
-  ]
+  imports: [CommonModule],
+  providers: [ThemesService, ThemesStorage]
 })
 export class ThemesModule {
   static forRoot(): ModuleWithProviders {

@@ -1,4 +1,9 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ContentType, ContentTypesConfig, ErrorsExtractor } from '@rucken/core';
@@ -7,14 +12,13 @@ import { DynamicRepository } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { ContentTypesGridComponent } from '../content-types-grid/content-types-grid.component';
 
-
 @Component({
   selector: 'content-type-select',
   templateUrl: './content-type-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContentTypeSelectComponent extends ContentTypesGridComponent implements OnInit {
-
+export class ContentTypeSelectComponent extends ContentTypesGridComponent
+  implements OnInit {
   @Input()
   searchField: FormControl = new FormControl();
 

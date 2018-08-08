@@ -5,22 +5,10 @@ import { GroupsGridModule } from '../groups-grid/groups-grid.module';
 import { GroupsGridModalComponent } from './groups-grid-modal.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntityGridModalModule,
-    GroupsGridModule
-  ],
-  declarations: [
-    GroupsGridModalComponent
-  ],
-  entryComponents: [
-    GroupsGridModalComponent
-  ],
-  exports: [
-    GroupsGridModalComponent,
-    EntityGridModalModule,
-    GroupsGridModule
-  ]
+  imports: [CommonModule, EntityGridModalModule, GroupsGridModule],
+  declarations: [GroupsGridModalComponent],
+  entryComponents: [GroupsGridModalComponent],
+  exports: [GroupsGridModalComponent, EntityGridModalModule, GroupsGridModule]
 })
 export class GroupsGridModalModule {
   static forRoot(): ModuleWithProviders {

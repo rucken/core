@@ -5,19 +5,9 @@ import { UserModalModule } from '../user-modal/user-modal.module';
 import { UsersGridComponent } from './users-grid.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntityGridModule,
-    UserModalModule
-  ],
-  declarations: [
-    UsersGridComponent
-  ],
-  exports: [
-    UsersGridComponent,
-    EntityGridModule,
-    UserModalModule,
-  ]
+  imports: [CommonModule, EntityGridModule, UserModalModule],
+  declarations: [UsersGridComponent],
+  exports: [UsersGridComponent, EntityGridModule, UserModalModule]
 })
 export class UsersGridModule {
   static forRoot(): ModuleWithProviders {

@@ -1,4 +1,9 @@
-import { Component, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  ViewChild,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { Group } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BaseEntityListModalComponent } from '../../../base/base-entity-list-modal.component';
@@ -9,16 +14,15 @@ import { GroupsGridComponent } from '../groups-grid/groups-grid.component';
   templateUrl: './groups-grid-modal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupsGridModalComponent extends BaseEntityListModalComponent<Group> {
-
+export class GroupsGridModalComponent extends BaseEntityListModalComponent<
+  Group
+> {
   @ViewChild('grid')
   grid: GroupsGridComponent;
   @Input()
   apiUrl?: string;
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
+  constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
   }
 }

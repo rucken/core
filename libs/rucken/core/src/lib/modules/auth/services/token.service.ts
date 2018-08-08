@@ -12,9 +12,10 @@ export function tokenServiceInitializeApp(tokenService: TokenService) {
 
 @Injectable()
 export class TokenService {
-
   get current() {
-    const token = this._cookies.getItem(this._jwtConfig.storageKeyName) as string;
+    const token = this._cookies.getItem(
+      this._jwtConfig.storageKeyName
+    ) as string;
     if (token && token !== 'undefined') {
       return token;
     }
@@ -71,7 +72,8 @@ export class TokenService {
       token = this.current;
     }
     try {
-      const result = new Date() > new Date(this.getTokenData(token).payload.exp * 1000);
+      const result =
+        new Date() > new Date(this.getTokenData(token).payload.exp * 1000);
       return result;
     } catch (error) {
       return true;
@@ -79,7 +81,8 @@ export class TokenService {
   }
   getHeader() {
     const headers = {};
-    headers[this._jwtConfig.headerName] = this._jwtConfig.headerPrefix + ' ' + this.current;
+    headers[this._jwtConfig.headerName] =
+      this._jwtConfig.headerPrefix + ' ' + this.current;
     return headers;
   }
 }

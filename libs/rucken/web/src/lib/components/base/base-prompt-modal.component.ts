@@ -4,7 +4,6 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BehaviorSubject } from 'rxjs';
 
 export class BasePromptModalComponent {
-
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -47,10 +46,7 @@ export class BasePromptModalComponent {
   @Input()
   hideOnYes = false;
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
-  }
+  constructor(protected bsModalRef: BsModalRef) {}
   onYesClick(): void {
     this.yes.emit(this);
     if (this.hideOnYes) {

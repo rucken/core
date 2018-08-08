@@ -16,13 +16,8 @@ import { PipesModule } from '../../../shared/pipes/pipes.module';
     RouterModule,
     PipesModule
   ],
-  declarations: [
-    NavbarComponent
-  ],
-  exports: [
-    NavbarComponent,
-    PipesModule
-  ]
+  declarations: [NavbarComponent],
+  exports: [NavbarComponent, PipesModule]
 })
 export class NavbarModule {
   static forRoot(): ModuleWithProviders {

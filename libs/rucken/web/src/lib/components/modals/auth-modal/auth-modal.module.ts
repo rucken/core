@@ -4,20 +4,10 @@ import { PromptFormModalModule } from '../../others/prompt-form-modal/prompt-for
 import { AuthModalComponent } from './auth-modal.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PromptFormModalModule
-  ],
-  declarations: [
-    AuthModalComponent
-  ],
-  entryComponents: [
-    AuthModalComponent
-  ],
-  exports: [
-    AuthModalComponent,
-    PromptFormModalModule
-  ]
+  imports: [CommonModule, PromptFormModalModule],
+  declarations: [AuthModalComponent],
+  entryComponents: [AuthModalComponent],
+  exports: [AuthModalComponent, PromptFormModalModule]
 })
 export class AuthModalModule {
   static forRoot(): ModuleWithProviders {

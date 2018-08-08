@@ -1,8 +1,22 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  OnDestroy,
+  PLATFORM_ID
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, LangService, TokenService, User, translate, AuthService, UserTokenDto } from '@rucken/core';
+import {
+  ErrorsExtractor,
+  LangService,
+  TokenService,
+  User,
+  translate,
+  AuthService,
+  UserTokenDto
+} from '@rucken/core';
 import { AuthModalComponent, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
@@ -34,20 +48,18 @@ export class AppComponent implements OnDestroy {
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     if (isPlatformBrowser(this._platformId)) {
-      this.langService.current$.pipe(
-        takeUntil(this._destroyed$)
-      ).subscribe(
-        lang => {
+      this.langService.current$
+        .pipe(takeUntil(this._destroyed$))
+        .subscribe(lang => {
           this._bsLocaleService.use(lang);
-        }
-      );
-      this._tokenService.tokenHasExpired$.pipe(
-        takeUntil(this._destroyed$)
-      ).subscribe(result => {
-        if (result === true) {
-          this.onInfo();
-        }
-      });
+        });
+      this._tokenService.tokenHasExpired$
+        .pipe(takeUntil(this._destroyed$))
+        .subscribe(result => {
+          if (result === true) {
+            this.onInfo();
+          }
+        });
     }
   }
   ngOnDestroy() {
@@ -57,34 +69,30 @@ export class AppComponent implements OnDestroy {
   onInfo() {
     const token = this._tokenService.current;
     if (token) {
-      if (
-        this._tokenService.tokenHasExpired(token)
-      ) {
+      if (this._tokenService.tokenHasExpired(token)) {
         this._tokenService.stopCheckTokenHasExpired();
-        this._messageModalService.error({
-          error: translate('Your session has expired, please re-login'),
-          class: 'modal-md',
-          onTop: true
-        }).subscribe(
-          result =>
-            this.authService.logout().subscribe(
-              data =>
-                this.onLogoutSuccess(undefined)
-            )
-        );
+        this._messageModalService
+          .error({
+            error: translate('Your session has expired, please re-login'),
+            class: 'modal-md',
+            onTop: true
+          })
+          .subscribe(result =>
+            this.authService
+              .logout()
+              .subscribe(data => this.onLogoutSuccess(undefined))
+          );
       } else {
         if (!this.authService.current) {
           this.authService.info(token).subscribe(
-            data =>
-              this.onLoginOrInfoSuccess(undefined, data),
+            data => this.onLoginOrInfoSuccess(undefined, data),
             error => {
               if (this._errorsExtractor.getErrorMessage(error)) {
                 this.onError(error);
               }
-              this.authService.logout().subscribe(
-                data =>
-                  this.onLogoutSuccess(undefined)
-              );
+              this.authService
+                .logout()
+                .subscribe(data => this.onLogoutSuccess(undefined));
             }
           );
         }
@@ -101,14 +109,10 @@ export class AppComponent implements OnDestroy {
         noTitle: this._translateService.instant('No')
       }
     });
-    bsModalRef.content.yes.subscribe(
-      (modal: AuthModalComponent) => {
-        modal.processing = true;
-        this.authService.logout().subscribe(
-          data =>
-            this.onLogoutSuccess(modal)
-        );
-      });
+    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
+      modal.processing = true;
+      this.authService.logout().subscribe(data => this.onLogoutSuccess(modal));
+    });
   }
   onLogin() {
     const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
@@ -120,16 +124,15 @@ export class AppComponent implements OnDestroy {
         checkIsDirty: true
       }
     });
-    bsModalRef.content.yes.subscribe(
-      (modal: AuthModalComponent) => {
-        modal.processing = true;
-        this.authService.login(modal.data.email, modal.data.password).subscribe(
-          data =>
-            this.onLoginOrInfoSuccess(modal, data),
-          error =>
-            this.onLoginError(modal, error)
+    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
+      modal.processing = true;
+      this.authService
+        .login(modal.data.email, modal.data.password)
+        .subscribe(
+          data => this.onLoginOrInfoSuccess(modal, data),
+          error => this.onLoginError(modal, error)
         );
-      });
+    });
   }
   onLoginOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
     if (modal) {
@@ -154,17 +157,21 @@ export class AppComponent implements OnDestroy {
     }
   }
   onError(error: any) {
-    this._messageModalService.error({
-      error: error,
-      onTop: true
-    }).subscribe();
+    this._messageModalService
+      .error({
+        error: error,
+        onTop: true
+      })
+      .subscribe();
     throw error;
   }
   onLoginError(modal: AuthModalComponent, error: any) {
     if (modal) {
       modal.processing = false;
     }
-    modal.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
+    modal.form.externalErrors = this._errorsExtractor.getValidationErrors(
+      error
+    );
     if (!modal.form.externalErrors) {
       this.onError(error);
     }

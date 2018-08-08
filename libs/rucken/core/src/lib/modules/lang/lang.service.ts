@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { LangStorage } from './lang.storage';
 import { LanguagesItem } from './languages-item';
-import { AppStorage } from 'dist/rucken/core';
+import { AppStorage } from '../for-storage/universal.inject';
 
 export const LANGUAGES = new InjectionToken<LanguagesItem[]>('LANGUAGES');
 export const APP_LANG = new InjectionToken<string>('APP_LANG');
@@ -11,11 +11,11 @@ export const DEFAULT_LANG = new InjectionToken<string>('DEFAULT_LANG');
 
 @Injectable()
 export class LangService {
-
   get languages() {
     return this._languages;
   }
-  get current() {/*
+  get current() {
+    /*
     const lang = this._cookies.getItem(this.storageKeyName) as string;
     if (lang && lang !== 'undefined') {
       return lang;
@@ -43,23 +43,17 @@ export class LangService {
     @Inject(DEFAULT_LANG) private _defaultLang: string = 'en'
   ) {
     this._translateService.setDefaultLang(this._appLang);
-    this._translateService.addLangs(
-      this._languages.map(lang => lang.code)
-    );
-    this._languages.map(
-      lang => {
-        let translations = {};
-        lang.translations.map(translation =>
-          translations = { ...translations, ...translation }
-        );
-        this._translateService.setTranslation(lang.code, translations);
-      }
-    );
-    this._translateService.onLangChange.subscribe(
-      event => {
-        this.current = event.lang;
-      }
-    );
+    this._translateService.addLangs(this._languages.map(lang => lang.code));
+    this._languages.map(lang => {
+      let translations = {};
+      lang.translations.map(
+        translation => (translations = { ...translations, ...translation })
+      );
+      this._translateService.setTranslation(lang.code, translations);
+    });
+    this._translateService.onLangChange.subscribe(event => {
+      this.current = event.lang;
+    });
     if (!this._langStorage.get()) {
       this.current = this._defaultLang;
     } else {

@@ -7,14 +7,13 @@ import { BaseEntityListComponent } from '../../../base/base-entity-list.componen
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { GroupModalComponent } from '../group-modal/group-modal.component';
 
-
 @Component({
   selector: 'groups-grid',
   templateUrl: './groups-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupsGridComponent extends BaseEntityListComponent<Group> implements OnInit {
-
+export class GroupsGridComponent extends BaseEntityListComponent<Group>
+  implements OnInit {
   constructor(
     public modalService: BsModalService,
     protected errorsExtractor: ErrorsExtractor,
@@ -23,11 +22,7 @@ export class GroupsGridComponent extends BaseEntityListComponent<Group> implemen
     protected groupsConfig: GroupsConfig,
     protected messageModalService: MessageModalService
   ) {
-    super(
-      dynamicRepository.fork<Group>(Group),
-      modalService,
-      Group
-    );
+    super(dynamicRepository.fork<Group>(Group), modalService, Group);
   }
   ngOnInit() {
     if (!this.mockedItems) {

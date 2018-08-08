@@ -1,6 +1,13 @@
 import {
-  ChangeDetectionStrategy, Component,
-  ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, isDevMode
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+  ViewChild,
+  isDevMode
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -22,27 +29,26 @@ export class NavbarComponent {
   title: string;
   @Input()
   set routes(routes: any[]) {
-    this.allowedRoutes$.next(routes ? routes.filter(
-      (item: any) =>
-        item.data && item.data.visible !== false
-    ) : []);
-    const allowedRoutes = this.allowedRoutes$.getValue().map(
-      (item: any) => {
-        const newItem = item.data;
-        if (item.path) {
-          newItem.path = item.path;
-        }
-        newItem.url = `/${newItem.path}`;
-        newItem.redirectTo = item.redirectTo;
-        return newItem;
-      }
+    this.allowedRoutes$.next(
+      routes
+        ? routes.filter((item: any) => item.data && item.data.visible !== false)
+        : []
     );
-    this.rightRoutes$.next(allowedRoutes.filter(
-      (item: any) => item.align !== 'left'
-    ));
-    this.leftRoutes$.next(allowedRoutes.filter(
-      (item: any) => item.align === 'left'
-    ));
+    const allowedRoutes = this.allowedRoutes$.getValue().map((item: any) => {
+      const newItem = item.data;
+      if (item.path) {
+        newItem.path = item.path;
+      }
+      newItem.url = `/${newItem.path}`;
+      newItem.redirectTo = item.redirectTo;
+      return newItem;
+    });
+    this.rightRoutes$.next(
+      allowedRoutes.filter((item: any) => item.align !== 'left')
+    );
+    this.leftRoutes$.next(
+      allowedRoutes.filter((item: any) => item.align === 'left')
+    );
   }
   @Output()
   login = new EventEmitter();
@@ -62,13 +68,13 @@ export class NavbarComponent {
   public isCollapsed = true;
   public langsIsCollapsed = true;
 
-  constructor(
-    public router: Router
-  ) {
-  }
+  constructor(public router: Router) {}
   @HostListener('document:click', ['$event'])
   onMouseClick(ev: MouseEvent) {
-    if (!this.languagesDropdown || ev.target !== this.languagesDropdown.nativeElement) {
+    if (
+      !this.languagesDropdown ||
+      ev.target !== this.languagesDropdown.nativeElement
+    ) {
       this.langsIsCollapsed = true;
     }
   }

@@ -11,7 +11,6 @@ export function themesServiceInitializeApp(themesService: ThemesService) {
 
 @Injectable()
 export class ThemesService {
-
   get current() {
     return this._themesStorage.get();
   }

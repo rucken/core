@@ -1,4 +1,9 @@
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest
+} from '@angular/common/http';
 import { Injectable, InjectionToken, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TokenService } from '../services/token.service';
@@ -13,8 +18,17 @@ export class TokenInterceptor implements HttpInterceptor {
   ) {
     this._jwtConfig = { ...defaultJwtConfig, ...this._jwtConfig };
   }
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this._jwtConfig && this._jwtConfig.withoutTokenUrls && this._jwtConfig.withoutTokenUrls.filter(rule => request.urlWithParams.indexOf(rule) !== -1).length === 0) {
+  intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    if (
+      this._jwtConfig &&
+      this._jwtConfig.withoutTokenUrls &&
+      this._jwtConfig.withoutTokenUrls.filter(
+        rule => request.urlWithParams.indexOf(rule) !== -1
+      ).length === 0
+    ) {
       request = request.clone({
         setHeaders: this._tokenService.getHeader()
       });

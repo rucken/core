@@ -9,8 +9,5 @@ import { EntitiesPageChildrenRoutes } from './entities-page.children-routes';
 })
 export class EntitiesPageComponent {
   public routes = EntitiesPageChildrenRoutes;
-  constructor(
-    public activatedRoute: ActivatedRoute
-  ) {
-  }
+  constructor(public activatedRoute: ActivatedRoute) {}
 }

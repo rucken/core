@@ -8,13 +8,10 @@ import { BasePromptModalComponent } from '../../base/base-prompt-modal.component
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntityGridModalComponent extends BasePromptModalComponent {
-
   @Input()
   yesClass = 'btn btn-success';
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
+  constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
   }
 }

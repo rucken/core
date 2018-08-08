@@ -5,14 +5,12 @@ import { DOCUMENT } from '@angular/platform-browser';
 
 @Injectable()
 export class ThemesStorage {
-
   storageKeyName = 'theme';
 
   constructor(
     @Inject(AppStorage) private _cookies: Storage,
     @Inject(DOCUMENT) private _document: any
-  ) {
-  }
+  ) {}
   set(url: string) {
     if (!url) {
       this._cookies.removeItem(this.storageKeyName);
@@ -37,9 +35,7 @@ export class ThemesStorage {
           if (
             link &&
             link.getAttribute('rel') &&
-            (
-              link.getAttribute('rel') as string
-            ).indexOf('style') !== -1 &&
+            (link.getAttribute('rel') as string).indexOf('style') !== -1 &&
             link.getAttribute('title') &&
             link.getAttribute('title') === 'bootstrap' &&
             link.getAttribute('href') !== url

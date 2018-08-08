@@ -13,27 +13,32 @@ export const AppRoutes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './components/pages/home-page/home-page.module#HomePageModule',
+    loadChildren:
+      './components/pages/home-page/home-page.module#HomePageModule',
     data: HomePageRoutes[0].data
   },
   {
     path: 'entities',
-    loadChildren: './components/pages/entities-page/entities-page.module#EntitiesPageModule',
+    loadChildren:
+      './components/pages/entities-page/entities-page.module#EntitiesPageModule',
     data: EntitiesPageRoutes[0].data
   },
   {
     path: 'themes',
-    loadChildren: './components/pages/themes-page/themes-page.module#ThemesPageModule',
+    loadChildren:
+      './components/pages/themes-page/themes-page.module#ThemesPageModule',
     data: ThemesPageRoutes[0].data
   },
   {
     path: 'account',
-    loadChildren: './components/pages/account-page/account-page.module#AccountPageModule',
+    loadChildren:
+      './components/pages/account-page/account-page.module#AccountPageModule',
     data: AccountPageRoutes[0].data
   },
   {
     path: 'admin',
-    loadChildren: './components/pages/admin-page/admin-page.module#AdminPageModule',
+    loadChildren:
+      './components/pages/admin-page/admin-page.module#AdminPageModule',
     data: AdminPageRoutes[0].data
   },
   {

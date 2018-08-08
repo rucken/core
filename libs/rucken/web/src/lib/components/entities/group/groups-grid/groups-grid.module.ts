@@ -5,19 +5,9 @@ import { GroupModalModule } from '../group-modal/group-modal.module';
 import { GroupsGridComponent } from './groups-grid.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntityGridModule,
-    GroupModalModule
-  ],
-  declarations: [
-    GroupsGridComponent
-  ],
-  exports: [
-    GroupsGridComponent,
-    EntityGridModule,
-    GroupModalModule,
-  ]
+  imports: [CommonModule, EntityGridModule, GroupModalModule],
+  declarations: [GroupsGridComponent],
+  exports: [GroupsGridComponent, EntityGridModule, GroupModalModule]
 })
 export class GroupsGridModule {
   static forRoot(): ModuleWithProviders {

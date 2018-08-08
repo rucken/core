@@ -9,8 +9,5 @@ import { AdminPageChildrenRoutes } from './admin-page.children-routes';
 })
 export class AdminPageComponent {
   public routes = AdminPageChildrenRoutes;
-  constructor(
-    public activatedRoute: ActivatedRoute
-  ) {
-  }
+  constructor(public activatedRoute: ActivatedRoute) {}
 }

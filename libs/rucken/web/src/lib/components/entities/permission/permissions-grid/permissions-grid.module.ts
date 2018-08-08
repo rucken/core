@@ -5,19 +5,9 @@ import { PermissionModalModule } from '../permission-modal/permission-modal.modu
 import { PermissionsGridComponent } from './permissions-grid.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntityGridModule,
-    PermissionModalModule
-  ],
-  declarations: [
-    PermissionsGridComponent
-  ],
-  exports: [
-    PermissionsGridComponent,
-    EntityGridModule,
-    PermissionModalModule
-  ]
+  imports: [CommonModule, EntityGridModule, PermissionModalModule],
+  declarations: [PermissionsGridComponent],
+  exports: [PermissionsGridComponent, EntityGridModule, PermissionModalModule]
 })
 export class PermissionsGridModule {
   static forRoot(): ModuleWithProviders {

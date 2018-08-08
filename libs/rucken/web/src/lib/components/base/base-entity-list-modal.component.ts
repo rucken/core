@@ -1,4 +1,10 @@
-import { EventEmitter, Input, Output, ViewChild, isDevMode } from '@angular/core';
+import {
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+  isDevMode
+} from '@angular/core';
 import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { IModel } from 'ngx-repository';
@@ -6,7 +12,6 @@ import { IBaseEntityList } from './base-entity-list.interface';
 import { BehaviorSubject } from 'rxjs';
 
 export class BaseEntityListModalComponent<TModel extends IModel> {
-
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -57,10 +62,7 @@ export class BaseEntityListModalComponent<TModel extends IModel> {
 
   private _mockedItems: TModel[];
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
-  }
+  constructor(protected bsModalRef: BsModalRef) {}
   onNoClick(): void {
     this.no.emit(this);
     if (this.hideOnNo) {

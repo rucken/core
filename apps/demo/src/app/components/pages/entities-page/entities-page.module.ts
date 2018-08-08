@@ -13,9 +13,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     NavSidebarModule,
     RouterModule.forChild(EntitiesPageRoutes)
   ],
-  declarations: [
-    EntitiesPageComponent
-  ]
+  declarations: [EntitiesPageComponent]
 })
 export class EntitiesPageModule {
   static forRoot(): ModuleWithProviders {

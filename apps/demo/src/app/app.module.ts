@@ -3,13 +3,35 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import {
-  AccountModule, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule,
-  PermissionsConfig, PermissionsGuard, RuI18n as CoreRuI18n, TransferHttpCacheModule,
-  translate, UsersConfig, AuthModule, ACCOUNT_CONFIG_TOKEN, GOOGLE_PLUS_CONFIG_TOKEN,
-  FACEBOOK_CONFIG_TOKEN, JWT_CONFIG_TOKEN, AUTH_CONFIG_TOKEN, defaultAuthConfig,
-  defaultJwtConfig, defaultFacebookConfig, defaultGooglePlusConfig, defaultAccountConfig
+  AccountModule,
+  ContentTypesConfig,
+  ErrorsExtractor,
+  GroupsConfig,
+  LangModule,
+  PermissionsConfig,
+  PermissionsGuard,
+  RuI18n as CoreRuI18n,
+  TransferHttpCacheModule,
+  translate,
+  UsersConfig,
+  AuthModule,
+  ACCOUNT_CONFIG_TOKEN,
+  GOOGLE_PLUS_CONFIG_TOKEN,
+  FACEBOOK_CONFIG_TOKEN,
+  JWT_CONFIG_TOKEN,
+  AUTH_CONFIG_TOKEN,
+  defaultAuthConfig,
+  defaultJwtConfig,
+  defaultFacebookConfig,
+  defaultGooglePlusConfig,
+  defaultAccountConfig
 } from '@rucken/core';
-import { AuthModalModule, NavbarModule, RuI18n as WebRuI18n, ThemesModule } from '@rucken/web';
+import {
+  AuthModalModule,
+  NavbarModule,
+  RuI18n as WebRuI18n,
+  ThemesModule
+} from '@rucken/web';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
@@ -25,9 +47,7 @@ import { SharedModule } from './shared/shared.module';
 defineLocale('ru', ruLocale);
 defineLocale('en', enGbLocale);
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     RouterModule,
     SharedModule,
@@ -42,21 +62,24 @@ defineLocale('en', enGbLocale);
       apiUri: environment.apiUrl
     }),
     LangModule.forRoot({
-      languages: [{
-        title: translate('Russian'),
-        code: 'ru',
-        translations: [WebRuI18n, CoreRuI18n, RuI18n]
-      }, {
-        title: translate('English'),
-        code: 'en',
-        translations: []
-      }]
+      languages: [
+        {
+          title: translate('Russian'),
+          code: 'ru',
+          translations: [WebRuI18n, CoreRuI18n, RuI18n]
+        },
+        {
+          title: translate('English'),
+          code: 'en',
+          translations: []
+        }
+      ]
     }),
     ThemesModule.forRoot(),
-    RouterModule.forRoot(
-      AppRoutes,
-      { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }
-    ),
+    RouterModule.forRoot(AppRoutes, {
+      preloadingStrategy: PreloadAllModules,
+      initialNavigation: 'enabled'
+    }),
     ModalModule.forRoot(),
     AuthModalModule,
     NavbarModule,
@@ -75,5 +98,4 @@ defineLocale('en', enGbLocale);
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

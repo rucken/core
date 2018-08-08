@@ -8,11 +8,10 @@ import { AuthModalModel } from './auth-modal.model';
   templateUrl: './auth-modal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalModel> {
-
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
+export class AuthModalComponent extends BasePromptFormModalComponent<
+  AuthModalModel
+> {
+  constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
     this.group(AuthModalModel);
   }

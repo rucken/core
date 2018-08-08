@@ -4,20 +4,10 @@ import { PromptFormModalModule } from '../../../others/prompt-form-modal/prompt-
 import { ContentTypeModalComponent } from './content-type-modal.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PromptFormModalModule
-  ],
-  declarations: [
-    ContentTypeModalComponent
-  ],
-  entryComponents: [
-    ContentTypeModalComponent
-  ],
-  exports: [
-    ContentTypeModalComponent,
-    PromptFormModalModule
-  ]
+  imports: [CommonModule, PromptFormModalModule],
+  declarations: [ContentTypeModalComponent],
+  entryComponents: [ContentTypeModalComponent],
+  exports: [ContentTypeModalComponent, PromptFormModalModule]
 })
 export class ContentTypeModalModule {
   static forRoot(): ModuleWithProviders {

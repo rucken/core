@@ -3,7 +3,6 @@ import { Storage } from '../for-storage/storage';
 import { AppStorage } from '../for-storage/universal.inject';
 @Injectable()
 export class LangStorage {
-
   storageKeyName = 'lang';
 
   get(): string {
@@ -20,8 +19,5 @@ export class LangStorage {
       this._cookies.setItem(this.storageKeyName, value);
     }
   }
-  constructor(
-    @Inject(AppStorage) private _cookies: Storage
-  ) {
-  }
+  constructor(@Inject(AppStorage) private _cookies: Storage) {}
 }

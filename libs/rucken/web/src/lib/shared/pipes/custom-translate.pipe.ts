@@ -3,12 +3,9 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Pipe({ name: 'customTranslate' })
 export class CustomTranslatePipe implements PipeTransform {
-
   private _translateService: TranslateService;
 
-  constructor(
-    public injector: Injector
-  ) {
+  constructor(public injector: Injector) {
     this._translateService = injector.get(TranslateService);
   }
 
@@ -33,9 +30,7 @@ export class CustomTranslatePipe implements PipeTransform {
     }
     try {
       value = this._translateService.parser.interpolate(value, newArgs);
-    } catch (error) {
-
-    }
+    } catch (error) {}
     return value;
   }
 }
