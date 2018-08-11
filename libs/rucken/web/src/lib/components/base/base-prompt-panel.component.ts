@@ -44,6 +44,8 @@ export class BasePromptPanelComponent<TModel extends IModel>
   hideYes = false;
   @Input()
   readonly = false;
+  @Input()
+  validateForm = true;
 
   get data() {
     return this.form.object;
@@ -55,6 +57,9 @@ export class BasePromptPanelComponent<TModel extends IModel>
   form: DynamicFormGroup<TModel>;
   strings: any;
   formBuilder = new DynamicFormBuilder();
+  yesData: any;
+  noData: any;
+
   propagateChange: any = () => {};
   validateFn: any = () => {};
 
@@ -111,22 +116,29 @@ export class BasePromptPanelComponent<TModel extends IModel>
       );
     }
   }
-  onNoClick(): void {
+  onNoClick(data?: any): void {
+    this.noData = data;
     if (isDevMode() && this.no.observers.length === 0) {
       console.warn('No subscribers found for "no"', this);
     }
     this.no.emit(this);
   }
-  onYesClick(): void {
+  onYesClick(data?: any): void {
+    this.yesData = data;
     this.form.externalErrors = undefined;
-    if (this.form.valid) {
-      if (isDevMode() && this.yes.observers.length === 0) {
-        console.warn('No subscribers found for "yes"', this);
+    if (this.validateForm) {
+      if (this.form.valid) {
+        if (isDevMode() && this.yes.observers.length === 0) {
+          console.warn('No subscribers found for "yes"', this);
+        }
+        this.propagateChange(this.data);
+        this.yes.emit(this);
+      } else {
+        this.form.validateAllFormFields();
       }
+    } else {
       this.propagateChange(this.data);
       this.yes.emit(this);
-    } else {
-      this.form.validateAllFormFields();
     }
   }
   validate(c: FormControl) {

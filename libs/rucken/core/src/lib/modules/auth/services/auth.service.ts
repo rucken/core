@@ -9,11 +9,17 @@ import {
 } from '../../../shared/utils/permissions-guard.service';
 import { HttpClient } from '@angular/common/http';
 import { Inject } from '@angular/core';
-import { AUTH_CONFIG_TOKEN, defaultAuthConfig } from '../configs/auth.config';
+import { AUTH_CONFIG_TOKEN } from '../configs/auth.config';
+import { OAUTH_CONFIG_TOKEN } from '../configs/oauth.config';
 import { IAuthConfig } from '../interfaces/auth-config.interface';
+import { IOauthConfig } from '../interfaces/oauth-config.interface';
 import { UserTokenDto } from '../dto/user-token.dto';
 import { plainToClass } from 'class-transformer';
 import { map } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { translate } from '@rucken/core';
+import { TranslateService } from '@ngx-translate/core';
+import { RedirectUriDto } from '../dto/redirect-uri.dto';
 
 export function authServiceInitializeApp(authService: AuthService) {
   return () => authService.initializeApp();
@@ -42,6 +48,8 @@ export class AuthService {
 
   constructor(
     @Inject(AUTH_CONFIG_TOKEN) private _authConfig: IAuthConfig,
+    @Inject(OAUTH_CONFIG_TOKEN) private _oauthConfig: IOauthConfig,
+    private _translateService: TranslateService,
     private _httpClient: HttpClient,
     private _permissionsService: NgxPermissionsService
   ) {
@@ -94,6 +102,38 @@ export class AuthService {
         username,
         firstName,
         lastName
+      })
+      .pipe(map(data => plainToClass(UserTokenDto, data)));
+  }
+  oauthRedirectUri(provider: string): Observable<RedirectUriDto> {
+    if (this._oauthConfig.providers.indexOf(provider) === -1) {
+      return throwError(
+        this._translateService
+          .instant('Oauth provider with name "{provider}" not founded')
+          .replace('{provider}', provider)
+      );
+    }
+    const uri =
+      this._oauthConfig.apiUri +
+      this._oauthConfig.redirectUri.replace('{provider}', provider);
+    return this._httpClient
+      .get(uri)
+      .pipe(map(data => plainToClass(RedirectUriDto, data)));
+  }
+  oauthSignIn(provider: string, code: string): Observable<UserTokenDto> {
+    if (this._oauthConfig.providers.indexOf(provider) === -1) {
+      return throwError(
+        this._translateService
+          .instant('Oauth provider with name "{provider}" not founded')
+          .replace('{provider}', provider)
+      );
+    }
+    const uri =
+      this._oauthConfig.apiUri +
+      this._oauthConfig.signInUri.replace('{provider}', provider);
+    return this._httpClient
+      .post(uri, {
+        code
       })
       .pipe(map(data => plainToClass(UserTokenDto, data)));
   }

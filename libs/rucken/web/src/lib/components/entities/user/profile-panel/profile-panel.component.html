@@ -91,11 +91,15 @@
                     <button
                         type="submit"
                         [ngClass]="yesClass"
-                        (click)="onSaveClick()"
+                        (click)="onSaveClick($event)"
                         [disabled]="processing || isReadonly">
-                        <i
-                            class="fa fa-spinner fa-pulse fa-fw"
-                            *ngIf="processing"></i>
+                        <fa-layers
+                            class="fa-fw"
+                            *ngIf="processing">
+                            <fa-icon
+                                [icon]="['fas', 'spinner']"
+                                [pulse]="true"></fa-icon>
+                        </fa-layers>
                         {{yesTitle | translate}}
                     </button>
                 </div>

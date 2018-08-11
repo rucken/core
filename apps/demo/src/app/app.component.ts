@@ -1,4 +1,4 @@
-import { isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser, DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -15,7 +15,8 @@ import {
   User,
   translate,
   AuthService,
-  UserTokenDto
+  UserTokenDto,
+  RedirectUriDto
 } from '@rucken/core';
 import { AuthModalComponent, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
@@ -24,6 +25,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AppRoutes } from './app.routes';
+import { AuthModalTypeEnum } from '@rucken/web';
 
 @Component({
   selector: 'app-root',
@@ -45,6 +47,7 @@ export class AppComponent implements OnDestroy {
     private _messageModalService: MessageModalService,
     private _bsLocaleService: BsLocaleService,
     private _router: Router,
+    @Inject(DOCUMENT) private document: any,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     if (isPlatformBrowser(this._platformId)) {
@@ -103,36 +106,62 @@ export class AppComponent implements OnDestroy {
     const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
       class: 'modal-md',
       initialState: {
-        title: this._translateService.instant('Sign out'),
-        message: this._translateService.instant('Do you really want to leave?'),
-        yesTitle: this._translateService.instant('Yes'),
-        noTitle: this._translateService.instant('No')
-      }
-    });
-    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
-      modal.processing = true;
-      this.authService.signOut().subscribe(data => this.onSignOutSuccess(modal));
-    });
-  }
-  onSignIn() {
-    const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
-      class: 'modal-sm',
-      initialState: {
-        title: this._translateService.instant('Authorization'),
-        yesTitle: this._translateService.instant('Sign in'),
-        data: {},
-        checkIsDirty: true
+        type: AuthModalTypeEnum.SignOut,
+        noTitle: translate('No')
       }
     });
     bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
       this.authService
-        .signIn(modal.data.email, modal.data.password)
-        .subscribe(
-          data => this.onSignInOrInfoSuccess(modal, data),
-          error => this.onSignInError(modal, error)
-        );
+        .signOut()
+        .subscribe(data => this.onSignOutSuccess(modal));
     });
+  }
+  onSignIn() {
+    const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
+      class: 'modal-400',
+      initialState: {
+        type: AuthModalTypeEnum.SignIn,
+        data: {}
+      }
+    });
+    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
+      modal.processing = true;
+      if (modal.yesData) {
+        this.authService
+          .oauthRedirectUri(modal.yesData)
+          .subscribe(
+            data => this.onOauthSignInSuccess(modal, data),
+            error => this.onSignInError(modal, error)
+          );
+      } else {
+        if (modal.type === AuthModalTypeEnum.SignIn) {
+          this.authService
+            .signIn(modal.data.email, modal.data.password)
+            .subscribe(
+              data => this.onSignInOrInfoSuccess(modal, data),
+              error => this.onSignInError(modal, error)
+            );
+        }
+        if (modal.type === AuthModalTypeEnum.SignUp) {
+          this.authService
+            .signUp(modal.data.email, modal.data.password)
+            .subscribe(
+              data => this.onSignInOrInfoSuccess(modal, data),
+              error => this.onSignInError(modal, error)
+            );
+        }
+      }
+    });
+  }
+  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
+    if (modal) {
+      modal.processing = false;
+    }
+    if (modal) {
+      modal.hide();
+    }
+    this.document.location.href = data.redirect_uri;
   }
   onSignInOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
     if (modal) {

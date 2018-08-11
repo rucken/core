@@ -15,16 +15,8 @@ import {
   translate,
   UsersConfig,
   AuthModule,
-  ACCOUNT_CONFIG_TOKEN,
-  GOOGLE_PLUS_CONFIG_TOKEN,
-  FACEBOOK_CONFIG_TOKEN,
-  JWT_CONFIG_TOKEN,
-  AUTH_CONFIG_TOKEN,
-  defaultAuthConfig,
-  defaultJwtConfig,
-  defaultFacebookConfig,
-  defaultGooglePlusConfig,
-  defaultAccountConfig
+  OauthGuard,
+  AuthEmptyComponent
 } from '@rucken/core';
 import {
   AuthModalModule,
@@ -43,9 +35,71 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { RuI18n } from './i18n/ru.i18n';
 import { SharedModule } from './shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+library.add(fas, fab);
 
 defineLocale('ru', ruLocale);
 defineLocale('en', enGbLocale);
+
+const Langs = [
+  {
+    title: translate('Russian'),
+    code: 'ru',
+    translations: [WebRuI18n, CoreRuI18n, RuI18n]
+  },
+  {
+    title: translate('English'),
+    code: 'en',
+    translations: []
+  }
+];
+const OauthProviders = ['facebook', 'google-plus'];
+const OauthModalProviders = [
+  {
+    name: 'facebook',
+    icon: ['fab', 'facebook-square'],
+    signInTitle: translate('Sign in with Facebook')
+  },
+  {
+    name: 'google-plus',
+    icon: ['fab', 'google-plus'],
+    signInTitle: translate('Sign in with Google+')
+  }
+];
+const OauthRoutes = [
+  {
+    path: 'auth/facebook',
+    component: AuthEmptyComponent,
+    canActivate: [OauthGuard],
+    data: {
+      oauth: {
+        provider: 'facebook',
+        redirectTo: {
+          ifSuccess: '/home',
+          ifFail: '/home'
+        }
+      }
+    }
+  },
+  {
+    path: 'auth/google-plus',
+    component: AuthEmptyComponent,
+    canActivate: [OauthGuard],
+    data: {
+      oauth: {
+        provider: 'google-plus',
+        redirectTo: {
+          ifSuccess: '/home',
+          ifFail: '/home'
+        }
+      }
+    }
+  }
+];
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -56,34 +110,31 @@ defineLocale('en', enGbLocale);
     TransferHttpCacheModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     AuthModule.forRoot({
-      apiUri: environment.apiUrl
+      apiUri: environment.apiUrl,
+      oauth: {
+        providers: OauthProviders
+      }
     }),
     AccountModule.forRoot({
       apiUri: environment.apiUrl
     }),
     LangModule.forRoot({
-      languages: [
-        {
-          title: translate('Russian'),
-          code: 'ru',
-          translations: [WebRuI18n, CoreRuI18n, RuI18n]
-        },
-        {
-          title: translate('English'),
-          code: 'en',
-          translations: []
-        }
-      ]
+      languages: Langs
     }),
     ThemesModule.forRoot(),
-    RouterModule.forRoot(AppRoutes, {
+    RouterModule.forRoot([...OauthRoutes, ...AppRoutes], {
       preloadingStrategy: PreloadAllModules,
       initialNavigation: 'enabled'
     }),
     ModalModule.forRoot(),
-    AuthModalModule,
+    AuthModalModule.forRoot({
+      oauth: {
+        providers: OauthModalProviders
+      }
+    }),
     NavbarModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [
     // { provide: ErrorHandler, useClass: CustomErrorHandler },

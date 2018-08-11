@@ -46,8 +46,12 @@ export class BasePromptModalComponent {
   @Input()
   hideOnYes = false;
 
+  yesData: any;
+  noData: any;
+
   constructor(protected bsModalRef: BsModalRef) {}
-  onYesClick(): void {
+  onYesClick(data?: any): void {
+    this.yesData = data;
     this.yes.emit(this);
     if (this.hideOnYes) {
       this.hide();
@@ -57,7 +61,8 @@ export class BasePromptModalComponent {
       }
     }
   }
-  onNoClick(): void {
+  onNoClick(data?: any): void {
+    this.noData = data;
     this.no.emit(this);
     if (this.hideOnNo) {
       this.hide();

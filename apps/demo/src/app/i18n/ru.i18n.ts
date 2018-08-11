@@ -1,13 +1,9 @@
 export const RuI18n = {
-  'Sign out': 'Выйти',
-  'Do you really want to leave?': 'Вы действительно хотите выйти?',
-  Yes: 'Да',
-  No: 'Нет',
-  Authorization: 'Авторизация',
-  'Sign in': 'Войти',
   'Your session has expired, please re-login': '',
   Russian: 'Русский',
   English: 'Английский',
+  'Sign in with Facebook': 'Вход через Facebook',
+  'Sign in with Google+': 'Вход через Google+',
   Account: 'Личный кабинет',
   Profile: 'Профиль',
   Administration: 'Администрирование',
@@ -19,5 +15,11 @@ export const RuI18n = {
   Home: 'Домашняя страница',
   Themes: 'Темы',
   Update: 'Изменить',
-  Close: 'Закрыть'
+  Close: 'Закрыть',
+  'Sign out': 'Выйти',
+  'Do you really want to leave?': 'Вы действительно хотите выйти?',
+  Yes: 'Да',
+  No: 'Нет',
+  Authorization: 'Авторизация',
+  'Sign in': 'Войти'
 };

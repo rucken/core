@@ -43,6 +43,9 @@ export class BaseEntityListComponent<TModel extends IModel>
   @Input()
   filter: IEntityGridFilter = { searchText: '', sort: '-id' };
 
+  createData: any;
+  appendFromGridData: any;
+
   private _mockedItems: TModel[];
   private _selected: TModel[] = [];
 
@@ -181,7 +184,8 @@ export class BaseEntityListComponent<TModel extends IModel>
       }
     }
   }
-  onCreateClick(): void {
+  onCreateClick(data?: any): void {
+    this.createData = data;
     let bsModalRef = this.createCreateModal();
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateCreateModal();
@@ -336,7 +340,8 @@ export class BaseEntityListComponent<TModel extends IModel>
       this.onError(error);
     }
   }
-  onAppendFromGridClick(): void {
+  onAppendFromGridClick(data?: any): void {
+    this.appendFromGridData = data;
     const bsModalRef = this.createAppendFromGridModal();
     if (!bsModalRef) {
       if (isDevMode()) {

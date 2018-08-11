@@ -64,10 +64,34 @@ msgstr ""
 msgid "Select groups for append to user"
 msgstr ""
 
+msgid "Sign in"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
 msgid "Email"
 msgstr ""
 
 msgid "Password"
+msgstr ""
+
+msgid "Confirm password"
 msgstr ""
 
 msgid "Info"
@@ -77,6 +101,9 @@ msgid "Error"
 msgstr ""
 
 msgid "Error Log"
+msgstr ""
+
+msgid "Split button!"
 msgstr ""
 
 msgid "No data"
@@ -92,13 +119,4 @@ msgid "Language"
 msgstr ""
 
 msgid "Menu"
-msgstr ""
-
-msgid "Sign out"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Username/Email"
 msgstr ""

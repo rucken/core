@@ -75,13 +75,16 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User>
     this.data = data;
     this.onSaveClick();
   }
-  onSaveClick() {
+  onSaveClick(saveData?: any) {
     this.processing = true;
     this._accountService
       .update(this.data)
-      .subscribe(data => this.onSave(data), error => this.onSaveError(error));
+      .subscribe(
+        data => this.onSave(data, saveData),
+        error => this.onSaveError(error)
+      );
   }
-  onSave(user: User) {
+  onSave(user: User, saveData?: any) {
     this.processing = false;
     this.data = user;
   }

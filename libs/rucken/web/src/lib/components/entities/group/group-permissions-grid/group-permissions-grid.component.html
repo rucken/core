@@ -7,7 +7,7 @@
     [columns]="['title', 'contentType', 'action']"
     [strings]="strings"
     (delete)="onDeleteClick($event)"
-    (appendFromGrid)="onAppendFromGridClick()"
+    (appendFromGrid)="onAppendFromGridClick($event)"
     (view)="onViewClick($event)"
     [paginationMeta]="repository.paginationMeta$ | async"
     [enableAppendFromGrid]="'change_group' | perm:false | async"

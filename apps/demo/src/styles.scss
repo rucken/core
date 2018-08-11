@@ -1,8 +1,5 @@
 @import '~ngx-bootstrap/datepicker/bs-datepicker.css';
 
-@import "~font-awesome/scss/variables";
-$fa-font-path: "~font-awesome/fonts/";
-@import "~font-awesome/scss/font-awesome";
 /*@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "~bootswatch-sass/cosmo/variables";
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
@@ -84,4 +81,7 @@ body {
 }
 .ident{
     padding-right: 0.1em;
+}
+.modal-400 {
+    width: 400px;
 }

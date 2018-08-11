@@ -11,21 +11,20 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AUTH_CONFIG_TOKEN, defaultAuthConfig } from './configs/auth.config';
 import { JWT_CONFIG_TOKEN, defaultJwtConfig } from './configs/jwt.config';
-import {
-  FACEBOOK_CONFIG_TOKEN,
-  defaultFacebookConfig
-} from './configs/facebook.config';
-import {
-  GOOGLE_PLUS_CONFIG_TOKEN,
-  defaultGooglePlusConfig
-} from './configs/google-plus.config';
-
+import { OAUTH_CONFIG_TOKEN, defaultOauthConfig } from './configs/oauth.config';
+import { TranslateModule } from '@ngx-translate/core';
+import { OauthGuard } from './guards/oauth.guard';
+import { AuthEmptyComponent } from './components/auth-empty.component';
 @NgModule({
-  imports: [CommonModule, NgxPermissionsModule],
-  providers: [AuthService, TokenService]
+  declarations: [AuthEmptyComponent],
+  imports: [CommonModule, NgxPermissionsModule, TranslateModule.forChild()],
+  providers: [AuthService, TokenService, OauthGuard]
 })
 export class AuthModule {
-  static forRoot(options?: { apiUri?: string }): ModuleWithProviders {
+  static forRoot(options?: {
+    apiUri?: string;
+    oauth?: { providers?: string[] };
+  }): ModuleWithProviders {
     return {
       ngModule: AuthModule,
       providers: [
@@ -50,27 +49,20 @@ export class AuthModule {
           }
         },
         {
-          provide: FACEBOOK_CONFIG_TOKEN,
+          provide: OAUTH_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri
-              ? options.apiUri
-              : defaultFacebookConfig.apiUri,
-            redirectUri: defaultFacebookConfig.redirectUri,
-            signInUri: defaultFacebookConfig.signInUri
-          }
-        },
-        {
-          provide: GOOGLE_PLUS_CONFIG_TOKEN,
-          useValue: {
-            apiUri: options.apiUri
-              ? options.apiUri
-              : defaultGooglePlusConfig.apiUri,
-            redirectUri: defaultGooglePlusConfig.redirectUri,
-            signInUri: defaultGooglePlusConfig.signInUri
+            apiUri: options.apiUri ? options.apiUri : defaultOauthConfig.apiUri,
+            redirectUri: defaultOauthConfig.redirectUri,
+            signInUri: defaultOauthConfig.signInUri,
+            providers:
+              options.oauth && options.oauth.providers
+                ? options.oauth.providers
+                : defaultOauthConfig.providers
           }
         },
         AuthService,
         TokenService,
+        OauthGuard,
         TokenInterceptor,
         {
           provide: APP_INITIALIZER,

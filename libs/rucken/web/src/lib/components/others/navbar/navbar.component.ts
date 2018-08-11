@@ -68,7 +68,7 @@ export class NavbarComponent {
   public isCollapsed = true;
   public langsIsCollapsed = true;
 
-  constructor(public router: Router) { }
+  constructor(public router: Router) {}
   @HostListener('document:click', ['$event'])
   onMouseClick(ev: MouseEvent) {
     if (
@@ -78,17 +78,17 @@ export class NavbarComponent {
       this.langsIsCollapsed = true;
     }
   }
-  onSignInClick() {
+  onSignInClick(signInData?: any) {
     if (isDevMode() && this.signIn.observers.length === 0) {
       console.warn('No subscribers found for "signIn"', this);
     }
-    this.signIn.emit(true);
+    this.signIn.emit(signInData);
   }
-  onSignOutClick() {
+  onSignOutClick(signOutData?: any) {
     if (isDevMode() && this.signOut.observers.length === 0) {
       console.warn('No subscribers found for "signOut"', this);
     }
-    this.signOut.emit(true);
+    this.signOut.emit(signOutData);
   }
   changeCurrentLang(value: string) {
     this.currentLang = value;

@@ -5,11 +5,9 @@
     <span class="input-group-btn">
         <button
             class="btn btn-success"
-            (click)="onSelectClick()"
+            (click)="onSelectClick($event)"
             type="button">
-            <i
-                class="fa fa-search"
-                style="line-height: inherit;"></i>
+            <fa-icon [icon]="['fas', 'search']"></fa-icon>
         </button>
     </span>
 </div>

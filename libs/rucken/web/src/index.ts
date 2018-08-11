@@ -41,9 +41,13 @@ export * from './lib/components/entities/user/users-grid-modal/users-grid-modal.
 export * from './lib/components/entities/user/users-grid-modal/users-grid-modal.module';
 export * from './lib/components/entities/user/users-grid/users-grid.component';
 export * from './lib/components/entities/user/users-grid/users-grid.module';
+export * from './lib/components/modals/auth-modal/auth-modal-type.enum';
 export * from './lib/components/modals/auth-modal/auth-modal.component';
+export * from './lib/components/modals/auth-modal/auth-modal.config';
 export * from './lib/components/modals/auth-modal/auth-modal.model';
 export * from './lib/components/modals/auth-modal/auth-modal.module';
+export * from './lib/components/modals/auth-modal/interfaces/auth-modal-config.interface';
+export * from './lib/components/modals/auth-modal/interfaces/auth-modal-oauth-provider.interface';
 export * from './lib/components/modals/message-modal/message-modal.component';
 export * from './lib/components/modals/message-modal/message-modal.module';
 export * from './lib/components/modals/message-modal/message-modal.service';

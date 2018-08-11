@@ -5,7 +5,7 @@
     [columns]="['username', 'fullName', 'roles', 'groups', 'action']"
     [readonly]="readonly"
     [strings]="strings"
-    (create)="onCreateClick()"
+    (create)="onCreateClick($event)"
     (update)="onUpdateClick($event)"
     (delete)="onDeleteClick($event)"
     (view)="onViewClick($event)"

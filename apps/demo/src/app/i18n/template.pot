@@ -4,31 +4,22 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Sign out"
-msgstr ""
-
-msgid "Do you really want to leave?"
-msgstr ""
-
-msgid "Yes"
+msgid "Your session has expired, please re-login"
 msgstr ""
 
 msgid "No"
-msgstr ""
-
-msgid "Authorization"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Your session has expired, please re-login"
 msgstr ""
 
 msgid "Russian"
 msgstr ""
 
 msgid "English"
+msgstr ""
+
+msgid "Sign in with Facebook"
+msgstr ""
+
+msgid "Sign in with Google+"
 msgstr ""
 
 msgid "Account"
@@ -65,4 +56,19 @@ msgid "Update"
 msgstr ""
 
 msgid "Close"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Sign in"
 msgstr ""

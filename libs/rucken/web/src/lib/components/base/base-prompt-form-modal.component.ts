@@ -37,6 +37,8 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
   hideYes = false;
   @Input()
   readonly = false;
+  @Input()
+  validateForm = true;
 
   @Input()
   hideOnNo = true;
@@ -55,6 +57,8 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
   form: DynamicFormGroup<TModel>;
   strings: any;
   formBuilder = new DynamicFormBuilder();
+  yesData: any;
+  noData: any;
 
   constructor(
     protected bsModalRef?: BsModalRef,
@@ -110,8 +114,9 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
       );
     }
   }
-  onYesClick(): void {
-    if (!this.message) {
+  onYesClick(data?: any): void {
+    this.yesData = data;
+    if (!this.message && this.validateForm) {
       this.form.externalErrors = undefined;
       if (this.form.valid) {
         this.yes.emit(this);
@@ -129,7 +134,8 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
       }
     }
   }
-  onNoClick(): void {
+  onNoClick(data?: any): void {
+    this.noData = data;
     this.no.emit(this);
     if (this.hideOnNo && this.bsModalRef) {
       this.hide();
