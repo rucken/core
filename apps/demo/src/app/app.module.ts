@@ -10,118 +10,27 @@ import {
   LangModule,
   PermissionsConfig,
   PermissionsGuard,
-  RuI18n as CoreRuI18n,
   TransferHttpCacheModule,
-  translate,
   UsersConfig,
-  AuthModule,
-  OauthGuard,
-  AuthEmptyComponent
+  AuthModule
 } from '@rucken/core';
 import {
   AuthModalModule,
   NavbarModule,
-  RuI18n as WebRuI18n,
   ThemesModule
 } from '@rucken/web';
-import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
-import { RuI18n } from './i18n/ru.i18n';
 import { SharedModule } from './shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { MetaModule } from '@ngx-meta/core';
-import { MetaLoader, PageTitlePositioning } from '@ngx-meta/core';
-import { MetaStaticLoader } from '@ngx-meta/core';
+import { MetaModule, MetaLoader } from '@ngx-meta/core';
+import { OauthProviders, AppLangs, OauthRoutes, OauthModalProviders, appMetaFactory } from './app.config';
 import { TranslateService } from '@ngx-translate/core';
-
-export function metaFactory(translateService: TranslateService): MetaLoader {
-  return new MetaStaticLoader({
-    callback: (key: string) => translateService.get(key),
-    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
-    pageTitleSeparator: ' - ',
-    applicationName: translateService.instant('Rucken: Demo'),
-    defaults: {
-      title: translateService.instant('Rucken: Demo'),
-      description: translateService.instant(
-        'Core with Admin UI for web and native application maked on Angular6+'
-      ),
-      'og:type': 'website',
-      'og:locale': 'en_US',
-      'og:locale:alternate': 'en_US,ru_RU'
-    }
-  });
-}
-
-library.add(fas, fab);
-
-defineLocale('ru', ruLocale);
-defineLocale('en', enGbLocale);
-
-const Langs = [
-  {
-    title: translate('Russian'),
-    code: 'ru',
-    translations: [WebRuI18n, CoreRuI18n, RuI18n]
-  },
-  {
-    title: translate('English'),
-    code: 'en',
-    translations: []
-  }
-];
-const OauthProviders = ['facebook', 'google-plus'];
-const OauthModalProviders = [
-  {
-    name: 'facebook',
-    icon: ['fab', 'facebook-square'],
-    signInTitle: translate('Sign in with Facebook')
-  },
-  {
-    name: 'google-plus',
-    icon: ['fab', 'google-plus'],
-    signInTitle: translate('Sign in with Google+')
-  }
-];
-const OauthRoutes = [
-  {
-    path: 'auth/facebook',
-    component: AuthEmptyComponent,
-    canActivate: [OauthGuard],
-    data: {
-      oauth: {
-        provider: 'facebook',
-        redirectTo: {
-          ifSuccess: '/home',
-          ifFail: '/home'
-        }
-      }
-    }
-  },
-  {
-    path: 'auth/google-plus',
-    component: AuthEmptyComponent,
-    canActivate: [OauthGuard],
-    data: {
-      oauth: {
-        provider: 'google-plus',
-        redirectTo: {
-          ifSuccess: '/home',
-          ifFail: '/home'
-        }
-      }
-    }
-  }
-];
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -141,7 +50,7 @@ const OauthRoutes = [
       apiUri: environment.apiUrl
     }),
     LangModule.forRoot({
-      languages: Langs
+      languages: AppLangs
     }),
     ThemesModule.forRoot(),
     RouterModule.forRoot([...OauthRoutes, ...AppRoutes], {
@@ -150,7 +59,7 @@ const OauthRoutes = [
     }),
     MetaModule.forRoot({
       provide: MetaLoader,
-      useFactory: metaFactory,
+      useFactory: appMetaFactory,
       deps: [TranslateService]
     }),
     ModalModule.forRoot(),
@@ -164,7 +73,6 @@ const OauthRoutes = [
     FontAwesomeModule
   ],
   providers: [
-    // { provide: ErrorHandler, useClass: CustomErrorHandler },
     CookieService,
     ErrorsExtractor,
     GroupsConfig,
