@@ -17,6 +17,17 @@ msgid "Your session has expired, please re-login"
 msgstr ""
 "Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
 
+msgid "No"
+msgstr "Нет"
+
+msgid "Rucken: Demo"
+msgstr "Rucken: Демо"
+
+msgid "Core with Admin UI for web and native application maked on Angular6+"
+msgstr ""
+"Ядро с пользовательским интерфейсом администратора для веб и нативных "
+"приложений, сделанных на Angular6 +"
+
 msgid "Russian"
 msgstr "Русский"
 
@@ -32,32 +43,59 @@ msgstr "Вход через Google+"
 msgid "Account"
 msgstr "Личный кабинет"
 
+msgid "Account page"
+msgstr "Личный кабинет"
+
 msgid "Profile"
 msgstr "Профиль"
+
+msgid "Profile frame"
+msgstr "Страница профиля"
 
 msgid "Administration"
 msgstr "Администрирование"
 
+msgid "Administration page"
+msgstr "Страница администрирования"
+
 msgid "Content types"
 msgstr "Типы содержимого"
+
+msgid "Content types frame"
+msgstr "Страница типов содержимых"
 
 msgid "Entities"
 msgstr "Сущности"
 
+msgid "Entities page"
+msgstr "Страница сущностей"
+
 msgid "Groups"
 msgstr "Группы"
+
+msgid "Groups frame"
+msgstr "Страница групп"
 
 msgid "Permissions"
 msgstr "Разрешения"
 
+msgid "Permissions frame"
+msgstr "Страница разрешений"
+
 msgid "Users"
 msgstr "Пользователи"
+
+msgid "Users frame"
+msgstr "Страница пользователей"
 
 msgid "Home"
 msgstr "Домашняя страница"
 
 msgid "Themes"
 msgstr "Темы"
+
+msgid "Themes page"
+msgstr "Страница тем"
 
 msgid "Update"
 msgstr "Изменить"
@@ -73,9 +111,6 @@ msgstr "Вы действительно хотите выйти?"
 
 msgid "Yes"
 msgstr "Да"
-
-msgid "No"
-msgstr "Нет"
 
 msgid "Authorization"
 msgstr "Авторизация"

@@ -23,7 +23,10 @@ export class NavSidebarComponent {
         .getValue()
         .filter((item: any) => item.data)
         .map((item: any) => {
-          const newItem = item.data;
+          let newItem = item.data;
+          if (newItem.meta) {
+            newItem = { ...newItem, ...newItem.meta };
+          }
           if (item.path) {
             newItem.path = item.path;
           }

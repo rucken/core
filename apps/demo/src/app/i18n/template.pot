@@ -10,6 +10,12 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+msgid "Rucken: Demo"
+msgstr ""
+
+msgid "Core with Admin UI for web and native application maked on Angular6+"
+msgstr ""
+
 msgid "Russian"
 msgstr ""
 
@@ -25,31 +31,58 @@ msgstr ""
 msgid "Account"
 msgstr ""
 
+msgid "Account page"
+msgstr ""
+
 msgid "Profile"
+msgstr ""
+
+msgid "Profile frame"
 msgstr ""
 
 msgid "Administration"
 msgstr ""
 
+msgid "Administration page"
+msgstr ""
+
 msgid "Content types"
+msgstr ""
+
+msgid "Content types frame"
 msgstr ""
 
 msgid "Entities"
 msgstr ""
 
+msgid "Entities page"
+msgstr ""
+
 msgid "Groups"
+msgstr ""
+
+msgid "Groups frame"
 msgstr ""
 
 msgid "Permissions"
 msgstr ""
 
+msgid "Permissions frame"
+msgstr ""
+
 msgid "Users"
+msgstr ""
+
+msgid "Users frame"
 msgstr ""
 
 msgid "Home"
 msgstr ""
 
 msgid "Themes"
+msgstr ""
+
+msgid "Themes page"
 msgstr ""
 
 msgid "Update"

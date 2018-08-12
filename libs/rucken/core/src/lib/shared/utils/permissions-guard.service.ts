@@ -9,6 +9,7 @@ import {
   NgxPermissionsService,
   NgxRolesService
 } from 'ngx-permissions';
+import { Observable } from 'rxjs';
 
 export const INITED_PERMISSIONS = '__inited__';
 export const EMPTY_PERMISSIONS = '__empty__';
@@ -21,6 +22,15 @@ export class PermissionsGuard extends NgxPermissionsGuard {
     private _router: Router
   ) {
     super(_permissionsService, _rolesService, _router);
+  }
+  canActivateChild(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean> | Promise<boolean> | boolean {
+    if (this._permissionsService.hasPermission(INITED_PERMISSIONS)) {
+      return true;
+    }
+    return super.canActivateChild(route, state);
   }
   canActivate(
     route: ActivatedRouteSnapshot,

@@ -39,6 +39,28 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { MetaModule } from '@ngx-meta/core';
+import { MetaLoader, PageTitlePositioning } from '@ngx-meta/core';
+import { MetaStaticLoader } from '@ngx-meta/core';
+import { TranslateService } from '@ngx-translate/core';
+
+export function metaFactory(translateService: TranslateService): MetaLoader {
+  return new MetaStaticLoader({
+    callback: (key: string) => translateService.get(key),
+    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
+    pageTitleSeparator: ' - ',
+    applicationName: translateService.instant('Rucken: Demo'),
+    defaults: {
+      title: translateService.instant('Rucken: Demo'),
+      description: translateService.instant(
+        'Core with Admin UI for web and native application maked on Angular6+'
+      ),
+      'og:type': 'website',
+      'og:locale': 'en_US',
+      'og:locale:alternate': 'en_US,ru_RU'
+    }
+  });
+}
 
 library.add(fas, fab);
 
@@ -126,6 +148,11 @@ const OauthRoutes = [
       preloadingStrategy: PreloadAllModules,
       initialNavigation: 'enabled'
     }),
+    MetaModule.forRoot({
+      provide: MetaLoader,
+      useFactory: metaFactory,
+      deps: [TranslateService]
+    }),
     ModalModule.forRoot(),
     AuthModalModule.forRoot({
       oauth: {
@@ -149,4 +176,4 @@ const OauthRoutes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

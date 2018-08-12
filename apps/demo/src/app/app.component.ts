@@ -26,6 +26,7 @@ import { takeUntil } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { AppRoutes } from './app.routes';
 import { AuthModalTypeEnum } from '@rucken/web';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +34,7 @@ import { AuthModalTypeEnum } from '@rucken/web';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnDestroy {
-  public title = 'Rucken: Demo';
+  public title: string;
   public routes = AppRoutes;
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
@@ -47,6 +48,7 @@ export class AppComponent implements OnDestroy {
     private _messageModalService: MessageModalService,
     private _bsLocaleService: BsLocaleService,
     private _router: Router,
+    private _metaService: MetaService,
     @Inject(DOCUMENT) private document: any,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
@@ -55,6 +57,13 @@ export class AppComponent implements OnDestroy {
         .pipe(takeUntil(this._destroyed$))
         .subscribe(lang => {
           this._bsLocaleService.use(lang);
+          this._metaService.setTag(
+            'og:locale',
+            lang.toLowerCase() + '-' + lang.toUpperCase()
+          );
+          this.title = this._translateService.instant(
+            this._metaService.loader.settings.applicationName
+          );
         });
       this._tokenService.tokenHasExpired$
         .pipe(takeUntil(this._destroyed$))

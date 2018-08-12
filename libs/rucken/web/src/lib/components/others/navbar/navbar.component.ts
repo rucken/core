@@ -35,7 +35,10 @@ export class NavbarComponent {
         : []
     );
     const allowedRoutes = this.allowedRoutes$.getValue().map((item: any) => {
-      const newItem = item.data;
+      let newItem = item.data;
+      if (newItem.meta) {
+        newItem = { ...newItem, ...newItem.meta };
+      }
       if (item.path) {
         newItem.path = item.path;
       }
