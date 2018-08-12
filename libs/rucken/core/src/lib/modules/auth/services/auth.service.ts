@@ -17,7 +17,7 @@ import { UserTokenDto } from '../dto/user-token.dto';
 import { plainToClass } from 'class-transformer';
 import { map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-import { translate } from '@rucken/core';
+import { translate } from '../../../shared/utils/translate';
 import { TranslateService } from '@ngx-translate/core';
 import { RedirectUriDto } from '../dto/redirect-uri.dto';
 
