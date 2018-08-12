@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
 import { plainToClass } from 'class-transformer';
-import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
+import {
+  IRestProviderOptions,
+  PaginationMeta,
+  ProviderActionEnum
+} from 'ngx-repository';
 import { Group } from '../models/group';
 
 @Injectable()
@@ -23,7 +27,10 @@ export class GroupsConfig implements IRestProviderOptions<Group> {
         }
       }
     },
-    responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
+    responsePaginationMeta: (
+      data: any,
+      action: ProviderActionEnum
+    ): PaginationMeta => {
       return { totalResults: data.body.meta.totalResults, perPage: undefined };
     }
   };
@@ -32,5 +39,5 @@ export class GroupsConfig implements IRestProviderOptions<Group> {
     pageQueryParam: 'cur_page',
     searchTextQueryParam: 'q'
   };
-  constructor() { }
+  constructor() {}
 }

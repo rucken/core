@@ -2,8 +2,28 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import { AccountConfig, AccountModule, ContentTypesConfig, ErrorsExtractor, GroupsConfig, LangModule, PermissionsConfig, PermissionsGuard, RuI18n as CoreRuI18n, TokenModule, TransferHttpCacheModule, translate, UsersConfig } from '@rucken/core';
-import { AuthModalModule, NavbarModule, RuI18n as WebRuI18n, ThemesModule } from '@rucken/web';
+import {
+  AccountModule,
+  ContentTypesConfig,
+  ErrorsExtractor,
+  GroupsConfig,
+  LangModule,
+  PermissionsConfig,
+  PermissionsGuard,
+  RuI18n as CoreRuI18n,
+  TransferHttpCacheModule,
+  translate,
+  UsersConfig,
+  AuthModule,
+  OauthGuard,
+  AuthEmptyComponent
+} from '@rucken/core';
+import {
+  AuthModalModule,
+  NavbarModule,
+  RuI18n as WebRuI18n,
+  ThemesModule
+} from '@rucken/web';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
@@ -15,14 +35,95 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { RuI18n } from './i18n/ru.i18n';
 import { SharedModule } from './shared/shared.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { MetaModule } from '@ngx-meta/core';
+import { MetaLoader, PageTitlePositioning } from '@ngx-meta/core';
+import { MetaStaticLoader } from '@ngx-meta/core';
+import { TranslateService } from '@ngx-translate/core';
+
+export function metaFactory(translateService: TranslateService): MetaLoader {
+  return new MetaStaticLoader({
+    callback: (key: string) => translateService.get(key),
+    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
+    pageTitleSeparator: ' - ',
+    applicationName: translateService.instant('Rucken: Demo'),
+    defaults: {
+      title: translateService.instant('Rucken: Demo'),
+      description: translateService.instant(
+        'Core with Admin UI for web and native application maked on Angular6+'
+      ),
+      'og:type': 'website',
+      'og:locale': 'en_US',
+      'og:locale:alternate': 'en_US,ru_RU'
+    }
+  });
+}
+
+library.add(fas, fab);
 
 defineLocale('ru', ruLocale);
 defineLocale('en', enGbLocale);
 
+const Langs = [
+  {
+    title: translate('Russian'),
+    code: 'ru',
+    translations: [WebRuI18n, CoreRuI18n, RuI18n]
+  },
+  {
+    title: translate('English'),
+    code: 'en',
+    translations: []
+  }
+];
+const OauthProviders = ['facebook', 'google-plus'];
+const OauthModalProviders = [
+  {
+    name: 'facebook',
+    icon: ['fab', 'facebook-square'],
+    signInTitle: translate('Sign in with Facebook')
+  },
+  {
+    name: 'google-plus',
+    icon: ['fab', 'google-plus'],
+    signInTitle: translate('Sign in with Google+')
+  }
+];
+const OauthRoutes = [
+  {
+    path: 'auth/facebook',
+    component: AuthEmptyComponent,
+    canActivate: [OauthGuard],
+    data: {
+      oauth: {
+        provider: 'facebook',
+        redirectTo: {
+          ifSuccess: '/home',
+          ifFail: '/home'
+        }
+      }
+    }
+  },
+  {
+    path: 'auth/google-plus',
+    component: AuthEmptyComponent,
+    canActivate: [OauthGuard],
+    data: {
+      oauth: {
+        provider: 'google-plus',
+        redirectTo: {
+          ifSuccess: '/home',
+          ifFail: '/home'
+        }
+      }
+    }
+  }
+];
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     RouterModule,
     SharedModule,
@@ -30,40 +131,42 @@ defineLocale('en', enGbLocale);
     BrowserModule.withServerTransition({ appId: 'demo' }),
     TransferHttpCacheModule.forRoot(),
     NgxPermissionsModule.forRoot(),
-    TokenModule.forRoot({
-      withoutTokenUrls: [
-        '/api/account/info',
-        '/api/account/login',
-        ...(environment.type === 'mockapi' ? ['/'] : [])
-      ]
+    AuthModule.forRoot({
+      apiUri: environment.apiUrl,
+      oauth: {
+        providers: OauthProviders
+      }
     }),
-    AccountModule.forRoot(),
+    AccountModule.forRoot({
+      apiUri: environment.apiUrl
+    }),
     LangModule.forRoot({
-      languages: [{
-        title: translate('Russian'),
-        code: 'ru',
-        translations: [WebRuI18n, CoreRuI18n, RuI18n]
-      }, {
-        title: translate('English'),
-        code: 'en',
-        translations: []
-      }]
+      languages: Langs
     }),
     ThemesModule.forRoot(),
-    RouterModule.forRoot(
-      AppRoutes,
-      { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }
-    ),
+    RouterModule.forRoot([...OauthRoutes, ...AppRoutes], {
+      preloadingStrategy: PreloadAllModules,
+      initialNavigation: 'enabled'
+    }),
+    MetaModule.forRoot({
+      provide: MetaLoader,
+      useFactory: metaFactory,
+      deps: [TranslateService]
+    }),
     ModalModule.forRoot(),
-    AuthModalModule,
+    AuthModalModule.forRoot({
+      oauth: {
+        providers: OauthModalProviders
+      }
+    }),
     NavbarModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    FontAwesomeModule
   ],
   providers: [
     // { provide: ErrorHandler, useClass: CustomErrorHandler },
     CookieService,
     ErrorsExtractor,
-    AccountConfig,
     GroupsConfig,
     PermissionsConfig,
     ContentTypesConfig,
@@ -73,5 +176,4 @@ defineLocale('en', enGbLocale);
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }

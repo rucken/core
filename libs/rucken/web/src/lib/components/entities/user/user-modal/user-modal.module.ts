@@ -14,12 +14,8 @@ import { UserModalComponent } from './user-modal.component';
     UserGroupsGridModule,
     PromptFormModalModule
   ],
-  declarations: [
-    UserModalComponent
-  ],
-  entryComponents: [
-    UserModalComponent
-  ],
+  declarations: [UserModalComponent],
+  entryComponents: [UserModalComponent],
   exports: [
     UserModalComponent,
     BsDatepickerModule,

@@ -6,6 +6,7 @@ import { DirectivesModule } from '../../../directives/directives.module';
 import { PipesModule } from '../../../shared/pipes/pipes.module';
 import { FormGroupModule } from '../form-group/form-group.module';
 import { PromptFormModalComponent } from './prompt-form-modal.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -15,14 +16,11 @@ import { PromptFormModalComponent } from './prompt-form-modal.component';
     DirectivesModule,
     TranslateModule.forChild(),
     PipesModule,
-    FormGroupModule
+    FormGroupModule,
+    FontAwesomeModule
   ],
-  declarations: [
-    PromptFormModalComponent
-  ],
-  entryComponents: [
-    PromptFormModalComponent
-  ],
+  declarations: [PromptFormModalComponent],
+  entryComponents: [PromptFormModalComponent],
   exports: [
     PromptFormModalComponent,
     ReactiveFormsModule,

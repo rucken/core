@@ -16,7 +16,11 @@ export class TransferHttpCacheModule {
       ngModule: TransferHttpCacheModule,
       providers: [
         TransferHttpCacheInterceptor,
-        { provide: HTTP_INTERCEPTORS, useExisting: TransferHttpCacheInterceptor, multi: true },
+        {
+          provide: HTTP_INTERCEPTORS,
+          useExisting: TransferHttpCacheInterceptor,
+          multi: true
+        }
       ]
     };
   }

@@ -1,20 +1,30 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Permission, PermissionsConfig, translate } from '@rucken/core';
+import {
+  ErrorsExtractor,
+  Permission,
+  PermissionsConfig,
+  translate
+} from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionModalComponent } from '../permission-modal/permission-modal.component';
 
-
 @Component({
   selector: 'permissions-grid',
   templateUrl: './permissions-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PermissionsGridComponent extends BaseEntityListComponent<Permission> implements OnInit {
-
+export class PermissionsGridComponent
+  extends BaseEntityListComponent<Permission>
+  implements OnInit {
   @Input()
   apiUrl?: string;
 

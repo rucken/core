@@ -1,6 +1,18 @@
-import { Component, Input, OnDestroy, forwardRef, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  forwardRef,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AccountConfig, AccountService, ErrorsExtractor, Group, User } from '@rucken/core';
+import {
+  AccountService,
+  AuthService,
+  ErrorsExtractor,
+  Group,
+  User
+} from '@rucken/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { MessageModalService } from '../../../../components/modals/message-modal/message-modal.service';
@@ -12,12 +24,20 @@ import { NgxPermissionsService } from 'ngx-permissions';
   templateUrl: './profile-panel.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => ProfilePanelComponent), multi: true },
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => ProfilePanelComponent), multi: true }
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ProfilePanelComponent),
+      multi: true
+    },
+    {
+      provide: NG_VALIDATORS,
+      useExisting: forwardRef(() => ProfilePanelComponent),
+      multi: true
+    }
   ]
 })
-export class ProfilePanelComponent extends BasePromptPanelComponent<User> implements OnDestroy {
-
+export class ProfilePanelComponent extends BasePromptPanelComponent<User>
+  implements OnDestroy {
   @Input()
   apiUrl?: string;
   @Input()
@@ -27,19 +47,19 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
 
   constructor(
     private _errorsExtractor: ErrorsExtractor,
+    private _authService: AuthService,
     private _accountService: AccountService,
-    private _accountConfig: AccountConfig,
     private _messageModalService: MessageModalService,
     private _permissionsService: NgxPermissionsService
   ) {
     super(User);
-    this._accountService.current$.pipe(
-      takeUntil(this._destroyed$)
-    ).subscribe(user => {
-      if (user) {
-        this.data = user;
-      }
-    });
+    this._authService.current$
+      .pipe(takeUntil(this._destroyed$))
+      .subscribe(user => {
+        if (user) {
+          this.data = user;
+        }
+      });
   }
   ngOnDestroy() {
     this._destroyed$.next(true);
@@ -55,23 +75,25 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     this.data = data;
     this.onSaveClick();
   }
-  onSaveClick() {
+  onSaveClick(saveData?: any) {
     this.processing = true;
-    this._accountService.update(
-      this.data
-    ).subscribe(
-      data => this.onSave(data),
-      error => this.onSaveError(error)
-    );
+    this._accountService
+      .update(this.data)
+      .subscribe(
+        data => this.onSave(data, saveData),
+        error => this.onSaveError(error)
+      );
   }
-  onSave(data: { token: string; user: User; }) {
+  onSave(user: User, saveData?: any) {
     this.processing = false;
-    this.data = data.user;
+    this.data = user;
   }
   onError(error: any) {
-    this._messageModalService.error({
-      error: error
-    }).subscribe();
+    this._messageModalService
+      .error({
+        error: error
+      })
+      .subscribe();
   }
   onSaveError(error: any) {
     this.processing = false;

@@ -4,17 +4,9 @@ import { PermissionsGridModalModule } from '../../permission/permissions-grid-mo
 import { GroupPermissionsGridComponent } from './group-permissions-grid.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PermissionsGridModalModule
-  ],
-  declarations: [
-    GroupPermissionsGridComponent
-  ],
-  exports: [
-    GroupPermissionsGridComponent,
-    PermissionsGridModalModule
-  ]
+  imports: [CommonModule, PermissionsGridModalModule],
+  declarations: [GroupPermissionsGridComponent],
+  exports: [GroupPermissionsGridComponent, PermissionsGridModalModule]
 })
 export class GroupPermissionsGridModule {
   static forRoot(): ModuleWithProviders {

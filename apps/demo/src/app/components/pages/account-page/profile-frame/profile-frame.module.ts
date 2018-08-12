@@ -13,9 +13,7 @@ import { ProfileFrameRoutes } from './profile-frame.routes';
     ProfilePanelModule,
     RouterModule.forChild(ProfileFrameRoutes)
   ],
-  declarations: [
-    ProfileFrameComponent
-  ]
+  declarations: [ProfileFrameComponent]
 })
 export class ProfileFrameModule {
   static forRoot(): ModuleWithProviders {

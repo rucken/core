@@ -9,8 +9,5 @@ import { AccountPageChildrenRoutes } from './account-page.children-routes';
 })
 export class AccountPageComponent {
   public routes = AccountPageChildrenRoutes;
-  constructor(
-    public activatedRoute: ActivatedRoute
-  ) {
-  }
+  constructor(public activatedRoute: ActivatedRoute) {}
 }

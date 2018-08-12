@@ -27,9 +27,13 @@
                     [attr.colspan]="columns?.length"
                     class="text-center"
                     translate>
-                    <i
-                        class="fa fa-spinner fa-pulse fa-fw"
-                        *ngIf="processing"></i>
+                    <fa-layers
+                        class="fa-fw"
+                        *ngIf="processing">
+                        <fa-icon
+                            [icon]="['fas', 'spinner']"
+                            [pulse]="true"></fa-icon>
+                    </fa-layers>
                     <span translate>Loading...</span>
                 </td>
             </tr>
@@ -66,7 +70,7 @@
                     class="pull-left"
                     [ngClass]="createClass"
                     (click)="onCreate()">
-                    <span class="fa fa-plus"></span>
+                    <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                     {{ createTitle | translate }}
                 </button>
             </div>
@@ -114,7 +118,7 @@
                     type="button"
                     class="btn btn-success pull-right"
                     (click)="onAppendFromGrid()">
-                    <span class="fa fa-plus"></span>
+                    <fa-icon [icon]="['fas', 'plus']"></fa-icon>
                     {{ 'Append' | translate }}
                 </button>
             </div>
@@ -203,14 +207,14 @@
         class="btn btn-default btn-sm"
         (click)="onUpdate(ctx.item)"
         *ngIf="isEnableUpdate">
-        <span class="fa fa-pencil-square-o"></span>
+        <fa-icon [icon]="['fas', 'edit']"></fa-icon>
     </button>
     <button
         type="button"
         class="btn btn-default btn-sm"
         (click)="onDelete(ctx.item)"
         *ngIf="isEnableDelete">
-        <span class="fa fa-remove"></span>
+        <fa-icon [icon]="['fas', 'trash']"></fa-icon>
     </button>
 </ng-template>
 <ng-template
@@ -229,7 +233,7 @@
                 (click)="onSearch(searchField.value)"
                 type="button"
                 [disabled]="processing">
-                <i class="fa fa-search"></i>
+                <fa-icon [icon]="['fas', 'search']"></fa-icon>
             </button>
         </span>
     </div>

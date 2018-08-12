@@ -13,9 +13,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     NavSidebarModule,
     RouterModule.forChild(AccountPageRoutes)
   ],
-  declarations: [
-    AccountPageComponent
-  ]
+  declarations: [AccountPageComponent]
 })
 export class AccountPageModule {
   static forRoot(): ModuleWithProviders {

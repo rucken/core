@@ -6,30 +6,11 @@ import { PermPipe } from './perm.pipe';
 import { SafeHtmlPipe } from './safe-html.pipe';
 import { UserPermPipe } from './user-perm.pipe';
 
-
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule.forChild()
-  ],
-  declarations: [
-    CustomTranslatePipe,
-    SafeHtmlPipe,
-    PermPipe,
-    UserPermPipe
-  ],
-  exports: [
-    CustomTranslatePipe,
-    SafeHtmlPipe,
-    PermPipe,
-    UserPermPipe
-  ],
-  providers: [
-    CustomTranslatePipe,
-    SafeHtmlPipe,
-    PermPipe,
-    UserPermPipe
-  ]
+  imports: [CommonModule, TranslateModule.forChild()],
+  declarations: [CustomTranslatePipe, SafeHtmlPipe, PermPipe, UserPermPipe],
+  exports: [CustomTranslatePipe, SafeHtmlPipe, PermPipe, UserPermPipe],
+  providers: [CustomTranslatePipe, SafeHtmlPipe, PermPipe, UserPermPipe]
 })
 export class PipesModule {
   static forRoot(): ModuleWithProviders {

@@ -1,4 +1,10 @@
-import { EventEmitter, Input, Output, ViewChild, isDevMode } from '@angular/core';
+import {
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+  isDevMode
+} from '@angular/core';
 import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { IModel } from 'ngx-repository';
@@ -6,7 +12,6 @@ import { IBaseEntityList } from './base-entity-list.interface';
 import { BehaviorSubject } from 'rxjs';
 
 export class BaseEntityListModalComponent<TModel extends IModel> {
-
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -55,13 +60,14 @@ export class BaseEntityListModalComponent<TModel extends IModel> {
   @Output()
   mockedItemsChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
 
+  yesData: any;
+  noData: any;
+
   private _mockedItems: TModel[];
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
-  }
-  onNoClick(): void {
+  constructor(protected bsModalRef: BsModalRef) {}
+  onNoClick(data?: any): void {
+    this.noData = data;
     this.no.emit(this);
     if (this.hideOnNo) {
       this.hide();
@@ -71,7 +77,8 @@ export class BaseEntityListModalComponent<TModel extends IModel> {
       }
     }
   }
-  onYesClick(): void {
+  onYesClick(data?: any): void {
+    this.yesData = data;
     this.mockedItems = this.grid.mockedItems;
     this.mockedItemsChange.emit(this.mockedItems);
     this.yes.emit(this);

@@ -31,8 +31,10 @@ export class Group implements IModel {
     if (this.permissions) {
       const permissionsLength = this.permissions.length;
       if (permissionsLength > 14) {
-        return this.permissions.filter((item, index) => index < 7).join(', ') +
-          ((permissionsLength > 7) ? `... +${permissionsLength - 7}` : '');
+        return (
+          this.permissions.filter((item, index) => index < 7).join(', ') +
+          (permissionsLength > 7 ? `... +${permissionsLength - 7}` : '')
+        );
       }
       return this.permissions.join(', ');
     } else {

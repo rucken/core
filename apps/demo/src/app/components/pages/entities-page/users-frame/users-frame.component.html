@@ -1,0 +1,11 @@
+<div class="container-fluid">
+    <h3 class="page-header">
+        <span
+            class="ident"
+            *ngIf="activatedRoute.parent.parent.data | async as parentData">
+            {{ parentData?.meta.title | translate}}:
+        </span>
+        <span *ngIf="activatedRoute.data | async as data">{{ data?.meta.title | translate}}</span>
+    </h3>
+    <users-grid [apiUrl]="apiUrl"></users-grid>
+</div>

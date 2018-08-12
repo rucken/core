@@ -6,6 +6,7 @@ import { DirectivesModule } from '../../../directives/directives.module';
 import { FormGroupModule } from '../../others/form-group/form-group.module';
 import { EntityGridModalComponent } from './entity-grid-modal.component';
 import { EntityModalModule } from '../entity-modal/entity-modal.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -15,14 +16,11 @@ import { EntityModalModule } from '../entity-modal/entity-modal.module';
     DirectivesModule,
     TranslateModule.forChild(),
     FormGroupModule,
-    EntityModalModule
+    EntityModalModule,
+    FontAwesomeModule
   ],
-  declarations: [
-    EntityGridModalComponent
-  ],
-  entryComponents: [
-    EntityGridModalComponent
-  ],
+  declarations: [EntityGridModalComponent],
+  entryComponents: [EntityGridModalComponent],
   exports: [
     EntityGridModalComponent,
     ReactiveFormsModule,

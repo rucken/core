@@ -1,4 +1,10 @@
-import { EventEmitter, Input, OnChanges, Output, isDevMode } from '@angular/core';
+import {
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  isDevMode
+} from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { ValidatorOptions } from 'class-validator';
@@ -6,8 +12,8 @@ import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
 
-export class BasePromptPanelComponent<TModel extends IModel> implements ControlValueAccessor, OnChanges {
-
+export class BasePromptPanelComponent<TModel extends IModel>
+  implements ControlValueAccessor, OnChanges {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -38,6 +44,8 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   hideYes = false;
   @Input()
   readonly = false;
+  @Input()
+  validateForm = true;
 
   get data() {
     return this.form.object;
@@ -49,8 +57,11 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   form: DynamicFormGroup<TModel>;
   strings: any;
   formBuilder = new DynamicFormBuilder();
-  propagateChange: any = () => { };
-  validateFn: any = () => { };
+  yesData: any;
+  noData: any;
+
+  propagateChange: any = () => {};
+  validateFn: any = () => {};
 
   constructor(
     public factoryModel?: IFactoryModel<TModel>,
@@ -62,11 +73,7 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
       customValidatorOptions?: ValidatorOptions;
     }
   ) {
-    this.group(
-      factoryModel,
-      controlsConfig,
-      extra
-    );
+    this.group(factoryModel, controlsConfig, extra);
   }
   group(
     factoryModel?: IFactoryModel<TModel>,
@@ -100,27 +107,38 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
       if (!controlsConfig) {
         controlsConfig = {};
         const keys = Object.keys(newObject);
-        keys.map(key => controlsConfig[key] = '');
+        keys.map(key => (controlsConfig[key] = ''));
       }
-      this.form = this.formBuilder.group(this.factoryModel, controlsConfig, extra);
+      this.form = this.formBuilder.group(
+        this.factoryModel,
+        controlsConfig,
+        extra
+      );
     }
   }
-  onNoClick(): void {
+  onNoClick(data?: any): void {
+    this.noData = data;
     if (isDevMode() && this.no.observers.length === 0) {
       console.warn('No subscribers found for "no"', this);
     }
     this.no.emit(this);
   }
-  onYesClick(): void {
+  onYesClick(data?: any): void {
+    this.yesData = data;
     this.form.externalErrors = undefined;
-    if (this.form.valid) {
-      if (isDevMode() && this.yes.observers.length === 0) {
-        console.warn('No subscribers found for "yes"', this);
+    if (this.validateForm) {
+      if (this.form.valid) {
+        if (isDevMode() && this.yes.observers.length === 0) {
+          console.warn('No subscribers found for "yes"', this);
+        }
+        this.propagateChange(this.data);
+        this.yes.emit(this);
+      } else {
+        this.form.validateAllFormFields();
       }
+    } else {
       this.propagateChange(this.data);
       this.yes.emit(this);
-    } else {
-      this.form.validateAllFormFields();
     }
   }
   validate(c: FormControl) {
@@ -135,6 +153,5 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   registerOnChange(fn) {
     this.propagateChange = fn;
   }
-  registerOnTouched() {
-  }
+  registerOnTouched() {}
 }

@@ -7,7 +7,7 @@
             type="button"
             class="close pull-right"
             [attr.aria-label]="'Close' | translate"
-            (click)="onNoClick()">
+            (click)="onNoClick($event)">
             <span aria-hidden="true">×</span>
         </button>
     </div>
@@ -18,11 +18,15 @@
         <button
             type="submit"
             class="btn btn-default"
-            (click)="onYesClick()"
+            (click)="onYesClick($event)"
             focused>
-            <i
-                class="fa fa-spinner fa-pulse fa-fw"
-                *ngIf="processing"></i>
+            <fa-layers
+                class="fa-fw"
+                *ngIf="processing">
+                <fa-icon
+                    [icon]="['fas', 'spinner']"
+                    [pulse]="true"></fa-icon>
+            </fa-layers>
             {{yesTitle | translate}}
         </button>
     </div>

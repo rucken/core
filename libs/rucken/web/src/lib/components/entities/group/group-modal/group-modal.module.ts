@@ -5,21 +5,10 @@ import { GroupPermissionsGridModule } from '../group-permissions-grid/group-perm
 import { GroupModalComponent } from './group-modal.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PromptFormModalModule,
-    GroupPermissionsGridModule
-  ],
-  declarations: [
-    GroupModalComponent
-  ],
-  entryComponents: [
-    GroupModalComponent
-  ],
-  exports: [
-    GroupModalComponent,
-    PromptFormModalModule
-  ]
+  imports: [CommonModule, PromptFormModalModule, GroupPermissionsGridModule],
+  declarations: [GroupModalComponent],
+  entryComponents: [GroupModalComponent],
+  exports: [GroupModalComponent, PromptFormModalModule]
 })
 export class GroupModalModule {
   static forRoot(): ModuleWithProviders {

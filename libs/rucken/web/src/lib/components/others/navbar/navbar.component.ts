@@ -1,6 +1,13 @@
 import {
-  ChangeDetectionStrategy, Component,
-  ElementRef, EventEmitter, HostListener, Input, Output, ViewChild, isDevMode
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  HostListener,
+  Input,
+  Output,
+  ViewChild,
+  isDevMode
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
@@ -15,39 +22,41 @@ export class NavbarComponent {
   @ViewChild('languagesDropdown')
   languagesDropdown: ElementRef;
   @Input()
-  showLogin: boolean;
+  showSignIn: boolean;
   @Input()
-  showLogout: boolean;
+  showSignOut: boolean;
   @Input()
   title: string;
   @Input()
   set routes(routes: any[]) {
-    this.allowedRoutes$.next(routes ? routes.filter(
-      (item: any) =>
-        item.data && item.data.visible !== false
-    ) : []);
-    const allowedRoutes = this.allowedRoutes$.getValue().map(
-      (item: any) => {
-        const newItem = item.data;
-        if (item.path) {
-          newItem.path = item.path;
-        }
-        newItem.url = `/${newItem.path}`;
-        newItem.redirectTo = item.redirectTo;
-        return newItem;
-      }
+    this.allowedRoutes$.next(
+      routes
+        ? routes.filter((item: any) => item.data && item.data.visible !== false)
+        : []
     );
-    this.rightRoutes$.next(allowedRoutes.filter(
-      (item: any) => item.align !== 'left'
-    ));
-    this.leftRoutes$.next(allowedRoutes.filter(
-      (item: any) => item.align === 'left'
-    ));
+    const allowedRoutes = this.allowedRoutes$.getValue().map((item: any) => {
+      let newItem = item.data;
+      if (newItem.meta) {
+        newItem = { ...newItem, ...newItem.meta };
+      }
+      if (item.path) {
+        newItem.path = item.path;
+      }
+      newItem.url = `/${newItem.path}`;
+      newItem.redirectTo = item.redirectTo;
+      return newItem;
+    });
+    this.rightRoutes$.next(
+      allowedRoutes.filter((item: any) => item.align !== 'left')
+    );
+    this.leftRoutes$.next(
+      allowedRoutes.filter((item: any) => item.align === 'left')
+    );
   }
   @Output()
-  login = new EventEmitter();
+  signIn = new EventEmitter();
   @Output()
-  logout = new EventEmitter();
+  signOut = new EventEmitter();
   @Input()
   languages: any;
   @Input()
@@ -62,27 +71,27 @@ export class NavbarComponent {
   public isCollapsed = true;
   public langsIsCollapsed = true;
 
-  constructor(
-    public router: Router
-  ) {
-  }
+  constructor(public router: Router) {}
   @HostListener('document:click', ['$event'])
   onMouseClick(ev: MouseEvent) {
-    if (!this.languagesDropdown || ev.target !== this.languagesDropdown.nativeElement) {
+    if (
+      !this.languagesDropdown ||
+      ev.target !== this.languagesDropdown.nativeElement
+    ) {
       this.langsIsCollapsed = true;
     }
   }
-  onLoginClick() {
-    if (isDevMode() && this.login.observers.length === 0) {
-      console.warn('No subscribers found for "login"', this);
+  onSignInClick(signInData?: any) {
+    if (isDevMode() && this.signIn.observers.length === 0) {
+      console.warn('No subscribers found for "signIn"', this);
     }
-    this.login.emit(true);
+    this.signIn.emit(signInData);
   }
-  onLogoutClick() {
-    if (isDevMode() && this.logout.observers.length === 0) {
-      console.warn('No subscribers found for "logout"', this);
+  onSignOutClick(signOutData?: any) {
+    if (isDevMode() && this.signOut.observers.length === 0) {
+      console.warn('No subscribers found for "signOut"', this);
     }
-    this.logout.emit(true);
+    this.signOut.emit(signOutData);
   }
   changeCurrentLang(value: string) {
     this.currentLang = value;

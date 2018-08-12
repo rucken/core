@@ -7,6 +7,7 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
 import { PipesModule } from '../../../shared/pipes/pipes.module';
 import { MessageModalModule } from '../../modals/message-modal/message-modal.module';
 import { EntityGridComponent } from './entity-grid.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,14 +17,11 @@ import { EntityGridComponent } from './entity-grid.component';
     TranslateModule.forChild(),
     PipesModule,
     MessageModalModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    FontAwesomeModule
   ],
-  declarations: [
-    EntityGridComponent
-  ],
-  entryComponents: [
-    EntityGridComponent
-  ],
+  declarations: [EntityGridComponent],
+  entryComponents: [EntityGridComponent],
   exports: [
     EntityGridComponent,
     FormsModule,

@@ -1,8 +1,5 @@
 @import '~ngx-bootstrap/datepicker/bs-datepicker.css';
 
-@import "~font-awesome/scss/variables";
-$fa-font-path: "~font-awesome/fonts/";
-@import "~font-awesome/scss/font-awesome";
 /*@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "~bootswatch-sass/cosmo/variables";
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
@@ -44,6 +41,7 @@ body {
     }
     .checkbox{
         display: inline;
+        padding-left: 15px;
     }
 }
 .width-20{
@@ -81,4 +79,7 @@ body {
             padding-bottom: 0px!important;
         }
     }
+}
+.ident{
+    padding-right: 0.1em;
 }

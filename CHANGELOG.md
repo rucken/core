@@ -1,3 +1,19 @@
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/rucken/core/compare/3.0.2...3.1.0) (2018-08-12)
+
+
+### Bug Fixes
+
+* Remove unused storage classes ([c4b4682](https://github.com/rucken/core/commit/c4b4682))
+* **auth:** Update defaultJwtConfig ([268a072](https://github.com/rucken/core/commit/268a072))
+
+
+### Features
+
+* **auth:** Add login with social network: google-plus, facebook [#104](https://github.com/rucken/core/issues/104) ([e2e03d2](https://github.com/rucken/core/commit/e2e03d2))
+
+
+
 <a name="3.0.2"></a>
 ## [3.0.2](https://github.com/rucken/core/compare/3.0.1...3.0.2) (2018-07-12)
 

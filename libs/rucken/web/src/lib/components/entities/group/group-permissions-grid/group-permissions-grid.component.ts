@@ -1,6 +1,17 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  ChangeDetectionStrategy
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Group, Permission, PermissionsConfig, translate } from '@rucken/core';
+import {
+  ErrorsExtractor,
+  Group,
+  Permission,
+  PermissionsConfig,
+  translate
+} from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, ProviderActionEnum } from 'ngx-repository';
 import { PermissionModalComponent } from '../../permission/permission-modal/permission-modal.component';
@@ -13,8 +24,8 @@ import { MessageModalService } from '../../../modals/message-modal/message-modal
   templateUrl: './group-permissions-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupPermissionsGridComponent extends PermissionsGridComponent implements OnInit {
-
+export class GroupPermissionsGridComponent extends PermissionsGridComponent
+  implements OnInit {
   @Input()
   group: Group;
 
@@ -42,7 +53,10 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
         autoload: !!this.group.id,
         ...this.permissionsConfig,
         globalEventResolver: (data: any, action: ProviderActionEnum) => {
-          return action !== ProviderActionEnum.Create && action !== ProviderActionEnum.Delete;
+          return (
+            action !== ProviderActionEnum.Create &&
+            action !== ProviderActionEnum.Delete
+          );
         }
       });
     }
@@ -52,7 +66,10 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
         autoload: true,
         ...this.permissionsConfig,
         globalEventResolver: (data: any, action: ProviderActionEnum) => {
-          return action !== ProviderActionEnum.Create && action !== ProviderActionEnum.Delete;
+          return (
+            action !== ProviderActionEnum.Create &&
+            action !== ProviderActionEnum.Delete
+          );
         }
       });
     }
@@ -62,7 +79,9 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
       class: 'modal-md',
       initialState: {
         title: translate('Delete permission'),
-        message: translate('Do you really want to delete permission "{{title}}" from group?'),
+        message: translate(
+          'Do you really want to delete permission "{{title}}" from group?'
+        ),
         yesTitle: translate('Delete'),
         data: item,
         apiUrl: this.apiUrl

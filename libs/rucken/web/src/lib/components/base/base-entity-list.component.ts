@@ -11,8 +11,8 @@ import { EntityModalComponent } from '../others/entity-modal/entity-modal.compon
 import { IBaseEntityList } from './base-entity-list.interface';
 import { BehaviorSubject } from 'rxjs';
 
-export class BaseEntityListComponent<TModel extends IModel> implements IBaseEntityList<TModel> {
-
+export class BaseEntityListComponent<TModel extends IModel>
+  implements IBaseEntityList<TModel> {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -43,6 +43,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   @Input()
   filter: IEntityGridFilter = { searchText: '', sort: '-id' };
 
+  createData: any;
+  appendFromGridData: any;
+
   private _mockedItems: TModel[];
   private _selected: TModel[] = [];
 
@@ -69,7 +72,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     this._selected = selected;
     this.selected.emit(this._selected);
   }
-  onChangePage(meta: { page: number, itemsPerPage: number }) {
+  onChangePage(meta: { page: number; itemsPerPage: number }) {
     this.repository.setOptions({
       paginationMeta: { curPage: meta.page, perPage: meta.itemsPerPage }
     });
@@ -82,16 +85,17 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     for (const key in filter) {
       if (filter.hasOwnProperty(key)) {
         if (key === 'searchText') {
-          this.filter.searchText = typeof filter.searchText === 'string' ? filter.searchText : '';
+          this.filter.searchText =
+            typeof filter.searchText === 'string' ? filter.searchText : '';
         } else {
           this.filter[key] = filter[key];
         }
       }
     }
-    this.repository.loadAll(this.filter).pipe(first()).subscribe(
-      items => this.onSuccess(items),
-      error => this.onError(error)
-    );
+    this.repository
+      .loadAll(this.filter)
+      .pipe(first())
+      .subscribe(items => this.onSuccess(items), error => this.onError(error));
   }
   onSuccess(items: TModel[]) {
     this.processing = false;
@@ -102,9 +106,11 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onError" is not defined', this);
     }
     if (this.messageModalService) {
-      this.messageModalService.error({
-        error: error
-      }).subscribe();
+      this.messageModalService
+        .error({
+          error: error
+        })
+        .subscribe();
     } else {
       if (isDevMode()) {
         console.warn('MessageModalService is not injected', this);
@@ -112,7 +118,10 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     }
   }
   defaultCreateViewModal(item: TModel): BsModalRef {
-    const title = (this.strings && this.strings.viewTitle ? this.strings.viewTitle : translate('Item #{{id}}'));
+    const title =
+      this.strings && this.strings.viewTitle
+        ? this.strings.viewTitle
+        : translate('Item #{{id}}');
     const bsModalRef = this.modalService.show(EntityModalComponent, {
       class: 'modal-md',
       initialState: {
@@ -141,7 +150,10 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     return bsModalRef;
   }
   defaultCreateCreateModal(): BsModalRef {
-    const title = this.strings && this.strings.createTitle ? this.strings.createTitle : translate('Create new item');
+    const title =
+      this.strings && this.strings.createTitle
+        ? this.strings.createTitle
+        : translate('Create new item');
     const item = new this.factoryModel();
     const bsModalRef = this.modalService.show(EntityModalComponent, {
       class: 'modal-md',
@@ -164,13 +176,16 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onCreateError" is not defined', this);
     }
     if (this.errorsExtractor) {
-      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(error);
+      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(
+        error
+      );
       if (!modal.form.externalErrors) {
         this.onError(error);
       }
     }
   }
-  onCreateClick(): void {
+  onCreateClick(data?: any): void {
+    this.createData = data;
     let bsModalRef = this.createCreateModal();
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateCreateModal();
@@ -178,24 +193,26 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
         console.warn('Method "createCreateModal" is not defined', this);
       }
     }
-    bsModalRef.content.yes.subscribe(
-      (modal: any) => {
-        modal.processing = true;
-        this.repository.create(modal.data).subscribe(
-          createdItem => {
-            modal.processing = false;
-            if (this.mockedItems) {
-              this.mockedItems = this.repository.items;
-              this.mockedItemsChange.emit(this.mockedItems);
-            }
-            modal.hide();
-          },
-          error => this.onCreateError(modal, error)
-        );
-      });
+    bsModalRef.content.yes.subscribe((modal: any) => {
+      modal.processing = true;
+      this.repository.create(modal.data).subscribe(
+        createdItem => {
+          modal.processing = false;
+          if (this.mockedItems) {
+            this.mockedItems = this.repository.items;
+            this.mockedItemsChange.emit(this.mockedItems);
+          }
+          modal.hide();
+        },
+        error => this.onCreateError(modal, error)
+      );
+    });
   }
   defaultCreateUpdateModal(item: TModel): BsModalRef {
-    const title = (this.strings && this.strings.updateTitle ? this.strings.updateTitle : translate('Update item #{{id}}'));
+    const title =
+      this.strings && this.strings.updateTitle
+        ? this.strings.updateTitle
+        : translate('Update item #{{id}}');
     const bsModalRef = this.modalService.show(EntityModalComponent, {
       class: 'modal-md',
       initialState: {
@@ -218,7 +235,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onUpdateError" is not defined', this);
     }
     if (this.errorsExtractor) {
-      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(error);
+      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(
+        error
+      );
       if (!modal.form.externalErrors) {
         this.onError(error);
       }
@@ -232,27 +251,30 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
         console.warn('Method "createUpdateModal" is not defined', this);
       }
     }
-    bsModalRef.content.yes.subscribe(
-      (modal: any) => {
-        modal.processing = true;
-        this.repository.update(item.id, modal.data).subscribe(
-          updatedItem => {
-            modal.processing = false;
-            if (this.mockedItems) {
-              this.mockedItems = this.repository.items;
-              this.mockedItemsChange.emit(this.mockedItems);
-            }
-            modal.hide();
-          },
-          error => this.onUpdateError(modal, error)
-        );
-      });
+    bsModalRef.content.yes.subscribe((modal: any) => {
+      modal.processing = true;
+      this.repository.update(item.id, modal.data).subscribe(
+        updatedItem => {
+          modal.processing = false;
+          if (this.mockedItems) {
+            this.mockedItems = this.repository.items;
+            this.mockedItemsChange.emit(this.mockedItems);
+          }
+          modal.hide();
+        },
+        error => this.onUpdateError(modal, error)
+      );
+    });
   }
   defaultCreateDeleteModal(item: TModel): BsModalRef {
     const title =
-      (this.strings && this.strings.deleteTitle ? this.strings.deleteTitle : translate('Delete item #{{id}}'));
+      this.strings && this.strings.deleteTitle
+        ? this.strings.deleteTitle
+        : translate('Delete item #{{id}}');
     const message =
-      (this.strings && this.strings.deleteMessage ? this.strings.deleteMessage : translate('Do you really want to delete item?'));
+      this.strings && this.strings.deleteMessage
+        ? this.strings.deleteMessage
+        : translate('Do you really want to delete item?');
     const bsModalRef = this.modalService.show(EntityModalComponent, {
       class: 'modal-md',
       initialState: {
@@ -275,7 +297,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onDeleteError" is not defined', this);
     }
     if (this.errorsExtractor) {
-      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(error);
+      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(
+        error
+      );
       if (!modal.form.externalErrors) {
         this.onError(error);
       }
@@ -289,21 +313,20 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
         console.warn('Method "createDeleteModal" is not defined', this);
       }
     }
-    bsModalRef.content.yes.subscribe(
-      modal => {
-        modal.processing = true;
-        this.repository.delete(item.id).subscribe(
-          deletedItem => {
-            modal.processing = false;
-            if (this.mockedItems) {
-              this.mockedItems = this.repository.items;
-              this.mockedItemsChange.emit(this.mockedItems);
-            }
-            modal.hide();
-          },
-          error => this.onDeleteError(modal, error)
-        );
-      });
+    bsModalRef.content.yes.subscribe(modal => {
+      modal.processing = true;
+      this.repository.delete(item.id).subscribe(
+        deletedItem => {
+          modal.processing = false;
+          if (this.mockedItems) {
+            this.mockedItems = this.repository.items;
+            this.mockedItemsChange.emit(this.mockedItems);
+          }
+          modal.hide();
+        },
+        error => this.onDeleteError(modal, error)
+      );
+    });
   }
   createAppendFromGridModal(): BsModalRef {
     return undefined;
@@ -317,7 +340,8 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       this.onError(error);
     }
   }
-  onAppendFromGridClick(): void {
+  onAppendFromGridClick(data?: any): void {
+    this.appendFromGridData = data;
     const bsModalRef = this.createAppendFromGridModal();
     if (!bsModalRef) {
       if (isDevMode()) {
@@ -325,35 +349,34 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
         return;
       }
     }
-    bsModalRef.content.yes.subscribe(
-      (modal: IBaseEntityListModal<TModel>) => {
-        modal.processing = true;
-        const observables = [];
-        (modal.grid.getSelected() as TModel[]).forEach(slectedItem => {
-          const foundedGroup = this.mockedItems && this.mockedItems.find(item => item.id === slectedItem.id);
-          if (!foundedGroup) {
-            observables.push(this.repository.create(slectedItem));
-          }
-        });
-        if (observables.length) {
-          forkJoin(
-            ...observables
-          ).subscribe(
-            (modalItems: TModel[]) => {
-              modal.processing = false;
-              if (this.mockedItems) {
-                modalItems.forEach(modalItem =>
-                  this.mockedItems.unshift(modalItem)
-                );
-                this.mockedItemsChange.emit(this.mockedItems);
-              }
-              modal.hide();
-            },
-            error => this.onAppendFromGridError(modal, error)
-          );
-        } else {
-          modal.hide();
+    bsModalRef.content.yes.subscribe((modal: IBaseEntityListModal<TModel>) => {
+      modal.processing = true;
+      const observables = [];
+      (modal.grid.getSelected() as TModel[]).forEach(slectedItem => {
+        const foundedGroup =
+          this.mockedItems &&
+          this.mockedItems.find(item => item.id === slectedItem.id);
+        if (!foundedGroup) {
+          observables.push(this.repository.create(slectedItem));
         }
       });
+      if (observables.length) {
+        forkJoin(...observables).subscribe(
+          (modalItems: TModel[]) => {
+            modal.processing = false;
+            if (this.mockedItems) {
+              modalItems.forEach(modalItem =>
+                this.mockedItems.unshift(modalItem)
+              );
+              this.mockedItemsChange.emit(this.mockedItems);
+            }
+            modal.hide();
+          },
+          error => this.onAppendFromGridError(modal, error)
+        );
+      } else {
+        modal.hide();
+      }
+    });
   }
 }

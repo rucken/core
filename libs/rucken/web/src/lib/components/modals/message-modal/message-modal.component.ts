@@ -9,15 +9,12 @@ import { BasePromptModalComponent } from '../../base/base-prompt-modal.component
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MessageModalComponent extends BasePromptModalComponent {
-
   @Input()
   isInfo?: boolean;
   @Input()
   isError?: boolean;
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
+  constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
   }
 }

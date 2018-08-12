@@ -1,7 +1,11 @@
 <div class="container-fluid">
     <h3 class="page-header">
-        <span *ngIf="activatedRoute.parent.parent.data | async as parentData">{{ parentData?.title | translate}}:</span>
-        <span *ngIf="activatedRoute.data | async as data">{{ data?.title | translate}}</span>
+        <span
+            class="ident"
+            *ngIf="activatedRoute.parent.parent.data | async as parentData">
+            {{ parentData?.meta.title | translate}}:
+        </span>
+        <span *ngIf="activatedRoute.data | async as data">{{ data?.meta.title | translate}}</span>
     </h3>
     <profile-panel
         [yesTitle]="'Update'|translate"

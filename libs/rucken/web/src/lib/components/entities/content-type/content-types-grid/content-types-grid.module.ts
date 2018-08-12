@@ -5,19 +5,9 @@ import { ContentTypeModalModule } from '../content-type-modal/content-type-modal
 import { ContentTypesGridComponent } from './content-types-grid.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntityGridModule,
-    ContentTypeModalModule
-  ],
-  declarations: [
-    ContentTypesGridComponent
-  ],
-  exports: [
-    ContentTypesGridComponent,
-    EntityGridModule,
-    ContentTypeModalModule
-  ]
+  imports: [CommonModule, EntityGridModule, ContentTypeModalModule],
+  declarations: [ContentTypesGridComponent],
+  exports: [ContentTypesGridComponent, EntityGridModule, ContentTypeModalModule]
 })
 export class ContentTypesGridModule {
   static forRoot(): ModuleWithProviders {

@@ -10,15 +10,18 @@
         (no)="onNoClick()"
         (yes)="onYesClick()"
         [data]="data"
-        [processing]="processing$ | async">
+        [processing]="processing$ | async"
+        [leftFooterButtonsTemplate]="(signOutType!==type && !readonly)?leftFooterButtonsTemplate:null"
+        [footerButtonsTemplate]="(signOutType!==type && !readonly)?socialFooterButtonsTemplate:null"
+        #promptFormMmodal>
         <form-group
             [checkIsDirty]="checkIsDirty"
             [form]="form"
-            name="username"
-            [title]="strings.username">
+            name="email"
+            [title]="strings.email">
             <input
                 autocomplete="on"
-                formControlName="username"
+                formControlName="email"
                 focused>
         </form-group>
         <form-group
@@ -30,5 +33,77 @@
                 formControlName="password"
                 type="password">
         </form-group>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="rePassword"
+            [title]="strings.rePassword"
+            *ngIf="signUpType===type">
+            <input
+                formControlName="rePassword"
+                type="password">
+        </form-group>
     </prompt-form-modal>
 </form>
+<ng-template #leftFooterButtonsTemplate>
+    <a
+        class="btn btn-link"
+        (click)="onExtClick($event)">
+        {{extTitle | translate}}
+    </a>
+</ng-template>
+<ng-template #socialFooterButtonsTemplate>
+    <div
+        class="btn-group"
+        dropdown>
+        <button
+            type="submit"
+            [ngClass]="promptFormMmodal.yesClass"
+            (click)="promptFormMmodal.onYesClick($event)"
+            [disabled]="promptFormMmodal.processing || promptFormMmodal.disabled"
+            *ngIf="!promptFormMmodal.hideYes"
+            [focused]="promptFormMmodal.message || (!promptFormMmodal.message && promptFormMmodal.focused)">
+            <fa-layers
+                class="fa-fw"
+                *ngIf="promptFormMmodal.processing">
+                <fa-icon
+                    [icon]="['fas', 'spinner']"
+                    [pulse]="true"></fa-icon>
+            </fa-layers>
+            {{promptFormMmodal.yesTitle | translate}}
+        </button>
+        <button
+            id="button-split"
+            type="button"
+            dropdownToggle
+            [ngClass]="promptFormMmodal.yesClass"
+            [disabled]="promptFormMmodal.processing || promptFormMmodal.disabled"
+            class="dropdown-toggle dropdown-toggle-split"
+            aria-controls="dropdown-split">
+            <span class="caret"></span>
+            <span
+                class="sr-only"
+                translate>
+                Split button!
+            </span>
+        </button>
+        <ul
+            id="dropdown-split"
+            *dropdownMenu
+            class="dropdown-menu dropdown-menu-right"
+            role="menu"
+            aria-labelledby="button-split">
+            <li
+                role="menuitem"
+                *ngFor="let oauthProvider of oauthProviders$ | async as oauthProviders">
+                <a
+                    href="javascript:void(0)"
+                    class="dropdown-item"
+                    (click)="onOauthYesClick(oauthProvider)">
+                    <fa-icon [icon]="oauthProvider.icon"></fa-icon>
+                    {{oauthProvider.signInTitle|translate}}
+                </a>
+            </li>
+        </ul>
+    </div>
+</ng-template>

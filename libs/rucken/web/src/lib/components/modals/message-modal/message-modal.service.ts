@@ -10,18 +10,20 @@ import { MessageModalComponent } from './message-modal.component';
 
 @Injectable()
 export class MessageModalService {
-
   private _onTopIsActive = false;
 
   constructor(
+    @Inject(PLATFORM_ID) private _platformId: Object,
     private _translateService: TranslateService,
     private _modalService: BsModalService,
-    private _errorsExtractor: ErrorsExtractor,
-    @Inject(PLATFORM_ID) private _platformId: Object
-  ) {
-
-  }
-  info(options: { message: string | any, title?: string, class?: string, onTop?: boolean }) {
+    private _errorsExtractor: ErrorsExtractor
+  ) {}
+  info(options: {
+    message: string | any;
+    title?: string;
+    class?: string;
+    onTop?: boolean;
+  }) {
     if (this._onTopIsActive) {
       return of(false);
     }
@@ -37,32 +39,38 @@ export class MessageModalService {
         options.class = this.getKlassOfMessageLength(message);
       }
       this._onTopIsActive = options.onTop;
-      const bsModalRef: BsModalRef = this._modalService.show(MessageModalComponent, {
-        class: options.class,
-        ignoreBackdropClick: options.onTop === true,
-        keyboard: !(options.onTop === true),
-        initialState: {
-          title: options.title,
-          message: message,
-          isInfo: true,
-          yesTitle: this._translateService.instant('OK')
+      const bsModalRef: BsModalRef = this._modalService.show(
+        MessageModalComponent,
+        {
+          class: options.class,
+          ignoreBackdropClick: options.onTop === true,
+          keyboard: !(options.onTop === true),
+          initialState: {
+            title: options.title,
+            message: message,
+            isInfo: true,
+            yesTitle: this._translateService.instant('OK')
+          }
         }
+      );
+      bsModalRef.content.yes.subscribe((modal: MessageModalComponent) => {
+        modal.hide();
+        observe.next(true);
+        this._onTopIsActive = false;
       });
-      bsModalRef.content.yes.subscribe(
-        (modal: MessageModalComponent) => {
-          modal.hide();
-          observe.next(true);
-          this._onTopIsActive = false;
-        });
-      bsModalRef.content.no.subscribe(
-        (modal: MessageModalComponent) => {
-          modal.hide();
-          observe.next(false);
-          this._onTopIsActive = false;
-        });
+      bsModalRef.content.no.subscribe((modal: MessageModalComponent) => {
+        modal.hide();
+        observe.next(false);
+        this._onTopIsActive = false;
+      });
     }).pipe(first());
   }
-  error(options: { error: string | any, title?: string, class?: string, onTop?: boolean }) {
+  error(options: {
+    error: string | any;
+    title?: string;
+    class?: string;
+    onTop?: boolean;
+  }) {
     if (this._onTopIsActive) {
       return of(false);
     }
@@ -79,37 +87,38 @@ export class MessageModalService {
         options.class = this.getKlassOfMessageLength(message);
       }
       this._onTopIsActive = options.onTop;
-      const bsModalRef: BsModalRef = this._modalService.show(MessageModalComponent, {
-        class: options.class,
-        ignoreBackdropClick: options.onTop === true,
-        keyboard: !(options.onTop === true),
-        initialState: {
-          title: options.title,
-          message: message,
-          isError: true,
-          yesTitle: this._translateService.instant('OK')
+      const bsModalRef: BsModalRef = this._modalService.show(
+        MessageModalComponent,
+        {
+          class: options.class,
+          ignoreBackdropClick: options.onTop === true,
+          keyboard: !(options.onTop === true),
+          initialState: {
+            title: options.title,
+            message: message,
+            isError: true,
+            yesTitle: this._translateService.instant('OK')
+          }
         }
+      );
+      bsModalRef.content.yes.subscribe((modal: MessageModalComponent) => {
+        modal.hide();
+        observe.next(true);
+        this._onTopIsActive = false;
       });
-      bsModalRef.content.yes.subscribe(
-        (modal: MessageModalComponent) => {
-          modal.hide();
-          observe.next(true);
-          this._onTopIsActive = false;
-        });
-      bsModalRef.content.no.subscribe(
-        (modal: MessageModalComponent) => {
-          modal.hide();
-          observe.next(false);
-          this._onTopIsActive = false;
-        });
+      bsModalRef.content.no.subscribe((modal: MessageModalComponent) => {
+        modal.hide();
+        observe.next(false);
+        this._onTopIsActive = false;
+      });
     }).pipe(first());
   }
   private getKlassOfMessageLength(message: string) {
-    return (message && message.length > 150) ? 'modal-md' : 'modal-sm';
+    return message && message.length > 150 ? 'modal-md' : 'modal-sm';
   }
   private onErrorInConsole(error: any, message?: string): void {
     if (error && console && console.group && console.error) {
-      console.group(this._translateService.instant(('Error Log')));
+      console.group(this._translateService.instant('Error Log'));
       if (message) {
         console.error(message);
       }

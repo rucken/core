@@ -1,10 +1,10 @@
 <navbar
     [title]="title"
     [routes]="routes"
-    [showLogin]="!(accountService.current$ | async)"
-    [showLogout]="accountService.current$ | async"
-    (login)="onLogin()"
-    (logout)="onLogout()"
+    [showSignIn]="!(authService?.current$ | async)"
+    [showSignOut]="authService?.current$ | async"
+    (signIn)="onSignIn()"
+    (signOut)="onSignOut()"
     [languages]="langService.languages"
     [(currentLang)]="langService.current"></navbar>
 <router-outlet></router-outlet>

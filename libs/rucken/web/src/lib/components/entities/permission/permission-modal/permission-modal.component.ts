@@ -8,14 +8,13 @@ import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-mod
   templateUrl: './permission-modal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PermissionModalComponent extends BasePromptFormModalComponent<Permission> {
-
+export class PermissionModalComponent extends BasePromptFormModalComponent<
+  Permission
+> {
   @Input()
   apiUrl?: string;
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
+  constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
     this.group(Permission);
   }

@@ -5,13 +5,8 @@ import { HomePageComponent } from './home-page.component';
 import { HomePageRoutes } from './home-page.routes';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    RouterModule.forChild(HomePageRoutes)
-  ],
-  declarations: [
-    HomePageComponent
-  ]
+  imports: [SharedModule, RouterModule.forChild(HomePageRoutes)],
+  declarations: [HomePageComponent]
 })
 export class HomePageModule {
   static forRoot(): ModuleWithProviders {

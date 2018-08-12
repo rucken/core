@@ -7,7 +7,6 @@ import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
 
 export class BasePromptFormModalComponent<TModel extends IModel> {
-
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -38,6 +37,8 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
   hideYes = false;
   @Input()
   readonly = false;
+  @Input()
+  validateForm = true;
 
   @Input()
   hideOnNo = true;
@@ -56,6 +57,8 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
   form: DynamicFormGroup<TModel>;
   strings: any;
   formBuilder = new DynamicFormBuilder();
+  yesData: any;
+  noData: any;
 
   constructor(
     protected bsModalRef?: BsModalRef,
@@ -68,11 +71,7 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
       customValidatorOptions?: ValidatorOptions;
     }
   ) {
-    this.group(
-      _factoryModel,
-      _controlsConfig,
-      _extra
-    );
+    this.group(_factoryModel, _controlsConfig, _extra);
   }
   group(
     factoryModel?: IFactoryModel<TModel>,
@@ -106,13 +105,18 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
       if (!controlsConfig) {
         controlsConfig = {};
         const keys = Object.keys(newObject);
-        keys.map(key => controlsConfig[key] = '');
+        keys.map(key => (controlsConfig[key] = ''));
       }
-      this.form = this.formBuilder.group(this._factoryModel, controlsConfig, extra);
+      this.form = this.formBuilder.group(
+        this._factoryModel,
+        controlsConfig,
+        extra
+      );
     }
   }
-  onYesClick(): void {
-    if (!this.message) {
+  onYesClick(data?: any): void {
+    this.yesData = data;
+    if (!this.message && this.validateForm) {
       this.form.externalErrors = undefined;
       if (this.form.valid) {
         this.yes.emit(this);
@@ -130,7 +134,8 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
       }
     }
   }
-  onNoClick(): void {
+  onNoClick(data?: any): void {
+    this.noData = data;
     this.no.emit(this);
     if (this.hideOnNo && this.bsModalRef) {
       this.hide();

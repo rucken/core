@@ -9,16 +9,15 @@ import { BasePromptFormModalComponent } from '../../base/base-prompt-form-modal.
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EntityModalComponent extends BasePromptFormModalComponent<any> {
-
   public ignoredFields = ['id'];
   public keys: string[] = [];
 
   set form(form: DynamicFormGroup<any>) {
-    this.keys = form.controls ? Object.keys(form.controls).filter(key =>
-      this.ignoredFields.indexOf(
-        key.toLowerCase()
-      ) === -1
-    ) : [];
+    this.keys = form.controls
+      ? Object.keys(form.controls).filter(
+          key => this.ignoredFields.indexOf(key.toLowerCase()) === -1
+        )
+      : [];
     this._form = form;
   }
   get form() {
@@ -27,9 +26,7 @@ export class EntityModalComponent extends BasePromptFormModalComponent<any> {
 
   private _form: DynamicFormGroup<any>;
 
-  constructor(
-    protected bsModalRef: BsModalRef
-  ) {
+  constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
   }
 }

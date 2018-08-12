@@ -9,6 +9,7 @@ import { MessageModalModule } from '../../../modals/message-modal/message-modal.
 import { FormGroupModule } from '../../../others/form-group/form-group.module';
 import { UserGroupsGridModule } from '../user-groups-grid/user-groups-grid.module';
 import { ProfilePanelComponent } from './profile-panel.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -21,14 +22,11 @@ import { ProfilePanelComponent } from './profile-panel.component';
     BsDatepickerModule,
     UserGroupsGridModule,
     DirectivesModule,
-    PipesModule
+    PipesModule,
+    FontAwesomeModule
   ],
-  declarations: [
-    ProfilePanelComponent
-  ],
-  exports: [
-    ProfilePanelComponent
-  ]
+  declarations: [ProfilePanelComponent],
+  exports: [ProfilePanelComponent]
 })
 export class ProfilePanelModule {
   static forRoot(): ModuleWithProviders {

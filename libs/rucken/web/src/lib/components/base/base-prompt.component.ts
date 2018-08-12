@@ -3,7 +3,6 @@ import { translate } from '@rucken/core';
 import { BehaviorSubject } from 'rxjs';
 
 export class BasePromptComponent {
-
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -37,13 +36,18 @@ export class BasePromptComponent {
   @Input()
   readonly = false;
 
-  onYesClick(): void {
+  yesData: any;
+  noData: any;
+
+  onYesClick(data?: any): void {
+    this.yesData = data;
     if (isDevMode() && this.yes.observers.length === 0) {
       console.warn('No subscribers found for "yes"', this);
     }
     this.yes.emit(this);
   }
-  onNoClick(): void {
+  onNoClick(data?: any): void {
+    this.noData = data;
     if (isDevMode() && this.no.observers.length === 0) {
       console.warn('No subscribers found for "no"', this);
     }

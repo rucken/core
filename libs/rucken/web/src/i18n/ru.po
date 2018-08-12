@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.1.1\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -73,17 +73,47 @@ msgstr "Вы действительно хотите удалить группу
 msgid "Select groups for append to user"
 msgstr "Выберите группы для добавления пользователю"
 
-msgid "Username/Email"
-msgstr "Имя пользователя/ Эл. почта"
+msgid "Sign in"
+msgstr "Войти"
+
+msgid "Authorization"
+msgstr "Авторизация"
+
+msgid "Sign up"
+msgstr "Зарегистрироваться"
+
+msgid "Registration"
+msgstr "Регистрация"
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "Sign out"
+msgstr "Выйти"
+
+msgid "Do you really want to leave?"
+msgstr "Вы действительно хотите выйти?"
+
+msgid "Email"
+msgstr "Эл. почта"
 
 msgid "Password"
 msgstr "Пароль"
+
+msgid "Confirm password"
+msgstr "Пароль еще раз"
 
 msgid "Info"
 msgstr "Информация"
 
 msgid "Error"
 msgstr "Ошибка"
+
+msgid "Error Log"
+msgstr "Ошибка"
+
+msgid "Split button!"
+msgstr "Разделитель"
 
 msgid "No data"
 msgstr "Нет данных"
@@ -100,11 +130,8 @@ msgstr "Язык"
 msgid "Menu"
 msgstr "Меню"
 
-msgid "Logout"
-msgstr "Выйти"
-
-msgid "Login"
-msgstr "Вход"
+#~ msgid "Username/Email"
+#~ msgstr "Имя пользователя/ Эл. почта"
 
 #~ msgid "Filter"
 #~ msgstr "Фильтр"
