@@ -30,12 +30,15 @@ npm run start:prod
 
 ## Quick links
 
-[Live demo](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: https://rucken-core-nestjs.now.sh).
+[Live demo: master (SPA on GhPages)](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: https://rucken-core-nestjs.now.sh ).
 
-[Live demo (SSR)](https://rucken.herokuapp.com) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: https://rucken-core-nestjs.now.sh).
+[Live demo: master (SSR on Heroku)](https://rucken.herokuapp.com) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: https://rucken-core-nestjs.now.sh ).
 
-[Live demo (NestJS)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
+[Live demo: develop (SSR on Now)](https://rucken.now.sh ) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: https://rucken-core-nestjs.now.sh ).
 
+[Live demo: master (NestJS on Heroku)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
+
+[Live demo: develop (NestJS on Now)](https://rucken-core-nestjs.now.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
 ## License
 
