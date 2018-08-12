@@ -10,6 +10,12 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+msgid "Rucken: Demo"
+msgstr ""
+
+msgid "Core with Admin UI for web and native application maked on Angular6+"
+msgstr ""
+
 msgid "Russian"
 msgstr ""
 
@@ -83,12 +89,6 @@ msgid "Update"
 msgstr ""
 
 msgid "Close"
-msgstr ""
-
-msgid "Rucken: Demo"
-msgstr ""
-
-msgid "Core with Admin UI for web and native application maked on Angular6+"
 msgstr ""
 
 msgid "Sign out"
