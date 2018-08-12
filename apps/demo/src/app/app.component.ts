@@ -119,7 +119,7 @@ export class AppComponent implements OnDestroy {
   }
   onSignIn() {
     const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
-      class: 'modal-400',
+      class: 'modal-xs',
       initialState: {
         type: AuthModalTypeEnum.SignIn,
         data: {}
