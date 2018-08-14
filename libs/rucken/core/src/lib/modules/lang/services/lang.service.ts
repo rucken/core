@@ -51,9 +51,6 @@ export class LangService {
       );
       this._translateService.setTranslation(lang.code, translations);
     });
-    this._translateService.onLangChange.subscribe(event => {
-      this.current = event.lang;
-    });
     this.current = this.current;
   }
 }
