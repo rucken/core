@@ -1,4 +1,4 @@
-import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { isPlatformBrowser, DOCUMENT, isPlatformServer } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -72,6 +72,17 @@ export class AppComponent implements OnDestroy {
             this.onInfo();
           }
         });
+    }
+    if (isPlatformServer(this._platformId)) {
+      const lang = this.langService.current;
+      this._bsLocaleService.use(lang);
+      this._metaService.setTag(
+        'og:locale',
+        lang.toLowerCase() + '-' + lang.toUpperCase()
+      );
+      this.title = this._translateService.instant(
+        this._metaService.loader.settings.applicationName
+      );
     }
   }
   ngOnDestroy() {
