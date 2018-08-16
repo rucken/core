@@ -38,7 +38,10 @@ export class EntitySelectComponent implements AfterViewInit {
       this.searchField.setValue('');
     }
     this.searchField.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged())
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
       .subscribe(value => this.onSearch(value));
   }
 }

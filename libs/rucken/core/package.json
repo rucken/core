@@ -34,17 +34,17 @@
     }
   ],
   "peerDependencies": {
-    "rxjs": "^6.0.0",
-    "@angular/forms": "^6.0.7",
-    "@angular/common": "^6.0.7",
-    "@angular/compiler": "^6.0.7",
-    "@angular/core": "^6.0.7"
+    "rxjs": "^6.2.2",
+    "@angular/forms": "^6.1.3",
+    "@angular/common": "^6.1.3",
+    "@angular/compiler": "^6.1.3",
+    "@angular/core": "^6.1.3"
   },
   "dependencies": {
     "@ngx-translate/core": "^10.0.2",
     "@types/jsonwebtoken": "^7.2.8",
     "jsonwebtoken": "^8.3.0",
-    "ngx-permissions": "^5.0.0",
+    "ngx-permissions": "^6.0.1",
     "ngx-repository": "^0.4.1"
   }
 }
