@@ -53,6 +53,7 @@ app.use(cookieparser());
 const redirectowww = false;
 const redirectohttps = true;
 const wwwredirecto = true;
+
 app.use((req, res, next) => {
   // for domain/index.html
   if (req.url === '/index.html') {
@@ -82,8 +83,7 @@ app.use((req, res, next) => {
   }
 
   next();
-}
-);
+});
 
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,
@@ -98,7 +98,7 @@ app.set('views', path.join(__dirname, '.', 'apps', 'demo', 'src'));
 app.get('*.*', express.static(path.join(__dirname, '.', 'dist', 'demo')));
 // app.get(ROUTES, express.static(path.join(__dirname, '.', 'static')));
 
-app.get('*', (req, res) => {
+function ngApp(req, res) {
   global['navigator'] = req['headers']['user-agent'];
   const http = req.headers['x-forwarded-proto'] === undefined ? 'http' : req.headers['x-forwarded-proto'];
 
@@ -128,8 +128,11 @@ app.get('*', (req, res) => {
       // tslint:disable-next-line:no-console
       console.timeEnd(`GET: ${req.originalUrl}`);
       res.send(html);
-    });
-});
+    }
+  );
+}
+
+app.get('*', ngApp);
 
 app.listen(PORT, () => {
   console.log(`listening on http://localhost:${PORT}!`);

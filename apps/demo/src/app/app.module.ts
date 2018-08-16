@@ -14,11 +14,7 @@ import {
   UsersConfig,
   AuthModule
 } from '@rucken/core';
-import {
-  AuthModalModule,
-  NavbarModule,
-  ThemesModule
-} from '@rucken/web';
+import { AuthModalModule, NavbarModule, ThemesModule } from '@rucken/web';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
@@ -29,8 +25,15 @@ import { AppRoutes } from './app.routes';
 import { SharedModule } from './shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MetaModule, MetaLoader } from '@ngx-meta/core';
-import { OauthProviders, AppLangs, OauthRoutes, OauthModalProviders, appMetaFactory } from './app.config';
+import {
+  OauthProviders,
+  AppLangs,
+  AllRoutes,
+  OauthModalProviders,
+  appMetaFactory
+} from './app.config';
 import { TranslateService } from '@ngx-translate/core';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -53,7 +56,7 @@ import { TranslateService } from '@ngx-translate/core';
       languages: AppLangs
     }),
     ThemesModule.forRoot(),
-    RouterModule.forRoot([...OauthRoutes, ...AppRoutes], {
+    RouterModule.forRoot(AllRoutes, {
       preloadingStrategy: PreloadAllModules,
       initialNavigation: 'enabled'
     }),
@@ -84,4 +87,4 @@ import { TranslateService } from '@ngx-translate/core';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
