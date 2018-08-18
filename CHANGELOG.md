@@ -1,3 +1,15 @@
+<a name="3.1.1"></a>
+## [3.1.1](https://github.com/rucken/core/compare/3.1.0...3.1.1) (2018-08-18)
+
+
+### Bug Fixes
+
+* **lang:** Disable force update current language onLangChange ([4854335](https://github.com/rucken/core/commit/4854335))
+* Add detect empty options on ThemesModule.forRoot ([3a59ed9](https://github.com/rucken/core/commit/3a59ed9))
+* Update dependencies versions ([2382e38](https://github.com/rucken/core/commit/2382e38))
+
+
+
 <a name="3.1.0"></a>
 # [3.1.0](https://github.com/rucken/core/compare/3.0.2...3.1.0) (2018-08-12)
 
