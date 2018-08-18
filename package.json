@@ -54,7 +54,7 @@
     "start:dev": "run-s prepare:mono serve:dev",
     "build": "run-s clean format config:mono app:build ssr:build",
     "build:dev": "run-s clean format config:mono app:build:dev ssr:build:dev",
-    "test": "npm-s github:build ssr:build",
+    "test": "run-s github:build ssr:build",
     "lint": "ng lint",
     "clean": "./node_modules/.bin/del-cli dist",
     "format": "prettier --write \"{apps,libs}/**/*.ts\"",
