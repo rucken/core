@@ -1,6 +1,7 @@
 export * from './app.browser.module';
 export * from './app.component.spec';
 export * from './app.component';
+export * from './app.config';
 export * from './app.module';
 export * from './app.routes';
 export * from './components/pages/account-page/account-page.children-routes';

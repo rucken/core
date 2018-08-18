@@ -178,7 +178,10 @@ export class EntityGridComponent<TModel extends IModel> {
 
   constructor(private _viewContainerRef: ViewContainerRef) {
     this.searchField.valueChanges
-      .pipe(debounceTime(400), distinctUntilChanged())
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
       .subscribe(value => this.onSearch(value));
   }
   get isEnableAppendFromGrid() {

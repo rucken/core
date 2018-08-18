@@ -16,6 +16,12 @@ msgstr ""
 msgid "English"
 msgstr ""
 
+msgid "Rucken: Demo"
+msgstr ""
+
+msgid "Core with Admin UI for web and native application maked on Angular6+"
+msgstr ""
+
 msgid "Sign in with Facebook"
 msgstr ""
 
@@ -83,12 +89,6 @@ msgid "Update"
 msgstr ""
 
 msgid "Close"
-msgstr ""
-
-msgid "Rucken: Demo"
-msgstr ""
-
-msgid "Core with Admin UI for web and native application maked on Angular6+"
 msgstr ""
 
 msgid "Sign out"

@@ -11,8 +11,7 @@ export const HomePageRoutes = [
       name: 'home',
       visible: false,
       meta: {
-        title: translate('Home'),
-        override: true
+        title: translate('Home')
       }
     }
   }
