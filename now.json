@@ -5,9 +5,7 @@
         "rucken-material.now.sh",
         "rucken-material-todo.now.sh",
         "rucken-ionic.now.sh",
-        "rucken-ionic-todo.now.sh",
-        "rucken-nestjs.now.sh",
-        "rucken-todo-nestjs.now.sh"
+        "rucken-ionic-todo.now.sh"
     ],
     "env": {
         "DEBUG": "@debug"
