@@ -40,7 +40,7 @@ npm run start:prod
 
 [Live demo: master (NestJS on Heroku)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
-[Live demo: develop (NestJS on Now)](https://rucken-core-nestjs.now.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
+[Live demo: develop (NestJS on Now)](https://rucken-core-nestjs.now.sh) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
 ## License
 
