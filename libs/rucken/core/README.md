@@ -22,13 +22,15 @@ npm run start:prod
 ## Usage with cli
 ```
 npm install -g @rucken/cli
-rucken new my-app
+rucken new:angular my-app
 cd my-app
 npm install
 npm run start:prod
 ```
 
 ## Quick links
+
+[@rucken/cli](https://github.com/rucken/cli) - Console tools for create and build [Angular6+](https://angular.io/) and [NestJS](https://nestjs.com/) application based on [Rucken](https://github.com/rucken) template
 
 [Live demo: master (SPA on GhPages)](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: https://rucken-core-nestjs.now.sh ).
 
@@ -38,7 +40,7 @@ npm run start:prod
 
 [Live demo: master (NestJS on Heroku)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
-[Live demo: develop (NestJS on Now)](https://rucken-core-nestjs.now.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
+[Live demo: develop (NestJS on Now)](https://rucken-core-nestjs.now.sh) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
 ## License
 

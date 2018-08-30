@@ -1,3 +1,13 @@
+<a name="3.1.2"></a>
+## [3.1.2](https://github.com/rucken/core/compare/3.1.1...3.1.2) (2018-08-30)
+
+
+### Bug Fixes
+
+* Update [@rucken](https://github.com/rucken)/cli version ([869fd7f](https://github.com/rucken/core/commit/869fd7f))
+
+
+
 <a name="3.1.1"></a>
 ## [3.1.1](https://github.com/rucken/core/compare/3.1.0...3.1.1) (2018-08-18)
 
