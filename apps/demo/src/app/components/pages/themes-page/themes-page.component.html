@@ -4,7 +4,7 @@
             <ul class="nav nav-sidebar">
                 <li
                     [ngClass]="{'active': themesService.current===theme.url}"
-                    *ngFor="let theme of themesService.repository.items$ | async">
+                    *ngFor="let theme of items$ | async">
                     <a
                         (click)="themesService.current=theme.url"
                         href="javascript:void(0)">

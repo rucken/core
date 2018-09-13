@@ -1,6 +1,6 @@
 <entity-grid
     title="Groups"
-    [items]="repository.items$ | async"
+    [items]="items$ | async"
     (selected)="onSelected($event)"
     [columnsClasses]="{title:'width-150'}"
     [columns]="['title', 'permissions', 'action']"
@@ -11,7 +11,7 @@
     (delete)="onDeleteClick($event)"
     (view)="onViewClick($event)"
     (search)="onChangeFilter({searchText:$event})"
-    [paginationMeta]="repository.paginationMeta$ | async"
+    [paginationMeta]="paginationMeta$ | async"
     [enableCreate]="'add_group' | perm:false | async"
     [enableUpdate]="'change_group' | perm:false | async"
     [enableDelete]="'delete_group' | perm:false | async"

@@ -46,7 +46,7 @@
                     [typeaheadLatinize]="false"
                     [typeaheadMinLength]="0"
                     [typeaheadOptionField]="contentTypeSelect.nameField"
-                    [typeahead]="contentTypeSelect.repository.items$"
+                    [typeahead]="contentTypeSelect.items$"
                     (typeaheadOnSelect)="contentTypeSelect.checkChange(form.get('contentType').value,$event?.item)?form.get('contentType').setValue($event.item):null"
                     [readonly]="readonly">
             </content-type-select>

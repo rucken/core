@@ -1,9 +1,9 @@
 import { EventEmitter, Input, Output, isDevMode } from '@angular/core';
 import { ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { IFactoryModel, IModel, Repository } from 'ngx-repository';
-import { forkJoin } from 'rxjs';
-import { first } from 'rxjs/operators';
+import { IFactoryModel, IModel, Repository, PaginationMeta, IPaginationMeta } from 'ngx-repository';
+import { forkJoin, Observable } from 'rxjs';
+import { first, map } from 'rxjs/operators';
 import { IBaseEntityListModal } from '../base/base-entity-list-modal.interface';
 import { MessageModalService } from '../modals/message-modal/message-modal.service';
 import { IEntityGridFilter } from '../others/entity-grid/entity-grid-filter.interface';
@@ -43,6 +43,8 @@ export class BaseEntityListComponent<TModel extends IModel>
   @Input()
   filter: IEntityGridFilter = { searchText: '', sort: '-id' };
 
+  paginationMeta$: Observable<IPaginationMeta>;
+  items$: Observable<TModel[]>;
   createData: any;
   appendFromGridData: any;
 

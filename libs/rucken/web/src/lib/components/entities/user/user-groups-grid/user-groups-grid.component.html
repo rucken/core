@@ -1,6 +1,6 @@
 <entity-grid
     [title]="title"
-    [items]="repository.items$ | async"
+    [items]="items$ | async"
     [columnsClasses]="{title:'width-150'}"
     (selected)="onSelected($event)"
     [readonly]="readonly"
@@ -9,7 +9,7 @@
     (delete)="onDeleteClick($event)"
     (appendFromGrid)="onAppendFromGridClick($event)"
     (view)="onViewClick($event)"
-    [paginationMeta]="repository.paginationMeta$ | async"
+    [paginationMeta]="paginationMeta$ | async"
     [enableAppendFromGrid]="'change_user' | perm:false | async"
     [enableUpdate]="false"
     [enableDelete]="'change_user' | perm:false | async"

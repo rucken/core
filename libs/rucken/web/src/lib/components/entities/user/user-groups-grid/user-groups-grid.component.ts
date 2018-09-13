@@ -73,6 +73,8 @@ export class UserGroupsGridComponent extends GroupsGridComponent
         }
       });
     }
+    this.items$ = this.repository.items$;
+    this.paginationMeta$ = this.repository.paginationMeta$;
   }
   createDeleteModal(item: Group): BsModalRef {
     return this.modalService.show(GroupModalComponent, {

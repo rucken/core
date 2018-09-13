@@ -37,6 +37,8 @@ export class GroupsGridComponent extends BaseEntityListComponent<Group>
         ...this.groupsConfig
       });
     }
+    this.items$ = this.repository.items$;
+    this.paginationMeta$ = this.repository.paginationMeta$;
   }
   createDeleteModal(item: Group): BsModalRef {
     return this.modalService.show(GroupModalComponent, {

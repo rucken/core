@@ -47,6 +47,8 @@ export class ContentTypesGridComponent
         ...this.contentTypesConfig
       });
     }
+    this.items$ = this.repository.items$;
+    this.paginationMeta$ = this.repository.paginationMeta$;
   }
   createDeleteModal(item: ContentType): BsModalRef {
     return this.modalService.show(ContentTypeModalComponent, {

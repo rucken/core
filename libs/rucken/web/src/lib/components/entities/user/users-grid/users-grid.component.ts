@@ -37,6 +37,8 @@ export class UsersGridComponent extends BaseEntityListComponent<User>
         ...this.usersConfig
       });
     }
+    this.items$ = this.repository.items$;
+    this.paginationMeta$ = this.repository.paginationMeta$;
   }
   createDeleteModal(item: User): BsModalRef {
     return this.modalService.show(UserModalComponent, {

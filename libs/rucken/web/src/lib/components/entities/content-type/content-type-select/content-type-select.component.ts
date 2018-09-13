@@ -55,6 +55,8 @@ export class ContentTypeSelectComponent extends ContentTypesGridComponent
         ...this.contentTypesConfig
       });
     }
+    this.items$ = this.repository.items$;
+    this.paginationMeta$ = this.repository.paginationMeta$;
   }
   checkChange(value: any, item: any) {
     return item instanceof ContentType;

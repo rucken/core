@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ThemesService } from '@rucken/web';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Theme, ThemesService } from '@rucken/web';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'themes-page',
@@ -7,5 +8,8 @@ import { ThemesService } from '@rucken/web';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ThemesPageComponent {
-  constructor(public themesService: ThemesService) {}
+  items$: Observable<Theme[]>;
+  constructor(public themesService: ThemesService) {
+    this.items$ = themesService.repository.items$;
+  }
 }

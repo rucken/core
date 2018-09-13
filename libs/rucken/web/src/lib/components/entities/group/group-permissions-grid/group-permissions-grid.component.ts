@@ -73,6 +73,8 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent
         }
       });
     }
+    this.items$ = this.repository.items$;
+    this.paginationMeta$ = this.repository.paginationMeta$;
   }
   createDeleteModal(item: Permission): BsModalRef {
     return this.modalService.show(PermissionModalComponent, {

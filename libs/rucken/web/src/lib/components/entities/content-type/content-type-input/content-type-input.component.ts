@@ -51,6 +51,8 @@ export class ContentTypeInputComponent extends ContentTypesGridComponent
       items: this.mockedItems,
       ...this.contentTypesConfig
     });
+    this.items$ = this.repository.items$;
+    this.paginationMeta$ = this.repository.paginationMeta$;
     this.mockedItemsChange.subscribe(items => this.onSelect(items[0]));
   }
   createAppendFromGridModal(): BsModalRef {
