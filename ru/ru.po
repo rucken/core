@@ -7,133 +7,112 @@ msgstr ""
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: rucken-core\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File: /develop/libs/rucken/core/src/i18n/template.pot\n"
+"X-Crowdin-File: /develop/apps/demo/src/app/i18n/template.pot\n"
 "Project-Id-Version: rucken-core\n"
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-09-13 04:06\n"
+"PO-Revision-Date: 2018-09-13 04:10\n"
 
-msgid "Oauth provider with name \"{provider}\" not founded"
+msgid "Your session has expired, please re-login"
 msgstr ""
 
-msgid "Id"
+msgid "No"
 msgstr ""
 
-msgid "Name"
+msgid "Russian"
 msgstr ""
 
-msgid "Title"
+msgid "English"
 msgstr ""
 
-msgid "Add new content type"
+msgid "Rucken: Demo"
 msgstr ""
 
-msgid "Content type #{{id}}"
+msgid "Core with Admin UI for web and native application maked on Angular6+"
 msgstr ""
 
-msgid "Update content type #{{id}}"
+msgid "Sign in with Facebook"
 msgstr ""
 
-msgid "Delete content type #{{id}}"
+msgid "Sign in with Google+"
 msgstr ""
 
-msgid "Do you really want to delete content type?"
+msgid "Account"
 msgstr ""
 
-msgid "Permissions"
+msgid "Account page"
 msgstr ""
 
-msgid "Add new group"
+msgid "Profile"
 msgstr ""
 
-msgid "Group #{{id}}"
+msgid "Profile frame"
 msgstr ""
 
-msgid "Update group #{{id}}"
+msgid "Administration"
 msgstr ""
 
-msgid "Delete group #{{id}}"
+msgid "Administration page"
 msgstr ""
 
-msgid "Do you really want to delete group?"
+msgid "Content types"
 msgstr ""
 
-msgid "Content type"
+msgid "Content types frame"
 msgstr ""
 
-msgid "Add new permission"
+msgid "Entities"
 msgstr ""
 
-msgid "Permission #{{id}}"
-msgstr ""
-
-msgid "Update permission #{{id}}"
-msgstr ""
-
-msgid "Delete permission #{{id}}"
-msgstr ""
-
-msgid "Do you really want to delete permission?"
-msgstr ""
-
-msgid "Username"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Repeat password"
-msgstr ""
-
-msgid "Roles"
-msgstr ""
-
-msgid "Administrator"
-msgstr ""
-
-msgid "Staff"
-msgstr ""
-
-msgid "User"
-msgstr ""
-
-msgid "Full name"
-msgstr ""
-
-msgid "First name"
-msgstr ""
-
-msgid "Last name"
-msgstr ""
-
-msgid "Email"
-msgstr ""
-
-msgid "Last login"
-msgstr ""
-
-msgid "Date joined"
+msgid "Entities page"
 msgstr ""
 
 msgid "Groups"
 msgstr ""
 
-msgid "Date of birth"
+msgid "Groups frame"
 msgstr ""
 
-msgid "Add new user"
+msgid "Permissions"
 msgstr ""
 
-msgid "Update user #{{id}}"
+msgid "Permissions frame"
 msgstr ""
 
-msgid "Delete user #{{id}}"
+msgid "Users"
 msgstr ""
 
-msgid "Do you really want to delete user?"
+msgid "Users frame"
 msgstr ""
 
-msgid "$property must be equal to $constraint1"
+msgid "Home"
+msgstr ""
+
+msgid "Themes"
+msgstr ""
+
+msgid "Themes page"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Sign in"
 msgstr ""
 
