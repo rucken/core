@@ -12,107 +12,107 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-09-13 04:10\n"
+"PO-Revision-Date: 2018-09-13 04:21\n"
 
 msgid "Your session has expired, please re-login"
-msgstr ""
+msgstr "Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
 
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 msgid "Russian"
-msgstr ""
+msgstr "Русский"
 
 msgid "English"
-msgstr ""
+msgstr "Английский"
 
 msgid "Rucken: Demo"
-msgstr ""
+msgstr "Rucken: Демо"
 
 msgid "Core with Admin UI for web and native application maked on Angular6+"
-msgstr ""
+msgstr "Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular6 +"
 
 msgid "Sign in with Facebook"
-msgstr ""
+msgstr "Вход через Facebook"
 
 msgid "Sign in with Google+"
-msgstr ""
+msgstr "Вход через Google+"
 
 msgid "Account"
-msgstr ""
+msgstr "Личный кабинет"
 
 msgid "Account page"
-msgstr ""
+msgstr "Личный кабинет"
 
 msgid "Profile"
-msgstr ""
+msgstr "Профиль"
 
 msgid "Profile frame"
-msgstr ""
+msgstr "Страница профиля"
 
 msgid "Administration"
-msgstr ""
+msgstr "Администрирование"
 
 msgid "Administration page"
-msgstr ""
+msgstr "Страница администрирования"
 
 msgid "Content types"
-msgstr ""
+msgstr "Типы содержимого"
 
 msgid "Content types frame"
-msgstr ""
+msgstr "Страница типов содержимых"
 
 msgid "Entities"
-msgstr ""
+msgstr "Сущности"
 
 msgid "Entities page"
-msgstr ""
+msgstr "Страница сущностей"
 
 msgid "Groups"
-msgstr ""
+msgstr "Группы"
 
 msgid "Groups frame"
-msgstr ""
+msgstr "Страница групп"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Разрешения"
 
 msgid "Permissions frame"
-msgstr ""
+msgstr "Страница разрешений"
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 msgid "Users frame"
-msgstr ""
+msgstr "Страница пользователей"
 
 msgid "Home"
-msgstr ""
+msgstr "Домашняя страница"
 
 msgid "Themes"
-msgstr ""
+msgstr "Темы"
 
 msgid "Themes page"
-msgstr ""
+msgstr "Страница тем"
 
 msgid "Update"
-msgstr ""
+msgstr "Изменить"
 
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 msgid "Sign out"
-msgstr ""
+msgstr "Выйти"
 
 msgid "Do you really want to leave?"
-msgstr ""
+msgstr "Вы действительно хотите выйти?"
 
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 msgid "Authorization"
-msgstr ""
+msgstr "Авторизация"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Войти"
 
