@@ -7,112 +7,133 @@ msgstr ""
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: rucken-core\n"
 "X-Crowdin-Language: ru\n"
-"X-Crowdin-File: /develop/apps/demo/src/app/i18n/template.pot\n"
+"X-Crowdin-File: /develop/libs/rucken/core/src/i18n/template.pot\n"
 "Project-Id-Version: rucken-core\n"
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "PO-Revision-Date: 2018-09-13 04:06\n"
 
-msgid "Your session has expired, please re-login"
+msgid "Oauth provider with name \"{provider}\" not founded"
 msgstr ""
 
-msgid "No"
+msgid "Id"
 msgstr ""
 
-msgid "Russian"
+msgid "Name"
 msgstr ""
 
-msgid "English"
+msgid "Title"
 msgstr ""
 
-msgid "Rucken: Demo"
+msgid "Add new content type"
 msgstr ""
 
-msgid "Core with Admin UI for web and native application maked on Angular6+"
+msgid "Content type #{{id}}"
 msgstr ""
 
-msgid "Sign in with Facebook"
+msgid "Update content type #{{id}}"
 msgstr ""
 
-msgid "Sign in with Google+"
+msgid "Delete content type #{{id}}"
 msgstr ""
 
-msgid "Account"
-msgstr ""
-
-msgid "Account page"
-msgstr ""
-
-msgid "Profile"
-msgstr ""
-
-msgid "Profile frame"
-msgstr ""
-
-msgid "Administration"
-msgstr ""
-
-msgid "Administration page"
-msgstr ""
-
-msgid "Content types"
-msgstr ""
-
-msgid "Content types frame"
-msgstr ""
-
-msgid "Entities"
-msgstr ""
-
-msgid "Entities page"
-msgstr ""
-
-msgid "Groups"
-msgstr ""
-
-msgid "Groups frame"
+msgid "Do you really want to delete content type?"
 msgstr ""
 
 msgid "Permissions"
 msgstr ""
 
-msgid "Permissions frame"
+msgid "Add new group"
 msgstr ""
 
-msgid "Users"
+msgid "Group #{{id}}"
 msgstr ""
 
-msgid "Users frame"
+msgid "Update group #{{id}}"
 msgstr ""
 
-msgid "Home"
+msgid "Delete group #{{id}}"
 msgstr ""
 
-msgid "Themes"
+msgid "Do you really want to delete group?"
 msgstr ""
 
-msgid "Themes page"
+msgid "Content type"
 msgstr ""
 
-msgid "Update"
+msgid "Add new permission"
 msgstr ""
 
-msgid "Close"
+msgid "Permission #{{id}}"
 msgstr ""
 
-msgid "Sign out"
+msgid "Update permission #{{id}}"
 msgstr ""
 
-msgid "Do you really want to leave?"
+msgid "Delete permission #{{id}}"
 msgstr ""
 
-msgid "Yes"
+msgid "Do you really want to delete permission?"
 msgstr ""
 
-msgid "Authorization"
+msgid "Username"
 msgstr ""
 
-msgid "Sign in"
+msgid "Password"
+msgstr ""
+
+msgid "Repeat password"
+msgstr ""
+
+msgid "Roles"
+msgstr ""
+
+msgid "Administrator"
+msgstr ""
+
+msgid "Staff"
+msgstr ""
+
+msgid "User"
+msgstr ""
+
+msgid "Full name"
+msgstr ""
+
+msgid "First name"
+msgstr ""
+
+msgid "Last name"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Last login"
+msgstr ""
+
+msgid "Date joined"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Date of birth"
+msgstr ""
+
+msgid "Add new user"
+msgstr ""
+
+msgid "Update user #{{id}}"
+msgstr ""
+
+msgid "Delete user #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete user?"
+msgstr ""
+
+msgid "$property must be equal to $constraint1"
 msgstr ""
 
