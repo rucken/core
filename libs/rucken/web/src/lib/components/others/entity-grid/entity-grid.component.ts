@@ -1,14 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ContentChild,
-  EventEmitter,
-  Input,
-  Output,
-  TemplateRef,
-  ViewContainerRef,
-  isDevMode
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, Output, TemplateRef, ViewContainerRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { IModel, PaginationMeta } from 'ngx-repository';
@@ -123,6 +113,7 @@ export class EntityGridComponent<TModel extends IModel> {
   get items() {
     return this._items;
   }
+
   @Output()
   delete: EventEmitter<TModel> = new EventEmitter<TModel>();
   @Output()
@@ -146,6 +137,7 @@ export class EntityGridComponent<TModel extends IModel> {
     page: number;
     itemsPerPage: number;
   }> = new EventEmitter<{ page: number; itemsPerPage: number }>();
+
   @Input()
   readonly: boolean;
   @Input()

@@ -1,6 +1,6 @@
 <entity-select
     [readonly]="readonly"
     [searchField]="searchField"
-    (search)="onChangeFilter({searchText:$event})">
+    (search)="onSearch($event)">
     <ng-content></ng-content>
 </entity-select>

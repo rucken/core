@@ -1,11 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ContentType,
-  ContentTypesConfig,
-  ErrorsExtractor,
-  translate
-} from '@rucken/core';
+import { ContentType, ContentTypesConfig, ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';

@@ -3,7 +3,7 @@ import { ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { IFactoryModel, IModel, Repository, PaginationMeta, IPaginationMeta } from 'ngx-repository';
 import { forkJoin, Observable } from 'rxjs';
-import { first, map } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { IBaseEntityListModal } from '../base/base-entity-list-modal.interface';
 import { MessageModalService } from '../modals/message-modal/message-modal.service';
 import { IEntityGridFilter } from '../others/entity-grid/entity-grid-filter.interface';
@@ -98,6 +98,12 @@ export class BaseEntityListComponent<TModel extends IModel>
       .loadAll(this.filter)
       .pipe(first())
       .subscribe(items => this.onSuccess(items), error => this.onError(error));
+  }
+  onSearch(searchText: string) {
+    this.onChangeFilter({ searchText });
+  }
+  onChangeOrder(fieldName: string) {
+    this.onChangeFilter({ sort: fieldName });
   }
   onSuccess(items: TModel[]) {
     this.processing = false;
