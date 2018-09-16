@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
-"PO-Revision-Date: 2018-09-13 05:01\n"
+"PO-Revision-Date: 2018-09-16 15:53\n"
 
 msgid "Your session has expired, please re-login"
 msgstr ""
@@ -30,6 +30,13 @@ msgid "Rucken: Demo"
 msgstr ""
 
 msgid "Core with Admin UI for web and native application maked on Angular6+"
+msgstr ""
+
+msgid "<p>Demo users:</p><ul>\n"
+"<li>user with admin group: admin@admin.com, password: 12345678</li>\n"
+"<li>user with user group: user1@user1.com, password: 12345678</li>\n"
+"<li>user with user group: user2@user2.com, password: 12345678</li>\n"
+"</ul>"
 msgstr ""
 
 msgid "Sign in with Facebook"
