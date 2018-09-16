@@ -12,10 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Spanish\n"
 "Language: es_ES\n"
-"PO-Revision-Date: 2018-09-13 05:01\n"
-
-msgid "Oauth provider with name \"{provider}\" not founded"
-msgstr ""
+"PO-Revision-Date: 2018-09-16 15:52\n"
 
 msgid "Id"
 msgstr ""
@@ -132,6 +129,9 @@ msgid "Delete user #{{id}}"
 msgstr ""
 
 msgid "Do you really want to delete user?"
+msgstr ""
+
+msgid "Oauth provider with name \"{provider}\" not founded"
 msgstr ""
 
 msgid "$property must be equal to $constraint1"
