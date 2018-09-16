@@ -133,7 +133,6 @@ export class AppComponent implements OnDestroy {
       }
     });
     bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
-      console.log(modal);
       modal.processing = true;
       if (modal.yesData) {
         this.authService

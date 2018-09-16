@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { environment } from '../../../../../environments/environment';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'profile-frame',
@@ -9,5 +9,5 @@ import { environment } from '../../../../../environments/environment';
 })
 export class ProfileFrameComponent {
   public apiUrl = environment.apiUrl;
-  constructor(public activatedRoute: ActivatedRoute) {}
+  constructor(public activatedRoute: ActivatedRoute) { }
 }

@@ -1,9 +1,9 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavSidebarModule } from '@rucken/web';
-import { SharedModule } from '../../../shared/shared.module';
-import { AdminPageComponent } from './admin-page.component';
-import { AdminPageRoutes } from './admin-page.routes';
+import { SharedModule } from '../../shared/shared.module';
+import { AccountPageComponent } from './account-page.component';
+import { AccountPageRoutes } from './account-page.routes';
 import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
@@ -11,14 +11,14 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     SharedModule,
     NgxPermissionsModule.forChild(),
     NavSidebarModule,
-    RouterModule.forChild(AdminPageRoutes)
+    RouterModule.forChild(AccountPageRoutes)
   ],
-  declarations: [AdminPageComponent]
+  declarations: [AccountPageComponent]
 })
-export class AdminPageModule {
+export class AccountPageModule {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: AdminPageModule,
+      ngModule: AccountPageModule,
       providers: []
     };
   }

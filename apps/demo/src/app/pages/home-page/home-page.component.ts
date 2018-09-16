@@ -9,9 +9,9 @@ declare var require: any;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
-  public readme = require('html-loader!markdown-loader!./../../../../../../../README.md').replace(
+  public readme = require('html-loader!markdown-loader!./../../../../../../README.md').replace(
     '<h1 id="rucken">rucken</h1>',
     ''
   );
-  constructor(public activatedRoute: ActivatedRoute) {}
+  constructor(public activatedRoute: ActivatedRoute) { }
 }

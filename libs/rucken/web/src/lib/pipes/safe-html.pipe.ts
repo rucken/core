@@ -9,7 +9,7 @@ export class SafeHtmlPipe implements PipeTransform {
     this._sanitizer = injector.get(DomSanitizer);
   }
 
-  transform(value: string, args: any): any {
+  transform(value: string): any {
     if (this._sanitizer) {
       return this._sanitizer.bypassSecurityTrustHtml(value);
     } else {

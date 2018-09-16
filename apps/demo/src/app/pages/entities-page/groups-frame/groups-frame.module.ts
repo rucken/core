@@ -2,7 +2,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { GroupsGridModule } from '@rucken/web';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { SharedModule } from '../../../../shared/shared.module';
+import { SharedModule } from '../../../shared/shared.module';
 import { GroupsFrameComponent } from './groups-frame.component';
 import { GroupsFrameRoutes } from './groups-frame.routes';
 

@@ -32,10 +32,10 @@ export const RuI18n = {
   Info: 'Информация',
   Error: 'Ошибка',
   'Error Log': 'Ошибка',
-  'Split button!': 'Разделитель',
   'No data': 'Нет данных',
   'Loading...': 'Загрузка...',
   Action: 'Действие',
   Language: 'Язык',
+  'Split button!': 'Разделитель',
   Menu: 'Меню'
 };
