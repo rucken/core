@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
-"PO-Revision-Date: 2018-09-13 05:01\n"
+"PO-Revision-Date: 2018-09-16 15:52\n"
 
 msgid "Cancel"
 msgstr ""
@@ -113,9 +113,6 @@ msgstr ""
 msgid "Error Log"
 msgstr ""
 
-msgid "Split button!"
-msgstr ""
-
 msgid "No data"
 msgstr ""
 
@@ -126,6 +123,9 @@ msgid "Action"
 msgstr ""
 
 msgid "Language"
+msgstr ""
+
+msgid "Split button!"
 msgstr ""
 
 msgid "Menu"
