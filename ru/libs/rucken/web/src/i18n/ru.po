@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-09-13 04:28\n"
+"PO-Revision-Date: 2018-09-16 15:52\n"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -113,9 +113,6 @@ msgstr "Ошибка"
 msgid "Error Log"
 msgstr "Ошибка"
 
-msgid "Split button!"
-msgstr "Разделитель"
-
 msgid "No data"
 msgstr "Нет данных"
 
@@ -127,6 +124,9 @@ msgstr "Действие"
 
 msgid "Language"
 msgstr "Язык"
+
+msgid "Split button!"
+msgstr "Разделитель"
 
 msgid "Menu"
 msgstr "Меню"
