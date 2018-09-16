@@ -1,5 +1,4 @@
 export const RuI18n = {
-  'Oauth provider with name "{provider}" not founded': 'Поставщик OAuth с именем "{provider}" не найден',
   Id: 'Ид.',
   Name: 'Наименование',
   Title: 'Заголовок',
@@ -39,5 +38,6 @@ export const RuI18n = {
   'Update user #{{id}}': 'Изменить пользователя  #{{id}}',
   'Delete user #{{id}}': 'Удалить пользователя  #{{id}}',
   'Do you really want to delete user?': 'Вы действительно хотите удалить пользователя?',
+  'Oauth provider with name "{provider}" not founded': 'Поставщик OAuth с именем "{provider}" не найден',
   '$property must be equal to $constraint1': '$property должно быть равно $constraint1'
 };

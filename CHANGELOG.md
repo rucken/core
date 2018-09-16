@@ -1,3 +1,16 @@
+<a name="3.1.4"></a>
+## [3.1.4](https://github.com/rucken/core/compare/3.1.3...3.1.4) (2018-09-16)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([ac75f09](https://github.com/rucken/core/commit/ac75f09))
+* **refactor:** Add onSearch and onChangeOrder method for replace call onChangeFilter ([ea31593](https://github.com/rucken/core/commit/ea31593))
+* **refactor:** Remove usage repository from templates ([2d4db60](https://github.com/rucken/core/commit/2d4db60))
+* **refactor:** Updated folder structure and change config type for models to inject config token ([f42ee5f](https://github.com/rucken/core/commit/f42ee5f))
+
+
+
 <a name="3.1.3"></a>
 ## [3.1.3](https://github.com/rucken/core/compare/3.1.2...3.1.3) (2018-08-31)
 

@@ -103,9 +103,6 @@ msgstr ""
 msgid "Error Log"
 msgstr ""
 
-msgid "Split button!"
-msgstr ""
-
 msgid "No data"
 msgstr ""
 
@@ -116,6 +113,9 @@ msgid "Action"
 msgstr ""
 
 msgid "Language"
+msgstr ""
+
+msgid "Split button!"
 msgstr ""
 
 msgid "Menu"
