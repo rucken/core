@@ -6,7 +6,7 @@ import {
   TokenService,
   tokenServiceInitializeApp
 } from './services/token.service';
-import { authConfigs } from './configs';
+import { authProviders } from './configs';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AUTH_CONFIG_TOKEN, defaultAuthConfig } from './configs/auth.config';

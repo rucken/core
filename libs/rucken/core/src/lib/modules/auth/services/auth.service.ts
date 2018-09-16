@@ -1,25 +1,18 @@
-import { Injectable } from '@angular/core';
-import { NgxPermissionsService } from 'ngx-permissions';
-import { DynamicRepository, Repository } from 'ngx-repository';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { User } from '../../../shared/models/user';
-import {
-  EMPTY_PERMISSIONS,
-  INITED_PERMISSIONS
-} from '../../../shared/utils/permissions-guard.service';
 import { HttpClient } from '@angular/common/http';
-import { Inject } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { plainToClass } from 'class-transformer';
+import { NgxPermissionsService } from 'ngx-permissions';
+import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { User } from '../../../entities/models/user';
+import { EMPTY_PERMISSIONS, INITED_PERMISSIONS } from '../../../utils/permissions-guard.service';
 import { AUTH_CONFIG_TOKEN } from '../configs/auth.config';
 import { OAUTH_CONFIG_TOKEN } from '../configs/oauth.config';
+import { RedirectUriDto } from '../dto/redirect-uri.dto';
+import { UserTokenDto } from '../dto/user-token.dto';
 import { IAuthConfig } from '../interfaces/auth-config.interface';
 import { IOauthConfig } from '../interfaces/oauth-config.interface';
-import { UserTokenDto } from '../dto/user-token.dto';
-import { plainToClass } from 'class-transformer';
-import { map } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-import { translate } from '../../../shared/utils/translate';
-import { TranslateService } from '@ngx-translate/core';
-import { RedirectUriDto } from '../dto/redirect-uri.dto';
 
 export function authServiceInitializeApp(authService: AuthService) {
   return () => authService.initializeApp();

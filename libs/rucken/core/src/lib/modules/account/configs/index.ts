@@ -1,6 +1,7 @@
-import { defaultAccountConfig, ACCOUNT_CONFIG_TOKEN } from './account.config';
+import { Provider } from '@angular/core';
+import { ACCOUNT_CONFIG_TOKEN, defaultAccountConfig } from './account.config';
 
-export const accountConfigs: any = [
+export const accountProviders: Provider[] = [
   {
     provide: ACCOUNT_CONFIG_TOKEN,
     useValue: defaultAccountConfig
