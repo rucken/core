@@ -131,7 +131,7 @@
     "cp-cli": "^1.1.2",
     "del-cli": "^1.1.0",
     "domino": "^2.1.0",
-    "gh-pages": "^1.2.0",
+    "gh-pages": "^2.0.0",
     "html-loader": "^0.5.5",
     "jasmine-core": "~3.2.1",
     "jasmine-spec-reporter": "~4.2.1",
