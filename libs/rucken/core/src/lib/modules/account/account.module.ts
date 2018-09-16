@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
-import { accountConfigs } from './configs';
+import { accountProviders } from './configs';
 import { AccountService } from './account.service';
 import {
   ACCOUNT_CONFIG_TOKEN,

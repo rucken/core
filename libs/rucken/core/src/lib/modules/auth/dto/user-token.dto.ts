@@ -1,6 +1,6 @@
-import { User } from '../../../shared/models/user';
-import { serializeModel } from '../../../shared/utils/custom-transforms';
 import { Type } from 'class-transformer';
+import { User } from '../../../entities/models/user';
+import { serializeModel } from '../../../utils/custom-transforms';
 
 export class UserTokenDto {
   token: string;

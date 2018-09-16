@@ -1,32 +1,16 @@
-import { isPlatformBrowser, DOCUMENT, isPlatformServer } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  OnDestroy,
-  PLATFORM_ID
-} from '@angular/core';
+import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ErrorsExtractor,
-  LangService,
-  TokenService,
-  User,
-  translate,
-  AuthService,
-  UserTokenDto,
-  RedirectUriDto
-} from '@rucken/core';
-import { AuthModalComponent, MessageModalService } from '@rucken/web';
+import { AuthService, ErrorsExtractor, LangService, RedirectUriDto, TokenService, translate, UserTokenDto } from '@rucken/core';
+import { AuthModalComponent, AuthModalTypeEnum, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { environment } from '../environments/environment';
+import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from './app.config';
 import { AppRoutes } from './app.routes';
-import { AuthModalTypeEnum } from '@rucken/web';
-import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-root',
@@ -142,7 +126,10 @@ export class AppComponent implements OnDestroy {
       class: 'modal-xs',
       initialState: {
         type: AuthModalTypeEnum.SignIn,
-        data: {}
+        data: {
+        },
+        signInInfoMessage: AuthModalSignInInfoMessage,
+        signUpInfoMessage: AuthModalSignUpInfoMessage
       }
     });
     bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {

@@ -13,9 +13,6 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-msgid "Oauth provider with name \"{provider}\" not founded"
-msgstr "Поставщик OAuth с именем \"{provider}\" не найден"
-
 msgid "Id"
 msgstr "Ид."
 
@@ -132,6 +129,9 @@ msgstr "Удалить пользователя  #{{id}}"
 
 msgid "Do you really want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
+
+msgid "Oauth provider with name \"{provider}\" not founded"
+msgstr "Поставщик OAuth с именем \"{provider}\" не найден"
 
 msgid "$property must be equal to $constraint1"
 msgstr "$property должно быть равно $constraint1"

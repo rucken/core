@@ -2,18 +2,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
-import {
-  AccountModule,
-  ContentTypesConfig,
-  ErrorsExtractor,
-  GroupsConfig,
-  LangModule,
-  PermissionsConfig,
-  PermissionsGuard,
-  TransferHttpCacheModule,
-  UsersConfig,
-  AuthModule
-} from '@rucken/core';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MetaLoader, MetaModule } from '@ngx-meta/core';
+import { TranslateService } from '@ngx-translate/core';
+import { AccountModule, AuthModule, entitiesProviders, ErrorsExtractor, LangModule, PermissionsGuard, TransferHttpCacheModule } from '@rucken/core';
 import { AuthModalModule, NavbarModule, ThemesModule } from '@rucken/web';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -21,18 +13,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { AppRoutes } from './app.routes';
+import { AllRoutes, AppLangs, appMetaFactory, OauthModalProviders, OauthProviders } from './app.config';
 import { SharedModule } from './shared/shared.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MetaModule, MetaLoader } from '@ngx-meta/core';
-import {
-  OauthProviders,
-  AppLangs,
-  AllRoutes,
-  OauthModalProviders,
-  appMetaFactory
-} from './app.config';
-import { TranslateService } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AppComponent],
@@ -76,15 +58,12 @@ import { TranslateService } from '@ngx-translate/core';
     FontAwesomeModule
   ],
   providers: [
+    ...entitiesProviders,
     CookieService,
     ErrorsExtractor,
-    GroupsConfig,
-    PermissionsConfig,
-    ContentTypesConfig,
-    UsersConfig,
     BsLocaleService,
     PermissionsGuard
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -112,9 +112,6 @@ msgstr "Ошибка"
 msgid "Error Log"
 msgstr "Ошибка"
 
-msgid "Split button!"
-msgstr "Разделитель"
-
 msgid "No data"
 msgstr "Нет данных"
 
@@ -126,6 +123,9 @@ msgstr "Действие"
 
 msgid "Language"
 msgstr "Язык"
+
+msgid "Split button!"
+msgstr "Разделитель"
 
 msgid "Menu"
 msgstr "Меню"

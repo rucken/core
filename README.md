@@ -3,15 +3,16 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/rucken/core.svg)](https://greenkeeper.io/)
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/rucken-core/localized.svg)](https://crowdin.com/project/rucken-core)
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Core with Admin UI for web application maked on Angular6+
+Core and Admin UI for Angular6+ web applications
 
 ## What is Rucken?
 
-- **Core** - Base entities and services for create applications on `Angular6+`, include work with users, groups and permissions.
-- **Web** - Base ui grids and inputs and etc. for manage users, groups and permissions.
+- **Core** - Base entities and services to create applications on `Angular6+`, includes users, groups and permissions solutions.
+- **Web** - Base ui grids, inputs and more to manage users, groups and permissions.
 
 ## Usage
 ```
@@ -32,7 +33,7 @@ npm run start:prod
 
 ## Quick links
 
-[@rucken/cli](https://github.com/rucken/cli) - Console tools for create and build [Angular6+](https://angular.io/) and [NestJS](https://nestjs.com/) application based on [Rucken](https://github.com/rucken) template
+[@rucken/cli](https://github.com/rucken/cli) - Console tools to create and build [Angular6+](https://angular.io/) and [NestJS](https://nestjs.com/) application based on [Rucken](https://github.com/rucken) template
 
 [Live demo: master (SPA on GhPages)](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: https://rucken-core-nestjs.now.sh ).
 

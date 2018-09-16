@@ -1,0 +1,30 @@
+<form
+    [formGroup]="form"
+    *ngIf="form"
+    novalidate>
+    <prompt-form-modal
+        [title]="title"
+        [message]="message"
+        [infoMessage]="infoMessage"
+        [errorMessage]="errorMessage"
+        [noTitle]="noTitle"
+        [yesTitle]="yesTitle"
+        [readonly]="readonly"
+        (no)="onNoClick()"
+        (yes)="onYesClick()"
+        [data]="data"
+        [processing]="processing$ | async">
+        <span *ngFor="let key of keys; let i = index">
+            <form-group
+                [checkIsDirty]="checkIsDirty"
+                [form]="form"
+                [name]="key"
+                [title]="strings[key]">
+                <input
+                    [formControlName]="key"
+                    [readonly]="readonly"
+                    [autofocus]="i===0">
+            </form-group>
+        </span>
+    </prompt-form-modal>
+</form>

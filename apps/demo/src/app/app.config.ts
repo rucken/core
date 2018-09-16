@@ -38,6 +38,12 @@ export const ApplicationName = translate('Rucken: Demo');
 export const ApplicationDescription = translate(
   'Core with Admin UI for web and native application maked on Angular6+'
 );
+export const AuthModalSignInInfoMessage = translate(`<p>Demo users:</p><ul>
+<li>user with admin group: admin@admin.com, password: 12345678</li>
+<li>user with user group: user1@user1.com, password: 12345678</li>
+<li>user with user group: user2@user2.com, password: 12345678</li>
+</ul>`);
+export const AuthModalSignUpInfoMessage = '';
 
 export function appMetaFactory(translateService: TranslateService): MetaLoader {
   return new MetaStaticLoader({
