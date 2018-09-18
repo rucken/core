@@ -43,6 +43,9 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
+msgid "Content types"
+msgstr ""
+
 msgid "Delete permission"
 msgstr ""
 
@@ -55,6 +58,12 @@ msgstr ""
 msgid "Append"
 msgstr ""
 
+msgid "Groups"
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
 msgid "Delete group"
 msgstr ""
 
@@ -62,6 +71,9 @@ msgid "Do you really want to delete group \"{{title}}\" from user?"
 msgstr ""
 
 msgid "Select groups for append to user"
+msgstr ""
+
+msgid "Users"
 msgstr ""
 
 msgid "Sign in"
