@@ -1,5 +1,5 @@
 <entity-grid
-    title="Content types"
+    [title]="title"
     [items]="items$ | async"
     (selected)="onSelected($event)"
     [columns]="['title', 'action']"

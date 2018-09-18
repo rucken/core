@@ -1,5 +1,5 @@
 <entity-grid
-    title="Groups"
+    [title]="title"
     [items]="items$ | async"
     (selected)="onSelected($event)"
     [columnsClasses]="{title:'width-150'}"
