@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, Permission, PERMISSIONS_CONFIG_TOKEN, translate } from '@rucken/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
-import { PermissionModalComponent } from '../../permission/permission-modal/permission-modal.component';
 import { PermissionsGridModalComponent } from '../../permission/permissions-grid-modal/permissions-grid-modal.component';
 import { PermissionsGridComponent } from '../../permission/permissions-grid/permissions-grid.component';
 
@@ -16,7 +15,18 @@ import { PermissionsGridComponent } from '../../permission/permissions-grid/perm
 export class GroupPermissionsGridComponent extends PermissionsGridComponent
   implements OnInit {
   @Input()
+  modalAppendFromGridComponent = PermissionsGridModalComponent;
+  @Input()
   group: Group;
+  @Input()
+  strings = {
+    ...Permission.strings,
+    deleteTtitle: translate('Delete permission'),
+    deleteMessage: translate(
+      'Do you really want to delete permission "{{title}}" from group?'
+    ),
+    selectTitle: translate('Select permissions for append to group')
+  };
 
   constructor(
     public modalService: BsModalService,
@@ -62,29 +72,5 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent
         }
       });
     }
-  }
-  createDeleteModal(item: Permission): BsModalRef {
-    return this.modalService.show(PermissionModalComponent, {
-      class: 'modal-md',
-      initialState: {
-        title: translate('Delete permission'),
-        message: translate(
-          'Do you really want to delete permission "{{title}}" from group?'
-        ),
-        yesTitle: translate('Delete'),
-        data: item,
-        apiUrl: this.apiUrl
-      }
-    });
-  }
-  createAppendFromGridModal(): BsModalRef {
-    return this.modalService.show(PermissionsGridModalComponent, {
-      class: 'modal-md',
-      initialState: {
-        title: translate('Select permissions for append to group'),
-        yesTitle: translate('Append'),
-        apiUrl: this.apiUrl
-      }
-    });
   }
 }

@@ -21,6 +21,8 @@ export * from './lib/base/base-entity-list-modal.component';
 export * from './lib/base/base-entity-list-modal.interface';
 export * from './lib/base/base-entity-list.component';
 export * from './lib/base/base-entity-list.interface';
+export * from './lib/base/base-entity-modals.interface';
+export * from './lib/base/base-form.interface';
 export * from './lib/base/base-prompt-form-modal.component';
 export * from './lib/base/base-prompt-modal.component';
 export * from './lib/base/base-prompt-panel.component';

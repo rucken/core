@@ -5,7 +5,7 @@
     <alert
         type="info"
         *ngIf="infoMessage"
-        [innerHtml]="infoMessage|safeHtml">
+        [innerHtml]="infoMessage| customTranslate:data |safeHtml">
     </alert>
     <p
         *ngIf="message"
@@ -18,7 +18,7 @@
     <alert
         type="danger"
         *ngIf="errorMessage"
-        [innerHtml]="errorMessage|safeHtml">
+        [innerHtml]="errorMessage| customTranslate:data |safeHtml">
     </alert>
 </div>
 <div class="modal-footer">
@@ -45,7 +45,7 @@
         class="btn btn-default"
         (click)="onNoClick($event)"
         *ngIf="!hideNo">
-        {{noTitle | translate}}
+        {{noTitle | customTranslate:data}}
     </button>
     <button
         type="submit"
@@ -61,7 +61,7 @@
                 [icon]="['fas', 'spinner']"
                 [pulse]="true"></fa-icon>
         </fa-layers>
-        {{yesTitle | translate}}
+        {{yesTitle | customTranslate:data}}
     </button>
 </ng-template>
 <ng-template #defaultReadonlyFooterButtonsTemplate>
@@ -71,6 +71,6 @@
         (click)="onNoClick($event)"
         *ngIf="!hideNo"
         [focused]="focused">
-        {{noTitle | translate}}
+        {{noTitle | customTranslate:data}}
     </button>
 </ng-template>

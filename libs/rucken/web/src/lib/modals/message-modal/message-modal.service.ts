@@ -3,13 +3,14 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { MessageModalComponent } from './message-modal.component';
 
 @Injectable()
 export class MessageModalService {
+  componentInfoModal: any;
+  componentErrorModal: any;
   private _onTopIsActive = false;
 
   constructor(
@@ -17,7 +18,7 @@ export class MessageModalService {
     private _translateService: TranslateService,
     private _modalService: BsModalService,
     private _errorsExtractor: ErrorsExtractor
-  ) {}
+  ) { }
   info(options: {
     message: string | any;
     title?: string;
@@ -40,7 +41,7 @@ export class MessageModalService {
       }
       this._onTopIsActive = options.onTop;
       const bsModalRef: BsModalRef = this._modalService.show(
-        MessageModalComponent,
+        this.componentInfoModal || MessageModalComponent,
         {
           class: options.class,
           ignoreBackdropClick: options.onTop === true,
@@ -88,7 +89,7 @@ export class MessageModalService {
       }
       this._onTopIsActive = options.onTop;
       const bsModalRef: BsModalRef = this._modalService.show(
-        MessageModalComponent,
+        this.componentErrorModal || MessageModalComponent,
         {
           class: options.class,
           ignoreBackdropClick: options.onTop === true,

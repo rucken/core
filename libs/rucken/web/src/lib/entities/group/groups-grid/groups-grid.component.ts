@@ -15,6 +15,8 @@ import { GroupModalComponent } from '../group-modal/group-modal.component';
 export class GroupsGridComponent extends BaseEntityListComponent<Group>
     implements OnInit {
     @Input()
+    modalItemComponent = GroupModalComponent;
+    @Input()
     title = translate('Groups');
     constructor(
         public modalService: BsModalService,
@@ -39,52 +41,5 @@ export class GroupsGridComponent extends BaseEntityListComponent<Group>
                 ...this.groupsConfig
             });
         }
-    }
-    createDeleteModal(item: Group): BsModalRef {
-        return this.modalService.show(GroupModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.deleteTitle,
-                message: this.strings.deleteMessage,
-                yesTitle: translate('Delete'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createCreateModal(): BsModalRef {
-        const item = new Group();
-        return this.modalService.show(GroupModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.createTitle,
-                yesTitle: translate('Create'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createUpdateModal(item?: Group): BsModalRef {
-        return this.modalService.show(GroupModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.updateTitle,
-                yesTitle: translate('Save'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createViewModal(item?: Group): BsModalRef {
-        return this.modalService.show(GroupModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.viewTitle,
-                noTitle: translate('Close'),
-                readonly: true,
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
     }
 }

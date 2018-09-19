@@ -9,7 +9,7 @@ import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-mod
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PermissionModalComponent extends BasePromptFormModalComponent<
-  Permission
+Permission
 > {
   @Input()
   apiUrl?: string;

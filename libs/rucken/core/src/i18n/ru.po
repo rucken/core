@@ -24,7 +24,7 @@ msgid "Title"
 msgstr "Заголовок"
 
 msgid "Add new content type"
-msgstr "Создание новой типа содержимого"
+msgstr "Создание нового типа содержимого"
 
 msgid "Content type #{{id}}"
 msgstr "Изменить тип содержимого #{{id}}"

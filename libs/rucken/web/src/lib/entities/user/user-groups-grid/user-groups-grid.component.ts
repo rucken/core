@@ -1,10 +1,9 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, GROUP_CONFIG_TOKEN, translate, User } from '@rucken/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
-import { GroupModalComponent } from '../../group/group-modal/group-modal.component';
 import { GroupsGridModalComponent } from '../../group/groups-grid-modal/groups-grid-modal.component';
 import { GroupsGridComponent } from '../../group/groups-grid/groups-grid.component';
 
@@ -16,7 +15,18 @@ import { GroupsGridComponent } from '../../group/groups-grid/groups-grid.compone
 export class UserGroupsGridComponent extends GroupsGridComponent
   implements OnInit {
   @Input()
+  modalAppendFromGridComponent = GroupsGridModalComponent;
+  @Input()
   user: User;
+  @Input()
+  strings = {
+    ...Group.strings,
+    deleteTitle: translate('Delete group'),
+    deleteMessage: translate(
+      'Do you really want to delete group "{{title}}" from user?'
+    ),
+    selectTitle: translate('Select groups for append to user')
+  };
 
   constructor(
     public modalService: BsModalService,
@@ -62,29 +72,5 @@ export class UserGroupsGridComponent extends GroupsGridComponent
         }
       });
     }
-  }
-  createDeleteModal(item: Group): BsModalRef {
-    return this.modalService.show(GroupModalComponent, {
-      class: 'modal-md',
-      initialState: {
-        title: translate('Delete group'),
-        message: translate(
-          'Do you really want to delete group "{{title}}" from user?'
-        ),
-        yesTitle: translate('Delete'),
-        data: item,
-        apiUrl: this.apiUrl
-      }
-    });
-  }
-  createAppendFromGridModal(): BsModalRef {
-    return this.modalService.show(GroupsGridModalComponent, {
-      class: 'modal-md',
-      initialState: {
-        title: translate('Select groups for append to user'),
-        yesTitle: translate('Append'),
-        apiUrl: this.apiUrl
-      }
-    });
   }
 }

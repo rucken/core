@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ContentType, CONTENT_TYPES_CONFIG_TOKEN, ErrorsExtractor, translate } from '@rucken/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
@@ -15,6 +15,8 @@ import { ContentTypeModalComponent } from '../content-type-modal/content-type-mo
 export class ContentTypesGridComponent
     extends BaseEntityListComponent<ContentType>
     implements OnInit {
+    @Input()
+    modalItemComponent = ContentTypeModalComponent;
     @Input()
     title = translate('Content types');
     constructor(
@@ -44,52 +46,5 @@ export class ContentTypesGridComponent
                 ...this.contentTypesConfig
             });
         }
-    }
-    createDeleteModal(item: ContentType): BsModalRef {
-        return this.modalService.show(ContentTypeModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.deleteTitle,
-                message: this.strings.deleteMessage,
-                yesTitle: translate('Delete'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createCreateModal(): BsModalRef {
-        const item = new ContentType();
-        return this.modalService.show(ContentTypeModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.createTitle,
-                yesTitle: translate('Create'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createUpdateModal(item?: ContentType): BsModalRef {
-        return this.modalService.show(ContentTypeModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.updateTitle,
-                yesTitle: translate('Save'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createViewModal(item?: ContentType): BsModalRef {
-        return this.modalService.show(ContentTypeModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.viewTitle,
-                noTitle: translate('Close'),
-                readonly: true,
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
     }
 }

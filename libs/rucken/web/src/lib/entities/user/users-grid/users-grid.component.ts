@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, translate, User, USERS_CONFIG_TOKEN } from '@rucken/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
@@ -14,6 +14,10 @@ import { UserModalComponent } from '../user-modal/user-modal.component';
 })
 export class UsersGridComponent extends BaseEntityListComponent<User>
     implements OnInit {
+    @Input()
+    modalItemComponent = UserModalComponent;
+    @Input()
+    modalItemClass = 'modal-lg';
     @Input()
     title = translate('Users');
     constructor(
@@ -39,52 +43,5 @@ export class UsersGridComponent extends BaseEntityListComponent<User>
                 ...this.usersConfig
             });
         }
-    }
-    createDeleteModal(item: User): BsModalRef {
-        return this.modalService.show(UserModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.deleteTitle,
-                message: this.strings.deleteMessage,
-                yesTitle: translate('Delete'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createCreateModal(): BsModalRef {
-        const item = new User();
-        return this.modalService.show(UserModalComponent, {
-            class: 'modal-lg',
-            initialState: {
-                title: this.strings.createTitle,
-                yesTitle: translate('Create'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createUpdateModal(item?: User): BsModalRef {
-        return this.modalService.show(UserModalComponent, {
-            class: 'modal-lg',
-            initialState: {
-                title: this.strings.updateTitle,
-                yesTitle: translate('Save'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createViewModal(item?: User): BsModalRef {
-        return this.modalService.show(UserModalComponent, {
-            class: 'modal-lg',
-            initialState: {
-                title: this.strings.viewTitle,
-                noTitle: translate('Close'),
-                readonly: true,
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
     }
 }

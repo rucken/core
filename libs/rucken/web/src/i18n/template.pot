@@ -37,6 +37,12 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Select item"
+msgstr ""
+
+msgid "Append"
+msgstr ""
+
 msgid "Select content type"
 msgstr ""
 
@@ -53,9 +59,6 @@ msgid "Do you really want to delete permission \"{{title}}\" from group?"
 msgstr ""
 
 msgid "Select permissions for append to group"
-msgstr ""
-
-msgid "Append"
 msgstr ""
 
 msgid "Groups"

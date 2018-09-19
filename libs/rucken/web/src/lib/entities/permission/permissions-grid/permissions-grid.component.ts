@@ -16,6 +16,8 @@ export class PermissionsGridComponent
     extends BaseEntityListComponent<Permission>
     implements OnInit {
     @Input()
+    modalItemComponent = PermissionModalComponent;
+    @Input()
     title = translate('Permissions');
     @Input()
     apiUrl?: string;
@@ -47,52 +49,5 @@ export class PermissionsGridComponent
                 ...this.permissionsConfig
             });
         }
-    }
-    createDeleteModal(item: Permission): BsModalRef {
-        return this.modalService.show(PermissionModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.deleteTitle,
-                message: this.strings.deleteMessage,
-                yesTitle: translate('Delete'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createCreateModal(): BsModalRef {
-        const item = new Permission();
-        return this.modalService.show(PermissionModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.createTitle,
-                yesTitle: translate('Create'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createUpdateModal(item?: Permission): BsModalRef {
-        return this.modalService.show(PermissionModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.updateTitle,
-                yesTitle: translate('Save'),
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
-    }
-    createViewModal(item?: Permission): BsModalRef {
-        return this.modalService.show(PermissionModalComponent, {
-            class: 'modal-md',
-            initialState: {
-                title: this.strings.viewTitle,
-                noTitle: translate('Close'),
-                readonly: true,
-                data: item,
-                apiUrl: this.apiUrl
-            }
-        });
     }
 }

@@ -134,9 +134,7 @@
                     </div>
                 </form-group>
             </div>
-            <div
-                class="col-md-6"
-                *ngIf="data?.groups">
+            <div class="col-md-6">
                 <user-groups-grid
                     [mockedItems]="data.groups"
                     (mockedItemsChange)="onGroupsChange($event)"
