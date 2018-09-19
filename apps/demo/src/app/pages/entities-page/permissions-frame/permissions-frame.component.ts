@@ -9,5 +9,8 @@ import { environment } from '../../../../environments/environment';
 })
 export class PermissionsFrameComponent {
   public apiUrl = environment.apiUrl;
-  constructor(public activatedRoute: ActivatedRoute) {}
+  constructor(
+    public activatedRoute: ActivatedRoute
+  ) {
+  }
 }

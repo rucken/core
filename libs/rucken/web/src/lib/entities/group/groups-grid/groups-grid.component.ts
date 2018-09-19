@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Group, GROUP_CONFIG_TOKEN, translate } from '@rucken/core';
+import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
@@ -24,7 +24,7 @@ export class GroupsGridComponent extends BaseEntityListComponent<Group>
         protected translateService: TranslateService,
         protected dynamicRepository: DynamicRepository,
         protected messageModalService: MessageModalService,
-        @Inject(GROUP_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions<Group>
+        @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions<Group>
     ) {
         super(dynamicRepository.fork<Group>(Group), modalService, Group);
     }
