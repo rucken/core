@@ -15,7 +15,9 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     ContentTypesGridModule,
     FormsModule
   ],
-  declarations: [ContentTypesFrameComponent]
+  declarations: [
+    ContentTypesFrameComponent
+  ]
 })
 export class ContentTypesFrameModule {
   static forRoot(): ModuleWithProviders {

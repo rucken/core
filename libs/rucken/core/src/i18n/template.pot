@@ -28,6 +28,9 @@ msgstr ""
 msgid "Do you really want to delete content type?"
 msgstr ""
 
+msgid "Select content type"
+msgstr ""
+
 msgid "Permissions"
 msgstr ""
 
@@ -46,6 +49,9 @@ msgstr ""
 msgid "Do you really want to delete group?"
 msgstr ""
 
+msgid "Select group"
+msgstr ""
+
 msgid "Content type"
 msgstr ""
 
@@ -62,6 +68,9 @@ msgid "Delete permission #{{id}}"
 msgstr ""
 
 msgid "Do you really want to delete permission?"
+msgstr ""
+
+msgid "Select permission"
 msgstr ""
 
 msgid "Username"
@@ -119,6 +128,9 @@ msgid "Delete user #{{id}}"
 msgstr ""
 
 msgid "Do you really want to delete user?"
+msgstr ""
+
+msgid "Select user"
 msgstr ""
 
 msgid "Oauth provider with name \"{provider}\" not founded"

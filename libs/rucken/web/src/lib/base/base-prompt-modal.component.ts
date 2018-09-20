@@ -2,8 +2,9 @@ import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BehaviorSubject } from 'rxjs';
+import { IBaseForm } from './base-form.interface';
 
-export class BasePromptModalComponent {
+export class BasePromptModalComponent implements IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);

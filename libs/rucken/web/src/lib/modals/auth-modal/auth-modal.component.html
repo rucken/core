@@ -15,7 +15,7 @@
         [processing]="processing$ | async"
         [leftFooterButtonsTemplate]="(signOutType!==type && !readonly)?leftFooterButtonsTemplate:null"
         [footerButtonsTemplate]="(signOutType!==type && !readonly)?socialFooterButtonsTemplate:null"
-        #promptFormMmodal>
+        #promptFormModal>
         <form-group
             [checkIsDirty]="checkIsDirty"
             [form]="form"
@@ -60,26 +60,26 @@
         dropdown>
         <button
             type="submit"
-            [ngClass]="promptFormMmodal.yesClass"
-            (click)="promptFormMmodal.onYesClick($event)"
-            [disabled]="promptFormMmodal.processing || promptFormMmodal.disabled"
-            *ngIf="!promptFormMmodal.hideYes"
-            [focused]="promptFormMmodal.message || (!promptFormMmodal.message && promptFormMmodal.focused)">
+            [ngClass]="promptFormModal.yesClass"
+            (click)="promptFormModal.onYesClick($event)"
+            [disabled]="promptFormModal.processing || promptFormModal.disabled"
+            *ngIf="!promptFormModal.hideYes"
+            [focused]="promptFormModal.message || (!promptFormModal.message && promptFormModal.focused)">
             <fa-layers
                 class="fa-fw"
-                *ngIf="promptFormMmodal.processing">
+                *ngIf="promptFormModal.processing">
                 <fa-icon
                     [icon]="['fas', 'spinner']"
                     [pulse]="true"></fa-icon>
             </fa-layers>
-            {{promptFormMmodal.yesTitle | translate}}
+            {{promptFormModal.yesTitle | translate}}
         </button>
         <button
             id="button-split"
             type="button"
             dropdownToggle
-            [ngClass]="promptFormMmodal.yesClass"
-            [disabled]="promptFormMmodal.processing || promptFormMmodal.disabled"
+            [ngClass]="promptFormModal.yesClass"
+            [disabled]="promptFormModal.processing || promptFormModal.disabled"
             class="dropdown-toggle dropdown-toggle-split"
             aria-controls="dropdown-split">
             <span class="caret"></span>

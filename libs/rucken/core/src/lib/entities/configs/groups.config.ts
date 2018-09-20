@@ -34,5 +34,5 @@ export const defaultGroupsConfig: IRestProviderOptions<Group> = {
     searchTextQueryParam: 'q'
   }
 };
-export const GROUP_CONFIG_TOKEN = 'GroupsConfig';
+export const GROUPS_CONFIG_TOKEN = 'GroupsConfig';
 

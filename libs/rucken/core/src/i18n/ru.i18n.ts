@@ -2,7 +2,7 @@ export const RuI18n = {
   Id: 'Ид.',
   Name: 'Наименование',
   Title: 'Заголовок',
-  'Add new content type': 'Создание новой типа содержимого',
+  'Add new content type': 'Создание нового типа содержимого',
   'Content type #{{id}}': 'Изменить тип содержимого #{{id}}',
   'Update content type #{{id}}': 'Изменить тип содержимого #{{id}}',
   'Delete content type #{{id}}': 'Удалить тип содержимого #{{id}}',

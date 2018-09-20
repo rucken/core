@@ -1,0 +1,42 @@
+<form
+    [formGroup]="form"
+    novalidate>
+    <prompt-form-modal
+        [title]="title"
+        [message]="message"
+        [infoMessage]="infoMessage"
+        [errorMessage]="errorMessage"
+        [noTitle]="noTitle"
+        [yesTitle]="yesTitle"
+        [readonly]="readonly"
+        (no)="onNoClick()"
+        (yes)="onYesClick()"
+        [data]="data"
+        [processing]="processing$ | async">
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="name"
+            [title]="strings.name">
+            <input
+                formControlName="name"
+                [readonly]="readonly"
+                focused>
+        </form-group>
+        <form-group
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
+            name="title"
+            [title]="strings.title">
+            <input
+                formControlName="title"
+                [readonly]="readonly">
+        </form-group>
+        <group-permissions-grid
+            [mockedItems]="data.permissions"
+            (mockedItemsChange)="onPermissionsChange($event)"
+            [readonly]="readonly"
+            [title]="strings.permissions"
+            [apiUrl]="apiUrl"></group-permissions-grid>
+    </prompt-form-modal>
+</form>

@@ -15,7 +15,8 @@ export class Group implements IModel {
     viewTitle: translate('Group #{{id}}'),
     updateTitle: translate('Update group #{{id}}'),
     deleteTitle: translate('Delete group #{{id}}'),
-    deleteMessage: translate('Do you really want to delete group?')
+    deleteMessage: translate('Do you really want to delete group?'),
+    selectTitle: translate('Select group')
   };
   // need for deep update if local change in any place
   static nested = {

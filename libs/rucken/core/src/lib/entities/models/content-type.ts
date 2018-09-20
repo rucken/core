@@ -11,7 +11,8 @@ export class ContentType implements IModel {
     viewTitle: translate('Content type #{{id}}'),
     updateTitle: translate('Update content type #{{id}}'),
     deleteTitle: translate('Delete content type #{{id}}'),
-    deleteMessage: translate('Do you really want to delete content type?')
+    deleteMessage: translate('Do you really want to delete content type?'),
+    selectTitle: translate('Select content type')
   };
   id: number = undefined;
   @IsNotEmpty()

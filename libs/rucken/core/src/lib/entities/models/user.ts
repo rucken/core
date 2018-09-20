@@ -26,7 +26,8 @@ export class User implements IModel {
     createTitle: translate('Add new user'),
     updateTitle: translate('Update user #{{id}}'),
     deleteTitle: translate('Delete user #{{id}}'),
-    deleteMessage: translate('Do you really want to delete user?')
+    deleteMessage: translate('Do you really want to delete user?'),
+    selectTitle: translate('Select user')
   };
   // need for deep update if local change in any place
   static nested = {
@@ -59,9 +60,11 @@ export class User implements IModel {
   dateOfBirth: Date = undefined;
   get permissionNames() {
     const permissions = [];
-    this.groups.forEach(group =>
-      group.permissions.forEach(permission => permissions.push(permission.name))
-    );
+    if (this.groups) {
+      this.groups.forEach(group =>
+        group.permissions.forEach(permission => permissions.push(permission.name))
+      );
+    }
     return permissions;
   }
   toString() {

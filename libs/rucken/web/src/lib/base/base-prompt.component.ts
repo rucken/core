@@ -1,8 +1,9 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { translate } from '@rucken/core';
 import { BehaviorSubject } from 'rxjs';
+import { IBaseForm } from './base-form.interface';
 
-export class BasePromptComponent {
+export class BasePromptComponent implements IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);

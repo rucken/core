@@ -5,9 +5,10 @@ import { ValidatorOptions } from 'class-validator';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
+import { IBaseForm } from './base-form.interface';
 
 export class BasePromptPanelComponent<TModel extends IModel>
-  implements ControlValueAccessor, OnChanges {
+  implements ControlValueAccessor, OnChanges, IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -42,6 +43,8 @@ export class BasePromptPanelComponent<TModel extends IModel>
   hideYes = false;
   @Input()
   readonly = false;
+  @Input()
+  disabled: boolean;
   @Input()
   validateForm = true;
 

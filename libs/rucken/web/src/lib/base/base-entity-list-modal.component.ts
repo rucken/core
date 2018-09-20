@@ -3,9 +3,35 @@ import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
+import { IBaseEntityListModal } from './base-entity-list-modal.interface';
+import { IBaseEntityModals } from './base-entity-modals.interface';
 import { IBaseEntityList } from './base-entity-list.interface';
 
-export class BaseEntityListModalComponent<TModel extends IModel> {
+export class BaseEntityListModalComponent<TModel extends IModel> implements IBaseEntityListModal<TModel>, IBaseEntityModals<TModel> {
+  @Input()
+  modalItemComponent: any;
+  @Input()
+  modalDeleteComponent: any;
+  @Input()
+  modalCreateComponent: any;
+  @Input()
+  modalUpdateComponent: any;
+  @Input()
+  modalViewComponent: any;
+  @Input()
+  modalAppendFromGridComponent: any;
+  @Input()
+  modalItemClass: string;
+  @Input()
+  modalDeleteClass: string;
+  @Input()
+  modalCreateClass: string;
+  @Input()
+  modalUpdateClass: string;
+  @Input()
+  modalViewClass: string;
+  @Input()
+  modalAppendFromGridClass: string;
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);

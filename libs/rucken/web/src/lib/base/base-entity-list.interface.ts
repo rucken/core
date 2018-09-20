@@ -10,7 +10,15 @@ export interface IBaseEntityList<TModel extends IModel> {
   selected: EventEmitter<TModel[]>;
   readonly: boolean;
   title: string;
-  strings: any;
+  strings?: {
+    viewTitle?: string;
+    createTitle?: string;
+    updateTitle?: string;
+    deleteTitle?: string;
+    deleteMessage?: string;
+    selectTitle?: string;
+    [key: string]: string;
+  };
   repository: Repository<TModel>;
   modalService: BsModalService;
   getSelected(): TModel[];

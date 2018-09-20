@@ -5,8 +5,9 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
+import { IBaseForm } from './base-form.interface';
 
-export class BasePromptFormModalComponent<TModel extends IModel> {
+export class BasePromptFormModalComponent<TModel extends IModel> implements IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -41,6 +42,8 @@ export class BasePromptFormModalComponent<TModel extends IModel> {
   hideYes = false;
   @Input()
   readonly = false;
+  @Input()
+  disabled: boolean;
   @Input()
   validateForm = true;
 

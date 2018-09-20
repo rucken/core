@@ -30,7 +30,7 @@ export class CustomTranslatePipe implements PipeTransform {
     }
     try {
       value = this._translateService.parser.interpolate(value, newArgs);
-    } catch (error) {}
+    } catch (error) { }
     return value;
   }
 }
