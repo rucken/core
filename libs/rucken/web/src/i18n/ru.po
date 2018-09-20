@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-09-17 13:06\n"
+"PO-Revision-Date: 2018-09-20 16:15\n"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -47,11 +47,23 @@ msgstr "Вы действительно хотите удалить эту за�
 msgid "Delete"
 msgstr "Удалить"
 
+msgid "Select item"
+msgstr ""
+
+msgid "Append"
+msgstr "Добавить"
+
 msgid "Select content type"
 msgstr "Выберите тип содержимого"
 
 msgid "Select"
 msgstr "Выбрать"
+
+msgid "Content types"
+msgstr ""
+
+msgid "Select group"
+msgstr ""
 
 msgid "Delete permission"
 msgstr "Удалить разрешение"
@@ -62,8 +74,14 @@ msgstr "Вы действительно хотите удалить разреш
 msgid "Select permissions for append to group"
 msgstr "Выберите разрешения для добавления в группу"
 
-msgid "Append"
-msgstr "Добавить"
+msgid "Groups"
+msgstr ""
+
+msgid "Select permission"
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
 
 msgid "Delete group"
 msgstr "Удалить группу"
@@ -73,6 +91,12 @@ msgstr "Вы действительно хотите удалить группу
 
 msgid "Select groups for append to user"
 msgstr "Выберите группы для добавления пользователю"
+
+msgid "Select user"
+msgstr ""
+
+msgid "Users"
+msgstr ""
 
 msgid "Sign in"
 msgstr "Войти"
