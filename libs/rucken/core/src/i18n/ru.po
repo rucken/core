@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-09-17 13:05\n"
+"PO-Revision-Date: 2018-09-20 15:42\n"
 
 msgid "Id"
 msgstr "Ид."
@@ -38,6 +38,9 @@ msgstr "Удалить тип содержимого #{{id}}"
 msgid "Do you really want to delete content type?"
 msgstr "Вы действительно хотите удалить этот тип содержимого?"
 
+msgid "Select content type"
+msgstr ""
+
 msgid "Permissions"
 msgstr "Разрешения"
 
@@ -56,6 +59,9 @@ msgstr "Удалить группу #{{id}}"
 msgid "Do you really want to delete group?"
 msgstr "Вы действительно хотите удалить эту группу?"
 
+msgid "Select group"
+msgstr ""
+
 msgid "Content type"
 msgstr "Тип содержимого"
 
@@ -73,6 +79,9 @@ msgstr "Удалить разрешение  #{{id}}"
 
 msgid "Do you really want to delete permission?"
 msgstr "Вы действительно хотите удалить разрешение?"
+
+msgid "Select permission"
+msgstr ""
 
 msgid "Username"
 msgstr "Имя пользователя"
@@ -130,6 +139,9 @@ msgstr "Удалить пользователя  #{{id}}"
 
 msgid "Do you really want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
+
+msgid "Select user"
+msgstr ""
 
 msgid "Oauth provider with name \"{provider}\" not founded"
 msgstr "Поставщик OAuth с именем \"{provider}\" не найден"
