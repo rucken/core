@@ -1,3 +1,19 @@
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/rucken/core/compare/3.1.4...3.2.0) (2018-09-20)
+
+
+### Bug Fixes
+
+* **refactor:** Move titles from template to component Class [#215](https://github.com/rucken/core/issues/215) ([e9a2db7](https://github.com/rucken/core/commit/e9a2db7))
+
+
+### Features
+
+* **refactor:** Move used entryComponents to @Input properties and remove duplicate code from classes ([f4d72c5](https://github.com/rucken/core/commit/f4d72c5))
+* Add all components for entities: group, user, permission ([5e7e85a](https://github.com/rucken/core/commit/5e7e85a))
+
+
+
 <a name="3.1.4"></a>
 ## [3.1.4](https://github.com/rucken/core/compare/3.1.3...3.1.4) (2018-09-16)
 
