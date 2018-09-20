@@ -6,13 +6,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: rucken-core\n"
-"X-Crowdin-Language: pt-PT\n"
+"X-Crowdin-Language: pt-BR\n"
 "X-Crowdin-File: /develop/libs/rucken/web/src/i18n/template.pot\n"
 "Project-Id-Version: rucken-core\n"
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
-"Language-Team: Portuguese\n"
-"Language: pt_PT\n"
-"PO-Revision-Date: 2018-09-17 13:23\n"
+"Language-Team: Portuguese, Brazilian\n"
+"Language: pt_BR\n"
+"PO-Revision-Date: 2018-09-20 16:15\n"
 
 msgid "Cancel"
 msgstr ""
@@ -47,10 +47,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Select item"
+msgstr ""
+
+msgid "Append"
+msgstr ""
+
 msgid "Select content type"
 msgstr ""
 
 msgid "Select"
+msgstr ""
+
+msgid "Content types"
+msgstr ""
+
+msgid "Select group"
 msgstr ""
 
 msgid "Delete permission"
@@ -62,7 +74,13 @@ msgstr ""
 msgid "Select permissions for append to group"
 msgstr ""
 
-msgid "Append"
+msgid "Groups"
+msgstr ""
+
+msgid "Select permission"
+msgstr ""
+
+msgid "Permissions"
 msgstr ""
 
 msgid "Delete group"
@@ -72,6 +90,12 @@ msgid "Do you really want to delete group \"{{title}}\" from user?"
 msgstr ""
 
 msgid "Select groups for append to user"
+msgstr ""
+
+msgid "Select user"
+msgstr ""
+
+msgid "Users"
 msgstr ""
 
 msgid "Sign in"
