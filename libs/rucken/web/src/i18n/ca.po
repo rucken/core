@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
-"PO-Revision-Date: 2018-09-17 13:05\n"
+"PO-Revision-Date: 2018-09-20 15:42\n"
 
 msgid "Cancel"
 msgstr ""
@@ -47,10 +47,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Select item"
+msgstr ""
+
+msgid "Append"
+msgstr ""
+
 msgid "Select content type"
 msgstr ""
 
 msgid "Select"
+msgstr ""
+
+msgid "Content types"
+msgstr ""
+
+msgid "Select group"
 msgstr ""
 
 msgid "Delete permission"
@@ -62,7 +74,13 @@ msgstr ""
 msgid "Select permissions for append to group"
 msgstr ""
 
-msgid "Append"
+msgid "Groups"
+msgstr ""
+
+msgid "Select permission"
+msgstr ""
+
+msgid "Permissions"
 msgstr ""
 
 msgid "Delete group"
@@ -72,6 +90,12 @@ msgid "Do you really want to delete group \"{{title}}\" from user?"
 msgstr ""
 
 msgid "Select groups for append to user"
+msgstr ""
+
+msgid "Select user"
+msgstr ""
+
+msgid "Users"
 msgstr ""
 
 msgid "Sign in"
