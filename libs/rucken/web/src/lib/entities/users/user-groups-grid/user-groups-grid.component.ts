@@ -4,8 +4,8 @@ import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate, User } from '@r
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
-import { GroupsGridModalComponent } from '../../group/groups-grid-modal/groups-grid-modal.component';
-import { GroupsGridComponent } from '../../group/groups-grid/groups-grid.component';
+import { GroupsGridModalComponent } from '../../groups/groups-grid-modal/groups-grid-modal.component';
+import { GroupsGridComponent } from '../../groups/groups-grid/groups-grid.component';
 
 @Component({
   selector: 'user-groups-grid',

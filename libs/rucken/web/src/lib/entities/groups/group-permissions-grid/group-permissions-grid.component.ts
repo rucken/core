@@ -4,8 +4,8 @@ import { ErrorsExtractor, Group, Permission, PERMISSIONS_CONFIG_TOKEN, translate
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
-import { PermissionsGridModalComponent } from '../../permission/permissions-grid-modal/permissions-grid-modal.component';
-import { PermissionsGridComponent } from '../../permission/permissions-grid/permissions-grid.component';
+import { PermissionsGridModalComponent } from '../../permissions/permissions-grid-modal/permissions-grid-modal.component';
+import { PermissionsGridComponent } from '../../permissions/permissions-grid/permissions-grid.component';
 
 @Component({
   selector: 'group-permissions-grid',

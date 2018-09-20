@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { PromptFormModalModule } from '../../../components/prompt-form-modal/prompt-form-modal.module';
-import { ContentTypeInputModule } from '../../content-type/content-type-input/content-type-input.module';
-import { ContentTypeSelectModule } from '../../content-type/content-type-select/content-type-select.module';
+import { ContentTypeInputModule } from '../../content-types/content-type-input/content-type-input.module';
+import { ContentTypeSelectModule } from '../../content-types/content-type-select/content-type-select.module';
 import { PermissionModalComponent } from './permission-modal.component';
 
 @NgModule({
