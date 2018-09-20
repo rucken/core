@@ -43,11 +43,11 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-@angular/core@6.1.7
+@angular/core@6.1.8
 MIT
 MIT
 
-webpack@4.19.0
+webpack@4.19.1
 MIT
 Copyright JS Foundation and other contributors
 
@@ -332,15 +332,15 @@ Apache License
  See the License for the specific language governing permissions and
  limitations under the License.
 
-@angular/forms@6.1.7
+@angular/forms@6.1.8
 MIT
 MIT
 
-@angular/platform-browser@6.1.7
+@angular/platform-browser@6.1.8
 MIT
 MIT
 
-@angular/common@6.1.7
+@angular/common@6.1.8
 MIT
 MIT
 
@@ -408,7 +408,7 @@ LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-google-libphonenumber@3.1.13
+google-libphonenumber@3.1.14
 SEE LICENSE IN LICENSE
 This package is licensed under MIT:
 
@@ -624,7 +624,7 @@ ngx-permissions@6.0.1
 MIT
 MIT
 
-@angular/router@6.1.7
+@angular/router@6.1.8
 MIT
 MIT
 
