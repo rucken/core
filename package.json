@@ -69,8 +69,12 @@
     "postinstall": "node ./scripts/patch.js",
     "github:prebuild": "ng build demo --base-href /core/ --prod",
     "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo/index.html ./dist/demo/404.html",
-    "github:build": "run-s lib:build config:prod github:prebuild github:postbuild",
-    "github:deploy": "gh-pages -d dist/demo"
+    "github:build": "run-s lib:build config:prod github:prebuild github:postbuild doc",
+    "github:deploy": "gh-pages -d dist/demo",
+    "doc:lib:core": "./node_modules/.bin/compodoc -p libs/rucken/core/tsconfig.lib.json -n \"rucken:core\" -d dist/demo/doc/core",
+    "doc:lib:web": "./node_modules/.bin/compodoc -p libs/rucken/web/tsconfig.lib.json -n \"rucken:web\" -d dist/demo/doc/web",
+    "doc:app:demo": "./node_modules/.bin/compodoc -p apps/demo/tsconfig.app.json -n \"rucken:demo\" -d dist/demo/doc/demo",
+    "doc": "run-s doc:lib:core doc:lib:web doc:app:demo"
   },
   "dependencies": {
     "@angular/animations": "^6.1.8",
@@ -117,6 +121,7 @@
     "@angular/cli": "^6.2.3",
     "@angular/compiler-cli": "^6.1.8",
     "@angular/language-service": "^6.1.8",
+    "@compodoc/compodoc": "^1.1.5",
     "@rucken/cli": "^3.2.0",
     "@types/body-parser": "^1.17.0",
     "@types/jasmine": "~2.8.8",
