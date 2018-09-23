@@ -30,6 +30,8 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User>
   apiUrl?: string;
   @Input()
   enableSave = true;
+  @Input()
+  simpleMode = false;
 
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
 

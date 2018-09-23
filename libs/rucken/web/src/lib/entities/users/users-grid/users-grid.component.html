@@ -2,7 +2,7 @@
     [title]="title"
     [items]="items$ | async"
     (selected)="onSelected($event)"
-    [columns]="['username', 'fullName', 'roles', 'groups', 'action']"
+    [columns]="simpleMode ? ['username', 'fullName', 'action'] : ['username', 'fullName', 'roles', 'groups', 'action']"
     [readonly]="readonly"
     [strings]="strings"
     (create)="onCreateClick($event)"

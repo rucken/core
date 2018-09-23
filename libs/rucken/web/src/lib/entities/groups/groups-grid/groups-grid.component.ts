@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate } from '@rucken/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
+import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { GroupModalComponent } from '../group-modal/group-modal.component';
 
@@ -15,7 +16,9 @@ import { GroupModalComponent } from '../group-modal/group-modal.component';
 export class GroupsGridComponent extends BaseEntityListComponent<Group>
     implements OnInit {
     @Input()
-    modalItemComponent = GroupModalComponent;
+    modalItem: IBaseEntityModalOptions = {
+        component: GroupModalComponent
+    };
     @Input()
     title = translate('Groups');
     constructor(

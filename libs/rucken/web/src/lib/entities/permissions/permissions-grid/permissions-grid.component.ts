@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Permission, PERMISSIONS_CONFIG_TOKEN, translate } from '@rucken/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
+import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionModalComponent } from '../permission-modal/permission-modal.component';
 
@@ -16,7 +17,9 @@ export class PermissionsGridComponent
     extends BaseEntityListComponent<Permission>
     implements OnInit {
     @Input()
-    modalItemComponent = PermissionModalComponent;
+    modalItem: IBaseEntityModalOptions = {
+        component: PermissionModalComponent
+    };
     @Input()
     title = translate('Permissions');
     @Input()

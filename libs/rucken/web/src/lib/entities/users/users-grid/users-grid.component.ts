@@ -4,6 +4,7 @@ import { ErrorsExtractor, translate, User, USERS_CONFIG_TOKEN } from '@rucken/co
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
+import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UserModalComponent } from '../user-modal/user-modal.component';
 
@@ -15,9 +16,11 @@ import { UserModalComponent } from '../user-modal/user-modal.component';
 export class UsersGridComponent extends BaseEntityListComponent<User>
     implements OnInit {
     @Input()
-    modalItemComponent = UserModalComponent;
+    modalItem: IBaseEntityModalOptions = {
+        component: UserModalComponent
+    };
     @Input()
-    modalItemClass = 'modal-lg';
+    simpleMode = false;
     @Input()
     title = translate('Users');
     constructor(
@@ -43,5 +46,13 @@ export class UsersGridComponent extends BaseEntityListComponent<User>
                 ...this.usersConfig
             });
         }
+        this.modalItem = {
+            ...this.modalItem,
+            class: this.simpleMode ? 'modal-md' : 'modal-lg',
+            initialState: {
+                ...this.modalItem.initialState,
+                simpleMode: this.simpleMode
+            }
+        };
     }
 }

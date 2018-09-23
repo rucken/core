@@ -4,34 +4,22 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
 import { IBaseEntityListModal } from './base-entity-list-modal.interface';
-import { IBaseEntityModals } from './base-entity-modals.interface';
 import { IBaseEntityList } from './base-entity-list.interface';
+import { IBaseEntityModalOptions, IBaseEntityModals } from './base-entity-modals.interface';
 
-export class BaseEntityListModalComponent<TModel extends IModel> implements IBaseEntityListModal<TModel>, IBaseEntityModals<TModel> {
+export class BaseEntityListModalComponent<TModel extends IModel> implements IBaseEntityListModal<TModel>, IBaseEntityModals {
   @Input()
-  modalItemComponent: any;
+  modalItem: IBaseEntityModalOptions = {};
   @Input()
-  modalDeleteComponent: any;
+  modalDelete: IBaseEntityModalOptions = {};
   @Input()
-  modalCreateComponent: any;
+  modalCreate: IBaseEntityModalOptions = {};
   @Input()
-  modalUpdateComponent: any;
+  modalUpdate: IBaseEntityModalOptions = {};
   @Input()
-  modalViewComponent: any;
+  modalView: IBaseEntityModalOptions = {};
   @Input()
-  modalAppendFromGridComponent: any;
-  @Input()
-  modalItemClass: string;
-  @Input()
-  modalDeleteClass: string;
-  @Input()
-  modalCreateClass: string;
-  @Input()
-  modalUpdateClass: string;
-  @Input()
-  modalViewClass: string;
-  @Input()
-  modalAppendFromGridClass: string;
+  modalAppendFromGrid: IBaseEntityModalOptions = {};
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);

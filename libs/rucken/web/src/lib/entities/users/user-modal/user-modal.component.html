@@ -14,7 +14,7 @@
         [data]="data"
         [processing]="processing$ | async">
         <div class="row">
-            <div class="col-md-6">
+            <div [ngClass]="{'col-md-6':!simpleMode,'col-md-12':simpleMode}">
                 <div class="row">
                     <div class="col-md-12">
                         <form-group
@@ -100,7 +100,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div
+                class="col-md-6"
+                *ngIf="!simpleMode">
                 <form-group
                     [checkIsDirty]="checkIsDirty"
                     [title]="strings.roles">
@@ -111,7 +113,7 @@
                                     formControlName="isActive"
                                     type="checkbox"
                                     [readonly]="readonly"
-                                    [disableControl]="readonly">
+                                    [disableControl]="readonly || !('change_user' | perm:false | async)">
                                 {{strings.isActive | translate}}
                             </label>
                         </div>
@@ -121,7 +123,7 @@
                                     formControlName="isStaff"
                                     type="checkbox"
                                     [readonly]="readonly"
-                                    [disableControl]="readonly">
+                                    [disableControl]="readonly || !('change_user' | perm:false | async)">
                                 {{strings.isStaff | translate}}
                             </label>
                         </div>
@@ -131,14 +133,16 @@
                                     formControlName="isSuperuser"
                                     type="checkbox"
                                     [readonly]="readonly"
-                                    [disableControl]="readonly">
+                                    [disableControl]="readonly || !('change_user' | perm:false | async)">
                                 {{strings.isSuperuser | translate}}
                             </label>
                         </div>
                     </div>
                 </form-group>
             </div>
-            <div class="col-md-6">
+            <div
+                class="col-md-6"
+                *ngIf="!simpleMode">
                 <user-groups-grid
                     [mockedItems]="data.groups"
                     (mockedItemsChange)="onGroupsChange($event)"
