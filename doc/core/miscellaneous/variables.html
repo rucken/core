@@ -1,0 +1,3325 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rucken:core</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rucken:core</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Miscellaneous</li>
+  <li>Variables</li>
+</ol>
+
+<section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#ACCOUNT_CONFIG_TOKEN" title="libs/rucken/core/src/lib/modules/account/configs/account.config.ts"><b>ACCOUNT_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../account.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#accountProviders" title="libs/rucken/core/src/lib/modules/account/configs/index.ts"><b>accountProviders</b>&nbsp;&nbsp;&nbsp;(libs/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AfI18n" title="libs/rucken/core/src/i18n/af.i18n.ts"><b>AfI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../af.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ArI18n" title="libs/rucken/core/src/i18n/ar.i18n.ts"><b>ArI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../ar.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_CONFIG_TOKEN" title="libs/rucken/core/src/lib/modules/auth/configs/auth.config.ts"><b>AUTH_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../auth.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authProviders" title="libs/rucken/core/src/lib/modules/auth/configs/index.ts"><b>authProviders</b>&nbsp;&nbsp;&nbsp;(libs/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CaI18n" title="libs/rucken/core/src/i18n/ca.i18n.ts"><b>CaI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../ca.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CONTENT_TYPES_CONFIG_TOKEN" title="libs/rucken/core/src/lib/entities/configs/content-types.config.ts"><b>CONTENT_TYPES_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../content-types.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CsI18n" title="libs/rucken/core/src/i18n/cs.i18n.ts"><b>CsI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../cs.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultAccountConfig" title="libs/rucken/core/src/lib/modules/account/configs/account.config.ts"><b>defaultAccountConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../account.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultAuthConfig" title="libs/rucken/core/src/lib/modules/auth/configs/auth.config.ts"><b>defaultAuthConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../auth.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultContentTypesConfig" title="libs/rucken/core/src/lib/entities/configs/content-types.config.ts"><b>defaultContentTypesConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../content-types.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultGroupsConfig" title="libs/rucken/core/src/lib/entities/configs/groups.config.ts"><b>defaultGroupsConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../groups.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultJwtConfig" title="libs/rucken/core/src/lib/modules/auth/configs/jwt.config.ts"><b>defaultJwtConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../jwt.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultLangConfig" title="libs/rucken/core/src/lib/modules/lang/configs/lang.config.ts"><b>defaultLangConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../lang.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultOauthConfig" title="libs/rucken/core/src/lib/modules/auth/configs/oauth.config.ts"><b>defaultOauthConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../oauth.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultPermissionsConfig" title="libs/rucken/core/src/lib/entities/configs/permissions.config.ts"><b>defaultPermissionsConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../permissions.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#defaultUsersConfig" title="libs/rucken/core/src/lib/entities/configs/users.config.ts"><b>defaultUsersConfig</b>&nbsp;&nbsp;&nbsp;(libs/.../users.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DeI18n" title="libs/rucken/core/src/i18n/de.i18n.ts"><b>DeI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../de.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ElI18n" title="libs/rucken/core/src/i18n/el.i18n.ts"><b>ElI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../el.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EMPTY_PERMISSIONS" title="libs/rucken/core/src/lib/utils/permissions-guard.service.ts"><b>EMPTY_PERMISSIONS</b>&nbsp;&nbsp;&nbsp;(libs/.../permissions-guard.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#entitiesProviders" title="libs/rucken/core/src/lib/entities/configs/index.ts"><b>entitiesProviders</b>&nbsp;&nbsp;&nbsp;(libs/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EsI18n" title="libs/rucken/core/src/i18n/es.i18n.ts"><b>EsI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../es.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FrI18n" title="libs/rucken/core/src/i18n/fr.i18n.ts"><b>FrI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../fr.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GROUPS_CONFIG_TOKEN" title="libs/rucken/core/src/lib/entities/configs/groups.config.ts"><b>GROUPS_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../groups.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#HeI18n" title="libs/rucken/core/src/i18n/he.i18n.ts"><b>HeI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../he.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#HuI18n" title="libs/rucken/core/src/i18n/hu.i18n.ts"><b>HuI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../hu.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#INITED_PERMISSIONS" title="libs/rucken/core/src/lib/utils/permissions-guard.service.ts"><b>INITED_PERMISSIONS</b>&nbsp;&nbsp;&nbsp;(libs/.../permissions-guard.service.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ItI18n" title="libs/rucken/core/src/i18n/it.i18n.ts"><b>ItI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../it.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#JaI18n" title="libs/rucken/core/src/i18n/ja.i18n.ts"><b>JaI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../ja.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#JWT_CONFIG_TOKEN" title="libs/rucken/core/src/lib/modules/auth/configs/jwt.config.ts"><b>JWT_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../jwt.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#KoI18n" title="libs/rucken/core/src/i18n/ko.i18n.ts"><b>KoI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../ko.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#LANG_CONFIG_TOKEN" title="libs/rucken/core/src/lib/modules/lang/configs/lang.config.ts"><b>LANG_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../lang.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#langProviders" title="libs/rucken/core/src/lib/modules/lang/configs/index.ts"><b>langProviders</b>&nbsp;&nbsp;&nbsp;(libs/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NlI18n" title="libs/rucken/core/src/i18n/nl.i18n.ts"><b>NlI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../nl.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#NoI18n" title="libs/rucken/core/src/i18n/no.i18n.ts"><b>NoI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../no.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#OAUTH_CONFIG_TOKEN" title="libs/rucken/core/src/lib/modules/auth/configs/oauth.config.ts"><b>OAUTH_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../oauth.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PERMISSIONS_CONFIG_TOKEN" title="libs/rucken/core/src/lib/entities/configs/permissions.config.ts"><b>PERMISSIONS_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../permissions.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PlI18n" title="libs/rucken/core/src/i18n/pl.i18n.ts"><b>PlI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../pl.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PtI18n" title="libs/rucken/core/src/i18n/pt.i18n.ts"><b>PtI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../pt.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RoI18n" title="libs/rucken/core/src/i18n/ro.i18n.ts"><b>RoI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../ro.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RuI18n" title="libs/rucken/core/src/i18n/ru.i18n.ts"><b>RuI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../ru.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SrI18n" title="libs/rucken/core/src/i18n/sr.i18n.ts"><b>SrI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../sr.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#STORAGE_CONFIG_TOKEN" title="libs/rucken/core/src/lib/modules/storage/configs/storage.config.ts"><b>STORAGE_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../storage.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SvI18n" title="libs/rucken/core/src/i18n/sv.i18n.ts"><b>SvI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../sv.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TrI18n" title="libs/rucken/core/src/i18n/tr.i18n.ts"><b>TrI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../tr.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UkI18n" title="libs/rucken/core/src/i18n/uk.i18n.ts"><b>UkI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../uk.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERS_CONFIG_TOKEN" title="libs/rucken/core/src/lib/entities/configs/users.config.ts"><b>USERS_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(libs/.../users.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ViI18n" title="libs/rucken/core/src/i18n/vi.i18n.ts"><b>ViI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../vi.i18n.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ZhI18n" title="libs/rucken/core/src/i18n/zh.i18n.ts"><b>ZhI18n</b>&nbsp;&nbsp;&nbsp;(libs/.../zh.i18n.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>libs/rucken/core/src/lib/modules/account/configs/account.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ACCOUNT_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            ACCOUNT_CONFIG_TOKEN
+                            </b>
+                            <a href="#ACCOUNT_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>ACCOUNT_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;AccountConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultAccountConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultAccountConfig
+                            </b>
+                            <a href="#defaultAccountConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultAccountConfig:     <code><a href="../interfaces/IAccountConfig.html" target="_self" >IAccountConfig</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/IAccountConfig.html" target="_self" >IAccountConfig</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  apiUri: &#x27;/api&#x27;,
+  updateUri: &#x27;/account/update&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/account/configs/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="accountProviders"></a>
+                        <span class="name">
+                            <b>
+                            accountProviders
+                            </b>
+                            <a href="#accountProviders"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>accountProviders:     <code>Provider[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Provider[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  {
+    provide: ACCOUNT_CONFIG_TOKEN,
+    useValue: defaultAccountConfig
+  }
+]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/af.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="AfI18n"></a>
+                        <span class="name">
+                            <b>
+                            AfI18n
+                            </b>
+                            <a href="#AfI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>AfI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/ar.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ArI18n"></a>
+                        <span class="name">
+                            <b>
+                            ArI18n
+                            </b>
+                            <a href="#ArI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>ArI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/auth/configs/auth.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="AUTH_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            AUTH_CONFIG_TOKEN
+                            </b>
+                            <a href="#AUTH_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>AUTH_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;AuthConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultAuthConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultAuthConfig
+                            </b>
+                            <a href="#defaultAuthConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultAuthConfig:     <code><a href="../interfaces/IAuthConfig.html" target="_self" >IAuthConfig</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/IAuthConfig.html" target="_self" >IAuthConfig</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  apiUri: &#x27;/api&#x27;,
+  signInUri: &#x27;/auth/signin&#x27;,
+  signUpUri: &#x27;/auth/signup&#x27;,
+  infoUri: &#x27;/auth/info&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/auth/configs/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="authProviders"></a>
+                        <span class="name">
+                            <b>
+                            authProviders
+                            </b>
+                            <a href="#authProviders"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>authProviders:     <code>Provider[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Provider[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  {
+    provide: AUTH_CONFIG_TOKEN,
+    useValue: defaultAuthConfig
+  },
+  {
+    provide: JWT_CONFIG_TOKEN,
+    useValue: defaultJwtConfig
+  },
+  {
+    provide: OAUTH_CONFIG_TOKEN,
+    useValue: defaultOauthConfig
+  }
+]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/ca.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CaI18n"></a>
+                        <span class="name">
+                            <b>
+                            CaI18n
+                            </b>
+                            <a href="#CaI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>CaI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/entities/configs/content-types.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CONTENT_TYPES_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            CONTENT_TYPES_CONFIG_TOKEN
+                            </b>
+                            <a href="#CONTENT_TYPES_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>CONTENT_TYPES_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;ContentTypesConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultContentTypesConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultContentTypesConfig
+                            </b>
+                            <a href="#defaultContentTypesConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultContentTypesConfig:     <code><a href="../classes/ContentType.html" target="_self" >IRestProviderOptions&lt;ContentType&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/ContentType.html" target="_self" >IRestProviderOptions&lt;ContentType&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  name: &#x27;content_type&#x27;,
+  pluralName: &#x27;content_types&#x27;,
+  autoload: true,
+  paginationMeta: {
+    perPage: 5
+  },
+  actionOptions: {
+    responseData: (data: any, action: ProviderActionEnum) &#x3D;&gt; {
+      if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.Delete) {
+        return true;
+      } else {
+        if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.LoadAll) {
+          return plainToClass(ContentType, data.body.contentTypes);
+        } else {
+          return plainToClass(ContentType, data.body.contentType);
+        }
+      }
+    },
+    responsePaginationMeta: (
+      data: any,
+      action: ProviderActionEnum
+    ): PaginationMeta &#x3D;&gt; {
+      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+    }
+  },
+  restOptions: {
+    limitQueryParam: &#x27;per_page&#x27;,
+    pageQueryParam: &#x27;cur_page&#x27;,
+    searchTextQueryParam: &#x27;q&#x27;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/cs.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="CsI18n"></a>
+                        <span class="name">
+                            <b>
+                            CsI18n
+                            </b>
+                            <a href="#CsI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>CsI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/entities/configs/groups.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultGroupsConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultGroupsConfig
+                            </b>
+                            <a href="#defaultGroupsConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultGroupsConfig:     <code><a href="../classes/Group.html" target="_self" >IRestProviderOptions&lt;Group&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Group.html" target="_self" >IRestProviderOptions&lt;Group&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  name: &#x27;group&#x27;,
+  pluralName: &#x27;groups&#x27;,
+  autoload: true,
+  paginationMeta: {
+    perPage: 5
+  },
+  actionOptions: {
+    responseData: (data: any, action: ProviderActionEnum) &#x3D;&gt; {
+      if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.Delete) {
+        return true;
+      } else {
+        if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.LoadAll) {
+          return plainToClass(Group, data.body.groups);
+        } else {
+          return plainToClass(Group, data.body.group);
+        }
+      }
+    },
+    responsePaginationMeta: (
+      data: any,
+      action: ProviderActionEnum
+    ): PaginationMeta &#x3D;&gt; {
+      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+    }
+  },
+  restOptions: {
+    limitQueryParam: &#x27;per_page&#x27;,
+    pageQueryParam: &#x27;cur_page&#x27;,
+    searchTextQueryParam: &#x27;q&#x27;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="GROUPS_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            GROUPS_CONFIG_TOKEN
+                            </b>
+                            <a href="#GROUPS_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>GROUPS_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;GroupsConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/auth/configs/jwt.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultJwtConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultJwtConfig
+                            </b>
+                            <a href="#defaultJwtConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultJwtConfig:     <code><a href="../interfaces/IJwtConfig.html" target="_self" >IJwtConfig</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/IJwtConfig.html" target="_self" >IJwtConfig</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  withoutTokenUrls: [&#x27;auth/&#x27;],
+  headerName: &#x27;Authorization&#x27;,
+  headerPrefix: &#x27;JWT&#x27;,
+  tokenName: &#x27;token&#x27;,
+  storageKeyName: &#x27;token&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="JWT_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            JWT_CONFIG_TOKEN
+                            </b>
+                            <a href="#JWT_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>JWT_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;JwtConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/lang/configs/lang.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultLangConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultLangConfig
+                            </b>
+                            <a href="#defaultLangConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultLangConfig:     <code><a href="../interfaces/ILangConfig.html" target="_self" >ILangConfig</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/ILangConfig.html" target="_self" >ILangConfig</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  appLang: &#x27;en&#x27;,
+  defaultLang: &#x27;en&#x27;,
+  storageKeyName: &#x27;lang&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="LANG_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            LANG_CONFIG_TOKEN
+                            </b>
+                            <a href="#LANG_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>LANG_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;LangConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/auth/configs/oauth.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultOauthConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultOauthConfig
+                            </b>
+                            <a href="#defaultOauthConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultOauthConfig:     <code><a href="../interfaces/IOauthConfig.html" target="_self" >IOauthConfig</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/IOauthConfig.html" target="_self" >IOauthConfig</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  apiUri: &#x27;/api&#x27;,
+  signInUri: &#x27;/auth/{provider}/signin&#x27;,
+  redirectUri: &#x27;/auth/{provider}/uri&#x27;,
+  providers: []
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="OAUTH_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            OAUTH_CONFIG_TOKEN
+                            </b>
+                            <a href="#OAUTH_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>OAUTH_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;OauthConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/entities/configs/permissions.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultPermissionsConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultPermissionsConfig
+                            </b>
+                            <a href="#defaultPermissionsConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultPermissionsConfig:     <code><a href="../classes/Permission.html" target="_self" >IRestProviderOptions&lt;Permission&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/Permission.html" target="_self" >IRestProviderOptions&lt;Permission&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  name: &#x27;permission&#x27;,
+  pluralName: &#x27;permissions&#x27;,
+  autoload: true,
+  paginationMeta: {
+    perPage: 5
+  },
+  actionOptions: {
+    responseData: (data: any, action: ProviderActionEnum) &#x3D;&gt; {
+      if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.Delete) {
+        return true;
+      } else {
+        if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.LoadAll) {
+          return plainToClass(Permission, data.body.permissions);
+        } else {
+          return plainToClass(Permission, data.body.permission);
+        }
+      }
+    },
+    responsePaginationMeta: (
+      data: any,
+      action: ProviderActionEnum
+    ): PaginationMeta &#x3D;&gt; {
+      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+    }
+  },
+  restOptions: {
+    limitQueryParam: &#x27;per_page&#x27;,
+    pageQueryParam: &#x27;cur_page&#x27;,
+    searchTextQueryParam: &#x27;q&#x27;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="PERMISSIONS_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            PERMISSIONS_CONFIG_TOKEN
+                            </b>
+                            <a href="#PERMISSIONS_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>PERMISSIONS_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;PermissionsConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/entities/configs/users.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultUsersConfig"></a>
+                        <span class="name">
+                            <b>
+                            defaultUsersConfig
+                            </b>
+                            <a href="#defaultUsersConfig"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultUsersConfig:     <code><a href="../classes/User.html" target="_self" >IRestProviderOptions&lt;User&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../classes/User.html" target="_self" >IRestProviderOptions&lt;User&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  name: &#x27;user&#x27;,
+  pluralName: &#x27;users&#x27;,
+  autoload: true,
+  paginationMeta: {
+    perPage: 5
+  },
+  actionOptions: {
+    responseData: (data: any, action: ProviderActionEnum) &#x3D;&gt; {
+      if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.Delete) {
+        return true;
+      } else {
+        if (action &#x3D;&#x3D;&#x3D; ProviderActionEnum.LoadAll) {
+          return plainToClass(User, data.body.users);
+        } else {
+          return plainToClass(User, data.body.user);
+        }
+      }
+    },
+    responsePaginationMeta: (
+      data: any,
+      action: ProviderActionEnum
+    ): PaginationMeta &#x3D;&gt; {
+      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+    }
+  },
+  restOptions: {
+    limitQueryParam: &#x27;per_page&#x27;,
+    pageQueryParam: &#x27;cur_page&#x27;,
+    searchTextQueryParam: &#x27;q&#x27;
+  }
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="USERS_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            USERS_CONFIG_TOKEN
+                            </b>
+                            <a href="#USERS_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>USERS_CONFIG_TOKEN:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;UsersConfig&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/de.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="DeI18n"></a>
+                        <span class="name">
+                            <b>
+                            DeI18n
+                            </b>
+                            <a href="#DeI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>DeI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/el.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ElI18n"></a>
+                        <span class="name">
+                            <b>
+                            ElI18n
+                            </b>
+                            <a href="#ElI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>ElI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/utils/permissions-guard.service.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="EMPTY_PERMISSIONS"></a>
+                        <span class="name">
+                            <b>
+                            EMPTY_PERMISSIONS
+                            </b>
+                            <a href="#EMPTY_PERMISSIONS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>EMPTY_PERMISSIONS:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;__empty__&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="INITED_PERMISSIONS"></a>
+                        <span class="name">
+                            <b>
+                            INITED_PERMISSIONS
+                            </b>
+                            <a href="#INITED_PERMISSIONS"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>INITED_PERMISSIONS:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>&#x27;__inited__&#x27;</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/entities/configs/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="entitiesProviders"></a>
+                        <span class="name">
+                            <b>
+                            entitiesProviders
+                            </b>
+                            <a href="#entitiesProviders"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>entitiesProviders:     <code>Provider[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Provider[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  {
+    provide: CONTENT_TYPES_CONFIG_TOKEN,
+    useValue: defaultContentTypesConfig
+  },
+  {
+    provide: GROUPS_CONFIG_TOKEN,
+    useValue: defaultGroupsConfig
+  },
+  {
+    provide: PERMISSIONS_CONFIG_TOKEN,
+    useValue: defaultPermissionsConfig
+  },
+  {
+    provide: USERS_CONFIG_TOKEN,
+    useValue: defaultUsersConfig
+  }
+]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/es.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="EsI18n"></a>
+                        <span class="name">
+                            <b>
+                            EsI18n
+                            </b>
+                            <a href="#EsI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>EsI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/fr.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="FrI18n"></a>
+                        <span class="name">
+                            <b>
+                            FrI18n
+                            </b>
+                            <a href="#FrI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>FrI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/he.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="HeI18n"></a>
+                        <span class="name">
+                            <b>
+                            HeI18n
+                            </b>
+                            <a href="#HeI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>HeI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/hu.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="HuI18n"></a>
+                        <span class="name">
+                            <b>
+                            HuI18n
+                            </b>
+                            <a href="#HuI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>HuI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/it.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ItI18n"></a>
+                        <span class="name">
+                            <b>
+                            ItI18n
+                            </b>
+                            <a href="#ItI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>ItI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/ja.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="JaI18n"></a>
+                        <span class="name">
+                            <b>
+                            JaI18n
+                            </b>
+                            <a href="#JaI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>JaI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/ko.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="KoI18n"></a>
+                        <span class="name">
+                            <b>
+                            KoI18n
+                            </b>
+                            <a href="#KoI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>KoI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/lang/configs/index.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="langProviders"></a>
+                        <span class="name">
+                            <b>
+                            langProviders
+                            </b>
+                            <a href="#langProviders"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>langProviders:     <code>Provider[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Provider[]</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>[
+  {
+    provide: LANG_CONFIG_TOKEN,
+    useValue: defaultLangConfig
+  }
+]</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/nl.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="NlI18n"></a>
+                        <span class="name">
+                            <b>
+                            NlI18n
+                            </b>
+                            <a href="#NlI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>NlI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/no.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="NoI18n"></a>
+                        <span class="name">
+                            <b>
+                            NoI18n
+                            </b>
+                            <a href="#NoI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>NoI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/pl.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="PlI18n"></a>
+                        <span class="name">
+                            <b>
+                            PlI18n
+                            </b>
+                            <a href="#PlI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>PlI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/pt.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="PtI18n"></a>
+                        <span class="name">
+                            <b>
+                            PtI18n
+                            </b>
+                            <a href="#PtI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>PtI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/ro.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="RoI18n"></a>
+                        <span class="name">
+                            <b>
+                            RoI18n
+                            </b>
+                            <a href="#RoI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>RoI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/ru.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="RuI18n"></a>
+                        <span class="name">
+                            <b>
+                            RuI18n
+                            </b>
+                            <a href="#RuI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>RuI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;Ид.&#x27;,
+  Name: &#x27;Наименование&#x27;,
+  Title: &#x27;Заголовок&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;Создание нового типа содержимого&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;Изменить тип содержимого #{{id}}&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;Изменить тип содержимого #{{id}}&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;Удалить тип содержимого #{{id}}&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;Вы действительно хотите удалить этот тип содержимого?&#x27;,
+  Permissions: &#x27;Разрешения&#x27;,
+  &#x27;Add new group&#x27;: &#x27;Создание новой группы&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;Информация о группе #{{id}}&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;Изменить группу #{{id}}&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;Удалить группу #{{id}}&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;Вы действительно хотите удалить эту группу?&#x27;,
+  &#x27;Content type&#x27;: &#x27;Тип содержимого&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;Добавление нового разрешения&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;Информация о разрешении #{{id}}&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;Изменить разрешение  #{{id}}&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;Удалить разрешение  #{{id}}&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;Вы действительно хотите удалить разрешение?&#x27;,
+  Username: &#x27;Имя пользователя&#x27;,
+  Password: &#x27;Пароль&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;Пароль (повторно)&#x27;,
+  Roles: &#x27;Роли&#x27;,
+  Administrator: &#x27;Администратор&#x27;,
+  Staff: &#x27;Персонал&#x27;,
+  User: &#x27;Пользователь&#x27;,
+  &#x27;Full name&#x27;: &#x27;Полное имя&#x27;,
+  &#x27;First name&#x27;: &#x27;Имя&#x27;,
+  &#x27;Last name&#x27;: &#x27;Фамилия&#x27;,
+  Email: &#x27;Эл. почта&#x27;,
+  &#x27;Last login&#x27;: &#x27;Дата последнего входа&#x27;,
+  &#x27;Date joined&#x27;: &#x27;Дата регистрации&#x27;,
+  Groups: &#x27;Группы&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;Дата рождения&#x27;,
+  &#x27;Add new user&#x27;: &#x27;Добавление нового пользователя&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;Изменить пользователя  #{{id}}&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;Удалить пользователя  #{{id}}&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;Вы действительно хотите удалить пользователя?&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;Поставщик OAuth с именем &quot;{provider}&quot; не найден&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;$property должно быть равно $constraint1&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/sr.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SrI18n"></a>
+                        <span class="name">
+                            <b>
+                            SrI18n
+                            </b>
+                            <a href="#SrI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>SrI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/lib/modules/storage/configs/storage.config.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="STORAGE_CONFIG_TOKEN"></a>
+                        <span class="name">
+                            <b>
+                            STORAGE_CONFIG_TOKEN
+                            </b>
+                            <a href="#STORAGE_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>STORAGE_CONFIG_TOKEN:     <code><a href="../interfaces/IStorage.html" target="_self" >InjectionToken&lt;IStorage&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/IStorage.html" target="_self" >InjectionToken&lt;IStorage&gt;</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>new InjectionToken&lt;IStorage&gt;(&#x27;StorageConfig&#x27;)</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/sv.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SvI18n"></a>
+                        <span class="name">
+                            <b>
+                            SvI18n
+                            </b>
+                            <a href="#SvI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>SvI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/tr.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="TrI18n"></a>
+                        <span class="name">
+                            <b>
+                            TrI18n
+                            </b>
+                            <a href="#TrI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>TrI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/uk.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="UkI18n"></a>
+                        <span class="name">
+                            <b>
+                            UkI18n
+                            </b>
+                            <a href="#UkI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>UkI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/vi.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ViI18n"></a>
+                        <span class="name">
+                            <b>
+                            ViI18n
+                            </b>
+                            <a href="#ViI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>ViI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+    <h3>libs/rucken/core/src/i18n/zh.i18n.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="ZhI18n"></a>
+                        <span class="name">
+                            <b>
+                            ZhI18n
+                            </b>
+                            <a href="#ZhI18n"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>ZhI18n:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>{
+  Id: &#x27;&#x27;,
+  Name: &#x27;&#x27;,
+  Title: &#x27;&#x27;,
+  &#x27;Add new content type&#x27;: &#x27;&#x27;,
+  &#x27;Content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete content type #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete content type?&#x27;: &#x27;&#x27;,
+  Permissions: &#x27;&#x27;,
+  &#x27;Add new group&#x27;: &#x27;&#x27;,
+  &#x27;Group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete group #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete group?&#x27;: &#x27;&#x27;,
+  &#x27;Content type&#x27;: &#x27;&#x27;,
+  &#x27;Add new permission&#x27;: &#x27;&#x27;,
+  &#x27;Permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Update permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete permission #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete permission?&#x27;: &#x27;&#x27;,
+  Username: &#x27;&#x27;,
+  Password: &#x27;&#x27;,
+  &#x27;Repeat password&#x27;: &#x27;&#x27;,
+  Roles: &#x27;&#x27;,
+  Administrator: &#x27;&#x27;,
+  Staff: &#x27;&#x27;,
+  User: &#x27;&#x27;,
+  &#x27;Full name&#x27;: &#x27;&#x27;,
+  &#x27;First name&#x27;: &#x27;&#x27;,
+  &#x27;Last name&#x27;: &#x27;&#x27;,
+  Email: &#x27;&#x27;,
+  &#x27;Last login&#x27;: &#x27;&#x27;,
+  &#x27;Date joined&#x27;: &#x27;&#x27;,
+  Groups: &#x27;&#x27;,
+  &#x27;Date of birth&#x27;: &#x27;&#x27;,
+  &#x27;Add new user&#x27;: &#x27;&#x27;,
+  &#x27;Update user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Delete user #{{id}}&#x27;: &#x27;&#x27;,
+  &#x27;Do you really want to delete user?&#x27;: &#x27;&#x27;,
+  &#x27;Oauth provider with name &quot;{provider}&quot; not founded&#x27;: &#x27;&#x27;,
+  &#x27;$property must be equal to $constraint1&#x27;: &#x27;&#x27;
+}</code>
+                        </td>
+                    </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

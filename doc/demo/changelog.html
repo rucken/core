@@ -1,0 +1,906 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rucken:demo</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	      <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">rucken:demo</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content getting-started">
+                   <div class="content-data">
+
+<p><a name="3.3.0"></a></p>
+<h1 id="3-3-0-2018-09-23-"><a href="https://github.com/rucken/core/compare/3.2.0...3.3.0">3.3.0</a> (2018-09-23)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>user:</strong> Add disable datepicker on readonly mode (<a href="https://github.com/rucken/core/commit/22eb4b6">22eb4b6</a>)</li>
+<li><strong>user-profile:</strong> Add disabled attribute (<a href="https://github.com/rucken/core/commit/34523bb">34523bb</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>directives:</strong> Add directive disableControl and use it in user profile forms (<a href="https://github.com/rucken/core/commit/6c22c3e">6c22c3e</a>)</li>
+<li><strong>modals:</strong> Changed create modal options method (<a href="https://github.com/rucken/core/commit/5c0c69d">5c0c69d</a>)</li>
+</ul>
+<p><a name="3.2.0"></a></p>
+<h1 id="3-2-0-2018-09-20-"><a href="https://github.com/rucken/core/compare/3.1.4...3.2.0">3.2.0</a> (2018-09-20)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>refactor:</strong> Move titles from template to component Class <a href="https://github.com/rucken/core/issues/215">#215</a> (<a href="https://github.com/rucken/core/commit/e9a2db7">e9a2db7</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>refactor:</strong> Move used entryComponents to @Input properties and remove duplicate code from classes (<a href="https://github.com/rucken/core/commit/f4d72c5">f4d72c5</a>)</li>
+<li>Add all components for entities: group, user, permission (<a href="https://github.com/rucken/core/commit/5e7e85a">5e7e85a</a>)</li>
+</ul>
+<p><a name="3.1.4"></a></p>
+<h2 id="3-1-4-2018-09-16-"><a href="https://github.com/rucken/core/compare/3.1.3...3.1.4">3.1.4</a> (2018-09-16)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/ac75f09">ac75f09</a>)</li>
+<li><strong>refactor:</strong> Add onSearch and onChangeOrder method for replace call onChangeFilter (<a href="https://github.com/rucken/core/commit/ea31593">ea31593</a>)</li>
+<li><strong>refactor:</strong> Remove usage repository from templates (<a href="https://github.com/rucken/core/commit/2d4db60">2d4db60</a>)</li>
+<li><strong>refactor:</strong> Updated folder structure and change config type for models to inject config token (<a href="https://github.com/rucken/core/commit/f42ee5f">f42ee5f</a>)</li>
+</ul>
+<p><a name="3.1.3"></a></p>
+<h2 id="3-1-3-2018-08-31-"><a href="https://github.com/rucken/core/compare/3.1.2...3.1.3">3.1.3</a> (2018-08-31)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Update @rucken/cli (<a href="https://github.com/rucken/core/commit/96cc79a">96cc79a</a>)</li>
+</ul>
+<p><a name="3.1.2"></a></p>
+<h2 id="3-1-2-2018-08-30-"><a href="https://github.com/rucken/core/compare/3.1.1...3.1.2">3.1.2</a> (2018-08-30)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Update <a href="https://github.com/rucken">@rucken</a>/cli version (<a href="https://github.com/rucken/core/commit/869fd7f">869fd7f</a>)</li>
+</ul>
+<p><a name="3.1.1"></a></p>
+<h2 id="3-1-1-2018-08-18-"><a href="https://github.com/rucken/core/compare/3.1.0...3.1.1">3.1.1</a> (2018-08-18)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>lang:</strong> Disable force update current language onLangChange (<a href="https://github.com/rucken/core/commit/4854335">4854335</a>)</li>
+<li>Add detect empty options on ThemesModule.forRoot (<a href="https://github.com/rucken/core/commit/3a59ed9">3a59ed9</a>)</li>
+<li>Update dependencies versions (<a href="https://github.com/rucken/core/commit/2382e38">2382e38</a>)</li>
+</ul>
+<p><a name="3.1.0"></a></p>
+<h1 id="3-1-0-2018-08-12-"><a href="https://github.com/rucken/core/compare/3.0.2...3.1.0">3.1.0</a> (2018-08-12)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Remove unused storage classes (<a href="https://github.com/rucken/core/commit/c4b4682">c4b4682</a>)</li>
+<li><strong>auth:</strong> Update defaultJwtConfig (<a href="https://github.com/rucken/core/commit/268a072">268a072</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>auth:</strong> Add login with social network: google-plus, facebook <a href="https://github.com/rucken/core/issues/104">#104</a> (<a href="https://github.com/rucken/core/commit/e2e03d2">e2e03d2</a>)</li>
+</ul>
+<p><a name="3.0.2"></a></p>
+<h2 id="3-0-2-2018-07-12-"><a href="https://github.com/rucken/core/compare/3.0.1...3.0.2">3.0.2</a> (2018-07-12)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>libs:</strong> Add types for correct work with tests (<a href="https://github.com/rucken/core/commit/e67c276">e67c276</a>)</li>
+</ul>
+<p><a name="3.0.1"></a></p>
+<h2 id="3-0-1-2018-07-10-"><a href="https://github.com/rucken/core/compare/3.0.0...3.0.1">3.0.1</a> (2018-07-10)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies and refactor source for it (<a href="https://github.com/rucken/core/commit/1df92cc">1df92cc</a>)</li>
+</ul>
+<p><a name="3.0.0"></a></p>
+<h1 id="3-0-0-2018-06-16-"><a href="https://github.com/rucken/core/compare/2.1.1...3.0.0">3.0.0</a> (2018-06-16)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>entity-grid:</strong> Add check columns?.length in template (<a href="https://github.com/rucken/core/commit/3f787a8">3f787a8</a>)</li>
+<li><strong>form-group:</strong> Add support autocomplete=on for inputs (<a href="https://github.com/rucken/core/commit/3ce76af">3ce76af</a>)</li>
+<li><strong>ssr:</strong> Add PermissionsGuard for custom canActivate for check access to lazy route components, original NgxPermissionsGuard work is incorrect (<a href="https://github.com/rucken/core/commit/c7da58c">c7da58c</a>)</li>
+<li><strong>theme-module:</strong> Update theme model (<a href="https://github.com/rucken/core/commit/2085a1a">2085a1a</a>)</li>
+<li><strong>themes:</strong> Add support change them in ssr mode (<a href="https://github.com/rucken/core/commit/06d2d77">06d2d77</a>)</li>
+<li><strong>themes:</strong> Remove apply theme css only in browser (<a href="https://github.com/rucken/core/commit/19e7b38">19e7b38</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>Update to Angular 6 and Rx 6 (<a href="https://github.com/rucken/core/commit/c840b43">c840b43</a>)</li>
+<li><strong>ssr:</strong> Add basic ssr support (<a href="https://github.com/rucken/core/commit/5061f3d">5061f3d</a>)</li>
+</ul>
+<h3 id="breaking-changes">BREAKING CHANGES</h3>
+<ul>
+<li>Minimum required Node version: 8,  npm: 6.1.0, angular: 6.0.3, rxjs: 6.0.0</li>
+</ul>
+<p><a name="2.1.1"></a></p>
+<h2 id="2-1-1-2018-05-14-"><a href="https://github.com/rucken/core/compare/2.1.0...2.1.1">2.1.1</a> (2018-05-14)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>modules:</strong> Remove duplicate providers (<a href="https://github.com/rucken/core/commit/b15c863">b15c863</a>)</li>
+</ul>
+<p><a name="2.1.0"></a></p>
+<h1 id="2-1-0-2018-05-08-"><a href="https://github.com/rucken/core/compare/2.0.9...2.1.0">2.1.0</a> (2018-05-08)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>perm.pipe:</strong> Add arguments for pipe: defaultValue: boolean = true, trueValue: any = true, falseValue: any = false (<a href="https://github.com/rucken/core/commit/4189e83">4189e83</a>)</li>
+<li>Add check variables to undefined (<a href="https://github.com/rucken/core/commit/6770db2">6770db2</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>pipes:</strong> Add userPerm pipe, for check access to object (<a href="https://github.com/rucken/core/commit/92f06e4">92f06e4</a>)</li>
+</ul>
+<p><a name="2.0.9"></a></p>
+<h2 id="2-0-9-2018-04-29-"><a href="https://github.com/rucken/core/compare/2.0.8...2.0.9">2.0.9</a> (2018-04-29)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>entity-grid:</strong> Add other ng-templates for replace (<a href="https://github.com/rucken/core/commit/77f0eb6">77f0eb6</a>)</li>
+</ul>
+<p><a name="2.0.8"></a></p>
+<h2 id="2-0-8-2018-04-27-"><a href="https://github.com/rucken/core/compare/2.0.7...2.0.8">2.0.8</a> (2018-04-27)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>error-extractor:</strong> Change validation errors extractor (<a href="https://github.com/rucken/core/commit/5875f2d">5875f2d</a>)</li>
+</ul>
+<p><a name="2.0.7"></a></p>
+<h2 id="2-0-7-2018-04-27-"><a href="https://github.com/rucken/core/compare/2.0.6...2.0.7">2.0.7</a> (2018-04-27)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-entity-list:</strong> Set filter as optional (<a href="https://github.com/rucken/core/commit/3803ca1">3803ca1</a>)</li>
+<li><strong>custom-transforms:</strong> Update &quot;transformDateToString&quot;, add check exists &quot;value.getDate&quot; in convert date to string (<a href="https://github.com/rucken/core/commit/0f9f1aa">0f9f1aa</a>)</li>
+<li><strong>entity-grid:</strong> Disable row onClick on action cell (<a href="https://github.com/rucken/core/commit/8ba739e">8ba739e</a>)</li>
+<li><strong>form-group:</strong> Add tooltipPlacement input for change position of tooltip (<a href="https://github.com/rucken/core/commit/6558e0f">6558e0f</a>)</li>
+<li><strong>grid-modals:</strong> Remove disabled modal with grid (<a href="https://github.com/rucken/core/commit/d8802b4">d8802b4</a>)</li>
+</ul>
+<p><a name="2.0.6"></a></p>
+<h2 id="2-0-6-2018-04-26-"><a href="https://github.com/rucken/core/compare/2.0.5...2.0.6">2.0.6</a> (2018-04-26)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>entity-grid:</strong> Update work with selected items (<a href="https://github.com/rucken/core/commit/48e5fc9">48e5fc9</a>)</li>
+</ul>
+<p><a name="2.0.5"></a></p>
+<h2 id="2-0-5-2018-04-25-"><a href="https://github.com/rucken/core/compare/2.0.4...2.0.5">2.0.5</a> (2018-04-25)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>entiy-grid:</strong> Run selectedChange on set items (<a href="https://github.com/rucken/core/commit/ab368cf">ab368cf</a>)</li>
+</ul>
+<p><a name="2.0.4"></a></p>
+<h2 id="2-0-4-2018-04-25-"><a href="https://github.com/rucken/core/compare/2.0.3...2.0.4">2.0.4</a> (2018-04-25)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>entity-grid:</strong> Add &quot;selectFirst&quot; for inited items, default is true (<a href="https://github.com/rucken/core/commit/b782e58">b782e58</a>)</li>
+</ul>
+<p><a name="2.0.3"></a></p>
+<h2 id="2-0-3-2018-04-25-"><a href="https://github.com/rucken/core/compare/2.0.2...2.0.3">2.0.3</a> (2018-04-25)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-entity-list:</strong> Add out event &quot;selectedChange&quot; (<a href="https://github.com/rucken/core/commit/8b9c465">8b9c465</a>)</li>
+<li><strong>entity-grid:</strong> Add multiSelectColumns for multi select, fix html if create is not allow (<a href="https://github.com/rucken/core/commit/f6898df">f6898df</a>)</li>
+<li><strong>form-group:</strong> Support append &quot;form-control&quot; class to textarea input type, add disable checkIsDirty on show errors (<a href="https://github.com/rucken/core/commit/9e53c24">9e53c24</a>)</li>
+<li><strong>forms:</strong> Add checkIsDirty for disable show errors in form on init (<a href="https://github.com/rucken/core/commit/ae1bcd4">ae1bcd4</a>)</li>
+</ul>
+<p><a name="2.0.2"></a></p>
+<h2 id="2-0-2-2018-04-22-"><a href="https://github.com/rucken/core/compare/2.0.1...2.0.2">2.0.2</a> (2018-04-22)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>modules:</strong> Remove duplicated imports (<a href="https://github.com/rucken/core/commit/47b8ec1">47b8ec1</a>)</li>
+</ul>
+<p><a name="2.0.1"></a></p>
+<h2 id="2-0-1-2018-04-21-"><a href="https://github.com/rucken/core/compare/2.0.0...2.0.1">2.0.1</a> (2018-04-21)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>directives:</strong> Restore use Renderer (<a href="https://github.com/rucken/core/commit/e51aeff">e51aeff</a>)</li>
+<li><strong>errors:</strong> Update error-extractor (<a href="https://github.com/rucken/core/commit/9fb6ff5">9fb6ff5</a>)</li>
+<li><strong>message-modal.service:</strong> Add MessageService to all grid components (<a href="https://github.com/rucken/core/commit/91d13d4">91d13d4</a>)</li>
+</ul>
+<p><a name="2.0.0"></a></p>
+<h1 id="2-0-0-2018-04-15-"><a href="https://github.com/rucken/core/compare/1.30.5...2.0.0">2.0.0</a> (2018-04-15)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>demo:</strong> Fix work with mockapi (<a href="https://github.com/rucken/core/commit/be70758">be70758</a>)</li>
+<li><strong>modules:</strong> Remove unused method &quot;forChild()&quot; (<a href="https://github.com/rucken/core/commit/55935ae">55935ae</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>ssr:</strong> Add support store JWT in cookie for correct render with ssr (<a href="https://github.com/rucken/core/commit/187f136">187f136</a>)</li>
+</ul>
+<h3 id="performance-improvements">Performance Improvements</h3>
+<ul>
+<li>Rewrite all project (<a href="https://github.com/rucken/core/commit/a5f4c89">a5f4c89</a>)</li>
+</ul>
+<p><a name="1.30.5"></a></p>
+<h2 id="1-30-5-2018-01-28-"><a href="https://github.com/rucken/core/compare/1.30.4...1.30.5">1.30.5</a> (2018-01-28)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>package:</strong> Remove cacheDirectories (<a href="https://github.com/rucken/core/commit/4a5f5d9">4a5f5d9</a>)</li>
+<li><strong>text-input:</strong> Fix update if value is undefined (<a href="https://github.com/rucken/core/commit/0e9a966">0e9a966</a>)</li>
+</ul>
+<p><a name="1.30.4"></a></p>
+<h2 id="1-30-4-2018-01-25-"><a href="https://github.com/rucken/core/compare/1.30.3...1.30.4">1.30.4</a> (2018-01-25)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>package:</strong> Add copy index.html to 404.html for &quot;gh:deploy&quot; script (<a href="https://github.com/rucken/core/commit/d41a782">d41a782</a>)</li>
+</ul>
+<p><a name="1.30.3"></a></p>
+<h2 id="1-30-3-2018-01-25-"><a href="https://github.com/rucken/core/compare/1.30.2...1.30.3">1.30.3</a> (2018-01-25)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>assets:</strong> Remove no used assets (<a href="https://github.com/rucken/core/commit/f984785">f984785</a>)</li>
+<li><strong>deps:</strong> Update dependencies and change sources for it (<a href="https://github.com/rucken/core/commit/e863c2b">e863c2b</a>)</li>
+<li><strong>links:</strong> Add javascript:void(0) to links without href (<a href="https://github.com/rucken/core/commit/f958625">f958625</a>)</li>
+<li><strong>modals:</strong> Fix errors on get item from null array (<a href="https://github.com/rucken/core/commit/89f7f20">89f7f20</a>)</li>
+<li><strong>ssr:</strong> Add basic support ssr (<a href="https://github.com/rucken/core/commit/480efe0">480efe0</a>)</li>
+<li><strong>tsconfigs:</strong> Update tsconfig (<a href="https://github.com/rucken/core/commit/69b8157">69b8157</a>)</li>
+</ul>
+<p><a name="1.30.2"></a></p>
+<h2 id="1-30-2-2018-01-17-"><a href="https://github.com/rucken/core/compare/1.30.1...1.30.2">1.30.2</a> (2018-01-17)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>account.service:</strong> Change response for account update (<a href="https://github.com/rucken/core/commit/4546de9">4546de9</a>)</li>
+<li><strong>account.service:</strong> If email with password not found in users, clear token (<a href="https://github.com/rucken/core/commit/3fa960c">3fa960c</a>)</li>
+<li><strong>models:</strong> Change format methods for models (<a href="https://github.com/rucken/core/commit/90a7938">90a7938</a>)</li>
+<li><strong>select-input:</strong> Move translate select options to getter items (<a href="https://github.com/rucken/core/commit/bd82ddd">bd82ddd</a>)</li>
+<li><strong>select-input:</strong> Add support change value on select-input in runtime (<a href="https://github.com/rucken/core/commit/8bd9553">8bd9553</a>)</li>
+<li><strong>select-input:</strong> Remove resize from items setter (<a href="https://github.com/rucken/core/commit/6ce94f3">6ce94f3</a>)</li>
+<li><strong>user.model:</strong> Convert bool properties to bool in constructor (<a href="https://github.com/rucken/core/commit/7a467be">7a467be</a>)</li>
+</ul>
+<p><a name="1.30.1"></a></p>
+<h2 id="1-30-1-2018-01-12-"><a href="https://github.com/rucken/core/compare/1.30.0...1.30.1">1.30.1</a> (2018-01-12)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-resource-select-input:</strong> Set default value for inputReadonly to false (<a href="https://github.com/rucken/core/commit/d70152a">d70152a</a>)</li>
+<li><strong>navbar:</strong> Remove show changelog modal on first open site (<a href="https://github.com/rucken/core/commit/20d40e3">20d40e3</a>)</li>
+<li><strong>select-input:</strong> Add ignore errors if item prop is readonly (<a href="https://github.com/rucken/core/commit/c4038fc">c4038fc</a>)</li>
+</ul>
+<p><a name="1.30.0"></a></p>
+<h1 id="1-30-0-2018-01-10-"><a href="https://github.com/rucken/core/compare/1.29.1...1.30.0">1.30.0</a> (2018-01-10)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base:</strong> Add @Input to title for base page and frame (<a href="https://github.com/rucken/core/commit/3a6bd4f">3a6bd4f</a>)</li>
+<li><strong>base:</strong> Remove interfaces change its to classes <a href="https://github.com/rucken/core/issues/83">#83</a> (<a href="https://github.com/rucken/core/commit/aace802">aace802</a>)</li>
+<li><strong>base-resource-list:</strong> If used mock items and not set perPage, set default to 10 items on per page (<a href="https://github.com/rucken/core/commit/22e4405">22e4405</a>)</li>
+<li><strong>deps:</strong> Remove <a href="https://github.com/ngui">@ngui</a>/auto-complete and angular2-ladda (<a href="https://github.com/rucken/core/commit/140abe6">140abe6</a>)</li>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/92b7850">92b7850</a>)</li>
+<li><strong>profile-frame:</strong> Fix error in update profile <a href="https://github.com/rucken/core/issues/82">#82</a> (<a href="https://github.com/rucken/core/commit/8eb1821">8eb1821</a>)</li>
+<li><strong>select-input:</strong> Fix work typeahead and add async loading <a href="https://github.com/rucken/core/issues/81">#81</a> (<a href="https://github.com/rucken/core/commit/bf2d031">bf2d031</a>)</li>
+<li><strong>styles:</strong> Remove custom styles like &quot;app-grid-....&quot; and others <a href="https://github.com/rucken/core/issues/101">#101</a> (<a href="https://github.com/rucken/core/commit/5ce1ee2">5ce1ee2</a>)</li>
+<li><strong>text-input:</strong> Set null if date value is invalid (<a href="https://github.com/rucken/core/commit/9baed6d">9baed6d</a>)</li>
+<li><strong>user-components:</strong> Add check userGroups before set/get values from its (<a href="https://github.com/rucken/core/commit/4bc7576">4bc7576</a>)</li>
+<li>Add update local items on change mock items (<a href="https://github.com/rucken/core/commit/6b55cbf">6b55cbf</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>base:</strong> Add interfaces for service and model and implements all from its <a href="https://github.com/rucken/core/issues/83">#83</a> (<a href="https://github.com/rucken/core/commit/f043bec">f043bec</a>)</li>
+<li><strong>text-input:</strong> Change datepicker component for new ngx-bootstrap style <a href="https://github.com/rucken/core/issues/81">#81</a> (<a href="https://github.com/rucken/core/commit/4272629">4272629</a>)</li>
+<li><strong>user.model:</strong> Add checkGroups method (<a href="https://github.com/rucken/core/commit/7849399">7849399</a>)</li>
+</ul>
+<p><a name="1.29.1"></a></p>
+<h2 id="1-29-1-2017-12-14-"><a href="https://github.com/rucken/core/compare/1.29.0...1.29.1">1.29.1</a> (2017-12-14)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>account:</strong> Fix set fullAccess prop to account (<a href="https://github.com/rucken/core/commit/a48b6eb">a48b6eb</a>)</li>
+<li><strong>please-wait:</strong> Add remove logo if not set (<a href="https://github.com/rucken/core/commit/3cd3be6">3cd3be6</a>)</li>
+</ul>
+<p><a name="1.29.0"></a></p>
+<h1 id="1-29-0-2017-12-14-"><a href="https://github.com/rucken/core/compare/1.28.2...1.29.0">1.29.0</a> (2017-12-14)</h1>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>access:</strong> Add options for enable fullAccess for all with ignore permissions on roles (<a href="https://github.com/rucken/core/commit/f24504e">f24504e</a>)</li>
+</ul>
+<p><a name="1.28.2"></a></p>
+<h2 id="1-28-2-2017-12-07-"><a href="https://github.com/rucken/core/compare/1.28.1...1.28.2">1.28.2</a> (2017-12-07)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies for Angular 5.1.0 (<a href="https://github.com/rucken/core/commit/2565d4f">2565d4f</a>)</li>
+</ul>
+<p><a name="1.28.1"></a></p>
+<h2 id="1-28-1-2017-12-06-"><a href="https://github.com/rucken/core/compare/1.28.0...1.28.1">1.28.1</a> (2017-12-06)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/2bcba4d">2bcba4d</a>)</li>
+</ul>
+<p><a name="1.28.0"></a></p>
+<h1 id="1-28-0-2017-12-04-"><a href="https://github.com/rucken/core/compare/1.27.1...1.28.0">1.28.0</a> (2017-12-04)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/c54156b">c54156b</a>)</li>
+<li><strong>shared.module:</strong> Remove use translate.store (<a href="https://github.com/rucken/core/commit/12ac53f">12ac53f</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>deps:</strong> Remove srcgen and ngm replace it with <a href="https://github.com/rucken">@rucken</a>/cli (<a href="https://github.com/rucken/core/commit/646c6d5">646c6d5</a>)</li>
+</ul>
+<p><a name="1.27.1"></a></p>
+<h2 id="1-27-1-2017-11-19-"><a href="https://github.com/rucken/core/compare/1.27.0...1.27.1">1.27.1</a> (2017-11-19)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>libs:</strong> Change main file of <a href="https://github.com/rucken">@rucken</a>/web (<a href="https://github.com/rucken/core/commit/78b111c">78b111c</a>)</li>
+<li><strong>rxjs:</strong> Move create Subject from class body to constructor (<a href="https://github.com/rucken/core/commit/b2deac9">b2deac9</a>)</li>
+</ul>
+<p><a name="1.27.0"></a></p>
+<h2 id="1-27-0-2017-11-19-"><a href="https://github.com/rucken/core/compare/1.26.0...1.27.0">1.27.0</a> (2017-11-19)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Bump version of angular, new version: Angular 5.0.2</li>
+</ul>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>errors-handler:</strong> Update method for detect errors (<a href="https://github.com/rucken/core/commit/d2c742a">d2c742a</a>)</li>
+<li><strong>refactor:</strong> Update all usage &#39;...rxjs/operators...&#39; (<a href="https://github.com/rucken/core/commit/9aaec68">9aaec68</a>)</li>
+</ul>
+<p><a name="1.26.0"></a></p>
+<h1 id="1-26-0-2017-11-18-"><a href="https://github.com/rucken/core/compare/1.25.1...1.26.0">1.26.0</a> (2017-11-18)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>account-profile:</strong> Change ok button title (<a href="https://github.com/rucken/core/commit/b74de7b">b74de7b</a>)</li>
+<li><strong>entity-list-modal:</strong> Remove onEnter from grid (<a href="https://github.com/rucken/core/commit/f461975">f461975</a>)</li>
+<li>Remove duplicate set value for account (<a href="https://github.com/rucken/core/commit/aa1067f">aa1067f</a>)</li>
+<li><strong>navbar:</strong> Change get auth modal account property to user (<a href="https://github.com/rucken/core/commit/c036cb3">c036cb3</a>)</li>
+<li><strong>select-input:</strong> Set height for autocomplete li elements (<a href="https://github.com/rucken/core/commit/4415531">4415531</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>http:</strong> Change HttpModule to HttpClientModule (<a href="https://github.com/rucken/core/commit/880619b">880619b</a>)</li>
+</ul>
+<p><a name="1.25.1"></a></p>
+<h2 id="1-25-1-2017-11-13-"><a href="https://github.com/rucken/core/compare/1.25.0...1.25.1">1.25.1</a> (2017-11-13)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>dummy:</strong> Remove dummy for detect translate with <a href="https://github.com/biesbjerg">@biesbjerg</a>/ngx-translate-extract, and refactor code for it (<a href="https://github.com/rucken/core/commit/21604a0">21604a0</a>)</li>
+<li><strong>mockItems:</strong> Fix work with mockedItems (<a href="https://github.com/rucken/core/commit/e5ccdcd">e5ccdcd</a>)</li>
+<li><strong>user-groups-grid:</strong> Change accessToCreate to accessToAdd in template (<a href="https://github.com/rucken/core/commit/c75b9a9">c75b9a9</a>)</li>
+</ul>
+<p><a name="1.25.0"></a></p>
+<h1 id="1-25-0-2017-11-12-"><a href="https://github.com/rucken/core/compare/1.24.0...1.25.0">1.25.0</a> (2017-11-12)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-resource-list:</strong> Change type of &quot;onLoaded&quot; property Input =&gt; Output (<a href="https://github.com/rucken/core/commit/2a8190c">2a8190c</a>)</li>
+<li><strong>downgrade:</strong> Downgrade Angular to stable 4.4.5 and revert all changes, because it not worked with sub packages (<a href="https://github.com/rucken/core/commit/a7f8eb7">a7f8eb7</a>)</li>
+<li><strong>entity-select-input:</strong> Fix error if selected empty value on modal for list (<a href="https://github.com/rucken/core/commit/73179ba">73179ba</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>base-resources-grid:</strong> Move base methods and props to base-resources-list from base-resources-grid and base-resources-select-input (<a href="https://github.com/rucken/core/commit/60ad68f">60ad68f</a>)</li>
+</ul>
+<p><a name="1.24.0"></a></p>
+<h1 id="1-24-0-2017-11-08-"><a href="https://github.com/rucken/core/compare/1.23.1...1.24.0">1.24.0</a> (2017-11-08)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-resource-grid:</strong> Remove detect column for multiselect on selectItem method (<a href="https://github.com/rucken/core/commit/6286571">6286571</a>)</li>
+<li><strong>DI:</strong> Add missing imports (<a href="https://github.com/rucken/core/commit/2a94383">2a94383</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>DI:</strong> Move inject services from constructor to manual inject with Injector (<a href="https://github.com/rucken/core/commit/1a5ce48">1a5ce48</a>)</li>
+</ul>
+<p><a name="1.23.1"></a></p>
+<h2 id="1-23-1-2017-10-31-"><a href="https://github.com/rucken/core/compare/1.23.0...1.23.1">1.23.1</a> (2017-10-31)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>components:</strong> Add call super.afterCreate() in all afterCreate (<a href="https://github.com/rucken/core/commit/fd8f8fc">fd8f8fc</a>)</li>
+</ul>
+<p><a name="1.23.0"></a></p>
+<h1 id="1-23-0-2017-10-30-"><a href="https://github.com/rucken/core/compare/1.22.2...1.23.0">1.23.0</a> (2017-10-30)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-repository-service:</strong> Chenage run mockUpdate to mockCreate in create method (<a href="https://github.com/rucken/core/commit/b8505b4">b8505b4</a>)</li>
+<li><strong>base-resource-select-input:</strong> If type is select change loadAll to true (<a href="https://github.com/rucken/core/commit/85d8452">85d8452</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>base-component:</strong> Move subscribe from init to afterCreate (<a href="https://github.com/rucken/core/commit/6cc1d50">6cc1d50</a>)</li>
+</ul>
+<p><a name="1.22.2"></a></p>
+<h2 id="1-22-2-2017-10-30-"><a href="https://github.com/rucken/core/compare/1.22.1...1.22.2">1.22.2</a> (2017-10-30)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-remote-repository:</strong> Fix error in remoteCreate method (<a href="https://github.com/rucken/core/commit/a440efa">a440efa</a>)</li>
+<li><strong>base-resource-select:</strong> Change check service exists in search method (<a href="https://github.com/rucken/core/commit/686c4ac">686c4ac</a>)</li>
+</ul>
+<p><a name="1.22.1"></a></p>
+<h2 id="1-22-1-2017-10-27-"><a href="https://github.com/rucken/core/compare/1.22.0...1.22.1">1.22.1</a> (2017-10-27)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>account-service:</strong> Add local validate before sent request to backend (<a href="https://github.com/rucken/core/commit/080acec">080acec</a>)</li>
+<li><strong>deps:</strong> Downgrade angular dependencies, for fast build and stable work (<a href="https://github.com/rucken/core/commit/66a8f39">66a8f39</a>)</li>
+<li><strong>tooltip:</strong> Fix show error in tooltip (<a href="https://github.com/rucken/core/commit/067ed35">067ed35</a>)</li>
+</ul>
+<p><a name="1.22.0"></a></p>
+<h1 id="1-22-0-2017-10-27-"><a href="https://github.com/rucken/core/compare/1.21.0...1.22.0">1.22.0</a> (2017-10-27)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>permissions:</strong> Change name Create to Add (<a href="https://github.com/rucken/core/commit/552640b">552640b</a>)</li>
+<li><strong>permissions:</strong> Move check permissions from getter to init method in component (<a href="https://github.com/rucken/core/commit/c6786e2">c6786e2</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>controls:</strong> Change ChangeDetectionStrategy to OnPush (<a href="https://github.com/rucken/core/commit/2ab7706">2ab7706</a>)</li>
+</ul>
+<p><a name="1.21.0"></a></p>
+<h1 id="1-21-0-2017-10-25-"><a href="https://github.com/rucken/core/compare/1.20.0...1.21.0">1.21.0</a> (2017-10-25)</h1>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>configs:</strong> Remove config classes from controls, for DI in others projects (<a href="https://github.com/rucken/core/commit/4c3fea4">4c3fea4</a>)</li>
+</ul>
+<p><a name="1.20.0"></a></p>
+<h1 id="1-20-0-2017-10-25-"><a href="https://github.com/rucken/core/compare/1.19.1...1.20.0">1.20.0</a> (2017-10-25)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>home-guard:</strong> Change firstHomeActivated to false if first visit is activated (<a href="https://github.com/rucken/core/commit/bf60ba7">bf60ba7</a>)</li>
+<li><strong>resource-grid:</strong> Fix getter of columns (<a href="https://github.com/rucken/core/commit/0023de9">0023de9</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>acccount-service:</strong> Add checkPermissions on accountService and store results in _cachedPermissions (<a href="https://github.com/rucken/core/commit/a56041d">a56041d</a>)</li>
+<li><strong>repository-service:</strong> Add setTimeout on call remote actions (<a href="https://github.com/rucken/core/commit/bd735ad">bd735ad</a>)</li>
+</ul>
+<p><a name="1.19.1"></a></p>
+<h2 id="1-19-1-2017-10-23-"><a href="https://github.com/rucken/core/compare/1.19.0...1.19.1">1.19.1</a> (2017-10-23)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-repository-servce:</strong> Change remoteUpdate =&gt; remoteCreate in create method (<a href="https://github.com/rucken/core/commit/3fbc516">3fbc516</a>)</li>
+</ul>
+<p><a name="1.19.0"></a></p>
+<h1 id="1-19-0-2017-10-22-"><a href="https://github.com/rucken/core/compare/1.18.5...1.19.0">1.19.0</a> (2017-10-22)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-resources-grid:</strong> Add check to undefined on change columns (<a href="https://github.com/rucken/core/commit/fd4438a">fd4438a</a>)</li>
+<li><strong>components:</strong> Add takeUntil for all subscribe on Subject (<a href="https://github.com/rucken/core/commit/14eb1aa">14eb1aa</a>)</li>
+<li><strong>subscribe:</strong> Add takeUntil to page and frame afterCreate method (<a href="https://github.com/rucken/core/commit/69be165">69be165</a>)</li>
+<li><strong>web:</strong> Update set default values on afterCreate (<a href="https://github.com/rucken/core/commit/b29f3bf">b29f3bf</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>base-component:</strong> Move getter to subscribe to change account (<a href="https://github.com/rucken/core/commit/d65d648">d65d648</a>)</li>
+</ul>
+<p><a name="1.18.5"></a></p>
+<h2 id="1-18-5-2017-10-20-"><a href="https://github.com/rucken/core/compare/1.18.4...1.18.5">1.18.5</a> (2017-10-20)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-resources-grid:</strong> Remove set default value for readonly property (<a href="https://github.com/rucken/core/commit/3007e10">3007e10</a>)</li>
+</ul>
+<p><a name="1.18.4"></a></p>
+<h2 id="1-18-4-2017-10-20-"><a href="https://github.com/rucken/core/compare/1.18.3...1.18.4">1.18.4</a> (2017-10-20)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>components:</strong> Move boolean properties to afterCreate (<a href="https://github.com/rucken/core/commit/e42f193">e42f193</a>)</li>
+</ul>
+<p><a name="1.18.3"></a></p>
+<h2 id="1-18-3-2017-10-20-"><a href="https://github.com/rucken/core/compare/1.18.2...1.18.3">1.18.3</a> (2017-10-20)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>errors:</strong> Add guards to frames and fix work with mock items on grid (<a href="https://github.com/rucken/core/commit/658171c">658171c</a>)</li>
+</ul>
+<p><a name="1.18.2"></a></p>
+<h2 id="1-18-2-2017-10-19-"><a href="https://github.com/rucken/core/compare/1.18.1...1.18.2">1.18.2</a> (2017-10-19)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-service:</strong> Change check validate to optionals method (<a href="https://github.com/rucken/core/commit/8c41d83">8c41d83</a>)</li>
+<li><strong>base-service:</strong> Error wrong create action detect (<a href="https://github.com/rucken/core/commit/eccc683">eccc683</a>)</li>
+<li><strong>model:</strong> Remove convert pk to number if it undefined or null (<a href="https://github.com/rucken/core/commit/ccf8d38">ccf8d38</a>)</li>
+</ul>
+<p><a name="1.18.1"></a></p>
+<h2 id="1-18-1-2017-10-17-"><a href="https://github.com/rucken/core/compare/1.18.0...1.18.1">1.18.1</a> (2017-10-17)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies</li>
+</ul>
+<p><a name="1.18.0"></a></p>
+<h1 id="1-18-0-2017-10-15-"><a href="https://github.com/rucken/core/compare/1.17.0...1.18.0">1.18.0</a> (2017-10-15)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>scripts:</strong> Fix gulp task name (<a href="https://github.com/rucken/core/commit/9aecaab">9aecaab</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>refactor:</strong> Move demo app to apps folder, update all files for correct work with him (<a href="https://github.com/rucken/core/commit/6a5c9d4">6a5c9d4</a>)</li>
+</ul>
+<p><a name="1.17.0"></a></p>
+<h1 id="1-17-0-2017-10-14-"><a href="https://github.com/rucken/core/compare/1.16.0...1.17.0">1.17.0</a> (2017-10-14)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>components:</strong> Move afterCreate from constructor to OnInit (<a href="https://github.com/rucken/core/commit/519bebd">519bebd</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>guards:</strong> Add simple guard services (<a href="https://github.com/rucken/core/commit/cc82d7d">cc82d7d</a>)</li>
+</ul>
+<p><a name="1.16.0"></a></p>
+<h1 id="1-16-0-2017-10-13-"><a href="https://github.com/rucken/core/compare/1.15.3...1.16.0">1.16.0</a> (2017-10-13)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/282a380">282a380</a>)</li>
+<li><strong>index:</strong> Remove BaseAppModule from RuckenWebModules (<a href="https://github.com/rucken/core/commit/5816958">5816958</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>account.service:</strong> Add attribute token in info method (<a href="https://github.com/rucken/core/commit/91ed8f7">91ed8f7</a>)</li>
+<li><strong>base-page:</strong> Move load child routes to getter and setter (<a href="https://github.com/rucken/core/commit/b18bc13">b18bc13</a>)</li>
+</ul>
+<p><a name="1.15.3"></a></p>
+<h2 id="1-15-3-2017-10-12-"><a href="https://github.com/rucken/core/compare/1.15.2...1.15.3">1.15.3</a> (2017-10-12)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>rename:</strong> Service =&gt; GroupsService (<a href="https://github.com/rucken/core/commit/4ad4971">4ad4971</a>)</li>
+<li><strong>RuckenWebModules:</strong> Add forRoot() on export (<a href="https://github.com/rucken/core/commit/c49464f">c49464f</a>)</li>
+</ul>
+<p><a name="1.15.2"></a></p>
+<h2 id="1-15-2-2017-10-12-"><a href="https://github.com/rucken/core/compare/1.15.1...1.15.2">1.15.2</a> (2017-10-12)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/a2fc028">a2fc028</a>)</li>
+<li><strong>entities-select-input:</strong> Update template for correct work in select mode (<a href="https://github.com/rucken/core/commit/821dadf">821dadf</a>)</li>
+<li><strong>rename:</strong> Grous to Groups (<a href="https://github.com/rucken/core/commit/530d341">530d341</a>)</li>
+<li><strong>scripts:</strong> Add modules to index.ts (<a href="https://github.com/rucken/core/commit/20e40a0">20e40a0</a>)</li>
+</ul>
+<p><a name="1.15.1"></a></p>
+<h2 id="1-15-1-2017-10-08-"><a href="https://github.com/rucken/core/compare/1.15.0...1.15.1">1.15.1</a> (2017-10-08)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>package-lock:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/800d66b">800d66b</a>)</li>
+<li><strong>select-input:</strong> Add translate in options (<a href="https://github.com/rucken/core/commit/3432f1f">3432f1f</a>)</li>
+</ul>
+<p><a name="1.15.0"></a></p>
+<h1 id="1-15-0-2017-10-04-"><a href="https://github.com/rucken/core/compare/1.14.1...1.15.0">1.15.0</a> (2017-10-04)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Returned accidentally deleted imports (<a href="https://github.com/rucken/core/commit/20a63fc">20a63fc</a>)</li>
+<li><strong>module:</strong> Change compilerOptions on <a href="https://github.com/rucken">@rucken</a>/core (<a href="https://github.com/rucken/core/commit/58aed72">58aed72</a>)</li>
+<li><strong>module:</strong> Change module name to index.js, for correct native script import (<a href="https://github.com/rucken/core/commit/439a084">439a084</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>modules:</strong> Move shared module and service to <a href="https://github.com/rucken">@rucken</a>/web (<a href="https://github.com/rucken/core/commit/447f37d">447f37d</a>)</li>
+</ul>
+<p><a name="1.14.1"></a></p>
+<h2 id="1-14-1-2017-09-30-"><a href="https://github.com/rucken/core/compare/1.14.0...1.14.1">1.14.1</a> (2017-09-30)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/7120a1b">7120a1b</a>)</li>
+</ul>
+<p><a name="1.14.0"></a></p>
+<h1 id="1-14-0-2017-09-30-"><a href="https://github.com/rucken/core/compare/1.13.2...1.14.0">1.14.0</a> (2017-09-30)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>account-service:</strong> Change status name getter (<a href="https://github.com/rucken/core/commit/03d56e6">03d56e6</a>)</li>
+<li><strong>alert-modal:</strong> Fix show error message (<a href="https://github.com/rucken/core/commit/84b1648">84b1648</a>)</li>
+<li><strong>base-repository:</strong> Change private prop to protected for use it in extended classes (<a href="https://github.com/rucken/core/commit/d3deaec">d3deaec</a>)</li>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/0ae9412">0ae9412</a>)</li>
+<li><strong>model:</strong> Remove used on base properties, add translate error for incorrect re password (<a href="https://github.com/rucken/core/commit/7bac521">7bac521</a>)</li>
+</ul>
+<h3 id="breaking-changes">BREAKING CHANGES</h3>
+<ul>
+<li>Package was divided into two core and web (<a href="https://github.com/rucken/core/commit/b0fde20">b0fde20</a>)</li>
+</ul>
+<p><a name="1.13.2"></a></p>
+<h2 id="1-13-2-2017-09-19-"><a href="https://github.com/rucken/core/compare/1.13.1...1.13.2">1.13.2</a> (2017-09-19)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/52d9f3b">52d9f3b</a>)</li>
+<li><strong>refactor:</strong> Change name cachedResourceService to cachedResourcesService (<a href="https://github.com/rucken/core/commit/ff15ada">ff15ada</a>)</li>
+</ul>
+<p><a name="1.13.1"></a></p>
+<h2 id="1-13-1-2017-09-18-"><a href="https://github.com/rucken/core/compare/1.13.0...1.13.1">1.13.1</a> (2017-09-18)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>scripts:</strong> Remove prepare from test script (<a href="https://github.com/rucken/core/commit/778df00">778df00</a>)</li>
+</ul>
+<p><a name="1.13.0"></a></p>
+<h1 id="1-13-0-2017-09-18-"><a href="https://github.com/rucken/core/compare/1.12.0...1.13.0">1.13.0</a> (2017-09-18)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Add imports modules for list modals to input modules (<a href="https://github.com/rucken/core/commit/48702e4">48702e4</a>)</li>
+<li>check readonly by hardReadonly field (<a href="https://github.com/rucken/core/commit/910239d">910239d</a>)</li>
+<li>Detect focusabel components (<a href="https://github.com/rucken/core/commit/11c5508">11c5508</a>)</li>
+<li><strong>AoT:</strong> Add shared service to demo app component, it is work as bridge (<a href="https://github.com/rucken/core/commit/2c9e435">2c9e435</a>)</li>
+<li><strong>base-resource:</strong> Error if data not founded (<a href="https://github.com/rucken/core/commit/c3f02a8">c3f02a8</a>)</li>
+<li><strong>shared:</strong> Add shared module to demo app (<a href="https://github.com/rucken/core/commit/d7261d1">d7261d1</a>)</li>
+<li><strong>text-input:</strong> Add no emit change of model if date value is wrong (<a href="https://github.com/rucken/core/commit/27a9fa8">27a9fa8</a>)</li>
+<li><strong>translate:</strong> For correct work with AoT, add sharedService.linkTranslateService() in any lazy component who use translate (<a href="https://github.com/rucken/core/commit/7d48224">7d48224</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>AoT:</strong> Full support ngx-translate + hard code translate dic (not remote json file) + aot + lazy routes (<a href="https://github.com/rucken/core/commit/0ff23c9">0ff23c9</a>)</li>
+<li><strong>base-resource.model:</strong> Add format date in methods for work with dates (<a href="https://github.com/rucken/core/commit/0c0b018">0c0b018</a>)</li>
+</ul>
+<p><a name="1.12.0"></a></p>
+<h1 id="1-12-0-2017-09-02-"><a href="https://github.com/rucken/core/compare/1.11.1...1.12.0">1.12.0</a> (2017-09-02)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Change demo, remove safeHtml (<a href="https://github.com/rucken/core/commit/074a4e1">074a4e1</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li>Add getMockItemsNextPk for base repository service and move mockItems to getter (<a href="https://github.com/rucken/core/commit/e4acf46">e4acf46</a>)</li>
+<li>Remove all usage of DomSanitizer, change to use safeHtml pipe (<a href="https://github.com/rucken/core/commit/6777a23">6777a23</a>)</li>
+<li>Update dependencies (<a href="https://github.com/rucken/core/commit/6aa0f29">6aa0f29</a>)</li>
+</ul>
+<p><a name="1.11.1"></a></p>
+<h2 id="1-11-1-2017-08-19-"><a href="https://github.com/rucken/core/compare/1.11.0...1.11.1">1.11.1</a> (2017-08-19)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Set npm and nodejs specific version in package.json engines (<a href="https://github.com/rucken/core/commit/d211f4e">d211f4e</a>)</li>
+</ul>
+<p><a name="1.11.0"></a></p>
+<h1 id="1-11-0-2017-08-19-"><a href="https://github.com/rucken/core/compare/1.10.5...1.11.0">1.11.0</a> (2017-08-19)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li>Error in add custom translate pipes (<a href="https://github.com/rucken/core/commit/3103056">3103056</a>)</li>
+<li>Error in support custom api url (<a href="https://github.com/rucken/core/commit/bdf84e8">bdf84e8</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>custom-translate.pipe:</strong> Add custom pipe for translate (<a href="https://github.com/rucken/core/commit/a42d058">a42d058</a>)</li>
+<li>Add get support custom api url on repositories (<a href="https://github.com/rucken/core/commit/fec86af">fec86af</a>)</li>
+</ul>
+<p><a name="1.10.5"></a></p>
+<h2 id="1-10-5-2017-08-07-"><a href="https://github.com/rucken/core/compare/1.10.3...v1.10.5">1.10.5</a> (2017-08-07)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>base-resource.model:</strong> Change detect used timezone fore  date fields (<a href="https://github.com/rucken/core/commit/2264941">2264941</a>)</li>
+<li><strong>env:</strong> Change demo host url in environment (<a href="https://github.com/rucken/core/commit/ca4dcce">ca4dcce</a>)</li>
+<li><strong>services:</strong> Refactor helpers and account service (<a href="https://github.com/rucken/core/commit/5f489de">5f489de</a>)</li>
+</ul>
+<p><a name="1.10.4"></a></p>
+<h2 id="1-10-4-2017-07-02-"><a href="https://github.com/rucken/core/compare/1.10.3...v1.10.4">1.10.4</a> (2017-07-02)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>refactor:</strong> Change modal-footer-buttons to footer-buttons (<a href="https://github.com/rucken/core/commit/6df03cc">6df03cc</a>)</li>
+<li><strong>refactor:</strong> Change name of ResouceEnumStatus to EndpointStatusEnum (<a href="https://github.com/rucken/core/commit/5218af3">5218af3</a>)</li>
+</ul>
+<p><a name="1.10.3"></a></p>
+<h2 id="1-10-3-2017-06-29-"><a href="https://github.com/rucken/core/compare/1.10.2...v1.10.3">1.10.3</a> (2017-06-29)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Updates all packages and downgrade typescript to 2.3.0 (<a href="https://github.com/rucken/core/commit/0a9e07f">0a9e07f</a>)</li>
+</ul>
+<p><a name="1.10.2"></a></p>
+<h2 id="1-10-2-2017-06-28-"><a href="https://github.com/rucken/core/compare/1.10.1...v1.10.2">1.10.2</a> (2017-06-28)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>user.model:</strong> Fix method &quot;formatToAuth&quot; type (<a href="https://github.com/rucken/core/commit/d778e4b">d778e4b</a>)</li>
+</ul>
+<p><a name="1.10.1"></a></p>
+<h2 id="1-10-1-2017-06-23-"><a href="https://github.com/rucken/core/compare/1.10.0...v1.10.1">1.10.1</a> (2017-06-23)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>demo:</strong> Fix errors and add integrations with rollbar.com</li>
+</ul>
+<p><a name="1.10.0"></a></p>
+<h1 id="1-10-0-2017-06-21-"><a href="https://github.com/rucken/core/compare/1.9.1...v1.10.0">1.10.0</a> (2017-06-21)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>account-profile-form:</strong> Fix dateOfBirth input type (<a href="https://github.com/rucken/core/commit/1677ce1">1677ce1</a>)</li>
+<li><strong>text-input:</strong> Change default date style to native (<a href="https://github.com/rucken/core/commit/546ddf3">546ddf3</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>modal-footer-buttons:</strong> Change all buttons in modals and forms, add loading spinner (<a href="https://github.com/rucken/core/commit/28cf5d8">28cf5d8</a>)</li>
+</ul>
+<p><a name="1.9.1"></a></p>
+<h2 id="1-9-1-2017-06-18-"><a href="https://github.com/rucken/core/compare/1.9.0...v1.9.1">1.9.1</a> (2017-06-18)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>models:</strong> Add detect className to model class constructor (<a href="https://github.com/rucken/core/commit/8021d59">8021d59</a>)</li>
+<li><strong>text-input:</strong> Remove all usages ngx-mydatepicker, change to datepicker from ngx-bootstrap (<a href="https://github.com/rucken/core/commit/fb7ab51">fb7ab51</a>)</li>
+</ul>
+<p><a name="1.9.0"></a></p>
+<h1 id="1-9-0-2017-06-14-"><a href="https://github.com/rucken/core/compare/1.8.3...v1.9.0">1.9.0</a> (2017-06-14)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>radio-input:</strong> Change update value method (<a href="https://github.com/rucken/core/commit/ec7853e">ec7853e</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>app-modals:</strong> Add set size of modal (<a href="https://github.com/rucken/core/commit/3f8ac1f">3f8ac1f</a>)</li>
+<li><strong>text-input:</strong> Add ngx-mydatepicker mode for date type input (<a href="https://github.com/rucken/core/commit/bda7d95">bda7d95</a>)</li>
+</ul>
+<p><a name="1.8.3"></a></p>
+<h2 id="1-8-3-2017-05-28-"><a href="https://github.com/rucken/core/compare/1.8.2...v1.8.3">1.8.3</a> (2017-05-28)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>deps:</strong> Update deps for publish on npm packages (<a href="https://github.com/rucken/core/commit/db890e0">db890e0</a>)</li>
+</ul>
+<p><a name="1.8.2"></a></p>
+<h2 id="1-8-2-2017-05-28-"><a href="https://github.com/rucken/core/compare/1.8.1...v1.8.2">1.8.2</a> (2017-05-28)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>paths:</strong> Fix error path for source files (<a href="https://github.com/rucken/core/commit/57d12e3">57d12e3</a>)</li>
+</ul>
+<p><a name="1.8.1"></a></p>
+<h2 id="1-8-1-2017-05-27-"><a href="https://github.com/rucken/core/compare/1.8.0...v1.8.1">1.8.1</a> (2017-05-27)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>lang:</strong> Fix change language for labels on buttons (<a href="https://github.com/rucken/core/commit/2024af8">2024af8</a>)</li>
+<li><strong>navbar:</strong> Add to navbar language switcher and fix error translate pages and frame on the fly (<a href="https://github.com/rucken/core/commit/76fe091">76fe091</a>)</li>
+<li><strong>text-input:</strong> Remove mask directive from textarea (<a href="https://github.com/rucken/core/commit/e46c7b3">e46c7b3</a>)</li>
+</ul>
+<p><a name="1.8.0"></a></p>
+<h1 id="1-8-0-2017-05-23-"><a href="https://github.com/rucken/core/compare/1.7.0...v1.8.0">1.8.0</a> (2017-05-23)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>refactoring:</strong> Remove no used code and imports (<a href="https://github.com/rucken/core/commit/b54630e">b54630e</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>grids:</strong> Add exclude: any[] options to BaseComponents, for exclude records by id on request to backend for fetch data (<a href="https://github.com/rucken/core/commit/c8d8109">c8d8109</a>)</li>
+</ul>
+<p><a name="1.7.0"></a></p>
+<h1 id="1-7-0-2017-05-15-"><a href="https://github.com/rucken/core/compare/1.6.0...v1.7.0">1.7.0</a> (2017-05-15)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>refactoring:</strong> Move more duplicate properties to base class (<a href="https://github.com/rucken/core/commit/e9e3aca">e9e3aca</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>refactoring:</strong> Add base components for pages and frames and move base app component to base folder, add fill navigation list and frames list for page from routes (<a href="https://github.com/rucken/core/commit/02204f3">02204f3</a>)</li>
+</ul>
+<p><a name="1.6.0"></a></p>
+<h1 id="1-6-0-2017-05-14-"><a href="https://github.com/rucken/core/compare/1.5.0...v1.6.0">1.6.0</a> (2017-05-14)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>contentModal:</strong> Remove default focus from button (<a href="https://github.com/rucken/core/commit/a619f48">a619f48</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>refactoring:</strong> Create base folder for base class of components, services and etc., change all places where it usage (<a href="https://github.com/rucken/core/commit/144d722">144d722</a>)</li>
+</ul>
+<p><a name="1.5.0"></a></p>
+<h1 id="1-5-0-2017-05-13-"><a href="https://github.com/rucken/core/compare/1.4.4...v1.5.0">1.5.0</a> (2017-05-13)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>any:</strong> Add any type for all place where used models, for extends (<a href="https://github.com/rucken/core/commit/0a6c10e">0a6c10e</a>)</li>
+<li><strong>className:</strong> Add class name to model, change props names for detect pk key in model (<a href="https://github.com/rucken/core/commit/e28266d">e28266d</a>)</li>
+<li><strong>demo:</strong> Change default lang to &quot;en&quot; (<a href="https://github.com/rucken/core/commit/32b5146">32b5146</a>)</li>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/b84f44b">b84f44b</a>)</li>
+<li><strong>pixel:</strong> Remove pixel element for hook enter on table, changed to  host hook (<a href="https://github.com/rucken/core/commit/02e9bb4">02e9bb4</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>refactoring:</strong> Add BaseComponent and extends all components from it (<a href="https://github.com/rucken/core/commit/2a9141c">2a9141c</a>)</li>
+<li><strong>refactoring:</strong> Move show tooltip for error  and info to BaseComponent (<a href="https://github.com/rucken/core/commit/f4e8f3f">f4e8f3f</a>)</li>
+</ul>
+<p><a name="1.4.4"></a></p>
+<h2 id="1-4-4-2017-05-01-"><a href="https://github.com/rucken/core/compare/1.4.3...v1.4.4">1.4.4</a> (2017-05-01)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>demo:</strong> Change path for rucken (<a href="https://github.com/rucken/core/commit/5eaedc1">5eaedc1</a>)</li>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/0b619f2">0b619f2</a>)</li>
+</ul>
+<p><a name="1.4.3"></a></p>
+<h2 id="1-4-3-2017-04-28-"><a href="https://github.com/rucken/core/compare/1.4.2...v1.4.3">1.4.3</a> (2017-04-28)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>demo:</strong> Fix errors founded with ng lint (<a href="https://github.com/rucken/core/commit/c10ce96">c10ce96</a>)</li>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/05e5a45">05e5a45</a>)</li>
+<li><strong>deps:</strong> Update dependencies, remove noused code from app.component (<a href="https://github.com/rucken/core/commit/f3fee28">f3fee28</a>)</li>
+<li><strong>lint:</strong> Change tslint for this project (<a href="https://github.com/rucken/core/commit/8e098c9">8e098c9</a>)</li>
+<li><strong>lint:</strong> Fix all errors founded with ng lint (<a href="https://github.com/rucken/core/commit/6886641">6886641</a>)</li>
+<li><strong>srcgen:</strong> Fix scripts for gen list of ts files and po2ts converter (<a href="https://github.com/rucken/core/commit/dfafdf6">dfafdf6</a>)</li>
+</ul>
+<p><a name="1.4.2"></a></p>
+<h2 id="1-4-2-2017-04-23-"><a href="https://github.com/rucken/core/compare/1.4.0...v1.4.2">1.4.2</a> (2017-04-23)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>grid-select-inputs:</strong> Change properties names and extend it (<a href="https://github.com/rucken/core/commit/bc0eb68">bc0eb68</a>)</li>
+<li><strong>inputs:</strong> Change properties names and extend it (<a href="https://github.com/rucken/core/commit/425364d">425364d</a>)</li>
+<li><strong>route:</strong> Add please wait on lazy route changes as on first load application (<a href="https://github.com/rucken/core/commit/48f37f9">48f37f9</a>)</li>
+<li><strong>srcgen:</strong> Remove extendable components from list of components (<a href="https://github.com/rucken/core/commit/feda93e">feda93e</a>)</li>
+</ul>
+<p><a name="1.4.1"></a></p>
+<h2 id="1-4-1-2017-04-18-"><a href="https://github.com/rucken/core/compare/1.4.0...v1.4.1">1.4.1</a> (2017-04-18)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>srcgen:</strong> Remove extendable components from list of components (<a href="https://github.com/rucken/core/commit/feda93e">feda93e</a>)</li>
+</ul>
+<p><a name="1.4.0"></a></p>
+<h1 id="1-4-0-2017-04-18-"><a href="https://github.com/rucken/core/compare/1.3.0...v1.4.0">1.4.0</a> (2017-04-18)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>home-page:</strong> Remove include README.md on home page (<a href="https://github.com/rucken/core/commit/9678199">9678199</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>AoT:</strong> Add lazy load to pages and frames (<a href="https://github.com/rucken/core/commit/673fe54">673fe54</a>)</li>
+<li><strong>modules:</strong> Move all components to modules, for AoT (<a href="https://github.com/rucken/core/commit/1e2ffb5">1e2ffb5</a>)</li>
+</ul>
+<p><a name="1.3.1"></a></p>
+<h2 id="1-3-1-2017-04-17-"><a href="https://github.com/rucken/core/compare/1.3.0...v1.3.1">1.3.1</a> (2017-04-17)</h2>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>home-page:</strong> Remove include README.md on home page (<a href="https://github.com/rucken/core/commit/9678199">9678199</a>)</li>
+</ul>
+<p><a name="1.3.0"></a></p>
+<h1 id="1-3-0-2017-04-15-"><a href="https://github.com/rucken/core/compare/1.2.21...v1.3.0">1.3.0</a> (2017-04-15)</h1>
+<h3 id="bug-fixes">Bug Fixes</h3>
+<ul>
+<li><strong>demo:</strong> Add new dependencies and click on version for show modal (<a href="https://github.com/rucken/core/commit/8eaf10d">8eaf10d</a>)</li>
+</ul>
+<h3 id="features">Features</h3>
+<ul>
+<li><strong>deps:</strong> Update dependencies (<a href="https://github.com/rucken/core/commit/a89c151">a89c151</a>)</li>
+<li><strong>home-page:</strong> Add render README.md on home page (<a href="https://github.com/rucken/core/commit/52afa09">52afa09</a>)</li>
+<li><strong>navbar:</strong> Add show changelog modal window on click to version (<a href="https://github.com/rucken/core/commit/90540ac">90540ac</a>)</li>
+<li><strong>scripts:</strong> Add script for build change log (<a href="https://github.com/rucken/core/commit/f0fc88a">f0fc88a</a>)</li>
+<li><strong>select-input:</strong> Add support lazy load items to auto complete (<a href="https://github.com/rucken/core/commit/5ec843b">5ec843b</a>)</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
+            var COMPODOC_CURRENT_PAGE_URL = 'changelog.html';
+       </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+       <script src="./js/menu-wc.js"></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

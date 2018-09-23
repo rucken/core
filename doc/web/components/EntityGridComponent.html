@@ -1,0 +1,3678 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rucken:web</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rucken:web</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>EntityGridComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts</code>
+</p>
+
+
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>entity-grid</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./entity-grid.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_columns">_columns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_items">_items</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_selected">_selected</a>
+                            </li>
+                            <li>
+                                <a href="#defaultEntityGridFooterTemplate">defaultEntityGridFooterTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#defaultEntityGridHeaderTemplate">defaultEntityGridHeaderTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#defaultGridCellActionContent">defaultGridCellActionContent</a>
+                            </li>
+                            <li>
+                                <a href="#defaultGridCellContent">defaultGridCellContent</a>
+                            </li>
+                            <li>
+                                <a href="#defaultGridCellTranslatedContent">defaultGridCellTranslatedContent</a>
+                            </li>
+                            <li>
+                                <a href="#defaultGridFieldActionContent">defaultGridFieldActionContent</a>
+                            </li>
+                            <li>
+                                <a href="#defaultGridFieldContent">defaultGridFieldContent</a>
+                            </li>
+                            <li>
+                                <a href="#defaultSearchFieldTemplate">defaultSearchFieldTemplate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#clearSelected">clearSelected</a>
+                            </li>
+                            <li>
+                                <a href="#isAllSelected">isAllSelected</a>
+                            </li>
+                            <li>
+                                <a href="#isSelected">isSelected</a>
+                            </li>
+                            <li>
+                                <a href="#masterToggle">masterToggle</a>
+                            </li>
+                            <li>
+                                <a href="#onAppendFromGrid">onAppendFromGrid</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeOrder">onChangeOrder</a>
+                            </li>
+                            <li>
+                                <a href="#onChangePage">onChangePage</a>
+                            </li>
+                            <li>
+                                <a href="#onCreate">onCreate</a>
+                            </li>
+                            <li>
+                                <a href="#onDblClick">onDblClick</a>
+                            </li>
+                            <li>
+                                <a href="#onDelete">onDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onSearch">onSearch</a>
+                            </li>
+                            <li>
+                                <a href="#onSelected">onSelected</a>
+                            </li>
+                            <li>
+                                <a href="#onUpdate">onUpdate</a>
+                            </li>
+                            <li>
+                                <a href="#onView">onView</a>
+                            </li>
+                            <li>
+                                <a href="#toggle">toggle</a>
+                            </li>
+                            <li>
+                                <a href="#trackByFn">trackByFn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#classes">classes</a>
+                            </li>
+                            <li>
+                                <a href="#columns">columns</a>
+                            </li>
+                            <li>
+                                <a href="#columnsClasses">columnsClasses</a>
+                            </li>
+                            <li>
+                                <a href="#createClass">createClass</a>
+                            </li>
+                            <li>
+                                <a href="#createTitle">createTitle</a>
+                            </li>
+                            <li>
+                                <a href="#enableAppendFromGrid">enableAppendFromGrid</a>
+                            </li>
+                            <li>
+                                <a href="#enableCreate">enableCreate</a>
+                            </li>
+                            <li>
+                                <a href="#enableDelete">enableDelete</a>
+                            </li>
+                            <li>
+                                <a href="#enableUpdate">enableUpdate</a>
+                            </li>
+                            <li>
+                                <a href="#entityGridFooterTemplate">entityGridFooterTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#entityGridHeaderTemplate">entityGridHeaderTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#gridCellActionContent">gridCellActionContent</a>
+                            </li>
+                            <li>
+                                <a href="#gridCellContent">gridCellContent</a>
+                            </li>
+                            <li>
+                                <a href="#gridCellTemplate">gridCellTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#gridCellTranslatedContent">gridCellTranslatedContent</a>
+                            </li>
+                            <li>
+                                <a href="#gridFieldActionContent">gridFieldActionContent</a>
+                            </li>
+                            <li>
+                                <a href="#gridFieldContent">gridFieldContent</a>
+                            </li>
+                            <li>
+                                <a href="#gridFieldTemplate">gridFieldTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#items">items</a>
+                            </li>
+                            <li>
+                                <a href="#multiSelectColumns">multiSelectColumns</a>
+                            </li>
+                            <li>
+                                <a href="#orderBy">orderBy</a>
+                            </li>
+                            <li>
+                                <a href="#orderColumns">orderColumns</a>
+                            </li>
+                            <li>
+                                <a href="#paginationMeta">paginationMeta</a>
+                            </li>
+                            <li>
+                                <a href="#processing">processing</a>
+                            </li>
+                            <li>
+                                <a href="#readonly">readonly</a>
+                            </li>
+                            <li>
+                                <a href="#searchField">searchField</a>
+                            </li>
+                            <li>
+                                <a href="#searchFieldTemplate">searchFieldTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#selectFirst">selectFirst</a>
+                            </li>
+                            <li>
+                                <a href="#strings">strings</a>
+                            </li>
+                            <li>
+                                <a href="#title">title</a>
+                            </li>
+                            <li>
+                                <a href="#translatedCells">translatedCells</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#appendFromGrid">appendFromGrid</a>
+                            </li>
+                            <li>
+                                <a href="#changeOrder">changeOrder</a>
+                            </li>
+                            <li>
+                                <a href="#changePage">changePage</a>
+                            </li>
+                            <li>
+                                <a href="#create">create</a>
+                            </li>
+                            <li>
+                                <a href="#dblClick">dblClick</a>
+                            </li>
+                            <li>
+                                <a href="#delete">delete</a>
+                            </li>
+                            <li>
+                                <a href="#search">search</a>
+                            </li>
+                            <li>
+                                <a href="#selected">selected</a>
+                            </li>
+                            <li>
+                                <a href="#update">update</a>
+                            </li>
+                            <li>
+                                <a href="#view">view</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#columns">columns</a>
+                                </li>
+                                <li>
+                                    <a href="#items">items</a>
+                                </li>
+                                <li>
+                                    <a href="#enableOnlyUpdateOrDelete">enableOnlyUpdateOrDelete</a>
+                                </li>
+                                <li>
+                                    <a href="#enableUpdateAndDelete">enableUpdateAndDelete</a>
+                                </li>
+                                <li>
+                                    <a href="#isAppendFromGridMode">isAppendFromGridMode</a>
+                                </li>
+                                <li>
+                                    <a href="#isEnableAppendFromGrid">isEnableAppendFromGrid</a>
+                                </li>
+                                <li>
+                                    <a href="#isEnableCreate">isEnableCreate</a>
+                                </li>
+                                <li>
+                                    <a href="#isEnableDelete">isEnableDelete</a>
+                                </li>
+                                <li>
+                                    <a href="#isEnableUpdate">isEnableUpdate</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_viewContainerRef: <a href="https://angular.io/api/core/ViewContainerRef" target="_blank">ViewContainerRef</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:169</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_viewContainerRef</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="https://angular.io/api/core/ViewContainerRef" target="_blank" >ViewContainerRef</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="classes"></a>
+                        <code>classes</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>string[]</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:93</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="columns"></a>
+                        <code>columns</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>[]</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:74</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="columnsClasses"></a>
+                        <code>columnsClasses</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>literal type</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:68</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="createClass"></a>
+                        <code>createClass</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>&#x27;btn btn-primary&#x27;</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:62</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="createTitle"></a>
+                        <code>createTitle</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>translate(&#x27;Create&#x27;)</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:60</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="enableAppendFromGrid"></a>
+                        <code>enableAppendFromGrid</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>true</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="150" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:150</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="enableCreate"></a>
+                        <code>enableCreate</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>true</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:144</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="enableDelete"></a>
+                        <code>enableDelete</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>true</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:148</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="enableUpdate"></a>
+                        <code>enableUpdate</code>
+                    </td>
+                    <td class="col-md-10">
+                        <p>
+                            <em>Default value : </em><code>true</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:146</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="entityGridFooterTemplate"></a>
+                        <code>entityGridFooterTemplate</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:47</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="entityGridHeaderTemplate"></a>
+                        <code>entityGridHeaderTemplate</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:49</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="gridCellActionContent"></a>
+                        <code>gridCellActionContent</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="gridCellContent"></a>
+                        <code>gridCellContent</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:39</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="gridCellTemplate"></a>
+                        <code>gridCellTemplate</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:33</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="gridCellTranslatedContent"></a>
+                        <code>gridCellTranslatedContent</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="gridFieldActionContent"></a>
+                        <code>gridFieldActionContent</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:37</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="gridFieldContent"></a>
+                        <code>gridFieldContent</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:35</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="gridFieldTemplate"></a>
+                        <code>gridFieldTemplate</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="items"></a>
+                        <code>items</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>[]</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:97</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="multiSelectColumns"></a>
+                        <code>multiSelectColumns</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>string[]</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="orderBy"></a>
+                        <code>orderBy</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:70</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="orderColumns"></a>
+                        <code>orderColumns</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>string[]</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:66</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="paginationMeta"></a>
+                        <code>paginationMeta</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>PaginationMeta</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:152</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="processing"></a>
+                        <code>processing</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:54</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="readonly"></a>
+                        <code>readonly</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:142</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="searchField"></a>
+                        <code>searchField</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://angular.io/api/forms/FormControl" target="_blank" >FormControl</a></code>
+
+                            </p>
+                        <p>
+                            <em>Default value : </em><code>new FormControl()</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:56</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="searchFieldTemplate"></a>
+                        <code>searchFieldTemplate</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:45</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="selectFirst"></a>
+                        <code>selectFirst</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:52</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="strings"></a>
+                        <code>strings</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:95</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="title"></a>
+                        <code>title</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                            </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:58</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="translatedCells"></a>
+                        <code>translatedCells</code>
+                    </td>
+                    <td class="col-md-10">
+                            <p>
+                            <em>Type :</em>    <code>string[]</code>
+
+                            </p>
+                        <p>
+                            <em>Default value : </em><code>[]</code>
+                        </p>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:64</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section>
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="appendFromGrid"></a>
+                        <code>appendFromGrid</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:132</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="changeOrder"></a>
+                        <code>changeOrder</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:130</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="changePage"></a>
+                        <code>changePage</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:136</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="create"></a>
+                        <code>create</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:120</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="dblClick"></a>
+                        <code>dblClick</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;TModel&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:126</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="delete"></a>
+                        <code>delete</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;TModel&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:118</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="search"></a>
+                        <code>search</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:128</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="selected"></a>
+                        <code>selected</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;TModel[]&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:134</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="update"></a>
+                        <code>update</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;TModel&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:124</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-2">
+                        <a name="view"></a>
+                        <code>view</code>
+                    </td>
+                    <td class="col-md-10">
+                        <em><code>$event</code> Type:</em>    <code>EventEmitter&lt;TModel&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:122</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clearSelected"></a>
+                        <span class="name">
+                            <b>
+                            clearSelected
+                            </b>
+                            <a href="#clearSelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>clearSelected()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="276" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:276</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isAllSelected"></a>
+                        <span class="name">
+                            <b>
+                            isAllSelected
+                            </b>
+                            <a href="#isAllSelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>isAllSelected()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="319" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:319</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isSelected"></a>
+                        <span class="name">
+                            <b>
+                            isSelected
+                            </b>
+                            <a href="#isSelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>isSelected(item: TModel)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="295" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:295</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code>TModel</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="masterToggle"></a>
+                        <span class="name">
+                            <b>
+                            masterToggle
+                            </b>
+                            <a href="#masterToggle"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>masterToggle()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="324" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:324</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onAppendFromGrid"></a>
+                        <span class="name">
+                            <b>
+                            onAppendFromGrid
+                            </b>
+                            <a href="#onAppendFromGrid"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onAppendFromGrid()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="267" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:267</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onChangeOrder"></a>
+                        <span class="name">
+                            <b>
+                            onChangeOrder
+                            </b>
+                            <a href="#onChangeOrder"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onChangeOrder(column: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:194</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>column</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onChangePage"></a>
+                        <span class="name">
+                            <b>
+                            onChangePage
+                            </b>
+                            <a href="#onChangePage"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onChangePage(meta: literal type)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="202" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:202</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>meta</td>
+                                                        <td>
+                                                                    <code>literal type</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onCreate"></a>
+                        <span class="name">
+                            <b>
+                            onCreate
+                            </b>
+                            <a href="#onCreate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onCreate()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:232</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDblClick"></a>
+                        <span class="name">
+                            <b>
+                            onDblClick
+                            </b>
+                            <a href="#onDblClick"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onDblClick(item: TModel)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="247" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:247</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code>TModel</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onDelete"></a>
+                        <span class="name">
+                            <b>
+                            onDelete
+                            </b>
+                            <a href="#onDelete"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onDelete(item: TModel)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="214" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:214</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code>TModel</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSearch"></a>
+                        <span class="name">
+                            <b>
+                            onSearch
+                            </b>
+                            <a href="#onSearch"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onSearch(text: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="208" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:208</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>text</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onSelected"></a>
+                        <span class="name">
+                            <b>
+                            onSelected
+                            </b>
+                            <a href="#onSelected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onSelected(items: TModel[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="279" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:279</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>items</td>
+                                                        <td>
+                                                                    <code>TModel[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onUpdate"></a>
+                        <span class="name">
+                            <b>
+                            onUpdate
+                            </b>
+                            <a href="#onUpdate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onUpdate(item: TModel)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="223" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:223</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code>TModel</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onView"></a>
+                        <span class="name">
+                            <b>
+                            onView
+                            </b>
+                            <a href="#onView"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>onView(item: TModel)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="241" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:241</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code>TModel</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="toggle"></a>
+                        <span class="name">
+                            <b>
+                            toggle
+                            </b>
+                            <a href="#toggle"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>toggle(item: TModel, col: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="301" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:301</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>item</td>
+                                                        <td>
+                                                                    <code>TModel</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>col</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="trackByFn"></a>
+                        <span class="name">
+                            <b>
+                            trackByFn
+                            </b>
+                            <a href="#trackByFn"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>trackByFn(index: , item: )</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:292</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>index</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>item</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_columns"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _columns
+                            </b>
+                            <a href="#_columns"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_columns:     <code>string[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>string[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:169</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_items"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _items
+                            </b>
+                            <a href="#_items"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_items:     <code>TModel[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TModel[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:168</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_selected"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                            _selected
+                            </b>
+                            <a href="#_selected"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>_selected:     <code>TModel[]</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TModel[]</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:167</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultEntityGridFooterTemplate"></a>
+                        <span class="name">
+                            <b>
+                            defaultEntityGridFooterTemplate
+                            </b>
+                            <a href="#defaultEntityGridFooterTemplate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultEntityGridFooterTemplate:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultEntityGridHeaderTemplate"></a>
+                        <span class="name">
+                            <b>
+                            defaultEntityGridHeaderTemplate
+                            </b>
+                            <a href="#defaultEntityGridHeaderTemplate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultEntityGridHeaderTemplate:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:28</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultGridCellActionContent"></a>
+                        <span class="name">
+                            <b>
+                            defaultGridCellActionContent
+                            </b>
+                            <a href="#defaultGridCellActionContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultGridCellActionContent:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:22</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultGridCellContent"></a>
+                        <span class="name">
+                            <b>
+                            defaultGridCellContent
+                            </b>
+                            <a href="#defaultGridCellContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultGridCellContent:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:18</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultGridCellTranslatedContent"></a>
+                        <span class="name">
+                            <b>
+                            defaultGridCellTranslatedContent
+                            </b>
+                            <a href="#defaultGridCellTranslatedContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultGridCellTranslatedContent:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:20</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultGridFieldActionContent"></a>
+                        <span class="name">
+                            <b>
+                            defaultGridFieldActionContent
+                            </b>
+                            <a href="#defaultGridFieldActionContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultGridFieldActionContent:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultGridFieldContent"></a>
+                        <span class="name">
+                            <b>
+                            defaultGridFieldContent
+                            </b>
+                            <a href="#defaultGridFieldContent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultGridFieldContent:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:14</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultSearchFieldTemplate"></a>
+                        <span class="name">
+                            <b>
+                            defaultSearchFieldTemplate
+                            </b>
+                            <a href="#defaultSearchFieldTemplate"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <code>defaultSearchFieldTemplate:     <code>TemplateRef&lt;any&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Decorators : </i><code>ContentChild</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+</section>
+
+    <section>
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="columns"></a>
+                        <span class="name"><b>columns</b><a href="#columns"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>columns()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:77</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>columns(columns: [])</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:74</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>columns</td>
+                                                    
+                                                            <td>
+                                                                        <code>[]</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="items"></a>
+                        <span class="name"><b>items</b><a href="#items"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>items()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:113</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>items(items: [])</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:97</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>items</td>
+                                                    
+                                                            <td>
+                                                                        <code>[]</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableOnlyUpdateOrDelete"></a>
+                        <span class="name"><b>enableOnlyUpdateOrDelete</b><a href="#enableOnlyUpdateOrDelete"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>enableOnlyUpdateOrDelete()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:154</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableUpdateAndDelete"></a>
+                        <span class="name"><b>enableUpdateAndDelete</b><a href="#enableUpdateAndDelete"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>enableUpdateAndDelete()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:160</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isAppendFromGridMode"></a>
+                        <span class="name"><b>isAppendFromGridMode</b><a href="#isAppendFromGridMode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isAppendFromGridMode()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:163</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEnableAppendFromGrid"></a>
+                        <span class="name"><b>isEnableAppendFromGrid</b><a href="#isEnableAppendFromGrid"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isEnableAppendFromGrid()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:179</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEnableCreate"></a>
+                        <span class="name"><b>isEnableCreate</b><a href="#isEnableCreate"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isEnableCreate()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:182</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEnableDelete"></a>
+                        <span class="name"><b>isEnableDelete</b><a href="#isEnableDelete"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isEnableDelete()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:185</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEnableUpdate"></a>
+                        <span class="name"><b>isEnableUpdate</b><a href="#isEnableUpdate"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isEnableUpdate()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">libs/rucken/web/src/lib/components/entity-grid/entity-grid.component.ts:188</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, Output, TemplateRef, ViewContainerRef } from &#x27;@angular/core&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+import { translate } from &#x27;@rucken/core&#x27;;
+import { IModel, PaginationMeta } from &#x27;ngx-repository&#x27;;
+import { debounceTime, distinctUntilChanged } from &#x27;rxjs/operators&#x27;;
+
+@Component({
+  selector: &#x27;entity-grid&#x27;,
+  templateUrl: &#x27;./entity-grid.component.html&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class EntityGridComponent&lt;TModel extends IModel&gt; {
+  @ContentChild(&#x27;#defaultGridFieldContent&#x27;)
+  defaultGridFieldContent: TemplateRef&lt;any&gt;;
+  @ContentChild(&#x27;#defaultGridFieldActionContent&#x27;)
+  defaultGridFieldActionContent: TemplateRef&lt;any&gt;;
+  @ContentChild(&#x27;#defaultGridCellContent&#x27;)
+  defaultGridCellContent: TemplateRef&lt;any&gt;;
+  @ContentChild(&#x27;#defaultGridCellTranslatedContent&#x27;)
+  defaultGridCellTranslatedContent: TemplateRef&lt;any&gt;;
+  @ContentChild(&#x27;#defaultGridCellActionContent&#x27;)
+  defaultGridCellActionContent: TemplateRef&lt;any&gt;;
+  @ContentChild(&#x27;#defaultSearchFieldTemplate&#x27;)
+  defaultSearchFieldTemplate: TemplateRef&lt;any&gt;;
+  @ContentChild(&#x27;#defaultEntityGridFooterTemplate&#x27;)
+  defaultEntityGridFooterTemplate: TemplateRef&lt;any&gt;;
+  @ContentChild(&#x27;#defaultEntityGridHeaderTemplate&#x27;)
+  defaultEntityGridHeaderTemplate: TemplateRef&lt;any&gt;;
+
+  @Input()
+  gridFieldTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  gridCellTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  gridFieldContent: TemplateRef&lt;any&gt;;
+  @Input()
+  gridFieldActionContent: TemplateRef&lt;any&gt;;
+  @Input()
+  gridCellContent: TemplateRef&lt;any&gt;;
+  @Input()
+  gridCellTranslatedContent: TemplateRef&lt;any&gt;;
+  @Input()
+  gridCellActionContent: TemplateRef&lt;any&gt;;
+  @Input()
+  searchFieldTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  entityGridFooterTemplate: TemplateRef&lt;any&gt;;
+  @Input()
+  entityGridHeaderTemplate: TemplateRef&lt;any&gt;;
+
+  @Input()
+  selectFirst?: boolean;
+  @Input()
+  processing: boolean;
+  @Input()
+  searchField: FormControl &#x3D; new FormControl();
+  @Input()
+  title: string;
+  @Input()
+  createTitle &#x3D; translate(&#x27;Create&#x27;);
+  @Input()
+  createClass &#x3D; &#x27;btn btn-primary&#x27;;
+  @Input()
+  translatedCells: string[] &#x3D; [];
+  @Input()
+  orderColumns: string[];
+  @Input()
+  columnsClasses: { [key: string]: string };
+  @Input()
+  orderBy: string;
+  @Input()
+  multiSelectColumns: string[];
+  @Input()
+  set columns(columns: string[]) {
+    this._columns &#x3D; columns;
+  }
+  get columns() {
+    if (this._columns) {
+      return this._columns.filter(
+        column &#x3D;&gt;
+          column &#x3D;&#x3D;&#x3D; &#x27;action&#x27;
+            ? this.readonly &#x3D;&#x3D;&#x3D; true ||
+              (!this.isEnableDelete &amp;&amp; !this.isEnableUpdate)
+              ? false
+              : true
+            : true
+      );
+    } else {
+      return this._columns;
+    }
+  }
+  @Input()
+  classes: string[];
+  @Input()
+  strings: any;
+  @Input()
+  set items(items: TModel[]) {
+    this._items &#x3D; items;
+    if (
+      this.selectFirst !&#x3D;&#x3D; false &amp;&amp;
+      items &amp;&amp;
+      items.length &amp;&amp;
+      items.filter(
+        item &#x3D;&gt;
+          this._selected &amp;&amp;
+          this._selected.length &amp;&amp;
+          this._selected[0].id &#x3D;&#x3D;&#x3D; item.id
+      ).length &#x3D;&#x3D;&#x3D; 0
+    ) {
+      this.onSelected([]);
+    }
+  }
+  get items() {
+    return this._items;
+  }
+
+  @Output()
+  delete: EventEmitter&lt;TModel&gt; &#x3D; new EventEmitter&lt;TModel&gt;();
+  @Output()
+  create: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter&lt;boolean&gt;();
+  @Output()
+  view: EventEmitter&lt;TModel&gt; &#x3D; new EventEmitter&lt;TModel&gt;();
+  @Output()
+  update: EventEmitter&lt;TModel&gt; &#x3D; new EventEmitter&lt;TModel&gt;();
+  @Output()
+  dblClick: EventEmitter&lt;TModel&gt; &#x3D; new EventEmitter&lt;TModel&gt;();
+  @Output()
+  search: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
+  @Output()
+  changeOrder: EventEmitter&lt;string&gt; &#x3D; new EventEmitter&lt;string&gt;();
+  @Output()
+  appendFromGrid: EventEmitter&lt;boolean&gt; &#x3D; new EventEmitter&lt;boolean&gt;();
+  @Output()
+  selected: EventEmitter&lt;TModel[]&gt; &#x3D; new EventEmitter&lt;TModel[]&gt;();
+  @Output()
+  changePage: EventEmitter&lt;{
+    page: number;
+    itemsPerPage: number;
+  }&gt; &#x3D; new EventEmitter&lt;{ page: number; itemsPerPage: number }&gt;();
+
+  @Input()
+  readonly: boolean;
+  @Input()
+  enableCreate &#x3D; true;
+  @Input()
+  enableUpdate &#x3D; true;
+  @Input()
+  enableDelete &#x3D; true;
+  @Input()
+  enableAppendFromGrid &#x3D; true;
+  @Input()
+  paginationMeta: PaginationMeta;
+
+  get enableOnlyUpdateOrDelete() {
+    return (
+      (this.isEnableDelete &amp;&amp; !this.isEnableUpdate) ||
+      (!this.isEnableDelete &amp;&amp; this.isEnableUpdate)
+    );
+  }
+  get enableUpdateAndDelete() {
+    return this.isEnableDelete &amp;&amp; this.isEnableUpdate;
+  }
+  get isAppendFromGridMode() {
+    return this.appendFromGrid.observers.length &gt; 0;
+  }
+
+  private _selected: TModel[];
+  private _items: TModel[];
+  private _columns: string[];
+
+  constructor(private _viewContainerRef: ViewContainerRef) {
+    this.searchField.valueChanges
+      .pipe(
+        debounceTime(400),
+        distinctUntilChanged()
+      )
+      .subscribe(value &#x3D;&gt; this.onSearch(value));
+  }
+  get isEnableAppendFromGrid() {
+    return !this.readonly &amp;&amp; this.enableAppendFromGrid;
+  }
+  get isEnableCreate() {
+    return !this.readonly &amp;&amp; this.enableCreate;
+  }
+  get isEnableDelete() {
+    return !this.readonly &amp;&amp; this.enableDelete;
+  }
+  get isEnableUpdate() {
+    return !this.readonly &amp;&amp; this.enableUpdate;
+  }
+  get parent(): any {
+    return this._viewContainerRef[&#x27;_view&#x27;].component;
+  }
+  onChangeOrder(column: string) {
+    if (this.orderBy &#x3D;&#x3D;&#x3D; &#x60;${column}&#x60;) {
+      this.orderBy &#x3D; &#x60;-${column}&#x60;;
+    } else {
+      this.orderBy &#x3D; &#x60;${column}&#x60;;
+    }
+    this.changeOrder.emit(this.orderBy);
+  }
+  onChangePage(meta: { page: number; itemsPerPage: number }) {
+    if (isDevMode() &amp;&amp; this.changePage.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;onChangePage&quot;&#x27;, this.parent);
+    }
+    this.changePage.emit(meta);
+  }
+  onSearch(text: string) {
+    if (isDevMode() &amp;&amp; this.search.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;search&quot;&#x27;, this.parent);
+    }
+    this.search.emit(text);
+  }
+  onDelete(item: TModel) {
+    if (isDevMode() &amp;&amp; !this.isEnableDelete) {
+      console.warn(&#x27;Delete action is disabled&#x27;, this.parent);
+    }
+    if (isDevMode() &amp;&amp; this.delete.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;delete&quot;&#x27;, this.parent);
+    }
+    this.delete.emit(item);
+  }
+  onUpdate(item: TModel) {
+    if (isDevMode() &amp;&amp; !this.isEnableUpdate) {
+      console.warn(&#x27;Update action is disabled&#x27;, this.parent);
+    }
+    if (isDevMode() &amp;&amp; this.update.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;update&quot;&#x27;, this.parent);
+    }
+    this.update.emit(item);
+  }
+  onCreate() {
+    if (isDevMode() &amp;&amp; !this.isEnableCreate) {
+      console.warn(&#x27;Create action is disabled&#x27;, this.parent);
+    }
+    if (isDevMode() &amp;&amp; this.create.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;create&quot;&#x27;, this.parent);
+    }
+    this.create.emit();
+  }
+  onView(item: TModel) {
+    if (isDevMode() &amp;&amp; this.view.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;view&quot;&#x27;, this.parent);
+    }
+    this.view.emit(item);
+  }
+  onDblClick(item: TModel) {
+    if (this.dblClick.observers.length &gt; 0) {
+      this.dblClick.emit(item);
+    } else {
+      if (isDevMode() &amp;&amp; this.dblClick.observers.length &#x3D;&#x3D;&#x3D; 0) {
+        console.warn(&#x27;No subscribers found for &quot;dblClick&quot;&#x27;, this.parent);
+      }
+      if (this.readonly &#x3D;&#x3D;&#x3D; true || !this.isEnableUpdate) {
+        if (isDevMode() &amp;&amp; this.dblClick.observers.length &#x3D;&#x3D;&#x3D; 0) {
+          console.warn(&#x27;Try call &quot;view&quot; for &quot;dblClick&quot;&#x27;, this.parent);
+        }
+        this.onView(item);
+      } else {
+        if (isDevMode() &amp;&amp; this.dblClick.observers.length &#x3D;&#x3D;&#x3D; 0) {
+          console.warn(&#x27;Try call &quot;update&quot; for &quot;dblClick&quot;&#x27;, this.parent);
+        }
+        this.onUpdate(item);
+      }
+    }
+  }
+  onAppendFromGrid() {
+    if (isDevMode() &amp;&amp; !this.isEnableAppendFromGrid) {
+      console.warn(&#x27;Append from grid action is disabled&#x27;, this.parent);
+    }
+    if (isDevMode() &amp;&amp; this.appendFromGrid.observers.length &#x3D;&#x3D;&#x3D; 0) {
+      console.warn(&#x27;No subscribers found for &quot;appendFromGrid&quot;&#x27;, this.parent);
+    }
+    this.appendFromGrid.emit(true);
+  }
+  clearSelected() {
+    this._selected &#x3D; [];
+  }
+  onSelected(items: TModel[]) {
+    if (
+      this.selectFirst !&#x3D;&#x3D; false &amp;&amp;
+      items &amp;&amp;
+      items.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp;
+      this._items &amp;&amp;
+      this._items.length
+    ) {
+      items &#x3D; [this._items[0]];
+    }
+    this._selected &#x3D; items;
+    this.selected.emit(items);
+  }
+  trackByFn(index, item) {
+    return item.id;
+  }
+  isSelected(item: TModel) {
+    const index &#x3D; this._selected.findIndex(
+      eachItem &#x3D;&gt; eachItem &amp;&amp; item &amp;&amp; eachItem.id &#x3D;&#x3D;&#x3D; item.id
+    );
+    return index !&#x3D;&#x3D; -1;
+  }
+  toggle(item: TModel, col: string) {
+    if (
+      !this.multiSelectColumns ||
+      this.multiSelectColumns.indexOf(col) &#x3D;&#x3D;&#x3D; -1
+    ) {
+      this._selected &#x3D; [];
+    }
+    const selected &#x3D; this._selected ? this._selected : [];
+    const index &#x3D; selected.findIndex(
+      eachItem &#x3D;&gt; eachItem &amp;&amp; item &amp;&amp; eachItem.id &#x3D;&#x3D;&#x3D; item.id
+    );
+    if (index &#x3D;&#x3D;&#x3D; -1) {
+      selected.push(item);
+    } else {
+      selected.splice(index, 1);
+    }
+    this.onSelected(selected);
+  }
+  isAllSelected() {
+    const numSelected &#x3D; this._selected ? this._selected.length : -1;
+    const numRows &#x3D; this.items ? this.items.length : 0;
+    return numSelected &#x3D;&#x3D;&#x3D; numRows;
+  }
+  masterToggle() {
+    let selected &#x3D; this._selected;
+    if (this.isAllSelected()) {
+      selected &#x3D; [];
+    } else {
+      selected &#x3D; [...this.items];
+    }
+    this.onSelected(selected);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;entity-grid-header&quot;&gt;
+    &lt;ng-container *ngTemplateOutlet&#x3D;&quot;entityGridHeaderTemplate?entityGridHeaderTemplate:defaultEntityGridHeaderTemplate&quot;&gt;&lt;/ng-container&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;entity-grid&quot;&gt;
+    &lt;table class&#x3D;&quot;table table-bordered table-hover&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th
+                    *ngFor&#x3D;&quot;let col of columns&quot;
+                    class&#x3D;&quot;{{(columnsClasses &amp;&amp; columnsClasses[col])?columnsClasses[col]:&#x27;&#x27;}}&quot;
+                    [ngClass]&#x3D;&quot;{&#x27;text-center&#x27;:col&#x3D;&#x3D;&#x3D;&#x27;action&#x27;,&#x27;width-100&#x27;: enableUpdateAndDelete &amp;&amp; col&#x3D;&#x3D;&#x3D;&#x27;action&#x27;,&#x27;width-50&#x27;: enableOnlyUpdateOrDelete &amp;&amp; col&#x3D;&#x3D;&#x3D;&#x27;action&#x27;}&quot;&gt;
+                    &lt;ng-container *ngTemplateOutlet&#x3D;&quot;gridFieldTemplate ? gridFieldTemplate : defaultGridFieldTemplate, context: { $implicit: {field:{name:col}} }&quot;&gt;&lt;/ng-container&gt;
+                &lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr *ngIf&#x3D;&quot;!processing &amp;&amp; (!items || !items.length)&quot;&gt;
+                &lt;td
+                    [attr.colspan]&#x3D;&quot;columns?.length&quot;
+                    class&#x3D;&quot;text-center&quot;
+                    translate&gt;
+                    No data
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr *ngIf&#x3D;&quot;processing&quot;&gt;
+                &lt;td
+                    [attr.colspan]&#x3D;&quot;columns?.length&quot;
+                    class&#x3D;&quot;text-center&quot;
+                    translate&gt;
+                    &lt;fa-layers
+                        class&#x3D;&quot;fa-fw&quot;
+                        *ngIf&#x3D;&quot;processing&quot;&gt;
+                        &lt;fa-icon
+                            [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;spinner&#x27;]&quot;
+                            [pulse]&#x3D;&quot;true&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/fa-layers&gt;
+                    &lt;span translate&gt;Loading...&lt;/span&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr
+                *ngFor&#x3D;&quot;let item of items; trackBy: trackByFn;&quot;
+                (dblclick)&#x3D;&quot;onDblClick(item)&quot;
+                [ngClass]&#x3D;&quot;{&#x27;info&#x27;:isSelected(item)}&quot;&gt;
+                &lt;td
+                    *ngFor&#x3D;&quot;let col of columns&quot;
+                    (click)&#x3D;&quot;col!&#x3D;&#x3D;&#x27;action&#x27;?toggle(item, col):null&quot;
+                    class&#x3D;&quot;{{(columnsClasses &amp;&amp; columnsClasses[col])?columnsClasses[col]:&#x27;&#x27;}}&quot;
+                    [ngClass]&#x3D;&quot;{&#x27;text-center&#x27;:col&#x3D;&#x3D;&#x3D;&#x27;action&#x27;,&#x27;width-100&#x27;: enableUpdateAndDelete &amp;&amp; col&#x3D;&#x3D;&#x3D;&#x27;action&#x27;,&#x27;width-50&#x27;: enableOnlyUpdateOrDelete &amp;&amp; col&#x3D;&#x3D;&#x3D;&#x27;action&#x27;}&quot;&gt;
+                    &lt;ng-container *ngTemplateOutlet&#x3D;&quot;gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {field:{name:col},item:item} }&quot;&gt;&lt;/ng-container&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+&lt;div class&#x3D;&quot;entity-grid-footer&quot;&gt;
+    &lt;ng-container *ngTemplateOutlet&#x3D;&quot;entityGridFooterTemplate?entityGridFooterTemplate:defaultEntityGridFooterTemplate&quot;&gt;&lt;/ng-container&gt;
+&lt;/div&gt;
+&lt;ng-template
+    #entityGridHeaderTemplate
+    let-ctx&gt;
+    &lt;form
+        [ngClass]&#x3D;&quot;{&#x27;form-inline&#x27;:isEnableCreate || title}&quot;
+        *ngIf&#x3D;&quot;!isAppendFromGridMode&quot;&gt;
+        &lt;div
+            class&#x3D;&quot;row&quot;
+            *ngIf&#x3D;&quot;isEnableCreate&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-4&quot;&gt;
+                &lt;button
+                    type&#x3D;&quot;button&quot;
+                    class&#x3D;&quot;pull-left&quot;
+                    [ngClass]&#x3D;&quot;createClass&quot;
+                    (click)&#x3D;&quot;onCreate()&quot;&gt;
+                    &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;plus&#x27;]&quot;&gt;&lt;/fa-icon&gt;
+                    {{ createTitle | translate }}
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-sm-8&quot;&gt;
+                &lt;div class&#x3D;&quot;pull-right&quot;&gt;
+                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;ng-container *ngTemplateOutlet&#x3D;&quot;searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate&quot;&gt;&lt;/ng-container&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div
+            class&#x3D;&quot;row&quot;
+            *ngIf&#x3D;&quot;!isEnableCreate&quot;&gt;
+            &lt;div
+                class&#x3D;&quot;col-sm-12&quot;
+                *ngIf&#x3D;&quot;!title&quot;&gt;
+                &lt;ng-container *ngTemplateOutlet&#x3D;&quot;searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate&quot;&gt;&lt;/ng-container&gt;
+            &lt;/div&gt;
+            &lt;div
+                class&#x3D;&quot;col-sm-8&quot;
+                *ngIf&#x3D;&quot;title&quot;&gt;
+                &lt;h4&gt;{{title | translate}}&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div
+                class&#x3D;&quot;col-sm-4&quot;
+                *ngIf&#x3D;&quot;title&quot;&gt;
+                &lt;div class&#x3D;&quot;pull-right&quot;&gt;
+                    &lt;div class&#x3D;&quot;form-group&quot;&gt;
+                        &lt;ng-container *ngTemplateOutlet&#x3D;&quot;searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate&quot;&gt;&lt;/ng-container&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+    &lt;div *ngIf&#x3D;&quot;isAppendFromGridMode&quot;&gt;
+        &lt;div
+            class&#x3D;&quot;row&quot;
+            *ngIf&#x3D;&quot;isEnableAppendFromGrid&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-8&quot;&gt;
+                &lt;h4&gt;{{title | translate}}&lt;/h4&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;col-sm-4&quot;&gt;
+                &lt;button
+                    type&#x3D;&quot;button&quot;
+                    class&#x3D;&quot;btn btn-success pull-right&quot;
+                    (click)&#x3D;&quot;onAppendFromGrid()&quot;&gt;
+                    &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;plus&#x27;]&quot;&gt;&lt;/fa-icon&gt;
+                    {{ &#x27;Append&#x27; | translate }}
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div
+            class&#x3D;&quot;row&quot;
+            *ngIf&#x3D;&quot;!isEnableAppendFromGrid&quot;&gt;
+            &lt;div class&#x3D;&quot;col-sm-12&quot;&gt;
+                &lt;h4&gt;{{title | translate}}&lt;/h4&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;
+&lt;ng-template
+    #entityGridFooterTemplate
+    let-ctx&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;col-md-3&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;col-md-9&quot;&gt;
+            &lt;div
+                class&#x3D;&quot;pull-right&quot;
+                *ngIf&#x3D;&quot;paginationMeta &amp;&amp; (paginationMeta.totalPages&gt;1 || paginationMeta.totalResults&gt;paginationMeta.perPage)&quot;&gt;
+                &lt;pagination
+                    [directionLinks]&#x3D;&quot;false&quot;
+                    [boundaryLinks]&#x3D;&quot;true&quot;
+                    [totalItems]&#x3D;&quot;paginationMeta.totalResults&quot;
+                    [rotate]&#x3D;&quot;false&quot;
+                    [itemsPerPage]&#x3D;&quot;paginationMeta.perPage&quot;
+                    (pageChanged)&#x3D;&quot;onChangePage($event)&quot;
+                    [maxSize]&#x3D;&quot;paginationMeta.perPage&quot;
+                    class&#x3D;&quot;pagination-sm&quot;
+                    firstText&#x3D;&quot;«&quot;
+                    lastText&#x3D;&quot;»&quot;&gt;&lt;/pagination&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultGridFieldTemplate
+    let-ctx&gt;
+    &lt;ng-container *ngTemplateOutlet&#x3D;&quot;ctx.field.name&#x3D;&#x3D;&#x3D;&#x27;action&#x27; ? (gridFieldActionContent?gridFieldActionContent:defaultGridFieldActionContent) : (gridFieldContent?gridFieldContent:defaultGridFieldContent), context: { $implicit: ctx }&quot;&gt;&lt;/ng-container&gt;
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultGridFieldContent
+    let-ctx&gt;
+    &lt;span&gt;{{strings[ctx.field.name] | translate}}&lt;/span&gt;
+    &lt;div
+        class&#x3D;&quot;pull-right entity-field-buttons&quot;
+        *ngIf&#x3D;&quot;!orderColumns||orderColumns.indexOf(ctx.field.name)!&#x3D;&#x3D;-1&quot;&gt;
+        &lt;button
+            type&#x3D;&quot;button&quot;
+            class&#x3D;&quot;btn btn-link btn-xs&quot;
+            (click)&#x3D;&quot;onChangeOrder(ctx.field.name)&quot;&gt;
+            &lt;i
+                class&#x3D;&quot;fa&quot;
+                [ngClass]&#x3D;&quot;{&#x27;fa-sort&#x27;:ctx.field.name!&#x3D;&#x3D;orderBy &amp;&amp; &#x27;-&#x27;+ctx.field.name!&#x3D;&#x3D;orderBy,&#x27;fa-sort-amount-asc&#x27;:ctx.field.name&#x3D;&#x3D;&#x3D;orderBy,&#x27;fa-sort-amount-desc&#x27;:&#x27;-&#x27;+ctx.field.name&#x3D;&#x3D;&#x3D;orderBy}&quot;
+                aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultGridFieldActionContent
+    let-ctx&gt;
+    &lt;span translate&gt;Action&lt;/span&gt;
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultGridCellTemplate
+    let-ctx&gt;
+    &lt;ng-container *ngTemplateOutlet&#x3D;&quot;ctx.field.name&#x3D;&#x3D;&#x3D;&#x27;action&#x27; ? (gridCellActionContent?gridCellActionContent:defaultGridCellActionContent) : (translatedCells.indexOf(ctx.field.name)!&#x3D;&#x3D;-1?(gridCellTranslatedContent?gridCellTranslatedContent:defaultGridCellTranslatedContent):(gridCellContent?gridCellContent:defaultGridCellContent)), context: { $implicit: ctx }&quot;&gt;&lt;/ng-container&gt;
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultGridCellContent
+    let-ctx&gt;
+    {{ctx.item[ctx.field.name+&#x27;AsString&#x27;] || ctx.item[ctx.field.name]}}
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultGridCellTranslatedContent
+    let-ctx&gt;
+    {{(ctx.item[ctx.field.name+&#x27;AsString&#x27;] || ctx.item[ctx.field.name])|customTranslate}}
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultGridCellActionContent
+    let-ctx&gt;
+    &lt;button
+        type&#x3D;&quot;button&quot;
+        class&#x3D;&quot;btn btn-default btn-sm&quot;
+        (click)&#x3D;&quot;onUpdate(ctx.item)&quot;
+        *ngIf&#x3D;&quot;isEnableUpdate&quot;&gt;
+        &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;edit&#x27;]&quot;&gt;&lt;/fa-icon&gt;
+    &lt;/button&gt;
+    &lt;button
+        type&#x3D;&quot;button&quot;
+        class&#x3D;&quot;btn btn-default btn-sm&quot;
+        (click)&#x3D;&quot;onDelete(ctx.item)&quot;
+        *ngIf&#x3D;&quot;isEnableDelete&quot;&gt;
+        &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;trash&#x27;]&quot;&gt;&lt;/fa-icon&gt;
+    &lt;/button&gt;
+&lt;/ng-template&gt;
+&lt;ng-template
+    #defaultSearchFieldTemplate
+    let-ctx&gt;
+    &lt;div
+        class&#x3D;&quot;input-group&quot;
+        *ngIf&#x3D;&quot;!readonly&quot;&gt;
+        &lt;input
+            type&#x3D;&quot;search&quot;
+            class&#x3D;&quot;form-control&quot;
+            [formControl]&#x3D;&quot;searchField&quot;&gt;
+        &lt;span class&#x3D;&quot;input-group-btn&quot;&gt;
+            &lt;button
+                class&#x3D;&quot;btn btn-success&quot;
+                (click)&#x3D;&quot;onSearch(searchField.value)&quot;
+                type&#x3D;&quot;button&quot;
+                [disabled]&#x3D;&quot;processing&quot;&gt;
+                &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;search&#x27;]&quot;&gt;&lt;/fa-icon&gt;
+            &lt;/button&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="entity-grid-header">    <ng-container *ngTemplateOutlet="entityGridHeaderTemplate?entityGridHeaderTemplate:defaultEntityGridHeaderTemplate"></ng-container></div><div class="entity-grid">    <table class="table table-bordered table-hover">        <thead>            <tr>                <th                    *ngFor="let col of columns"                    class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:\'\'}}"                    [ngClass]="{\'text-center\':col===\'action\',\'width-100\': enableUpdateAndDelete && col===\'action\',\'width-50\': enableOnlyUpdateOrDelete && col===\'action\'}">                    <ng-container *ngTemplateOutlet="gridFieldTemplate ? gridFieldTemplate : defaultGridFieldTemplate, context: { $implicit: {field:{name:col}} }"></ng-container>                </th>            </tr>        </thead>        <tbody>            <tr *ngIf="!processing && (!items || !items.length)">                <td                    [attr.colspan]="columns?.length"                    class="text-center"                    translate>                    No data                </td>            </tr>            <tr *ngIf="processing">                <td                    [attr.colspan]="columns?.length"                    class="text-center"                    translate>                    <fa-layers                        class="fa-fw"                        *ngIf="processing">                        <fa-icon                            [icon]="[\'fas\', \'spinner\']"                            [pulse]="true"></fa-icon>                    </fa-layers>                    <span translate>Loading...</span>                </td>            </tr>            <tr                *ngFor="let item of items; trackBy: trackByFn;"                (dblclick)="onDblClick(item)"                [ngClass]="{\'info\':isSelected(item)}">                <td                    *ngFor="let col of columns"                    (click)="col!==\'action\'?toggle(item, col):null"                    class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:\'\'}}"                    [ngClass]="{\'text-center\':col===\'action\',\'width-100\': enableUpdateAndDelete && col===\'action\',\'width-50\': enableOnlyUpdateOrDelete && col===\'action\'}">                    <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {field:{name:col},item:item} }"></ng-container>                </td>            </tr>        </tbody>    </table></div><div class="entity-grid-footer">    <ng-container *ngTemplateOutlet="entityGridFooterTemplate?entityGridFooterTemplate:defaultEntityGridFooterTemplate"></ng-container></div><ng-template    #entityGridHeaderTemplate    let-ctx>    <form        [ngClass]="{\'form-inline\':isEnableCreate || title}"        *ngIf="!isAppendFromGridMode">        <div            class="row"            *ngIf="isEnableCreate">            <div class="col-sm-4">                <button                    type="button"                    class="pull-left"                    [ngClass]="createClass"                    (click)="onCreate()">                    <fa-icon [icon]="[\'fas\', \'plus\']"></fa-icon>                    {{ createTitle | translate }}                </button>            </div>            <div class="col-sm-8">                <div class="pull-right">                    <div class="form-group">                        <ng-container *ngTemplateOutlet="searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate"></ng-container>                    </div>                </div>            </div>        </div>        <div            class="row"            *ngIf="!isEnableCreate">            <div                class="col-sm-12"                *ngIf="!title">                <ng-container *ngTemplateOutlet="searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate"></ng-container>            </div>            <div                class="col-sm-8"                *ngIf="title">                <h4>{{title | translate}}</h4>            </div>            <div                class="col-sm-4"                *ngIf="title">                <div class="pull-right">                    <div class="form-group">                        <ng-container *ngTemplateOutlet="searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate"></ng-container>                    </div>                </div>            </div>        </div>    </form>    <div *ngIf="isAppendFromGridMode">        <div            class="row"            *ngIf="isEnableAppendFromGrid">            <div class="col-sm-8">                <h4>{{title | translate}}</h4>            </div>            <div class="col-sm-4">                <button                    type="button"                    class="btn btn-success pull-right"                    (click)="onAppendFromGrid()">                    <fa-icon [icon]="[\'fas\', \'plus\']"></fa-icon>                    {{ \'Append\' | translate }}                </button>            </div>        </div>        <div            class="row"            *ngIf="!isEnableAppendFromGrid">            <div class="col-sm-12">                <h4>{{title | translate}}</h4>            </div>        </div>    </div></ng-template><ng-template    #entityGridFooterTemplate    let-ctx>    <div class="row">        <div class="col-md-3"></div>        <div class="col-md-9">            <div                class="pull-right"                *ngIf="paginationMeta && (paginationMeta.totalPages>1 || paginationMeta.totalResults>paginationMeta.perPage)">                <pagination                    [directionLinks]="false"                    [boundaryLinks]="true"                    [totalItems]="paginationMeta.totalResults"                    [rotate]="false"                    [itemsPerPage]="paginationMeta.perPage"                    (pageChanged)="onChangePage($event)"                    [maxSize]="paginationMeta.perPage"                    class="pagination-sm"                    firstText="«"                    lastText="»"></pagination>            </div>        </div>    </div></ng-template><ng-template    #defaultGridFieldTemplate    let-ctx>    <ng-container *ngTemplateOutlet="ctx.field.name===\'action\' ? (gridFieldActionContent?gridFieldActionContent:defaultGridFieldActionContent) : (gridFieldContent?gridFieldContent:defaultGridFieldContent), context: { $implicit: ctx }"></ng-container></ng-template><ng-template    #defaultGridFieldContent    let-ctx>    <span>{{strings[ctx.field.name] | translate}}</span>    <div        class="pull-right entity-field-buttons"        *ngIf="!orderColumns||orderColumns.indexOf(ctx.field.name)!==-1">        <button            type="button"            class="btn btn-link btn-xs"            (click)="onChangeOrder(ctx.field.name)">            <i                class="fa"                [ngClass]="{\'fa-sort\':ctx.field.name!==orderBy && \'-\'+ctx.field.name!==orderBy,\'fa-sort-amount-asc\':ctx.field.name===orderBy,\'fa-sort-amount-desc\':\'-\'+ctx.field.name===orderBy}"                aria-hidden="true"></i>        </button>    </div></ng-template><ng-template    #defaultGridFieldActionContent    let-ctx>    <span translate>Action</span></ng-template><ng-template    #defaultGridCellTemplate    let-ctx>    <ng-container *ngTemplateOutlet="ctx.field.name===\'action\' ? (gridCellActionContent?gridCellActionContent:defaultGridCellActionContent) : (translatedCells.indexOf(ctx.field.name)!==-1?(gridCellTranslatedContent?gridCellTranslatedContent:defaultGridCellTranslatedContent):(gridCellContent?gridCellContent:defaultGridCellContent)), context: { $implicit: ctx }"></ng-container></ng-template><ng-template    #defaultGridCellContent    let-ctx>    {{ctx.item[ctx.field.name+\'AsString\'] || ctx.item[ctx.field.name]}}</ng-template><ng-template    #defaultGridCellTranslatedContent    let-ctx>    {{(ctx.item[ctx.field.name+\'AsString\'] || ctx.item[ctx.field.name])|customTranslate}}</ng-template><ng-template    #defaultGridCellActionContent    let-ctx>    <button        type="button"        class="btn btn-default btn-sm"        (click)="onUpdate(ctx.item)"        *ngIf="isEnableUpdate">        <fa-icon [icon]="[\'fas\', \'edit\']"></fa-icon>    </button>    <button        type="button"        class="btn btn-default btn-sm"        (click)="onDelete(ctx.item)"        *ngIf="isEnableDelete">        <fa-icon [icon]="[\'fas\', \'trash\']"></fa-icon>    </button></ng-template><ng-template    #defaultSearchFieldTemplate    let-ctx>    <div        class="input-group"        *ngIf="!readonly">        <input            type="search"            class="form-control"            [formControl]="searchField">        <span class="input-group-btn">            <button                class="btn btn-success"                (click)="onSearch(searchField.value)"                type="button"                [disabled]="processing">                <fa-icon [icon]="[\'fas\', \'search\']"></fa-icon>            </button>        </span>    </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'AuthModalComponent', 'selector': 'auth-modal'},{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'}];
+    var DIRECTIVES = [{'name': 'DisableControlDirective', 'selector': '[disableControl]'},{'name': 'FocusedDirective', 'selector': '[focused]'}];
+    var ACTUAL_COMPONENT = {'name': 'EntityGridComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'EntityGridComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <script src="../js/menu-wc.js"></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
