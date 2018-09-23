@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate, User } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
+import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { GroupsGridModalComponent } from '../../groups/groups-grid-modal/groups-grid-modal.component';
 import { GroupsGridComponent } from '../../groups/groups-grid/groups-grid.component';
@@ -15,7 +16,9 @@ import { GroupsGridComponent } from '../../groups/groups-grid/groups-grid.compon
 export class UserGroupsGridComponent extends GroupsGridComponent
   implements OnInit {
   @Input()
-  modalAppendFromGridComponent = GroupsGridModalComponent;
+  modalAppendFromGrid: IBaseEntityModalOptions = {
+    component: GroupsGridModalComponent
+  };
   @Input()
   user: User;
   @Input()

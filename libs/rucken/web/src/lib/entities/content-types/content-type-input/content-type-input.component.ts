@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ContentType, CONTENT_TYPES_CONFIG_TOKEN, ErrorsExtractor, translate } from '@rucken/core';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { ContentTypesGridModalComponent } from '../content-types-grid-modal/content-types-grid-modal.component';
 import { ContentTypesGridComponent } from '../content-types-grid/content-types-grid.component';
+import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 
 @Component({
   selector: 'content-type-input',
@@ -16,6 +17,14 @@ export class ContentTypeInputComponent extends ContentTypesGridComponent
   implements OnInit {
   @Output()
   select = new EventEmitter<ContentType>();
+  @Input()
+  modalAppendFromGrid: IBaseEntityModalOptions = {
+    component: ContentTypesGridModalComponent,
+    initialState: {
+      title: translate('Select content type'),
+      yesTitle: translate('Select')
+    }
+  };
 
   constructor(
     public modalService: BsModalService,
@@ -40,17 +49,9 @@ export class ContentTypeInputComponent extends ContentTypesGridComponent
       items: this.mockedItems,
       ...this.contentTypesConfig
     });
-    this.mockedItemsChange.subscribe(items => this.onSelect(items[0]));
-  }
-  createAppendFromGridModal(): BsModalRef {
-    return this.modalService.show(ContentTypesGridModalComponent, {
-      class: 'modal-md',
-      initialState: {
-        title: translate('Select content type'),
-        yesTitle: translate('Select'),
-        apiUrl: this.apiUrl
-      }
-    });
+    this.mockedItemsChange.subscribe(items =>
+      this.onSelect(items[0])
+    );
   }
   onSelect(item: ContentType) {
     this.select.emit(item);

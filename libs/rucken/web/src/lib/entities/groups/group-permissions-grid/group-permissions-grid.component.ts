@@ -3,6 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, Permission, PERMISSIONS_CONFIG_TOKEN, translate } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
+import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionsGridModalComponent } from '../../permissions/permissions-grid-modal/permissions-grid-modal.component';
 import { PermissionsGridComponent } from '../../permissions/permissions-grid/permissions-grid.component';
@@ -15,7 +16,9 @@ import { PermissionsGridComponent } from '../../permissions/permissions-grid/per
 export class GroupPermissionsGridComponent extends PermissionsGridComponent
   implements OnInit {
   @Input()
-  modalAppendFromGridComponent = PermissionsGridModalComponent;
+  modalAppendFromGrid: IBaseEntityModalOptions = {
+    component: PermissionsGridModalComponent
+  };
   @Input()
   group: Group;
   @Input()

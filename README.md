@@ -31,6 +31,12 @@ npm install
 npm run start:prod
 ```
 
+## Compodoc documentations
+
+[http://rucken.github.io/core/doc/demo](http://rucken.github.io/core/doc/demo/index.html) - Demo application documentation
+[http://rucken.github.io/core/doc/core](http://rucken.github.io/core/doc/core/index.html) - Core documentation 
+[http://rucken.github.io/core/doc/web](http://rucken.github.io/core/doc/web/index.html) - Web documentation 
+
 ## Quick links
 
 [@rucken/cli](https://github.com/rucken/cli) - Console tools to create and build [Angular6+](https://angular.io/) and [NestJS](https://nestjs.com/) application based on [Rucken](https://github.com/rucken) template
@@ -44,6 +50,7 @@ npm run start:prod
 [Live demo: master (NestJS on Heroku)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
 [Live demo: develop (NestJS on Now)](https://rucken-core-nestjs.now.sh) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
+
 
 ## License
 

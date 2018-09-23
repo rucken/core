@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -69,8 +69,12 @@
     "postinstall": "node ./scripts/patch.js",
     "github:prebuild": "ng build demo --base-href /core/ --prod",
     "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo/index.html ./dist/demo/404.html",
-    "github:build": "run-s lib:build config:prod github:prebuild github:postbuild",
-    "github:deploy": "gh-pages -d dist/demo"
+    "github:build": "run-s lib:build config:prod github:prebuild github:postbuild doc",
+    "github:deploy": "gh-pages -d dist/demo",
+    "doc:lib:core": "./node_modules/.bin/compodoc -p libs/rucken/core/tsconfig.lib.json -n \"rucken:core\" -d dist/demo/doc/core",
+    "doc:lib:web": "./node_modules/.bin/compodoc -p libs/rucken/web/tsconfig.lib.json -n \"rucken:web\" -d dist/demo/doc/web",
+    "doc:app:demo": "./node_modules/.bin/compodoc -p apps/demo/tsconfig.app.json -n \"rucken:demo\" -d dist/demo/doc/demo",
+    "doc": "run-s doc:lib:core doc:lib:web doc:app:demo"
   },
   "dependencies": {
     "@angular/animations": "^6.1.8",
@@ -93,7 +97,7 @@
     "@ngx-translate/core": "^10.0.2",
     "@types/dotenv": "^4.0.3",
     "@types/jsonwebtoken": "^7.2.8",
-    "@types/node": "^10.10.1",
+    "@types/node": "^10.10.3",
     "@types/object-path": "^0.9.29",
     "core-js": "^2.5.7",
     "cors": "~2.8.4",
@@ -108,7 +112,7 @@
     "object-path": "^0.11.4",
     "rxjs": "^6.3.2",
     "ts-loader": "5.1.1",
-    "webpack-cli": "^3.1.0",
+    "webpack-cli": "^3.1.1",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
@@ -117,7 +121,8 @@
     "@angular/cli": "^6.2.3",
     "@angular/compiler-cli": "^6.1.8",
     "@angular/language-service": "^6.1.8",
-    "@rucken/cli": "^3.1.4",
+    "@compodoc/compodoc": "^1.1.5",
+    "@rucken/cli": "^3.2.0",
     "@types/body-parser": "^1.17.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",

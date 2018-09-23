@@ -6,6 +6,7 @@ import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { ContentTypeModalComponent } from '../content-type-modal/content-type-modal.component';
+import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 
 @Component({
     selector: 'content-types-grid',
@@ -16,7 +17,9 @@ export class ContentTypesGridComponent
     extends BaseEntityListComponent<ContentType>
     implements OnInit {
     @Input()
-    modalItemComponent = ContentTypeModalComponent;
+    modalItem: IBaseEntityModalOptions = {
+        component: ContentTypeModalComponent
+    };
     @Input()
     title = translate('Content types');
     constructor(

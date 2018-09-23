@@ -2,7 +2,7 @@
     [formGroup]="form"
     novalidate>
     <div class="row">
-        <div class="col-md-6">
+        <div [ngClass]="{'col-md-6':!simpleMode,'col-md-12':simpleMode}">
             <div class="row">
                 <div class="col-md-12">
                     <form-group
@@ -36,6 +36,7 @@
                         <input
                             bsDatepicker
                             formControlName="dateOfBirth"
+                            [isDisabled]="isReadonly"
                             [readonly]="isReadonly">
                     </form-group>
                 </div>
@@ -105,7 +106,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div
+            class="col-md-6"
+            *ngIf="!simpleMode">
             <form-group
                 [checkIsDirty]="checkIsDirty"
                 [title]="strings.roles">
@@ -115,7 +118,8 @@
                             <input
                                 formControlName="isActive"
                                 type="checkbox"
-                                [readonly]="isReadonly">
+                                [readonly]="isReadonly"
+                                [disableControl]="isReadonly || !('change_user' | perm:false | async)">
                             {{strings.isActive | translate}}
                         </label>
                     </div>
@@ -124,7 +128,8 @@
                             <input
                                 formControlName="isStaff"
                                 type="checkbox"
-                                [readonly]="isReadonly">
+                                [readonly]="isReadonly"
+                                [disableControl]="isReadonly || !('change_user' | perm:false | async)">
                             {{strings.isStaff | translate}}
                         </label>
                     </div>
@@ -133,14 +138,17 @@
                             <input
                                 formControlName="isSuperuser"
                                 type="checkbox"
-                                [readonly]="isReadonly">
+                                [readonly]="isReadonly"
+                                [disableControl]="isReadonly || !('change_user' | perm:false | async)">
                             {{strings.isSuperuser | translate}}
                         </label>
                     </div>
                 </div>
             </form-group>
         </div>
-        <div class="col-md-6">
+        <div
+            class="col-md-6"
+            *ngIf="!simpleMode">
             <user-groups-grid
                 [mockedItems]="data.groups"
                 (mockedItemsChange)="onGroupsChange($event)"

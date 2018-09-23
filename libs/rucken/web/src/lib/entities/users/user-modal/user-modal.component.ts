@@ -11,6 +11,8 @@ import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-mod
 export class UserModalComponent extends BasePromptFormModalComponent<User> {
   @Input()
   apiUrl?: string;
+  @Input()
+  simpleMode: boolean;
 
   constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);

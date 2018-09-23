@@ -47,6 +47,7 @@ export * from './lib/components/navbar/navbar.module';
 export * from './lib/components/prompt-form-modal/prompt-form-modal.component';
 export * from './lib/components/prompt-form-modal/prompt-form-modal.module';
 export * from './lib/directives/directives.module';
+export * from './lib/directives/disable-control.directive';
 export * from './lib/directives/focused.directive';
 export * from './lib/entities/content-types/content-type-input/content-type-input.component';
 export * from './lib/entities/content-types/content-type-input/content-type-input.module';

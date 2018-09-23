@@ -9,34 +9,22 @@ import { IEntityGridFilter } from '../components/entity-grid/entity-grid-filter.
 import { EntityModalComponent } from '../components/entity-modal/entity-modal.component';
 import { MessageModalService } from '../modals/message-modal/message-modal.service';
 import { IBaseEntityList } from './base-entity-list.interface';
-import { IBaseEntityModals } from './base-entity-modals.interface';
+import { IBaseEntityModalOptions, IBaseEntityModals } from './base-entity-modals.interface';
 
 export class BaseEntityListComponent<TModel extends IModel>
-  implements IBaseEntityList<TModel>, IBaseEntityModals<TModel> {
+  implements IBaseEntityList<TModel>, IBaseEntityModals {
   @Input()
-  modalItemComponent: any;
+  modalItem: IBaseEntityModalOptions = {};
   @Input()
-  modalDeleteComponent: any;
+  modalDelete: IBaseEntityModalOptions = {};
   @Input()
-  modalCreateComponent: any;
+  modalCreate: IBaseEntityModalOptions = {};
   @Input()
-  modalUpdateComponent: any;
+  modalUpdate: IBaseEntityModalOptions = {};
   @Input()
-  modalViewComponent: any;
+  modalView: IBaseEntityModalOptions = {};
   @Input()
-  modalAppendFromGridComponent: any;
-  @Input()
-  modalItemClass: string;
-  @Input()
-  modalDeleteClass: string;
-  @Input()
-  modalCreateClass: string;
-  @Input()
-  modalUpdateClass: string;
-  @Input()
-  modalViewClass: string;
-  @Input()
-  modalAppendFromGridClass: string;
+  modalAppendFromGrid: IBaseEntityModalOptions = {};
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -141,6 +129,9 @@ export class BaseEntityListComponent<TModel extends IModel>
       .pipe(first())
       .subscribe(items => this.onSuccess(items), error => this.onError(error));
   }
+  onReload() {
+    this.onChangeFilter();
+  }
   onSearch(searchText: string) {
     this.onChangeFilter({ searchText });
   }
@@ -173,15 +164,21 @@ export class BaseEntityListComponent<TModel extends IModel>
         ? this.strings.viewTitle
         : translate('Item #{{id}}');
     const bsModalRef = this.modalService.show(
-      this.modalViewComponent || this.modalItemComponent || EntityModalComponent,
+      this.modalView.component ||
+      this.modalItem.component ||
+      EntityModalComponent,
       {
-        class: this.modalCreateClass || this.modalItemClass || 'modal-md',
+        class:
+          this.modalView.class ||
+          this.modalItem.class ||
+          'modal-md',
         initialState: {
           title: title,
           noTitle: translate('Close'),
           readonly: true,
           data: item,
-          apiUrl: this.apiUrl
+          apiUrl: this.apiUrl,
+          ...(this.modalView.initialState || this.modalItem.initialState)
         }
       });
     const modal = (bsModalRef.content as EntityModalComponent);
@@ -193,7 +190,7 @@ export class BaseEntityListComponent<TModel extends IModel>
     return undefined;
   }
   onViewClick(item: TModel): BsModalRef {
-    const useCustomModalComponent = this.modalViewComponent || this.modalItemComponent;
+    const useCustomModalComponent = this.modalView.component || this.modalItem.component;
     let bsModalRef = !useCustomModalComponent ? this.createViewModal(item) : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateViewModal(item);
@@ -210,14 +207,15 @@ export class BaseEntityListComponent<TModel extends IModel>
         : translate('Create new item');
     const item = new this.factoryModel();
     const bsModalRef = this.modalService.show(
-      this.modalCreateComponent || this.modalItemComponent || EntityModalComponent,
+      this.modalCreate.component || this.modalItem.component || EntityModalComponent,
       {
-        class: this.modalCreateClass || this.modalItemClass || 'modal-md',
+        class: this.modalCreate.class || this.modalItem.class || 'modal-md',
         initialState: {
           title: title,
           yesTitle: translate('Create'),
           data: item,
-          apiUrl: this.apiUrl
+          apiUrl: this.apiUrl,
+          ...(this.modalCreate.initialState || this.modalItem.initialState)
         }
       });
     const modal = (bsModalRef.content as EntityModalComponent);
@@ -243,7 +241,7 @@ export class BaseEntityListComponent<TModel extends IModel>
     }
   }
   onCreateClick(data?: any): void {
-    const useCustomModalComponent = this.modalCreateComponent || this.modalItemComponent;
+    const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
     this.createData = data;
     let bsModalRef = !useCustomModalComponent ? this.createCreateModal() : undefined;
     if (!bsModalRef) {
@@ -252,7 +250,6 @@ export class BaseEntityListComponent<TModel extends IModel>
         console.warn('Method "createCreateModal" is not defined', this);
       }
     }
-    this._bindModalOptions(bsModalRef.content);
     bsModalRef.content.yes.subscribe((modal: any) => {
       modal.processing = true;
       this.repository.create(modal.data).subscribe(
@@ -274,14 +271,15 @@ export class BaseEntityListComponent<TModel extends IModel>
         ? this.strings.updateTitle
         : translate('Update item #{{id}}');
     const bsModalRef = this.modalService.show(
-      this.modalUpdateComponent || this.modalItemComponent || EntityModalComponent,
+      this.modalUpdate.component || this.modalItem.component || EntityModalComponent,
       {
-        class: this.modalUpdateClass || this.modalItemClass || 'modal-md',
+        class: this.modalUpdate.class || this.modalItem.class || 'modal-md',
         initialState: {
           title: title,
           yesTitle: translate('Save'),
           data: item,
-          apiUrl: this.apiUrl
+          apiUrl: this.apiUrl,
+          ...(this.modalUpdate.initialState || this.modalItem.initialState)
         }
       });
     const modal = (bsModalRef.content as EntityModalComponent);
@@ -307,7 +305,7 @@ export class BaseEntityListComponent<TModel extends IModel>
     }
   }
   onUpdateClick(item: TModel): void {
-    const useCustomModalComponent = this.modalCreateComponent || this.modalItemComponent;
+    const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
     let bsModalRef = !useCustomModalComponent ? this.createUpdateModal(item) : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateUpdateModal(item);
@@ -315,7 +313,6 @@ export class BaseEntityListComponent<TModel extends IModel>
         console.warn('Method "createUpdateModal" is not defined', this);
       }
     }
-    this._bindModalOptions(bsModalRef.content);
     bsModalRef.content.yes.subscribe((modal: any) => {
       modal.processing = true;
       this.repository.update(item.id, modal.data).subscribe(
@@ -341,15 +338,16 @@ export class BaseEntityListComponent<TModel extends IModel>
         ? this.strings.deleteMessage
         : translate('Do you really want to delete item?');
     const bsModalRef = this.modalService.show(
-      this.modalDeleteComponent || this.modalItemComponent || EntityModalComponent,
+      this.modalDelete.component || this.modalItem.component || EntityModalComponent,
       {
-        class: this.modalDeleteClass || this.modalItemClass || 'modal-md',
+        class: this.modalDelete.class || this.modalItem.class || 'modal-md',
         initialState: {
           title: title,
           message: message,
           yesTitle: translate('Delete'),
           data: item,
-          apiUrl: this.apiUrl
+          apiUrl: this.apiUrl,
+          ...(this.modalDelete.initialState || this.modalItem.initialState)
         }
       });
     const modal = (bsModalRef.content as EntityModalComponent);
@@ -375,7 +373,7 @@ export class BaseEntityListComponent<TModel extends IModel>
     }
   }
   onDeleteClick(item: TModel): void {
-    const useCustomModalComponent = this.modalCreateComponent || this.modalItemComponent;
+    const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
     let bsModalRef = !useCustomModalComponent ? this.createDeleteModal(item) : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateDeleteModal(item);
@@ -383,7 +381,6 @@ export class BaseEntityListComponent<TModel extends IModel>
         console.warn('Method "createDeleteModal" is not defined', this);
       }
     }
-    this._bindModalOptions(bsModalRef.content);
     bsModalRef.content.yes.subscribe(modal => {
       modal.processing = true;
       this.repository.delete(item.id).subscribe(
@@ -405,13 +402,14 @@ export class BaseEntityListComponent<TModel extends IModel>
         ? this.strings.selectTitle
         : translate('Select item');
     const bsModalRef = this.modalService.show(
-      this.modalAppendFromGridComponent,
+      this.modalAppendFromGrid.component,
       {
-        class: this.modalAppendFromGridClass || this.modalItemClass || 'modal-md',
+        class: this.modalAppendFromGrid.class || this.modalItem.class || 'modal-md',
         initialState: {
           title: title,
           yesTitle: translate('Append'),
-          apiUrl: this.apiUrl
+          apiUrl: this.apiUrl,
+          ...this.modalAppendFromGrid.initialState
         }
       });
     return bsModalRef;
@@ -430,7 +428,7 @@ export class BaseEntityListComponent<TModel extends IModel>
   }
   onAppendFromGridClick(data?: any): void {
     this.appendFromGridData = data;
-    const useCustomModalComponent = this.modalAppendFromGridComponent;
+    const useCustomModalComponent = this.modalAppendFromGrid.component;
     let bsModalRef = !useCustomModalComponent ? this.createAppendFromGridModal() : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultAppendFromGridModal();
@@ -439,7 +437,6 @@ export class BaseEntityListComponent<TModel extends IModel>
         return;
       }
     }
-    this._bindModalOptions(bsModalRef.content);
     bsModalRef.content.yes.subscribe((modal: IBaseEntityListModal<TModel>) => {
       modal.processing = true;
       const observables = [];
@@ -474,24 +471,5 @@ export class BaseEntityListComponent<TModel extends IModel>
         modal.hide();
       }
     });
-  }
-  private _bindModalOptions(component: IBaseEntityModals<TModel>) {
-    /*
-    Object.keys(this).filter(key =>
-      this[key] && key.indexOf('modal') === 0
-    ).forEach(key => {
-      component[key] = this[key];
-    });
-    Object.keys(this).filter(key =>
-      key.indexOf('modal') !== 0 && component[key]
-    ).forEach(key => {
-      Object.keys(component[key]).filter(
-        subKey => {
-          return component[key][subKey] && (component[key][subKey] instanceof BaseEntityListComponent);
-        }).forEach(subKey => {
-          this._bindModalOptions(component[key][subKey]);
-        });
-    });
-    */
   }
 }

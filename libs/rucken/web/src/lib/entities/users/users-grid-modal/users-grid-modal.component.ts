@@ -21,6 +21,8 @@ export class UsersGridModalComponent extends BaseEntityListModalComponent<
   grid: UsersGridComponent;
   @Input()
   apiUrl?: string;
+  @Input()
+  simpleMode = false;
 
   constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
