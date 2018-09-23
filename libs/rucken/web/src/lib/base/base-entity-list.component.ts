@@ -141,6 +141,9 @@ export class BaseEntityListComponent<TModel extends IModel>
       .pipe(first())
       .subscribe(items => this.onSuccess(items), error => this.onError(error));
   }
+  onReload() {
+    this.onChangeFilter();
+  }
   onSearch(searchText: string) {
     this.onChangeFilter({ searchText });
   }

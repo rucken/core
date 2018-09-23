@@ -111,7 +111,7 @@
                                     formControlName="isActive"
                                     type="checkbox"
                                     [readonly]="readonly"
-                                    [attr.disabled]="readonly">
+                                    [disableControl]="readonly">
                                 {{strings.isActive | translate}}
                             </label>
                         </div>
@@ -121,7 +121,7 @@
                                     formControlName="isStaff"
                                     type="checkbox"
                                     [readonly]="readonly"
-                                    [attr.disabled]="readonly">
+                                    [disableControl]="readonly">
                                 {{strings.isStaff | translate}}
                             </label>
                         </div>
@@ -131,7 +131,7 @@
                                     formControlName="isSuperuser"
                                     type="checkbox"
                                     [readonly]="readonly"
-                                    [attr.disabled]="readonly">
+                                    [disableControl]="readonly">
                                 {{strings.isSuperuser | translate}}
                             </label>
                         </div>
