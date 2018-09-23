@@ -1,3 +1,20 @@
+<a name="3.3.0"></a>
+# [3.3.0](https://github.com/rucken/core/compare/3.2.0...3.3.0) (2018-09-23)
+
+
+### Bug Fixes
+
+* **user:** Add disable datepicker on readonly mode ([22eb4b6](https://github.com/rucken/core/commit/22eb4b6))
+* **user-profile:** Add disabled attribute ([34523bb](https://github.com/rucken/core/commit/34523bb))
+
+
+### Features
+
+* **directives:** Add directive disableControl and use it in user profile forms ([6c22c3e](https://github.com/rucken/core/commit/6c22c3e))
+* **modals:** Changed create modal options method ([5c0c69d](https://github.com/rucken/core/commit/5c0c69d))
+
+
+
 <a name="3.2.0"></a>
 # [3.2.0](https://github.com/rucken/core/compare/3.1.4...3.2.0) (2018-09-20)
 
