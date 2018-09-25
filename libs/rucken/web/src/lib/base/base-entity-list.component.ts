@@ -200,12 +200,12 @@ export class BaseEntityListComponent<TModel extends IModel>
     }
     return bsModalRef;
   }
-  defaultCreateCreateModal(): BsModalRef {
+  defaultCreateCreateModal(item?: TModel): BsModalRef {
     const title =
       this.strings && this.strings.createTitle
         ? this.strings.createTitle
         : translate('Create new item');
-    const item = new this.factoryModel();
+    item = item || new this.factoryModel();
     const bsModalRef = this.modalService.show(
       this.modalCreate.component || this.modalItem.component || EntityModalComponent,
       {
@@ -223,7 +223,7 @@ export class BaseEntityListComponent<TModel extends IModel>
     modal.data = item;
     return bsModalRef;
   }
-  createCreateModal(): BsModalRef {
+  createCreateModal(data?: any): BsModalRef {
     return undefined;
   }
   onCreateError(modal: EntityModalComponent, error: any) {
@@ -243,9 +243,9 @@ export class BaseEntityListComponent<TModel extends IModel>
   onCreateClick(data?: any): void {
     const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
     this.createData = data;
-    let bsModalRef = !useCustomModalComponent ? this.createCreateModal() : undefined;
+    let bsModalRef = !useCustomModalComponent ? this.createCreateModal(data) : undefined;
     if (!bsModalRef) {
-      bsModalRef = this.defaultCreateCreateModal();
+      bsModalRef = this.defaultCreateCreateModal(data);
       if (isDevMode() && !useCustomModalComponent) {
         console.warn('Method "createCreateModal" is not defined', this);
       }
@@ -396,7 +396,7 @@ export class BaseEntityListComponent<TModel extends IModel>
       );
     });
   }
-  defaultAppendFromGridModal(): BsModalRef {
+  defaultAppendFromGridModal(data?: any): BsModalRef {
     const title =
       this.strings && this.strings.selectTitle
         ? this.strings.selectTitle
@@ -414,7 +414,7 @@ export class BaseEntityListComponent<TModel extends IModel>
       });
     return bsModalRef;
   }
-  createAppendFromGridModal(): BsModalRef {
+  createAppendFromGridModal(data?: any): BsModalRef {
     return undefined;
   }
   onAppendFromGridError(modal: IBaseEntityListModal<TModel>, error: any) {
@@ -429,9 +429,9 @@ export class BaseEntityListComponent<TModel extends IModel>
   onAppendFromGridClick(data?: any): void {
     this.appendFromGridData = data;
     const useCustomModalComponent = this.modalAppendFromGrid.component;
-    let bsModalRef = !useCustomModalComponent ? this.createAppendFromGridModal() : undefined;
+    let bsModalRef = !useCustomModalComponent ? this.createAppendFromGridModal(data) : undefined;
     if (!bsModalRef) {
-      bsModalRef = this.defaultAppendFromGridModal();
+      bsModalRef = this.defaultAppendFromGridModal(data);
       if (isDevMode() && !useCustomModalComponent) {
         console.warn('Method "createAppendFromGridModal" is not defined', this);
         return;
