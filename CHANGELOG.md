@@ -1,3 +1,14 @@
+<a name="3.3.1"></a>
+## [3.3.1](https://github.com/rucken/core/compare/3.3.0...3.3.1) (2018-09-25)
+
+
+### Bug Fixes
+
+* **base-entity-list:** Add support default value on create and append ([3c87b8e](https://github.com/rucken/core/commit/3c87b8e))
+* **guard:** Fix wrong work PermissionsGuard ([68095d8](https://github.com/rucken/core/commit/68095d8))
+
+
+
 <a name="3.3.0"></a>
 # [3.3.0](https://github.com/rucken/core/compare/3.2.0...3.3.0) (2018-09-23)
 

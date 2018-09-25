@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -97,7 +97,7 @@
     "@ngx-translate/core": "^10.0.2",
     "@types/dotenv": "^4.0.3",
     "@types/jsonwebtoken": "^7.2.8",
-    "@types/node": "^10.10.3",
+    "@types/node": "^10.11.0",
     "@types/object-path": "^0.9.29",
     "core-js": "^2.5.7",
     "cors": "~2.8.4",
@@ -122,7 +122,7 @@
     "@angular/compiler-cli": "^6.1.8",
     "@angular/language-service": "^6.1.8",
     "@compodoc/compodoc": "^1.1.5",
-    "@rucken/cli": "^3.2.0",
+    "@rucken/cli": "^3.2.2",
     "@types/body-parser": "^1.17.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",

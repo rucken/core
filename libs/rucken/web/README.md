@@ -32,7 +32,9 @@ npm run start:prod
 ## Compodoc documentations
 
 [http://rucken.github.io/core/doc/demo](http://rucken.github.io/core/doc/demo/index.html) - Demo application documentation
+
 [http://rucken.github.io/core/doc/core](http://rucken.github.io/core/doc/core/index.html) - Core documentation 
+
 [http://rucken.github.io/core/doc/web](http://rucken.github.io/core/doc/web/index.html) - Web documentation 
 
 ## Quick links
