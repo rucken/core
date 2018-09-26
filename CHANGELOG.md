@@ -1,3 +1,13 @@
+<a name="3.3.2"></a>
+## [3.3.2](https://github.com/rucken/core/compare/3.3.1...3.3.2) (2018-09-26)
+
+
+### Bug Fixes
+
+* **base:** Add check typeof searchText === 'string' in onSearch method ([9a859fd](https://github.com/rucken/core/commit/9a859fd))
+
+
+
 <a name="3.3.1"></a>
 ## [3.3.1](https://github.com/rucken/core/compare/3.3.0...3.3.1) (2018-09-25)
 
