@@ -132,8 +132,10 @@ export class BaseEntityListComponent<TModel extends IModel>
   onReload() {
     this.onChangeFilter();
   }
-  onSearch(searchText: string) {
-    this.onChangeFilter({ searchText });
+  onSearch(searchText: string ) {
+    if (typeof searchText === 'string') {
+      this.onChangeFilter({ searchText });
+    }
   }
   onChangeOrder(fieldName: string) {
     this.onChangeFilter({ sort: fieldName });
