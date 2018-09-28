@@ -68,12 +68,12 @@
     "ssr:build:dev": "run-s ssr:prebuild:dev ssr:webpack",
     "postinstall": "node ./scripts/patch.js",
     "github:prebuild": "ng build demo --base-href /core/ --prod",
-    "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo/index.html ./dist/demo/404.html",
+    "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo-client/index.html ./dist/demo-client/404.html",
     "github:build": "run-s lib:build config:prod github:prebuild github:postbuild doc",
-    "github:deploy": "gh-pages -d dist/demo",
-    "doc:lib:core": "./node_modules/.bin/compodoc -p libs/rucken/core/tsconfig.lib.json -n \"rucken:core\" -d dist/demo/doc/core",
-    "doc:lib:web": "./node_modules/.bin/compodoc -p libs/rucken/web/tsconfig.lib.json -n \"rucken:web\" -d dist/demo/doc/web",
-    "doc:app:demo": "./node_modules/.bin/compodoc -p apps/demo/tsconfig.app.json -n \"rucken:demo\" -d dist/demo/doc/demo",
+    "github:deploy": "gh-pages -d dist/demo-client",
+    "doc:lib:core": "./node_modules/.bin/compodoc -p libs/rucken/core/tsconfig.lib.json -n \"rucken:core\" -d dist/demo-client/doc/core",
+    "doc:lib:web": "./node_modules/.bin/compodoc -p libs/rucken/web/tsconfig.lib.json -n \"rucken:web\" -d dist/demo-client/doc/web",
+    "doc:app:demo": "./node_modules/.bin/compodoc -p apps/demo/tsconfig.app.json -n \"rucken:demo\" -d dist/demo-client/doc/demo",
     "doc": "run-s doc:lib:core doc:lib:web doc:app:demo"
   },
   "dependencies": {

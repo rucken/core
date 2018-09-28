@@ -18,16 +18,16 @@
     ],
     "paths": {
       "@rucken/core": [
-        "libs/rucken/core/src"
+        "dist/rucken/core"
       ],
       "@rucken/core/*": [
-        "libs/rucken/core/src/*"
+        "dist/rucken/core/*"
       ],
       "@rucken/web": [
-        "libs/rucken/web/src"
+        "dist/rucken/web"
       ],
       "@rucken/web/*": [
-        "libs/rucken/web/src/*"
+        "dist/rucken/web/*"
       ]
     }
   }
