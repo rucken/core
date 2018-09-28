@@ -218,7 +218,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:29</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -344,7 +344,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:33</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -363,8 +363,8 @@
                             </p>
                         <p>
                             <em>Default value : </em><code>{
-        component: UserModalComponent
-    }</code>
+    component: UserModalComponent
+  }</code>
                         </p>
                     </td>
                 </tr>
@@ -376,7 +376,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in UsersGridComponent:19</div>
+                                    <div class="io-line">Defined in UsersGridComponent:30</div>
                             </td>
                         </tr>
             </tbody>
@@ -402,7 +402,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in UsersGridComponent:23</div>
+                                    <div class="io-line">Defined in UsersGridComponent:34</div>
                             </td>
                         </tr>
             </tbody>
@@ -428,7 +428,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in UsersGridComponent:25</div>
+                                    <div class="io-line">Defined in UsersGridComponent:36</div>
                             </td>
                         </tr>
             </tbody>
@@ -450,7 +450,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:31</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -485,7 +485,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:60</a></div>
                             </td>
                         </tr>
 
@@ -523,7 +523,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:58</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:68</a></div>
                             </td>
                         </tr>
 
@@ -598,7 +598,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in UsersGridComponent:36</div>
+                                    <div class="io-line">Defined in UsersGridComponent:48</div>
                             </td>
                         </tr>
 
@@ -649,7 +649,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-input/user-input.component.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -690,7 +690,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in UsersGridComponent:27</div>
+                                    <div class="io-line">Defined in UsersGridComponent:38</div>
                             </td>
                         </tr>
 
@@ -703,9 +703,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output
+} from &#x27;@angular/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { ErrorsExtractor, translate, User, USERS_CONFIG_TOKEN } from &#x27;@rucken/core&#x27;;
+import {
+  ErrorsExtractor,
+  translate,
+  User,
+  USERS_CONFIG_TOKEN
+} from &#x27;@rucken/core&#x27;;
 import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
 import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x27;;
 import { IBaseEntityModalOptions } from &#x27;../../../base/base-entity-modals.interface&#x27;;
@@ -713,14 +726,12 @@ import { MessageModalService } from &#x27;../../../modals/message-modal/message-
 import { UsersGridModalComponent } from &#x27;../users-grid-modal/users-grid-modal.component&#x27;;
 import { UsersGridComponent } from &#x27;../users-grid/users-grid.component&#x27;;
 
-
 @Component({
   selector: &#x27;user-input&#x27;,
   templateUrl: &#x27;./user-input.component.html&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserInputComponent extends UsersGridComponent implements OnInit {
-
   @Output()
   select &#x3D; new EventEmitter&lt;User&gt;();
   @Input()
@@ -739,7 +750,8 @@ export class UserInputComponent extends UsersGridComponent implements OnInit {
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions&lt;User&gt;
+    @Inject(USERS_CONFIG_TOKEN)
+    protected usersConfig: IRestProviderOptions&lt;User&gt;
   ) {
     super(
       modalService,
@@ -756,9 +768,7 @@ export class UserInputComponent extends UsersGridComponent implements OnInit {
       items: this.mockedItems,
       ...this.usersConfig
     });
-    this.mockedItemsChange.subscribe(items &#x3D;&gt;
-      this.onSelect(items[0])
-    );
+    this.mockedItemsChange.subscribe(items &#x3D;&gt; this.onSelect(items[0]));
   }
   onSelect(item: User) {
     this.select.emit(item);

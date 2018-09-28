@@ -242,19 +242,9 @@ import { UsersGridModalModule } from &#x27;../users-grid-modal/users-grid-modal.
 import { UserSelectComponent } from &#x27;./user-select.component&#x27;;
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntitySelectModule,
-    UsersGridModalModule
-  ],
-  declarations: [
-    UserSelectComponent
-  ],
-  exports: [
-    UserSelectComponent,
-    EntitySelectModule,
-    UsersGridModalModule
-  ]
+  imports: [CommonModule, EntitySelectModule, UsersGridModalModule],
+  declarations: [UserSelectComponent],
+  exports: [UserSelectComponent, EntitySelectModule, UsersGridModalModule]
 })
 export class UserSelectModule {
   static forRoot(): ModuleWithProviders {

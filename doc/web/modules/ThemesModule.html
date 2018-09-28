@@ -165,12 +165,14 @@ export class ThemesModule {
         {
           provide: THEMES_CONFIG_TOKEN,
           useValue: {
-            mockedItems: options &amp;&amp; options.mockedItems
-              ? options.mockedItems
-              : defaultThemesConfig.mockedItems,
-            storageKeyName: options &amp;&amp; options.storageKeyName
-              ? options.storageKeyName
-              : defaultThemesConfig.storageKeyName
+            mockedItems:
+              options &amp;&amp; options.mockedItems
+                ? options.mockedItems
+                : defaultThemesConfig.mockedItems,
+            storageKeyName:
+              options &amp;&amp; options.storageKeyName
+                ? options.storageKeyName
+                : defaultThemesConfig.storageKeyName
           }
         },
         {

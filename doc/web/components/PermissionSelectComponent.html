@@ -207,7 +207,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -326,7 +326,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:28</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -353,7 +353,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in PermissionsGridComponent:26</div>
+                                    <div class="io-line">Defined in PermissionsGridComponent:37</div>
                             </td>
                         </tr>
             </tbody>
@@ -372,8 +372,8 @@
                             </p>
                         <p>
                             <em>Default value : </em><code>{
-        component: PermissionModalComponent
-    }</code>
+    component: PermissionModalComponent
+  }</code>
                         </p>
                     </td>
                 </tr>
@@ -385,7 +385,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in PermissionsGridComponent:20</div>
+                                    <div class="io-line">Defined in PermissionsGridComponent:31</div>
                             </td>
                         </tr>
             </tbody>
@@ -411,7 +411,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in PermissionsGridComponent:24</div>
+                                    <div class="io-line">Defined in PermissionsGridComponent:35</div>
                             </td>
                         </tr>
             </tbody>
@@ -447,7 +447,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:65</a></div>
                             </td>
                         </tr>
 
@@ -528,7 +528,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -572,7 +572,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in PermissionsGridComponent:42</div>
+                                    <div class="io-line">Defined in PermissionsGridComponent:54</div>
                             </td>
                         </tr>
 
@@ -623,7 +623,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -662,7 +662,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">libs/rucken/web/src/lib/entities/permissions/permission-select/permission-select.component.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -703,7 +703,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in PermissionsGridComponent:29</div>
+                                    <div class="io-line">Defined in PermissionsGridComponent:40</div>
                             </td>
                         </tr>
 
@@ -716,23 +716,32 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnInit
+} from &#x27;@angular/core&#x27;;
 import { FormControl } from &#x27;@angular/forms&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { ErrorsExtractor, Permission, PERMISSIONS_CONFIG_TOKEN } from &#x27;@rucken/core&#x27;;
+import {
+  ErrorsExtractor,
+  Permission,
+  PERMISSIONS_CONFIG_TOKEN
+} from &#x27;@rucken/core&#x27;;
 import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
 import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x27;;
 import { MessageModalService } from &#x27;../../../modals/message-modal/message-modal.service&#x27;;
 import { PermissionsGridComponent } from &#x27;../permissions-grid/permissions-grid.component&#x27;;
-
 
 @Component({
   selector: &#x27;permission-select&#x27;,
   templateUrl: &#x27;./permission-select.component.html&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PermissionSelectComponent extends PermissionsGridComponent implements OnInit {
-
+export class PermissionSelectComponent extends PermissionsGridComponent
+  implements OnInit {
   @Input()
   searchField: FormControl &#x3D; new FormControl();
 
@@ -744,7 +753,8 @@ export class PermissionSelectComponent extends PermissionsGridComponent implemen
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(PERMISSIONS_CONFIG_TOKEN) protected permissionsConfig: IRestProviderOptions&lt;Permission&gt;
+    @Inject(PERMISSIONS_CONFIG_TOKEN)
+    protected permissionsConfig: IRestProviderOptions&lt;Permission&gt;
   ) {
     super(
       modalService,

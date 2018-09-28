@@ -202,17 +202,9 @@ import { DisableControlDirective } from &#x27;./disable-control.directive&#x27;;
 import { FocusedDirective } from &#x27;./focused.directive&#x27;;
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [
-    FocusedDirective,
-    DisableControlDirective
-  ],
-  exports: [
-    FocusedDirective,
-    DisableControlDirective
-  ]
+  imports: [CommonModule],
+  declarations: [FocusedDirective, DisableControlDirective],
+  exports: [FocusedDirective, DisableControlDirective]
 })
 export class DirectivesModule {
   static forRoot(): ModuleWithProviders {

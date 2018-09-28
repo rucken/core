@@ -242,19 +242,9 @@ import { UsersGridModalModule } from &#x27;../users-grid-modal/users-grid-modal.
 import { UserInputComponent } from &#x27;./user-input.component&#x27;;
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntityInputModule,
-    UsersGridModalModule
-  ],
-  declarations: [
-    UserInputComponent
-  ],
-  exports: [
-    UserInputComponent,
-    EntityInputModule,
-    UsersGridModalModule
-  ]
+  imports: [CommonModule, EntityInputModule, UsersGridModalModule],
+  declarations: [UserInputComponent],
+  exports: [UserInputComponent, EntityInputModule, UsersGridModalModule]
 })
 export class UserInputModule {
   static forRoot(): ModuleWithProviders {

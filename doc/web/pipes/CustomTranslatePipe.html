@@ -281,7 +281,7 @@ export class CustomTranslatePipe implements PipeTransform {
     }
     try {
       value &#x3D; this._translateService.parser.interpolate(value, newArgs);
-    } catch (error) { }
+    } catch (error) {}
     return value;
   }
 }

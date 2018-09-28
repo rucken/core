@@ -106,7 +106,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -195,7 +195,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -276,7 +276,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:18</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -343,8 +343,16 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from &#x27;@angular/router&#x27;;
-import { NgxPermissionsGuard, NgxPermissionsService, NgxRolesService } from &#x27;ngx-permissions&#x27;;
+import {
+  ActivatedRouteSnapshot,
+  Router,
+  RouterStateSnapshot
+} from &#x27;@angular/router&#x27;;
+import {
+  NgxPermissionsGuard,
+  NgxPermissionsService,
+  NgxRolesService
+} from &#x27;ngx-permissions&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 
 export const INITED_PERMISSIONS &#x3D; &#x27;__inited__&#x27;;
@@ -364,9 +372,14 @@ export class PermissionsGuard extends NgxPermissionsGuard {
     state: RouterStateSnapshot
   ): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
     return new Promise((resolve: any) &#x3D;&gt; {
-      this._permissionsService.hasPermission(INITED_PERMISSIONS).then(result &#x3D;&gt;
-        result ? resolve(true) : resolve(super.canActivateChild(route, state))
-      );
+      this._permissionsService
+        .hasPermission(INITED_PERMISSIONS)
+        .then(
+          result &#x3D;&gt;
+            result
+              ? resolve(true)
+              : resolve(super.canActivateChild(route, state))
+        );
     });
   }
   canActivate(
@@ -374,9 +387,12 @@ export class PermissionsGuard extends NgxPermissionsGuard {
     state: RouterStateSnapshot
   ): Promise&lt;boolean&gt; | boolean {
     return new Promise((resolve: any) &#x3D;&gt; {
-      this._permissionsService.hasPermission(INITED_PERMISSIONS).then(result &#x3D;&gt;
-        result ? resolve(true) : resolve(super.canActivate(route, state))
-      );
+      this._permissionsService
+        .hasPermission(INITED_PERMISSIONS)
+        .then(
+          result &#x3D;&gt;
+            result ? resolve(true) : resolve(super.canActivate(route, state))
+        );
     });
   }
 }

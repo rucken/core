@@ -204,7 +204,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -323,7 +323,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:24</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -342,8 +342,8 @@
                             </p>
                         <p>
                             <em>Default value : </em><code>{
-        component: GroupModalComponent
-    }</code>
+    component: GroupModalComponent
+  }</code>
                         </p>
                     </td>
                 </tr>
@@ -355,7 +355,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in GroupsGridComponent:19</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:30</div>
                             </td>
                         </tr>
             </tbody>
@@ -381,7 +381,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in GroupsGridComponent:23</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:34</div>
                             </td>
                         </tr>
             </tbody>
@@ -417,7 +417,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:55</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:61</a></div>
                             </td>
                         </tr>
 
@@ -498,7 +498,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -542,7 +542,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in GroupsGridComponent:34</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:46</div>
                             </td>
                         </tr>
 
@@ -593,7 +593,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -632,7 +632,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:21</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-select/group-select.component.ts:26</a></div>
                             </td>
                         </tr>
 
@@ -673,7 +673,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in GroupsGridComponent:25</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:36</div>
                             </td>
                         </tr>
 
@@ -686,7 +686,13 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnInit
+} from &#x27;@angular/core&#x27;;
 import { FormControl } from &#x27;@angular/forms&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN } from &#x27;@rucken/core&#x27;;
@@ -695,14 +701,13 @@ import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x2
 import { MessageModalService } from &#x27;../../../modals/message-modal/message-modal.service&#x27;;
 import { GroupsGridComponent } from &#x27;../groups-grid/groups-grid.component&#x27;;
 
-
 @Component({
   selector: &#x27;group-select&#x27;,
   templateUrl: &#x27;./group-select.component.html&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupSelectComponent extends GroupsGridComponent implements OnInit {
-
+export class GroupSelectComponent extends GroupsGridComponent
+  implements OnInit {
   @Input()
   searchField: FormControl &#x3D; new FormControl();
 
@@ -714,7 +719,8 @@ export class GroupSelectComponent extends GroupsGridComponent implements OnInit 
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions&lt;Group&gt;
+    @Inject(GROUPS_CONFIG_TOKEN)
+    protected groupsConfig: IRestProviderOptions&lt;Group&gt;
   ) {
     super(
       modalService,

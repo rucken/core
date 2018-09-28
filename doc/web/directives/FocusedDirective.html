@@ -137,7 +137,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -217,7 +217,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:9</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:17</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -253,7 +253,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -278,7 +278,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
-import { AfterContentInit, Directive, ElementRef, Inject, Input, PLATFORM_ID, Renderer } from &#x27;@angular/core&#x27;;
+import {
+  AfterContentInit,
+  Directive,
+  ElementRef,
+  Inject,
+  Input,
+  PLATFORM_ID,
+  Renderer
+} from &#x27;@angular/core&#x27;;
 
 @Directive({
   selector: &#x27;[focused]&#x27;
@@ -291,7 +299,7 @@ export class FocusedDirective implements AfterContentInit {
     @Inject(PLATFORM_ID) private _platformId: Object,
     private ele: ElementRef,
     private renderer: Renderer
-  ) { }
+  ) {}
 
   ngAfterContentInit() {
     if (isPlatformBrowser(this._platformId)) {

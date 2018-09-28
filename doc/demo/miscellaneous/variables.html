@@ -102,7 +102,7 @@
                             <a href="#EntitiesPageRoutes" title="apps/demo/src/app/pages/entities-page/entities-page.routes.ts"><b>EntitiesPageRoutes</b>&nbsp;&nbsp;&nbsp;(apps/.../entities-page.routes.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="apps/demo/src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment.prod.ts)</a>
+                            <a href="#environment" title="apps/demo/src/environments/environment-server.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment-server.prod.ts)</a>
                         </li>
                         <li>
                             <a href="#environment" title="apps/demo/src/environments/environment-server.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment-server.ts)</a>
@@ -111,7 +111,7 @@
                             <a href="#environment" title="apps/demo/src/environments/environment.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment.ts)</a>
                         </li>
                         <li>
-                            <a href="#environment" title="apps/demo/src/environments/environment-server.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment-server.prod.ts)</a>
+                            <a href="#environment" title="apps/demo/src/environments/environment.prod.ts"><b>environment</b>&nbsp;&nbsp;&nbsp;(apps/.../environment.prod.ts)</a>
                         </li>
                         <li>
                             <a href="#GroupsFrameRoutes" title="apps/demo/src/app/pages/entities-page/groups-frame/groups-frame.routes.ts"><b>GroupsFrameRoutes</b>&nbsp;&nbsp;&nbsp;(apps/.../groups-frame.routes.ts)</a>
@@ -873,7 +873,8 @@
   { path: &#x27;&#x27;, redirectTo: &#x27;/entities/content-types&#x27;, pathMatch: &#x27;full&#x27; },
   {
     path: &#x27;content-types&#x27;,
-    loadChildren: &#x27;./content-types-frame/content-types-frame.module#ContentTypesFrameModule&#x27;,
+    loadChildren:
+      &#x27;./content-types-frame/content-types-frame.module#ContentTypesFrameModule&#x27;,
     data: ContentTypesFrameRoutes[0].data
   },
   {
@@ -883,7 +884,8 @@
   },
   {
     path: &#x27;permissions&#x27;,
-    loadChildren: &#x27;./permissions-frame/permissions-frame.module#PermissionsFrameModule&#x27;,
+    loadChildren:
+      &#x27;./permissions-frame/permissions-frame.module#PermissionsFrameModule&#x27;,
     data: PermissionsFrameRoutes[0].data
   },
   {
@@ -950,7 +952,7 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/demo/src/environments/environment.prod.ts</h3>
+    <h3>apps/demo/src/environments/environment-server.prod.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -980,7 +982,7 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  server: false,
+  server: true,
   type: &#x27;prod&#x27;,
   production: true,
   apiUrl: &#x27;https://rucken-core-nestjs.now.sh/api&#x27;
@@ -1076,7 +1078,7 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/demo/src/environments/environment-server.prod.ts</h3>
+    <h3>apps/demo/src/environments/environment.prod.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
@@ -1106,7 +1108,7 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  server: true,
+  server: false,
   type: &#x27;prod&#x27;,
   production: true,
   apiUrl: &#x27;https://rucken-core-nestjs.now.sh/api&#x27;

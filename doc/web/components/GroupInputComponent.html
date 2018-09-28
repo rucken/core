@@ -215,7 +215,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -340,7 +340,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:33</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -359,8 +359,8 @@
                             </p>
                         <p>
                             <em>Default value : </em><code>{
-        component: GroupModalComponent
-    }</code>
+    component: GroupModalComponent
+  }</code>
                         </p>
                     </td>
                 </tr>
@@ -372,7 +372,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in GroupsGridComponent:19</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:30</div>
                             </td>
                         </tr>
             </tbody>
@@ -398,7 +398,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in GroupsGridComponent:23</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:34</div>
                             </td>
                         </tr>
             </tbody>
@@ -420,7 +420,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:31</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -455,7 +455,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:47</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -493,7 +493,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:67</a></div>
                             </td>
                         </tr>
 
@@ -568,7 +568,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in GroupsGridComponent:34</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:46</div>
                             </td>
                         </tr>
 
@@ -619,7 +619,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">libs/rucken/web/src/lib/entities/groups/group-input/group-input.component.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -660,7 +660,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in GroupsGridComponent:25</div>
+                                    <div class="io-line">Defined in GroupsGridComponent:36</div>
                             </td>
                         </tr>
 
@@ -673,9 +673,22 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output
+} from &#x27;@angular/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate } from &#x27;@rucken/core&#x27;;
+import {
+  ErrorsExtractor,
+  Group,
+  GROUPS_CONFIG_TOKEN,
+  translate
+} from &#x27;@rucken/core&#x27;;
 import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
 import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x27;;
 import { IBaseEntityModalOptions } from &#x27;../../../base/base-entity-modals.interface&#x27;;
@@ -683,14 +696,12 @@ import { MessageModalService } from &#x27;../../../modals/message-modal/message-
 import { GroupsGridModalComponent } from &#x27;../groups-grid-modal/groups-grid-modal.component&#x27;;
 import { GroupsGridComponent } from &#x27;../groups-grid/groups-grid.component&#x27;;
 
-
 @Component({
   selector: &#x27;group-input&#x27;,
   templateUrl: &#x27;./group-input.component.html&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GroupInputComponent extends GroupsGridComponent implements OnInit {
-
   @Output()
   select &#x3D; new EventEmitter&lt;Group&gt;();
   @Input()
@@ -708,7 +719,8 @@ export class GroupInputComponent extends GroupsGridComponent implements OnInit {
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions&lt;Group&gt;
+    @Inject(GROUPS_CONFIG_TOKEN)
+    protected groupsConfig: IRestProviderOptions&lt;Group&gt;
   ) {
     super(
       modalService,
@@ -725,9 +737,7 @@ export class GroupInputComponent extends GroupsGridComponent implements OnInit {
       items: this.mockedItems,
       ...this.groupsConfig
     });
-    this.mockedItemsChange.subscribe(items &#x3D;&gt;
-      this.onSelect(items[0])
-    );
+    this.mockedItemsChange.subscribe(items &#x3D;&gt; this.onSelect(items[0]));
   }
   onSelect(item: Group) {
     this.select.emit(item);
