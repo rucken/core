@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnInit
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, User, USERS_CONFIG_TOKEN } from '@rucken/core';
@@ -7,14 +13,12 @@ import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UsersGridComponent } from '../users-grid/users-grid.component';
 
-
 @Component({
   selector: 'user-select',
   templateUrl: './user-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserSelectComponent extends UsersGridComponent implements OnInit {
-
   @Input()
   searchField: FormControl = new FormControl();
 
@@ -26,7 +30,8 @@ export class UserSelectComponent extends UsersGridComponent implements OnInit {
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions<User>
+    @Inject(USERS_CONFIG_TOKEN)
+    protected usersConfig: IRestProviderOptions<User>
   ) {
     super(
       modalService,

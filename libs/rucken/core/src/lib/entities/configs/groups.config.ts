@@ -1,5 +1,9 @@
 import { plainToClass } from 'class-transformer';
-import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
+import {
+  IRestProviderOptions,
+  PaginationMeta,
+  ProviderActionEnum
+} from 'ngx-repository';
 import { Group } from '../models/group';
 
 export const defaultGroupsConfig: IRestProviderOptions<Group> = {
@@ -35,4 +39,3 @@ export const defaultGroupsConfig: IRestProviderOptions<Group> = {
   }
 };
 export const GROUPS_CONFIG_TOKEN = 'GroupsConfig';
-

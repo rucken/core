@@ -1,8 +1,24 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnInit
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Group, Permission, PERMISSIONS_CONFIG_TOKEN, translate } from '@rucken/core';
+import {
+  ErrorsExtractor,
+  Group,
+  Permission,
+  PERMISSIONS_CONFIG_TOKEN,
+  translate
+} from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
+import {
+  DynamicRepository,
+  IRestProviderOptions,
+  ProviderActionEnum
+} from 'ngx-repository';
 import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionsGridModalComponent } from '../../permissions/permissions-grid-modal/permissions-grid-modal.component';
@@ -37,7 +53,8 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(PERMISSIONS_CONFIG_TOKEN) protected permissionsConfig: IRestProviderOptions<Permission>
+    @Inject(PERMISSIONS_CONFIG_TOKEN)
+    protected permissionsConfig: IRestProviderOptions<Permission>
   ) {
     super(
       modalService,

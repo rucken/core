@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnInit
+} from '@angular/core';
 import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BehaviorSubject } from 'rxjs';

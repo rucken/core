@@ -15,9 +15,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     GroupsGridModule,
     FormsModule
   ],
-  declarations: [
-    GroupsFrameComponent
-  ]
+  declarations: [GroupsFrameComponent]
 })
 export class GroupsFrameModule {
   static forRoot(): ModuleWithProviders {

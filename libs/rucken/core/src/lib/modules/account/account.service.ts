@@ -12,7 +12,7 @@ export class AccountService {
   constructor(
     @Inject(ACCOUNT_CONFIG_TOKEN) private accountConfig: IAccountConfig,
     private _httpClient: HttpClient
-  ) { }
+  ) {}
   update(user: User): Observable<User> {
     return this._httpClient
       .post(

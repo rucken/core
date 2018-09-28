@@ -1,4 +1,10 @@
-import { EventEmitter, Input, isDevMode, OnChanges, Output } from '@angular/core';
+import {
+  EventEmitter,
+  Input,
+  isDevMode,
+  OnChanges,
+  Output
+} from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { ValidatorOptions } from 'class-validator';
@@ -61,8 +67,8 @@ export class BasePromptPanelComponent<TModel extends IModel>
   yesData: any;
   noData: any;
 
-  propagateChange: any = () => { };
-  validateFn: any = () => { };
+  propagateChange: any = () => {};
+  validateFn: any = () => {};
 
   constructor(
     public factoryModel?: IFactoryModel<TModel>,
@@ -154,5 +160,5 @@ export class BasePromptPanelComponent<TModel extends IModel>
   registerOnChange(fn) {
     this.propagateChange = fn;
   }
-  registerOnTouched() { }
+  registerOnTouched() {}
 }

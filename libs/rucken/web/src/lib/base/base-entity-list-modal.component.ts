@@ -1,13 +1,23 @@
-import { EventEmitter, Input, isDevMode, Output, ViewChild } from '@angular/core';
+import {
+  EventEmitter,
+  Input,
+  isDevMode,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
 import { IBaseEntityListModal } from './base-entity-list-modal.interface';
 import { IBaseEntityList } from './base-entity-list.interface';
-import { IBaseEntityModalOptions, IBaseEntityModals } from './base-entity-modals.interface';
+import {
+  IBaseEntityModalOptions,
+  IBaseEntityModals
+} from './base-entity-modals.interface';
 
-export class BaseEntityListModalComponent<TModel extends IModel> implements IBaseEntityListModal<TModel>, IBaseEntityModals {
+export class BaseEntityListModalComponent<TModel extends IModel>
+  implements IBaseEntityListModal<TModel>, IBaseEntityModals {
   @Input()
   modalItem: IBaseEntityModalOptions = {};
   @Input()
@@ -77,7 +87,7 @@ export class BaseEntityListModalComponent<TModel extends IModel> implements IBas
 
   private _mockedItems: TModel[];
 
-  constructor(protected bsModalRef: BsModalRef) { }
+  constructor(protected bsModalRef: BsModalRef) {}
   onNoClick(data?: any): void {
     this.noData = data;
     this.no.emit(this);

@@ -1,6 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
-import { NgxPermissionsGuard, NgxPermissionsService, NgxRolesService } from 'ngx-permissions';
+import {
+  ActivatedRouteSnapshot,
+  Router,
+  RouterStateSnapshot
+} from '@angular/router';
+import {
+  NgxPermissionsGuard,
+  NgxPermissionsService,
+  NgxRolesService
+} from 'ngx-permissions';
 import { Observable } from 'rxjs';
 
 export const INITED_PERMISSIONS = '__inited__';
@@ -20,9 +28,14 @@ export class PermissionsGuard extends NgxPermissionsGuard {
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
     return new Promise((resolve: any) => {
-      this._permissionsService.hasPermission(INITED_PERMISSIONS).then(result =>
-        result ? resolve(true) : resolve(super.canActivateChild(route, state))
-      );
+      this._permissionsService
+        .hasPermission(INITED_PERMISSIONS)
+        .then(
+          result =>
+            result
+              ? resolve(true)
+              : resolve(super.canActivateChild(route, state))
+        );
     });
   }
   canActivate(
@@ -30,9 +43,12 @@ export class PermissionsGuard extends NgxPermissionsGuard {
     state: RouterStateSnapshot
   ): Promise<boolean> | boolean {
     return new Promise((resolve: any) => {
-      this._permissionsService.hasPermission(INITED_PERMISSIONS).then(result =>
-        result ? resolve(true) : resolve(super.canActivate(route, state))
-      );
+      this._permissionsService
+        .hasPermission(INITED_PERMISSIONS)
+        .then(
+          result =>
+            result ? resolve(true) : resolve(super.canActivate(route, state))
+        );
     });
   }
 }

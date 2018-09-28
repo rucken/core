@@ -1,6 +1,18 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input,
+  OnDestroy
+} from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AccountService, AuthService, ErrorsExtractor, Group, User } from '@rucken/core';
+import {
+  AccountService,
+  AuthService,
+  ErrorsExtractor,
+  Group,
+  User
+} from '@rucken/core';
 import { NgxPermissionsService } from 'ngx-permissions';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';

@@ -5,19 +5,9 @@ import { GroupsGridModalModule } from '../groups-grid-modal/groups-grid-modal.mo
 import { GroupInputComponent } from './group-input.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntityInputModule,
-    GroupsGridModalModule
-  ],
-  declarations: [
-    GroupInputComponent
-  ],
-  exports: [
-    GroupInputComponent,
-    EntityInputModule,
-    GroupsGridModalModule
-  ]
+  imports: [CommonModule, EntityInputModule, GroupsGridModalModule],
+  declarations: [GroupInputComponent],
+  exports: [GroupInputComponent, EntityInputModule, GroupsGridModalModule]
 })
 export class GroupInputModule {
   static forRoot(): ModuleWithProviders {

@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, Output, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  EventEmitter,
+  Input,
+  isDevMode,
+  Output,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { IModel, PaginationMeta } from 'ngx-repository';

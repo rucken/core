@@ -18,7 +18,7 @@ export class MessageModalService {
     private _translateService: TranslateService,
     private _modalService: BsModalService,
     private _errorsExtractor: ErrorsExtractor
-  ) { }
+  ) {}
   info(options: {
     message: string | any;
     title?: string;
