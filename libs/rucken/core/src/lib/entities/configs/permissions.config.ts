@@ -1,5 +1,9 @@
 import { plainToClass } from 'class-transformer';
-import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
+import {
+  IRestProviderOptions,
+  PaginationMeta,
+  ProviderActionEnum
+} from 'ngx-repository';
 import { Permission } from '../models/permission';
 
 export const defaultPermissionsConfig: IRestProviderOptions<Permission> = {

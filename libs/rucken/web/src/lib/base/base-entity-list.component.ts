@@ -1,7 +1,14 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { IFactoryModel, IMockProviderOptions, IModel, IPaginationMeta, IRestProviderOptions, Repository } from 'ngx-repository';
+import {
+  IFactoryModel,
+  IMockProviderOptions,
+  IModel,
+  IPaginationMeta,
+  IRestProviderOptions,
+  Repository
+} from 'ngx-repository';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { IBaseEntityListModal } from '../base/base-entity-list-modal.interface';
@@ -9,7 +16,10 @@ import { IEntityGridFilter } from '../components/entity-grid/entity-grid-filter.
 import { EntityModalComponent } from '../components/entity-modal/entity-modal.component';
 import { MessageModalService } from '../modals/message-modal/message-modal.service';
 import { IBaseEntityList } from './base-entity-list.interface';
-import { IBaseEntityModalOptions, IBaseEntityModals } from './base-entity-modals.interface';
+import {
+  IBaseEntityModalOptions,
+  IBaseEntityModals
+} from './base-entity-modals.interface';
 
 export class BaseEntityListComponent<TModel extends IModel>
   implements IBaseEntityList<TModel>, IBaseEntityModals {
@@ -132,7 +142,7 @@ export class BaseEntityListComponent<TModel extends IModel>
   onReload() {
     this.onChangeFilter();
   }
-  onSearch(searchText: string ) {
+  onSearch(searchText: string) {
     if (typeof searchText === 'string') {
       this.onChangeFilter({ searchText });
     }
@@ -167,13 +177,10 @@ export class BaseEntityListComponent<TModel extends IModel>
         : translate('Item #{{id}}');
     const bsModalRef = this.modalService.show(
       this.modalView.component ||
-      this.modalItem.component ||
-      EntityModalComponent,
+        this.modalItem.component ||
+        EntityModalComponent,
       {
-        class:
-          this.modalView.class ||
-          this.modalItem.class ||
-          'modal-md',
+        class: this.modalView.class || this.modalItem.class || 'modal-md',
         initialState: {
           title: title,
           noTitle: translate('Close'),
@@ -182,8 +189,9 @@ export class BaseEntityListComponent<TModel extends IModel>
           apiUrl: this.apiUrl,
           ...(this.modalView.initialState || this.modalItem.initialState)
         }
-      });
-    const modal = (bsModalRef.content as EntityModalComponent);
+      }
+    );
+    const modal = bsModalRef.content as EntityModalComponent;
     modal.group(this.factoryModel);
     modal.data = item;
     return bsModalRef;
@@ -192,8 +200,11 @@ export class BaseEntityListComponent<TModel extends IModel>
     return undefined;
   }
   onViewClick(item: TModel): BsModalRef {
-    const useCustomModalComponent = this.modalView.component || this.modalItem.component;
-    let bsModalRef = !useCustomModalComponent ? this.createViewModal(item) : undefined;
+    const useCustomModalComponent =
+      this.modalView.component || this.modalItem.component;
+    let bsModalRef = !useCustomModalComponent
+      ? this.createViewModal(item)
+      : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateViewModal(item);
       if (isDevMode() && !useCustomModalComponent) {
@@ -209,7 +220,9 @@ export class BaseEntityListComponent<TModel extends IModel>
         : translate('Create new item');
     item = item || new this.factoryModel();
     const bsModalRef = this.modalService.show(
-      this.modalCreate.component || this.modalItem.component || EntityModalComponent,
+      this.modalCreate.component ||
+        this.modalItem.component ||
+        EntityModalComponent,
       {
         class: this.modalCreate.class || this.modalItem.class || 'modal-md',
         initialState: {
@@ -219,8 +232,9 @@ export class BaseEntityListComponent<TModel extends IModel>
           apiUrl: this.apiUrl,
           ...(this.modalCreate.initialState || this.modalItem.initialState)
         }
-      });
-    const modal = (bsModalRef.content as EntityModalComponent);
+      }
+    );
+    const modal = bsModalRef.content as EntityModalComponent;
     modal.group(this.factoryModel);
     modal.data = item;
     return bsModalRef;
@@ -243,9 +257,12 @@ export class BaseEntityListComponent<TModel extends IModel>
     }
   }
   onCreateClick(data?: any): void {
-    const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
+    const useCustomModalComponent =
+      this.modalCreate.component || this.modalItem.component;
     this.createData = data;
-    let bsModalRef = !useCustomModalComponent ? this.createCreateModal(data) : undefined;
+    let bsModalRef = !useCustomModalComponent
+      ? this.createCreateModal(data)
+      : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateCreateModal(data);
       if (isDevMode() && !useCustomModalComponent) {
@@ -273,7 +290,9 @@ export class BaseEntityListComponent<TModel extends IModel>
         ? this.strings.updateTitle
         : translate('Update item #{{id}}');
     const bsModalRef = this.modalService.show(
-      this.modalUpdate.component || this.modalItem.component || EntityModalComponent,
+      this.modalUpdate.component ||
+        this.modalItem.component ||
+        EntityModalComponent,
       {
         class: this.modalUpdate.class || this.modalItem.class || 'modal-md',
         initialState: {
@@ -283,8 +302,9 @@ export class BaseEntityListComponent<TModel extends IModel>
           apiUrl: this.apiUrl,
           ...(this.modalUpdate.initialState || this.modalItem.initialState)
         }
-      });
-    const modal = (bsModalRef.content as EntityModalComponent);
+      }
+    );
+    const modal = bsModalRef.content as EntityModalComponent;
     modal.group(this.factoryModel);
     modal.data = item;
     return bsModalRef;
@@ -307,8 +327,11 @@ export class BaseEntityListComponent<TModel extends IModel>
     }
   }
   onUpdateClick(item: TModel): void {
-    const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
-    let bsModalRef = !useCustomModalComponent ? this.createUpdateModal(item) : undefined;
+    const useCustomModalComponent =
+      this.modalCreate.component || this.modalItem.component;
+    let bsModalRef = !useCustomModalComponent
+      ? this.createUpdateModal(item)
+      : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateUpdateModal(item);
       if (isDevMode() && !useCustomModalComponent) {
@@ -340,7 +363,9 @@ export class BaseEntityListComponent<TModel extends IModel>
         ? this.strings.deleteMessage
         : translate('Do you really want to delete item?');
     const bsModalRef = this.modalService.show(
-      this.modalDelete.component || this.modalItem.component || EntityModalComponent,
+      this.modalDelete.component ||
+        this.modalItem.component ||
+        EntityModalComponent,
       {
         class: this.modalDelete.class || this.modalItem.class || 'modal-md',
         initialState: {
@@ -351,8 +376,9 @@ export class BaseEntityListComponent<TModel extends IModel>
           apiUrl: this.apiUrl,
           ...(this.modalDelete.initialState || this.modalItem.initialState)
         }
-      });
-    const modal = (bsModalRef.content as EntityModalComponent);
+      }
+    );
+    const modal = bsModalRef.content as EntityModalComponent;
     modal.group(this.factoryModel);
     modal.data = item;
     return bsModalRef;
@@ -375,8 +401,11 @@ export class BaseEntityListComponent<TModel extends IModel>
     }
   }
   onDeleteClick(item: TModel): void {
-    const useCustomModalComponent = this.modalCreate.component || this.modalItem.component;
-    let bsModalRef = !useCustomModalComponent ? this.createDeleteModal(item) : undefined;
+    const useCustomModalComponent =
+      this.modalCreate.component || this.modalItem.component;
+    let bsModalRef = !useCustomModalComponent
+      ? this.createDeleteModal(item)
+      : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultCreateDeleteModal(item);
       if (isDevMode() && !useCustomModalComponent) {
@@ -406,14 +435,16 @@ export class BaseEntityListComponent<TModel extends IModel>
     const bsModalRef = this.modalService.show(
       this.modalAppendFromGrid.component,
       {
-        class: this.modalAppendFromGrid.class || this.modalItem.class || 'modal-md',
+        class:
+          this.modalAppendFromGrid.class || this.modalItem.class || 'modal-md',
         initialState: {
           title: title,
           yesTitle: translate('Append'),
           apiUrl: this.apiUrl,
           ...this.modalAppendFromGrid.initialState
         }
-      });
+      }
+    );
     return bsModalRef;
   }
   createAppendFromGridModal(data?: any): BsModalRef {
@@ -431,7 +462,9 @@ export class BaseEntityListComponent<TModel extends IModel>
   onAppendFromGridClick(data?: any): void {
     this.appendFromGridData = data;
     const useCustomModalComponent = this.modalAppendFromGrid.component;
-    let bsModalRef = !useCustomModalComponent ? this.createAppendFromGridModal(data) : undefined;
+    let bsModalRef = !useCustomModalComponent
+      ? this.createAppendFromGridModal(data)
+      : undefined;
     if (!bsModalRef) {
       bsModalRef = this.defaultAppendFromGridModal(data);
       if (isDevMode() && !useCustomModalComponent) {
@@ -442,7 +475,7 @@ export class BaseEntityListComponent<TModel extends IModel>
     bsModalRef.content.yes.subscribe((modal: IBaseEntityListModal<TModel>) => {
       modal.processing = true;
       const observables = [];
-      const selected = (modal.grid.getSelected() as TModel[]);
+      const selected = modal.grid.getSelected() as TModel[];
       if (selected) {
         selected.forEach(slectedItem => {
           const foundedGroup =

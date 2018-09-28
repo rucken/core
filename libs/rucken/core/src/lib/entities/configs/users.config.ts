@@ -1,5 +1,9 @@
 import { plainToClass } from 'class-transformer';
-import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
+import {
+  IRestProviderOptions,
+  PaginationMeta,
+  ProviderActionEnum
+} from 'ngx-repository';
 import { User } from '../models/user';
 
 export const defaultUsersConfig: IRestProviderOptions<User> = {

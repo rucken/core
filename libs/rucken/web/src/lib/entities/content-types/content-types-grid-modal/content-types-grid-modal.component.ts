@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  ViewChild
+} from '@angular/core';
 import { ContentType } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BaseEntityListModalComponent } from '../../../base/base-entity-list-modal.component';
@@ -10,7 +15,7 @@ import { ContentTypesGridComponent } from '../content-types-grid/content-types-g
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentTypesGridModalComponent extends BaseEntityListModalComponent<
-ContentType
+  ContentType
 > {
   @ViewChild('grid')
   grid: ContentTypesGridComponent;

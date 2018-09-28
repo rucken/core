@@ -6,7 +6,10 @@ import { NgxPermissionsService } from 'ngx-permissions';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../../../entities/models/user';
-import { EMPTY_PERMISSIONS, INITED_PERMISSIONS } from '../../../utils/permissions-guard.service';
+import {
+  EMPTY_PERMISSIONS,
+  INITED_PERMISSIONS
+} from '../../../utils/permissions-guard.service';
 import { AUTH_CONFIG_TOKEN } from '../configs/auth.config';
 import { OAUTH_CONFIG_TOKEN } from '../configs/oauth.config';
 import { RedirectUriDto } from '../dto/redirect-uri.dto';

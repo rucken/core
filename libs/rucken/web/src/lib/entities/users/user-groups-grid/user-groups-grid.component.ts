@@ -1,8 +1,24 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnInit
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate, User } from '@rucken/core';
+import {
+  ErrorsExtractor,
+  Group,
+  GROUPS_CONFIG_TOKEN,
+  translate,
+  User
+} from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
+import {
+  DynamicRepository,
+  IRestProviderOptions,
+  ProviderActionEnum
+} from 'ngx-repository';
 import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { GroupsGridModalComponent } from '../../groups/groups-grid-modal/groups-grid-modal.component';
@@ -37,7 +53,8 @@ export class UserGroupsGridComponent extends GroupsGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions<Group>
+    @Inject(GROUPS_CONFIG_TOKEN)
+    protected groupsConfig: IRestProviderOptions<Group>
   ) {
     super(
       modalService,

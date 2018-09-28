@@ -1,7 +1,11 @@
 import { Transform, Type } from 'class-transformer';
 import { IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 import { IModel } from 'ngx-repository';
-import { serializeModel, transformDateToString, transformStringToDate } from '../../utils/custom-transforms';
+import {
+  serializeModel,
+  transformDateToString,
+  transformStringToDate
+} from '../../utils/custom-transforms';
 import { translate } from '../../utils/translate';
 import { Group } from './group';
 
@@ -62,7 +66,9 @@ export class User implements IModel {
     const permissions = [];
     if (this.groups) {
       this.groups.forEach(group =>
-        group.permissions.forEach(permission => permissions.push(permission.name))
+        group.permissions.forEach(permission =>
+          permissions.push(permission.name)
+        )
       );
     }
     return permissions;

@@ -1,6 +1,19 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  OnInit,
+  Output,
+  Input
+} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ContentType, CONTENT_TYPES_CONFIG_TOKEN, ErrorsExtractor, translate } from '@rucken/core';
+import {
+  ContentType,
+  CONTENT_TYPES_CONFIG_TOKEN,
+  ErrorsExtractor,
+  translate
+} from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
@@ -32,7 +45,8 @@ export class ContentTypeInputComponent extends ContentTypesGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(CONTENT_TYPES_CONFIG_TOKEN) protected contentTypesConfig: IRestProviderOptions<ContentType>
+    @Inject(CONTENT_TYPES_CONFIG_TOKEN)
+    protected contentTypesConfig: IRestProviderOptions<ContentType>
   ) {
     super(
       modalService,
@@ -49,9 +63,7 @@ export class ContentTypeInputComponent extends ContentTypesGridComponent
       items: this.mockedItems,
       ...this.contentTypesConfig
     });
-    this.mockedItemsChange.subscribe(items =>
-      this.onSelect(items[0])
-    );
+    this.mockedItemsChange.subscribe(items => this.onSelect(items[0]));
   }
   onSelect(item: ContentType) {
     this.select.emit(item);

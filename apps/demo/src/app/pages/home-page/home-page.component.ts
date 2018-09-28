@@ -13,5 +13,5 @@ export class HomePageComponent {
     '<h1 id="rucken">rucken</h1>',
     ''
   );
-  constructor(public activatedRoute: ActivatedRoute) { }
+  constructor(public activatedRoute: ActivatedRoute) {}
 }

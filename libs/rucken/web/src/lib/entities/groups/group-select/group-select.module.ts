@@ -5,19 +5,9 @@ import { GroupsGridModalModule } from '../groups-grid-modal/groups-grid-modal.mo
 import { GroupSelectComponent } from './group-select.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    EntitySelectModule,
-    GroupsGridModalModule
-  ],
-  declarations: [
-    GroupSelectComponent
-  ],
-  exports: [
-    GroupSelectComponent,
-    EntitySelectModule,
-    GroupsGridModalModule
-  ]
+  imports: [CommonModule, EntitySelectModule, GroupsGridModalModule],
+  declarations: [GroupSelectComponent],
+  exports: [GroupSelectComponent, EntitySelectModule, GroupsGridModalModule]
 })
 export class GroupSelectModule {
   static forRoot(): ModuleWithProviders {

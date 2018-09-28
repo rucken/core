@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  Input,
+  OnInit
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN } from '@rucken/core';
@@ -7,14 +13,13 @@ import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { GroupsGridComponent } from '../groups-grid/groups-grid.component';
 
-
 @Component({
   selector: 'group-select',
   templateUrl: './group-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupSelectComponent extends GroupsGridComponent implements OnInit {
-
+export class GroupSelectComponent extends GroupsGridComponent
+  implements OnInit {
   @Input()
   searchField: FormControl = new FormControl();
 
@@ -26,7 +31,8 @@ export class GroupSelectComponent extends GroupsGridComponent implements OnInit 
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions<Group>
+    @Inject(GROUPS_CONFIG_TOKEN)
+    protected groupsConfig: IRestProviderOptions<Group>
   ) {
     super(
       modalService,
