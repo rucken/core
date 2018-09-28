@@ -1,3 +1,13 @@
+<a name="3.3.3"></a>
+## [3.3.3](https://github.com/rucken/core/compare/3.3.2...3.3.3) (2018-09-28)
+
+
+### Bug Fixes
+
+* **deps:** Update dependencies ([a1a9b1d](https://github.com/rucken/core/commit/a1a9b1d))
+
+
+
 <a name="3.3.2"></a>
 ## [3.3.2](https://github.com/rucken/core/compare/3.3.1...3.3.2) (2018-09-26)
 
