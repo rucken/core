@@ -16,7 +16,8 @@ import {
   RedirectUriDto,
   TokenService,
   translate,
-  UserTokenDto
+  UserTokenDto,
+  User
 } from '@rucken/core';
 import {
   AuthModalComponent,
@@ -25,7 +26,7 @@ import {
 } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { Subject } from 'rxjs';
+import { Subject, Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import {
   AuthModalSignInInfoMessage,
@@ -41,11 +42,12 @@ import { AppRoutes } from './app.routes';
 export class AppComponent implements OnDestroy {
   public title: string;
   public routes = AppRoutes;
+  public currentUser$: Observable<User>;
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
-    public authService: AuthService,
     public langService: LangService,
+    private _authService: AuthService,
     private _errorsExtractor: ErrorsExtractor,
     private _tokenService: TokenService,
     private _translateService: TranslateService,
@@ -57,6 +59,7 @@ export class AppComponent implements OnDestroy {
     @Inject(DOCUMENT) private document: any,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
+    this.currentUser$ = _authService.current$;
     if (isPlatformBrowser(this._platformId)) {
       this.langService.current$
         .pipe(takeUntil(this._destroyed$))
@@ -106,19 +109,19 @@ export class AppComponent implements OnDestroy {
             onTop: true
           })
           .subscribe(result =>
-            this.authService
+            this._authService
               .signOut()
               .subscribe(data => this.onSignOutSuccess(undefined))
           );
       } else {
-        if (!this.authService.current) {
-          this.authService.info(token).subscribe(
+        if (!this._authService.current) {
+          this._authService.info(token).subscribe(
             data => this.onSignInOrInfoSuccess(undefined, data),
             error => {
               if (this._errorsExtractor.getErrorMessage(error)) {
                 this.onError(error);
               }
-              this.authService
+              this._authService
                 .signOut()
                 .subscribe(data => this.onSignOutSuccess(undefined));
             }
@@ -137,7 +140,7 @@ export class AppComponent implements OnDestroy {
     });
     bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
-      this.authService
+      this._authService
         .signOut()
         .subscribe(data => this.onSignOutSuccess(modal));
     });
@@ -155,7 +158,7 @@ export class AppComponent implements OnDestroy {
     bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
       if (modal.yesData) {
-        this.authService
+        this._authService
           .oauthRedirectUri(modal.yesData)
           .subscribe(
             data => this.onOauthSignInSuccess(modal, data),
@@ -163,7 +166,7 @@ export class AppComponent implements OnDestroy {
           );
       } else {
         if (modal.type === AuthModalTypeEnum.SignIn) {
-          this.authService
+          this._authService
             .signIn(modal.data.email, modal.data.password)
             .subscribe(
               data => this.onSignInOrInfoSuccess(modal, data),
@@ -171,7 +174,7 @@ export class AppComponent implements OnDestroy {
             );
         }
         if (modal.type === AuthModalTypeEnum.SignUp) {
-          this.authService
+          this._authService
             .signUp(modal.data.email, modal.data.password)
             .subscribe(
               data => this.onSignInOrInfoSuccess(modal, data),
@@ -195,7 +198,7 @@ export class AppComponent implements OnDestroy {
       modal.processing = false;
     }
     this._tokenService.current = data.token;
-    this.authService.current = data.user;
+    this._authService.current = data.user;
     if (modal) {
       modal.hide();
     }
@@ -206,7 +209,7 @@ export class AppComponent implements OnDestroy {
       modal.processing = false;
     }
     this._tokenService.current = undefined;
-    this.authService.current = undefined;
+    this._authService.current = undefined;
     this._router.navigate(['home']);
     if (modal) {
       modal.hide();
