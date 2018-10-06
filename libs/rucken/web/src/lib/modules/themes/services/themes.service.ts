@@ -1,13 +1,12 @@
-import { isPlatformBrowser, DOCUMENT } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { IStorage, STORAGE_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, Repository } from 'ngx-repository';
-import { Theme } from '../models/theme';
 import { BehaviorSubject } from 'rxjs';
-
-import { STORAGE_CONFIG_TOKEN } from '@rucken/core';
 import { THEMES_CONFIG_TOKEN } from '../configs/themes.config';
 import { IThemesConfig } from '../interfaces/themes-config.interface';
-import { IStorage } from '@rucken/core';
+import { Theme } from '../models/theme';
+
 
 export function themesServiceInitializeApp(themesService: ThemesService) {
   return () => themesService.initializeApp();
@@ -16,10 +15,6 @@ export function themesServiceInitializeApp(themesService: ThemesService) {
 @Injectable()
 export class ThemesService {
   get current() {
-    const theme = this._cookies.getItem(this._themesConfig.storageKeyName);
-    if (theme && theme !== 'undefined') {
-      return this._cookies.getItem(this._themesConfig.storageKeyName) as string;
-    }
     if (!this.current$.getValue()) {
       return this.getStyleLinkHref();
     }
@@ -59,14 +54,25 @@ export class ThemesService {
       }
     });
   }
+  async initCurrent() {
+    const data = await this._cookies.getItem(
+      this._themesConfig.storageKeyName
+    ) as string;
+    if (data && data !== 'undefined') {
+      return data;
+    }
+    return this.current;
+  }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      this.current = this.current;
-      if (isPlatformBrowser(this._platformId)) {
-        setTimeout(_ => resolve(), 100);
-      } else {
-        resolve();
-      }
+      this.initCurrent().then(value => {
+        this.current = value;
+        if (isPlatformBrowser(this._platformId)) {
+          setTimeout(_ => resolve(), 100);
+        } else {
+          resolve();
+        }
+      });
     });
   }
   setStyleLinkHref(url: string) {

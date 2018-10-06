@@ -3,9 +3,9 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { decode } from 'jsonwebtoken';
 import { BehaviorSubject } from 'rxjs';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
-import { JWT_CONFIG_TOKEN, defaultJwtConfig } from '../configs/jwt.config';
-import { IJwtConfig } from '../interfaces/jwt-config.interface';
 import { IStorage } from '../../storage/interfaces/storage.interface';
+import { JWT_CONFIG_TOKEN } from '../configs/jwt.config';
+import { IJwtConfig } from '../interfaces/jwt-config.interface';
 
 export function tokenServiceInitializeApp(tokenService: TokenService) {
   return () => tokenService.initializeApp();
@@ -14,12 +14,6 @@ export function tokenServiceInitializeApp(tokenService: TokenService) {
 @Injectable()
 export class TokenService {
   get current() {
-    const token = this._cookies.getItem(
-      this._jwtConfig.storageKeyName
-    ) as string;
-    if (token && token !== 'undefined') {
-      return token;
-    }
     return this.current$.getValue();
   }
   set current(value: string) {
@@ -40,11 +34,22 @@ export class TokenService {
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
-  ) {}
+  ) { }
+  async initCurrent() {
+    const data = await this._cookies.getItem(
+      this._jwtConfig.storageKeyName
+    ) as string;
+    if (data && data !== 'undefined') {
+      return data;
+    }
+    return this.current;
+  }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      this.current = this.current;
-      resolve();
+      this.initCurrent().then(value => {
+        this.current = value;
+        resolve();
+      });
     });
   }
   stopCheckTokenHasExpired() {

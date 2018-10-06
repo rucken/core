@@ -1,10 +1,10 @@
 export interface IStorage {
   readonly length: number;
-  clear(): void;
-  getItem(key: string): string | null;
-  key(index: number): string | null;
-  removeItem(key: string): void;
-  setItem(key: string, data: string): void;
+  clear(): Promise<any>;
+  getItem(key: string): Promise<string | null>;
+  key(index: number): Promise<string | null>;
+  removeItem(key: string): Promise<any>;
+  setItem(key: string, data: string): Promise<any>;
   [key: string]: any;
   [index: number]: string;
 }

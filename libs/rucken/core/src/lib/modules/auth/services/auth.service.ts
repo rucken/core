@@ -51,10 +51,15 @@ export class AuthService {
   ) {
     this.initPermissions();
   }
+  async initCurrent() {
+    return this.current;
+  }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      this.current = this.current;
-      resolve();
+      this.initCurrent().then(value => {
+        this.current = value;
+        resolve();
+      });
     });
   }
   protected initPermissions() {

@@ -8,7 +8,6 @@ export class UniversalStorage implements IStorage {
   [key: string]: any;
   length: number;
   cookies: any;
-
   constructor(@Inject(REQUEST) private request: any) {
     if (request === null) {
       this.cookies = [];
@@ -16,32 +15,43 @@ export class UniversalStorage implements IStorage {
     }
     this.cookies = request.cookies;
   }
-
-  public clear(): void {
-    this.cookies = [];
+  public clear(): Promise<any> {
+    return new Promise(resolve => {
+      this.cookies = [];
+      resolve(true);
+    });
   }
-
-  public getItem(key: string): string {
+  public getItem(key: string): Promise<string> {
+    let data: string;
     try {
-      return JSON.parse(this.cookies[key]);
+      data = JSON.parse(this.cookies[key]);
     } catch (error) {
-      return this.cookies[key];
+      data = this.cookies[key];
     }
+    return new Promise(resolve => {
+      resolve(data);
+    });
   }
-
-  public key(index: number): string {
-    return this.cookies.propertyIsEnumerable[index];
+  public key(index: number): Promise<string> {
+    return new Promise(resolve => {
+      const data = this.cookies.propertyIsEnumerable[index];
+      resolve(data);
+    });
   }
-
-  public removeItem(key: string): void {
-    this.cookies[key] = undefined;
+  public removeItem(key: string): Promise<any> {
+    return new Promise(resolve => {
+      this.cookies[key] = undefined;
+      resolve(true);
+    });
   }
-
-  public setItem(key: string, data: string): void {
-    try {
-      this.cookies[key] = JSON.stringify(data);
-    } catch (error) {
-      this.cookies[key] = data;
-    }
+  public setItem(key: string, data: string): Promise<any> {
+    return new Promise(resolve => {
+      try {
+        this.cookies[key] = JSON.stringify(data);
+      } catch (error) {
+        this.cookies[key] = data;
+      }
+      resolve(true);
+    });
   }
 }

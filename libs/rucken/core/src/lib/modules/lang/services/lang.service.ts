@@ -1,11 +1,10 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
-import { ILanguagesItem } from '../interfaces/languages-item.inteface';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
-import { LANG_CONFIG_TOKEN, defaultLangConfig } from '../configs/lang.config';
-import { ILangConfig } from '../interfaces/lang-config.interface';
 import { IStorage } from '../../storage/interfaces/storage.interface';
+import { LANG_CONFIG_TOKEN } from '../configs/lang.config';
+import { ILangConfig } from '../interfaces/lang-config.interface';
 
 @Injectable()
 export class LangService {
@@ -13,12 +12,6 @@ export class LangService {
     return this._langConfig.languages;
   }
   get current() {
-    const lang = this._cookies.getItem(
-      this._langConfig.storageKeyName
-    ) as string;
-    if (lang && lang !== 'undefined') {
-      return lang;
-    }
     if (!this.current$.getValue()) {
       return this._langConfig.defaultLang;
     }
@@ -51,6 +44,17 @@ export class LangService {
       );
       this._translateService.setTranslation(lang.code, translations);
     });
-    this.current = this.current;
+    this.initCurrent().then(done =>
+      this.current = this.current
+    );
+  }
+  async initCurrent() {
+    const data = await this._cookies.getItem(
+      this._langConfig.storageKeyName
+    ) as string;
+    if (data && data !== 'undefined') {
+      return data;
+    }
+    return this.current;
   }
 }

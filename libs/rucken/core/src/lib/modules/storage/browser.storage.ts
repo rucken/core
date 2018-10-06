@@ -7,34 +7,44 @@ export class BrowserStorage implements IStorage {
   [index: number]: string;
   [key: string]: any;
   length: number;
-
-  constructor(private cookieService: CookieService) {}
-
-  public clear(): void {
-    this.cookieService.deleteAll();
+  constructor(private cookieService: CookieService) { }
+  public clear(): Promise<any> {
+    return new Promise(resolve => {
+      this.cookieService.deleteAll();
+      resolve(true);
+    });
   }
-
-  public getItem(key: string): string {
+  public getItem(key: string): Promise<string> {
+    let data: string;
     try {
-      return JSON.parse(this.cookieService.get(key));
+      data = JSON.parse(this.cookieService.get(key));
     } catch (error) {
-      return this.cookieService.get(key);
+      data = this.cookieService.get(key);
     }
+    return new Promise(resolve => {
+      resolve(data);
+    });
   }
-
-  public key(index: number): string {
-    return this.cookieService.getAll().propertyIsEnumerable[index];
+  public key(index: number): Promise<string> {
+    return new Promise(resolve => {
+      const data = this.cookieService.getAll().propertyIsEnumerable[index];
+      resolve(data);
+    });
   }
-
-  public removeItem(key: string): void {
-    this.cookieService.delete(key, '/');
+  public removeItem(key: string): Promise<any> {
+    return new Promise(resolve => {
+      this.cookieService.delete(key, '/');
+      resolve(true);
+    });
   }
-
-  public setItem(key: string, data: any): void {
-    try {
-      this.cookieService.set(key, JSON.stringify(data), undefined, '/');
-    } catch (error) {
-      this.cookieService.set(key, data, undefined, '/');
-    }
+  public setItem(key: string, data: any): Promise<any> {
+    return new Promise(resolve => {
+      try {
+        this.cookieService.set(key, JSON.stringify(data), undefined, '/');
+      } catch (error) {
+        this.cookieService.set(key, data, undefined, '/');
+      }
+      resolve(true);
+    });
   }
 }
