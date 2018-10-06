@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
+import { ILanguagesItem } from '../interfaces/languages-item.interface';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
 import { IStorage } from '../../storage/interfaces/storage.interface';
 import { LANG_CONFIG_TOKEN } from '../configs/lang.config';
@@ -35,7 +36,7 @@ export class LangService {
   ) {
     this._translateService.setDefaultLang(this._langConfig.appLang);
     this._translateService.addLangs(
-      this._langConfig.languages.map(lang => lang.code)
+      this._langConfig.languages.map((lang: ILanguagesItem) => lang.code)
     );
     this._langConfig.languages.map(lang => {
       let translations = {};

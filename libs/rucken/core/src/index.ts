@@ -56,7 +56,7 @@ export * from './lib/modules/lang/lang.module';
 export * from './lib/modules/lang/configs/index';
 export * from './lib/modules/lang/configs/lang.config';
 export * from './lib/modules/lang/interfaces/lang-config.interface';
-export * from './lib/modules/lang/interfaces/languages-item.inteface';
+export * from './lib/modules/lang/interfaces/languages-item.interface';
 export * from './lib/modules/lang/services/lang.service';
 export * from './lib/modules/storage/browser.storage';
 export * from './lib/modules/storage/universal.storage';
