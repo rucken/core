@@ -9,7 +9,8 @@ import {
   STORAGE_CONFIG_TOKEN,
   UniversalStorage,
   AuthService,
-  TokenService
+  TokenService,
+  LangService
 } from '@rucken/core';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
@@ -34,10 +35,10 @@ import { ThemesService } from '@rucken/web';
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
       multi: true,
-      deps: [AuthService, TokenService, ThemesService]
+      deps: [AuthService, TokenService, ThemesService, LangService]
     }
   ]
 })
 export class AppServerModule {
-  static forRoot() {}
+  static forRoot() { }
 }

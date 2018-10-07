@@ -7,6 +7,9 @@ import { IStorage } from '../../storage/interfaces/storage.interface';
 import { LANG_CONFIG_TOKEN } from '../configs/lang.config';
 import { ILangConfig } from '../interfaces/lang-config.interface';
 
+export function langServiceInitializeApp(langService: LangService) {
+  return () => langService.initializeApp();
+}
 @Injectable()
 export class LangService {
   get languages() {
@@ -45,9 +48,6 @@ export class LangService {
       );
       this._translateService.setTranslation(lang.code, translations);
     });
-    this.initCurrent().then(done =>
-      this.current = this.current
-    );
   }
   async initCurrent() {
     const data = await this._cookies.getItem(
@@ -57,5 +57,13 @@ export class LangService {
       return data;
     }
     return this.current;
+  }
+  initializeApp() {
+    return new Promise((resolve, reject) => {
+      this.initCurrent().then(value => {
+        this.current = value;
+        resolve();
+      });
+    });
   }
 }
