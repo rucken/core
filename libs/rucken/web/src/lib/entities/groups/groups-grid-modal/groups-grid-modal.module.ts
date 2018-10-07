@@ -10,11 +10,4 @@ import { GroupsGridModalComponent } from './groups-grid-modal.component';
   entryComponents: [GroupsGridModalComponent],
   exports: [GroupsGridModalComponent, EntityGridModalModule, GroupsGridModule]
 })
-export class GroupsGridModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: GroupsGridModalModule,
-      providers: []
-    };
-  }
-}
+export class GroupsGridModalModule { }

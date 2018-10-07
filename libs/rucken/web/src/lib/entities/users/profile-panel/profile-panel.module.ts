@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
@@ -28,11 +28,4 @@ import { ProfilePanelComponent } from './profile-panel.component';
   declarations: [ProfilePanelComponent],
   exports: [ProfilePanelComponent]
 })
-export class ProfilePanelModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ProfilePanelModule,
-      providers: []
-    };
-  }
-}
+export class ProfilePanelModule { }

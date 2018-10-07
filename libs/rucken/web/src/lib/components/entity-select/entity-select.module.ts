@@ -7,11 +7,4 @@ import { EntitySelectComponent } from './entity-select.component';
   declarations: [EntitySelectComponent],
   exports: [EntitySelectComponent]
 })
-export class EntitySelectModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntitySelectModule,
-      providers: []
-    };
-  }
-}
+export class EntitySelectModule { }

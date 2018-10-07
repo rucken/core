@@ -40,5 +40,4 @@ import { ThemesService } from '@rucken/web';
   ]
 })
 export class AppServerModule {
-  static forRoot() { }
 }

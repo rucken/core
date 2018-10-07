@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { EntitySelectModule } from '../../../components/entity-select/entity-select.module';
 import { ContentTypesGridModalModule } from '../content-types-grid-modal/content-types-grid-modal.module';
 import { ContentTypeSelectComponent } from './content-type-select.component';
@@ -13,11 +13,4 @@ import { ContentTypeSelectComponent } from './content-type-select.component';
     ContentTypesGridModalModule
   ]
 })
-export class ContentTypeSelectModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ContentTypeSelectModule,
-      providers: []
-    };
-  }
-}
+export class ContentTypeSelectModule {}

@@ -1,11 +1,11 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ContentTypesGridModule } from '@rucken/web';
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { SharedModule } from '../../../shared/shared.module';
 import { ContentTypesFrameComponent } from './content-types-frame.component';
 import { ContentTypesFrameRoutes } from './content-types-frame.routes';
-import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -17,11 +17,4 @@ import { NgxPermissionsModule } from 'ngx-permissions';
   ],
   declarations: [ContentTypesFrameComponent]
 })
-export class ContentTypesFrameModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ContentTypesFrameModule,
-      providers: []
-    };
-  }
-}
+export class ContentTypesFrameModule { }

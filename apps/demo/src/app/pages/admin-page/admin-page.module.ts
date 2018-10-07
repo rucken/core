@@ -1,10 +1,10 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavSidebarModule } from '@rucken/web';
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { SharedModule } from '../../shared/shared.module';
 import { AdminPageComponent } from './admin-page.component';
 import { AdminPageRoutes } from './admin-page.routes';
-import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -15,11 +15,4 @@ import { NgxPermissionsModule } from 'ngx-permissions';
   ],
   declarations: [AdminPageComponent]
 })
-export class AdminPageModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AdminPageModule,
-      providers: []
-    };
-  }
-}
+export class AdminPageModule { }

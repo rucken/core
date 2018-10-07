@@ -1,10 +1,10 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavSidebarModule } from '@rucken/web';
+import { NgxPermissionsModule } from 'ngx-permissions';
 import { SharedModule } from '../../shared/shared.module';
 import { EntitiesPageComponent } from './entities-page.component';
 import { EntitiesPageRoutes } from './entities-page.routes';
-import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   imports: [
@@ -15,11 +15,4 @@ import { NgxPermissionsModule } from 'ngx-permissions';
   ],
   declarations: [EntitiesPageComponent]
 })
-export class EntitiesPageModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntitiesPageModule,
-      providers: []
-    };
-  }
-}
+export class EntitiesPageModule { }

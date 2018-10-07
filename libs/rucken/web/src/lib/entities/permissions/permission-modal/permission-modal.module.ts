@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { PromptFormModalModule } from '../../../components/prompt-form-modal/prompt-form-modal.module';
 import { ContentTypeInputModule } from '../../content-types/content-type-input/content-type-input.module';
@@ -23,11 +23,4 @@ import { PermissionModalComponent } from './permission-modal.component';
     ContentTypeSelectModule
   ]
 })
-export class PermissionModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PermissionModalModule,
-      providers: []
-    };
-  }
-}
+export class PermissionModalModule { }

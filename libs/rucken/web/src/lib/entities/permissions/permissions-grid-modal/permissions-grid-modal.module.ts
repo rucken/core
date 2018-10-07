@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { EntityGridModalModule } from '../../../components/entity-grid-modal/entity-grid-modal.module';
 import { PermissionsGridModule } from '../permissions-grid/permissions-grid.module';
 import { PermissionsGridModalComponent } from './permissions-grid-modal.component';
@@ -14,11 +14,4 @@ import { PermissionsGridModalComponent } from './permissions-grid-modal.componen
     PermissionsGridModule
   ]
 })
-export class PermissionsGridModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PermissionsGridModalModule,
-      providers: []
-    };
-  }
-}
+export class PermissionsGridModalModule { }

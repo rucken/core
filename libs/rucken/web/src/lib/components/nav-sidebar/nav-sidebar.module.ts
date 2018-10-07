@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { NavSidebarComponent } from './nav-sidebar.component';
 import { PipesModule } from '../../pipes/pipes.module';
+import { NavSidebarComponent } from './nav-sidebar.component';
 
 @NgModule({
   imports: [
@@ -17,11 +17,4 @@ import { PipesModule } from '../../pipes/pipes.module';
   declarations: [NavSidebarComponent],
   exports: [NavSidebarComponent, PipesModule]
 })
-export class NavSidebarModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: NavSidebarModule,
-      providers: []
-    };
-  }
-}
+export class NavSidebarModule { }

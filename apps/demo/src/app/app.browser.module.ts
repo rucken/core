@@ -34,5 +34,4 @@ import { ThemesService } from '@rucken/web';
   ]
 })
 export class AppBrowserModule {
-  static forRoot() { }
 }

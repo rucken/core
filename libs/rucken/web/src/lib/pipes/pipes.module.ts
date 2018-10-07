@@ -12,11 +12,4 @@ import { UserPermPipe } from './user-perm.pipe';
   exports: [CustomTranslatePipe, SafeHtmlPipe, PermPipe, UserPermPipe],
   providers: [CustomTranslatePipe, SafeHtmlPipe, PermPipe, UserPermPipe]
 })
-export class PipesModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PipesModule,
-      providers: []
-    };
-  }
-}
+export class PipesModule { }

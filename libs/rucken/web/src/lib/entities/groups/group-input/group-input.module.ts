@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { EntityInputModule } from '../../../components/entity-input/entity-input.module';
 import { GroupsGridModalModule } from '../groups-grid-modal/groups-grid-modal.module';
 import { GroupInputComponent } from './group-input.component';
@@ -9,11 +9,4 @@ import { GroupInputComponent } from './group-input.component';
   declarations: [GroupInputComponent],
   exports: [GroupInputComponent, EntityInputModule, GroupsGridModalModule]
 })
-export class GroupInputModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: GroupInputModule,
-      providers: []
-    };
-  }
-}
+export class GroupInputModule { }
