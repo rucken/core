@@ -1,10 +1,4 @@
-import {
-  EventEmitter,
-  Input,
-  isDevMode,
-  OnChanges,
-  Output
-} from '@angular/core';
+import { EventEmitter, Input, isDevMode, OnChanges, Output } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { ValidatorOptions } from 'class-validator';
@@ -13,8 +7,7 @@ import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
 import { IBaseForm } from './base-form.interface';
 
-export class BasePromptPanelComponent<TModel extends IModel>
-  implements ControlValueAccessor, OnChanges, IBaseForm {
+export class BasePromptPanelComponent<TModel extends IModel> implements ControlValueAccessor, OnChanges, IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -116,11 +109,7 @@ export class BasePromptPanelComponent<TModel extends IModel>
         const keys = Object.keys(newObject);
         keys.map(key => (controlsConfig[key] = ''));
       }
-      this.form = this.formBuilder.group(
-        this.factoryModel,
-        controlsConfig,
-        extra
-      );
+      this.form = this.formBuilder.group(this.factoryModel, controlsConfig, extra);
     }
   }
   onNoClick(data?: any): void {

@@ -21,13 +21,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import {
-  AllRoutes,
-  AppLangs,
-  appMetaFactory,
-  OauthModalProviders,
-  OauthProviders
-} from './app.config';
+import { AllRoutes, AppLangs, appMetaFactory, OauthModalProviders, OauthProviders } from './app.config';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
@@ -68,16 +62,9 @@ import { SharedModule } from './shared/shared.module';
       }
     }),
     NavbarModule,
-    BsDatepickerModule.forRoot(),
-    FontAwesomeModule
+    BsDatepickerModule.forRoot()
   ],
-  providers: [
-    ...entitiesProviders,
-    CookieService,
-    ErrorsExtractor,
-    BsLocaleService,
-    PermissionsGuard
-  ],
+  providers: [...entitiesProviders, CookieService, ErrorsExtractor, BsLocaleService, PermissionsGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -11,17 +11,11 @@ export class AuthModalModel implements IModel {
   };
   id: number = undefined;
   @IsNotEmpty({
-    groups: [
-      AuthModalTypeEnum.SignIn.toString(),
-      AuthModalTypeEnum.SignUp.toString()
-    ]
+    groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
   })
   email: string = undefined;
   @IsNotEmpty({
-    groups: [
-      AuthModalTypeEnum.SignIn.toString(),
-      AuthModalTypeEnum.SignUp.toString()
-    ]
+    groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
   })
   password: string = undefined;
   @Validate(EqualsToOtherProperty, ['password'], {

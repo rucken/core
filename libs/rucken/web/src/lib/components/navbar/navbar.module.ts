@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { NavbarComponent } from './navbar.component';
 import { PipesModule } from '../../pipes/pipes.module';
+import { NavbarComponent } from './navbar.component';
 
 @NgModule({
   imports: [
@@ -19,11 +19,4 @@ import { PipesModule } from '../../pipes/pipes.module';
   declarations: [NavbarComponent],
   exports: [NavbarComponent, PipesModule]
 })
-export class NavbarModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: NavbarModule,
-      providers: []
-    };
-  }
-}
+export class NavbarModule {}

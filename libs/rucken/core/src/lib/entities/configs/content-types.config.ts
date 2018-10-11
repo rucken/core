@@ -1,9 +1,5 @@
 import { plainToClass } from 'class-transformer';
-import {
-  IRestProviderOptions,
-  PaginationMeta,
-  ProviderActionEnum
-} from 'ngx-repository';
+import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
 import { ContentType } from '../models/content-type';
 
 export const defaultContentTypesConfig: IRestProviderOptions<ContentType> = {
@@ -25,10 +21,7 @@ export const defaultContentTypesConfig: IRestProviderOptions<ContentType> = {
         }
       }
     },
-    responsePaginationMeta: (
-      data: any,
-      action: ProviderActionEnum
-    ): PaginationMeta => {
+    responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
       return { totalResults: data.body.meta.totalResults, perPage: undefined };
     }
   },

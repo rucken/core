@@ -7,13 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { RuI18n } from './i18n/ru.i18n';
-import {
-  LangModule,
-  RuI18n as CoreRuI18n,
-  translate,
-  AuthEmptyComponent,
-  OauthGuard
-} from '@rucken/core';
+import { LangModule, RuI18n as CoreRuI18n, translate, AuthEmptyComponent, OauthGuard } from '@rucken/core';
 import { RuI18n as WebRuI18n } from '@rucken/web';
 import { AppRoutes } from './app.routes';
 
@@ -35,9 +29,7 @@ export const AppLangs = [
   }
 ];
 export const ApplicationName = translate('Rucken: Demo');
-export const ApplicationDescription = translate(
-  'Core with Admin UI for web and native application maked on Angular6+'
-);
+export const ApplicationDescription = translate('Core with Admin UI for web and native application maked on Angular6+');
 export const AuthModalSignInInfoMessage = translate(`<p>Demo users:</p><ul>
 <li>user with admin group: admin@admin.com, password: 12345678</li>
 <li>user with user group: user1@user1.com, password: 12345678</li>

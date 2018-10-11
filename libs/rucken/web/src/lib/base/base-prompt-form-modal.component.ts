@@ -7,8 +7,7 @@ import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
 import { IBaseForm } from './base-form.interface';
 
-export class BasePromptFormModalComponent<TModel extends IModel>
-  implements IBaseForm {
+export class BasePromptFormModalComponent<TModel extends IModel> implements IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -115,11 +114,7 @@ export class BasePromptFormModalComponent<TModel extends IModel>
         const keys = Object.keys(newObject);
         keys.map(key => (controlsConfig[key] = ''));
       }
-      this.form = this.formBuilder.group(
-        this._factoryModel,
-        controlsConfig,
-        extra
-      );
+      this.form = this.formBuilder.group(this._factoryModel, controlsConfig, extra);
     }
   }
   onYesClick(data?: any): void {

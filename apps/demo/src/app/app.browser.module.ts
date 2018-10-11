@@ -1,20 +1,16 @@
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
-import {
-  STORAGE_CONFIG_TOKEN,
-  BrowserStorage,
-  AuthService,
-  TokenService
-} from '@rucken/core';
+import { STORAGE_CONFIG_TOKEN, BrowserStorage, AuthService, TokenService, LangService } from '@rucken/core';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { initializeApp } from './shared/utils/initialize-app';
 import { ThemesService } from '@rucken/web';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [BrowserModule.withServerTransition({ appId: 'demo' }), AppModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'demo' }), FontAwesomeModule, AppModule],
   providers: [
     {
       provide: REQUEST,
@@ -28,10 +24,8 @@ import { ThemesService } from '@rucken/web';
       provide: APP_INITIALIZER,
       useFactory: initializeApp,
       multi: true,
-      deps: [AuthService, TokenService, ThemesService]
+      deps: [AuthService, TokenService, ThemesService, LangService]
     }
   ]
 })
-export class AppBrowserModule {
-  static forRoot() {}
-}
+export class AppBrowserModule {}

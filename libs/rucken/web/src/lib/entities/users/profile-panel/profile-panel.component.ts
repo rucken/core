@@ -1,18 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  forwardRef,
-  Input,
-  OnDestroy
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  AccountService,
-  AuthService,
-  ErrorsExtractor,
-  Group,
-  User
-} from '@rucken/core';
+import { AccountService, AuthService, ErrorsExtractor, Group, User } from '@rucken/core';
 import { NgxPermissionsService } from 'ngx-permissions';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -36,8 +24,7 @@ import { MessageModalService } from '../../../modals/message-modal/message-modal
     }
   ]
 })
-export class ProfilePanelComponent extends BasePromptPanelComponent<User>
-  implements OnDestroy {
+export class ProfilePanelComponent extends BasePromptPanelComponent<User> implements OnDestroy {
   @Input()
   apiUrl?: string;
   @Input()
@@ -55,13 +42,11 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User>
     private _permissionsService: NgxPermissionsService
   ) {
     super(User);
-    this._authService.current$
-      .pipe(takeUntil(this._destroyed$))
-      .subscribe(user => {
-        if (user) {
-          this.data = user;
-        }
-      });
+    this._authService.current$.pipe(takeUntil(this._destroyed$)).subscribe(user => {
+      if (user) {
+        this.data = user;
+      }
+    });
   }
   ngOnDestroy() {
     this._destroyed$.next(true);
@@ -81,10 +66,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User>
     this.processing = true;
     this._accountService
       .update(this.data)
-      .subscribe(
-        data => this.onSave(data, saveData),
-        error => this.onSaveError(error)
-      );
+      .subscribe(data => this.onSave(data, saveData), error => this.onSaveError(error));
   }
   onSave(user: User, saveData?: any) {
     this.processing = false;

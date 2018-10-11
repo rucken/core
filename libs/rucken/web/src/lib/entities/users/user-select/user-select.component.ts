@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, User, USERS_CONFIG_TOKEN } from '@rucken/core';
@@ -30,17 +24,9 @@ export class UserSelectComponent extends UsersGridComponent implements OnInit {
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(USERS_CONFIG_TOKEN)
-    protected usersConfig: IRestProviderOptions<User>
+    @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions<User>
   ) {
-    super(
-      modalService,
-      errorsExtractor,
-      translateService,
-      dynamicRepository,
-      messageModalService,
-      usersConfig
-    );
+    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, usersConfig);
   }
   ngOnInit() {
     if (!this.mockedItems) {

@@ -9,7 +9,12 @@ import { Observable } from 'rxjs';
 })
 export class ThemesPageComponent {
   items$: Observable<Theme[]>;
-  constructor(public themesService: ThemesService) {
-    this.items$ = themesService.repository.items$;
+  currentTheme$: Observable<string>;
+  constructor(private _themesService: ThemesService) {
+    this.items$ = _themesService.repository.items$;
+    this.currentTheme$ = _themesService.current$;
+  }
+  setCurrentTheme(value: string) {
+    this._themesService.current = value;
   }
 }

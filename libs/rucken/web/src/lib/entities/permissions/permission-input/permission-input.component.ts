@@ -1,19 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Inject,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ErrorsExtractor,
-  Permission,
-  PERMISSIONS_CONFIG_TOKEN,
-  translate
-} from '@rucken/core';
+import { ErrorsExtractor, Permission, PERMISSIONS_CONFIG_TOKEN, translate } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
@@ -26,8 +13,7 @@ import { PermissionsGridComponent } from '../permissions-grid/permissions-grid.c
   templateUrl: './permission-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PermissionInputComponent extends PermissionsGridComponent
-  implements OnInit {
+export class PermissionInputComponent extends PermissionsGridComponent implements OnInit {
   @Output()
   select = new EventEmitter<Permission>();
   @Input()
@@ -45,17 +31,9 @@ export class PermissionInputComponent extends PermissionsGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(PERMISSIONS_CONFIG_TOKEN)
-    protected permissionsConfig: IRestProviderOptions<Permission>
+    @Inject(PERMISSIONS_CONFIG_TOKEN) protected permissionsConfig: IRestProviderOptions<Permission>
   ) {
-    super(
-      modalService,
-      errorsExtractor,
-      translateService,
-      dynamicRepository,
-      messageModalService,
-      permissionsConfig
-    );
+    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, permissionsConfig);
   }
   ngOnInit() {
     this.mockedItems = [];

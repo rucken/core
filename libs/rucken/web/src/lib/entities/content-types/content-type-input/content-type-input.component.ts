@@ -1,19 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Inject,
-  OnInit,
-  Output,
-  Input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, OnInit, Output, Input } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ContentType,
-  CONTENT_TYPES_CONFIG_TOKEN,
-  ErrorsExtractor,
-  translate
-} from '@rucken/core';
+import { ContentType, CONTENT_TYPES_CONFIG_TOKEN, ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
@@ -26,8 +13,7 @@ import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interf
   templateUrl: './content-type-input.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContentTypeInputComponent extends ContentTypesGridComponent
-  implements OnInit {
+export class ContentTypeInputComponent extends ContentTypesGridComponent implements OnInit {
   @Output()
   select = new EventEmitter<ContentType>();
   @Input()
@@ -45,17 +31,9 @@ export class ContentTypeInputComponent extends ContentTypesGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(CONTENT_TYPES_CONFIG_TOKEN)
-    protected contentTypesConfig: IRestProviderOptions<ContentType>
+    @Inject(CONTENT_TYPES_CONFIG_TOKEN) protected contentTypesConfig: IRestProviderOptions<ContentType>
   ) {
-    super(
-      modalService,
-      errorsExtractor,
-      translateService,
-      dynamicRepository,
-      messageModalService,
-      contentTypesConfig
-    );
+    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, contentTypesConfig);
   }
   ngOnInit() {
     this.mockedItems = [];

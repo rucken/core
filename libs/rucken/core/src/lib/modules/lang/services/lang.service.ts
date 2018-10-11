@@ -1,24 +1,27 @@
-import { Inject, Injectable, InjectionToken } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
-import { ILanguagesItem } from '../interfaces/languages-item.inteface';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
-import { LANG_CONFIG_TOKEN, defaultLangConfig } from '../configs/lang.config';
-import { ILangConfig } from '../interfaces/lang-config.interface';
 import { IStorage } from '../../storage/interfaces/storage.interface';
+import { LANG_CONFIG_TOKEN } from '../configs/lang.config';
+import { ILangConfig } from '../interfaces/lang-config.interface';
+import { ILanguagesItem } from '../interfaces/languages-item.interface';
 
+export function langServiceInitializeApp(langService: LangService) {
+  return () => langService.initializeApp();
+}
 @Injectable()
 export class LangService {
   get languages() {
-    return this._langConfig.languages;
+    if (!this.languages$.getValue()) {
+      return this._langConfig.languages;
+    }
+    return this.languages$.getValue();
+  }
+  set languages(langs: ILanguagesItem[]) {
+    this.languages$.next(langs);
   }
   get current() {
-    const lang = this._cookies.getItem(
-      this._langConfig.storageKeyName
-    ) as string;
-    if (lang && lang !== 'undefined') {
-      return lang;
-    }
     if (!this.current$.getValue()) {
       return this._langConfig.defaultLang;
     }
@@ -26,31 +29,56 @@ export class LangService {
   }
   set current(value: string) {
     if (!value) {
-      this._cookies.removeItem(this._langConfig.storageKeyName);
+      this._cookies.removeItem(this._langConfig.storageKeyName).then(_ => {
+        this._translateService.use(value);
+        this.current$.next(value);
+      });
     } else {
-      this._cookies.setItem(this._langConfig.storageKeyName, value);
+      this._cookies.setItem(this._langConfig.storageKeyName, value).then(_ => {
+        this._translateService.use(value);
+        this.current$.next(value);
+      });
     }
-    this._translateService.use(value);
-    this.current$.next(value);
   }
   current$ = new BehaviorSubject<string>(undefined);
+  languages$ = new BehaviorSubject<ILanguagesItem[]>([]);
 
   constructor(
     @Inject(LANG_CONFIG_TOKEN) private _langConfig: ILangConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
+    @Inject(PLATFORM_ID) private _platformId: Object,
     private _translateService: TranslateService
-  ) {
+  ) {}
+  async initLanguages() {
     this._translateService.setDefaultLang(this._langConfig.appLang);
-    this._translateService.addLangs(
-      this._langConfig.languages.map(lang => lang.code)
-    );
+    this._translateService.addLangs(this._langConfig.languages.map((lang: ILanguagesItem) => lang.code));
     this._langConfig.languages.map(lang => {
       let translations = {};
-      lang.translations.map(
-        translation => (translations = { ...translations, ...translation })
-      );
+      lang.translations.map(translation => (translations = { ...translations, ...translation }));
       this._translateService.setTranslation(lang.code, translations);
     });
-    this.current = this.current;
+    return this._langConfig.languages;
+  }
+  initCurrent() {
+    return new Promise((resolve, reject) => {
+      this._cookies.getItem(this._langConfig.storageKeyName).then((data: string) => {
+        if (data && data !== 'undefined') {
+          resolve(data);
+        } else {
+          resolve(this.current);
+        }
+      });
+    });
+  }
+  initializeApp() {
+    return new Promise((resolve, reject) => {
+      this.initLanguages().then(languages => {
+        this.languages = languages;
+        this.initCurrent().then(value => {
+          this.current = value as string;
+          resolve();
+        });
+      });
+    });
   }
 }

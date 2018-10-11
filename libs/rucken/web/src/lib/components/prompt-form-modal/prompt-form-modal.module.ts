@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
@@ -23,20 +23,6 @@ import { PromptFormModalComponent } from './prompt-form-modal.component';
   ],
   declarations: [PromptFormModalComponent],
   entryComponents: [PromptFormModalComponent],
-  exports: [
-    PromptFormModalComponent,
-    ReactiveFormsModule,
-    FormsModule,
-    DirectivesModule,
-    PipesModule,
-    FormGroupModule
-  ]
+  exports: [PromptFormModalComponent, ReactiveFormsModule, FormsModule, DirectivesModule, PipesModule, FormGroupModule]
 })
-export class PromptFormModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PromptFormModalModule,
-      providers: []
-    };
-  }
-}
+export class PromptFormModalModule {}

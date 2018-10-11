@@ -12,7 +12,11 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "types": ["jasmine", "node"],
-    "lib": ["dom", "es2015"]
+    "lib": ["dom", "es2015"],
+    "paths": {
+      "@rucken/core": ["dist/rucken/core"],
+      "@rucken/core/*": ["dist/rucken/core/*"]
+    }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true,

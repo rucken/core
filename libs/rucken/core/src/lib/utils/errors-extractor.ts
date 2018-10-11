@@ -4,11 +4,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ErrorsExtractor {
   getValidationErrors(error: any) {
-    if (
-      error &&
-      error instanceof HttpErrorResponse &&
-      error.error.validationErrors
-    ) {
+    if (error && error instanceof HttpErrorResponse && error.error.validationErrors) {
       return error && error.error.validationErrors;
     }
     return undefined;

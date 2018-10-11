@@ -6,10 +6,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
 import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../../../entities/models/user';
-import {
-  EMPTY_PERMISSIONS,
-  INITED_PERMISSIONS
-} from '../../../utils/permissions-guard.service';
+import { EMPTY_PERMISSIONS, INITED_PERMISSIONS } from '../../../utils/permissions-guard.const';
 import { AUTH_CONFIG_TOKEN } from '../configs/auth.config';
 import { OAUTH_CONFIG_TOKEN } from '../configs/oauth.config';
 import { RedirectUriDto } from '../dto/redirect-uri.dto';
@@ -28,15 +25,12 @@ export class AuthService {
   }
   set current(value: User) {
     if (!value) {
-      this.clearPermissions();
-      this.current$.next(undefined);
+      this.clearPermissions().then(_ => this.current$.next(undefined));
     } else {
       if (value.permissionNames.length) {
-        this.loadPermissions(value);
-        this.current$.next(value);
+        this.loadPermissions(value).then(_ => this.current$.next(value));
       } else {
-        this.clearPermissions();
-        this.current$.next(undefined);
+        this.clearPermissions().then(_ => this.current$.next(undefined));
       }
     }
   }
@@ -51,20 +45,31 @@ export class AuthService {
   ) {
     this.initPermissions();
   }
+  async initCurrent() {
+    return this.current;
+  }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      this.current = this.current;
-      resolve();
+      this.initCurrent().then(value => {
+        this.current = value;
+        resolve();
+      });
     });
   }
-  protected initPermissions() {
+  public initPermissions() {
     this._permissionsService.loadPermissions([INITED_PERMISSIONS]);
   }
   protected clearPermissions() {
-    this._permissionsService.loadPermissions([EMPTY_PERMISSIONS]);
+    return new Promise((resolve, reject) => {
+      this._permissionsService.loadPermissions([EMPTY_PERMISSIONS]);
+      this._permissionsService.hasPermission([EMPTY_PERMISSIONS]).then(result => (result ? resolve() : reject()));
+    });
   }
   protected loadPermissions(value: User) {
-    this._permissionsService.loadPermissions(value.permissionNames);
+    return new Promise((resolve, reject) => {
+      this._permissionsService.loadPermissions(value.permissionNames);
+      this._permissionsService.hasPermission(value.permissionNames).then(result => (result ? resolve() : reject()));
+    });
   }
   signIn(email: string, password: string): Observable<UserTokenDto> {
     return this._httpClient
@@ -109,12 +114,8 @@ export class AuthService {
           .replace('{provider}', provider)
       );
     }
-    const uri =
-      this._oauthConfig.apiUri +
-      this._oauthConfig.redirectUri.replace('{provider}', provider);
-    return this._httpClient
-      .get(uri)
-      .pipe(map(data => plainToClass(RedirectUriDto, data)));
+    const uri = this._oauthConfig.apiUri + this._oauthConfig.redirectUri.replace('{provider}', provider);
+    return this._httpClient.get(uri).pipe(map(data => plainToClass(RedirectUriDto, data)));
   }
   oauthSignIn(provider: string, code: string): Observable<UserTokenDto> {
     if (this._oauthConfig.providers.indexOf(provider) === -1) {
@@ -124,9 +125,7 @@ export class AuthService {
           .replace('{provider}', provider)
       );
     }
-    const uri =
-      this._oauthConfig.apiUri +
-      this._oauthConfig.signInUri.replace('{provider}', provider);
+    const uri = this._oauthConfig.apiUri + this._oauthConfig.signInUri.replace('{provider}', provider);
     return this._httpClient
       .post(uri, {
         code

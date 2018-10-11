@@ -1,17 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ErrorsExtractor,
-  Permission,
-  PERMISSIONS_CONFIG_TOKEN
-} from '@rucken/core';
+import { ErrorsExtractor, Permission, PERMISSIONS_CONFIG_TOKEN } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
@@ -22,8 +12,7 @@ import { PermissionsGridComponent } from '../permissions-grid/permissions-grid.c
   templateUrl: './permission-select.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PermissionSelectComponent extends PermissionsGridComponent
-  implements OnInit {
+export class PermissionSelectComponent extends PermissionsGridComponent implements OnInit {
   @Input()
   searchField: FormControl = new FormControl();
 
@@ -35,17 +24,9 @@ export class PermissionSelectComponent extends PermissionsGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(PERMISSIONS_CONFIG_TOKEN)
-    protected permissionsConfig: IRestProviderOptions<Permission>
+    @Inject(PERMISSIONS_CONFIG_TOKEN) protected permissionsConfig: IRestProviderOptions<Permission>
   ) {
-    super(
-      modalService,
-      errorsExtractor,
-      translateService,
-      dynamicRepository,
-      messageModalService,
-      permissionsConfig
-    );
+    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, permissionsConfig);
   }
   ngOnInit() {
     if (!this.mockedItems) {

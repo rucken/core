@@ -19,12 +19,7 @@ export class MessageModalService {
     private _modalService: BsModalService,
     private _errorsExtractor: ErrorsExtractor
   ) {}
-  info(options: {
-    message: string | any;
-    title?: string;
-    class?: string;
-    onTop?: boolean;
-  }) {
+  info(options: { message: string | any; title?: string; class?: string; onTop?: boolean }) {
     if (this._onTopIsActive) {
       return of(false);
     }
@@ -40,20 +35,17 @@ export class MessageModalService {
         options.class = this.getKlassOfMessageLength(message);
       }
       this._onTopIsActive = options.onTop;
-      const bsModalRef: BsModalRef = this._modalService.show(
-        this.componentInfoModal || MessageModalComponent,
-        {
-          class: options.class,
-          ignoreBackdropClick: options.onTop === true,
-          keyboard: !(options.onTop === true),
-          initialState: {
-            title: options.title,
-            message: message,
-            isInfo: true,
-            yesTitle: this._translateService.instant('OK')
-          }
+      const bsModalRef: BsModalRef = this._modalService.show(this.componentInfoModal || MessageModalComponent, {
+        class: options.class,
+        ignoreBackdropClick: options.onTop === true,
+        keyboard: !(options.onTop === true),
+        initialState: {
+          title: options.title,
+          message: message,
+          isInfo: true,
+          yesTitle: this._translateService.instant('OK')
         }
-      );
+      });
       bsModalRef.content.yes.subscribe((modal: MessageModalComponent) => {
         modal.hide();
         observe.next(true);
@@ -66,12 +58,7 @@ export class MessageModalService {
       });
     }).pipe(first());
   }
-  error(options: {
-    error: string | any;
-    title?: string;
-    class?: string;
-    onTop?: boolean;
-  }) {
+  error(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
     if (this._onTopIsActive) {
       return of(false);
     }
@@ -88,20 +75,17 @@ export class MessageModalService {
         options.class = this.getKlassOfMessageLength(message);
       }
       this._onTopIsActive = options.onTop;
-      const bsModalRef: BsModalRef = this._modalService.show(
-        this.componentErrorModal || MessageModalComponent,
-        {
-          class: options.class,
-          ignoreBackdropClick: options.onTop === true,
-          keyboard: !(options.onTop === true),
-          initialState: {
-            title: options.title,
-            message: message,
-            isError: true,
-            yesTitle: this._translateService.instant('OK')
-          }
+      const bsModalRef: BsModalRef = this._modalService.show(this.componentErrorModal || MessageModalComponent, {
+        class: options.class,
+        ignoreBackdropClick: options.onTop === true,
+        keyboard: !(options.onTop === true),
+        initialState: {
+          title: options.title,
+          message: message,
+          isError: true,
+          yesTitle: this._translateService.instant('OK')
         }
-      );
+      });
       bsModalRef.content.yes.subscribe((modal: MessageModalComponent) => {
         modal.hide();
         observe.next(true);

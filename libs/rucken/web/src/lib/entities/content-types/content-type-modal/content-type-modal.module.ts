@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { PromptFormModalModule } from '../../../components/prompt-form-modal/prompt-form-modal.module';
 import { ContentTypeModalComponent } from './content-type-modal.component';
 
@@ -9,11 +9,4 @@ import { ContentTypeModalComponent } from './content-type-modal.component';
   entryComponents: [ContentTypeModalComponent],
   exports: [ContentTypeModalComponent, PromptFormModalModule]
 })
-export class ContentTypeModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ContentTypeModalModule,
-      providers: []
-    };
-  }
-}
+export class ContentTypeModalModule {}

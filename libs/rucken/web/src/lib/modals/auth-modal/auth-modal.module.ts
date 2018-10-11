@@ -5,10 +5,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PromptFormModalModule } from '../../components/prompt-form-modal/prompt-form-modal.module';
 import { AuthModalComponent } from './auth-modal.component';
-import {
-  AUTH_MODAL_CONFIG_TOKEN,
-  defaultAuthModalConfig
-} from './auth-modal.config';
+import { AUTH_MODAL_CONFIG_TOKEN, defaultAuthModalConfig } from './auth-modal.config';
 import { IAuthModalConfig } from './interfaces/auth-modal-config.interface';
 @NgModule({
   imports: [

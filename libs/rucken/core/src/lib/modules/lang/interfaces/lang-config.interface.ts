@@ -1,4 +1,4 @@
-import { ILanguagesItem } from './languages-item.inteface';
+import { ILanguagesItem } from './languages-item.interface';
 
 export interface ILangConfig {
   languages?: ILanguagesItem[];

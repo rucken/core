@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { FormGroupComponent } from './form-group.component';
@@ -9,11 +9,4 @@ import { FormGroupComponent } from './form-group.component';
   declarations: [FormGroupComponent],
   exports: [FormGroupComponent]
 })
-export class FormGroupModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: FormGroupModule,
-      providers: []
-    };
-  }
-}
+export class FormGroupModule {}

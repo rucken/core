@@ -8,9 +8,7 @@ import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-mod
   templateUrl: './content-type-modal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContentTypeModalComponent extends BasePromptFormModalComponent<
-  ContentType
-> {
+export class ContentTypeModalComponent extends BasePromptFormModalComponent<ContentType> {
   constructor(protected bsModalRef: BsModalRef) {
     super(bsModalRef);
     this.group(ContentType);

@@ -1,18 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
-import { EntityInputComponent } from './entity-input.component';
+import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EntityInputComponent } from './entity-input.component';
 
 @NgModule({
   imports: [CommonModule, FontAwesomeModule],
   declarations: [EntityInputComponent],
   exports: [EntityInputComponent]
 })
-export class EntityInputModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntityInputModule,
-      providers: []
-    };
-  }
-}
+export class EntityInputModule {}

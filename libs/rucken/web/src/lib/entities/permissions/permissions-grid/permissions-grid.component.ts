@@ -1,17 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ErrorsExtractor,
-  Permission,
-  PERMISSIONS_CONFIG_TOKEN,
-  translate
-} from '@rucken/core';
+import { ErrorsExtractor, Permission, PERMISSIONS_CONFIG_TOKEN, translate } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
@@ -24,9 +13,7 @@ import { PermissionModalComponent } from '../permission-modal/permission-modal.c
   templateUrl: './permissions-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PermissionsGridComponent
-  extends BaseEntityListComponent<Permission>
-  implements OnInit {
+export class PermissionsGridComponent extends BaseEntityListComponent<Permission> implements OnInit {
   @Input()
   modalItem: IBaseEntityModalOptions = {
     component: PermissionModalComponent
@@ -42,14 +29,9 @@ export class PermissionsGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(PERMISSIONS_CONFIG_TOKEN)
-    protected permissionsConfig: IRestProviderOptions<Permission>
+    @Inject(PERMISSIONS_CONFIG_TOKEN) protected permissionsConfig: IRestProviderOptions<Permission>
   ) {
-    super(
-      dynamicRepository.fork<Permission>(Permission),
-      modalService,
-      Permission
-    );
+    super(dynamicRepository.fork<Permission>(Permission), modalService, Permission);
   }
   ngOnInit() {
     if (!this.mockedItems) {
