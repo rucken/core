@@ -46,7 +46,7 @@ export class AppComponent implements OnDestroy {
     private _bsLocaleService: BsLocaleService,
     private _router: Router,
     private _metaService: MetaService,
-    @Inject(DOCUMENT) private document: any,
+    @Inject(DOCUMENT) private _document: any,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
     this.languages$ = _langService.languages$;
@@ -155,7 +155,7 @@ export class AppComponent implements OnDestroy {
     if (modal) {
       modal.hide();
     }
-    this.document.location.href = data.redirect_uri;
+    this._document.location.href = data.redirect_uri;
   }
   onSignInOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
     if (modal) {

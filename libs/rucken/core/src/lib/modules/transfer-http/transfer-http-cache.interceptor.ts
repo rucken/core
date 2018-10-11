@@ -9,7 +9,7 @@ import { ITransferHttpResponse } from './transfer-http-response.interface';
 
 @Injectable()
 export class TransferHttpCacheInterceptor implements HttpInterceptor {
-  constructor(@Inject(PLATFORM_ID) private _platformId: Object, private transferState: TransferState) {}
+  constructor(@Inject(PLATFORM_ID) private _platformId: Object, private _transferState: TransferState) {}
   getHeadersMap(headers: HttpHeaders) {
     const headersMap: { [name: string]: string[] } = {};
     for (const key of headers.keys()) {
@@ -34,10 +34,10 @@ export class TransferHttpCacheInterceptor implements HttpInterceptor {
   }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const storeKey = this.getStoreKey(req);
-    if (this.transferState.hasKey(storeKey)) {
-      const response = this.transferState.get(storeKey, {} as ITransferHttpResponse);
+    if (this._transferState.hasKey(storeKey)) {
+      const response = this._transferState.get(storeKey, {} as ITransferHttpResponse);
       if (!isPlatformServer(this._platformId)) {
-        this.transferState.remove(storeKey);
+        this._transferState.remove(storeKey);
       }
       return of(
         new HttpResponse<any>({
@@ -54,7 +54,7 @@ export class TransferHttpCacheInterceptor implements HttpInterceptor {
         tap((event: HttpEvent<any>) => {
           if (event instanceof HttpResponse) {
             if (isPlatformServer(this._platformId)) {
-              this.transferState.set(storeKey, {
+              this._transferState.set(storeKey, {
                 body: event.body,
                 headers: this.getHeadersMap(event.headers),
                 status: event.status,
