@@ -7,11 +7,12 @@ export function initializeApp(
   themesService: ThemesService,
   langService: LangService
 ) {
+  authService.initPermissions();
   return () =>
-    new Promise((resolve, reject) =>
-      langService.initializeApp().then(_ =>
-        themesService.initializeApp().then(__ =>
-          authService.initializeApp().then(___ =>
+    new Promise((resolve, reject) => {
+      langService.initializeApp().then(_ => {
+        themesService.initializeApp().then(__ => {
+          authService.initializeApp().then(___ => {
             tokenService.initializeApp().then(____ => {
               const token = tokenService.current;
               if (token && !tokenService.tokenHasExpired(token)) {
@@ -34,9 +35,9 @@ export function initializeApp(
                 authService.current = undefined;
                 resolve();
               }
-            })
-          )
-        )
-      )
-    );
+            });
+          });
+        });
+      });
+    });
 }

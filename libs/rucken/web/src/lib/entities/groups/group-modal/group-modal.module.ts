@@ -10,4 +10,4 @@ import { GroupModalComponent } from './group-modal.component';
   entryComponents: [GroupModalComponent],
   exports: [GroupModalComponent, PromptFormModalModule]
 })
-export class GroupModalModule { }
+export class GroupModalModule {}

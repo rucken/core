@@ -5,6 +5,7 @@
     [showSignOut]="currentUser$ | async"
     (signIn)="onSignIn()"
     (signOut)="onSignOut()"
-    [languages]="langService.languages"
-    [(currentLang)]="langService.current"></navbar>
+    [languages]="languages$ | async"
+    [currentLang]="currentLang$ | async"
+    (currentLangChange)="setCurrentLang($event)"></navbar>
 <router-outlet></router-outlet>

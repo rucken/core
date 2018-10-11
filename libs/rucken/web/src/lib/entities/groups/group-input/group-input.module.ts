@@ -9,4 +9,4 @@ import { GroupInputComponent } from './group-input.component';
   declarations: [GroupInputComponent],
   exports: [GroupInputComponent, EntityInputModule, GroupsGridModalModule]
 })
-export class GroupInputModule { }
+export class GroupInputModule {}

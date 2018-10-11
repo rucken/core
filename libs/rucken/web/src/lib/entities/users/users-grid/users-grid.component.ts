@@ -1,17 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ErrorsExtractor,
-  translate,
-  User,
-  USERS_CONFIG_TOKEN
-} from '@rucken/core';
+import { ErrorsExtractor, translate, User, USERS_CONFIG_TOKEN } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
@@ -24,8 +13,7 @@ import { UserModalComponent } from '../user-modal/user-modal.component';
   templateUrl: './users-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UsersGridComponent extends BaseEntityListComponent<User>
-  implements OnInit {
+export class UsersGridComponent extends BaseEntityListComponent<User> implements OnInit {
   @Input()
   modalItem: IBaseEntityModalOptions = {
     component: UserModalComponent
@@ -40,8 +28,7 @@ export class UsersGridComponent extends BaseEntityListComponent<User>
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(USERS_CONFIG_TOKEN)
-    protected usersConfig: IRestProviderOptions<User>
+    @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions<User>
   ) {
     super(dynamicRepository.fork<User>(User), modalService, User);
   }

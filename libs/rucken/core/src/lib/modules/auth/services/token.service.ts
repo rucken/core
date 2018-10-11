@@ -18,11 +18,9 @@ export class TokenService {
   }
   set current(value: string) {
     if (!value) {
-      this._cookies.removeItem(this._jwtConfig.storageKeyName);
-      this.current$.next(undefined);
+      this._cookies.removeItem(this._jwtConfig.storageKeyName).then(_ => this.current$.next(undefined));
     } else {
-      this._cookies.setItem(this._jwtConfig.storageKeyName, value);
-      this.current$.next(value);
+      this._cookies.setItem(this._jwtConfig.storageKeyName, value).then(_ => this.current$.next(value));
     }
   }
   current$ = new BehaviorSubject<string>(undefined);
@@ -34,20 +32,22 @@ export class TokenService {
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
-  ) { }
-  async initCurrent() {
-    const data = await this._cookies.getItem(
-      this._jwtConfig.storageKeyName
-    ) as string;
-    if (data && data !== 'undefined') {
-      return data;
-    }
-    return this.current;
+  ) {}
+  initCurrent() {
+    return new Promise((resolve, reject) => {
+      this._cookies.getItem(this._jwtConfig.storageKeyName).then((data: string) => {
+        if (data && data !== 'undefined') {
+          resolve(data);
+        } else {
+          resolve(this.current);
+        }
+      });
+    });
   }
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.initCurrent().then(value => {
-        this.current = value;
+        this.current = value as string;
         resolve();
       });
     });
@@ -76,8 +76,7 @@ export class TokenService {
       token = this.current;
     }
     try {
-      const result =
-        new Date() > new Date(this.getTokenData(token).payload.exp * 1000);
+      const result = new Date() > new Date(this.getTokenData(token).payload.exp * 1000);
       return result;
     } catch (error) {
       return true;
@@ -85,8 +84,7 @@ export class TokenService {
   }
   getHeader() {
     const headers = {};
-    headers[this._jwtConfig.headerName] =
-      this._jwtConfig.headerPrefix + ' ' + this.current;
+    headers[this._jwtConfig.headerName] = this._jwtConfig.headerPrefix + ' ' + this.current;
     return headers;
   }
 }

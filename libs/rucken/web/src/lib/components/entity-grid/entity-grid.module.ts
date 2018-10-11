@@ -22,12 +22,6 @@ import { EntityGridComponent } from './entity-grid.component';
   ],
   declarations: [EntityGridComponent],
   entryComponents: [EntityGridComponent],
-  exports: [
-    EntityGridComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    PipesModule,
-    MessageModalModule
-  ]
+  exports: [EntityGridComponent, FormsModule, ReactiveFormsModule, PipesModule, MessageModalModule]
 })
-export class EntityGridModule { }
+export class EntityGridModule {}

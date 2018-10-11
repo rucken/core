@@ -8,4 +8,4 @@ import { HomePageRoutes } from './home-page.routes';
   imports: [SharedModule, RouterModule.forChild(HomePageRoutes)],
   declarations: [HomePageComponent]
 })
-export class HomePageModule { }
+export class HomePageModule {}

@@ -10,11 +10,11 @@ import { UsersFrameRoutes } from './users-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     RouterModule.forChild(UsersFrameRoutes),
     UsersGridModule,
     FormsModule
   ],
   declarations: [UsersFrameComponent]
 })
-export class UsersFrameModule { }
+export class UsersFrameModule {}

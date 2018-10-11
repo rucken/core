@@ -10,11 +10,11 @@ import { ContentTypesFrameRoutes } from './content-types-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     RouterModule.forChild(ContentTypesFrameRoutes),
     ContentTypesGridModule,
     FormsModule
   ],
   declarations: [ContentTypesFrameComponent]
 })
-export class ContentTypesFrameModule { }
+export class ContentTypesFrameModule {}

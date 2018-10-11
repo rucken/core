@@ -9,4 +9,4 @@ import { GroupSelectComponent } from './group-select.component';
   declarations: [GroupSelectComponent],
   exports: [GroupSelectComponent, EntitySelectModule, GroupsGridModalModule]
 })
-export class GroupSelectModule { }
+export class GroupSelectModule {}

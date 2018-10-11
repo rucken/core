@@ -9,4 +9,4 @@ import { GroupsGridComponent } from './groups-grid.component';
   declarations: [GroupsGridComponent],
   exports: [GroupsGridComponent, EntityGridModule, GroupModalModule]
 })
-export class GroupsGridModule { }
+export class GroupsGridModule {}

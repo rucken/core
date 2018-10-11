@@ -10,11 +10,11 @@ import { GroupsFrameRoutes } from './groups-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     RouterModule.forChild(GroupsFrameRoutes),
     GroupsGridModule,
     FormsModule
   ],
   declarations: [GroupsFrameComponent]
 })
-export class GroupsFrameModule { }
+export class GroupsFrameModule {}

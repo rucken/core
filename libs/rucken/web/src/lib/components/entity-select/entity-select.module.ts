@@ -7,4 +7,4 @@ import { EntitySelectComponent } from './entity-select.component';
   declarations: [EntitySelectComponent],
   exports: [EntitySelectComponent]
 })
-export class EntitySelectModule { }
+export class EntitySelectModule {}

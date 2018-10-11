@@ -1,14 +1,13 @@
-import { translate, PermissionsGuard } from '@rucken/core';
+import { MetaGuard } from '@ngx-meta/core';
+import { PermissionsGuard, translate } from '@rucken/core';
 import { AccountPageChildrenRoutes } from './account-page.children-routes';
 import { AccountPageComponent } from './account-page.component';
-import { MetaGuard } from '@ngx-meta/core';
 
 export const AccountPageRoutes = [
   {
     path: '',
     component: AccountPageComponent,
     canActivate: [PermissionsGuard, MetaGuard],
-    canActivateChild: [PermissionsGuard, MetaGuard],
     data: {
       name: 'account',
       permissions: {

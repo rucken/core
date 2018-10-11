@@ -14,9 +14,7 @@ export class EntityModalComponent extends BasePromptFormModalComponent<any> {
 
   set form(form: DynamicFormGroup<any>) {
     this.keys = form.controls
-      ? Object.keys(form.controls).filter(
-          key => this.ignoredFields.indexOf(key.toLowerCase()) === -1
-        )
+      ? Object.keys(form.controls).filter(key => this.ignoredFields.indexOf(key.toLowerCase()) === -1)
       : [];
     this._form = form;
   }

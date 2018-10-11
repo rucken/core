@@ -1,8 +1,4 @@
-import {
-  Routes,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot
-} from '@angular/router';
+import { Routes, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AccountPageRoutes } from './pages/account-page/account-page.routes';
 import { AdminPageRoutes } from './pages/admin-page/admin-page.routes';
 import { EntitiesPageRoutes } from './pages/entities-page/entities-page.routes';
@@ -23,8 +19,7 @@ export const AppRoutes: Routes = [
   },
   {
     path: 'entities',
-    loadChildren:
-      './pages/entities-page/entities-page.module#EntitiesPageModule',
+    loadChildren: './pages/entities-page/entities-page.module#EntitiesPageModule',
     data: EntitiesPageRoutes[0].data
   },
   {

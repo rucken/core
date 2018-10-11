@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  TemplateRef,
-  Input
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, TemplateRef, Input } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BasePromptModalComponent } from '../../base/base-prompt-modal.component';
 

@@ -1,24 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ErrorsExtractor,
-  Group,
-  GROUPS_CONFIG_TOKEN,
-  translate,
-  User
-} from '@rucken/core';
+import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate, User } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import {
-  DynamicRepository,
-  IRestProviderOptions,
-  ProviderActionEnum
-} from 'ngx-repository';
+import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
 import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
 import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { GroupsGridModalComponent } from '../../groups/groups-grid-modal/groups-grid-modal.component';
@@ -29,8 +13,7 @@ import { GroupsGridComponent } from '../../groups/groups-grid/groups-grid.compon
   templateUrl: './user-groups-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserGroupsGridComponent extends GroupsGridComponent
-  implements OnInit {
+export class UserGroupsGridComponent extends GroupsGridComponent implements OnInit {
   @Input()
   modalAppendFromGrid: IBaseEntityModalOptions = {
     component: GroupsGridModalComponent
@@ -41,9 +24,7 @@ export class UserGroupsGridComponent extends GroupsGridComponent
   strings = {
     ...Group.strings,
     deleteTitle: translate('Delete group'),
-    deleteMessage: translate(
-      'Do you really want to delete group "{{title}}" from user?'
-    ),
+    deleteMessage: translate('Do you really want to delete group "{{title}}" from user?'),
     selectTitle: translate('Select groups for append to user')
   };
 
@@ -53,17 +34,9 @@ export class UserGroupsGridComponent extends GroupsGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(GROUPS_CONFIG_TOKEN)
-    protected groupsConfig: IRestProviderOptions<Group>
+    @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions<Group>
   ) {
-    super(
-      modalService,
-      errorsExtractor,
-      translateService,
-      dynamicRepository,
-      messageModalService,
-      groupsConfig
-    );
+    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, groupsConfig);
   }
   ngOnInit() {
     if (!this.mockedItems) {
@@ -72,10 +45,7 @@ export class UserGroupsGridComponent extends GroupsGridComponent
         autoload: !!this.user.id,
         ...this.groupsConfig,
         globalEventResolver: (data: any, action: ProviderActionEnum) => {
-          return (
-            action !== ProviderActionEnum.Create &&
-            action !== ProviderActionEnum.Delete
-          );
+          return action !== ProviderActionEnum.Create && action !== ProviderActionEnum.Delete;
         }
       });
     }
@@ -85,10 +55,7 @@ export class UserGroupsGridComponent extends GroupsGridComponent
         autoload: true,
         ...this.groupsConfig,
         globalEventResolver: (data: any, action: ProviderActionEnum) => {
-          return (
-            action !== ProviderActionEnum.Create &&
-            action !== ProviderActionEnum.Delete
-          );
+          return action !== ProviderActionEnum.Create && action !== ProviderActionEnum.Delete;
         }
       });
     }

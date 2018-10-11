@@ -9,4 +9,4 @@ import { PermissionsGridComponent } from './permissions-grid.component';
   declarations: [PermissionsGridComponent],
   exports: [PermissionsGridComponent, EntityGridModule, PermissionModalModule]
 })
-export class PermissionsGridModule { }
+export class PermissionsGridModule {}

@@ -13,11 +13,7 @@ export class NavSidebarComponent {
   parentUrl = '';
   @Input()
   set routes(routes: any[]) {
-    this.allowedRoutes$.next(
-      routes
-        ? routes.filter((item: any) => item.data && item.data.visible !== false)
-        : []
-    );
+    this.allowedRoutes$.next(routes ? routes.filter((item: any) => item.data && item.data.visible !== false) : []);
     this.sidebardRoutes$.next(
       this.allowedRoutes$
         .getValue()

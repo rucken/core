@@ -8,10 +8,6 @@ import { ContentTypesGridModalComponent } from './content-types-grid-modal.compo
   imports: [CommonModule, EntityGridModalModule, ContentTypesGridModule],
   declarations: [ContentTypesGridModalComponent],
   entryComponents: [ContentTypesGridModalComponent],
-  exports: [
-    ContentTypesGridModalComponent,
-    EntityGridModalModule,
-    ContentTypesGridModule
-  ]
+  exports: [ContentTypesGridModalComponent, EntityGridModalModule, ContentTypesGridModule]
 })
 export class ContentTypesGridModalModule {}

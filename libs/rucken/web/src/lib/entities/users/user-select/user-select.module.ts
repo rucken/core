@@ -9,4 +9,4 @@ import { UserSelectComponent } from './user-select.component';
   declarations: [UserSelectComponent],
   exports: [UserSelectComponent, EntitySelectModule, UsersGridModalModule]
 })
-export class UserSelectModule { }
+export class UserSelectModule {}

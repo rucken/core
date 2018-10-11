@@ -1,14 +1,13 @@
-import { translate, PermissionsGuard } from '@rucken/core';
+import { MetaGuard } from '@ngx-meta/core';
+import { PermissionsGuard, translate } from '@rucken/core';
 import { AdminPageChildrenRoutes } from './admin-page.children-routes';
 import { AdminPageComponent } from './admin-page.component';
-import { MetaGuard } from '@ngx-meta/core';
 
 export const AdminPageRoutes = [
   {
     path: '',
     component: AdminPageComponent,
     canActivate: [PermissionsGuard, MetaGuard],
-    canActivateChild: [PermissionsGuard, MetaGuard],
     data: {
       name: 'admin',
       permissions: {

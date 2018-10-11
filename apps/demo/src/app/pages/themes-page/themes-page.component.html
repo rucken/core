@@ -3,10 +3,10 @@
         <div class="col-sm-3 col-md-2">
             <ul class="nav nav-sidebar">
                 <li
-                    [ngClass]="{'active': themesService.current===theme.url}"
+                    [ngClass]="{'active': (currentTheme$ | async)===theme.url}"
                     *ngFor="let theme of items$ | async">
                     <a
-                        (click)="themesService.current=theme.url"
+                        (click)="setCurrentTheme(theme.url)"
                         href="javascript:void(0)">
                         {{theme.name | translate}}
                     </a>

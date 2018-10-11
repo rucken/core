@@ -7,10 +7,6 @@ import { PermissionSelectComponent } from './permission-select.component';
 @NgModule({
   imports: [CommonModule, EntitySelectModule, PermissionsGridModalModule],
   declarations: [PermissionSelectComponent],
-  exports: [
-    PermissionSelectComponent,
-    EntitySelectModule,
-    PermissionsGridModalModule
-  ]
+  exports: [PermissionSelectComponent, EntitySelectModule, PermissionsGridModalModule]
 })
-export class PermissionSelectModule { }
+export class PermissionSelectModule {}

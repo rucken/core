@@ -29,11 +29,7 @@ export class NavbarComponent {
   title: string;
   @Input()
   set routes(routes: any[]) {
-    this.allowedRoutes$.next(
-      routes
-        ? routes.filter((item: any) => item.data && item.data.visible !== false)
-        : []
-    );
+    this.allowedRoutes$.next(routes ? routes.filter((item: any) => item.data && item.data.visible !== false) : []);
     const allowedRoutes = this.allowedRoutes$.getValue().map((item: any) => {
       let newItem = item.data;
       if (newItem.meta) {
@@ -46,12 +42,8 @@ export class NavbarComponent {
       newItem.redirectTo = item.redirectTo;
       return newItem;
     });
-    this.rightRoutes$.next(
-      allowedRoutes.filter((item: any) => item.align !== 'left')
-    );
-    this.leftRoutes$.next(
-      allowedRoutes.filter((item: any) => item.align === 'left')
-    );
+    this.rightRoutes$.next(allowedRoutes.filter((item: any) => item.align !== 'left'));
+    this.leftRoutes$.next(allowedRoutes.filter((item: any) => item.align === 'left'));
   }
   @Output()
   signIn = new EventEmitter();
@@ -74,10 +66,7 @@ export class NavbarComponent {
   constructor(public router: Router) {}
   @HostListener('document:click', ['$event'])
   onMouseClick(ev: MouseEvent) {
-    if (
-      !this.languagesDropdown ||
-      ev.target !== this.languagesDropdown.nativeElement
-    ) {
+    if (!this.languagesDropdown || ev.target !== this.languagesDropdown.nativeElement) {
       this.langsIsCollapsed = true;
     }
   }

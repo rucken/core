@@ -9,4 +9,4 @@ import { ContentTypesGridComponent } from './content-types-grid.component';
   declarations: [ContentTypesGridComponent],
   exports: [ContentTypesGridComponent, EntityGridModule, ContentTypeModalModule]
 })
-export class ContentTypesGridModule { }
+export class ContentTypesGridModule {}

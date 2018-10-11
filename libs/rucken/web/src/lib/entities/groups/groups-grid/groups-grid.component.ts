@@ -1,17 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ErrorsExtractor,
-  Group,
-  GROUPS_CONFIG_TOKEN,
-  translate
-} from '@rucken/core';
+import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, translate } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
@@ -24,8 +13,7 @@ import { GroupModalComponent } from '../group-modal/group-modal.component';
   templateUrl: './groups-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupsGridComponent extends BaseEntityListComponent<Group>
-  implements OnInit {
+export class GroupsGridComponent extends BaseEntityListComponent<Group> implements OnInit {
   @Input()
   modalItem: IBaseEntityModalOptions = {
     component: GroupModalComponent
@@ -38,8 +26,7 @@ export class GroupsGridComponent extends BaseEntityListComponent<Group>
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(GROUPS_CONFIG_TOKEN)
-    protected groupsConfig: IRestProviderOptions<Group>
+    @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions<Group>
   ) {
     super(dynamicRepository.fork<Group>(Group), modalService, Group);
   }

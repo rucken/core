@@ -1,17 +1,6 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  ContentType,
-  CONTENT_TYPES_CONFIG_TOKEN,
-  ErrorsExtractor,
-  translate
-} from '@rucken/core';
+import { ContentType, CONTENT_TYPES_CONFIG_TOKEN, ErrorsExtractor, translate } from '@rucken/core';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
@@ -24,9 +13,7 @@ import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interf
   templateUrl: './content-types-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContentTypesGridComponent
-  extends BaseEntityListComponent<ContentType>
-  implements OnInit {
+export class ContentTypesGridComponent extends BaseEntityListComponent<ContentType> implements OnInit {
   @Input()
   modalItem: IBaseEntityModalOptions = {
     component: ContentTypeModalComponent
@@ -39,14 +26,9 @@ export class ContentTypesGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(CONTENT_TYPES_CONFIG_TOKEN)
-    protected contentTypesConfig: IRestProviderOptions<ContentType>
+    @Inject(CONTENT_TYPES_CONFIG_TOKEN) protected contentTypesConfig: IRestProviderOptions<ContentType>
   ) {
-    super(
-      dynamicRepository.fork<ContentType>(ContentType),
-      modalService,
-      ContentType
-    );
+    super(dynamicRepository.fork<ContentType>(ContentType), modalService, ContentType);
   }
   ngOnInit() {
     if (!this.mockedItems) {

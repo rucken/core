@@ -7,14 +7,8 @@ import { PipesModule } from '../../pipes/pipes.module';
 import { NavSidebarComponent } from './nav-sidebar.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule.forChild(),
-    NgxPermissionsModule,
-    RouterModule,
-    PipesModule
-  ],
+  imports: [CommonModule, TranslateModule.forChild(), NgxPermissionsModule, RouterModule, PipesModule],
   declarations: [NavSidebarComponent],
   exports: [NavSidebarComponent, PipesModule]
 })
-export class NavSidebarModule { }
+export class NavSidebarModule {}

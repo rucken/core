@@ -1,9 +1,5 @@
 import { plainToClass } from 'class-transformer';
-import {
-  IRestProviderOptions,
-  PaginationMeta,
-  ProviderActionEnum
-} from 'ngx-repository';
+import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
 import { Permission } from '../models/permission';
 
 export const defaultPermissionsConfig: IRestProviderOptions<Permission> = {
@@ -25,10 +21,7 @@ export const defaultPermissionsConfig: IRestProviderOptions<Permission> = {
         }
       }
     },
-    responsePaginationMeta: (
-      data: any,
-      action: ProviderActionEnum
-    ): PaginationMeta => {
+    responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
       return { totalResults: data.body.meta.totalResults, perPage: undefined };
     }
   },

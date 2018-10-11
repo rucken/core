@@ -7,10 +7,6 @@ import { ContentTypeInputComponent } from './content-type-input.component';
 @NgModule({
   imports: [CommonModule, EntityInputModule, ContentTypesGridModalModule],
   declarations: [ContentTypeInputComponent],
-  exports: [
-    ContentTypeInputComponent,
-    EntityInputModule,
-    ContentTypesGridModalModule
-  ]
+  exports: [ContentTypeInputComponent, EntityInputModule, ContentTypesGridModalModule]
 })
 export class ContentTypeInputModule {}

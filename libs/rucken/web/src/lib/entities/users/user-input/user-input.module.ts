@@ -9,4 +9,4 @@ import { UserInputComponent } from './user-input.component';
   declarations: [UserInputComponent],
   exports: [UserInputComponent, EntityInputModule, UsersGridModalModule]
 })
-export class UserInputModule { }
+export class UserInputModule {}

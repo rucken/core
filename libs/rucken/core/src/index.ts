@@ -68,6 +68,7 @@ export * from './lib/modules/transfer-http/transfer-http-response.interface';
 export * from './lib/utils/custom-transforms';
 export * from './lib/utils/custom-validators';
 export * from './lib/utils/errors-extractor';
+export * from './lib/utils/permissions-guard.const';
 export * from './lib/utils/permissions-guard.service';
 export * from './lib/utils/translate';
 export * from './lib/validators/equals-to-other-property.validator';

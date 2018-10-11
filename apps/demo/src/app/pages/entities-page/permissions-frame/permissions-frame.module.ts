@@ -10,11 +10,11 @@ import { PermissionsFrameRoutes } from './permissions-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     RouterModule.forChild(PermissionsFrameRoutes),
     PermissionsGridModule,
     FormsModule
   ],
   declarations: [PermissionsFrameComponent]
 })
-export class PermissionsFrameModule { }
+export class PermissionsFrameModule {}

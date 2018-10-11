@@ -5,19 +5,7 @@ import { MessageModalModule, PipesModule } from '@rucken/web';
 import { NgxRepositoryModule } from 'ngx-repository';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NgxRepositoryModule.forRoot(),
-    MessageModalModule,
-    PipesModule,
-    TranslateModule.forChild()
-  ],
-  exports: [
-    CommonModule,
-    NgxRepositoryModule,
-    MessageModalModule,
-    PipesModule,
-    TranslateModule
-  ]
+  imports: [CommonModule, NgxRepositoryModule.forRoot(), MessageModalModule, PipesModule, TranslateModule.forChild()],
+  exports: [CommonModule, NgxRepositoryModule, MessageModalModule, PipesModule, TranslateModule]
 })
-export class SharedModule { }
+export class SharedModule {}

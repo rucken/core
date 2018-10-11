@@ -9,4 +9,4 @@ import { UsersGridComponent } from './users-grid.component';
   declarations: [UsersGridComponent],
   exports: [UsersGridComponent, EntityGridModule, UserModalModule]
 })
-export class UsersGridModule { }
+export class UsersGridModule {}

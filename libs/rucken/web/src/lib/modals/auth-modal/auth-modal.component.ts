@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { translate } from '@rucken/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BehaviorSubject } from 'rxjs';
@@ -20,9 +14,7 @@ import { IAuthModalOauthProvider } from './interfaces/auth-modal-oauth-provider.
   templateUrl: './auth-modal.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AuthModalComponent
-  extends BasePromptFormModalComponent<AuthModalModel>
-  implements OnInit {
+export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalModel> implements OnInit {
   @Input()
   type: AuthModalTypeEnum;
   @Input()

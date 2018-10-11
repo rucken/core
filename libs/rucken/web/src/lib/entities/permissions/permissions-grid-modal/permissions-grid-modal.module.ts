@@ -8,10 +8,6 @@ import { PermissionsGridModalComponent } from './permissions-grid-modal.componen
   imports: [CommonModule, EntityGridModalModule, PermissionsGridModule],
   declarations: [PermissionsGridModalComponent],
   entryComponents: [PermissionsGridModalComponent],
-  exports: [
-    PermissionsGridModalComponent,
-    EntityGridModalModule,
-    PermissionsGridModule
-  ]
+  exports: [PermissionsGridModalComponent, EntityGridModalModule, PermissionsGridModule]
 })
-export class PermissionsGridModalModule { }
+export class PermissionsGridModalModule {}

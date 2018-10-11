@@ -7,20 +7,9 @@ import { UserGroupsGridModule } from '../user-groups-grid/user-groups-grid.modul
 import { UserModalComponent } from './user-modal.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule.forChild(),
-    BsDatepickerModule,
-    UserGroupsGridModule,
-    PromptFormModalModule
-  ],
+  imports: [CommonModule, TranslateModule.forChild(), BsDatepickerModule, UserGroupsGridModule, PromptFormModalModule],
   declarations: [UserModalComponent],
   entryComponents: [UserModalComponent],
-  exports: [
-    UserModalComponent,
-    BsDatepickerModule,
-    UserGroupsGridModule,
-    PromptFormModalModule
-  ]
+  exports: [UserModalComponent, BsDatepickerModule, UserGroupsGridModule, PromptFormModalModule]
 })
-export class UserModalModule { }
+export class UserModalModule {}

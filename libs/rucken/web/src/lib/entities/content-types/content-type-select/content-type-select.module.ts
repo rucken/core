@@ -7,10 +7,6 @@ import { ContentTypeSelectComponent } from './content-type-select.component';
 @NgModule({
   imports: [CommonModule, EntitySelectModule, ContentTypesGridModalModule],
   declarations: [ContentTypeSelectComponent],
-  exports: [
-    ContentTypeSelectComponent,
-    EntitySelectModule,
-    ContentTypesGridModalModule
-  ]
+  exports: [ContentTypeSelectComponent, EntitySelectModule, ContentTypesGridModalModule]
 })
 export class ContentTypeSelectModule {}

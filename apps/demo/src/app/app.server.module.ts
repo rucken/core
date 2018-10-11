@@ -1,24 +1,17 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  ServerModule,
-  ServerTransferStateModule
-} from '@angular/platform-server';
+import { ServerModule, ServerTransferStateModule } from '@angular/platform-server';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
-import {
-  STORAGE_CONFIG_TOKEN,
-  UniversalStorage,
-  AuthService,
-  TokenService,
-  LangService
-} from '@rucken/core';
+import { AuthService, LangService, STORAGE_CONFIG_TOKEN, TokenService, UniversalStorage } from '@rucken/core';
+import { ThemesService } from '@rucken/web';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { initializeApp } from './shared/utils/initialize-app';
-import { ThemesService } from '@rucken/web';
 
 @NgModule({
   imports: [
+    FontAwesomeModule,
     AppModule,
     ServerModule,
     ModuleMapLoaderModule,
@@ -39,5 +32,4 @@ import { ThemesService } from '@rucken/web';
     }
   ]
 })
-export class AppServerModule {
-}
+export class AppServerModule {}

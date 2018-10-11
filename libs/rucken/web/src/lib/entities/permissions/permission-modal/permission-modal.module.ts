@@ -16,11 +16,6 @@ import { PermissionModalComponent } from './permission-modal.component';
   ],
   declarations: [PermissionModalComponent],
   entryComponents: [PermissionModalComponent],
-  exports: [
-    PermissionModalComponent,
-    PromptFormModalModule,
-    ContentTypeInputModule,
-    ContentTypeSelectModule
-  ]
+  exports: [PermissionModalComponent, PromptFormModalModule, ContentTypeInputModule, ContentTypeSelectModule]
 })
-export class PermissionModalModule { }
+export class PermissionModalModule {}

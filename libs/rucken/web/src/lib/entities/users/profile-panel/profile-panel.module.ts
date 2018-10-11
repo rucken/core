@@ -28,4 +28,4 @@ import { ProfilePanelComponent } from './profile-panel.component';
   declarations: [ProfilePanelComponent],
   exports: [ProfilePanelComponent]
 })
-export class ProfilePanelModule { }
+export class ProfilePanelModule {}

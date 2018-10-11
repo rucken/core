@@ -8,16 +8,10 @@ import { MessageModalComponent } from './message-modal.component';
 import { MessageModalService } from './message-modal.service';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ModalModule.forRoot(),
-    DirectivesModule,
-    TranslateModule.forChild(),
-    FontAwesomeModule
-  ],
+  imports: [CommonModule, ModalModule.forRoot(), DirectivesModule, TranslateModule.forChild(), FontAwesomeModule],
   providers: [MessageModalService],
   declarations: [MessageModalComponent],
   entryComponents: [MessageModalComponent],
   exports: [MessageModalComponent, DirectivesModule]
 })
-export class MessageModalModule { }
+export class MessageModalModule {}

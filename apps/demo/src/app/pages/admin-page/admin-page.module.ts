@@ -7,12 +7,7 @@ import { AdminPageComponent } from './admin-page.component';
 import { AdminPageRoutes } from './admin-page.routes';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    NgxPermissionsModule.forChild(),
-    NavSidebarModule,
-    RouterModule.forChild(AdminPageRoutes)
-  ],
+  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(AdminPageRoutes)],
   declarations: [AdminPageComponent]
 })
-export class AdminPageModule { }
+export class AdminPageModule {}

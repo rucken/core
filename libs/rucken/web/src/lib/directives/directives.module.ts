@@ -8,4 +8,4 @@ import { FocusedDirective } from './focused.directive';
   declarations: [FocusedDirective, DisableControlDirective],
   exports: [FocusedDirective, DisableControlDirective]
 })
-export class DirectivesModule { }
+export class DirectivesModule {}

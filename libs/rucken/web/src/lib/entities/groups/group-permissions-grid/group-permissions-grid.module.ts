@@ -8,4 +8,4 @@ import { GroupPermissionsGridComponent } from './group-permissions-grid.componen
   declarations: [GroupPermissionsGridComponent],
   exports: [GroupPermissionsGridComponent, PermissionsGridModalModule]
 })
-export class GroupPermissionsGridModule { }
+export class GroupPermissionsGridModule {}

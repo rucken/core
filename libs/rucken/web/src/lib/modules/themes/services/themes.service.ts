@@ -1,4 +1,4 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { IStorage, STORAGE_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, Repository } from 'ngx-repository';
@@ -6,7 +6,6 @@ import { BehaviorSubject } from 'rxjs';
 import { THEMES_CONFIG_TOKEN } from '../configs/themes.config';
 import { IThemesConfig } from '../interfaces/themes-config.interface';
 import { Theme } from '../models/theme';
-
 
 export function themesServiceInitializeApp(themesService: ThemesService) {
   return () => themesService.initializeApp();
@@ -22,12 +21,16 @@ export class ThemesService {
   }
   set current(value: string) {
     if (!value) {
-      this._cookies.removeItem(this._themesConfig.storageKeyName);
+      this._cookies.removeItem(this._themesConfig.storageKeyName).then(_ => {
+        this.setStyleLinkHref(value);
+        this.current$.next(value);
+      });
     } else {
-      this._cookies.setItem(this._themesConfig.storageKeyName, value);
+      this._cookies.setItem(this._themesConfig.storageKeyName, value).then(_ => {
+        this.setStyleLinkHref(value);
+        this.current$.next(value);
+      });
     }
-    this.setStyleLinkHref(value);
-    this.current$.next(value);
   }
   repository: Repository<Theme>;
   current$ = new BehaviorSubject<string>(undefined);
@@ -40,10 +43,7 @@ export class ThemesService {
     private _dynamicRepository: DynamicRepository
   ) {
     this.repository = this._dynamicRepository.fork<Theme>(Theme);
-    const items = (this._themesConfig.mockedItems
-      ? this._themesConfig.mockedItems
-      : []
-    ).map((item, index) => {
+    const items = (this._themesConfig.mockedItems ? this._themesConfig.mockedItems : []).map((item, index) => {
       item.id = index + 1;
       return item;
     });
@@ -54,24 +54,22 @@ export class ThemesService {
       }
     });
   }
-  async initCurrent() {
-    const data = await this._cookies.getItem(
-      this._themesConfig.storageKeyName
-    ) as string;
-    if (data && data !== 'undefined') {
-      return data;
-    }
-    return this.current;
+  initCurrent() {
+    return new Promise((resolve, reject) => {
+      this._cookies.getItem(this._themesConfig.storageKeyName).then((data: string) => {
+        if (data && data !== 'undefined') {
+          resolve(data);
+        } else {
+          resolve(this.current);
+        }
+      });
+    });
   }
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.initCurrent().then(value => {
-        this.current = value;
-        if (isPlatformBrowser(this._platformId)) {
-          setTimeout(_ => resolve(), 100);
-        } else {
-          resolve();
-        }
+        this.current = value as string;
+        resolve();
       });
     });
   }

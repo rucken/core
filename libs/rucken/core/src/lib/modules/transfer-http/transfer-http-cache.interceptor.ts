@@ -1,12 +1,5 @@
 import { isPlatformServer } from '@angular/common';
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpHeaders,
-  HttpInterceptor,
-  HttpRequest,
-  HttpResponse
-} from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { TransferState, makeStateKey } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
@@ -16,10 +9,7 @@ import { ITransferHttpResponse } from './transfer-http-response.interface';
 
 @Injectable()
 export class TransferHttpCacheInterceptor implements HttpInterceptor {
-  constructor(
-    @Inject(PLATFORM_ID) private _platformId: Object,
-    private transferState: TransferState
-  ) {}
+  constructor(@Inject(PLATFORM_ID) private _platformId: Object, private transferState: TransferState) {}
   getHeadersMap(headers: HttpHeaders) {
     const headersMap: { [name: string]: string[] } = {};
     for (const key of headers.keys()) {
@@ -42,16 +32,10 @@ export class TransferHttpCacheInterceptor implements HttpInterceptor {
     }
     return makeStateKey<ITransferHttpResponse>(key);
   }
-  intercept(
-    req: HttpRequest<any>,
-    next: HttpHandler
-  ): Observable<HttpEvent<any>> {
+  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const storeKey = this.getStoreKey(req);
     if (this.transferState.hasKey(storeKey)) {
-      const response = this.transferState.get(
-        storeKey,
-        {} as ITransferHttpResponse
-      );
+      const response = this.transferState.get(storeKey, {} as ITransferHttpResponse);
       if (!isPlatformServer(this._platformId)) {
         this.transferState.remove(storeKey);
       }

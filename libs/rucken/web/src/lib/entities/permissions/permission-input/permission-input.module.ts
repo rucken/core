@@ -7,10 +7,6 @@ import { PermissionInputComponent } from './permission-input.component';
 @NgModule({
   imports: [CommonModule, EntityInputModule, PermissionsGridModalModule],
   declarations: [PermissionInputComponent],
-  exports: [
-    PermissionInputComponent,
-    EntityInputModule,
-    PermissionsGridModalModule
-  ]
+  exports: [PermissionInputComponent, EntityInputModule, PermissionsGridModalModule]
 })
-export class PermissionInputModule { }
+export class PermissionInputModule {}

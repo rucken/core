@@ -1,17 +1,6 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  Input,
-  Renderer2,
-  ChangeDetectionStrategy
-} from '@angular/core';
-import {
-  DynamicFormGroup,
-  IShortValidationErrors
-} from 'ngx-dynamic-form-builder';
-import { Observable } from 'rxjs';
-import { of } from 'rxjs';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import { DynamicFormGroup } from 'ngx-dynamic-form-builder';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
@@ -29,10 +18,7 @@ export class FormGroupComponent implements AfterViewInit {
     if (this.form && (this.checkIsDirty !== true || this.form.dirty)) {
       return this.form.customValidateErrors.pipe(
         map(
-          customValidateErrors =>
-            customValidateErrors[this.name]
-              ? (customValidateErrors[this.name] as string[])
-              : []
+          customValidateErrors => (customValidateErrors[this.name] ? (customValidateErrors[this.name] as string[]) : [])
         )
       );
     } else {
