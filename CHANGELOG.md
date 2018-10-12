@@ -1,3 +1,11 @@
+<a name="3.3.5"></a>
+
+## [3.3.5](https://github.com/rucken/core/compare/3.3.4...3.3.5) (2018-10-12)
+
+### Bug Fixes
+
+- Change method of set current from value from storage ([e989b59](https://github.com/rucken/core/commit/e989b59))
+
 <a name="3.3.4"></a>
 
 ## [3.3.4](https://github.com/rucken/core/compare/3.3.3...3.3.4) (2018-10-11)
