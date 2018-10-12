@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { IStorage, STORAGE_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, Repository } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
@@ -21,13 +21,13 @@ export class ThemesService {
   }
   set current(value: string) {
     if (!value) {
-      this._cookies.removeItem(this._themesConfig.storageKeyName).then(_ => {
-        this.setStyleLinkHref(value);
+      this.setStyleLinkHref(value);
+      this._storage.removeItem(this._themesConfig.storageKeyName).then(_ => {
         this.current$.next(value);
       });
     } else {
-      this._cookies.setItem(this._themesConfig.storageKeyName, value).then(_ => {
-        this.setStyleLinkHref(value);
+      this.setStyleLinkHref(value);
+      this._storage.setItem(this._themesConfig.storageKeyName, value).then(_ => {
         this.current$.next(value);
       });
     }
@@ -37,8 +37,7 @@ export class ThemesService {
 
   constructor(
     @Inject(THEMES_CONFIG_TOKEN) private _themesConfig: IThemesConfig,
-    @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
-    @Inject(PLATFORM_ID) private _platformId: Object,
+    @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     @Inject(DOCUMENT) private _document: any,
     private _dynamicRepository: DynamicRepository
   ) {
@@ -56,7 +55,7 @@ export class ThemesService {
   }
   initCurrent() {
     return new Promise((resolve, reject) => {
-      this._cookies.getItem(this._themesConfig.storageKeyName).then((data: string) => {
+      this._storage.getItem(this._themesConfig.storageKeyName).then((data: string) => {
         if (data && data !== 'undefined') {
           resolve(data);
         } else {

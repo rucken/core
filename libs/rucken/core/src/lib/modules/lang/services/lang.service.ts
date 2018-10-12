@@ -1,4 +1,4 @@
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject } from 'rxjs';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
@@ -29,13 +29,13 @@ export class LangService {
   }
   set current(value: string) {
     if (!value) {
-      this._cookies.removeItem(this._langConfig.storageKeyName).then(_ => {
-        this._translateService.use(value);
+      this._translateService.use(value);
+      this._storage.removeItem(this._langConfig.storageKeyName).then(_ => {
         this.current$.next(value);
       });
     } else {
-      this._cookies.setItem(this._langConfig.storageKeyName, value).then(_ => {
-        this._translateService.use(value);
+      this._translateService.use(value);
+      this._storage.setItem(this._langConfig.storageKeyName, value).then(_ => {
         this.current$.next(value);
       });
     }
@@ -45,8 +45,7 @@ export class LangService {
 
   constructor(
     @Inject(LANG_CONFIG_TOKEN) private _langConfig: ILangConfig,
-    @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
-    @Inject(PLATFORM_ID) private _platformId: Object,
+    @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     private _translateService: TranslateService
   ) {}
   async initLanguages() {
@@ -61,7 +60,7 @@ export class LangService {
   }
   initCurrent() {
     return new Promise((resolve, reject) => {
-      this._cookies.getItem(this._langConfig.storageKeyName).then((data: string) => {
+      this._storage.getItem(this._langConfig.storageKeyName).then((data: string) => {
         if (data && data !== 'undefined') {
           resolve(data);
         } else {
