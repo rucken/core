@@ -1,7 +1,7 @@
 import { AuthService, LangService, TokenService } from '@rucken/core';
 import { ThemesService } from '@rucken/web';
 
-export function initializeApp(
+export function initializeServerApp(
   authService: AuthService,
   tokenService: TokenService,
   themesService: ThemesService,

@@ -1,12 +1,12 @@
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { REQUEST } from '@nguniversal/express-engine/tokens';
-import { STORAGE_CONFIG_TOKEN, BrowserStorage, AuthService, TokenService, LangService } from '@rucken/core';
+import { BrowserStorage, LangService, STORAGE_CONFIG_TOKEN, TokenService } from '@rucken/core';
+import { ThemesService } from '@rucken/web';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
-import { initializeApp } from './shared/utils/initialize-app';
-import { ThemesService } from '@rucken/web';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { initializeBrowserApp } from './shared/utils/initialize-browser-app';
 
 @NgModule({
   bootstrap: [AppComponent],
@@ -22,9 +22,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     { provide: 'ORIGIN_URL', useValue: location.origin },
     {
       provide: APP_INITIALIZER,
-      useFactory: initializeApp,
+      useFactory: initializeBrowserApp,
       multi: true,
-      deps: [AuthService, TokenService, ThemesService, LangService]
+      deps: [TokenService, ThemesService, LangService]
     }
   ]
 })

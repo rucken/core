@@ -44,4 +44,4 @@ export * from './pages/themes-page/themes-page.module';
 export * from './pages/themes-page/themes-page.routes';
 export * from './shared/shared.module';
 export * from './shared/exceptions/error.handler';
-export * from './shared/utils/initialize-app';
+export * from './shared/utils/initialize-browser-app';

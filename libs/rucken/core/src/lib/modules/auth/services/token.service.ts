@@ -18,9 +18,9 @@ export class TokenService {
   }
   set current(value: string) {
     if (!value) {
-      this._cookies.removeItem(this._jwtConfig.storageKeyName).then(_ => this.current$.next(undefined));
+      this._storage.removeItem(this._jwtConfig.storageKeyName).then(_ => this.current$.next(undefined));
     } else {
-      this._cookies.setItem(this._jwtConfig.storageKeyName, value).then(_ => this.current$.next(value));
+      this._storage.setItem(this._jwtConfig.storageKeyName, value).then(_ => this.current$.next(value));
     }
   }
   current$ = new BehaviorSubject<string>(undefined);
@@ -30,12 +30,12 @@ export class TokenService {
 
   constructor(
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
-    @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
+    @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {}
   initCurrent() {
     return new Promise((resolve, reject) => {
-      this._cookies.getItem(this._jwtConfig.storageKeyName).then((data: string) => {
+      this._storage.getItem(this._jwtConfig.storageKeyName).then((data: string) => {
         if (data && data !== 'undefined') {
           resolve(data);
         } else {

@@ -1,15 +1,14 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { MetaLoader, PageTitlePositioning } from '@ngx-meta/core';
-import { MetaStaticLoader } from '@ngx-meta/core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
-import { defineLocale } from 'ngx-bootstrap/chronos';
-import { RuI18n } from './i18n/ru.i18n';
-import { LangModule, RuI18n as CoreRuI18n, translate, AuthEmptyComponent, OauthGuard } from '@rucken/core';
+import { AuthEmptyComponent, OauthGuard, RuI18n as CoreRuI18n, translate } from '@rucken/core';
 import { RuI18n as WebRuI18n } from '@rucken/web';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { AppRoutes } from './app.routes';
+import { RuI18n } from './i18n/ru.i18n';
 
 library.add(fas, fab);
 
@@ -39,7 +38,9 @@ export const AuthModalSignUpInfoMessage = '';
 
 export function appMetaFactory(translateService: TranslateService): MetaLoader {
   return new MetaStaticLoader({
-    callback: (key: string) => translateService.get(key),
+    callback: (key: string) => {
+      return translateService.get(key);
+    },
     pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
     pageTitleSeparator: ' - ',
     applicationName: ApplicationName,
