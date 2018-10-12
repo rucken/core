@@ -166,33 +166,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { ContentTypesGridModule } from &#x27;@rucken/web&#x27;;
+import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../../shared/shared.module&#x27;;
 import { ContentTypesFrameComponent } from &#x27;./content-types-frame.component&#x27;;
 import { ContentTypesFrameRoutes } from &#x27;./content-types-frame.routes&#x27;;
-import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     RouterModule.forChild(ContentTypesFrameRoutes),
     ContentTypesGridModule,
     FormsModule
   ],
   declarations: [ContentTypesFrameComponent]
 })
-export class ContentTypesFrameModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ContentTypesFrameModule,
-      providers: []
-    };
-  }
-}
+export class ContentTypesFrameModule {}
 </code></pre>
     </div>
 </div>

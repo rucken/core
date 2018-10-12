@@ -132,12 +132,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_platformId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>, ele: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, renderer: <a href="https://angular.io/api/core/Renderer" target="_blank">Renderer</a>)</code>
+<code>constructor(_platformId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>, _ele: <a href="https://angular.io/api/core/ElementRef" target="_blank">ElementRef</a>, _renderer: <a href="https://angular.io/api/core/Renderer" target="_blank">Renderer</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:9</a></div>
                             </td>
                         </tr>
 
@@ -167,7 +167,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>ele</td>
+                                                        <td>_ele</td>
                                                   
                                                         <td>
                                                                     <code><a href="https://angular.io/api/core/ElementRef" target="_blank" >ElementRef</a></code>
@@ -179,7 +179,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>renderer</td>
+                                                        <td>_renderer</td>
                                                   
                                                         <td>
                                                                     <code><a href="https://angular.io/api/core/Renderer" target="_blank" >Renderer</a></code>
@@ -217,7 +217,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:17</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:9</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -253,7 +253,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/directives/focused.directive.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -278,15 +278,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
-import {
-  AfterContentInit,
-  Directive,
-  ElementRef,
-  Inject,
-  Input,
-  PLATFORM_ID,
-  Renderer
-} from &#x27;@angular/core&#x27;;
+import { AfterContentInit, Directive, ElementRef, Inject, Input, PLATFORM_ID, Renderer } from &#x27;@angular/core&#x27;;
 
 @Directive({
   selector: &#x27;[focused]&#x27;
@@ -297,18 +289,14 @@ export class FocusedDirective implements AfterContentInit {
 
   constructor(
     @Inject(PLATFORM_ID) private _platformId: Object,
-    private ele: ElementRef,
-    private renderer: Renderer
+    private _ele: ElementRef,
+    private _renderer: Renderer
   ) {}
 
   ngAfterContentInit() {
     if (isPlatformBrowser(this._platformId)) {
       if (this.focused || this.focused &#x3D;&#x3D;&#x3D; undefined || this.focused &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
-        setTimeout(
-          _ &#x3D;&gt;
-            this.renderer.invokeElementMethod(this.ele.nativeElement, &#x27;focus&#x27;),
-          500
-        );
+        setTimeout(_ &#x3D;&gt; this._renderer.invokeElementMethod(this._ele.nativeElement, &#x27;focus&#x27;), 500);
       }
     }
   }

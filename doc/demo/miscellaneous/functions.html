@@ -63,7 +63,10 @@
                             <a href="#appMetaFactory" title="apps/demo/src/app/app.config.ts"><b>appMetaFactory</b>&nbsp;&nbsp;&nbsp;(apps/.../app.config.ts)</a>
                         </li>
                         <li>
-                            <a href="#initializeApp" title="apps/demo/src/app/shared/utils/initialize-app.ts"><b>initializeApp</b>&nbsp;&nbsp;&nbsp;(apps/.../initialize-app.ts)</a>
+                            <a href="#initializeBrowserApp" title="apps/demo/src/app/shared/utils/initialize-browser-app.ts"><b>initializeBrowserApp</b>&nbsp;&nbsp;&nbsp;(apps/.../initialize-browser-app.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#initializeServerApp" title="apps/demo/src/app/shared/utils/initialize-server-app.ts"><b>initializeServerApp</b>&nbsp;&nbsp;&nbsp;(apps/.../initialize-server-app.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -128,24 +131,98 @@
             </tbody>
         </table>
 </section>
-    <h3>apps/demo/src/app/shared/utils/initialize-app.ts</h3>
+    <h3>apps/demo/src/app/shared/utils/initialize-browser-app.ts</h3>
     <section>
     <h3></h3>        <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="initializeApp"></a>
+                        <a name="initializeBrowserApp"></a>
                         <span class="name">
                             <b>
-                            initializeApp
+                            initializeBrowserApp
                             </b>
-                            <a href="#initializeApp"><span class="icon ion-ios-link"></span></a>
+                            <a href="#initializeBrowserApp"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>initializeApp(authService: undefined, tokenService: undefined, themesService: undefined)</code>
+<code>initializeBrowserApp(tokenService: undefined, themesService: undefined, langService: undefined)</code>
+                    </td>
+                </tr>
+
+
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>tokenService</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>themesService</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>langService</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+    <h3>apps/demo/src/app/shared/utils/initialize-server-app.ts</h3>
+    <section>
+    <h3></h3>        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="initializeServerApp"></a>
+                        <span class="name">
+                            <b>
+                            initializeServerApp
+                            </b>
+                            <a href="#initializeServerApp"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>initializeServerApp(authService: undefined, tokenService: undefined, themesService: undefined, langService: undefined)</code>
                     </td>
                 </tr>
 
@@ -185,6 +262,15 @@
                                                 </tr>
                                                 <tr>
                                                         <td>themesService</td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>langService</td>
                                                     
                                                     <td>
                                                             No

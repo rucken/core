@@ -180,7 +180,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">libs/rucken/core/src/lib/modules/account/account.service.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">libs/rucken/core/src/lib/modules/account/account.service.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -245,16 +245,10 @@ import { IAccountConfig } from &#x27;./interfaces/account-config.interface&#x27;
 
 @Injectable()
 export class AccountService {
-  constructor(
-    @Inject(ACCOUNT_CONFIG_TOKEN) private accountConfig: IAccountConfig,
-    private _httpClient: HttpClient
-  ) {}
+  constructor(@Inject(ACCOUNT_CONFIG_TOKEN) private accountConfig: IAccountConfig, private _httpClient: HttpClient) {}
   update(user: User): Observable&lt;User&gt; {
     return this._httpClient
-      .post(
-        this.accountConfig.apiUri + this.accountConfig.updateUri,
-        classToPlain(user)
-      )
+      .post(this.accountConfig.apiUri + this.accountConfig.updateUri, classToPlain(user))
       .pipe(map(data &#x3D;&gt; plainToClass(User, data)));
   }
 }

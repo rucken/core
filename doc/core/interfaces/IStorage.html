@@ -153,7 +153,7 @@
                     <td class="col-md-4">
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                     </td>
@@ -219,7 +219,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>string | null</code>
+                                <b>Returns : </b>    <code>Promise&lt;string | null&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -288,7 +288,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>string | null</code>
+                                <b>Returns : </b>    <code>Promise&lt;string | null&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -357,7 +357,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -438,7 +438,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -522,11 +522,11 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface IStorage {
   readonly length: number;
-  clear(): void;
-  getItem(key: string): string | null;
-  key(index: number): string | null;
-  removeItem(key: string): void;
-  setItem(key: string, data: string): void;
+  clear(): Promise&lt;any&gt;;
+  getItem(key: string): Promise&lt;string | null&gt;;
+  key(index: number): Promise&lt;string | null&gt;;
+  removeItem(key: string): Promise&lt;any&gt;;
+  setItem(key: string, data: string): Promise&lt;any&gt;;
   [key: string]: any;
   [index: number]: string;
 }

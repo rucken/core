@@ -274,14 +274,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { DirectivesModule } from &#x27;../../directives/directives.module&#x27;;
+import { EntityModalModule } from &#x27;../entity-modal/entity-modal.module&#x27;;
 import { FormGroupModule } from &#x27;../form-group/form-group.module&#x27;;
 import { EntityGridModalComponent } from &#x27;./entity-grid-modal.component&#x27;;
-import { EntityModalModule } from &#x27;../entity-modal/entity-modal.module&#x27;;
-import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 
 @NgModule({
   imports: [
@@ -305,14 +305,7 @@ import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
     EntityModalModule
   ]
 })
-export class EntityGridModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntityGridModalModule,
-      providers: []
-    };
-  }
-}
+export class EntityGridModalModule {}
 </code></pre>
     </div>
 </div>

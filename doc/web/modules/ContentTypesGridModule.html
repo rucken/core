@@ -236,7 +236,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { EntityGridModule } from &#x27;../../../components/entity-grid/entity-grid.module&#x27;;
 import { ContentTypeModalModule } from &#x27;../content-type-modal/content-type-modal.module&#x27;;
 import { ContentTypesGridComponent } from &#x27;./content-types-grid.component&#x27;;
@@ -246,14 +246,7 @@ import { ContentTypesGridComponent } from &#x27;./content-types-grid.component&#
   declarations: [ContentTypesGridComponent],
   exports: [ContentTypesGridComponent, EntityGridModule, ContentTypeModalModule]
 })
-export class ContentTypesGridModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ContentTypesGridModule,
-      providers: []
-    };
-  }
-}
+export class ContentTypesGridModule {}
 </code></pre>
     </div>
 </div>

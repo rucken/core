@@ -160,7 +160,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/rucken/web/src/lib/modals/auth-modal/auth-modal.model.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">libs/rucken/web/src/lib/modals/auth-modal/auth-modal.model.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -243,7 +243,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/web/src/lib/modals/auth-modal/auth-modal.model.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">libs/rucken/web/src/lib/modals/auth-modal/auth-modal.model.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -287,7 +287,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/web/src/lib/modals/auth-modal/auth-modal.model.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">libs/rucken/web/src/lib/modals/auth-modal/auth-modal.model.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -363,17 +363,11 @@ export class AuthModalModel implements IModel {
   };
   id: number &#x3D; undefined;
   @IsNotEmpty({
-    groups: [
-      AuthModalTypeEnum.SignIn.toString(),
-      AuthModalTypeEnum.SignUp.toString()
-    ]
+    groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
   })
   email: string &#x3D; undefined;
   @IsNotEmpty({
-    groups: [
-      AuthModalTypeEnum.SignIn.toString(),
-      AuthModalTypeEnum.SignUp.toString()
-    ]
+    groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
   })
   password: string &#x3D; undefined;
   @Validate(EqualsToOtherProperty, [&#x27;password&#x27;], {

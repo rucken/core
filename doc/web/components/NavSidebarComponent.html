@@ -184,7 +184,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:41</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -302,7 +302,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -337,7 +337,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:39</a></div>
                             </td>
                         </tr>
 
@@ -371,7 +371,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/rucken/web/src/lib/components/nav-sidebar/nav-sidebar.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -463,11 +463,7 @@ export class NavSidebarComponent {
   parentUrl &#x3D; &#x27;&#x27;;
   @Input()
   set routes(routes: any[]) {
-    this.allowedRoutes$.next(
-      routes
-        ? routes.filter((item: any) &#x3D;&gt; item.data &amp;&amp; item.data.visible !&#x3D;&#x3D; false)
-        : []
-    );
+    this.allowedRoutes$.next(routes ? routes.filter((item: any) &#x3D;&gt; item.data &amp;&amp; item.data.visible !&#x3D;&#x3D; false) : []);
     this.sidebardRoutes$.next(
       this.allowedRoutes$
         .getValue()

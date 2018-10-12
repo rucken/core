@@ -244,7 +244,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
@@ -268,23 +268,9 @@ import { PromptFormModalComponent } from &#x27;./prompt-form-modal.component&#x2
   ],
   declarations: [PromptFormModalComponent],
   entryComponents: [PromptFormModalComponent],
-  exports: [
-    PromptFormModalComponent,
-    ReactiveFormsModule,
-    FormsModule,
-    DirectivesModule,
-    PipesModule,
-    FormGroupModule
-  ]
+  exports: [PromptFormModalComponent, ReactiveFormsModule, FormsModule, DirectivesModule, PipesModule, FormGroupModule]
 })
-export class PromptFormModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PromptFormModalModule,
-      providers: []
-    };
-  }
-}
+export class PromptFormModalModule {}
 </code></pre>
     </div>
 </div>

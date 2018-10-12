@@ -166,26 +166,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule, APP_INITIALIZER } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { APP_INITIALIZER, NgModule } from &#x27;@angular/core&#x27;;
 import { NoopAnimationsModule } from &#x27;@angular/platform-browser/animations&#x27;;
-import {
-  ServerModule,
-  ServerTransferStateModule
-} from &#x27;@angular/platform-server&#x27;;
+import { ServerModule, ServerTransferStateModule } from &#x27;@angular/platform-server&#x27;;
+import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { ModuleMapLoaderModule } from &#x27;@nguniversal/module-map-ngfactory-loader&#x27;;
-import {
-  STORAGE_CONFIG_TOKEN,
-  UniversalStorage,
-  AuthService,
-  TokenService
-} from &#x27;@rucken/core&#x27;;
+import { AuthService, LangService, STORAGE_CONFIG_TOKEN, TokenService, UniversalStorage } from &#x27;@rucken/core&#x27;;
+import { ThemesService } from &#x27;@rucken/web&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
 import { AppModule } from &#x27;./app.module&#x27;;
-import { initializeApp } from &#x27;./shared/utils/initialize-app&#x27;;
-import { ThemesService } from &#x27;@rucken/web&#x27;;
+import { initializeServerApp } from &#x27;./shared/utils/initialize-server-app&#x27;;
 
 @NgModule({
   imports: [
+    FontAwesomeModule,
     AppModule,
     ServerModule,
     ModuleMapLoaderModule,
@@ -200,15 +194,13 @@ import { ThemesService } from &#x27;@rucken/web&#x27;;
     },
     {
       provide: APP_INITIALIZER,
-      useFactory: initializeApp,
+      useFactory: initializeServerApp,
       multi: true,
-      deps: [AuthService, TokenService, ThemesService]
+      deps: [AuthService, TokenService, ThemesService, LangService]
     }
   ]
 })
-export class AppServerModule {
-  static forRoot() {}
-}
+export class AppServerModule {}
 </code></pre>
     </div>
 </div>

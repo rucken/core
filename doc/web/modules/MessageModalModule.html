@@ -238,35 +238,22 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
+import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { ModalModule } from &#x27;ngx-bootstrap/modal&#x27;;
 import { DirectivesModule } from &#x27;../../directives/directives.module&#x27;;
 import { MessageModalComponent } from &#x27;./message-modal.component&#x27;;
 import { MessageModalService } from &#x27;./message-modal.service&#x27;;
-import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ModalModule.forRoot(),
-    DirectivesModule,
-    TranslateModule.forChild(),
-    FontAwesomeModule
-  ],
+  imports: [CommonModule, ModalModule.forRoot(), DirectivesModule, TranslateModule.forChild(), FontAwesomeModule],
   providers: [MessageModalService],
   declarations: [MessageModalComponent],
   entryComponents: [MessageModalComponent],
   exports: [MessageModalComponent, DirectivesModule]
 })
-export class MessageModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: MessageModalModule,
-      providers: []
-    };
-  }
-}
+export class MessageModalModule {}
 </code></pre>
     </div>
 </div>

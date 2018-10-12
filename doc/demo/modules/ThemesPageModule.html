@@ -166,7 +166,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { SharedModule } from &#x27;../../shared/shared.module&#x27;;
 import { ThemesPageComponent } from &#x27;./themes-page.component&#x27;;
@@ -176,14 +176,7 @@ import { ThemesPageRoutes } from &#x27;./themes-page.routes&#x27;;
   imports: [SharedModule, RouterModule.forChild(ThemesPageRoutes)],
   declarations: [ThemesPageComponent]
 })
-export class ThemesPageModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ThemesPageModule,
-      providers: []
-    };
-  }
-}
+export class ThemesPageModule {}
 </code></pre>
     </div>
 </div>

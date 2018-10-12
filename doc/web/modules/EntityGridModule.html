@@ -214,15 +214,15 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { ModalModule } from &#x27;ngx-bootstrap/modal&#x27;;
 import { PaginationModule } from &#x27;ngx-bootstrap/pagination&#x27;;
-import { PipesModule } from &#x27;../../pipes/pipes.module&#x27;;
 import { MessageModalModule } from &#x27;../../modals/message-modal/message-modal.module&#x27;;
+import { PipesModule } from &#x27;../../pipes/pipes.module&#x27;;
 import { EntityGridComponent } from &#x27;./entity-grid.component&#x27;;
-import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 @NgModule({
   imports: [
     CommonModule,
@@ -237,22 +237,9 @@ import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
   ],
   declarations: [EntityGridComponent],
   entryComponents: [EntityGridComponent],
-  exports: [
-    EntityGridComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    PipesModule,
-    MessageModalModule
-  ]
+  exports: [EntityGridComponent, FormsModule, ReactiveFormsModule, PipesModule, MessageModalModule]
 })
-export class EntityGridModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntityGridModule,
-      providers: []
-    };
-  }
-}
+export class EntityGridModule {}
 </code></pre>
     </div>
 </div>

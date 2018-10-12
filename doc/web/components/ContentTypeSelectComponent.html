@@ -204,7 +204,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -323,7 +323,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:17</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -355,7 +355,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in ContentTypesGridComponent:31</div>
+                                    <div class="io-line">Defined in ContentTypesGridComponent:18</div>
                             </td>
                         </tr>
             </tbody>
@@ -381,7 +381,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in ContentTypesGridComponent:35</div>
+                                    <div class="io-line">Defined in ContentTypesGridComponent:22</div>
                             </td>
                         </tr>
             </tbody>
@@ -417,7 +417,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -498,7 +498,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -542,7 +542,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in ContentTypesGridComponent:51</div>
+                                    <div class="io-line">Defined in ContentTypesGridComponent:33</div>
                             </td>
                         </tr>
 
@@ -593,7 +593,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -632,7 +632,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-select/content-type-select.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -673,7 +673,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in ContentTypesGridComponent:37</div>
+                                    <div class="io-line">Defined in ContentTypesGridComponent:24</div>
                             </td>
                         </tr>
 
@@ -686,20 +686,10 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject,
-  Input,
-  OnInit
-} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from &#x27;@angular/core&#x27;;
 import { FormControl } from &#x27;@angular/forms&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import {
-  ContentType,
-  CONTENT_TYPES_CONFIG_TOKEN,
-  ErrorsExtractor
-} from &#x27;@rucken/core&#x27;;
+import { ContentType, CONTENT_TYPES_CONFIG_TOKEN, ErrorsExtractor } from &#x27;@rucken/core&#x27;;
 import { BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
 import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x27;;
 import { MessageModalService } from &#x27;../../../modals/message-modal/message-modal.service&#x27;;
@@ -710,8 +700,7 @@ import { ContentTypesGridComponent } from &#x27;../content-types-grid/content-ty
   templateUrl: &#x27;./content-type-select.component.html&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContentTypeSelectComponent extends ContentTypesGridComponent
-  implements OnInit {
+export class ContentTypeSelectComponent extends ContentTypesGridComponent implements OnInit {
   @Input()
   searchField: FormControl &#x3D; new FormControl();
 
@@ -723,17 +712,9 @@ export class ContentTypeSelectComponent extends ContentTypesGridComponent
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
     protected messageModalService: MessageModalService,
-    @Inject(CONTENT_TYPES_CONFIG_TOKEN)
-    protected contentTypesConfig: IRestProviderOptions&lt;ContentType&gt;
+    @Inject(CONTENT_TYPES_CONFIG_TOKEN) protected contentTypesConfig: IRestProviderOptions&lt;ContentType&gt;
   ) {
-    super(
-      modalService,
-      errorsExtractor,
-      translateService,
-      dynamicRepository,
-      messageModalService,
-      contentTypesConfig
-    );
+    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, contentTypesConfig);
   }
   ngOnInit() {
     if (!this.mockedItems) {

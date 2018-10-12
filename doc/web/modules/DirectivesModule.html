@@ -197,7 +197,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { DisableControlDirective } from &#x27;./disable-control.directive&#x27;;
 import { FocusedDirective } from &#x27;./focused.directive&#x27;;
 
@@ -206,14 +206,7 @@ import { FocusedDirective } from &#x27;./focused.directive&#x27;;
   declarations: [FocusedDirective, DisableControlDirective],
   exports: [FocusedDirective, DisableControlDirective]
 })
-export class DirectivesModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: DirectivesModule,
-      providers: []
-    };
-  }
-}
+export class DirectivesModule {}
 </code></pre>
     </div>
 </div>

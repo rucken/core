@@ -369,12 +369,7 @@ export class PermPipe implements PipeTransform, OnDestroy {
     this._destroyed$.next(true);
     this._destroyed$.complete();
   }
-  transform(
-    key: string | string[],
-    defaultValue?: boolean,
-    trueValue?: any,
-    falseValue?: any
-  ): any {
+  transform(key: string | string[], defaultValue?: boolean, trueValue?: any, falseValue?: any): any {
     if (defaultValue &#x3D;&#x3D;&#x3D; undefined) {
       defaultValue &#x3D; true;
     }
@@ -385,17 +380,15 @@ export class PermPipe implements PipeTransform, OnDestroy {
       falseValue &#x3D; false;
     }
     return new Observable&lt;boolean&gt;(observer &#x3D;&gt;
-      this._permissionsService.permissions$
-        .pipe(takeUntil(this._destroyed$))
-        .subscribe(permissions &#x3D;&gt; {
-          if (Object.keys(permissions).length) {
-            this._permissionsService.hasPermission(key).then(result &#x3D;&gt; {
-              observer.next(result ? trueValue : falseValue);
-            });
-          } else {
-            observer.next(defaultValue ? trueValue : falseValue);
-          }
-        })
+      this._permissionsService.permissions$.pipe(takeUntil(this._destroyed$)).subscribe(permissions &#x3D;&gt; {
+        if (Object.keys(permissions).length) {
+          this._permissionsService.hasPermission(key).then(result &#x3D;&gt; {
+            observer.next(result ? trueValue : falseValue);
+          });
+        } else {
+          observer.next(defaultValue ? trueValue : falseValue);
+        }
+      })
     );
   }
 }

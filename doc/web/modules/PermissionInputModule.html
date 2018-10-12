@@ -236,7 +236,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { EntityInputModule } from &#x27;../../../components/entity-input/entity-input.module&#x27;;
 import { PermissionsGridModalModule } from &#x27;../permissions-grid-modal/permissions-grid-modal.module&#x27;;
 import { PermissionInputComponent } from &#x27;./permission-input.component&#x27;;
@@ -244,20 +244,9 @@ import { PermissionInputComponent } from &#x27;./permission-input.component&#x27
 @NgModule({
   imports: [CommonModule, EntityInputModule, PermissionsGridModalModule],
   declarations: [PermissionInputComponent],
-  exports: [
-    PermissionInputComponent,
-    EntityInputModule,
-    PermissionsGridModalModule
-  ]
+  exports: [PermissionInputComponent, EntityInputModule, PermissionsGridModalModule]
 })
-export class PermissionInputModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PermissionInputModule,
-      providers: []
-    };
-  }
-}
+export class PermissionInputModule {}
 </code></pre>
     </div>
 </div>

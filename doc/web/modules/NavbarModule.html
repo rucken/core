@@ -167,13 +167,13 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { CollapseModule } from &#x27;ngx-bootstrap/collapse&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
-import { NavbarComponent } from &#x27;./navbar.component&#x27;;
 import { PipesModule } from &#x27;../../pipes/pipes.module&#x27;;
+import { NavbarComponent } from &#x27;./navbar.component&#x27;;
 
 @NgModule({
   imports: [
@@ -187,14 +187,7 @@ import { PipesModule } from &#x27;../../pipes/pipes.module&#x27;;
   declarations: [NavbarComponent],
   exports: [NavbarComponent, PipesModule]
 })
-export class NavbarModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: NavbarModule,
-      providers: []
-    };
-  }
-}
+export class NavbarModule {}
 </code></pre>
     </div>
 </div>

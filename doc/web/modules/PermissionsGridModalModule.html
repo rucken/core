@@ -244,7 +244,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { EntityGridModalModule } from &#x27;../../../components/entity-grid-modal/entity-grid-modal.module&#x27;;
 import { PermissionsGridModule } from &#x27;../permissions-grid/permissions-grid.module&#x27;;
 import { PermissionsGridModalComponent } from &#x27;./permissions-grid-modal.component&#x27;;
@@ -253,20 +253,9 @@ import { PermissionsGridModalComponent } from &#x27;./permissions-grid-modal.com
   imports: [CommonModule, EntityGridModalModule, PermissionsGridModule],
   declarations: [PermissionsGridModalComponent],
   entryComponents: [PermissionsGridModalComponent],
-  exports: [
-    PermissionsGridModalComponent,
-    EntityGridModalModule,
-    PermissionsGridModule
-  ]
+  exports: [PermissionsGridModalComponent, EntityGridModalModule, PermissionsGridModule]
 })
-export class PermissionsGridModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PermissionsGridModalModule,
-      providers: []
-    };
-  }
-}
+export class PermissionsGridModalModule {}
 </code></pre>
     </div>
 </div>

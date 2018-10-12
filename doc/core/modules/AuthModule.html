@@ -182,29 +182,70 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { APP_INITIALIZER, ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
-import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
-import { AuthService, authServiceInitializeApp } from &#x27;./services/auth.service&#x27;;
-import {
-  TokenService,
-  tokenServiceInitializeApp
-} from &#x27;./services/token.service&#x27;;
-import { authProviders } from &#x27;./configs&#x27;;
-import { TokenInterceptor } from &#x27;./interceptors/token.interceptor&#x27;;
 import { HTTP_INTERCEPTORS } from &#x27;@angular/common/http&#x27;;
-import { AUTH_CONFIG_TOKEN, defaultAuthConfig } from &#x27;./configs/auth.config&#x27;;
-import { JWT_CONFIG_TOKEN, defaultJwtConfig } from &#x27;./configs/jwt.config&#x27;;
-import { OAUTH_CONFIG_TOKEN, defaultOauthConfig } from &#x27;./configs/oauth.config&#x27;;
+import { APP_INITIALIZER, ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
-import { OauthGuard } from &#x27;./guards/oauth.guard&#x27;;
+import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { AuthEmptyComponent } from &#x27;./components/auth-empty.component&#x27;;
+import { AUTH_CONFIG_TOKEN, defaultAuthConfig } from &#x27;./configs/auth.config&#x27;;
+import { defaultJwtConfig, JWT_CONFIG_TOKEN } from &#x27;./configs/jwt.config&#x27;;
+import { defaultOauthConfig, OAUTH_CONFIG_TOKEN } from &#x27;./configs/oauth.config&#x27;;
+import { OauthGuard } from &#x27;./guards/oauth.guard&#x27;;
+import { TokenInterceptor } from &#x27;./interceptors/token.interceptor&#x27;;
+import { AuthService, authServiceInitializeApp } from &#x27;./services/auth.service&#x27;;
+import { TokenService, tokenServiceInitializeApp } from &#x27;./services/token.service&#x27;;
 @NgModule({
   declarations: [AuthEmptyComponent],
   imports: [CommonModule, NgxPermissionsModule, TranslateModule.forChild()],
   providers: [AuthService, TokenService, OauthGuard]
 })
 export class AuthModule {
-  static forRoot(options?: {
+  static forRoot(options?: { apiUri?: string; oauth?: { providers?: string[] } }): ModuleWithProviders {
+    return {
+      ngModule: AuthModule,
+      providers: [
+        {
+          provide: AUTH_CONFIG_TOKEN,
+          useValue: {
+            apiUri: options.apiUri ? options.apiUri : defaultAuthConfig.apiUri,
+            infoUri: defaultAuthConfig.infoUri,
+            signInUri: defaultAuthConfig.signInUri,
+            signUpUri: defaultAuthConfig.signUpUri
+          }
+        },
+        {
+          provide: JWT_CONFIG_TOKEN,
+          useValue: {
+            apiUri: options.apiUri ? options.apiUri : defaultJwtConfig.apiUri,
+            headerName: defaultJwtConfig.headerName,
+            headerPrefix: defaultJwtConfig.headerPrefix,
+            storageKeyName: defaultJwtConfig.storageKeyName,
+            tokenName: defaultJwtConfig.tokenName,
+            withoutTokenUrls: defaultJwtConfig.withoutTokenUrls
+          }
+        },
+        {
+          provide: OAUTH_CONFIG_TOKEN,
+          useValue: {
+            apiUri: options.apiUri ? options.apiUri : defaultOauthConfig.apiUri,
+            redirectUri: defaultOauthConfig.redirectUri,
+            signInUri: defaultOauthConfig.signInUri,
+            providers: options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : defaultOauthConfig.providers
+          }
+        },
+        AuthService,
+        TokenService,
+        OauthGuard,
+        TokenInterceptor,
+        {
+          provide: HTTP_INTERCEPTORS,
+          useExisting: TokenInterceptor,
+          multi: true
+        }
+      ]
+    };
+  }
+  static forRootWithAppInitializer(options?: {
     apiUri?: string;
     oauth?: { providers?: string[] };
   }): ModuleWithProviders {
@@ -237,10 +278,7 @@ export class AuthModule {
             apiUri: options.apiUri ? options.apiUri : defaultOauthConfig.apiUri,
             redirectUri: defaultOauthConfig.redirectUri,
             signInUri: defaultOauthConfig.signInUri,
-            providers:
-              options.oauth &amp;&amp; options.oauth.providers
-                ? options.oauth.providers
-                : defaultOauthConfig.providers
+            providers: options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : defaultOauthConfig.providers
           }
         },
         AuthService,

@@ -229,7 +229,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { PromptFormModalModule } from &#x27;../../../components/prompt-form-modal/prompt-form-modal.module&#x27;;
 import { GroupPermissionsGridModule } from &#x27;../group-permissions-grid/group-permissions-grid.module&#x27;;
 import { GroupModalComponent } from &#x27;./group-modal.component&#x27;;
@@ -240,14 +240,7 @@ import { GroupModalComponent } from &#x27;./group-modal.component&#x27;;
   entryComponents: [GroupModalComponent],
   exports: [GroupModalComponent, PromptFormModalModule]
 })
-export class GroupModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: GroupModalModule,
-      providers: []
-    };
-  }
-}
+export class GroupModalModule {}
 </code></pre>
     </div>
 </div>

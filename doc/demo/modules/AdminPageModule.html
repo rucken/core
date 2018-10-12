@@ -166,31 +166,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { NavSidebarModule } from &#x27;@rucken/web&#x27;;
+import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../shared/shared.module&#x27;;
 import { AdminPageComponent } from &#x27;./admin-page.component&#x27;;
 import { AdminPageRoutes } from &#x27;./admin-page.routes&#x27;;
-import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 
 @NgModule({
-  imports: [
-    SharedModule,
-    NgxPermissionsModule.forChild(),
-    NavSidebarModule,
-    RouterModule.forChild(AdminPageRoutes)
-  ],
+  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(AdminPageRoutes)],
   declarations: [AdminPageComponent]
 })
-export class AdminPageModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: AdminPageModule,
-      providers: []
-    };
-  }
-}
+export class AdminPageModule {}
 </code></pre>
     </div>
 </div>

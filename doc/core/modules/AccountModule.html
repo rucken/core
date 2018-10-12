@@ -146,10 +146,7 @@
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
 import { accountProviders } from &#x27;./configs&#x27;;
 import { AccountService } from &#x27;./account.service&#x27;;
-import {
-  ACCOUNT_CONFIG_TOKEN,
-  defaultAccountConfig
-} from &#x27;./configs/account.config&#x27;;
+import { ACCOUNT_CONFIG_TOKEN, defaultAccountConfig } from &#x27;./configs/account.config&#x27;;
 @NgModule({
   imports: [CommonModule],
   providers: [AccountService]
@@ -162,9 +159,7 @@ export class AccountModule {
         {
           provide: ACCOUNT_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri
-              ? options.apiUri
-              : defaultAccountConfig.apiUri,
+            apiUri: options.apiUri ? options.apiUri : defaultAccountConfig.apiUri,
             updateUri: defaultAccountConfig.updateUri
           }
         },

@@ -236,7 +236,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { EntityInputModule } from &#x27;../../../components/entity-input/entity-input.module&#x27;;
 import { ContentTypesGridModalModule } from &#x27;../content-types-grid-modal/content-types-grid-modal.module&#x27;;
 import { ContentTypeInputComponent } from &#x27;./content-type-input.component&#x27;;
@@ -244,20 +244,9 @@ import { ContentTypeInputComponent } from &#x27;./content-type-input.component&#
 @NgModule({
   imports: [CommonModule, EntityInputModule, ContentTypesGridModalModule],
   declarations: [ContentTypeInputComponent],
-  exports: [
-    ContentTypeInputComponent,
-    EntityInputModule,
-    ContentTypesGridModalModule
-  ]
+  exports: [ContentTypeInputComponent, EntityInputModule, ContentTypesGridModalModule]
 })
-export class ContentTypeInputModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ContentTypeInputModule,
-      providers: []
-    };
-  }
-}
+export class ContentTypeInputModule {}
 </code></pre>
     </div>
 </div>

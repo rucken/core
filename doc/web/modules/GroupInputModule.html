@@ -236,7 +236,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { EntityInputModule } from &#x27;../../../components/entity-input/entity-input.module&#x27;;
 import { GroupsGridModalModule } from &#x27;../groups-grid-modal/groups-grid-modal.module&#x27;;
 import { GroupInputComponent } from &#x27;./group-input.component&#x27;;
@@ -246,14 +246,7 @@ import { GroupInputComponent } from &#x27;./group-input.component&#x27;;
   declarations: [GroupInputComponent],
   exports: [GroupInputComponent, EntityInputModule, GroupsGridModalModule]
 })
-export class GroupInputModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: GroupInputModule,
-      providers: []
-    };
-  }
-}
+export class GroupInputModule {}
 </code></pre>
     </div>
 </div>

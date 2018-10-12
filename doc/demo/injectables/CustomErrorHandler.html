@@ -103,7 +103,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/demo/src/app/shared/exceptions/error.handler.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">apps/demo/src/app/shared/exceptions/error.handler.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -192,7 +192,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">apps/demo/src/app/shared/exceptions/error.handler.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">apps/demo/src/app/shared/exceptions/error.handler.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -242,32 +242,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
-  ErrorHandler,
-  Injectable,
-  Injector,
-  NgZone,
-  PLATFORM_ID,
-  Inject
-} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ErrorHandler, Injectable, Injector, NgZone, PLATFORM_ID, Inject } from &#x27;@angular/core&#x27;;
 import { MessageModalService } from &#x27;@rucken/web&#x27;;
 import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
 
 @Injectable()
 export class CustomErrorHandler implements ErrorHandler {
-  constructor(
-    private _injector: Injector,
-    private _ngZone: NgZone,
-    @Inject(PLATFORM_ID) private _platformId: Object
-  ) {}
+  constructor(private _injector: Injector, private _ngZone: NgZone, @Inject(PLATFORM_ID) private _platformId: Object) {}
   handleError(error) {
     if (isPlatformBrowser(this._platformId)) {
       this._ngZone.run(() &#x3D;&gt; {
-        const message &#x3D; error.message
-          ? error.message
-          : error &amp;&amp; error.toString
-            ? error.toString()
-            : error;
+        const message &#x3D; error.message ? error.message : error &amp;&amp; error.toString ? error.toString() : error;
         const messageModalService &#x3D; this._injector.get(MessageModalService);
         messageModalService
           .error({

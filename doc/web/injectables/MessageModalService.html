@@ -236,7 +236,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">libs/rucken/web/src/lib/modals/message-modal/message-modal.service.ts:69</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">libs/rucken/web/src/lib/modals/message-modal/message-modal.service.ts:61</a></div>
                             </td>
                         </tr>
 
@@ -307,7 +307,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">libs/rucken/web/src/lib/modals/message-modal/message-modal.service.ts:117</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">libs/rucken/web/src/lib/modals/message-modal/message-modal.service.ts:101</a></div>
                             </td>
                         </tr>
 
@@ -447,7 +447,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">libs/rucken/web/src/lib/modals/message-modal/message-modal.service.ts:120</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">libs/rucken/web/src/lib/modals/message-modal/message-modal.service.ts:104</a></div>
                             </td>
                         </tr>
 
@@ -642,12 +642,7 @@ export class MessageModalService {
     private _modalService: BsModalService,
     private _errorsExtractor: ErrorsExtractor
   ) {}
-  info(options: {
-    message: string | any;
-    title?: string;
-    class?: string;
-    onTop?: boolean;
-  }) {
+  info(options: { message: string | any; title?: string; class?: string; onTop?: boolean }) {
     if (this._onTopIsActive) {
       return of(false);
     }
@@ -663,20 +658,17 @@ export class MessageModalService {
         options.class &#x3D; this.getKlassOfMessageLength(message);
       }
       this._onTopIsActive &#x3D; options.onTop;
-      const bsModalRef: BsModalRef &#x3D; this._modalService.show(
-        this.componentInfoModal || MessageModalComponent,
-        {
-          class: options.class,
-          ignoreBackdropClick: options.onTop &#x3D;&#x3D;&#x3D; true,
-          keyboard: !(options.onTop &#x3D;&#x3D;&#x3D; true),
-          initialState: {
-            title: options.title,
-            message: message,
-            isInfo: true,
-            yesTitle: this._translateService.instant(&#x27;OK&#x27;)
-          }
+      const bsModalRef: BsModalRef &#x3D; this._modalService.show(this.componentInfoModal || MessageModalComponent, {
+        class: options.class,
+        ignoreBackdropClick: options.onTop &#x3D;&#x3D;&#x3D; true,
+        keyboard: !(options.onTop &#x3D;&#x3D;&#x3D; true),
+        initialState: {
+          title: options.title,
+          message: message,
+          isInfo: true,
+          yesTitle: this._translateService.instant(&#x27;OK&#x27;)
         }
-      );
+      });
       bsModalRef.content.yes.subscribe((modal: MessageModalComponent) &#x3D;&gt; {
         modal.hide();
         observe.next(true);
@@ -689,12 +681,7 @@ export class MessageModalService {
       });
     }).pipe(first());
   }
-  error(options: {
-    error: string | any;
-    title?: string;
-    class?: string;
-    onTop?: boolean;
-  }) {
+  error(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
     if (this._onTopIsActive) {
       return of(false);
     }
@@ -711,20 +698,17 @@ export class MessageModalService {
         options.class &#x3D; this.getKlassOfMessageLength(message);
       }
       this._onTopIsActive &#x3D; options.onTop;
-      const bsModalRef: BsModalRef &#x3D; this._modalService.show(
-        this.componentErrorModal || MessageModalComponent,
-        {
-          class: options.class,
-          ignoreBackdropClick: options.onTop &#x3D;&#x3D;&#x3D; true,
-          keyboard: !(options.onTop &#x3D;&#x3D;&#x3D; true),
-          initialState: {
-            title: options.title,
-            message: message,
-            isError: true,
-            yesTitle: this._translateService.instant(&#x27;OK&#x27;)
-          }
+      const bsModalRef: BsModalRef &#x3D; this._modalService.show(this.componentErrorModal || MessageModalComponent, {
+        class: options.class,
+        ignoreBackdropClick: options.onTop &#x3D;&#x3D;&#x3D; true,
+        keyboard: !(options.onTop &#x3D;&#x3D;&#x3D; true),
+        initialState: {
+          title: options.title,
+          message: message,
+          isError: true,
+          yesTitle: this._translateService.instant(&#x27;OK&#x27;)
         }
-      );
+      });
       bsModalRef.content.yes.subscribe((modal: MessageModalComponent) &#x3D;&gt; {
         modal.hide();
         observe.next(true);

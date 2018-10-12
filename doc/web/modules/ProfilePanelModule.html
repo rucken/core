@@ -284,7 +284,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { FormsModule, ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
 import { FontAwesomeModule } from &#x27;@fortawesome/angular-fontawesome&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
@@ -313,14 +313,7 @@ import { ProfilePanelComponent } from &#x27;./profile-panel.component&#x27;;
   declarations: [ProfilePanelComponent],
   exports: [ProfilePanelComponent]
 })
-export class ProfilePanelModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ProfilePanelModule,
-      providers: []
-    };
-  }
-}
+export class ProfilePanelModule {}
 </code></pre>
     </div>
 </div>

@@ -167,7 +167,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { TooltipModule } from &#x27;ngx-bootstrap/tooltip&#x27;;
 import { FormGroupComponent } from &#x27;./form-group.component&#x27;;
@@ -177,14 +177,7 @@ import { FormGroupComponent } from &#x27;./form-group.component&#x27;;
   declarations: [FormGroupComponent],
   exports: [FormGroupComponent]
 })
-export class FormGroupModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: FormGroupModule,
-      providers: []
-    };
-  }
-}
+export class FormGroupModule {}
 </code></pre>
     </div>
 </div>

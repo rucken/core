@@ -166,33 +166,26 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { FormsModule } from &#x27;@angular/forms&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { UsersGridModule } from &#x27;@rucken/web&#x27;;
+import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../../shared/shared.module&#x27;;
 import { UsersFrameComponent } from &#x27;./users-frame.component&#x27;;
 import { UsersFrameRoutes } from &#x27;./users-frame.routes&#x27;;
-import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     RouterModule.forChild(UsersFrameRoutes),
     UsersGridModule,
     FormsModule
   ],
   declarations: [UsersFrameComponent]
 })
-export class UsersFrameModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: UsersFrameModule,
-      providers: []
-    };
-  }
-}
+export class UsersFrameModule {}
 </code></pre>
     </div>
 </div>

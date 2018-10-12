@@ -167,32 +167,19 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
-import { NavSidebarComponent } from &#x27;./nav-sidebar.component&#x27;;
 import { PipesModule } from &#x27;../../pipes/pipes.module&#x27;;
+import { NavSidebarComponent } from &#x27;./nav-sidebar.component&#x27;;
 
 @NgModule({
-  imports: [
-    CommonModule,
-    TranslateModule.forChild(),
-    NgxPermissionsModule,
-    RouterModule,
-    PipesModule
-  ],
+  imports: [CommonModule, TranslateModule.forChild(), NgxPermissionsModule, RouterModule, PipesModule],
   declarations: [NavSidebarComponent],
   exports: [NavSidebarComponent, PipesModule]
 })
-export class NavSidebarModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: NavSidebarModule,
-      providers: []
-    };
-  }
-}
+export class NavSidebarModule {}
 </code></pre>
     </div>
 </div>

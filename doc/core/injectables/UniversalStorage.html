@@ -132,7 +132,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(request: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+<code>constructor(_request: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -155,7 +155,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>request</td>
+                                                        <td>_request</td>
                                                   
                                                         <td>
                                                                     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -204,7 +204,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -213,7 +213,7 @@
                     <td class="col-md-4">
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                     </td>
@@ -281,7 +281,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -315,7 +315,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -352,7 +352,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;string&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -386,7 +386,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:41</a></div>
                             </td>
                         </tr>
 
@@ -423,7 +423,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -457,7 +457,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">libs/rucken/core/src/lib/modules/storage/universal.storage.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -506,7 +506,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;any&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -607,41 +607,51 @@ export class UniversalStorage implements IStorage {
   [key: string]: any;
   length: number;
   cookies: any;
-
-  constructor(@Inject(REQUEST) private request: any) {
-    if (request &#x3D;&#x3D;&#x3D; null) {
+  constructor(@Inject(REQUEST) private _request: any) {
+    if (_request &#x3D;&#x3D;&#x3D; null) {
       this.cookies &#x3D; [];
       return;
     }
-    this.cookies &#x3D; request.cookies;
+    this.cookies &#x3D; _request.cookies;
   }
-
-  public clear(): void {
-    this.cookies &#x3D; [];
+  public clear(): Promise&lt;any&gt; {
+    return new Promise(resolve &#x3D;&gt; {
+      this.cookies &#x3D; [];
+      resolve(true);
+    });
   }
-
-  public getItem(key: string): string {
+  public getItem(key: string): Promise&lt;string&gt; {
+    let data: string;
     try {
-      return JSON.parse(this.cookies[key]);
+      data &#x3D; JSON.parse(this.cookies[key]);
     } catch (error) {
-      return this.cookies[key];
+      data &#x3D; this.cookies[key];
     }
+    return new Promise(resolve &#x3D;&gt; {
+      resolve(data);
+    });
   }
-
-  public key(index: number): string {
-    return this.cookies.propertyIsEnumerable[index];
+  public key(index: number): Promise&lt;string&gt; {
+    return new Promise(resolve &#x3D;&gt; {
+      const data &#x3D; this.cookies.propertyIsEnumerable[index];
+      resolve(data);
+    });
   }
-
-  public removeItem(key: string): void {
-    this.cookies[key] &#x3D; undefined;
+  public removeItem(key: string): Promise&lt;any&gt; {
+    return new Promise(resolve &#x3D;&gt; {
+      this.cookies[key] &#x3D; undefined;
+      resolve(true);
+    });
   }
-
-  public setItem(key: string, data: string): void {
-    try {
-      this.cookies[key] &#x3D; JSON.stringify(data);
-    } catch (error) {
-      this.cookies[key] &#x3D; data;
-    }
+  public setItem(key: string, data: string): Promise&lt;any&gt; {
+    return new Promise(resolve &#x3D;&gt; {
+      try {
+        this.cookies[key] &#x3D; JSON.stringify(data);
+      } catch (error) {
+        this.cookies[key] &#x3D; data;
+      }
+      resolve(true);
+    });
   }
 }
 </code></pre>

@@ -123,7 +123,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">libs/rucken/core/src/lib/utils/errors-extractor.ts:16</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">libs/rucken/core/src/lib/utils/errors-extractor.ts:12</a></div>
                             </td>
                         </tr>
 
@@ -252,11 +252,7 @@ import { Injectable } from &#x27;@angular/core&#x27;;
 @Injectable()
 export class ErrorsExtractor {
   getValidationErrors(error: any) {
-    if (
-      error &amp;&amp;
-      error instanceof HttpErrorResponse &amp;&amp;
-      error.error.validationErrors
-    ) {
+    if (error &amp;&amp; error instanceof HttpErrorResponse &amp;&amp; error.error.validationErrors) {
       return error &amp;&amp; error.error.validationErrors;
     }
     return undefined;

@@ -166,31 +166,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { NavSidebarModule } from &#x27;@rucken/web&#x27;;
+import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../shared/shared.module&#x27;;
 import { EntitiesPageComponent } from &#x27;./entities-page.component&#x27;;
 import { EntitiesPageRoutes } from &#x27;./entities-page.routes&#x27;;
-import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 
 @NgModule({
-  imports: [
-    SharedModule,
-    NgxPermissionsModule.forChild(),
-    NavSidebarModule,
-    RouterModule.forChild(EntitiesPageRoutes)
-  ],
+  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(EntitiesPageRoutes)],
   declarations: [EntitiesPageComponent]
 })
-export class EntitiesPageModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntitiesPageModule,
-      providers: []
-    };
-  }
-}
+export class EntitiesPageModule {}
 </code></pre>
     </div>
 </div>

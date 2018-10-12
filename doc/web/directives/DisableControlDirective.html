@@ -126,7 +126,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(ngControl: <a href="https://angular.io/api/forms/NgControl" target="_blank">NgControl</a>)</code>
+<code>constructor(_ngControl: <a href="https://angular.io/api/forms/NgControl" target="_blank">NgControl</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -149,7 +149,7 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>ngControl</td>
+                                                        <td>_ngControl</td>
                                                   
                                                         <td>
                                                                     <code><a href="https://angular.io/api/forms/NgControl" target="_blank" >NgControl</a></code>
@@ -277,9 +277,9 @@ export class DisableControlDirective {
   @Input()
   set disableControl(condition: boolean) {
     const action &#x3D; condition ? &#x27;disable&#x27; : &#x27;enable&#x27;;
-    this.ngControl.control[action]();
+    this._ngControl.control[action]();
   }
-  constructor(private ngControl: NgControl) {}
+  constructor(private _ngControl: NgControl) {}
 }
 </code></pre>
     </div>

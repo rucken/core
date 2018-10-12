@@ -166,7 +166,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { NgModule } from &#x27;@angular/core&#x27;;
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { ProfilePanelModule } from &#x27;@rucken/web&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
@@ -177,20 +177,13 @@ import { ProfileFrameRoutes } from &#x27;./profile-frame.routes&#x27;;
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     ProfilePanelModule,
     RouterModule.forChild(ProfileFrameRoutes)
   ],
   declarations: [ProfileFrameComponent]
 })
-export class ProfileFrameModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ProfileFrameModule,
-      providers: []
-    };
-  }
-}
+export class ProfileFrameModule {}
 </code></pre>
     </div>
 </div>

@@ -101,12 +101,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_permissionsService: <a href="../classes/Permission.html">NgxPermissionsService</a>, _rolesService: NgxRolesService, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
+<code>constructor(_authService: <a href="../injectables/AuthService.html">AuthService</a>, _permissionsService: <a href="../classes/Permission.html">NgxPermissionsService</a>, _rolesService: NgxRolesService, _router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -123,6 +123,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                <tr>
+                                                        <td>_authService</td>
+                                                  
+                                                        <td>
+                                                                    <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
                                                 <tr>
                                                         <td>_permissionsService</td>
                                                   
@@ -195,7 +207,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:41</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -244,7 +256,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Promise | boolean</code>
+                                <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -276,7 +288,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/core/src/lib/utils/permissions-guard.service.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -325,7 +337,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code>Observable | Promise | boolean</code>
+                                <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
 
                             </div>
                                 <div class="io-description">
@@ -343,56 +355,43 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import {
-  ActivatedRouteSnapshot,
-  Router,
-  RouterStateSnapshot
-} from &#x27;@angular/router&#x27;;
-import {
-  NgxPermissionsGuard,
-  NgxPermissionsService,
-  NgxRolesService
-} from &#x27;ngx-permissions&#x27;;
-import { Observable } from &#x27;rxjs&#x27;;
-
-export const INITED_PERMISSIONS &#x3D; &#x27;__inited__&#x27;;
-export const EMPTY_PERMISSIONS &#x3D; &#x27;__empty__&#x27;;
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from &#x27;@angular/router&#x27;;
+import { NgxPermissionsGuard, NgxPermissionsService, NgxRolesService } from &#x27;ngx-permissions&#x27;;
+import { AuthService } from &#x27;../modules/auth/services/auth.service&#x27;;
+import { INITED_PERMISSIONS } from &#x27;./permissions-guard.const&#x27;;
 
 @Injectable()
 export class PermissionsGuard extends NgxPermissionsGuard {
   constructor(
+    private _authService: AuthService,
     private _permissionsService: NgxPermissionsService,
     private _rolesService: NgxRolesService,
     private _router: Router
   ) {
     super(_permissionsService, _rolesService, _router);
   }
-  canActivateChild(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable&lt;boolean&gt; | Promise&lt;boolean&gt; | boolean {
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise&lt;boolean&gt; {
     return new Promise((resolve: any) &#x3D;&gt; {
-      this._permissionsService
-        .hasPermission(INITED_PERMISSIONS)
-        .then(
-          result &#x3D;&gt;
-            result
-              ? resolve(true)
-              : resolve(super.canActivateChild(route, state))
-        );
+      const permissions &#x3D; this._permissionsService.getPermissions();
+      if (permissions[INITED_PERMISSIONS]) {
+        resolve(true);
+      } else {
+        (super.canActivateChild(route, state) as Promise&lt;boolean&gt;).then(result &#x3D;&gt; {
+          resolve(result);
+        });
+      }
     });
   }
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Promise&lt;boolean&gt; | boolean {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise&lt;boolean&gt; {
     return new Promise((resolve: any) &#x3D;&gt; {
-      this._permissionsService
-        .hasPermission(INITED_PERMISSIONS)
-        .then(
-          result &#x3D;&gt;
-            result ? resolve(true) : resolve(super.canActivate(route, state))
-        );
+      const permissions &#x3D; this._permissionsService.getPermissions();
+      if (permissions[INITED_PERMISSIONS]) {
+        resolve(true);
+      } else {
+        (super.canActivate(route, state) as Promise&lt;boolean&gt;).then(result &#x3D;&gt; {
+          resolve(result);
+        });
+      }
     });
   }
 }

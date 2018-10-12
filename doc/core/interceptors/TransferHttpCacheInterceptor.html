@@ -106,12 +106,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(_platformId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>, transferState: <a href="https://angular.io/api/platform-browser/TransferState" target="_blank">TransferState</a>)</code>
+<code>constructor(_platformId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object" target="_blank">Object</a>, _transferState: <a href="https://angular.io/api/platform-browser/TransferState" target="_blank">TransferState</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:18</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -141,7 +141,7 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>transferState</td>
+                                                        <td>_transferState</td>
                                                   
                                                         <td>
                                                                     <code><a href="https://angular.io/api/platform-browser/TransferState" target="_blank" >TransferState</a></code>
@@ -188,7 +188,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:13</a></div>
                             </td>
                         </tr>
 
@@ -259,7 +259,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -328,7 +328,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">libs/rucken/core/src/lib/modules/transfer-http/transfer-http-cache.interceptor.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -395,14 +395,7 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isPlatformServer } from &#x27;@angular/common&#x27;;
-import {
-  HttpEvent,
-  HttpHandler,
-  HttpHeaders,
-  HttpInterceptor,
-  HttpRequest,
-  HttpResponse
-} from &#x27;@angular/common/http&#x27;;
+import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest, HttpResponse } from &#x27;@angular/common/http&#x27;;
 import { Inject, Injectable, PLATFORM_ID } from &#x27;@angular/core&#x27;;
 import { TransferState, makeStateKey } from &#x27;@angular/platform-browser&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
@@ -412,10 +405,7 @@ import { ITransferHttpResponse } from &#x27;./transfer-http-response.interface&#
 
 @Injectable()
 export class TransferHttpCacheInterceptor implements HttpInterceptor {
-  constructor(
-    @Inject(PLATFORM_ID) private _platformId: Object,
-    private transferState: TransferState
-  ) {}
+  constructor(@Inject(PLATFORM_ID) private _platformId: Object, private _transferState: TransferState) {}
   getHeadersMap(headers: HttpHeaders) {
     const headersMap: { [name: string]: string[] } &#x3D; {};
     for (const key of headers.keys()) {
@@ -438,18 +428,12 @@ export class TransferHttpCacheInterceptor implements HttpInterceptor {
     }
     return makeStateKey&lt;ITransferHttpResponse&gt;(key);
   }
-  intercept(
-    req: HttpRequest&lt;any&gt;,
-    next: HttpHandler
-  ): Observable&lt;HttpEvent&lt;any&gt;&gt; {
+  intercept(req: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     const storeKey &#x3D; this.getStoreKey(req);
-    if (this.transferState.hasKey(storeKey)) {
-      const response &#x3D; this.transferState.get(
-        storeKey,
-        {} as ITransferHttpResponse
-      );
+    if (this._transferState.hasKey(storeKey)) {
+      const response &#x3D; this._transferState.get(storeKey, {} as ITransferHttpResponse);
       if (!isPlatformServer(this._platformId)) {
-        this.transferState.remove(storeKey);
+        this._transferState.remove(storeKey);
       }
       return of(
         new HttpResponse&lt;any&gt;({
@@ -466,7 +450,7 @@ export class TransferHttpCacheInterceptor implements HttpInterceptor {
         tap((event: HttpEvent&lt;any&gt;) &#x3D;&gt; {
           if (event instanceof HttpResponse) {
             if (isPlatformServer(this._platformId)) {
-              this.transferState.set(storeKey, {
+              this._transferState.set(storeKey, {
                 body: event.body,
                 headers: this.getHeadersMap(event.headers),
                 status: event.status,
