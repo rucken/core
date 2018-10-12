@@ -1,4 +1,4 @@
-import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
@@ -52,23 +52,17 @@ export class AppComponent implements OnDestroy, OnInit {
     this.languages$ = _langService.languages$;
     this.currentUser$ = _authService.current$;
     this.currentLang$ = _langService.current$;
+    this._langService.current$.pipe(takeUntil(this._destroyed$)).subscribe(lang => {
+      this._bsLocaleService.use(lang);
+      this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
+      this.title = this._translateService.instant(this._metaService.loader.settings.applicationName);
+    });
     if (isPlatformBrowser(this._platformId)) {
-      this._langService.current$.pipe(takeUntil(this._destroyed$)).subscribe(lang => {
-        this._bsLocaleService.use(lang);
-        this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
-        this.title = this._translateService.instant(this._metaService.loader.settings.applicationName);
-      });
       this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
         if (result === true) {
           this.onInfo();
         }
       });
-    }
-    if (isPlatformServer(this._platformId)) {
-      const lang = this._langService.current;
-      this._bsLocaleService.use(lang);
-      this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
-      this.title = this._translateService.instant(this._metaService.loader.settings.applicationName);
     }
   }
   ngOnInit() {
