@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, OnDestroy, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -27,7 +27,7 @@ import { AppRoutes } from './app.routes';
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnDestroy {
+export class AppComponent implements OnDestroy, OnInit {
   public title: string;
   public routes = AppRoutes;
   public languages$: Observable<ILanguagesItem[]>;
@@ -69,6 +69,11 @@ export class AppComponent implements OnDestroy {
       this._bsLocaleService.use(lang);
       this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
       this.title = this._translateService.instant(this._metaService.loader.settings.applicationName);
+    }
+  }
+  ngOnInit() {
+    if (isPlatformBrowser(this._platformId)) {
+      this.onInfo();
     }
   }
   ngOnDestroy() {
@@ -161,7 +166,9 @@ export class AppComponent implements OnDestroy {
     if (modal) {
       modal.processing = false;
     }
-    this._tokenService.current = data.token;
+    if (data.token) {
+      this._tokenService.current = data.token;
+    }
     this._authService.current = data.user;
     if (modal) {
       modal.hide();
