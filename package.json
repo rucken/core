@@ -93,7 +93,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.6",
     "@fortawesome/free-brands-svg-icons": "^5.4.1",
     "@fortawesome/free-solid-svg-icons": "^5.4.1",
-    "@nguniversal/express-engine": "^6.1.0",
+    "@nguniversal/express-engine": "^7.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.1.0",
     "@ngx-meta/core": "^6.0.0",
     "@ngx-translate/core": "^10.0.2",
