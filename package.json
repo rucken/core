@@ -109,7 +109,7 @@
     "ngx-cookie-service": "^1.0.10",
     "ngx-dynamic-form-builder": "^0.4.4",
     "ngx-permissions": "^6.0.2",
-    "ngx-repository": "^0.4.2",
+    "ngx-repository": "^0.5.0",
     "node-fetch": "^2.1.2",
     "object-path": "^0.11.4",
     "rxjs": "^6.3.3",
