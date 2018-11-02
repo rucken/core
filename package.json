@@ -98,7 +98,7 @@
     "@ngx-meta/core": "^6.0.0",
     "@ngx-translate/core": "^10.0.2",
     "@types/dotenv": "^4.0.3",
-    "@types/jsonwebtoken": "^7.2.8",
+    "@types/jsonwebtoken": "^8.3.0",
     "@types/node": "^10.11.7",
     "@types/object-path": "^0.9.29",
     "core-js": "^2.5.7",
