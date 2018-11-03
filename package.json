@@ -106,7 +106,7 @@
     "dotenv": "^6.1.0",
     "jsonwebtoken": "^8.3.0",
     "ngx-bootstrap": "^3.0.1",
-    "ngx-cookie-service": "^1.0.10",
+    "ngx-cookie-service": "^2.0.0",
     "ngx-dynamic-form-builder": "^0.4.4",
     "ngx-permissions": "^6.0.2",
     "ngx-repository": "^0.4.2",
