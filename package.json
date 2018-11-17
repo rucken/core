@@ -126,7 +126,7 @@
     "@compodoc/compodoc": "^1.1.5",
     "@rucken/cli": "^3.2.3",
     "@types/body-parser": "^1.17.0",
-    "@types/jasmine": "~2.8.9",
+    "@types/jasmine": "~3.0.0",
     "@types/jasminewd2": "~2.0.5",
     "bootstrap-sass": "^3.3.7",
     "bootswatch-sass": "^3.2.0",
