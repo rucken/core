@@ -1,3 +1,9 @@
+# [3.4.0](https://github.com/rucken/core/compare/3.3.5...3.4.0) (2018-11-17)
+
+### Features
+
+- **deps:** Update dependencies ([4809c3c](https://github.com/rucken/core/commit/4809c3c))
+
 <a name="3.3.5"></a>
 
 ## [3.3.5](https://github.com/rucken/core/compare/3.3.4...3.3.5) (2018-10-12)
