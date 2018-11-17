@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -107,7 +104,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>authServiceInitializeApp(authService: undefined)</code>
+<code>authServiceInitializeApp(authService)</code>
                     </td>
                 </tr>
 
@@ -163,7 +160,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>langServiceInitializeApp(langService: undefined)</code>
+<code>langServiceInitializeApp(langService)</code>
                     </td>
                 </tr>
 
@@ -219,7 +216,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>serializeModel(object: undefined)</code>
+<code>serializeModel(object)</code>
                     </td>
                 </tr>
 
@@ -272,7 +269,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>transformDateToString(value: undefined)</code>
+<code>transformDateToString(value)</code>
                     </td>
                 </tr>
 
@@ -325,7 +322,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>transformStringToDate(value: undefined)</code>
+<code>transformStringToDate(value)</code>
                     </td>
                 </tr>
 
@@ -378,7 +375,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>transformStringToObject(value: undefined)</code>
+<code>transformStringToObject(value)</code>
                     </td>
                 </tr>
 
@@ -434,7 +431,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>tokenServiceInitializeApp(tokenService: undefined)</code>
+<code>tokenServiceInitializeApp(tokenService)</code>
                     </td>
                 </tr>
 
@@ -490,7 +487,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>translate(key: undefined)</code>
+<code>translate(key)</code>
                     </td>
                 </tr>
 
@@ -554,7 +551,9 @@
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

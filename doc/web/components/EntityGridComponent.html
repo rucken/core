@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -99,6 +96,12 @@
                 <td class="col-md-3">templateUrl</td>
                 <td class="col-md-9"><code>./entity-grid.component.html</code></td>
             </tr>
+
+
+
+
+
+
 
 
         </tbody>
@@ -2218,7 +2221,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>trackByFn(index: , item: )</code>
+<code>trackByFn(index, item)</code>
                     </td>
                 </tr>
 
@@ -2416,7 +2419,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultEntityGridFooterTemplate&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2455,7 +2462,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultEntityGridHeaderTemplate&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2494,7 +2505,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultGridCellActionContent&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2533,7 +2548,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultGridCellContent&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2572,7 +2591,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultGridCellTranslatedContent&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2611,7 +2634,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultGridFieldActionContent&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2650,7 +2677,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultGridFieldContent&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -2689,7 +2720,11 @@
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Decorators : </i><code>ContentChild</code>
+                            <b>Decorators : </b>
+                            <br />
+                            <code>
+                                @ContentChild(&#x27;#defaultSearchFieldTemplate&#x27;)<br />
+                            </code>
                         </td>
                     </tr>
                         <tr>
@@ -3572,6 +3607,7 @@ export class EntityGridComponent&lt;TModel extends IModel&gt; {
 </code></pre>
     </div>
 
+
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
         <div class="tree-legend">
@@ -3598,7 +3634,7 @@ export class EntityGridComponent&lt;TModel extends IModel&gt; {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="entity-grid-header">    <ng-container *ngTemplateOutlet="entityGridHeaderTemplate?entityGridHeaderTemplate:defaultEntityGridHeaderTemplate"></ng-container></div><div class="entity-grid">    <table class="table table-bordered table-hover">        <thead>            <tr>                <th                    *ngFor="let col of columns"                    class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:\'\'}}"                    [ngClass]="{\'text-center\':col===\'action\',\'width-100\': enableUpdateAndDelete && col===\'action\',\'width-50\': enableOnlyUpdateOrDelete && col===\'action\'}">                    <ng-container *ngTemplateOutlet="gridFieldTemplate ? gridFieldTemplate : defaultGridFieldTemplate, context: { $implicit: {field:{name:col}} }"></ng-container>                </th>            </tr>        </thead>        <tbody>            <tr *ngIf="!processing && (!items || !items.length)">                <td                    [attr.colspan]="columns?.length"                    class="text-center"                    translate>                    No data                </td>            </tr>            <tr *ngIf="processing">                <td                    [attr.colspan]="columns?.length"                    class="text-center"                    translate>                    <fa-layers                        class="fa-fw"                        *ngIf="processing">                        <fa-icon                            [icon]="[\'fas\', \'spinner\']"                            [pulse]="true"></fa-icon>                    </fa-layers>                    <span translate>Loading...</span>                </td>            </tr>            <tr                *ngFor="let item of items; trackBy: trackByFn;"                (dblclick)="onDblClick(item)"                [ngClass]="{\'info\':isSelected(item)}">                <td                    *ngFor="let col of columns"                    (click)="col!==\'action\'?toggle(item, col):null"                    class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:\'\'}}"                    [ngClass]="{\'text-center\':col===\'action\',\'width-100\': enableUpdateAndDelete && col===\'action\',\'width-50\': enableOnlyUpdateOrDelete && col===\'action\'}">                    <ng-container *ngTemplateOutlet="gridCellTemplate ? gridCellTemplate : defaultGridCellTemplate, context: { $implicit: {field:{name:col},item:item} }"></ng-container>                </td>            </tr>        </tbody>    </table></div><div class="entity-grid-footer">    <ng-container *ngTemplateOutlet="entityGridFooterTemplate?entityGridFooterTemplate:defaultEntityGridFooterTemplate"></ng-container></div><ng-template    #entityGridHeaderTemplate    let-ctx>    <form        [ngClass]="{\'form-inline\':isEnableCreate || title}"        *ngIf="!isAppendFromGridMode">        <div            class="row"            *ngIf="isEnableCreate">            <div class="col-sm-4">                <button                    type="button"                    class="pull-left"                    [ngClass]="createClass"                    (click)="onCreate()">                    <fa-icon [icon]="[\'fas\', \'plus\']"></fa-icon>                    {{ createTitle | translate }}                </button>            </div>            <div class="col-sm-8">                <div class="pull-right">                    <div class="form-group">                        <ng-container *ngTemplateOutlet="searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate"></ng-container>                    </div>                </div>            </div>        </div>        <div            class="row"            *ngIf="!isEnableCreate">            <div                class="col-sm-12"                *ngIf="!title">                <ng-container *ngTemplateOutlet="searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate"></ng-container>            </div>            <div                class="col-sm-8"                *ngIf="title">                <h4>{{title | translate}}</h4>            </div>            <div                class="col-sm-4"                *ngIf="title">                <div class="pull-right">                    <div class="form-group">                        <ng-container *ngTemplateOutlet="searchFieldTemplate?searchFieldTemplate:defaultSearchFieldTemplate"></ng-container>                    </div>                </div>            </div>        </div>    </form>    <div *ngIf="isAppendFromGridMode">        <div            class="row"            *ngIf="isEnableAppendFromGrid">            <div class="col-sm-8">                <h4>{{title | translate}}</h4>            </div>            <div class="col-sm-4">                <button                    type="button"                    class="btn btn-success pull-right"                    (click)="onAppendFromGrid()">                    <fa-icon [icon]="[\'fas\', \'plus\']"></fa-icon>                    {{ \'Append\' | translate }}                </button>            </div>        </div>        <div            class="row"            *ngIf="!isEnableAppendFromGrid">            <div class="col-sm-12">                <h4>{{title | translate}}</h4>            </div>        </div>    </div></ng-template><ng-template    #entityGridFooterTemplate    let-ctx>    <div class="row">        <div class="col-md-3"></div>        <div class="col-md-9">            <div                class="pull-right"                *ngIf="paginationMeta && (paginationMeta.totalPages>1 || paginationMeta.totalResults>paginationMeta.perPage)">                <pagination                    [directionLinks]="false"                    [boundaryLinks]="true"                    [totalItems]="paginationMeta.totalResults"                    [rotate]="false"                    [itemsPerPage]="paginationMeta.perPage"                    (pageChanged)="onChangePage($event)"                    [maxSize]="paginationMeta.perPage"                    class="pagination-sm"                    firstText="«"                    lastText="»"></pagination>            </div>        </div>    </div></ng-template><ng-template    #defaultGridFieldTemplate    let-ctx>    <ng-container *ngTemplateOutlet="ctx.field.name===\'action\' ? (gridFieldActionContent?gridFieldActionContent:defaultGridFieldActionContent) : (gridFieldContent?gridFieldContent:defaultGridFieldContent), context: { $implicit: ctx }"></ng-container></ng-template><ng-template    #defaultGridFieldContent    let-ctx>    <span>{{strings[ctx.field.name] | translate}}</span>    <div        class="pull-right entity-field-buttons"        *ngIf="!orderColumns||orderColumns.indexOf(ctx.field.name)!==-1">        <button            type="button"            class="btn btn-link btn-xs"            (click)="onChangeOrder(ctx.field.name)">            <i                class="fa"                [ngClass]="{\'fa-sort\':ctx.field.name!==orderBy && \'-\'+ctx.field.name!==orderBy,\'fa-sort-amount-asc\':ctx.field.name===orderBy,\'fa-sort-amount-desc\':\'-\'+ctx.field.name===orderBy}"                aria-hidden="true"></i>        </button>    </div></ng-template><ng-template    #defaultGridFieldActionContent    let-ctx>    <span translate>Action</span></ng-template><ng-template    #defaultGridCellTemplate    let-ctx>    <ng-container *ngTemplateOutlet="ctx.field.name===\'action\' ? (gridCellActionContent?gridCellActionContent:defaultGridCellActionContent) : (translatedCells.indexOf(ctx.field.name)!==-1?(gridCellTranslatedContent?gridCellTranslatedContent:defaultGridCellTranslatedContent):(gridCellContent?gridCellContent:defaultGridCellContent)), context: { $implicit: ctx }"></ng-container></ng-template><ng-template    #defaultGridCellContent    let-ctx>    {{ctx.item[ctx.field.name+\'AsString\'] || ctx.item[ctx.field.name]}}</ng-template><ng-template    #defaultGridCellTranslatedContent    let-ctx>    {{(ctx.item[ctx.field.name+\'AsString\'] || ctx.item[ctx.field.name])|customTranslate}}</ng-template><ng-template    #defaultGridCellActionContent    let-ctx>    <button        type="button"        class="btn btn-default btn-sm"        (click)="onUpdate(ctx.item)"        *ngIf="isEnableUpdate">        <fa-icon [icon]="[\'fas\', \'edit\']"></fa-icon>    </button>    <button        type="button"        class="btn btn-default btn-sm"        (click)="onDelete(ctx.item)"        *ngIf="isEnableDelete">        <fa-icon [icon]="[\'fas\', \'trash\']"></fa-icon>    </button></ng-template><ng-template    #defaultSearchFieldTemplate    let-ctx>    <div        class="input-group"        *ngIf="!readonly">        <input            type="search"            class="form-control"            [formControl]="searchField">        <span class="input-group-btn">            <button                class="btn btn-success"                (click)="onSearch(searchField.value)"                type="button"                [disabled]="processing">                <fa-icon [icon]="[\'fas\', \'search\']"></fa-icon>            </button>        </span>    </div></ng-template></div>'
-    var COMPONENTS = [{'name': 'AuthModalComponent', 'selector': 'auth-modal'},{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'}];
+    var COMPONENTS = [{'name': 'AuthModalComponent', 'selector': 'auth-modal'},{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'}];
     var DIRECTIVES = [{'name': 'DisableControlDirective', 'selector': '[disableControl]'},{'name': 'FocusedDirective', 'selector': '[focused]'}];
     var ACTUAL_COMPONENT = {'name': 'EntityGridComponent'};
 </script>
@@ -3639,7 +3675,9 @@ export class EntityGridComponent&lt;TModel extends IModel&gt; {
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <script src="../js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

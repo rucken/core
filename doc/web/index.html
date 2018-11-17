@@ -18,10 +18,7 @@
         </div>
 
         <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search">
-</div>
-            <compodoc-menu></compodoc-menu>
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
         </div>
 
         <div class="container-fluid main">
@@ -40,10 +37,10 @@
 <a href="https://crowdin.com/project/rucken-core"><img src="https://d322cqt584bo4o.cloudfront.net/rucken-core/localized.svg" alt="Crowdin" class="img-responsive"></a>
 <a href="https://gitter.im/rucken/core"><img src="https://img.shields.io/gitter/room/rucken/core.js.svg" alt="Gitter" class="img-responsive"></a>
 <a href="https://t.me/rucken"><img src="https://img.shields.io/badge/chat-telegram-blue.svg?maxAge=2592000" alt="Join the chat at telegram" class="img-responsive"></a></p>
-<p>Core and Admin UI for Angular6+ web applications</p>
+<p>Core and Admin UI for Angular7+ web applications</p>
 <h2 id="what-is-rucken-">What is Rucken?</h2>
 <ul>
-<li><strong>Core</strong> - Base entities and services to create applications on <code>Angular6+</code>, includes users, groups and permissions solutions.</li>
+<li><strong>Core</strong> - Base entities and services to create applications on <code>Angular7+</code>, includes users, groups and permissions solutions.</li>
 <li><strong>Web</strong> - Base ui grids, inputs and more to manage users, groups and permissions.</li>
 </ul>
 <h2 id="usage">Usage</h2>
@@ -57,10 +54,10 @@ cd my-app
 npm install
 npm run start:prod</code></pre></div><h2 id="compodoc-documentations">Compodoc documentations</h2>
 <p><a href="http://rucken.github.io/core/doc/demo/index.html">http://rucken.github.io/core/doc/demo</a> - Demo application documentation</p>
-<p><a href="http://rucken.github.io/core/doc/core/index.html">http://rucken.github.io/core/doc/core</a> - Core documentation </p>
-<p><a href="http://rucken.github.io/core/doc/web/index.html">http://rucken.github.io/core/doc/web</a> - Web documentation </p>
+<p><a href="http://rucken.github.io/core/doc/core/index.html">http://rucken.github.io/core/doc/core</a> - Core documentation</p>
+<p><a href="http://rucken.github.io/core/doc/web/index.html">http://rucken.github.io/core/doc/web</a> - Web documentation</p>
 <h2 id="quick-links">Quick links</h2>
-<p><a href="https://github.com/rucken/cli">@rucken/cli</a> - Console tools to create and build <a href="https://angular.io/">Angular6+</a> and <a href="https://nestjs.com/">NestJS</a> application based on <a href="https://github.com/rucken">Rucken</a> template</p>
+<p><a href="https://github.com/rucken/cli">@rucken/cli</a> - Console tools to create and build <a href="https://angular.io/">Angular7+</a> and <a href="https://nestjs.com/">NestJS</a> application based on <a href="https://github.com/rucken">Rucken</a> template</p>
 <p><a href="https://rucken.github.io/core">Live demo: master (SPA on GhPages)</a> <a href="https://github.com/rucken/core">[source]</a> - Demo application (backend: <a href="https://rucken-core-nestjs.now.sh">https://rucken-core-nestjs.now.sh</a> ).</p>
 <p><a href="https://rucken.herokuapp.com">Live demo: master (SSR on Heroku)</a> <a href="https://github.com/rucken/core">[source]</a> - Demo application with server side rendering (backend: <a href="https://rucken-core-nestjs.now.sh">https://rucken-core-nestjs.now.sh</a> ).</p>
 <p><a href="https://rucken.now.sh">Live demo: develop (SSR on Now)</a> <a href="https://github.com/rucken/core">[source]</a> - Demo application with server side rendering (backend: <a href="https://rucken-core-nestjs.now.sh">https://rucken-core-nestjs.now.sh</a> ).</p>
@@ -108,7 +105,9 @@ npm run start:prod</code></pre></div><h2 id="compodoc-documentations">Compodoc d
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <script src="./js/menu-wc.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="./js/menu-wc.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 
