@@ -28,7 +28,7 @@ export const AppLangs = [
   }
 ];
 export const ApplicationName = translate('Rucken: Demo');
-export const ApplicationDescription = translate('Core with Admin UI for web and native application maked on Angular6+');
+export const ApplicationDescription = translate('Core with Admin UI for web and native application maked on Angular7+');
 export const AuthModalSignInInfoMessage = translate(`<p>Demo users:</p><ul>
 <li>user with admin group: admin@admin.com, password: 12345678</li>
 <li>user with user group: user1@user1.com, password: 12345678</li>

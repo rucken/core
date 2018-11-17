@@ -7,14 +7,15 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Core and Admin UI for Angular6+ web applications
+Core and Admin UI for Angular7+ web applications
 
 ## What is Rucken?
 
-- **Core** - Base entities and services to create applications on `Angular6+`, includes users, groups and permissions solutions.
+- **Core** - Base entities and services to create applications on `Angular7+`, includes users, groups and permissions solutions.
 - **Web** - Base ui grids, inputs and more to manage users, groups and permissions.
 
 ## Usage
+
 ```
 git clone https://github.com/rucken/core.git my-app
 cd my-app
@@ -23,6 +24,7 @@ npm run start:prod
 ```
 
 ## Usage with cli
+
 ```
 npm install -g @rucken/cli
 rucken new:angular my-app
@@ -35,25 +37,23 @@ npm run start:prod
 
 [http://rucken.github.io/core/doc/demo](http://rucken.github.io/core/doc/demo/index.html) - Demo application documentation
 
-[http://rucken.github.io/core/doc/core](http://rucken.github.io/core/doc/core/index.html) - Core documentation 
+[http://rucken.github.io/core/doc/core](http://rucken.github.io/core/doc/core/index.html) - Core documentation
 
-[http://rucken.github.io/core/doc/web](http://rucken.github.io/core/doc/web/index.html) - Web documentation 
-
+[http://rucken.github.io/core/doc/web](http://rucken.github.io/core/doc/web/index.html) - Web documentation
 
 ## Quick links
 
-[@rucken/cli](https://github.com/rucken/cli) - Console tools to create and build [Angular6+](https://angular.io/) and [NestJS](https://nestjs.com/) application based on [Rucken](https://github.com/rucken) template
+[@rucken/cli](https://github.com/rucken/cli) - Console tools to create and build [Angular7+](https://angular.io/) and [NestJS](https://nestjs.com/) application based on [Rucken](https://github.com/rucken) template
 
 [Live demo: master (SPA on GhPages)](https://rucken.github.io/core) [[source]](https://github.com/rucken/core) - Demo application (backend: https://rucken-core-nestjs.now.sh ).
 
 [Live demo: master (SSR on Heroku)](https://rucken.herokuapp.com) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: https://rucken-core-nestjs.now.sh ).
 
-[Live demo: develop (SSR on Now)](https://rucken.now.sh ) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: https://rucken-core-nestjs.now.sh ).
+[Live demo: develop (SSR on Now)](https://rucken.now.sh) [[source]](https://github.com/rucken/core) - Demo application with server side rendering (backend: https://rucken-core-nestjs.now.sh ).
 
 [Live demo: master (NestJS on Heroku)](https://rucken-core-nestjs.herokuapp.com) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
 
 [Live demo: develop (NestJS on Now)](https://rucken-core-nestjs.now.sh) [[source]](https://github.com/rucken/core-nestjs) - Demo application with live backend (backend: https://nestjs.com).
-
 
 ## License
 
