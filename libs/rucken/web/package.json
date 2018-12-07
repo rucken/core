@@ -34,15 +34,15 @@
   ],
   "peerDependencies": {
     "rxjs": "^6.3.3",
-    "@angular/forms": "^7.0.4",
-    "@angular/common": "^7.0.4",
-    "@angular/compiler": "^7.0.4",
-    "@angular/core": "^7.0.4"
+    "@angular/forms": "^7.1.2",
+    "@angular/common": "^7.1.2",
+    "@angular/compiler": "^7.1.2",
+    "@angular/core": "^7.1.2"
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",
     "@types/object-path": "^0.9.29",
-    "ngx-bootstrap": "^3.1.1",
+    "ngx-bootstrap": "^3.1.2",
     "ngx-dynamic-form-builder": "^0.5.0",
     "ngx-permissions": "^6.0.4",
     "ngx-repository": "^0.6.0",

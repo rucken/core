@@ -2,5 +2,5 @@ export const environment = {
   server: false,
   type: 'development',
   production: false,
-  apiUrl: 'http://localhost:5000/api'
+  apiUrl: 'https://3000-lieremorselessgazelle.cdr.co/api'
 };
