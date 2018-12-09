@@ -1,17 +1,12 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
-import { BasePromptFormModalComponent, translate } from '@rucken/core';
+import { Input, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { BasePromptFormModalComponent } from '../../base/base-prompt-form-modal.component';
+import { translate } from '../../utils/translate';
 import { AuthModalTypeEnum } from './auth-modal-type.enum';
-import { AUTH_MODAL_CONFIG_TOKEN } from './auth-modal.config';
 import { AuthModalModel } from './auth-modal.model';
 import { IAuthModalConfig } from './interfaces/auth-modal-config.interface';
 import { IAuthModalOauthProvider } from './interfaces/auth-modal-oauth-provider.interface';
 
-@Component({
-  selector: 'auth-modal',
-  templateUrl: './auth-modal.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush
-})
 export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalModel> implements OnInit {
   @Input()
   type: AuthModalTypeEnum;
@@ -40,10 +35,10 @@ export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalMo
   signUpType = AuthModalTypeEnum.SignUp;
   signOutType = AuthModalTypeEnum.SignOut;
 
-  constructor(@Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig) {
+  constructor(protected authModalConfig: IAuthModalConfig) {
     super();
     this.initSignIn();
-    this.oauthProviders$.next(this._authModalConfig.oauth.providers);
+    this.oauthProviders$.next(this.authModalConfig.oauth.providers);
   }
   ngOnInit() {
     if (this.type === AuthModalTypeEnum.SignIn) {

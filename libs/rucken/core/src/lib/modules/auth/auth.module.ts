@@ -3,7 +3,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { AuthEmptyComponent } from './components/auth-empty.component';
+import { AuthEmptyPageComponent } from './components/auth-empty-page.component';
 import { AUTH_CONFIG_TOKEN, defaultAuthConfig } from './configs/auth.config';
 import { defaultJwtConfig, JWT_CONFIG_TOKEN } from './configs/jwt.config';
 import { defaultOauthConfig, OAUTH_CONFIG_TOKEN } from './configs/oauth.config';
@@ -12,7 +12,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { AuthService, authServiceInitializeApp } from './services/auth.service';
 import { TokenService, tokenServiceInitializeApp } from './services/token.service';
 @NgModule({
-  declarations: [AuthEmptyComponent],
+  declarations: [AuthEmptyPageComponent],
   imports: [CommonModule, NgxPermissionsModule, TranslateModule.forChild()],
   providers: [AuthService, TokenService, OauthGuard]
 })

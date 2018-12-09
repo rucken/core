@@ -1,23 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { ModuleWithProviders, NgModule } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { PromptFormModalModule } from '../../components/prompt-form-modal/prompt-form-modal.module';
-import { AuthModalComponent } from './auth-modal.component';
+import { AuthModule } from '../auth/auth.module';
+import { ModalsModule } from '../modals/modals.module';
 import { AUTH_MODAL_CONFIG_TOKEN, defaultAuthModalConfig } from './auth-modal.config';
 import { IAuthModalConfig } from './interfaces/auth-modal-config.interface';
 @NgModule({
-  imports: [
-    CommonModule,
-    PromptFormModalModule,
-    TranslateModule.forChild(),
-    BsDropdownModule.forRoot(),
-    FontAwesomeModule
-  ],
-  declarations: [AuthModalComponent],
-  entryComponents: [AuthModalComponent],
-  exports: [AuthModalComponent, PromptFormModalModule]
+  imports: [CommonModule, ModalsModule, AuthModule, TranslateModule.forChild()]
 })
 export class AuthModalModule {
   static forRoot(options?: IAuthModalConfig): ModuleWithProviders {

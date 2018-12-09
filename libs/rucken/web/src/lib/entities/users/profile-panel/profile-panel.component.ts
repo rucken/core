@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy, isDevMode } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input, isDevMode, OnDestroy } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import {
   AccountService,
@@ -72,7 +72,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     this.processing = true;
     this._accountService
       .update(this.data)
-      .subscribe(data => this.onSave(data, saveData), error => this.onSaveError(error));
+      .subscribe(data => this.onSave(data.user, saveData), error => this.onSaveError(error));
   }
   onSave(user: User, saveData?: any) {
     this.processing = false;

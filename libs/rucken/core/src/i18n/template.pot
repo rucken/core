@@ -172,6 +172,36 @@ msgstr ""
 msgid "Select user"
 msgstr ""
 
+msgid "Sign in"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
 msgid "Oauth provider with name \"{provider}\" not founded"
 msgstr ""
 
