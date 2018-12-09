@@ -12,13 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Chinese Traditional\n"
 "Language: zh_TW\n"
-"PO-Revision-Date: 2018-11-17 15:53\n"
-
-msgid "Your session has expired, please re-login"
-msgstr ""
-
-msgid "No"
-msgstr ""
+"PO-Revision-Date: 2018-12-09 18:52\n"
 
 msgid "Russian"
 msgstr ""
@@ -106,6 +100,12 @@ msgid "Update"
 msgstr ""
 
 msgid "Close"
+msgstr ""
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+
+msgid "No"
 msgstr ""
 
 msgid "Sign out"
