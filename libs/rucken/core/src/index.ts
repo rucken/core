@@ -47,6 +47,7 @@ export * from './lib/modules/account/account.module';
 export * from './lib/modules/account/account.service';
 export * from './lib/modules/account/configs/account.config';
 export * from './lib/modules/account/configs/index';
+export * from './lib/modules/account/dto/user.dto';
 export * from './lib/modules/account/interfaces/account-config.interface';
 export * from './lib/modules/auth-modal/auth-modal-type.enum';
 export * from './lib/modules/auth-modal/auth-modal.component';
