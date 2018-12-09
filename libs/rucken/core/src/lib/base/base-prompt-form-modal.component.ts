@@ -1,13 +1,13 @@
-import { EventEmitter, Input, isDevMode, OnChanges, Output } from '@angular/core';
-import { ControlValueAccessor, FormControl } from '@angular/forms';
-import { translate } from '@rucken/core';
+import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { ValidatorOptions } from 'class-validator';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
+import { IModalRef } from '../modules/modals/modal-ref.interface';
+import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
 
-export class BasePromptPanelComponent<TModel extends IModel> implements ControlValueAccessor, OnChanges, IBaseForm {
+export class BasePromptFormModalComponent<TModel extends IModel> implements IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -47,11 +47,18 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   @Input()
   validateForm = true;
 
+  @Input()
+  hideOnNo = true;
+  @Input()
+  hideOnYes = false;
+
   get data() {
-    return this.form.object;
+    return this.form && this.form.object;
   }
-  set data(data: TModel) {
-    this.form.object = data;
+  set data(data: any) {
+    if (this.form) {
+      this.form.object = data;
+    }
   }
 
   form: DynamicFormGroup<TModel>;
@@ -60,20 +67,19 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   yesData: any;
   noData: any;
 
-  propagateChange: any = () => {};
-  validateFn: any = () => {};
+  modalRef: IModalRef<BasePromptFormModalComponent<TModel>>;
 
   constructor(
-    public factoryModel?: IFactoryModel<TModel>,
-    public controlsConfig?: {
+    private _factoryModel?: IFactoryModel<TModel>,
+    private _controlsConfig?: {
       [key: string]: any;
     },
-    public extra?: {
+    private _extra?: {
       [key: string]: any;
       customValidatorOptions?: ValidatorOptions;
     }
   ) {
-    this.group(factoryModel, controlsConfig, extra);
+    this.group(_factoryModel, _controlsConfig, _extra);
   }
   group(
     factoryModel?: IFactoryModel<TModel>,
@@ -86,18 +92,18 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
     }
   ) {
     if (controlsConfig) {
-      this.controlsConfig = controlsConfig;
+      this._controlsConfig = controlsConfig;
     }
     if (extra) {
-      this.extra = extra;
+      this._extra = extra;
     }
     if (factoryModel) {
-      this.factoryModel = factoryModel;
+      this._factoryModel = factoryModel;
     }
-    if (this.factoryModel) {
-      const newObject = new this.factoryModel();
-      if (this.factoryModel.strings) {
-        this.strings = this.factoryModel.strings;
+    if (this._factoryModel) {
+      const newObject = new this._factoryModel();
+      if (this._factoryModel.strings) {
+        this.strings = this._factoryModel.strings;
       } else {
         this.strings = Object.keys(newObject).reduce((acc, cur, i) => {
           acc[cur] = cur;
@@ -109,45 +115,41 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
         const keys = Object.keys(newObject);
         keys.map(key => (controlsConfig[key] = ''));
       }
-      this.form = this.formBuilder.group(this.factoryModel, controlsConfig, extra);
+      this.form = this.formBuilder.group(this._factoryModel, controlsConfig, extra);
     }
-  }
-  onNoClick(data?: any): void {
-    this.noData = data;
-    if (isDevMode() && this.no.observers.length === 0) {
-      console.warn('No subscribers found for "no"', this);
-    }
-    this.no.emit(this);
   }
   onYesClick(data?: any): void {
     this.yesData = data;
-    this.form.externalErrors = undefined;
-    if (this.validateForm) {
+    if (!this.message && this.validateForm) {
+      this.form.externalErrors = undefined;
       if (this.form.valid) {
-        if (isDevMode() && this.yes.observers.length === 0) {
-          console.warn('No subscribers found for "yes"', this);
-        }
-        this.propagateChange(this.data);
         this.yes.emit(this);
       } else {
         this.form.validateAllFormFields();
       }
     } else {
-      this.propagateChange(this.data);
       this.yes.emit(this);
     }
+    if (this.hideOnYes && this.modalRef) {
+      this.hide();
+    } else {
+      if (isDevMode() && this.yes.observers.length === 0) {
+        console.warn('No subscribers found for "yes"', this);
+      }
+    }
   }
-  validate(c: FormControl) {
-    return this.validateFn(c);
+  onNoClick(data?: any): void {
+    this.noData = data;
+    this.no.emit(this);
+    if (this.hideOnNo && this.modalRef) {
+      this.hide();
+    } else {
+      if (isDevMode() && this.no.observers.length === 0) {
+        console.warn('No subscribers found for "no"', this);
+      }
+    }
   }
-  ngOnChanges(inputs) {
-    this.propagateChange(this.data);
+  hide() {
+    this.modalRef.hide();
   }
-  writeValue(value) {
-    this.data = value;
-  }
-  registerOnChange(fn) {
-    this.propagateChange = fn;
-  }
-  registerOnTouched() {}
 }

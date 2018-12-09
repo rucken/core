@@ -1,7 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ContentType } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-modal.component';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BasePromptFormModalComponent, ContentType } from '@rucken/core';
 
 @Component({
   selector: 'content-type-modal',
@@ -9,8 +7,8 @@ import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-mod
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentTypeModalComponent extends BasePromptFormModalComponent<ContentType> {
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
     this.group(ContentType);
   }
 }

@@ -41,11 +41,9 @@
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",
-    "@types/object-path": "^0.9.29",
     "ngx-bootstrap": "^3.1.2",
     "ngx-dynamic-form-builder": "^0.5.0",
     "ngx-permissions": "^6.0.4",
-    "ngx-repository": "^0.6.0",
-    "object-path": "^0.11.4"
+    "ngx-repository": "^0.6.0"
   }
 }

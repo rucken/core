@@ -1,6 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BasePromptModalComponent } from '../../base/base-prompt-modal.component';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BasePromptModalComponent } from '@rucken/core';
 
 @Component({
   selector: 'message-modal',
@@ -14,7 +13,7 @@ export class MessageModalComponent extends BasePromptModalComponent {
   @Input()
   isError?: boolean;
 
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
   }
 }

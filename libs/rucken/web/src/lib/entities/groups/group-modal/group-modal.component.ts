@@ -1,7 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Group, Permission } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-modal.component';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BasePromptFormModalComponent, Group, Permission } from '@rucken/core';
 
 @Component({
   selector: 'group-modal',
@@ -12,8 +10,8 @@ export class GroupModalComponent extends BasePromptFormModalComponent<Group> {
   @Input()
   apiUrl?: string;
 
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
     this.group(Group);
   }
   onPermissionsChange(permissions: Permission[]) {

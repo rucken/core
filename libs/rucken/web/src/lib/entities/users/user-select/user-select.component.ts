@@ -1,10 +1,8 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, User, USERS_CONFIG_TOKEN } from '@rucken/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { ErrorsExtractor, ModalsService, User, USERS_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UsersGridComponent } from '../users-grid/users-grid.component';
 
 @Component({
@@ -19,14 +17,13 @@ export class UserSelectComponent extends UsersGridComponent implements OnInit {
   nameField = 'username';
 
   constructor(
-    public modalService: BsModalService,
+    modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected messageModalService: MessageModalService,
     @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions<User>
   ) {
-    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, usersConfig);
+    super(modalsService, errorsExtractor, translateService, dynamicRepository, usersConfig);
   }
   ngOnInit() {
     if (!this.mockedItems) {

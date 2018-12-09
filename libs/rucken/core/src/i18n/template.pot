@@ -4,6 +4,45 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgid "Cancel"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Item #{{id}}"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Create new item"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Update item #{{id}}"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Delete item #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete item?"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Select item"
+msgstr ""
+
+msgid "Append"
+msgstr ""
+
 msgid "Id"
 msgstr ""
 

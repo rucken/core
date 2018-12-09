@@ -1,0 +1,19 @@
+<div class="message-modal" [ngClass]="{ 'info-modal': isInfo, 'error-modal': isError }">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ title | translate }}</h4>
+    <button type="button" class="close pull-right" [attr.aria-label]="'Close' | translate" (click)="onNoClick($event)">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p class="modal-message">{{ message | translate }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-default" (click)="onYesClick($event)" focused>
+      <fa-layers class="fa-fw" *ngIf="processing">
+        <fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
+      </fa-layers>
+      {{ yesTitle | translate }}
+    </button>
+  </div>
+</div>

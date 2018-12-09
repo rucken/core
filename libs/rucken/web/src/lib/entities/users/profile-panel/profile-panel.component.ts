@@ -1,11 +1,17 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy, isDevMode } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AccountService, AuthService, ErrorsExtractor, Group, User } from '@rucken/core';
+import {
+  AccountService,
+  AuthService,
+  BasePromptPanelComponent,
+  ErrorsExtractor,
+  Group,
+  ModalsService,
+  User
+} from '@rucken/core';
 import { NgxPermissionsService } from 'ngx-permissions';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { BasePromptPanelComponent } from '../../../base/base-prompt-panel.component';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 
 @Component({
   selector: 'profile-panel',
@@ -38,7 +44,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     private _errorsExtractor: ErrorsExtractor,
     private _authService: AuthService,
     private _accountService: AccountService,
-    private _messageModalService: MessageModalService,
+    private _modalsService: ModalsService,
     private _permissionsService: NgxPermissionsService
   ) {
     super(User);
@@ -73,14 +79,15 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     this.data = user;
   }
   onError(error: any) {
-    this._messageModalService
-      .error({
-        error: error
-      })
-      .subscribe();
+    this._modalsService.error({
+      error: error
+    });
   }
   onSaveError(error: any) {
     this.processing = false;
+    if (isDevMode()) {
+      console.warn('Errors', error);
+    }
     this.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
     if (!this.form.externalErrors) {
       this.onError(error);

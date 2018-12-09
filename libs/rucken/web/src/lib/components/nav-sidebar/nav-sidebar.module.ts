@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from '@rucken/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { PipesModule } from '../../pipes/pipes.module';
 import { NavSidebarComponent } from './nav-sidebar.component';
 
 @NgModule({

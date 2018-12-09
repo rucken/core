@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
-import { ContentType } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BaseEntityListModalComponent } from '../../../base/base-entity-list-modal.component';
+import { BaseEntityListModalComponent, ContentType } from '@rucken/core';
 import { ContentTypesGridComponent } from '../content-types-grid/content-types-grid.component';
 
 @Component({
@@ -15,7 +13,7 @@ export class ContentTypesGridModalComponent extends BaseEntityListModalComponent
   @Input()
   apiUrl?: string;
 
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
   }
 }

@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from '@rucken/core';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { NgxPermissionsModule } from 'ngx-permissions';
-import { PipesModule } from '../../pipes/pipes.module';
 import { NavbarComponent } from './navbar.component';
 
 @NgModule({

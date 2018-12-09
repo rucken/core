@@ -1,16 +1,13 @@
-import { Injector, Pipe, PipeTransform } from '@angular/core';
-import { AuthService, User } from '@rucken/core';
+import { Pipe, PipeTransform } from '@angular/core';
 import { get, has } from 'object-path';
+import { User } from '../entities/models/user';
+import { AuthService } from '../modules/auth/services/auth.service';
 
 @Pipe({
   name: 'userPerm'
 })
 export class UserPermPipe implements PipeTransform {
-  private _authService: AuthService;
-  constructor(public injector: Injector) {
-    this._authService = injector.get(AuthService);
-  }
-
+  constructor(private _authService: AuthService) {}
   transform(
     item: any,
     path = 'users',

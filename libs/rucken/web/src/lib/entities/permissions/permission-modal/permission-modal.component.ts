@@ -1,7 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Permission } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-modal.component';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BasePromptFormModalComponent, Permission } from '@rucken/core';
 
 @Component({
   selector: 'permission-modal',
@@ -12,8 +10,8 @@ export class PermissionModalComponent extends BasePromptFormModalComponent<Permi
   @Input()
   apiUrl?: string;
 
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
     this.group(Permission);
   }
 }

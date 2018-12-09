@@ -1,5 +1,5 @@
 import { DOCUMENT, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID, isDevMode } from '@angular/core';
 import { Router } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
@@ -8,15 +8,15 @@ import {
   ErrorsExtractor,
   ILanguagesItem,
   LangService,
+  ModalsService,
   RedirectUriDto,
   TokenService,
   translate,
   User,
   UserTokenDto
 } from '@rucken/core';
-import { AuthModalComponent, AuthModalTypeEnum, MessageModalService } from '@rucken/web';
+import { AuthModalComponent, AuthModalTypeEnum } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from './app.config';
@@ -41,8 +41,7 @@ export class AppComponent implements OnDestroy, OnInit {
     private _errorsExtractor: ErrorsExtractor,
     private _tokenService: TokenService,
     private _translateService: TranslateService,
-    private _modalService: BsModalService,
-    private _messageModalService: MessageModalService,
+    private _modalsService: ModalsService,
     private _bsLocaleService: BsLocaleService,
     private _router: Router,
     private _metaService: MetaService,
@@ -82,13 +81,13 @@ export class AppComponent implements OnDestroy, OnInit {
     if (token) {
       if (this._tokenService.tokenHasExpired(token)) {
         this._tokenService.stopCheckTokenHasExpired();
-        this._messageModalService
-          .error({
+        this._modalsService
+          .errorAsync({
             error: translate('Your session has expired, please re-login'),
             class: 'modal-md',
             onTop: true
           })
-          .subscribe(result => this._authService.signOut().subscribe(data => this.onSignOutSuccess(undefined)));
+          .then(result => this._authService.signOut().subscribe(data => this.onSignOutSuccess(undefined)));
       } else {
         if (!this._authService.current) {
           this._authService.info(token).subscribe(
@@ -105,20 +104,26 @@ export class AppComponent implements OnDestroy, OnInit {
     }
   }
   onSignOut() {
-    const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
+    this.onSignOutAsync().then();
+  }
+  async onSignOutAsync() {
+    const modalRef = await this._modalsService.createAsync<AuthModalComponent>(AuthModalComponent, {
       class: 'modal-md',
       initialState: {
         type: AuthModalTypeEnum.SignOut,
         noTitle: translate('No')
       }
     });
-    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
+    modalRef.instance.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
       this._authService.signOut().subscribe(data => this.onSignOutSuccess(modal));
     });
   }
   onSignIn() {
-    const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
+    this.onSignInAsync().then();
+  }
+  async onSignInAsync() {
+    const modalRef = await this._modalsService.createAsync<AuthModalComponent>(AuthModalComponent, {
       class: 'modal-xs',
       initialState: {
         type: AuthModalTypeEnum.SignIn,
@@ -127,7 +132,7 @@ export class AppComponent implements OnDestroy, OnInit {
         signUpInfoMessage: AuthModalSignUpInfoMessage
       }
     });
-    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
+    modalRef.instance.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
       if (modal.yesData) {
         this._authService
@@ -181,17 +186,18 @@ export class AppComponent implements OnDestroy, OnInit {
     }
   }
   onError(error: any) {
-    this._messageModalService
-      .error({
-        error: error,
-        onTop: true
-      })
-      .subscribe();
+    this._modalsService.error({
+      error: error,
+      onTop: true
+    });
     throw error;
   }
   onSignInError(modal: AuthModalComponent, error: any) {
     if (modal) {
       modal.processing = false;
+    }
+    if (isDevMode()) {
+      console.warn('Errors', error);
     }
     modal.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
     if (!modal.form.externalErrors) {

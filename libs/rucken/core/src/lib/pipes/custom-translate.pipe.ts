@@ -1,14 +1,9 @@
-import { Injector, Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Pipe({ name: 'customTranslate' })
 export class CustomTranslatePipe implements PipeTransform {
-  private _translateService: TranslateService;
-
-  constructor(public injector: Injector) {
-    this._translateService = injector.get(TranslateService);
-  }
-
+  constructor(private _translateService: TranslateService) {}
   transform(value: string, words?: any): any {
     if (words === undefined) {
       words = {};

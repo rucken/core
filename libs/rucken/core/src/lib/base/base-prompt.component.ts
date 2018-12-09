@@ -1,10 +1,9 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
-import { translate } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
 import { BehaviorSubject } from 'rxjs';
+import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
 
-export class BasePromptModalComponent implements IBaseForm {
+export class BasePromptComponent implements IBaseForm {
   @Input()
   set processing(value: boolean) {
     this.processing$.next(value);
@@ -14,11 +13,7 @@ export class BasePromptModalComponent implements IBaseForm {
   }
   processing$ = new BehaviorSubject(false);
   @Input()
-  checkIsDirty?: boolean;
-  @Input()
   data?: any;
-  @Input()
-  focused = false;
   @Input()
   title: string;
   @Input()
@@ -46,38 +41,21 @@ export class BasePromptModalComponent implements IBaseForm {
   @Input()
   readonly = false;
 
-  @Input()
-  hideOnNo = true;
-  @Input()
-  hideOnYes = false;
-
   yesData: any;
   noData: any;
 
-  constructor(protected bsModalRef: BsModalRef) {}
   onYesClick(data?: any): void {
     this.yesData = data;
-    this.yes.emit(this);
-    if (this.hideOnYes) {
-      this.hide();
-    } else {
-      if (isDevMode() && this.yes.observers.length === 0) {
-        console.warn('No subscribers found for "yes"', this);
-      }
+    if (isDevMode() && this.yes.observers.length === 0) {
+      console.warn('No subscribers found for "yes"', this);
     }
+    this.yes.emit(this);
   }
   onNoClick(data?: any): void {
     this.noData = data;
-    this.no.emit(this);
-    if (this.hideOnNo) {
-      this.hide();
-    } else {
-      if (isDevMode() && this.no.observers.length === 0) {
-        console.warn('No subscribers found for "no"', this);
-      }
+    if (isDevMode() && this.no.observers.length === 0) {
+      console.warn('No subscribers found for "no"', this);
     }
-  }
-  hide() {
-    this.bsModalRef.hide();
+    this.no.emit(this);
   }
 }

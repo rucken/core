@@ -1,14 +1,13 @@
 import { EventEmitter, Input, isDevMode, Output, ViewChild } from '@angular/core';
-import { translate } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
 import { IModel } from 'ngx-repository';
 import { BehaviorSubject } from 'rxjs';
+import { IModalRef } from '../modules/modals/modal-ref.interface';
+import { translate } from '../utils/translate';
 import { IBaseEntityListModal } from './base-entity-list-modal.interface';
 import { IBaseEntityList } from './base-entity-list.interface';
-import { IBaseEntityModalOptions, IBaseEntityModals } from './base-entity-modals.interface';
+import { IBaseEntityModalOptions } from './base-entity-modals.interface';
 
-export class BaseEntityListModalComponent<TModel extends IModel>
-  implements IBaseEntityListModal<TModel>, IBaseEntityModals {
+export class BaseEntityListModalComponent<TModel extends IModel> implements IBaseEntityListModal<TModel> {
   @Input()
   modalItem: IBaseEntityModalOptions = {};
   @Input()
@@ -78,11 +77,12 @@ export class BaseEntityListModalComponent<TModel extends IModel>
 
   private _mockedItems: TModel[];
 
-  constructor(protected bsModalRef: BsModalRef) {}
+  modalRef: IModalRef<BaseEntityListModalComponent<TModel>>;
+
   onNoClick(data?: any): void {
     this.noData = data;
     this.no.emit(this);
-    if (this.hideOnNo) {
+    if (this.hideOnNo && this.modalRef) {
       this.hide();
     } else {
       if (isDevMode() && this.no.observers.length === 0) {
@@ -95,7 +95,7 @@ export class BaseEntityListModalComponent<TModel extends IModel>
     this.mockedItems = this.grid.mockedItems;
     this.mockedItemsChange.emit(this.mockedItems);
     this.yes.emit(this);
-    if (this.hideOnYes) {
+    if (this.hideOnYes && this.modalRef) {
       this.hide();
     } else {
       if (isDevMode() && this.yes.observers.length === 0) {
@@ -104,6 +104,6 @@ export class BaseEntityListModalComponent<TModel extends IModel>
     }
   }
   hide() {
-    this.bsModalRef.hide();
+    this.modalRef.hide();
   }
 }

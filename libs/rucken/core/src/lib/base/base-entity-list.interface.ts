@@ -1,6 +1,8 @@
 import { EventEmitter } from '@angular/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { IModel, Repository } from 'ngx-repository';
+import { IModalRef } from '../modules/modals/modal-ref.interface';
+import { ModalsService } from '../modules/modals/modals.service';
+import { BaseEntityListModalComponent } from './base-entity-list-modal.component';
 
 export interface IBaseEntityList<TModel extends IModel> {
   processing: boolean;
@@ -20,6 +22,6 @@ export interface IBaseEntityList<TModel extends IModel> {
     [key: string]: string;
   };
   repository: Repository<TModel>;
-  modalService: BsModalService;
+  modalsService: ModalsService;
   getSelected(): TModel[];
 }

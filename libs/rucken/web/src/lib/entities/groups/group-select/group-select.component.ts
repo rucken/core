@@ -1,10 +1,8 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN } from '@rucken/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, ModalsService } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { GroupsGridComponent } from '../groups-grid/groups-grid.component';
 
 @Component({
@@ -19,14 +17,13 @@ export class GroupSelectComponent extends GroupsGridComponent implements OnInit 
   nameField = 'title';
 
   constructor(
-    public modalService: BsModalService,
+    modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected messageModalService: MessageModalService,
     @Inject(GROUPS_CONFIG_TOKEN) protected groupsConfig: IRestProviderOptions<Group>
   ) {
-    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, groupsConfig);
+    super(modalsService, errorsExtractor, translateService, dynamicRepository, groupsConfig);
   }
   ngOnInit() {
     if (!this.mockedItems) {

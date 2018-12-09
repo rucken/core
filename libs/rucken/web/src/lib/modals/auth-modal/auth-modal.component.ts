@@ -1,8 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
-import { translate } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { BasePromptFormModalComponent, translate } from '@rucken/core';
 import { BehaviorSubject } from 'rxjs';
-import { BasePromptFormModalComponent } from '../../base/base-prompt-form-modal.component';
 import { AuthModalTypeEnum } from './auth-modal-type.enum';
 import { AUTH_MODAL_CONFIG_TOKEN } from './auth-modal.config';
 import { AuthModalModel } from './auth-modal.model';
@@ -42,11 +40,8 @@ export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalMo
   signUpType = AuthModalTypeEnum.SignUp;
   signOutType = AuthModalTypeEnum.SignOut;
 
-  constructor(
-    @Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig,
-    protected bsModalRef: BsModalRef
-  ) {
-    super(bsModalRef);
+  constructor(@Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig) {
+    super();
     this.initSignIn();
     this.oauthProviders$.next(this._authModalConfig.oauth.providers);
   }

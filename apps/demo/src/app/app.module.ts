@@ -13,9 +13,8 @@ import {
   PermissionsGuard,
   TransferHttpCacheModule
 } from '@rucken/core';
-import { AuthModalModule, NavbarModule, ThemesModule } from '@rucken/web';
+import { AuthModalModule, NavbarModule, ThemesModule, WebModalsModule } from '@rucken/web';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { environment } from '../environments/environment';
@@ -54,14 +53,14 @@ import { SharedModule } from './shared/shared.module';
       useFactory: appMetaFactory,
       deps: [TranslateService]
     }),
-    ModalModule.forRoot(),
     AuthModalModule.forRoot({
       oauth: {
         providers: OauthModalProviders
       }
     }),
     NavbarModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    WebModalsModule
   ],
   providers: [...entitiesProviders, CookieService, ErrorsExtractor, BsLocaleService, PermissionsGuard],
   bootstrap: [AppComponent]
