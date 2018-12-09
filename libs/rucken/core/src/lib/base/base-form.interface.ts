@@ -15,6 +15,7 @@ export class IBaseForm {
   yes: EventEmitter<any>;
   disabled: boolean;
   yesClass: string;
+  noClass: string;
   hideNo: boolean;
   hideYes: boolean;
   readonly: boolean;

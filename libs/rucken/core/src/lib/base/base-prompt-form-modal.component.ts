@@ -34,8 +34,12 @@ export class BasePromptFormModalComponent<TModel extends IModel> implements IBas
   no = new EventEmitter<any>();
   @Output()
   yes = new EventEmitter<any>();
+
   @Input()
-  yesClass = 'btn btn-primary';
+  yesClass: string;
+  @Input()
+  noClass: string;
+
   @Input()
   hideNo = false;
   @Input()

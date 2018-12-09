@@ -32,8 +32,12 @@ export class BasePromptComponent implements IBaseForm {
   yes = new EventEmitter<any>();
   @Input()
   disabled: boolean;
+
   @Input()
-  yesClass = 'btn btn-primary';
+  yesClass: string;
+  @Input()
+  noClass: string;
+
   @Input()
   hideNo = false;
   @Input()

@@ -170,7 +170,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     const modalRef = await this.modalsService.createAsync<BasePromptFormModalComponent<TModel>>(
       this.modalView.component || this.modalItem.component,
       {
-        class: this.modalView.class || this.modalItem.class || 'modal-md',
+        class: this.modalView.class || this.modalItem.class,
         initialState: {
           title: title,
           noTitle: translate('Close'),
@@ -208,7 +208,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     const modalRef = await this.modalsService.createAsync<BasePromptFormModalComponent<TModel>>(
       this.modalCreate.component || this.modalItem.component,
       {
-        class: this.modalCreate.class || this.modalItem.class || 'modal-md',
+        class: this.modalCreate.class || this.modalItem.class,
         initialState: {
           title: title,
           yesTitle: translate('Create'),
@@ -274,7 +274,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     const modalRef = await this.modalsService.createAsync<BasePromptFormModalComponent<TModel>>(
       this.modalUpdate.component || this.modalItem.component,
       {
-        class: this.modalUpdate.class || this.modalItem.class || 'modal-md',
+        class: this.modalUpdate.class || this.modalItem.class,
         initialState: {
           title: title,
           yesTitle: translate('Save'),
@@ -343,7 +343,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     const modalRef = await this.modalsService.createAsync<BasePromptFormModalComponent<TModel>>(
       this.modalDelete.component || this.modalItem.component,
       {
-        class: this.modalDelete.class || this.modalItem.class || 'modal-md',
+        class: this.modalDelete.class || this.modalItem.class,
         initialState: {
           title: title,
           message: message,
@@ -408,7 +408,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     const modalRef = await this.modalsService.createAsync<BaseEntityListModalComponent<TModel>>(
       this.modalAppendFromGrid.component,
       {
-        class: this.modalAppendFromGrid.class || this.modalItem.class || 'modal-md',
+        class: this.modalAppendFromGrid.class || this.modalItem.class,
         initialState: {
           title: title,
           yesTitle: translate('Append'),

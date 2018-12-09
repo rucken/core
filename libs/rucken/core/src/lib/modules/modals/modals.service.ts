@@ -5,6 +5,9 @@ import { IModalRef } from './modal-ref.interface';
 export class ModalsService {
   componentInfoModal: string | TemplateRef<any> | any;
   componentErrorModal: string | TemplateRef<any> | any;
+  modalClass: string;
+  yesClass: string;
+  noClass: string;
 
   createAsync<TComponent>(
     component: string | TemplateRef<TComponent> | any,

@@ -15,9 +15,10 @@ import { WebAuthModalComponent } from './auth-modal.component';
 @Injectable()
 export class WebAuthModalService extends AuthModalService {
   componentModal = WebAuthModalComponent;
-
   signInInfoMessage: string;
   signUpInfoMessage: string;
+  signInModalClass = 'modal-md';
+  signOutModalClass = 'modal-xs';
 
   constructor(
     public authService: AuthService,

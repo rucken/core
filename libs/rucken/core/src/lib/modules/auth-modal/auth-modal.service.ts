@@ -14,6 +14,8 @@ export class AuthModalService {
   componentModal: string | TemplateRef<any> | any;
   signInInfoMessage: string;
   signUpInfoMessage: string;
+  signInModalClass: string;
+  signOutModalClass: string;
 
   constructor(
     public authService: AuthService,
@@ -29,7 +31,6 @@ export class AuthModalService {
         this.modalsService
           .errorAsync({
             error: translate('Your session has expired, please re-login'),
-            class: 'modal-md',
             onTop: true
           })
           .then(result => this.authService.signOut().subscribe(data => this.onSignOutSuccess(undefined)));
@@ -53,7 +54,7 @@ export class AuthModalService {
   }
   async onSignOutAsync() {
     const modalRef = await this.modalsService.createAsync<AuthModalComponent>(this.componentModal, {
-      class: 'modal-md',
+      class: this.signOutModalClass,
       initialState: {
         type: AuthModalTypeEnum.SignOut,
         noTitle: translate('No')
@@ -69,7 +70,7 @@ export class AuthModalService {
   }
   async onSignInAsync() {
     const modalRef = await this.modalsService.createAsync<AuthModalComponent>(this.componentModal, {
-      class: 'modal-xs',
+      class: this.signInModalClass,
       initialState: {
         type: AuthModalTypeEnum.SignIn,
         data: {},

@@ -9,6 +9,8 @@ import { MessageModalComponent } from './message-modal.component';
 export class WebModalsService extends ModalsService {
   componentInfoModal: MessageModalComponent;
   componentErrorModal: MessageModalComponent;
+  yesClass = 'btn btn-primary';
+  modalClass = 'modal-md';
 
   private _onTopIsActive = false;
 
@@ -21,6 +23,9 @@ export class WebModalsService extends ModalsService {
     super();
   }
   createAsync<TComponent>(component: string | TemplateRef<TComponent>, options?: any): Promise<IModalRef<TComponent>> {
+    if (options.class === undefined) {
+      options.class = this.modalClass;
+    }
     const bsModalRef: BsModalRef = this._modalService.show(component, options);
     bsModalRef.content.yes.subscribe((modal: MessageModalComponent) => {
       this._onTopIsActive = false;
@@ -34,7 +39,14 @@ export class WebModalsService extends ModalsService {
         this.hide();
       }.bind(bsModalRef)
     };
+    if (bsModalRef.content.yesClass === undefined) {
+      bsModalRef.content.yesClass = this.yesClass;
+    }
+    if (bsModalRef.content.noClass === undefined) {
+      bsModalRef.content.noClass = this.noClass;
+    }
     bsModalRef.content.modalRef = modalRef;
+    console.log(bsModalRef.content);
     return Promise.resolve(modalRef);
   }
   infoAsync(options: { message: string | any; title?: string; class?: string; onTop?: boolean }) {
@@ -50,9 +62,10 @@ export class WebModalsService extends ModalsService {
         options.title = this._translateService.instant('Info');
       }
       if (options.class === undefined) {
-        options.class = this.getKlassOfMessageLength(message);
+        options.class = this.getKlassOfMessageLength(message) || this.modalClass;
       }
       this._onTopIsActive = options.onTop;
+      // todo: Change to create with create method
       const bsModalRef: BsModalRef = this._modalService.show(this.componentInfoModal, {
         class: options.class,
         ignoreBackdropClick: options.onTop === true,
@@ -64,6 +77,12 @@ export class WebModalsService extends ModalsService {
           yesTitle: this._translateService.instant('OK')
         }
       });
+      if (bsModalRef.content.yesClass === undefined) {
+        bsModalRef.content.yesClass = this.yesClass;
+      }
+      if (bsModalRef.content.noClass === undefined) {
+        bsModalRef.content.noClass = this.noClass;
+      }
       bsModalRef.content.yes.subscribe((modal: MessageModalComponent) => {
         bsModalRef.hide();
         resolve(true);
@@ -90,9 +109,10 @@ export class WebModalsService extends ModalsService {
         options.title = this._translateService.instant('Error');
       }
       if (options.class === undefined) {
-        options.class = this.getKlassOfMessageLength(message);
+        options.class = this.getKlassOfMessageLength(message) || this.modalClass;
       }
       this._onTopIsActive = options.onTop;
+      // todo: Change to create with create method
       const bsModalRef: BsModalRef = this._modalService.show(this.componentErrorModal || MessageModalComponent, {
         class: options.class,
         ignoreBackdropClick: options.onTop === true,
@@ -104,6 +124,12 @@ export class WebModalsService extends ModalsService {
           yesTitle: this._translateService.instant('OK')
         }
       });
+      if (bsModalRef.content.yesClass === undefined) {
+        bsModalRef.content.yesClass = this.yesClass;
+      }
+      if (bsModalRef.content.noClass === undefined) {
+        bsModalRef.content.noClass = this.noClass;
+      }
       bsModalRef.content.yes.subscribe((modal: MessageModalComponent) => {
         bsModalRef.hide();
         resolve(true);
@@ -117,7 +143,7 @@ export class WebModalsService extends ModalsService {
     });
   }
   private getKlassOfMessageLength(message: string) {
-    return message && message.length > 150 ? 'modal-md' : 'modal-sm';
+    return message ? (message.length > 150 ? 'modal-md' : 'modal-sm') : undefined;
   }
   private onErrorInConsole(error: any, message?: string): void {
     if (error && console && console.group && console.error) {

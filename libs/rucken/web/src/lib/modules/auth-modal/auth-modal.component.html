@@ -14,6 +14,8 @@
     [leftFooterButtonsTemplate]="signOutType !== type && !readonly ? leftFooterButtonsTemplate : null"
     [footerButtonsTemplate]="signOutType !== type && !readonly ? socialFooterButtonsTemplate : null"
     #promptFormModal
+    [yesClass]="yesClass"
+    [noClass]="noClass"
   >
     <form-group
       [checkIsDirty]="checkIsDirty"

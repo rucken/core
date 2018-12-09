@@ -34,8 +34,12 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   no = new EventEmitter<any>();
   @Output()
   yes = new EventEmitter<any>();
+
   @Input()
-  yesClass = 'btn btn-primary';
+  yesClass: string;
+  @Input()
+  noClass: string;
+
   @Input()
   hideNo = false;
   @Input()
