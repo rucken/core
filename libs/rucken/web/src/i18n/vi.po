@@ -12,45 +12,9 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Vietnamese\n"
 "Language: vi_VN\n"
-"PO-Revision-Date: 2018-09-23 15:12\n"
-
-msgid "Cancel"
-msgstr ""
-
-msgid "OK"
-msgstr ""
-
-msgid "Item #{{id}}"
-msgstr ""
-
-msgid "Close"
-msgstr ""
-
-msgid "Create new item"
-msgstr ""
+"PO-Revision-Date: 2018-12-09 18:52\n"
 
 msgid "Create"
-msgstr ""
-
-msgid "Update item #{{id}}"
-msgstr ""
-
-msgid "Save"
-msgstr ""
-
-msgid "Delete item #{{id}}"
-msgstr ""
-
-msgid "Do you really want to delete item?"
-msgstr ""
-
-msgid "Delete"
-msgstr ""
-
-msgid "Select item"
-msgstr ""
-
-msgid "Append"
 msgstr ""
 
 msgid "Select content type"
@@ -98,43 +62,22 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-msgid "Sign in"
-msgstr ""
-
-msgid "Authorization"
-msgstr ""
-
-msgid "Sign up"
-msgstr ""
-
-msgid "Registration"
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "Sign out"
-msgstr ""
-
-msgid "Do you really want to leave?"
-msgstr ""
-
-msgid "Email"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Confirm password"
-msgstr ""
-
 msgid "Info"
+msgstr ""
+
+msgid "OK"
 msgstr ""
 
 msgid "Error"
 msgstr ""
 
 msgid "Error Log"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Append"
 msgstr ""
 
 msgid "No data"
@@ -149,7 +92,70 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+msgid "Sign out"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
 msgid "Split button!"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Item #{{id}}"
+msgstr ""
+
+msgid "Create new item"
+msgstr ""
+
+msgid "Update item #{{id}}"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Delete item #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete item?"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Select item"
 msgstr ""
 
 msgid "Menu"
