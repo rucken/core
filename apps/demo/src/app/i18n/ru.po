@@ -12,13 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-11-17 15:52\n"
-
-msgid "Your session has expired, please re-login"
-msgstr "Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
-
-msgid "No"
-msgstr "Нет"
+"PO-Revision-Date: 2018-12-09 18:33\n"
 
 msgid "Russian"
 msgstr "Русский"
@@ -111,6 +105,12 @@ msgstr "Изменить"
 
 msgid "Close"
 msgstr "Закрыть"
+
+msgid "Your session has expired, please re-login"
+msgstr "Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
+
+msgid "No"
+msgstr "Нет"
 
 msgid "Sign out"
 msgstr "Выйти"
