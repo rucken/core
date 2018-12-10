@@ -1,8 +1,8 @@
-[![Greenkeeper badge](https://badges.greenkeeper.io/rucken/core.svg)](https://greenkeeper.io/)
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/rucken-core/localized.svg)](https://crowdin.com/project/rucken-core)
-[![Gitter][gitter-image]][gitter-url]
+[![Greenkeeper badge](https://badges.greenkeeper.io/rucken/core.svg)](https://greenkeeper.io/)
+[![NPM version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Crowdin](https://d322cqt584bo4o.cloudfront.net/rucken-core/localized.svg)](https://crowdin.com/project/rucken-core)
+[![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
 Core and Admin UI for Angular7+ web applications
