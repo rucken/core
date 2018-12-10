@@ -22,25 +22,21 @@
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
 <title>cluster_EntityGridModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="76,-70 76,-268 420,-268 420,-70 76,-70"/>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="160,-70 160,-268 336,-268 336,-70 160,-70"/>
 </g>
 <g id="clust2" class="cluster">
 <title>cluster_EntityGridModule_declarations</title>
-<polygon fill="none" stroke="#000000" points="254,-78 254,-130 412,-130 412,-78 254,-78"/>
-</g>
-<g id="clust4" class="cluster">
-<title>cluster_EntityGridModule_imports</title>
-<polygon fill="none" stroke="#000000" points="84,-78 84,-130 246,-130 246,-78 84,-78"/>
+<polygon fill="none" stroke="#000000" points="169,-78 169,-130 327,-130 327,-78 169,-78"/>
 </g>
 <g id="clust5" class="cluster">
 <title>cluster_EntityGridModule_exports</title>
-<polygon fill="none" stroke="#000000" points="84,-208 84,-260 411,-260 411,-208 84,-208"/>
+<polygon fill="none" stroke="#000000" points="168,-208 168,-260 328,-260 328,-208 168,-208"/>
 </g>
 <!-- EntityGridComponent -->
 <g id="node1" class="node">
 <title>EntityGridComponent</title>
-<polygon fill="#ffffb3" stroke="#000000" points="403.7148,-122 262.2852,-122 262.2852,-86 403.7148,-86 403.7148,-122"/>
-<text text-anchor="middle" x="333" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">EntityGridComponent</text>
+<polygon fill="#ffffb3" stroke="#000000" points="318.7148,-122 177.2852,-122 177.2852,-86 318.7148,-86 318.7148,-122"/>
+<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">EntityGridComponent</text>
 </g>
 <!-- EntityGridModule -->
 <g id="node2" class="node">
@@ -51,44 +47,20 @@
 <!-- EntityGridComponent&#45;&gt;EntityGridModule -->
 <g id="edge1" class="edge">
 <title>EntityGridComponent&#45;&gt;EntityGridModule</title>
-<path fill="none" stroke="#000000" d="M285.0544,-122.1061C285.0544,-122.1061 285.0544,-140.991 285.0544,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="281.5544,-140.9909 285.0544,-150.991 288.5544,-140.991 281.5544,-140.9909"/>
+<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
+<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
 </g>
 <!-- EntityGridComponent  -->
-<g id="node4" class="node">
+<g id="node3" class="node">
 <title>EntityGridComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="403.2149,-252 258.7851,-252 258.7851,-216 403.2149,-216 403.2149,-252"/>
-<text text-anchor="middle" x="331" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">EntityGridComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="320.2149,-252 175.7851,-252 175.7851,-216 320.2149,-216 320.2149,-252"/>
+<text text-anchor="middle" x="248" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">EntityGridComponent </text>
 </g>
 <!-- EntityGridModule&#45;&gt;EntityGridComponent  -->
-<g id="edge3" class="edge">
-<title>EntityGridModule&#45;&gt;EntityGridComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.1794,-187.1061C283.1794,-187.1061 283.1794,-205.991 283.1794,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="279.6794,-205.9909 283.1794,-215.991 286.6794,-205.991 279.6794,-205.9909"/>
-</g>
-<!-- MessageModalModule  -->
-<g id="node5" class="node">
-<title>MessageModalModule </title>
-<polygon fill="#fb8072" stroke="#000000" points="240.0778,-252 91.9222,-252 91.9222,-216 240.0778,-216 240.0778,-252"/>
-<text text-anchor="middle" x="166" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">MessageModalModule </text>
-</g>
-<!-- EntityGridModule&#45;&gt;MessageModalModule  -->
-<g id="edge4" class="edge">
-<title>EntityGridModule&#45;&gt;MessageModalModule </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M214.2863,-187.1061C214.2863,-187.1061 214.2863,-205.991 214.2863,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="210.7864,-205.9909 214.2863,-215.991 217.7864,-205.991 210.7864,-205.9909"/>
-</g>
-<!-- MessageModalModule -->
-<g id="node3" class="node">
-<title>MessageModalModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="237.5772,-122 234.5772,-126 213.5772,-126 210.5772,-122 92.4228,-122 92.4228,-86 237.5772,-86 237.5772,-122"/>
-<text text-anchor="middle" x="165" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">MessageModalModule</text>
-</g>
-<!-- MessageModalModule&#45;&gt;EntityGridModule -->
 <g id="edge2" class="edge">
-<title>MessageModalModule&#45;&gt;EntityGridModule</title>
-<path fill="none" stroke="#000000" d="M212.9113,-122.1061C212.9113,-122.1061 212.9113,-140.991 212.9113,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="209.4114,-140.9909 212.9113,-150.991 216.4114,-140.991 209.4114,-140.9909"/>
+<title>EntityGridModule&#45;&gt;EntityGridComponent </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248,-187.1061C248,-187.1061 248,-205.991 248,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="244.5001,-205.9909 248,-215.991 251.5001,-205.991 244.5001,-205.9909"/>
 </g>
 </g>
 </svg>

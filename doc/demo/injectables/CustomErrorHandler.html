@@ -239,9 +239,9 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ErrorHandler, Injectable, Injector, NgZone, PLATFORM_ID, Inject } from &#x27;@angular/core&#x27;;
-import { MessageModalService } from &#x27;@rucken/web&#x27;;
-import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isPlatformBrowser } from &#x27;@angular/common&#x27;;
+import { ErrorHandler, Inject, Injectable, Injector, NgZone, PLATFORM_ID } from &#x27;@angular/core&#x27;;
+import { ModalsService } from &#x27;@rucken/core&#x27;;
 
 @Injectable()
 export class CustomErrorHandler implements ErrorHandler {
@@ -250,12 +250,8 @@ export class CustomErrorHandler implements ErrorHandler {
     if (isPlatformBrowser(this._platformId)) {
       this._ngZone.run(() &#x3D;&gt; {
         const message &#x3D; error.message ? error.message : error &amp;&amp; error.toString ? error.toString() : error;
-        const messageModalService &#x3D; this._injector.get(MessageModalService);
-        messageModalService
-          .error({
-            error: message
-          })
-          .subscribe();
+        const modalsService &#x3D; this._injector.get(ModalsService);
+        modalsService.error({ error: message });
       });
     } else {
       console.log(error);

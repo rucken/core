@@ -33,18 +33,18 @@
 
 
 <ol class="breadcrumb">
-  <li>Modules</li>
-  <li>SharedModule</li>
+    <li>Modules</li>
+    <li>SharedModule</li>
 </ol>
 
 
 <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
-        </li>
-        <li >
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
-        </li>
+    <li  class="active" >
+        <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li >
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
 </ul>
 
 <div class="tab-content">
@@ -58,12 +58,14 @@
         </p>
 
 
-        
+
 
         <div class="container-fluid module">
             <div class="row">
             </div>
         </div>
+
+
     </div>
 
 
@@ -71,18 +73,17 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
-import { MessageModalModule, PipesModule } from &#x27;@rucken/web&#x27;;
+import { PipesModule } from &#x27;@rucken/core&#x27;;
 import { NgxRepositoryModule } from &#x27;ngx-repository&#x27;;
 
 @NgModule({
-  imports: [CommonModule, NgxRepositoryModule.forRoot(), MessageModalModule, PipesModule, TranslateModule.forChild()],
-  exports: [CommonModule, NgxRepositoryModule, MessageModalModule, PipesModule, TranslateModule]
+  imports: [CommonModule, PipesModule, NgxRepositoryModule.forRoot(), TranslateModule.forChild()],
+  exports: [CommonModule, PipesModule, NgxRepositoryModule, TranslateModule]
 })
 export class SharedModule {}
 </code></pre>
     </div>
 </div>
-
 
 
 

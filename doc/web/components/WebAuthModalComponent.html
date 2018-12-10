@@ -1,0 +1,381 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>rucken:web</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">rucken:web</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>WebAuthModalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>libs/rucken/web/src/lib/modules/auth-modal/auth-modal.component.ts</code>
+</p>
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+            <code>AuthModalComponent</code>
+    </p>
+
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>auth-modal</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./auth-modal.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(_authModalConfig: IAuthModalConfig)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">libs/rucken/web/src/lib/modules/auth-modal/auth-modal.component.ts:9</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>_authModalConfig</td>
+                                                  
+                                                        <td>
+                                                                    <code>IAuthModalConfig</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Inject } from &#x27;@angular/core&#x27;;
+import { AuthModalComponent, AUTH_MODAL_CONFIG_TOKEN, IAuthModalConfig } from &#x27;@rucken/core&#x27;;
+
+@Component({
+  selector: &#x27;auth-modal&#x27;,
+  templateUrl: &#x27;./auth-modal.component.html&#x27;,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class WebAuthModalComponent extends AuthModalComponent {
+  constructor(@Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig) {
+    super(_authModalConfig);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;form&quot; novalidate&gt;
+  &lt;prompt-form-modal
+    [title]&#x3D;&quot;title&quot;
+    [message]&#x3D;&quot;message&quot;
+    [infoMessage]&#x3D;&quot;signInType &#x3D;&#x3D;&#x3D; type ? signInInfoMessage : signUpInfoMessage&quot;
+    [errorMessage]&#x3D;&quot;errorMessage&quot;
+    [readonly]&#x3D;&quot;readonly&quot;
+    [noTitle]&#x3D;&quot;noTitle&quot;
+    [yesTitle]&#x3D;&quot;yesTitle&quot;
+    (no)&#x3D;&quot;onNoClick()&quot;
+    (yes)&#x3D;&quot;onYesClick()&quot;
+    [data]&#x3D;&quot;data&quot;
+    [processing]&#x3D;&quot;processing$ | async&quot;
+    [leftFooterButtonsTemplate]&#x3D;&quot;signOutType !&#x3D;&#x3D; type &amp;&amp; !readonly ? leftFooterButtonsTemplate : null&quot;
+    [footerButtonsTemplate]&#x3D;&quot;signOutType !&#x3D;&#x3D; type &amp;&amp; !readonly ? socialFooterButtonsTemplate : null&quot;
+    #promptFormModal
+    [yesClass]&#x3D;&quot;yesClass$ | async&quot;
+    [noClass]&#x3D;&quot;noClass$ | async&quot;
+  &gt;
+    &lt;form-group
+      [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
+      [form]&#x3D;&quot;form&quot;
+      name&#x3D;&quot;username&quot;
+      [title]&#x3D;&quot;strings.username&quot;
+      *ngIf&#x3D;&quot;signUpType &#x3D;&#x3D;&#x3D; type&quot;
+    &gt;
+      &lt;input autocomplete&#x3D;&quot;on&quot; formControlName&#x3D;&quot;username&quot; focused /&gt;
+    &lt;/form-group&gt;
+    &lt;form-group [checkIsDirty]&#x3D;&quot;checkIsDirty&quot; [form]&#x3D;&quot;form&quot; name&#x3D;&quot;email&quot; [title]&#x3D;&quot;strings.email&quot;&gt;
+      &lt;input autocomplete&#x3D;&quot;on&quot; formControlName&#x3D;&quot;email&quot; focused /&gt;
+    &lt;/form-group&gt;
+    &lt;form-group [checkIsDirty]&#x3D;&quot;checkIsDirty&quot; [form]&#x3D;&quot;form&quot; name&#x3D;&quot;password&quot; [title]&#x3D;&quot;strings.password&quot;&gt;
+      &lt;input formControlName&#x3D;&quot;password&quot; type&#x3D;&quot;password&quot; /&gt;
+    &lt;/form-group&gt;
+    &lt;form-group
+      [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
+      [form]&#x3D;&quot;form&quot;
+      name&#x3D;&quot;rePassword&quot;
+      [title]&#x3D;&quot;strings.rePassword&quot;
+      *ngIf&#x3D;&quot;signUpType &#x3D;&#x3D;&#x3D; type&quot;
+    &gt;
+      &lt;input formControlName&#x3D;&quot;rePassword&quot; type&#x3D;&quot;password&quot; /&gt;
+    &lt;/form-group&gt;
+  &lt;/prompt-form-modal&gt;
+&lt;/form&gt;
+&lt;ng-template #leftFooterButtonsTemplate&gt;
+  &lt;a class&#x3D;&quot;btn btn-link&quot; (click)&#x3D;&quot;onExtClick($event)&quot;&gt; {{ extTitle | translate }} &lt;/a&gt;
+&lt;/ng-template&gt;
+&lt;ng-template #socialFooterButtonsTemplate&gt;
+  &lt;div class&#x3D;&quot;btn-group&quot; dropdown&gt;
+    &lt;button
+      type&#x3D;&quot;submit&quot;
+      [ngClass]&#x3D;&quot;promptFormModal.yesClass&quot;
+      (click)&#x3D;&quot;promptFormModal.onYesClick($event)&quot;
+      [disabled]&#x3D;&quot;promptFormModal.processing || promptFormModal.disabled&quot;
+      *ngIf&#x3D;&quot;!promptFormModal.hideYes&quot;
+      [focused]&#x3D;&quot;promptFormModal.message || (!promptFormModal.message &amp;&amp; promptFormModal.focused)&quot;
+    &gt;
+      &lt;fa-layers class&#x3D;&quot;fa-fw&quot; *ngIf&#x3D;&quot;promptFormModal.processing&quot;&gt;
+        &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;spinner&#x27;]&quot; [pulse]&#x3D;&quot;true&quot;&gt;&lt;/fa-icon&gt;
+      &lt;/fa-layers&gt;
+      {{ promptFormModal.yesTitle | translate }}
+    &lt;/button&gt;
+    &lt;button
+      id&#x3D;&quot;button-split&quot;
+      type&#x3D;&quot;button&quot;
+      dropdownToggle
+      [ngClass]&#x3D;&quot;promptFormModal.yesClass&quot;
+      [disabled]&#x3D;&quot;promptFormModal.processing || promptFormModal.disabled&quot;
+      class&#x3D;&quot;dropdown-toggle dropdown-toggle-split&quot;
+      aria-controls&#x3D;&quot;dropdown-split&quot;
+    &gt;
+      &lt;span class&#x3D;&quot;caret&quot;&gt;&lt;/span&gt; &lt;span class&#x3D;&quot;sr-only&quot; translate&gt; Split button! &lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul
+      id&#x3D;&quot;dropdown-split&quot;
+      *dropdownMenu
+      class&#x3D;&quot;dropdown-menu dropdown-menu-right&quot;
+      role&#x3D;&quot;menu&quot;
+      aria-labelledby&#x3D;&quot;button-split&quot;
+    &gt;
+      &lt;li role&#x3D;&quot;menuitem&quot; *ngFor&#x3D;&quot;let oauthProvider of (oauthProviders$ | async) as oauthProviders&quot;&gt;
+        &lt;a href&#x3D;&quot;javascript:void(0)&quot; class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;onOauthYesClick(oauthProvider)&quot;&gt;
+          &lt;fa-icon [icon]&#x3D;&quot;oauthProvider.icon&quot;&gt;&lt;/fa-icon&gt;
+          {{ oauthProvider.signInTitle | translate }}
+        &lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/ng-template&gt;
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="form" novalidate>  <prompt-form-modal    [title]="title"    [message]="message"    [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"    [errorMessage]="errorMessage"    [readonly]="readonly"    [noTitle]="noTitle"    [yesTitle]="yesTitle"    (no)="onNoClick()"    (yes)="onYesClick()"    [data]="data"    [processing]="processing$ | async"    [leftFooterButtonsTemplate]="signOutType !== type && !readonly ? leftFooterButtonsTemplate : null"    [footerButtonsTemplate]="signOutType !== type && !readonly ? socialFooterButtonsTemplate : null"    #promptFormModal    [yesClass]="yesClass$ | async"    [noClass]="noClass$ | async"  >    <form-group      [checkIsDirty]="checkIsDirty"      [form]="form"      name="username"      [title]="strings.username"      *ngIf="signUpType === type"    >      <input autocomplete="on" formControlName="username" focused />    </form-group>    <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="email" [title]="strings.email">      <input autocomplete="on" formControlName="email" focused />    </form-group>    <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="password" [title]="strings.password">      <input formControlName="password" type="password" />    </form-group>    <form-group      [checkIsDirty]="checkIsDirty"      [form]="form"      name="rePassword"      [title]="strings.rePassword"      *ngIf="signUpType === type"    >      <input formControlName="rePassword" type="password" />    </form-group>  </prompt-form-modal></form><ng-template #leftFooterButtonsTemplate>  <a class="btn btn-link" (click)="onExtClick($event)"> {{ extTitle | translate }} </a></ng-template><ng-template #socialFooterButtonsTemplate>  <div class="btn-group" dropdown>    <button      type="submit"      [ngClass]="promptFormModal.yesClass"      (click)="promptFormModal.onYesClick($event)"      [disabled]="promptFormModal.processing || promptFormModal.disabled"      *ngIf="!promptFormModal.hideYes"      [focused]="promptFormModal.message || (!promptFormModal.message && promptFormModal.focused)"    >      <fa-layers class="fa-fw" *ngIf="promptFormModal.processing">        <fa-icon [icon]="[\'fas\', \'spinner\']" [pulse]="true"></fa-icon>      </fa-layers>      {{ promptFormModal.yesTitle | translate }}    </button>    <button      id="button-split"      type="button"      dropdownToggle      [ngClass]="promptFormModal.yesClass"      [disabled]="promptFormModal.processing || promptFormModal.disabled"      class="dropdown-toggle dropdown-toggle-split"      aria-controls="dropdown-split"    >      <span class="caret"></span> <span class="sr-only" translate> Split button! </span>    </button>    <ul      id="dropdown-split"      *dropdownMenu      class="dropdown-menu dropdown-menu-right"      role="menu"      aria-labelledby="button-split"    >      <li role="menuitem" *ngFor="let oauthProvider of (oauthProviders$ | async) as oauthProviders">        <a href="javascript:void(0)" class="dropdown-item" (click)="onOauthYesClick(oauthProvider)">          <fa-icon [icon]="oauthProvider.icon"></fa-icon>          {{ oauthProvider.signInTitle | translate }}        </a>      </li>    </ul>  </div></ng-template></div>'
+    var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
+    var DIRECTIVES = [{'name': 'DisableControlDirective', 'selector': '[disableControl]'},{'name': 'FocusedDirective', 'selector': '[focused]'}];
+    var ACTUAL_COMPONENT = {'name': 'WebAuthModalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'WebAuthModalComponent.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
