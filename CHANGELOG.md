@@ -1,3 +1,20 @@
+# [3.5.0](https://github.com/rucken/core/compare/3.4.0...3.5.0) (2018-12-10)
+
+
+### Bug Fixes
+
+* Remove bootstrap styles from [@rucken](https://github.com/rucken)/core move it to [@rucken](https://github.com/rucken)/web ([215f892](https://github.com/rucken/core/commit/215f892))
+* Replace BehaviorSubject to BindObservable for Input-s in components ([c9f13d1](https://github.com/rucken/core/commit/c9f13d1))
+* **auth-modal:** Move auth modal to [@rucken](https://github.com/rucken)/core ([009ea5f](https://github.com/rucken/core/commit/009ea5f))
+* **deps:** Update dependencies ([d7b206b](https://github.com/rucken/core/commit/d7b206b))
+
+
+### Features
+
+* Move base classes and pipes  to [@rucken](https://github.com/rucken)/core, add proxy class for create modal ([2f17a59](https://github.com/rucken/core/commit/2f17a59))
+
+
+
 # [3.4.0](https://github.com/rucken/core/compare/3.3.5...3.4.0) (2018-11-17)
 
 ### Features

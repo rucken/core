@@ -1,6 +1,6 @@
 {
   "name": "@rucken/core",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -48,7 +48,7 @@
     "jsonwebtoken": "^8.4.0",
     "ngx-cookie-service": "^2.1.0",
     "ngx-permissions": "^6.0.4",
-    "ngx-repository": "^0.6.0",
+    "ngx-repository": "^0.6.1",
     "object-path": "^0.11.4",
     "bind-observable": "^1.0.1"
   }

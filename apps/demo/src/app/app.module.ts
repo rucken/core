@@ -22,7 +22,7 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { AllRoutes, AppLangs, appMetaFactory, OauthModalProviders, OauthProviders } from './app.config';
 import { SharedModule } from './shared/shared.module';
-import { WebAuthModalModule } from '@rucken/web/lib/modules/auth-modal/auth-modal.module';
+import { WebAuthModalModule } from '@rucken/web';
 
 @NgModule({
   declarations: [AppComponent],
