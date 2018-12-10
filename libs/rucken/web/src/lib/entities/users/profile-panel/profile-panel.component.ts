@@ -9,7 +9,6 @@ import {
   ModalsService,
   User
 } from '@rucken/core';
-import { NgxPermissionsService } from 'ngx-permissions';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -44,8 +43,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     private _errorsExtractor: ErrorsExtractor,
     private _authService: AuthService,
     private _accountService: AccountService,
-    private _modalsService: ModalsService,
-    private _permissionsService: NgxPermissionsService
+    private _modalsService: ModalsService
   ) {
     super(User);
     this._authService.current$.pipe(takeUntil(this._destroyed$)).subscribe(user => {

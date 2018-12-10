@@ -46,7 +46,6 @@ export class WebModalsService extends ModalsService {
       bsModalRef.content.noClass = this.noClass;
     }
     bsModalRef.content.modalRef = modalRef;
-    console.log(bsModalRef.content);
     return Promise.resolve(modalRef);
   }
   infoAsync(options: { message: string | any; title?: string; class?: string; onTop?: boolean }) {
