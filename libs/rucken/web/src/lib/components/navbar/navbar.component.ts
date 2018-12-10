@@ -5,12 +5,13 @@ import {
   EventEmitter,
   HostListener,
   Input,
+  isDevMode,
   Output,
-  ViewChild,
-  isDevMode
+  ViewChild
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
+import { BindObservable } from 'bind-observable';
+import { Observable } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -29,8 +30,8 @@ export class NavbarComponent {
   title: string;
   @Input()
   set routes(routes: any[]) {
-    this.allowedRoutes$.next(routes ? routes.filter((item: any) => item.data && item.data.visible !== false) : []);
-    const allowedRoutes = this.allowedRoutes$.getValue().map((item: any) => {
+    this.allowedRoutes = routes ? routes.filter((item: any) => item.data && item.data.visible !== false) : [];
+    const allowedRoutes = this.allowedRoutes.map((item: any) => {
       let newItem = item.data;
       if (newItem.meta) {
         newItem = { ...newItem, ...newItem.meta };
@@ -42,8 +43,8 @@ export class NavbarComponent {
       newItem.redirectTo = item.redirectTo;
       return newItem;
     });
-    this.rightRoutes$.next(allowedRoutes.filter((item: any) => item.align !== 'left'));
-    this.leftRoutes$.next(allowedRoutes.filter((item: any) => item.align === 'left'));
+    this.rightRoutes = allowedRoutes.filter((item: any) => item.align !== 'left');
+    this.leftRoutes = allowedRoutes.filter((item: any) => item.align === 'left');
   }
   @Output()
   signIn = new EventEmitter();
@@ -56,9 +57,18 @@ export class NavbarComponent {
   @Output()
   currentLangChange = new EventEmitter<string>();
 
-  public allowedRoutes$ = new BehaviorSubject([]);
-  public rightRoutes$ = new BehaviorSubject([]);
-  public leftRoutes$ = new BehaviorSubject([]);
+  @BindObservable()
+  @Input()
+  allowedRoutes = [];
+  allowedRoutes$: Observable<any[]>;
+  @BindObservable()
+  @Input()
+  rightRoutes = [];
+  rightRoutes$: Observable<any[]>;
+  @BindObservable()
+  @Input()
+  leftRoutes = [];
+  leftRoutes$: Observable<any[]>;
 
   public isCollapsed = true;
   public langsIsCollapsed = true;

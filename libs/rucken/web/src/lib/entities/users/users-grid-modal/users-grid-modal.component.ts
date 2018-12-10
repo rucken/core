@@ -1,7 +1,5 @@
-import { Component, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
-import { User } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BaseEntityListModalComponent } from '../../../base/base-entity-list-modal.component';
+import { ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
+import { BaseEntityListModalComponent, User } from '@rucken/core';
 import { UsersGridComponent } from '../users-grid/users-grid.component';
 
 @Component({
@@ -17,7 +15,7 @@ export class UsersGridModalComponent extends BaseEntityListModalComponent<User> 
   @Input()
   simpleMode = false;
 
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
   }
 }

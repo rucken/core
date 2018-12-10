@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Permission, PERMISSIONS_CONFIG_TOKEN, translate } from '@rucken/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import {
+  BaseEntityListComponent,
+  ErrorsExtractor,
+  IBaseEntityModalOptions,
+  ModalsService,
+  Permission,
+  PERMISSIONS_CONFIG_TOKEN,
+  translate
+} from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
-import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
-import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionModalComponent } from '../permission-modal/permission-modal.component';
 
 @Component({
@@ -24,14 +28,13 @@ export class PermissionsGridComponent extends BaseEntityListComponent<Permission
   apiUrl?: string;
 
   constructor(
-    public modalService: BsModalService,
+    modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected messageModalService: MessageModalService,
     @Inject(PERMISSIONS_CONFIG_TOKEN) protected permissionsConfig: IRestProviderOptions<Permission>
   ) {
-    super(dynamicRepository.fork<Permission>(Permission), modalService, Permission);
+    super(dynamicRepository.fork<Permission>(Permission), modalsService, Permission);
   }
   ngOnInit() {
     if (!this.mockedItems) {

@@ -1,10 +1,8 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Permission, PERMISSIONS_CONFIG_TOKEN } from '@rucken/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import { ErrorsExtractor, ModalsService, Permission, PERMISSIONS_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { PermissionsGridComponent } from '../permissions-grid/permissions-grid.component';
 
 @Component({
@@ -19,14 +17,13 @@ export class PermissionSelectComponent extends PermissionsGridComponent implemen
   nameField = 'title';
 
   constructor(
-    public modalService: BsModalService,
+    modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected messageModalService: MessageModalService,
     @Inject(PERMISSIONS_CONFIG_TOKEN) protected permissionsConfig: IRestProviderOptions<Permission>
   ) {
-    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, permissionsConfig);
+    super(modalsService, errorsExtractor, translateService, dynamicRepository, permissionsConfig);
   }
   ngOnInit() {
     if (!this.mockedItems) {

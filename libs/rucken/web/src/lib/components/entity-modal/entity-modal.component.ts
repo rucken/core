@@ -1,7 +1,6 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { BasePromptFormModalComponent } from '@rucken/core';
 import { DynamicFormGroup } from 'ngx-dynamic-form-builder';
-import { BasePromptFormModalComponent } from '../../base/base-prompt-form-modal.component';
 
 @Component({
   selector: 'entity-modal',
@@ -11,7 +10,6 @@ import { BasePromptFormModalComponent } from '../../base/base-prompt-form-modal.
 export class EntityModalComponent extends BasePromptFormModalComponent<any> {
   public ignoredFields = ['id'];
   public keys: string[] = [];
-
   set form(form: DynamicFormGroup<any>) {
     this.keys = form.controls
       ? Object.keys(form.controls).filter(key => this.ignoredFields.indexOf(key.toLowerCase()) === -1)
@@ -21,10 +19,8 @@ export class EntityModalComponent extends BasePromptFormModalComponent<any> {
   get form() {
     return this._form;
   }
-
   private _form: DynamicFormGroup<any>;
-
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
   }
 }

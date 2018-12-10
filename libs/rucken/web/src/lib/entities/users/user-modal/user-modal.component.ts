@@ -1,7 +1,5 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Group, User } from '@rucken/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BasePromptFormModalComponent } from '../../../base/base-prompt-form-modal.component';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BasePromptFormModalComponent, Group, User } from '@rucken/core';
 
 @Component({
   selector: 'user-modal',
@@ -14,8 +12,8 @@ export class UserModalComponent extends BasePromptFormModalComponent<User> {
   @Input()
   simpleMode: boolean;
 
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
     this.group(User);
   }
   onGroupsChange(groups: Group[]) {

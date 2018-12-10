@@ -86,13 +86,12 @@ export class EntityGridComponent<TModel extends IModel> {
   }
   get columns() {
     if (this._columns) {
-      return this._columns.filter(
-        column =>
-          column === 'action'
-            ? this.readonly === true || (!this.isEnableDelete && !this.isEnableUpdate)
-              ? false
-              : true
+      return this._columns.filter(column =>
+        column === 'action'
+          ? this.readonly === true || (!this.isEnableDelete && !this.isEnableUpdate)
+            ? false
             : true
+          : true
       );
     } else {
       return this._columns;

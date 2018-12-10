@@ -1,22 +1,19 @@
-import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
-import { Router } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
+  AuthModalComponent,
+  AuthModalService,
   AuthService,
-  ErrorsExtractor,
   ILanguagesItem,
   LangService,
   RedirectUriDto,
   TokenService,
-  translate,
   User,
   UserTokenDto
 } from '@rucken/core';
-import { AuthModalComponent, AuthModalTypeEnum, MessageModalService } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from './app.config';
@@ -38,17 +35,15 @@ export class AppComponent implements OnDestroy, OnInit {
   constructor(
     private _langService: LangService,
     private _authService: AuthService,
-    private _errorsExtractor: ErrorsExtractor,
     private _tokenService: TokenService,
     private _translateService: TranslateService,
-    private _modalService: BsModalService,
-    private _messageModalService: MessageModalService,
     private _bsLocaleService: BsLocaleService,
-    private _router: Router,
     private _metaService: MetaService,
-    @Inject(DOCUMENT) private _document: any,
+    private _authModalService: AuthModalService,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
+    this._authModalService.signInInfoMessage = AuthModalSignInInfoMessage;
+    this._authModalService.signUpInfoMessage = AuthModalSignUpInfoMessage;
     this.languages$ = _langService.languages$;
     this.currentUser$ = _authService.current$;
     this.currentLang$ = _langService.current$;
@@ -78,124 +73,27 @@ export class AppComponent implements OnDestroy, OnInit {
     this._langService.current = value;
   }
   onInfo() {
-    const token = this._tokenService.current;
-    if (token) {
-      if (this._tokenService.tokenHasExpired(token)) {
-        this._tokenService.stopCheckTokenHasExpired();
-        this._messageModalService
-          .error({
-            error: translate('Your session has expired, please re-login'),
-            class: 'modal-md',
-            onTop: true
-          })
-          .subscribe(result => this._authService.signOut().subscribe(data => this.onSignOutSuccess(undefined)));
-      } else {
-        if (!this._authService.current) {
-          this._authService.info(token).subscribe(
-            data => this.onSignInOrInfoSuccess(undefined, data),
-            error => {
-              if (this._errorsExtractor.getErrorMessage(error)) {
-                this.onError(error);
-              }
-              this._authService.signOut().subscribe(data => this.onSignOutSuccess(undefined));
-            }
-          );
-        }
-      }
-    }
+    this._authModalService.onInfo();
   }
   onSignOut() {
-    const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
-      class: 'modal-md',
-      initialState: {
-        type: AuthModalTypeEnum.SignOut,
-        noTitle: translate('No')
-      }
-    });
-    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
-      modal.processing = true;
-      this._authService.signOut().subscribe(data => this.onSignOutSuccess(modal));
-    });
+    this._authModalService.onSignOut();
   }
   onSignIn() {
-    const bsModalRef: BsModalRef = this._modalService.show(AuthModalComponent, {
-      class: 'modal-xs',
-      initialState: {
-        type: AuthModalTypeEnum.SignIn,
-        data: {},
-        signInInfoMessage: AuthModalSignInInfoMessage,
-        signUpInfoMessage: AuthModalSignUpInfoMessage
-      }
-    });
-    bsModalRef.content.yes.subscribe((modal: AuthModalComponent) => {
-      modal.processing = true;
-      if (modal.yesData) {
-        this._authService
-          .oauthRedirectUri(modal.yesData)
-          .subscribe(data => this.onOauthSignInSuccess(modal, data), error => this.onSignInError(modal, error));
-      } else {
-        if (modal.type === AuthModalTypeEnum.SignIn) {
-          this._authService
-            .signIn(modal.data.email, modal.data.password)
-            .subscribe(data => this.onSignInOrInfoSuccess(modal, data), error => this.onSignInError(modal, error));
-        }
-        if (modal.type === AuthModalTypeEnum.SignUp) {
-          this._authService
-            .signUp(modal.data.email, modal.data.password)
-            .subscribe(data => this.onSignInOrInfoSuccess(modal, data), error => this.onSignInError(modal, error));
-        }
-      }
-    });
+    this._authModalService.onSignIn();
   }
   onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
-    if (modal) {
-      modal.processing = false;
-    }
-    if (modal) {
-      modal.hide();
-    }
-    this._document.location.href = data.redirect_uri;
+    this._authModalService.onOauthSignInSuccess(modal, data);
   }
   onSignInOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
-    if (modal) {
-      modal.processing = false;
-    }
-    if (data.token) {
-      this._tokenService.current = data.token;
-    }
-    this._authService.current = data.user;
-    if (modal) {
-      modal.hide();
-    }
-    this._tokenService.startCheckTokenHasExpired();
+    this._authModalService.onSignInOrInfoSuccess(modal, data);
   }
   onSignOutSuccess(modal: AuthModalComponent) {
-    if (modal) {
-      modal.processing = false;
-    }
-    this._tokenService.current = undefined;
-    this._authService.current = undefined;
-    this._router.navigate(['home']);
-    if (modal) {
-      modal.hide();
-    }
+    this._authModalService.onSignOutSuccess(modal);
   }
   onError(error: any) {
-    this._messageModalService
-      .error({
-        error: error,
-        onTop: true
-      })
-      .subscribe();
-    throw error;
+    this._authModalService.onError(error);
   }
   onSignInError(modal: AuthModalComponent, error: any) {
-    if (modal) {
-      modal.processing = false;
-    }
-    modal.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
-    if (!modal.form.externalErrors) {
-      this.onError(error);
-    }
+    this._authModalService.onSignInError(modal, error);
   }
 }

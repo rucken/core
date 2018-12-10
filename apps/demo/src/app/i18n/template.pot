@@ -4,12 +4,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Your session has expired, please re-login"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
 msgid "Russian"
 msgstr ""
 
@@ -97,6 +91,12 @@ msgid "Update"
 msgstr ""
 
 msgid "Close"
+msgstr ""
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+
+msgid "No"
 msgstr ""
 
 msgid "Sign out"

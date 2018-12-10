@@ -5,14 +5,15 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../../entities/models/user';
 import { ACCOUNT_CONFIG_TOKEN } from './configs/account.config';
+import { UserDto } from './dto/user.dto';
 import { IAccountConfig } from './interfaces/account-config.interface';
 
 @Injectable()
 export class AccountService {
   constructor(@Inject(ACCOUNT_CONFIG_TOKEN) private accountConfig: IAccountConfig, private _httpClient: HttpClient) {}
-  update(user: User): Observable<User> {
+  update(user: User): Observable<UserDto> {
     return this._httpClient
       .post(this.accountConfig.apiUri + this.accountConfig.updateUri, classToPlain(user))
-      .pipe(map(data => plainToClass(User, data)));
+      .pipe(map(data => plainToClass(UserDto, data)));
   }
 }

@@ -3,7 +3,7 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthEmptyComponent, OauthGuard, RuI18n as CoreRuI18n, translate } from '@rucken/core';
+import { AuthEmptyPageComponent, OauthGuard, RuI18n as CoreRuI18n, translate } from '@rucken/core';
 import { RuI18n as WebRuI18n } from '@rucken/web';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
@@ -70,7 +70,7 @@ export const OauthModalProviders = [
 export const OauthRoutes = [
   {
     path: 'auth/facebook',
-    component: AuthEmptyComponent,
+    component: AuthEmptyPageComponent,
     canActivate: [OauthGuard],
     data: {
       oauth: {
@@ -84,7 +84,7 @@ export const OauthRoutes = [
   },
   {
     path: 'auth/google-plus',
-    component: AuthEmptyComponent,
+    component: AuthEmptyPageComponent,
     canActivate: [OauthGuard],
     data: {
       oauth: {

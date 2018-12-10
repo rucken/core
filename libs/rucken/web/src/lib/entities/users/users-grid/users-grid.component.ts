@@ -1,11 +1,15 @@
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, translate, User, USERS_CONFIG_TOKEN } from '@rucken/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import {
+  BaseEntityListComponent,
+  ErrorsExtractor,
+  IBaseEntityModalOptions,
+  ModalsService,
+  translate,
+  User,
+  USERS_CONFIG_TOKEN
+} from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
-import { BaseEntityListComponent } from '../../../base/base-entity-list.component';
-import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UserModalComponent } from '../user-modal/user-modal.component';
 
 @Component({
@@ -23,14 +27,13 @@ export class UsersGridComponent extends BaseEntityListComponent<User> implements
   @Input()
   title = translate('Users');
   constructor(
-    public modalService: BsModalService,
+    modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected messageModalService: MessageModalService,
     @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions<User>
   ) {
-    super(dynamicRepository.fork<User>(User), modalService, User);
+    super(dynamicRepository.fork<User>(User), modalsService, User);
   }
   ngOnInit() {
     if (!this.mockedItems) {

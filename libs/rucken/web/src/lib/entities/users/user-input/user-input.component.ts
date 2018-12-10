@@ -1,10 +1,14 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, translate, User, USERS_CONFIG_TOKEN } from '@rucken/core';
-import { BsModalService } from 'ngx-bootstrap/modal';
+import {
+  ErrorsExtractor,
+  IBaseEntityModalOptions,
+  ModalsService,
+  translate,
+  User,
+  USERS_CONFIG_TOKEN
+} from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
-import { IBaseEntityModalOptions } from '../../../base/base-entity-modals.interface';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 import { UsersGridModalComponent } from '../users-grid-modal/users-grid-modal.component';
 import { UsersGridComponent } from '../users-grid/users-grid.component';
 
@@ -27,14 +31,13 @@ export class UserInputComponent extends UsersGridComponent implements OnInit {
   };
 
   constructor(
-    public modalService: BsModalService,
+    modalsService: ModalsService,
     protected errorsExtractor: ErrorsExtractor,
     protected translateService: TranslateService,
     protected dynamicRepository: DynamicRepository,
-    protected messageModalService: MessageModalService,
     @Inject(USERS_CONFIG_TOKEN) protected usersConfig: IRestProviderOptions<User>
   ) {
-    super(modalService, errorsExtractor, translateService, dynamicRepository, messageModalService, usersConfig);
+    super(modalsService, errorsExtractor, translateService, dynamicRepository, usersConfig);
   }
   ngOnInit() {
     this.mockedItems = [];

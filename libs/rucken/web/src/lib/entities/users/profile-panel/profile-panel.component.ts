@@ -1,11 +1,16 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input, isDevMode, OnDestroy } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AccountService, AuthService, ErrorsExtractor, Group, User } from '@rucken/core';
-import { NgxPermissionsService } from 'ngx-permissions';
+import {
+  AccountService,
+  AuthService,
+  BasePromptPanelComponent,
+  ErrorsExtractor,
+  Group,
+  ModalsService,
+  User
+} from '@rucken/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { BasePromptPanelComponent } from '../../../base/base-prompt-panel.component';
-import { MessageModalService } from '../../../modals/message-modal/message-modal.service';
 
 @Component({
   selector: 'profile-panel',
@@ -38,8 +43,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     private _errorsExtractor: ErrorsExtractor,
     private _authService: AuthService,
     private _accountService: AccountService,
-    private _messageModalService: MessageModalService,
-    private _permissionsService: NgxPermissionsService
+    private _modalsService: ModalsService
   ) {
     super(User);
     this._authService.current$.pipe(takeUntil(this._destroyed$)).subscribe(user => {
@@ -66,21 +70,22 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     this.processing = true;
     this._accountService
       .update(this.data)
-      .subscribe(data => this.onSave(data, saveData), error => this.onSaveError(error));
+      .subscribe(data => this.onSave(data.user, saveData), error => this.onSaveError(error));
   }
   onSave(user: User, saveData?: any) {
     this.processing = false;
     this.data = user;
   }
   onError(error: any) {
-    this._messageModalService
-      .error({
-        error: error
-      })
-      .subscribe();
+    this._modalsService.error({
+      error: error
+    });
   }
   onSaveError(error: any) {
     this.processing = false;
+    if (isDevMode()) {
+      console.warn('Errors', error);
+    }
     this.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
     if (!this.form.externalErrors) {
       this.onError(error);
