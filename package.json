@@ -62,7 +62,6 @@
     "test": "run-s github:build ssr:build",
     "lint": "ng lint",
     "clean": "./node_modules/.bin/del-cli dist",
-    "format:fix": "pretty-quick --staged",
     "e2e": "ng e2e",
     "update": "ng update --all",
     "ssr:prebuild": "ng run demo:server:production",
@@ -83,7 +82,7 @@
     "doc:app:demo": "./node_modules/.bin/compodoc -p apps/demo/tsconfig.app.json -n \"rucken:demo\" -d dist/demo-client/doc/demo",
     "doc": "run-s doc:lib:core doc:lib:web doc:app:demo",
     "precommit": "run-s format:fix",
-    "format:check": "prettier --write --config ./.prettierrc --list-different \"{apps,libs}/**/*.ts\""
+    "format:fix": "prettier  --config ./.prettierrc --write \"{apps,libs}/**/*.ts\""
   },
   "dependencies": {
     "@angular/animations": "^7.1.2",
@@ -161,7 +160,6 @@
     "ng-packagr": "^4.4.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^1.15.3",
-    "pretty-quick": "^1.8.0",
     "protractor": "~5.4.1",
     "ts-node": "~7.0.1",
     "tsickle": ">=0.34.0",

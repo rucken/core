@@ -17,8 +17,8 @@ export class FormGroupComponent implements AfterViewInit {
   get errors(): Observable<any> {
     if (this.form && (this.checkIsDirty !== true || this.form.dirty)) {
       return this.form.customValidateErrors.pipe(
-        map(
-          customValidateErrors => (customValidateErrors[this.name] ? (customValidateErrors[this.name] as string[]) : [])
+        map(customValidateErrors =>
+          customValidateErrors[this.name] ? (customValidateErrors[this.name] as string[]) : []
         )
       );
     } else {
