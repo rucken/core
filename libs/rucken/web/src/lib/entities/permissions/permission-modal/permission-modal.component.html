@@ -11,8 +11,8 @@
     (yes)="onYesClick()"
     [data]="data"
     [processing]="processing$ | async"
-    [yesClass]="yesClass"
-    [noClass]="noClass"
+    [yesClass]="yesClass$ | async"
+    [noClass]="noClass$ | async"
   >
     <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="name" [title]="strings.name">
       <input formControlName="name" [readonly]="readonly" focused />

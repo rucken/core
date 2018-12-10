@@ -1,18 +1,15 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BindObservable } from 'bind-observable';
+import { Observable } from 'rxjs';
 import { IModalRef } from '../modules/modals/modal-ref.interface';
 import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
 
 export class BasePromptModalComponent implements IBaseForm {
+  @BindObservable()
   @Input()
-  set processing(value: boolean) {
-    this.processing$.next(value);
-  }
-  get processing() {
-    return this.processing$.getValue();
-  }
-  processing$ = new BehaviorSubject(false);
+  processing = false;
+  processing$: Observable<boolean>;
   @Input()
   checkIsDirty?: boolean;
   @Input()
@@ -38,10 +35,14 @@ export class BasePromptModalComponent implements IBaseForm {
   @Input()
   disabled: boolean;
 
+  @BindObservable()
   @Input()
   yesClass: string;
+  yesClass$: Observable<string>;
+  @BindObservable()
   @Input()
   noClass: string;
+  noClass$: Observable<string>;
 
   @Input()
   hideNo = false;

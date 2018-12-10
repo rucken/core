@@ -11,8 +11,8 @@
     (yes)="onYesClick()"
     [data]="data"
     [processing]="processing$ | async"
-    [yesClass]="yesClass"
-    [noClass]="noClass"
+    [yesClass]="yesClass$ | async"
+    [noClass]="noClass$ | async"
   >
     <div class="row">
       <div [ngClass]="{ 'col-md-6': !simpleMode, 'col-md-12': simpleMode }">

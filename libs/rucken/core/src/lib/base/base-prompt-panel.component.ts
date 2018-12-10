@@ -3,19 +3,16 @@ import { ControlValueAccessor, FormControl } from '@angular/forms';
 import { ValidatorOptions } from 'class-validator';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
+import { BindObservable } from 'bind-observable';
 
 export class BasePromptPanelComponent<TModel extends IModel> implements ControlValueAccessor, OnChanges, IBaseForm {
+  @BindObservable()
   @Input()
-  set processing(value: boolean) {
-    this.processing$.next(value);
-  }
-  get processing() {
-    return this.processing$.getValue();
-  }
-  processing$ = new BehaviorSubject(false);
+  processing = false;
+  processing$: Observable<boolean>;
   @Input()
   checkIsDirty?: boolean;
   @Input()
@@ -35,10 +32,14 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   @Output()
   yes = new EventEmitter<any>();
 
+  @BindObservable()
   @Input()
   yesClass: string;
+  yesClass$: Observable<string>;
+  @BindObservable()
   @Input()
   noClass: string;
+  noClass$: Observable<string>;
 
   @Input()
   hideNo = false;

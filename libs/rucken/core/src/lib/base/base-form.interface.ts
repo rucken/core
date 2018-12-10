@@ -1,9 +1,9 @@
 import { EventEmitter } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 
 export class IBaseForm {
   processing: boolean;
-  processing$: BehaviorSubject<boolean>;
+  processing$: Observable<boolean>;
   data?: any;
   title: string;
   message: string;
@@ -15,7 +15,9 @@ export class IBaseForm {
   yes: EventEmitter<any>;
   disabled: boolean;
   yesClass: string;
+  yesClass$: Observable<string>;
   noClass: string;
+  noClass$: Observable<string>;
   hideNo: boolean;
   hideYes: boolean;
   readonly: boolean;

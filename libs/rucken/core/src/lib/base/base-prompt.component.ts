@@ -1,17 +1,14 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BindObservable } from 'bind-observable';
+import { Observable } from 'rxjs';
 import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
 
 export class BasePromptComponent implements IBaseForm {
+  @BindObservable()
   @Input()
-  set processing(value: boolean) {
-    this.processing$.next(value);
-  }
-  get processing() {
-    return this.processing$.getValue();
-  }
-  processing$ = new BehaviorSubject(false);
+  processing = false;
+  processing$: Observable<boolean>;
   @Input()
   data?: any;
   @Input()
@@ -33,10 +30,14 @@ export class BasePromptComponent implements IBaseForm {
   @Input()
   disabled: boolean;
 
+  @BindObservable()
   @Input()
   yesClass: string;
+  yesClass$: Observable<string>;
+  @BindObservable()
   @Input()
   noClass: string;
+  noClass$: Observable<string>;
 
   @Input()
   hideNo = false;

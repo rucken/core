@@ -1,6 +1,7 @@
 import { EventEmitter, Input, isDevMode, Output, ViewChild } from '@angular/core';
+import { BindObservable } from 'bind-observable';
 import { IModel } from 'ngx-repository';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IModalRef } from '../modules/modals/modal-ref.interface';
 import { translate } from '../utils/translate';
 import { IBaseEntityListModal } from './base-entity-list-modal.interface';
@@ -20,14 +21,10 @@ export class BaseEntityListModalComponent<TModel extends IModel> implements IBas
   modalView: IBaseEntityModalOptions = {};
   @Input()
   modalAppendFromGrid: IBaseEntityModalOptions = {};
+  @BindObservable()
   @Input()
-  set processing(value: boolean) {
-    this.processing$.next(value);
-  }
-  get processing() {
-    return this.processing$.getValue();
-  }
-  processing$ = new BehaviorSubject(false);
+  processing = false;
+  processing$: Observable<boolean>;
   @Input()
   title: string;
   @Input()
@@ -45,10 +42,14 @@ export class BaseEntityListModalComponent<TModel extends IModel> implements IBas
   @Output()
   yes = new EventEmitter<any>();
 
+  @BindObservable()
   @Input()
   yesClass: string;
+  yesClass$: Observable<string>;
+  @BindObservable()
   @Input()
   noClass: string;
+  noClass$: Observable<string>;
 
   @Input()
   hideNo = false;

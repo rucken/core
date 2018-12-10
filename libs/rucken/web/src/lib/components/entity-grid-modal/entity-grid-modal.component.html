@@ -1,36 +1,22 @@
 <div class="modal-header">
-    <h4 class="modal-title pull-left">{{title | translate}}</h4>
-    <button
-        type="button"
-        class="close pull-right"
-        [attr.aria-label]="'Close' | translate"
-        (click)="onNoClick($event)">
-        <span aria-hidden="true">×</span>
-    </button>
+  <h4 class="modal-title pull-left">{{ title | translate }}</h4>
+  <button type="button" class="close pull-right" [attr.aria-label]="'Close' | translate" (click)="onNoClick($event)">
+    <span aria-hidden="true">×</span>
+  </button>
 </div>
-<div class="modal-body">
-    <ng-content></ng-content>
-</div>
+<div class="modal-body"><ng-content></ng-content></div>
 <div class="modal-footer">
-    <button
-        type="button"
-        class="btn btn-default"
-        (click)="onNoClick($event)">
-        {{noTitle | translate}}
-    </button>
-    <button
-        type="submit"
-        [ngClass]="yesClass"
-        (click)="onYesClick($event)"
-        [disabled]="processing || disabled"
-        [focused]="focused">
-        <fa-layers
-            class="fa-fw"
-            *ngIf="processing">
-            <fa-icon
-                [icon]="['fas', 'spinner']"
-                [pulse]="true"></fa-icon>
-        </fa-layers>
-        {{yesTitle | translate}}
-    </button>
+  <button type="button" class="btn btn-default" (click)="onNoClick($event)">{{ noTitle | translate }}</button>
+  <button
+    type="submit"
+    [ngClass]="yesClass$ | async"
+    (click)="onYesClick($event)"
+    [disabled]="processing || disabled"
+    [focused]="focused"
+  >
+    <fa-layers class="fa-fw" *ngIf="processing">
+      <fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
+    </fa-layers>
+    {{ yesTitle | translate }}
+  </button>
 </div>

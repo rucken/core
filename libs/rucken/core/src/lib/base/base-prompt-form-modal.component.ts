@@ -1,21 +1,18 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
+import { BindObservable } from 'bind-observable';
 import { ValidatorOptions } from 'class-validator';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IModalRef } from '../modules/modals/modal-ref.interface';
 import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
 
 export class BasePromptFormModalComponent<TModel extends IModel> implements IBaseForm {
+  @BindObservable()
   @Input()
-  set processing(value: boolean) {
-    this.processing$.next(value);
-  }
-  get processing() {
-    return this.processing$.getValue();
-  }
-  processing$ = new BehaviorSubject(false);
+  processing = false;
+  processing$: Observable<boolean>;
   @Input()
   checkIsDirty?: boolean;
   @Input()
@@ -35,10 +32,14 @@ export class BasePromptFormModalComponent<TModel extends IModel> implements IBas
   @Output()
   yes = new EventEmitter<any>();
 
+  @BindObservable()
   @Input()
   yesClass: string;
+  yesClass$: Observable<string>;
+  @BindObservable()
   @Input()
   noClass: string;
+  noClass$: Observable<string>;
 
   @Input()
   hideNo = false;

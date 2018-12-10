@@ -11,8 +11,8 @@
     (yes)="onYesClick()"
     [data]="data"
     [processing]="processing$ | async"
-    [yesClass]="yesClass"
-    [noClass]="noClass"
+    [yesClass]="yesClass$ | async"
+    [noClass]="noClass$ | async"
   >
     <span *ngFor="let key of keys; let i = index">
       <form-group [checkIsDirty]="checkIsDirty" [form]="form" [name]="key" [title]="strings[key]">

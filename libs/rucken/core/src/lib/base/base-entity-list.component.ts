@@ -7,7 +7,7 @@ import {
   IRestProviderOptions,
   Repository
 } from 'ngx-repository';
-import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { IModalRef } from '../modules/modals/modal-ref.interface';
 import { ModalsService } from '../modules/modals/modals.service';
@@ -18,6 +18,7 @@ import { BaseEntityListModalComponent } from './base-entity-list-modal.component
 import { IBaseEntityList } from './base-entity-list.interface';
 import { IBaseEntityModalOptions, IBaseEntityModals } from './base-entity-modals.interface';
 import { BasePromptFormModalComponent } from './base-prompt-form-modal.component';
+import { BindObservable } from 'bind-observable';
 
 export class BaseEntityListComponent<TModel extends IModel> implements IBaseEntityList<TModel>, IBaseEntityModals {
   @Input()
@@ -32,14 +33,10 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   modalView: IBaseEntityModalOptions = {};
   @Input()
   modalAppendFromGrid: IBaseEntityModalOptions = {};
+  @BindObservable()
   @Input()
-  set processing(value: boolean) {
-    this.processing$.next(value);
-  }
-  get processing() {
-    return this.processing$.getValue();
-  }
-  processing$ = new BehaviorSubject(false);
+  processing = false;
+  processing$: Observable<boolean>;
   @Input()
   apiUrl?: string;
   @Input()

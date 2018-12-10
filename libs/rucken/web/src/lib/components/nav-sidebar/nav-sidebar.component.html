@@ -1,21 +1,13 @@
-<ul
-    class="nav nav-sidebar nav-sidebar-left"
-    *ngIf="(sidebardRoutes$ |async).length">
-    <ng-template
-        ngFor
-        let-item="$implicit"
-        [ngForOf]="sidebardRoutes$.getValue()"
-        let-i="index">
-        <ng-container *ngTemplateOutlet="menuItemRef;context:{item:item, parentUrl:parentUrl}"></ng-container>
-    </ng-template>
+<ul class="nav nav-sidebar nav-sidebar-left" *ngIf="(sidebardRoutes$ | async).length">
+  <ng-template ngFor let-item="$implicit" [ngForOf]="sidebardRoutes$ | async" let-i="index">
+    <ng-container *ngTemplateOutlet="menuItemRef; context: { item: item, parentUrl: parentUrl }"></ng-container>
+  </ng-template>
 </ul>
-<ng-template
-    let-item="item"
-    let-parentUrl="parentUrl"
-    #menuItemRef>
-    <li
-        *ngIf="item && (!item?.permissions?.only || (item?.permissions?.only | perm:false | async))"
-        [ngClass]="{'active': router.isActive(parentUrl+item.url, false)}">
-        <a [routerLink]="[item.path]">{{item.title | translate}}</a>
-    </li>
+<ng-template let-item="item" let-parentUrl="parentUrl" #menuItemRef>
+  <li
+    *ngIf="item && (!item?.permissions?.only || (item?.permissions?.only | perm: false | async))"
+    [ngClass]="{ active: router.isActive(parentUrl + item.url, false) }"
+  >
+    <a [routerLink]="[item.path]">{{ item.title | translate }}</a>
+  </li>
 </ng-template>
