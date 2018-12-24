@@ -101,7 +101,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.6.0",
     "@nguniversal/express-engine": "^7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "^7.0.2",
-    "@ngx-meta/core": "^6.0.0",
+    "@ngx-meta/core": "^7.0.0",
     "@ngx-translate/core": "^11.0.1",
     "@types/dotenv": "^6.1.0",
     "@types/jsonwebtoken": "^8.3.0",
