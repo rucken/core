@@ -35,7 +35,7 @@ export class WebModalsService extends ModalsService {
     });
     const modalRef: IModalRef<TComponent> = {
       instance: bsModalRef.content,
-      hide: function() {
+      hide: function () {
         this.hide();
       }.bind(bsModalRef)
     };
@@ -94,7 +94,7 @@ export class WebModalsService extends ModalsService {
       });
     });
   }
-  error(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
+  errorAsync(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
     if (this._onTopIsActive) {
       return Promise.resolve(undefined);
     }

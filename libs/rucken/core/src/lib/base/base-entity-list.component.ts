@@ -154,8 +154,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       this.modalsService
         .error({
           error: error
-        })
-        .then();
+        });
     } else {
       if (isDevMode()) {
         console.warn('ModalsService is not injected', this);
