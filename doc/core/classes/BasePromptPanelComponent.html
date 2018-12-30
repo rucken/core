@@ -157,6 +157,10 @@
                                 <a href="#onYesClick">onYesClick</a>
                             </li>
                             <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onYesClickAsync">onYesClickAsync</a>
+                            </li>
+                            <li>
                                 <a href="#registerOnChange">registerOnChange</a>
                             </li>
                             <li>
@@ -924,7 +928,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="148" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:148</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="155" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:155</a></div>
                             </td>
                         </tr>
 
@@ -1109,6 +1113,77 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="onYesClickAsync"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            onYesClickAsync
+                            </b>
+                            <a href="#onYesClickAsync"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>onYesClickAsync(data?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:130</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="registerOnChange"></a>
                         <span class="name">
                             <b>
@@ -1127,7 +1202,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:154</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:161</a></div>
                             </td>
                         </tr>
 
@@ -1192,7 +1267,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:164</a></div>
                             </td>
                         </tr>
 
@@ -1230,7 +1305,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="145" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:145</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:152</a></div>
                             </td>
                         </tr>
 
@@ -1299,7 +1374,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="151" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:151</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-panel.component.ts:158</a></div>
                             </td>
                         </tr>
 
@@ -1775,13 +1850,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { EventEmitter, Input, isDevMode, OnChanges, Output } from &#x27;@angular/core&#x27;;
 import { ControlValueAccessor, FormControl } from &#x27;@angular/forms&#x27;;
+import { BindObservable } from &#x27;bind-observable&#x27;;
 import { ValidatorOptions } from &#x27;class-validator&#x27;;
 import { DynamicFormBuilder, DynamicFormGroup } from &#x27;ngx-dynamic-form-builder&#x27;;
 import { IFactoryModel, IModel } from &#x27;ngx-repository&#x27;;
-import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
 import { translate } from &#x27;../utils/translate&#x27;;
 import { IBaseForm } from &#x27;./base-form.interface&#x27;;
-import { BindObservable } from &#x27;bind-observable&#x27;;
 
 export class BasePromptPanelComponent&lt;TModel extends IModel&gt; implements ControlValueAccessor, OnChanges, IBaseForm {
   @BindObservable()
@@ -1899,9 +1974,16 @@ export class BasePromptPanelComponent&lt;TModel extends IModel&gt; implements Co
     }
     this.no.emit(this);
   }
-  onYesClick(data?: any): void {
+  onYesClick(data?: any) {
+    this.onYesClickAsync(data).then();
+  }
+  async onYesClickAsync(data?: any) {
     this.yesData &#x3D; data;
-    this.form.externalErrors &#x3D; undefined;
+    try {
+      await this.form.clearExternalErrorsAsync();
+    } catch (error) {
+      throw error;
+    }
     if (this.validateForm) {
       if (this.form.valid) {
         if (isDevMode() &amp;&amp; this.yes.observers.length &#x3D;&#x3D;&#x3D; 0) {

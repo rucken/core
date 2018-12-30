@@ -1292,9 +1292,13 @@ export class AuthModalService {
     if (isDevMode()) {
       console.warn(&#x27;Errors&#x27;, error);
     }
-    modal.form.externalErrors &#x3D; this.errorsExtractor.getValidationErrors(error);
-    if (!modal.form.externalErrors) {
-      this.onError(error);
+    if (this.errorsExtractor) {
+      const externalErrors &#x3D; this.errorsExtractor.getValidationErrors(error);
+      modal.form.setExternalErrorsAsync(externalErrors).then(() &#x3D;&gt; {
+        if (!externalErrors) {
+          this.onError(error);
+        }
+      });
     }
   }
 }

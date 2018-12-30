@@ -105,7 +105,7 @@
                                 <a href="#createAsync">createAsync</a>
                             </li>
                             <li>
-                                <a href="#error">error</a>
+                                <a href="#errorAsync">errorAsync</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -313,18 +313,18 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="error"></a>
+                        <a name="errorAsync"></a>
                         <span class="name">
                             <b>
-                            error
+                            errorAsync
                             </b>
-                            <a href="#error"><span class="icon ion-ios-link"></span></a>
+                            <a href="#errorAsync"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>error(options: literal type)</code>
+<code>errorAsync(options: literal type)</code>
                     </td>
                 </tr>
 
@@ -890,7 +890,7 @@ export class WebModalsService extends ModalsService {
       });
     });
   }
-  error(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
+  errorAsync(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
     if (this._onTopIsActive) {
       return Promise.resolve(undefined);
     }

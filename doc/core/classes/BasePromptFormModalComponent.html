@@ -136,6 +136,10 @@
                             <li>
                                 <a href="#onYesClick">onYesClick</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#onYesClickAsync">onYesClickAsync</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -746,7 +750,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-form-modal.component.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-form-modal.component.ts:164</a></div>
                             </td>
                         </tr>
 
@@ -784,7 +788,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-form-modal.component.ts:146</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-form-modal.component.ts:153</a></div>
                             </td>
                         </tr>
 
@@ -891,6 +895,77 @@
                             </div>
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onYesClickAsync"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Async</span>
+                            onYesClickAsync
+                            </b>
+                            <a href="#onYesClickAsync"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>onYesClickAsync(data?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">libs/rucken/core/src/lib/base/base-prompt-form-modal.component.ts:129</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -1500,10 +1575,17 @@ export class BasePromptFormModalComponent&lt;TModel extends IModel&gt; implement
       this.form &#x3D; this.formBuilder.group(this._factoryModel, controlsConfig, extra);
     }
   }
-  onYesClick(data?: any): void {
+  onYesClick(data?: any) {
+    this.onYesClickAsync(data).then();
+  }
+  async onYesClickAsync(data?: any) {
     this.yesData &#x3D; data;
     if (!this.message &amp;&amp; this.validateForm) {
-      this.form.externalErrors &#x3D; undefined;
+      try {
+        await this.form.clearExternalErrorsAsync();
+      } catch (error) {
+        throw error;
+      }
       if (this.form.valid) {
         this.yes.emit(this);
       } else {
