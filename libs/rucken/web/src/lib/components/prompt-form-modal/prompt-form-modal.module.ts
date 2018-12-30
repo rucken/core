@@ -3,9 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule } from '@rucken/core';
+import { DirectivesModule, PipesModule } from '@rucken/core';
 import { AlertModule } from 'ngx-bootstrap/alert';
-import { DirectivesModule } from '../../directives/directives.module';
 import { FormGroupModule } from '../form-group/form-group.module';
 import { PromptFormModalComponent } from './prompt-form-modal.component';
 
@@ -25,4 +24,4 @@ import { PromptFormModalComponent } from './prompt-form-modal.component';
   entryComponents: [PromptFormModalComponent],
   exports: [PromptFormModalComponent, ReactiveFormsModule, FormsModule, DirectivesModule, PipesModule, FormGroupModule]
 })
-export class PromptFormModalModule {}
+export class PromptFormModalModule { }

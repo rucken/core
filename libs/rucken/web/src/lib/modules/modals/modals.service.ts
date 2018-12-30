@@ -94,7 +94,7 @@ export class WebModalsService extends ModalsService {
       });
     });
   }
-  error(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
+  errorAsync(options: { error: string | any; title?: string; class?: string; onTop?: boolean }) {
     if (this._onTopIsActive) {
       return Promise.resolve(undefined);
     }

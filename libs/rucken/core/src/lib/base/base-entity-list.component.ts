@@ -1,4 +1,5 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
+import { BindObservable } from 'bind-observable';
 import {
   IFactoryModel,
   IMockProviderOptions,
@@ -18,7 +19,6 @@ import { BaseEntityListModalComponent } from './base-entity-list-modal.component
 import { IBaseEntityList } from './base-entity-list.interface';
 import { IBaseEntityModalOptions, IBaseEntityModals } from './base-entity-modals.interface';
 import { BasePromptFormModalComponent } from './base-prompt-form-modal.component';
-import { BindObservable } from 'bind-observable';
 
 export class BaseEntityListComponent<TModel extends IModel> implements IBaseEntityList<TModel>, IBaseEntityModals {
   @Input()
@@ -112,6 +112,11 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       paginationMeta: { curPage: meta.page, perPage: meta.itemsPerPage }
     });
   }
+  onNextPage() {
+    this.repository.setOptions({
+      paginationMeta: { curPage: this.repository.paginationMeta$.getValue().curPage }
+    });
+  }
   onChangeFilter(filter?: IBaseEntityGridFilter) {
     if (!filter) {
       filter = {};
@@ -151,11 +156,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onError" is not defined', this);
     }
     if (this.modalsService) {
-      this.modalsService
-        .error({
-          error: error
-        })
-        .then();
+      this.modalsService.error({
+        error: error
+      });
     } else {
       if (isDevMode()) {
         console.warn('ModalsService is not injected', this);
@@ -231,10 +234,12 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onCreateError" is not defined', this);
     }
     if (this.errorsExtractor) {
-      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(error);
-      if (!modal.form.externalErrors) {
-        this.onError(error);
-      }
+      const externalErrors = this.errorsExtractor.getValidationErrors(error);
+      modal.form.setExternalErrorsAsync(externalErrors).then(() => {
+        if (!externalErrors) {
+          this.onError(error);
+        }
+      });
     }
   }
   onCreateClick(data?: any): void {
@@ -297,10 +302,12 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onUpdateError" is not defined', this);
     }
     if (this.errorsExtractor) {
-      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(error);
-      if (!modal.form.externalErrors) {
-        this.onError(error);
-      }
+      const externalErrors = this.errorsExtractor.getValidationErrors(error);
+      modal.form.setExternalErrorsAsync(externalErrors).then(() => {
+        if (!externalErrors) {
+          this.onError(error);
+        }
+      });
     }
   }
   onUpdateClick(item: TModel) {
@@ -367,10 +374,12 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       console.warn('Method "onDeleteError" is not defined', this);
     }
     if (this.errorsExtractor) {
-      modal.form.externalErrors = this.errorsExtractor.getValidationErrors(error);
-      if (!modal.form.externalErrors) {
-        this.onError(error);
-      }
+      const externalErrors = this.errorsExtractor.getValidationErrors(error);
+      modal.form.setExternalErrorsAsync(externalErrors).then(() => {
+        if (!externalErrors) {
+          this.onError(error);
+        }
+      });
     }
   }
   onDeleteClick(item: TModel) {

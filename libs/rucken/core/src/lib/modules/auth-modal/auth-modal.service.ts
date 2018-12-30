@@ -142,9 +142,13 @@ export class AuthModalService {
     if (isDevMode()) {
       console.warn('Errors', error);
     }
-    modal.form.externalErrors = this.errorsExtractor.getValidationErrors(error);
-    if (!modal.form.externalErrors) {
-      this.onError(error);
+    if (this.errorsExtractor) {
+      const externalErrors = this.errorsExtractor.getValidationErrors(error);
+      modal.form.setExternalErrorsAsync(externalErrors).then(() => {
+        if (!externalErrors) {
+          this.onError(error);
+        }
+      });
     }
   }
 }

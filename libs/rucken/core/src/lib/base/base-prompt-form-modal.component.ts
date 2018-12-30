@@ -123,10 +123,17 @@ export class BasePromptFormModalComponent<TModel extends IModel> implements IBas
       this.form = this.formBuilder.group(this._factoryModel, controlsConfig, extra);
     }
   }
-  onYesClick(data?: any): void {
+  onYesClick(data?: any) {
+    this.onYesClickAsync(data).then();
+  }
+  async onYesClickAsync(data?: any) {
     this.yesData = data;
     if (!this.message && this.validateForm) {
-      this.form.externalErrors = undefined;
+      try {
+        await this.form.clearExternalErrorsAsync();
+      } catch (error) {
+        throw error;
+      }
       if (this.form.valid) {
         this.yes.emit(this);
       } else {

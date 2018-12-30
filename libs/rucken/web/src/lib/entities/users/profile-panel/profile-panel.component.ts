@@ -5,7 +5,6 @@ import {
   AuthService,
   BasePromptPanelComponent,
   ErrorsExtractor,
-  Group,
   ModalsService,
   User
 } from '@rucken/core';
@@ -30,6 +29,8 @@ import { takeUntil } from 'rxjs/operators';
   ]
 })
 export class ProfilePanelComponent extends BasePromptPanelComponent<User> implements OnDestroy {
+  @Input()
+  yesClass = 'btn btn-primary';
   @Input()
   apiUrl?: string;
   @Input()
@@ -59,13 +60,6 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
   get isReadonly() {
     return this.readonly || !this.enableSave;
   }
-  onGroupsChange(groups: Group[]) {
-    // todo: remove after ngx-dynamic-form-builder updated with correct work with arrays
-    const data: User = this.data;
-    data.groups = groups;
-    this.data = data;
-    this.onSaveClick();
-  }
   onSaveClick(saveData?: any) {
     this.processing = true;
     this._accountService
@@ -75,6 +69,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
   onSave(user: User, saveData?: any) {
     this.processing = false;
     this.data = user;
+    this._authService.current = user;
   }
   onError(error: any) {
     this._modalsService.error({
@@ -86,9 +81,13 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     if (isDevMode()) {
       console.warn('Errors', error);
     }
-    this.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
-    if (!this.form.externalErrors) {
-      this.onError(error);
+    if (this._errorsExtractor) {
+      const externalErrors = this._errorsExtractor.getValidationErrors(error);
+      this.form.setExternalErrorsAsync(externalErrors).then(() => {
+        if (!externalErrors) {
+          this.onError(error);
+        }
+      });
     }
   }
 }

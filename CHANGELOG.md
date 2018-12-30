@@ -1,3 +1,19 @@
+# [3.6.0](https://github.com/rucken/core/compare/3.5.0...3.6.0) (2018-12-30)
+
+
+### Bug Fixes
+
+* Add prompt and confirm modal types in base modal service ([9b98995](https://github.com/rucken/core/commit/9b98995))
+* Remove workaroud code for update nested groups and permissions ([fa907ea](https://github.com/rucken/core/commit/fa907ea))
+* Update dependencies and fix sources for it ([3e988eb](https://github.com/rucken/core/commit/3e988eb))
+
+
+### Features
+
+* Move directives to [@rucken](https://github.com/rucken)/core ([b9d811e](https://github.com/rucken/core/commit/b9d811e))
+
+
+
 # [3.5.0](https://github.com/rucken/core/compare/3.4.0...3.5.0) (2018-12-10)
 
 

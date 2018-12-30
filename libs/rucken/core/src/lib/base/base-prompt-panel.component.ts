@@ -1,12 +1,12 @@
 import { EventEmitter, Input, isDevMode, OnChanges, Output } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
+import { BindObservable } from 'bind-observable';
 import { ValidatorOptions } from 'class-validator';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
-import { BindObservable } from 'bind-observable';
 
 export class BasePromptPanelComponent<TModel extends IModel> implements ControlValueAccessor, OnChanges, IBaseForm {
   @BindObservable()
@@ -124,9 +124,16 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
     }
     this.no.emit(this);
   }
-  onYesClick(data?: any): void {
+  onYesClick(data?: any) {
+    this.onYesClickAsync(data).then();
+  }
+  async onYesClickAsync(data?: any) {
     this.yesData = data;
-    this.form.externalErrors = undefined;
+    try {
+      await this.form.clearExternalErrorsAsync();
+    } catch (error) {
+      throw error;
+    }
     if (this.validateForm) {
       if (this.form.valid) {
         if (isDevMode() && this.yes.observers.length === 0) {
