@@ -1,14 +1,6 @@
 import { ChangeDetectionStrategy, Component, forwardRef, Input, isDevMode, OnDestroy } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  AccountService,
-  AuthService,
-  BasePromptPanelComponent,
-  ErrorsExtractor,
-  Group,
-  ModalsService,
-  User
-} from '@rucken/core';
+import { AccountService, AuthService, BasePromptPanelComponent, ErrorsExtractor, ModalsService, User } from '@rucken/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -30,6 +22,8 @@ import { takeUntil } from 'rxjs/operators';
   ]
 })
 export class ProfilePanelComponent extends BasePromptPanelComponent<User> implements OnDestroy {
+  @Input()
+  yesClass = 'btn btn-primary';
   @Input()
   apiUrl?: string;
   @Input()
@@ -59,13 +53,6 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
   get isReadonly() {
     return this.readonly || !this.enableSave;
   }
-  onGroupsChange(groups: Group[]) {
-    // todo: remove after ngx-dynamic-form-builder updated with correct work with arrays
-    const data: User = this.data;
-    data.groups = groups;
-    this.data = data;
-    this.onSaveClick();
-  }
   onSaveClick(saveData?: any) {
     this.processing = true;
     this._accountService
@@ -75,6 +62,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
   onSave(user: User, saveData?: any) {
     this.processing = false;
     this.data = user;
+    this._authService.current = user;
   }
   onError(error: any) {
     this._modalsService.error({

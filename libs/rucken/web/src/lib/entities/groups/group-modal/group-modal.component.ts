@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { BasePromptFormModalComponent, Group, Permission } from '@rucken/core';
+import { BasePromptFormModalComponent, Group } from '@rucken/core';
 
 @Component({
   selector: 'group-modal',
@@ -13,11 +13,5 @@ export class GroupModalComponent extends BasePromptFormModalComponent<Group> {
   constructor() {
     super();
     this.group(Group);
-  }
-  onPermissionsChange(permissions: Permission[]) {
-    // todo: remove after ngx-dynamic-form-builder updated with correct work with arrays
-    const data: Group = this.data;
-    data.permissions = permissions;
-    this.data = data;
   }
 }

@@ -1,104 +1,160 @@
-<form [formGroup]="form" novalidate>
-  <div class="row">
-    <div [ngClass]="{ 'col-md-6': !simpleMode, 'col-md-12': simpleMode }">
-      <div class="row">
-        <div class="col-md-12">
-          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="username" [title]="strings.username">
-            <input formControlName="username" [readonly]="isReadonly" focused />
-          </form-group>
+<form
+    [formGroup]="form"
+    novalidate>
+    <div class="row">
+        <div [ngClass]="{ 'col-md-6': !simpleMode, 'col-md-12': simpleMode }">
+            <div class="row">
+                <div class="col-md-12">
+                    <form-group
+                        [checkIsDirty]="checkIsDirty"
+                        [form]="form"
+                        name="username"
+                        [title]="strings.username">
+                        <input
+                            formControlName="username"
+                            [readonly]="isReadonly"
+                            focused>
+                    </form-group>
+                </div>
+                <div class="col-md-6">
+                    <form-group
+                        [checkIsDirty]="checkIsDirty"
+                        [form]="form"
+                        name="email"
+                        [title]="strings.email">
+                        <input
+                            formControlName="email"
+                            [readonly]="isReadonly">
+                    </form-group>
+                </div>
+                <div class="col-md-6">
+                    <form-group
+                        [checkIsDirty]="checkIsDirty"
+                        [form]="form"
+                        name="dateOfBirth"
+                        [title]="strings.dateOfBirth">
+                        <input
+                            bsDatepicker
+                            formControlName="dateOfBirth"
+                            [isDisabled]="isReadonly"
+                            [readonly]="isReadonly">
+                    </form-group>
+                </div>
+                <div class="col-md-6">
+                    <form-group
+                        [checkIsDirty]="checkIsDirty"
+                        [form]="form"
+                        name="password"
+                        [title]="strings.password">
+                        <input
+                            formControlName="password"
+                            type="password"
+                            [readonly]="isReadonly">
+                    </form-group>
+                </div>
+                <div class="col-md-6">
+                    <form-group
+                        [checkIsDirty]="checkIsDirty"
+                        [form]="form"
+                        name="rePassword"
+                        [title]="strings.rePassword">
+                        <input
+                            formControlName="rePassword"
+                            type="password"
+                            [readonly]="isReadonly">
+                    </form-group>
+                </div>
+                <div class="col-md-6">
+                    <form-group
+                        [checkIsDirty]="checkIsDirty"
+                        [form]="form"
+                        name="lastName"
+                        [title]="strings.lastName">
+                        <input
+                            formControlName="lastName"
+                            [readonly]="isReadonly">
+                    </form-group>
+                </div>
+                <div class="col-md-6">
+                    <form-group
+                        [checkIsDirty]="checkIsDirty"
+                        [form]="form"
+                        name="firstName"
+                        [title]="strings.firstName">
+                        <input
+                            formControlName="firstName"
+                            [readonly]="isReadonly">
+                    </form-group>
+                </div>
+                <div
+                    class="col-md-12"
+                    *ngIf="!isReadonly">
+                    <button
+                        type="submit"
+                        [ngClass]="yesClass$ | async"
+                        (click)="onSaveClick($event)"
+                        [disabled]="processing || isReadonly">
+                        <fa-layers
+                            class="fa-fw"
+                            *ngIf="processing">
+                            <fa-icon
+                                [icon]="['fas', 'spinner']"
+                                [pulse]="true"></fa-icon>
+                        </fa-layers>
+                        {{ yesTitle | translate }}
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="email" [title]="strings.email">
-            <input formControlName="email" [readonly]="isReadonly" />
-          </form-group>
+        <div
+            class="col-md-6"
+            *ngIf="!simpleMode">
+            <form-group
+                [checkIsDirty]="checkIsDirty"
+                [title]="strings.roles">
+                <div class="checkboxes-group form-control">
+                    <div class="checkbox">
+                        <label>
+                            <input
+                                formControlName="isActive"
+                                type="checkbox"
+                                [readonly]="isReadonly"
+                                [disableControl]="isReadonly || !('change_user' | perm: false | async)">
+                            {{ strings.isActive | translate }}
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input
+                                formControlName="isStaff"
+                                type="checkbox"
+                                [readonly]="isReadonly"
+                                [disableControl]="isReadonly || !('change_user' | perm: false | async)">
+                            {{ strings.isStaff | translate }}
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input
+                                formControlName="isSuperuser"
+                                type="checkbox"
+                                [readonly]="isReadonly"
+                                [disableControl]="isReadonly || !('change_user' | perm: false | async)">
+                            {{ strings.isSuperuser | translate }}
+                        </label>
+                    </div>
+                </div>
+            </form-group>
         </div>
-        <div class="col-md-6">
-          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="dateOfBirth" [title]="strings.dateOfBirth">
-            <input bsDatepicker formControlName="dateOfBirth" [isDisabled]="isReadonly" [readonly]="isReadonly" />
-          </form-group>
-        </div>
-        <div class="col-md-6">
-          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="password" [title]="strings.password">
-            <input formControlName="password" type="password" [readonly]="isReadonly" />
-          </form-group>
-        </div>
-        <div class="col-md-6">
-          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="rePassword" [title]="strings.rePassword">
-            <input formControlName="rePassword" type="password" [readonly]="isReadonly" />
-          </form-group>
-        </div>
-        <div class="col-md-6">
-          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="lastName" [title]="strings.lastName">
-            <input formControlName="lastName" [readonly]="isReadonly" />
-          </form-group>
-        </div>
-        <div class="col-md-6">
-          <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="firstName" [title]="strings.firstName">
-            <input formControlName="firstName" [readonly]="isReadonly" />
-          </form-group>
-        </div>
-        <div class="col-md-12" *ngIf="!isReadonly">
-          <button
-            type="submit"
-            [ngClass]="yesClass$ | async"
-            (click)="onSaveClick($event)"
-            [disabled]="processing || isReadonly"
-          >
-            <fa-layers class="fa-fw" *ngIf="processing">
-              <fa-icon [icon]="['fas', 'spinner']" [pulse]="true"></fa-icon>
-            </fa-layers>
-            {{ yesTitle | translate }}
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6" *ngIf="!simpleMode">
-      <form-group [checkIsDirty]="checkIsDirty" [title]="strings.roles">
-        <div class="checkboxes-group form-control">
-          <div class="checkbox">
-            <label>
-              <input
-                formControlName="isActive"
-                type="checkbox"
+        <div
+            class="col-md-6"
+            *ngIf="!simpleMode">
+            <user-groups-grid
+                [mockedItems]="data.groups"
+                (mockedItemsChange)="form.get('groups').setValue($event)"
                 [readonly]="isReadonly"
-                [disableControl]="isReadonly || !('change_user' | perm: false | async)"
-              />
-              {{ strings.isActive | translate }}
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input
-                formControlName="isStaff"
-                type="checkbox"
-                [readonly]="isReadonly"
-                [disableControl]="isReadonly || !('change_user' | perm: false | async)"
-              />
-              {{ strings.isStaff | translate }}
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input
-                formControlName="isSuperuser"
-                type="checkbox"
-                [readonly]="isReadonly"
-                [disableControl]="isReadonly || !('change_user' | perm: false | async)"
-              />
-              {{ strings.isSuperuser | translate }}
-            </label>
-          </div>
+                [title]="strings.groups"
+                [apiUrl]="apiUrl"></user-groups-grid>
         </div>
-      </form-group>
     </div>
-    <div class="col-md-6" *ngIf="!simpleMode">
-      <user-groups-grid
-        [mockedItems]="data.groups"
-        (mockedItemsChange)="onGroupsChange($event)"
-        [readonly]="isReadonly"
-        [title]="strings.groups"
-        [apiUrl]="apiUrl"
-      ></user-groups-grid>
-    </div>
-  </div>
 </form>
