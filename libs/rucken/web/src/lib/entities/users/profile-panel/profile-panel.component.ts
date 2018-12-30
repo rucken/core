@@ -86,9 +86,13 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     if (isDevMode()) {
       console.warn('Errors', error);
     }
-    this.form.externalErrors = this._errorsExtractor.getValidationErrors(error);
-    if (!this.form.externalErrors) {
-      this.onError(error);
+    if (this._errorsExtractor) {
+      const externalErrors = this._errorsExtractor.getValidationErrors(error);
+      this.form.setExternalErrorsAsync(externalErrors).then(() => {
+        if (!externalErrors) {
+          this.onError(error);
+        }
+      });
     }
   }
 }

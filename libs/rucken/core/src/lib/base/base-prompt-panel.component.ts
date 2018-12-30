@@ -65,8 +65,8 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   yesData: any;
   noData: any;
 
-  propagateChange: any = () => {};
-  validateFn: any = () => {};
+  propagateChange: any = () => { };
+  validateFn: any = () => { };
 
   constructor(
     public factoryModel?: IFactoryModel<TModel>,
@@ -124,9 +124,16 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
     }
     this.no.emit(this);
   }
-  onYesClick(data?: any): void {
+  onYesClick(data?: any) {
+    this.onYesClickAsync(data).then();
+  }
+  async onYesClickAsync(data?: any) {
     this.yesData = data;
-    this.form.externalErrors = undefined;
+    try {
+      await this.form.clearExternalErrorsAsync();
+    } catch (error) {
+      throw error;
+    }
     if (this.validateForm) {
       if (this.form.valid) {
         if (isDevMode() && this.yes.observers.length === 0) {
@@ -154,5 +161,5 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   registerOnChange(fn) {
     this.propagateChange = fn;
   }
-  registerOnTouched() {}
+  registerOnTouched() { }
 }
