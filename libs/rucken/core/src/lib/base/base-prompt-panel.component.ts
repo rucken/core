@@ -1,12 +1,12 @@
 import { EventEmitter, Input, isDevMode, OnChanges, Output } from '@angular/core';
 import { ControlValueAccessor, FormControl } from '@angular/forms';
+import { BindObservable } from 'bind-observable';
 import { ValidatorOptions } from 'class-validator';
 import { DynamicFormBuilder, DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { IFactoryModel, IModel } from 'ngx-repository';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { translate } from '../utils/translate';
 import { IBaseForm } from './base-form.interface';
-import { BindObservable } from 'bind-observable';
 
 export class BasePromptPanelComponent<TModel extends IModel> implements ControlValueAccessor, OnChanges, IBaseForm {
   @BindObservable()
@@ -65,8 +65,8 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   yesData: any;
   noData: any;
 
-  propagateChange: any = () => { };
-  validateFn: any = () => { };
+  propagateChange: any = () => {};
+  validateFn: any = () => {};
 
   constructor(
     public factoryModel?: IFactoryModel<TModel>,
@@ -161,5 +161,5 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   registerOnChange(fn) {
     this.propagateChange = fn;
   }
-  registerOnTouched() { }
+  registerOnTouched() {}
 }

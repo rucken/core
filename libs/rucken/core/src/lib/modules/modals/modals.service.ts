@@ -15,7 +15,7 @@ export class ModalsService {
     component: string | TemplateRef<TComponent> | any,
     options?: any
   ): Promise<IModalRef<TComponent>> {
-    return Promise.resolve({ instance: undefined, hide: () => { } });
+    return Promise.resolve({ instance: undefined, hide: () => {} });
   }
   info(options: any) {
     this.infoAsync(options).then();

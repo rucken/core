@@ -3,10 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
-import { PipesModule } from '@rucken/core';
+import { DirectivesModule, PipesModule } from '@rucken/core';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormGroupModule } from '../../../components/form-group/form-group.module';
-import { DirectivesModule } from '../../../directives/directives.module';
 import { UserGroupsGridModule } from '../user-groups-grid/user-groups-grid.module';
 import { ProfilePanelComponent } from './profile-panel.component';
 
@@ -26,4 +25,4 @@ import { ProfilePanelComponent } from './profile-panel.component';
   declarations: [ProfilePanelComponent],
   exports: [ProfilePanelComponent]
 })
-export class ProfilePanelModule {}
+export class ProfilePanelModule { }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
-import { DirectivesModule } from '../../directives/directives.module';
+import { DirectivesModule } from '@rucken/core';
 import { EntityModalModule } from '../entity-modal/entity-modal.module';
 import { FormGroupModule } from '../form-group/form-group.module';
 import { EntityGridModalComponent } from './entity-grid-modal.component';
@@ -30,4 +30,4 @@ import { EntityGridModalComponent } from './entity-grid-modal.component';
     EntityModalModule
   ]
 })
-export class EntityGridModalModule {}
+export class EntityGridModalModule { }
