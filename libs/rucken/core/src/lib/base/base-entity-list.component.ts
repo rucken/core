@@ -38,6 +38,14 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   processing = false;
   processing$: Observable<boolean>;
   @Input()
+  createLink: string;
+  @Input()
+  viewLink: string;
+  @Input()
+  updateLink: string;
+  @Input()
+  deleteLink: string;
+  @Input()
   apiUrl?: string;
   @Input()
   set mockedItems(items: TModel[]) {
