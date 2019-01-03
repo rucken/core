@@ -7,7 +7,7 @@ import {
   AuthService,
   ErrorsExtractor,
   ModalsService,
-  RedirectUriDto,
+  RedirectUrlDto,
   TokenService
 } from '@rucken/core';
 import { WebAuthModalComponent } from './auth-modal.component';
@@ -30,7 +30,7 @@ export class WebAuthModalService extends AuthModalService {
   ) {
     super(authService, errorsExtractor, tokenService, modalsService);
   }
-  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
+  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUrlDto) {
     super.onOauthSignInSuccess(modal, data);
     this.document.location.href = data.redirect_uri;
   }

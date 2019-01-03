@@ -8,15 +8,15 @@ import { ACCOUNT_CONFIG_TOKEN, defaultAccountConfig } from './configs/account.co
   providers: [AccountService]
 })
 export class AccountModule {
-  static forRoot(options?: { apiUri?: string }): ModuleWithProviders {
+  static forRoot(options?: { apiUrl?: string }): ModuleWithProviders {
     return {
       ngModule: AccountModule,
       providers: [
         {
           provide: ACCOUNT_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri ? options.apiUri : defaultAccountConfig.apiUri,
-            updateUri: defaultAccountConfig.updateUri
+            apiUrl: options.apiUrl ? options.apiUrl : defaultAccountConfig.apiUrl,
+            updateUrl: defaultAccountConfig.updateUrl
           }
         },
         AccountService

@@ -1,6 +1,6 @@
 export interface IAuthConfig {
-  apiUri?: string;
-  signInUri?: string;
-  signUpUri?: string;
-  infoUri?: string;
+  apiUrl?: string;
+  signInUrl?: string;
+  signUpUrl?: string;
+  infoUrl?: string;
 }

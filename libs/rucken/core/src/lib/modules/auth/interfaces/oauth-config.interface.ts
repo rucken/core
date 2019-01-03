@@ -1,6 +1,6 @@
 export interface IOauthConfig {
-  apiUri?: string;
-  signInUri?: string;
-  redirectUri?: string;
+  apiUrl?: string;
+  signInUrl?: string;
+  redirectUrl?: string;
   providers?: string[];
 }

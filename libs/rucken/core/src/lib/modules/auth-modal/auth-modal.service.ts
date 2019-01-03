@@ -1,7 +1,7 @@
 import { Injectable, isDevMode, TemplateRef } from '@angular/core';
 import { ErrorsExtractor } from '../../utils/errors-extractor';
 import { translate } from '../../utils/translate';
-import { RedirectUriDto } from '../auth/dto/redirect-uri.dto';
+import { RedirectUrlDto } from '../auth/dto/redirect-url.dto';
 import { UserTokenDto } from '../auth/dto/user-token.dto';
 import { AuthService } from '../auth/services/auth.service';
 import { TokenService } from '../auth/services/token.service';
@@ -22,7 +22,7 @@ export class AuthModalService {
     public errorsExtractor: ErrorsExtractor,
     public tokenService: TokenService,
     public modalsService: ModalsService
-  ) {}
+  ) { }
   onInfo() {
     const token = this.tokenService.current;
     if (token) {
@@ -82,7 +82,7 @@ export class AuthModalService {
       modal.processing = true;
       if (modal.yesData) {
         this.authService
-          .oauthRedirectUri(modal.yesData)
+          .oauthRedirectUrl(modal.yesData)
           .subscribe(data => this.onOauthSignInSuccess(modal, data), error => this.onSignInError(modal, error));
       } else {
         if (modal.type === AuthModalTypeEnum.SignIn) {
@@ -98,7 +98,7 @@ export class AuthModalService {
       }
     });
   }
-  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
+  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUrlDto) {
     if (modal) {
       modal.processing = false;
     }

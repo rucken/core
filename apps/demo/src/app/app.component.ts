@@ -8,7 +8,7 @@ import {
   AuthService,
   ILanguagesItem,
   LangService,
-  RedirectUriDto,
+  RedirectUrlDto,
   TokenService,
   User,
   UserTokenDto
@@ -81,7 +81,7 @@ export class AppComponent implements OnDestroy, OnInit {
   onSignIn() {
     this._authModalService.onSignIn();
   }
-  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
+  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUrlDto) {
     this._authModalService.onOauthSignInSuccess(modal, data);
   }
   onSignInOrInfoSuccess(modal: AuthModalComponent, data: UserTokenDto) {
