@@ -47,7 +47,7 @@
                 </ng-template>
                 <li
                     class="dropdown"
-                    *ngIf="languages?.length">
+                    *ngIf="languages$ | async as languages">
                     <a
                         (click)="langsIsCollapsed = !langsIsCollapsed"
                         class="dropdown-toggle"

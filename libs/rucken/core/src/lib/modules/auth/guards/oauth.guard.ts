@@ -26,8 +26,8 @@ export class OauthGuard implements CanActivate {
         .pipe(first())
         .subscribe(
           (data: UserTokenDto) => {
-            this.tokenService.current = data.token;
-            this.authService.current = data.user;
+            this.tokenService.setCurrent(data.token);
+            this.authService.setCurrent(data.user);
             this.tokenService.startCheckTokenHasExpired();
             this.router.navigate([redirectToIfSuccess]);
             resolve(true);

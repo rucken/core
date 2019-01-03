@@ -1,7 +1,7 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { BindObservable } from 'bind-observable';
+import { Observable } from 'rxjs';
 
 @Component({
   // tslint:disable-next-line:component-selector
@@ -12,8 +12,18 @@ import { BindObservable } from 'bind-observable';
 export class NavSidebarComponent {
   @Input()
   parentUrl = '';
+
+  @BindObservable()
   @Input()
-  set routes(routes: any[]) {
+  allowedRoutes = [];
+  allowedRoutes$: Observable<any[]>;
+  @BindObservable()
+  @Input()
+  sidebardRoutes = [];
+  sidebardRoutes$: Observable<any[]>;
+
+  constructor(public router: Router) {}
+  setRoutes(routes: any[]) {
     this.allowedRoutes = routes ? routes.filter((item: any) => item.data && item.data.visible !== false) : [];
     this.sidebardRoutes = this.allowedRoutes
       .filter((item: any) => item.data)
@@ -30,14 +40,4 @@ export class NavSidebarComponent {
         return newItem;
       });
   }
-  @BindObservable()
-  @Input()
-  allowedRoutes = [];
-  allowedRoutes$: Observable<any[]>;
-  @BindObservable()
-  @Input()
-  sidebardRoutes = [];
-  sidebardRoutes$: Observable<any[]>;
-
-  constructor(public router: Router) {}
 }

@@ -24,4 +24,4 @@ import { PromptFormModalComponent } from './prompt-form-modal.component';
   entryComponents: [PromptFormModalComponent],
   exports: [PromptFormModalComponent, ReactiveFormsModule, FormsModule, DirectivesModule, PipesModule, FormGroupModule]
 })
-export class PromptFormModalModule { }
+export class PromptFormModalModule {}

@@ -13,25 +13,6 @@ export function themesServiceInitializeApp(themesService: ThemesService) {
 
 @Injectable()
 export class ThemesService {
-  get current() {
-    if (!this.current$.getValue()) {
-      return this.getStyleLinkHref();
-    }
-    return this.current$.getValue();
-  }
-  set current(value: string) {
-    if (!value) {
-      this.setStyleLinkHref(value);
-      this._storage.removeItem(this._themesConfig.storageKeyName).then(_ => {
-        this.current$.next(value);
-      });
-    } else {
-      this.setStyleLinkHref(value);
-      this._storage.setItem(this._themesConfig.storageKeyName, value).then(_ => {
-        this.current$.next(value);
-      });
-    }
-  }
   repository: Repository<Theme>;
   current$ = new BehaviorSubject<string>(undefined);
 
@@ -59,7 +40,7 @@ export class ThemesService {
         if (data && data !== 'undefined') {
           resolve(data);
         } else {
-          resolve(this.current);
+          resolve(this.getCurrent());
         }
       });
     });
@@ -67,10 +48,29 @@ export class ThemesService {
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.initCurrent().then(value => {
-        this.current = value as string;
+        this.setCurrent(value as string);
         resolve();
       });
     });
+  }
+  getCurrent() {
+    if (!this.current$.getValue()) {
+      return this.getStyleLinkHref();
+    }
+    return this.current$.getValue();
+  }
+  setCurrent(value: string) {
+    if (!value) {
+      this.setStyleLinkHref(value);
+      this._storage.removeItem(this._themesConfig.storageKeyName).then(_ => {
+        this.current$.next(value);
+      });
+    } else {
+      this.setStyleLinkHref(value);
+      this._storage.setItem(this._themesConfig.storageKeyName, value).then(_ => {
+        this.current$.next(value);
+      });
+    }
   }
   setStyleLinkHref(url: string) {
     if (url) {

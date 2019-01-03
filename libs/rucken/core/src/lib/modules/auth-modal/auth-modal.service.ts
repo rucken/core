@@ -22,9 +22,9 @@ export class AuthModalService {
     public errorsExtractor: ErrorsExtractor,
     public tokenService: TokenService,
     public modalsService: ModalsService
-  ) { }
+  ) {}
   onInfo() {
-    const token = this.tokenService.current;
+    const token = this.tokenService.getCurrent();
     if (token) {
       if (this.tokenService.tokenHasExpired(token)) {
         this.tokenService.stopCheckTokenHasExpired();
@@ -35,7 +35,7 @@ export class AuthModalService {
           })
           .then(result => this.authService.signOut().subscribe(data => this.onSignOutSuccess(undefined)));
       } else {
-        if (!this.authService.current) {
+        if (!this.authService.getCurrent()) {
           this.authService.info(token).subscribe(
             data => this.onSignInOrInfoSuccess(undefined, data),
             error => {
@@ -111,9 +111,9 @@ export class AuthModalService {
       modal.processing = false;
     }
     if (data.token) {
-      this.tokenService.current = data.token;
+      this.tokenService.setCurrent(data.token);
     }
-    this.authService.current = data.user;
+    this.authService.setCurrent(data.user);
     if (modal) {
       modal.hide();
     }
@@ -122,8 +122,8 @@ export class AuthModalService {
     if (modal) {
       modal.processing = false;
     }
-    this.tokenService.current = undefined;
-    this.authService.current = undefined;
+    this.tokenService.setCurrent(undefined);
+    this.authService.setCurrent(undefined);
     if (modal) {
       modal.hide();
     }

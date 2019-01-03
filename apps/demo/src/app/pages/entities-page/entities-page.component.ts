@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NavSidebarComponent } from '@rucken/web';
 import { EntitiesPageChildrenRoutes } from './entities-page.children-routes';
 
 @Component({
@@ -7,7 +8,11 @@ import { EntitiesPageChildrenRoutes } from './entities-page.children-routes';
   templateUrl: './entities-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EntitiesPageComponent {
-  public routes = EntitiesPageChildrenRoutes;
+export class EntitiesPageComponent implements OnInit {
+  @ViewChild('sidebar')
+  sidebar: NavSidebarComponent;
   constructor(public activatedRoute: ActivatedRoute) {}
+  ngOnInit() {
+    this.sidebar.setRoutes(EntitiesPageChildrenRoutes);
+  }
 }

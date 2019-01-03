@@ -20,20 +20,6 @@ export function authServiceInitializeApp(authService: AuthService) {
 
 @Injectable()
 export class AuthService {
-  get current() {
-    return this.current$.getValue();
-  }
-  set current(value: User) {
-    if (!value) {
-      this.clearPermissions().then(_ => this.current$.next(undefined));
-    } else {
-      if (value.permissionNames.length) {
-        this.loadPermissions(value).then(_ => this.current$.next(value));
-      } else {
-        this.clearPermissions().then(_ => this.current$.next(undefined));
-      }
-    }
-  }
   current$ = new BehaviorSubject<User>(undefined);
 
   constructor(
@@ -46,15 +32,29 @@ export class AuthService {
     this.initPermissions();
   }
   async initCurrent() {
-    return this.current;
+    return this.getCurrent();
   }
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.initCurrent().then(value => {
-        this.current = value;
+        this.setCurrent(value);
         resolve();
       });
     });
+  }
+  getCurrent() {
+    return this.current$.getValue();
+  }
+  setCurrent(value: User) {
+    if (!value) {
+      this.clearPermissions().then(_ => this.current$.next(undefined));
+    } else {
+      if (value.permissionNames.length) {
+        this.loadPermissions(value).then(_ => this.current$.next(value));
+      } else {
+        this.clearPermissions().then(_ => this.current$.next(undefined));
+      }
+    }
   }
   public initPermissions() {
     this._permissionsService.loadPermissions([INITED_PERMISSIONS]);

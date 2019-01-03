@@ -1,18 +1,18 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
   AuthModalComponent,
   AuthModalService,
   AuthService,
-  ILanguagesItem,
   LangService,
   RedirectUrlDto,
   TokenService,
   User,
   UserTokenDto
 } from '@rucken/core';
+import { NavbarComponent } from '@rucken/web';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -25,11 +25,10 @@ import { AppRoutes } from './app.routes';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnDestroy, OnInit {
+  @ViewChild('navbar')
+  navbar: NavbarComponent;
   public title: string;
-  public routes = AppRoutes;
-  public languages$: Observable<ILanguagesItem[]>;
   public currentUser$: Observable<User>;
-  public currentLang$: Observable<string>;
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
@@ -44,9 +43,7 @@ export class AppComponent implements OnDestroy, OnInit {
   ) {
     this._authModalService.signInInfoMessage = AuthModalSignInInfoMessage;
     this._authModalService.signUpInfoMessage = AuthModalSignUpInfoMessage;
-    this.languages$ = _langService.languages$;
-    this.currentUser$ = _authService.current$;
-    this.currentLang$ = _langService.current$;
+    this.currentUser$ = this._authService.current$;
     this._langService.current$.pipe(takeUntil(this._destroyed$)).subscribe(lang => {
       this._bsLocaleService.use(lang);
       this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
@@ -64,13 +61,11 @@ export class AppComponent implements OnDestroy, OnInit {
     if (isPlatformBrowser(this._platformId)) {
       this.onInfo();
     }
+    this.navbar.setRoutes(AppRoutes);
   }
   ngOnDestroy() {
     this._destroyed$.next(true);
     this._destroyed$.complete();
-  }
-  setCurrentLang(value: string) {
-    this._langService.current = value;
   }
   onInfo() {
     this._authModalService.onInfo();

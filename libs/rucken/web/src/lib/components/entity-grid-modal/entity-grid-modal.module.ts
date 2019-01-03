@@ -30,4 +30,4 @@ import { EntityGridModalComponent } from './entity-grid-modal.component';
     EntityModalModule
   ]
 })
-export class EntityGridModalModule { }
+export class EntityGridModalModule {}
