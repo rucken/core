@@ -9,15 +9,15 @@ export function transformStringToDate(value: string) {
 }
 export function transformDateToString(value: Date) {
   if (value && value.getDate && value.getMonth && value.getFullYear) {
-    const curr_date = value.getDate();
-    const curr_month = value.getMonth() + 1;
+    const curr_date = value.getDate() < 10 ? `0${value.getDate()}` : value.getDate();
+    const curr_month = (value.getMonth() + 1) < 10 ? `0${value.getMonth() + 1}` : value.getMonth() + 1;
     const curr_year = value.getFullYear();
     return curr_year + '-' + curr_month + '-' + curr_date;
   }
   return value;
 }
 export function serializeModel<T>(object: T) {
-  return function() {
+  return function () {
     return object;
   };
 }
