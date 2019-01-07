@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { NavSidebarComponent } from '@rucken/web';
 import { AdminPageChildrenRoutes } from './admin-page.children-routes';
 
@@ -11,7 +10,6 @@ import { AdminPageChildrenRoutes } from './admin-page.children-routes';
 export class AdminPageComponent implements OnInit {
   @ViewChild('sidebar')
   sidebar: NavSidebarComponent;
-  constructor(public activatedRoute: ActivatedRoute) {}
   ngOnInit() {
     this.sidebar.setRoutes(AdminPageChildrenRoutes);
   }

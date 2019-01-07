@@ -11,7 +11,7 @@ import { EntitiesPageChildrenRoutes } from './entities-page.children-routes';
 export class EntitiesPageComponent implements OnInit {
   @ViewChild('sidebar')
   sidebar: NavSidebarComponent;
-  constructor(public activatedRoute: ActivatedRoute) {}
+  constructor(private _activatedRoute: ActivatedRoute) { }
   ngOnInit() {
     this.sidebar.setRoutes(EntitiesPageChildrenRoutes);
   }
