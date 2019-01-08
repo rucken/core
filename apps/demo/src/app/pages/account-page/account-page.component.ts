@@ -11,7 +11,7 @@ import { AccountPageChildrenRoutes } from './account-page.children-routes';
 export class AccountPageComponent implements OnInit {
   @ViewChild('sidebar')
   sidebar: NavSidebarComponent;
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  constructor(private _activatedRoute: ActivatedRoute) {}
   ngOnInit() {
     this.sidebar.setRoutes(AccountPageChildrenRoutes);
   }

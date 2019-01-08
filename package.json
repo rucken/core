@@ -56,9 +56,9 @@
     "start:prod": "run-s prepare:mono serve",
     "start:dev": "run-s prepare:mono serve:dev",
     "start:local": "run-s prepare:mono serve:local",
-    "build": "run-s clean config:mono app:build ssr:build",
-    "build:dev": "run-s clean config:mono app:build:dev ssr:build:dev",
-    "build:local": "run-s clean config:mono app:build:local ssr:build:local",
+    "build": "run-s clean format:fix config:mono app:build ssr:build",
+    "build:dev": "run-s clean format:fix config:mono app:build:dev ssr:build:dev",
+    "build:local": "run-s clean format:fix config:mono app:build:local ssr:build:local",
     "test": "run-s github:build ssr:build",
     "lint": "ng lint",
     "clean": "./node_modules/.bin/del-cli dist",
@@ -81,7 +81,6 @@
     "doc:lib:web": "./node_modules/.bin/compodoc -p libs/rucken/web/tsconfig.lib.json -n \"rucken:web\" -d dist/demo-client/doc/web",
     "doc:app:demo": "./node_modules/.bin/compodoc -p apps/demo/tsconfig.app.json -n \"rucken:demo\" -d dist/demo-client/doc/demo",
     "doc": "run-s doc:lib:core doc:lib:web doc:app:demo",
-    "precommit": "run-s format:fix",
     "format:fix": "prettier  --config ./.prettierrc --write \"{apps,libs}/**/*.ts\""
   },
   "dependencies": {

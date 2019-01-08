@@ -14,11 +14,7 @@ export class ContentTypesFrameComponent {
   parentTitle$: Observable<string>;
   title$: Observable<string>;
   constructor(private _activatedRoute: ActivatedRoute) {
-    this.parentTitle$ = this._activatedRoute.parent.parent.data.pipe(
-      map(data => data && data.meta && data.meta.title)
-    );
-    this.title$ = this._activatedRoute.data.pipe(
-      map(data => data && data.meta && data.meta.title)
-    );
+    this.parentTitle$ = this._activatedRoute.parent.parent.data.pipe(map(data => data && data.meta && data.meta.title));
+    this.title$ = this._activatedRoute.data.pipe(map(data => data && data.meta && data.meta.title));
   }
 }

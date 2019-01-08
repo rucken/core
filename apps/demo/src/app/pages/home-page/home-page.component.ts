@@ -17,8 +17,6 @@ export class HomePageComponent {
   );
   title$: Observable<string>;
   constructor(private _activatedRoute: ActivatedRoute) {
-    this.title$ = this._activatedRoute.data.pipe(
-      map(data => data && data.meta && data.meta.title)
-    );
+    this.title$ = this._activatedRoute.data.pipe(map(data => data && data.meta && data.meta.title));
   }
 }
