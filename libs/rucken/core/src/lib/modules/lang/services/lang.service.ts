@@ -12,34 +12,6 @@ export function langServiceInitializeApp(langService: LangService) {
 }
 @Injectable()
 export class LangService {
-  get languages() {
-    if (!this.languages$.getValue()) {
-      return this._langConfig.languages;
-    }
-    return this.languages$.getValue();
-  }
-  set languages(langs: ILanguagesItem[]) {
-    this.languages$.next(langs);
-  }
-  get current() {
-    if (!this.current$.getValue()) {
-      return this._langConfig.defaultLang;
-    }
-    return this.current$.getValue();
-  }
-  set current(value: string) {
-    if (!value) {
-      this._translateService.use(value);
-      this._storage.removeItem(this._langConfig.storageKeyName).then(_ => {
-        this.current$.next(value);
-      });
-    } else {
-      this._translateService.use(value);
-      this._storage.setItem(this._langConfig.storageKeyName, value).then(_ => {
-        this.current$.next(value);
-      });
-    }
-  }
   current$ = new BehaviorSubject<string>(undefined);
   languages$ = new BehaviorSubject<ILanguagesItem[]>([]);
 
@@ -64,7 +36,7 @@ export class LangService {
         if (data && data !== 'undefined') {
           resolve(data);
         } else {
-          resolve(this.current);
+          resolve(this.getCurrent());
         }
       });
     });
@@ -72,12 +44,40 @@ export class LangService {
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.initLanguages().then(languages => {
-        this.languages = languages;
+        this.setLanguages(languages);
         this.initCurrent().then(value => {
-          this.current = value as string;
+          this.setCurrent(value as string);
           resolve();
         });
       });
     });
+  }
+  getCurrent() {
+    if (!this.current$.getValue()) {
+      return this._langConfig.defaultLang;
+    }
+    return this.current$.getValue();
+  }
+  setCurrent(value: string) {
+    if (!value) {
+      this._translateService.use(value);
+      this._storage.removeItem(this._langConfig.storageKeyName).then(_ => {
+        this.current$.next(value);
+      });
+    } else {
+      this._translateService.use(value);
+      this._storage.setItem(this._langConfig.storageKeyName, value).then(_ => {
+        this.current$.next(value);
+      });
+    }
+  }
+  getLanguages() {
+    if (!this.languages$.getValue()) {
+      return this._langConfig.languages;
+    }
+    return this.languages$.getValue();
+  }
+  setLanguages(langs: ILanguagesItem[]) {
+    this.languages$.next(langs);
   }
 }

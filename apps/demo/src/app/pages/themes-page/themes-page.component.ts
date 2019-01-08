@@ -15,6 +15,6 @@ export class ThemesPageComponent {
     this.currentTheme$ = _themesService.current$;
   }
   setCurrentTheme(value: string) {
-    this._themesService.current = value;
+    this._themesService.setCurrent(value);
   }
 }

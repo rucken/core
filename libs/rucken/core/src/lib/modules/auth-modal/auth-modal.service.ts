@@ -1,7 +1,7 @@
 import { Injectable, isDevMode, TemplateRef } from '@angular/core';
 import { ErrorsExtractor } from '../../utils/errors-extractor';
 import { translate } from '../../utils/translate';
-import { RedirectUriDto } from '../auth/dto/redirect-uri.dto';
+import { RedirectUrlDto } from '../auth/dto/redirect-url.dto';
 import { UserTokenDto } from '../auth/dto/user-token.dto';
 import { AuthService } from '../auth/services/auth.service';
 import { TokenService } from '../auth/services/token.service';
@@ -24,7 +24,7 @@ export class AuthModalService {
     public modalsService: ModalsService
   ) {}
   onInfo() {
-    const token = this.tokenService.current;
+    const token = this.tokenService.getCurrent();
     if (token) {
       if (this.tokenService.tokenHasExpired(token)) {
         this.tokenService.stopCheckTokenHasExpired();
@@ -35,7 +35,7 @@ export class AuthModalService {
           })
           .then(result => this.authService.signOut().subscribe(data => this.onSignOutSuccess(undefined)));
       } else {
-        if (!this.authService.current) {
+        if (!this.authService.getCurrent()) {
           this.authService.info(token).subscribe(
             data => this.onSignInOrInfoSuccess(undefined, data),
             error => {
@@ -82,7 +82,7 @@ export class AuthModalService {
       modal.processing = true;
       if (modal.yesData) {
         this.authService
-          .oauthRedirectUri(modal.yesData)
+          .oauthRedirectUrl(modal.yesData)
           .subscribe(data => this.onOauthSignInSuccess(modal, data), error => this.onSignInError(modal, error));
       } else {
         if (modal.type === AuthModalTypeEnum.SignIn) {
@@ -98,7 +98,7 @@ export class AuthModalService {
       }
     });
   }
-  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
+  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUrlDto) {
     if (modal) {
       modal.processing = false;
     }
@@ -111,9 +111,9 @@ export class AuthModalService {
       modal.processing = false;
     }
     if (data.token) {
-      this.tokenService.current = data.token;
+      this.tokenService.setCurrent(data.token);
     }
-    this.authService.current = data.user;
+    this.authService.setCurrent(data.user);
     if (modal) {
       modal.hide();
     }
@@ -122,8 +122,8 @@ export class AuthModalService {
     if (modal) {
       modal.processing = false;
     }
-    this.tokenService.current = undefined;
-    this.authService.current = undefined;
+    this.tokenService.setCurrent(undefined);
+    this.authService.setCurrent(undefined);
     if (modal) {
       modal.hide();
     }

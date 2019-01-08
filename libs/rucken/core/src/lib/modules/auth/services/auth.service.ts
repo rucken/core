@@ -9,7 +9,7 @@ import { User } from '../../../entities/models/user';
 import { EMPTY_PERMISSIONS, INITED_PERMISSIONS } from '../../../utils/permissions-guard.const';
 import { AUTH_CONFIG_TOKEN } from '../configs/auth.config';
 import { OAUTH_CONFIG_TOKEN } from '../configs/oauth.config';
-import { RedirectUriDto } from '../dto/redirect-uri.dto';
+import { RedirectUrlDto } from '../dto/redirect-url.dto';
 import { UserTokenDto } from '../dto/user-token.dto';
 import { IAuthConfig } from '../interfaces/auth-config.interface';
 import { IOauthConfig } from '../interfaces/oauth-config.interface';
@@ -20,20 +20,6 @@ export function authServiceInitializeApp(authService: AuthService) {
 
 @Injectable()
 export class AuthService {
-  get current() {
-    return this.current$.getValue();
-  }
-  set current(value: User) {
-    if (!value) {
-      this.clearPermissions().then(_ => this.current$.next(undefined));
-    } else {
-      if (value.permissionNames.length) {
-        this.loadPermissions(value).then(_ => this.current$.next(value));
-      } else {
-        this.clearPermissions().then(_ => this.current$.next(undefined));
-      }
-    }
-  }
   current$ = new BehaviorSubject<User>(undefined);
 
   constructor(
@@ -46,15 +32,29 @@ export class AuthService {
     this.initPermissions();
   }
   async initCurrent() {
-    return this.current;
+    return this.getCurrent();
   }
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.initCurrent().then(value => {
-        this.current = value;
+        this.setCurrent(value);
         resolve();
       });
     });
+  }
+  getCurrent() {
+    return this.current$.getValue();
+  }
+  setCurrent(value: User) {
+    if (!value) {
+      this.clearPermissions().then(_ => this.current$.next(undefined));
+    } else {
+      if (value.permissionNames.length) {
+        this.loadPermissions(value).then(_ => this.current$.next(value));
+      } else {
+        this.clearPermissions().then(_ => this.current$.next(undefined));
+      }
+    }
   }
   public initPermissions() {
     this._permissionsService.loadPermissions([INITED_PERMISSIONS]);
@@ -73,7 +73,7 @@ export class AuthService {
   }
   signIn(email: string, password: string): Observable<UserTokenDto> {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.signInUri, {
+      .post(this._authConfig.apiUrl + this._authConfig.signInUrl, {
         email,
         password
       })
@@ -81,7 +81,7 @@ export class AuthService {
   }
   info(token: string): Observable<UserTokenDto> {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.infoUri, {
+      .post(this._authConfig.apiUrl + this._authConfig.infoUrl, {
         token
       })
       .pipe(map(data => plainToClass(UserTokenDto, data)));
@@ -97,7 +97,7 @@ export class AuthService {
     lastName?: string
   ): Observable<UserTokenDto> {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.signUpUri, {
+      .post(this._authConfig.apiUrl + this._authConfig.signUpUrl, {
         email,
         password,
         username,
@@ -106,7 +106,7 @@ export class AuthService {
       })
       .pipe(map(data => plainToClass(UserTokenDto, data)));
   }
-  oauthRedirectUri(provider: string): Observable<RedirectUriDto> {
+  oauthRedirectUrl(provider: string): Observable<RedirectUrlDto> {
     if (this._oauthConfig.providers.indexOf(provider) === -1) {
       return throwError(
         this._translateService
@@ -114,8 +114,8 @@ export class AuthService {
           .replace('{provider}', provider)
       );
     }
-    const uri = this._oauthConfig.apiUri + this._oauthConfig.redirectUri.replace('{provider}', provider);
-    return this._httpClient.get(uri).pipe(map(data => plainToClass(RedirectUriDto, data)));
+    const uri = this._oauthConfig.apiUrl + this._oauthConfig.redirectUrl.replace('{provider}', provider);
+    return this._httpClient.get(uri).pipe(map(data => plainToClass(RedirectUrlDto, data)));
   }
   oauthSignIn(provider: string, code: string): Observable<UserTokenDto> {
     if (this._oauthConfig.providers.indexOf(provider) === -1) {
@@ -125,7 +125,7 @@ export class AuthService {
           .replace('{provider}', provider)
       );
     }
-    const uri = this._oauthConfig.apiUri + this._oauthConfig.signInUri.replace('{provider}', provider);
+    const uri = this._oauthConfig.apiUrl + this._oauthConfig.signInUrl.replace('{provider}', provider);
     return this._httpClient
       .post(uri, {
         code

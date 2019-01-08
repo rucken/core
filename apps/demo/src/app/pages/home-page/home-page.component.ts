@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 declare var require: any;
 
@@ -13,5 +15,8 @@ export class HomePageComponent {
     '<h1 id="rucken">rucken</h1>',
     ''
   );
-  constructor(public activatedRoute: ActivatedRoute) {}
+  title$: Observable<string>;
+  constructor(private _activatedRoute: ActivatedRoute) {
+    this.title$ = this._activatedRoute.data.pipe(map(data => data && data.meta && data.meta.title));
+  }
 }

@@ -15,7 +15,7 @@ export class UserPermPipe implements PipeTransform {
     trueValue: any = true,
     falseValue: any = false
   ): any {
-    const currentUser = this._authService.current;
+    const currentUser = this._authService.getCurrent();
     if (item && has(item, path) && currentUser && currentUser.id) {
       if (Array.isArray(get(item, path))) {
         const users = get(item, path) as Array<User>;

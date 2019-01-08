@@ -21,4 +21,4 @@ import { WebModalsService } from './modals.service';
   entryComponents: [MessageModalComponent],
   exports: [ModalModule, ModalsModule, MessageModalComponent, DirectivesModule]
 })
-export class WebModalsModule { }
+export class WebModalsModule {}

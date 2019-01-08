@@ -1,5 +1,5 @@
 export interface IJwtConfig {
-  apiUri?: string;
+  apiUrl?: string;
   withoutTokenUrls?: string[];
   headerName?: string;
   headerPrefix?: string;

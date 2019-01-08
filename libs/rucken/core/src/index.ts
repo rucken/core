@@ -66,7 +66,7 @@ export * from './lib/modules/auth/configs/auth.config';
 export * from './lib/modules/auth/configs/index';
 export * from './lib/modules/auth/configs/jwt.config';
 export * from './lib/modules/auth/configs/oauth.config';
-export * from './lib/modules/auth/dto/redirect-uri.dto';
+export * from './lib/modules/auth/dto/redirect-url.dto';
 export * from './lib/modules/auth/dto/user-token.dto';
 export * from './lib/modules/auth/guards/oauth.guard';
 export * from './lib/modules/auth/interceptors/token.interceptor';

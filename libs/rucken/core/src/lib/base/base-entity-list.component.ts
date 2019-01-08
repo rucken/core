@@ -1,13 +1,6 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { BindObservable } from 'bind-observable';
-import {
-  IFactoryModel,
-  IMockProviderOptions,
-  IModel,
-  IPaginationMeta,
-  IRestProviderOptions,
-  Repository
-} from 'ngx-repository';
+import { IFactoryModel, IMockProviderOptions, IModel, IPaginationMeta, IRestProviderOptions, Repository } from 'ngx-repository';
 import { forkJoin, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { IModalRef } from '../modules/modals/modal-ref.interface';
@@ -37,6 +30,14 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   @Input()
   processing = false;
   processing$: Observable<boolean>;
+  @Input()
+  createLink: string;
+  @Input()
+  viewLink: string;
+  @Input()
+  updateLink: string;
+  @Input()
+  deleteLink: string;
   @Input()
   apiUrl?: string;
   @Input()
@@ -114,8 +115,11 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   }
   onNextPage() {
     this.repository.setOptions({
-      paginationMeta: { curPage: this.repository.paginationMeta$.getValue().curPage }
+      paginationMeta: { curPage: this.repository.paginationMeta$.getValue().curPage + 1 }
     });
+    if (!this.repository.provider.getOptions().autoload) {
+      this.onReload();
+    }
   }
   onChangeFilter(filter?: IBaseEntityGridFilter) {
     if (!filter) {
@@ -140,6 +144,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     this.onChangeFilter();
   }
   onSearch(searchText: string) {
+    searchText = searchText ? searchText : '';
     if (typeof searchText === 'string') {
       this.onChangeFilter({ searchText });
     }

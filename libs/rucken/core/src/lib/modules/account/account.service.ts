@@ -13,7 +13,7 @@ export class AccountService {
   constructor(@Inject(ACCOUNT_CONFIG_TOKEN) private accountConfig: IAccountConfig, private _httpClient: HttpClient) {}
   update(user: User): Observable<UserDto> {
     return this._httpClient
-      .post(this.accountConfig.apiUri + this.accountConfig.updateUri, classToPlain(user))
+      .post(this.accountConfig.apiUrl + this.accountConfig.updateUrl, classToPlain(user))
       .pipe(map(data => plainToClass(UserDto, data)));
   }
 }
