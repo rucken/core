@@ -93,6 +93,9 @@
                                 <a href="#clearPermissions">clearPermissions</a>
                             </li>
                             <li>
+                                <a href="#getCurrent">getCurrent</a>
+                            </li>
+                            <li>
                                 <a href="#info">info</a>
                             </li>
                             <li>
@@ -111,10 +114,13 @@
                                 <a href="#loadPermissions">loadPermissions</a>
                             </li>
                             <li>
-                                <a href="#oauthRedirectUri">oauthRedirectUri</a>
+                                <a href="#oauthRedirectUrl">oauthRedirectUrl</a>
                             </li>
                             <li>
                                 <a href="#oauthSignIn">oauthSignIn</a>
+                            </li>
+                            <li>
+                                <a href="#setCurrent">setCurrent</a>
                             </li>
                             <li>
                                 <a href="#signIn">signIn</a>
@@ -133,20 +139,6 @@
 
 
 
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Accessors</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                    <a href="#current">current</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
         </tbody>
     </table>
 </section>
@@ -162,7 +154,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:37</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -297,6 +289,44 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="getCurrent"></a>
+                        <span class="name">
+                            <b>
+                            getCurrent
+                            </b>
+                            <a href="#getCurrent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>getCurrent()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:45</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="info"></a>
                         <span class="name">
                             <b>
@@ -386,7 +416,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:48</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -424,7 +454,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:51</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -555,18 +585,18 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="oauthRedirectUri"></a>
+                        <a name="oauthRedirectUrl"></a>
                         <span class="name">
                             <b>
-                            oauthRedirectUri
+                            oauthRedirectUrl
                             </b>
-                            <a href="#oauthRedirectUri"><span class="icon ion-ios-link"></span></a>
+                            <a href="#oauthRedirectUrl"><span class="icon ion-ios-link"></span></a>
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>oauthRedirectUri(provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>oauthRedirectUrl(provider: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                     </td>
                 </tr>
 
@@ -610,7 +640,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/RedirectUriDto.html" target="_self" >Observable&lt;RedirectUriDto&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../classes/RedirectUrlDto.html" target="_self" >Observable&lt;RedirectUrlDto&gt;</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -692,6 +722,75 @@
                             </div>
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="../classes/UserTokenDto.html" target="_self" >Observable&lt;UserTokenDto&gt;</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="setCurrent"></a>
+                        <span class="name">
+                            <b>
+                            setCurrent
+                            </b>
+                            <a href="#setCurrent"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>setCurrent(value: <a href="../classes/User.html">User</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:48</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>value</td>
+                                                        <td>
+                                                                    <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -970,7 +1069,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -979,76 +1078,6 @@
         </table>
 </section>
 
-            <section>
-    <h3 id="accessors">
-        Accessors
-    </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="current"></a>
-                        <span class="name"><b>current</b><a href="#current"><span class="icon ion-ios-link"></span></a></span>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>get</b><code>current()</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:23</a></div>
-                                </td>
-                            </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>current(value)</code></span>
-                    </td>
-                </tr>
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/services/auth.service.ts:26</a></div>
-                                </td>
-                            </tr>
-                    <tr>
-                        <td class="col-md-4">
-
-                                <div class="io-description">
-                                        <b>Parameters :</b>
-                                        <table class="params">
-                                            <thead>
-                                                <tr>
-                                                    <td>Name</td>
-                                                    <td>Optional</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                    <tr>
-                                                            <td>value</td>
-                                                    
-                                                    
-                                                        <td>
-                                                                No
-                                                        </td>
-                                                        
-                                                    </tr>
-                                            </tbody>
-                                        </table>
-                                </div>
-                                <div>
-                                </div>
-                                <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                                </div>
-                        </td>
-                    </tr>
-            </tbody>
-        </table>
-</section>
     </div>
 
 
@@ -1064,7 +1093,7 @@ import { User } from &#x27;../../../entities/models/user&#x27;;
 import { EMPTY_PERMISSIONS, INITED_PERMISSIONS } from &#x27;../../../utils/permissions-guard.const&#x27;;
 import { AUTH_CONFIG_TOKEN } from &#x27;../configs/auth.config&#x27;;
 import { OAUTH_CONFIG_TOKEN } from &#x27;../configs/oauth.config&#x27;;
-import { RedirectUriDto } from &#x27;../dto/redirect-uri.dto&#x27;;
+import { RedirectUrlDto } from &#x27;../dto/redirect-url.dto&#x27;;
 import { UserTokenDto } from &#x27;../dto/user-token.dto&#x27;;
 import { IAuthConfig } from &#x27;../interfaces/auth-config.interface&#x27;;
 import { IOauthConfig } from &#x27;../interfaces/oauth-config.interface&#x27;;
@@ -1075,20 +1104,6 @@ export function authServiceInitializeApp(authService: AuthService) {
 
 @Injectable()
 export class AuthService {
-  get current() {
-    return this.current$.getValue();
-  }
-  set current(value: User) {
-    if (!value) {
-      this.clearPermissions().then(_ &#x3D;&gt; this.current$.next(undefined));
-    } else {
-      if (value.permissionNames.length) {
-        this.loadPermissions(value).then(_ &#x3D;&gt; this.current$.next(value));
-      } else {
-        this.clearPermissions().then(_ &#x3D;&gt; this.current$.next(undefined));
-      }
-    }
-  }
   current$ &#x3D; new BehaviorSubject&lt;User&gt;(undefined);
 
   constructor(
@@ -1101,15 +1116,29 @@ export class AuthService {
     this.initPermissions();
   }
   async initCurrent() {
-    return this.current;
+    return this.getCurrent();
   }
   initializeApp() {
     return new Promise((resolve, reject) &#x3D;&gt; {
       this.initCurrent().then(value &#x3D;&gt; {
-        this.current &#x3D; value;
+        this.setCurrent(value);
         resolve();
       });
     });
+  }
+  getCurrent() {
+    return this.current$.getValue();
+  }
+  setCurrent(value: User) {
+    if (!value) {
+      this.clearPermissions().then(_ &#x3D;&gt; this.current$.next(undefined));
+    } else {
+      if (value.permissionNames.length) {
+        this.loadPermissions(value).then(_ &#x3D;&gt; this.current$.next(value));
+      } else {
+        this.clearPermissions().then(_ &#x3D;&gt; this.current$.next(undefined));
+      }
+    }
   }
   public initPermissions() {
     this._permissionsService.loadPermissions([INITED_PERMISSIONS]);
@@ -1128,7 +1157,7 @@ export class AuthService {
   }
   signIn(email: string, password: string): Observable&lt;UserTokenDto&gt; {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.signInUri, {
+      .post(this._authConfig.apiUrl + this._authConfig.signInUrl, {
         email,
         password
       })
@@ -1136,7 +1165,7 @@ export class AuthService {
   }
   info(token: string): Observable&lt;UserTokenDto&gt; {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.infoUri, {
+      .post(this._authConfig.apiUrl + this._authConfig.infoUrl, {
         token
       })
       .pipe(map(data &#x3D;&gt; plainToClass(UserTokenDto, data)));
@@ -1152,7 +1181,7 @@ export class AuthService {
     lastName?: string
   ): Observable&lt;UserTokenDto&gt; {
     return this._httpClient
-      .post(this._authConfig.apiUri + this._authConfig.signUpUri, {
+      .post(this._authConfig.apiUrl + this._authConfig.signUpUrl, {
         email,
         password,
         username,
@@ -1161,7 +1190,7 @@ export class AuthService {
       })
       .pipe(map(data &#x3D;&gt; plainToClass(UserTokenDto, data)));
   }
-  oauthRedirectUri(provider: string): Observable&lt;RedirectUriDto&gt; {
+  oauthRedirectUrl(provider: string): Observable&lt;RedirectUrlDto&gt; {
     if (this._oauthConfig.providers.indexOf(provider) &#x3D;&#x3D;&#x3D; -1) {
       return throwError(
         this._translateService
@@ -1169,8 +1198,8 @@ export class AuthService {
           .replace(&#x27;{provider}&#x27;, provider)
       );
     }
-    const uri &#x3D; this._oauthConfig.apiUri + this._oauthConfig.redirectUri.replace(&#x27;{provider}&#x27;, provider);
-    return this._httpClient.get(uri).pipe(map(data &#x3D;&gt; plainToClass(RedirectUriDto, data)));
+    const uri &#x3D; this._oauthConfig.apiUrl + this._oauthConfig.redirectUrl.replace(&#x27;{provider}&#x27;, provider);
+    return this._httpClient.get(uri).pipe(map(data &#x3D;&gt; plainToClass(RedirectUrlDto, data)));
   }
   oauthSignIn(provider: string, code: string): Observable&lt;UserTokenDto&gt; {
     if (this._oauthConfig.providers.indexOf(provider) &#x3D;&#x3D;&#x3D; -1) {
@@ -1180,7 +1209,7 @@ export class AuthService {
           .replace(&#x27;{provider}&#x27;, provider)
       );
     }
-    const uri &#x3D; this._oauthConfig.apiUri + this._oauthConfig.signInUri.replace(&#x27;{provider}&#x27;, provider);
+    const uri &#x3D; this._oauthConfig.apiUrl + this._oauthConfig.signInUrl.replace(&#x27;{provider}&#x27;, provider);
     return this._httpClient
       .post(uri, {
         code

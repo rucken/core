@@ -378,7 +378,7 @@ export class ThemesPageComponent {
     this.currentTheme$ &#x3D; _themesService.current$;
   }
   setCurrentTheme(value: string) {
-    this._themesService.current &#x3D; value;
+    this._themesService.setCurrent(value);
   }
 }
 </code></pre>

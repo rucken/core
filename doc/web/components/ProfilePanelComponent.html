@@ -877,7 +877,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent&lt;User&gt; 
   onSave(user: User, saveData?: any) {
     this.processing &#x3D; false;
     this.data &#x3D; user;
-    this._authService.current &#x3D; user;
+    this._authService.setCurrent(user);
   }
   onError(error: any) {
     this._modalsService.error({

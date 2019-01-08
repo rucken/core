@@ -228,13 +228,13 @@ import { WebAuthModalModule } from &#x27;@rucken/web&#x27;;
     TransferHttpCacheModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     AuthModule.forRoot({
-      apiUri: environment.apiUrl,
+      apiUrl: environment.apiUrl,
       oauth: {
         providers: OauthProviders
       }
     }),
     AccountModule.forRoot({
-      apiUri: environment.apiUrl
+      apiUrl: environment.apiUrl
     }),
     LangModule.forRoot({
       languages: AppLangs

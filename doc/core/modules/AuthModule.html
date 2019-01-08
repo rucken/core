@@ -349,23 +349,23 @@ import { TokenService, tokenServiceInitializeApp } from &#x27;./services/token.s
   providers: [AuthService, TokenService, OauthGuard]
 })
 export class AuthModule {
-  static forRoot(options?: { apiUri?: string; oauth?: { providers?: string[] } }): ModuleWithProviders {
+  static forRoot(options?: { apiUrl?: string; oauth?: { providers?: string[] } }): ModuleWithProviders {
     return {
       ngModule: AuthModule,
       providers: [
         {
           provide: AUTH_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri ? options.apiUri : defaultAuthConfig.apiUri,
-            infoUri: defaultAuthConfig.infoUri,
-            signInUri: defaultAuthConfig.signInUri,
-            signUpUri: defaultAuthConfig.signUpUri
+            apiUrl: options.apiUrl ? options.apiUrl : defaultAuthConfig.apiUrl,
+            infoUrl: defaultAuthConfig.infoUrl,
+            signInUrl: defaultAuthConfig.signInUrl,
+            signUpUrl: defaultAuthConfig.signUpUrl
           }
         },
         {
           provide: JWT_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri ? options.apiUri : defaultJwtConfig.apiUri,
+            apiUrl: options.apiUrl ? options.apiUrl : defaultJwtConfig.apiUrl,
             headerName: defaultJwtConfig.headerName,
             headerPrefix: defaultJwtConfig.headerPrefix,
             storageKeyName: defaultJwtConfig.storageKeyName,
@@ -376,9 +376,9 @@ export class AuthModule {
         {
           provide: OAUTH_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri ? options.apiUri : defaultOauthConfig.apiUri,
-            redirectUri: defaultOauthConfig.redirectUri,
-            signInUri: defaultOauthConfig.signInUri,
+            apiUrl: options.apiUrl ? options.apiUrl : defaultOauthConfig.apiUrl,
+            redirectUrl: defaultOauthConfig.redirectUrl,
+            signInUrl: defaultOauthConfig.signInUrl,
             providers: options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : defaultOauthConfig.providers
           }
         },
@@ -395,7 +395,7 @@ export class AuthModule {
     };
   }
   static forRootWithAppInitializer(options?: {
-    apiUri?: string;
+    apiUrl?: string;
     oauth?: { providers?: string[] };
   }): ModuleWithProviders {
     return {
@@ -404,16 +404,16 @@ export class AuthModule {
         {
           provide: AUTH_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri ? options.apiUri : defaultAuthConfig.apiUri,
-            infoUri: defaultAuthConfig.infoUri,
-            signInUri: defaultAuthConfig.signInUri,
-            signUpUri: defaultAuthConfig.signUpUri
+            apiUrl: options.apiUrl ? options.apiUrl : defaultAuthConfig.apiUrl,
+            infoUrl: defaultAuthConfig.infoUrl,
+            signInUrl: defaultAuthConfig.signInUrl,
+            signUpUrl: defaultAuthConfig.signUpUrl
           }
         },
         {
           provide: JWT_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri ? options.apiUri : defaultJwtConfig.apiUri,
+            apiUrl: options.apiUrl ? options.apiUrl : defaultJwtConfig.apiUrl,
             headerName: defaultJwtConfig.headerName,
             headerPrefix: defaultJwtConfig.headerPrefix,
             storageKeyName: defaultJwtConfig.storageKeyName,
@@ -424,9 +424,9 @@ export class AuthModule {
         {
           provide: OAUTH_CONFIG_TOKEN,
           useValue: {
-            apiUri: options.apiUri ? options.apiUri : defaultOauthConfig.apiUri,
-            redirectUri: defaultOauthConfig.redirectUri,
-            signInUri: defaultOauthConfig.signInUri,
+            apiUrl: options.apiUrl ? options.apiUrl : defaultOauthConfig.apiUrl,
+            redirectUrl: defaultOauthConfig.redirectUrl,
+            signInUrl: defaultOauthConfig.signInUrl,
             providers: options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : defaultOauthConfig.providers
           }
         },

@@ -271,7 +271,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto)</code>
+<code>onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUrlDto)</code>
                     </td>
                 </tr>
 
@@ -312,7 +312,7 @@
                                                 <tr>
                                                         <td>data</td>
                                                         <td>
-                                                                    <code>RedirectUriDto</code>
+                                                                    <code>RedirectUrlDto</code>
                                                         </td>
                                                     
                                                     <td>
@@ -826,7 +826,7 @@ import {
   AuthService,
   ErrorsExtractor,
   ModalsService,
-  RedirectUriDto,
+  RedirectUrlDto,
   TokenService
 } from &#x27;@rucken/core&#x27;;
 import { WebAuthModalComponent } from &#x27;./auth-modal.component&#x27;;
@@ -849,7 +849,7 @@ export class WebAuthModalService extends AuthModalService {
   ) {
     super(authService, errorsExtractor, tokenService, modalsService);
   }
-  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
+  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUrlDto) {
     super.onOauthSignInSuccess(modal, data);
     this.document.location.href &#x3D; data.redirect_uri;
   }

@@ -372,7 +372,7 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>onOauthSignInSuccess(modal: <a href="../classes/AuthModalComponent.html">AuthModalComponent</a>, data: <a href="../classes/RedirectUriDto.html">RedirectUriDto</a>)</code>
+<code>onOauthSignInSuccess(modal: <a href="../classes/AuthModalComponent.html">AuthModalComponent</a>, data: <a href="../classes/RedirectUrlDto.html">RedirectUrlDto</a>)</code>
                     </td>
                 </tr>
 
@@ -413,7 +413,7 @@
                                                 <tr>
                                                         <td>data</td>
                                                         <td>
-                                                                    <code><a href="../classes/RedirectUriDto.html" target="_self" >RedirectUriDto</a></code>
+                                                                    <code><a href="../classes/RedirectUrlDto.html" target="_self" >RedirectUrlDto</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -1151,7 +1151,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, isDevMode, TemplateRef } from &#x27;@angular/core&#x27;;
 import { ErrorsExtractor } from &#x27;../../utils/errors-extractor&#x27;;
 import { translate } from &#x27;../../utils/translate&#x27;;
-import { RedirectUriDto } from &#x27;../auth/dto/redirect-uri.dto&#x27;;
+import { RedirectUrlDto } from &#x27;../auth/dto/redirect-url.dto&#x27;;
 import { UserTokenDto } from &#x27;../auth/dto/user-token.dto&#x27;;
 import { AuthService } from &#x27;../auth/services/auth.service&#x27;;
 import { TokenService } from &#x27;../auth/services/token.service&#x27;;
@@ -1174,7 +1174,7 @@ export class AuthModalService {
     public modalsService: ModalsService
   ) {}
   onInfo() {
-    const token &#x3D; this.tokenService.current;
+    const token &#x3D; this.tokenService.getCurrent();
     if (token) {
       if (this.tokenService.tokenHasExpired(token)) {
         this.tokenService.stopCheckTokenHasExpired();
@@ -1185,7 +1185,7 @@ export class AuthModalService {
           })
           .then(result &#x3D;&gt; this.authService.signOut().subscribe(data &#x3D;&gt; this.onSignOutSuccess(undefined)));
       } else {
-        if (!this.authService.current) {
+        if (!this.authService.getCurrent()) {
           this.authService.info(token).subscribe(
             data &#x3D;&gt; this.onSignInOrInfoSuccess(undefined, data),
             error &#x3D;&gt; {
@@ -1232,7 +1232,7 @@ export class AuthModalService {
       modal.processing &#x3D; true;
       if (modal.yesData) {
         this.authService
-          .oauthRedirectUri(modal.yesData)
+          .oauthRedirectUrl(modal.yesData)
           .subscribe(data &#x3D;&gt; this.onOauthSignInSuccess(modal, data), error &#x3D;&gt; this.onSignInError(modal, error));
       } else {
         if (modal.type &#x3D;&#x3D;&#x3D; AuthModalTypeEnum.SignIn) {
@@ -1248,7 +1248,7 @@ export class AuthModalService {
       }
     });
   }
-  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUriDto) {
+  onOauthSignInSuccess(modal: AuthModalComponent, data: RedirectUrlDto) {
     if (modal) {
       modal.processing &#x3D; false;
     }
@@ -1261,9 +1261,9 @@ export class AuthModalService {
       modal.processing &#x3D; false;
     }
     if (data.token) {
-      this.tokenService.current &#x3D; data.token;
+      this.tokenService.setCurrent(data.token);
     }
-    this.authService.current &#x3D; data.user;
+    this.authService.setCurrent(data.user);
     if (modal) {
       modal.hide();
     }
@@ -1272,8 +1272,8 @@ export class AuthModalService {
     if (modal) {
       modal.processing &#x3D; false;
     }
-    this.tokenService.current &#x3D; undefined;
-    this.authService.current &#x3D; undefined;
+    this.tokenService.setCurrent(undefined);
+    this.authService.setCurrent(undefined);
     if (modal) {
       modal.hide();
     }
