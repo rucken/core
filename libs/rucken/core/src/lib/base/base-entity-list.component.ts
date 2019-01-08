@@ -1,13 +1,6 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { BindObservable } from 'bind-observable';
-import {
-  IFactoryModel,
-  IMockProviderOptions,
-  IModel,
-  IPaginationMeta,
-  IRestProviderOptions,
-  Repository
-} from 'ngx-repository';
+import { IFactoryModel, IMockProviderOptions, IModel, IPaginationMeta, IRestProviderOptions, Repository } from 'ngx-repository';
 import { forkJoin, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { IModalRef } from '../modules/modals/modal-ref.interface';
@@ -151,6 +144,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     this.onChangeFilter();
   }
   onSearch(searchText: string) {
+    searchText = searchText ? searchText : '';
     if (typeof searchText === 'string') {
       this.onChangeFilter({ searchText });
     }
