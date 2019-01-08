@@ -1,3 +1,21 @@
+# [3.7.0](https://github.com/rucken/core/compare/3.6.0...3.7.0) (2019-01-08)
+
+
+### Bug Fixes
+
+* Correct searchText value for onSearch in base-entity-list ([9bcf119](https://github.com/rucken/core/commit/9bcf119))
+* Remove bad used code on getter and setter ([6420613](https://github.com/rucken/core/commit/6420613))
+* Replace uri to url ([a925e4d](https://github.com/rucken/core/commit/a925e4d))
+* Update transformDateToString ([d9f93c1](https://github.com/rucken/core/commit/d9f93c1))
+* Update work onNextPage method ([7aa79a8](https://github.com/rucken/core/commit/7aa79a8))
+
+
+### Features
+
+* Add new Inputs for links ([206c4c2](https://github.com/rucken/core/commit/206c4c2))
+
+
+
 # [3.6.0](https://github.com/rucken/core/compare/3.5.0...3.6.0) (2018-12-30)
 
 

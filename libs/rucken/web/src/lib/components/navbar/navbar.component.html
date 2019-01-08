@@ -62,10 +62,11 @@
                     </a>
                     <ul
                         class="dropdown-menu"
-                        [collapse]="langsIsCollapsed">
+                        [collapse]="langsIsCollapsed"
+                        *ngIf="currentLang$ | async as currentLang">
                         <li
                             *ngFor="let lang of languages"
-                            [ngClass]="{'active': currentLang==lang.code}">
+                            [ngClass]="{'active': currentLang===lang.code}">
                             <a
                                 (click)="changeCurrentLang(lang.code)"
                                 href="javascript:void(0)">
