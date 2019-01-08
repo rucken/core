@@ -1,6 +1,6 @@
 {
   "name": "@rucken/core",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -35,15 +35,15 @@
   ],
   "peerDependencies": {
     "rxjs": "^6.3.3",
-    "@angular/forms": "^7.1.4",
-    "@angular/common": "^7.1.4",
-    "@angular/compiler": "^7.1.4",
-    "@angular/core": "^7.1.4"
+    "@angular/forms": "^7.2.0",
+    "@angular/common": "^7.2.0",
+    "@angular/compiler": "^7.2.0",
+    "@angular/core": "^7.2.0"
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",
     "@types/jsonwebtoken": "^8.3.0",
-    "@types/object-path": "^0.9.29",
+    "@types/object-path": "^0.11.0",
     "@nguniversal/express-engine": "^7.0.2",
     "jsonwebtoken": "^8.4.0",
     "ngx-cookie-service": "^2.1.0",
