@@ -1,4 +1,5 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { GroupsGridModule } from '@rucken/web';
 import { NgxPermissionsModule } from 'ngx-permissions';
@@ -9,17 +10,11 @@ import { GroupsFrameRoutes } from './groups-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     RouterModule.forChild(GroupsFrameRoutes),
-    GroupsGridModule
+    GroupsGridModule,
+    FormsModule
   ],
   declarations: [GroupsFrameComponent]
 })
-export class GroupsFrameModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: GroupsFrameModule,
-      providers: []
-    };
-  }
-}
+export class GroupsFrameModule {}

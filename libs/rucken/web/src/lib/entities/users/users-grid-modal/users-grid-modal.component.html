@@ -1,0 +1,14 @@
+<entity-grid-modal
+    [title]="title"
+    [yesTitle]="yesTitle"
+    [readonly]="readonly"
+    [noTitle]="noTitle"
+    (yes)="onYesClick()"
+    (no)="onNoClick()"
+    [processing]="processing$ | async">
+    <users-grid
+        [apiUrl]="apiUrl"
+        [simpleMode]="simpleMode"
+        #grid>
+    </users-grid>
+</entity-grid-modal>

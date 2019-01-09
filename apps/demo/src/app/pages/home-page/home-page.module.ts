@@ -8,11 +8,4 @@ import { HomePageRoutes } from './home-page.routes';
   imports: [SharedModule, RouterModule.forChild(HomePageRoutes)],
   declarations: [HomePageComponent]
 })
-export class HomePageModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: HomePageModule,
-      providers: []
-    };
-  }
-}
+export class HomePageModule {}

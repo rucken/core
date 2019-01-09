@@ -21,10 +21,7 @@ export const defaultGroupsConfig: IRestProviderOptions<Group> = {
         }
       }
     },
-    responsePaginationMeta: (
-      data: any,
-      action: ProviderActionEnum
-    ): PaginationMeta => {
+    responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
       return { totalResults: data.body.meta.totalResults, perPage: undefined };
     }
   },
@@ -34,5 +31,4 @@ export const defaultGroupsConfig: IRestProviderOptions<Group> = {
     searchTextQueryParam: 'q'
   }
 };
-export const GROUP_CONFIG_TOKEN = 'GroupsConfig';
-
+export const GROUPS_CONFIG_TOKEN = 'GroupsConfig';

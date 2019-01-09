@@ -4,12 +4,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Your session has expired, please re-login"
-msgstr ""
-
-msgid "No"
-msgstr ""
-
 msgid "Russian"
 msgstr ""
 
@@ -19,7 +13,7 @@ msgstr ""
 msgid "Rucken: Demo"
 msgstr ""
 
-msgid "Core with Admin UI for web and native application maked on Angular6+"
+msgid "Core with Admin UI for web and native application maked on Angular7+"
 msgstr ""
 
 msgid ""
@@ -97,6 +91,12 @@ msgid "Update"
 msgstr ""
 
 msgid "Close"
+msgstr ""
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+
+msgid "No"
 msgstr ""
 
 msgid "Sign out"

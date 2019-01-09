@@ -1,7 +1,7 @@
 const domino = require('domino');
 const fs = require('fs');
 const path = require('path');
-const template = fs.readFileSync(path.join(__dirname, '.', 'dist', 'demo', 'index.html')).toString();
+const template = fs.readFileSync(path.join(__dirname, '.', 'dist', 'demo-client', 'index.html')).toString();
 const win = domino.createWindow(template);
 const files = fs.readdirSync(`${process.cwd()}/dist/demo-server`);
 import { enableProdMode } from '@angular/core';
@@ -95,7 +95,7 @@ app.engine('html', ngExpressEngine({
 app.set('view engine', 'html');
 app.set('views', path.join(__dirname, '.', 'apps', 'demo', 'src'));
 
-app.get('*.*', express.static(path.join(__dirname, '.', 'dist', 'demo')));
+app.get('*.*', express.static(path.join(__dirname, '.', 'dist', 'demo-client')));
 // app.get(ROUTES, express.static(path.join(__dirname, '.', 'static')));
 
 function ngApp(req, res) {
@@ -105,7 +105,7 @@ function ngApp(req, res) {
   // tslint:disable-next-line:no-console
   console.time(`GET: ${req.originalUrl}`);
   res.render(
-    '../../../dist/demo/index',
+    '../../../dist/demo-client/index',
     {
       req: req,
       res: res,

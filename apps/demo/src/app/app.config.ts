@@ -1,21 +1,14 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
-import { MetaLoader, PageTitlePositioning } from '@ngx-meta/core';
-import { MetaStaticLoader } from '@ngx-meta/core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
-import { defineLocale } from 'ngx-bootstrap/chronos';
-import { RuI18n } from './i18n/ru.i18n';
-import {
-  LangModule,
-  RuI18n as CoreRuI18n,
-  translate,
-  AuthEmptyComponent,
-  OauthGuard
-} from '@rucken/core';
+import { AuthEmptyPageComponent, OauthGuard, RuI18n as CoreRuI18n, translate } from '@rucken/core';
 import { RuI18n as WebRuI18n } from '@rucken/web';
+import { defineLocale } from 'ngx-bootstrap/chronos';
+import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { AppRoutes } from './app.routes';
+import { RuI18n } from './i18n/ru.i18n';
 
 library.add(fas, fab);
 
@@ -35,9 +28,7 @@ export const AppLangs = [
   }
 ];
 export const ApplicationName = translate('Rucken: Demo');
-export const ApplicationDescription = translate(
-  'Core with Admin UI for web and native application maked on Angular6+'
-);
+export const ApplicationDescription = translate('Core with Admin UI for web and native application maked on Angular7+');
 export const AuthModalSignInInfoMessage = translate(`<p>Demo users:</p><ul>
 <li>user with admin group: admin@admin.com, password: 12345678</li>
 <li>user with user group: user1@user1.com, password: 12345678</li>
@@ -47,7 +38,9 @@ export const AuthModalSignUpInfoMessage = '';
 
 export function appMetaFactory(translateService: TranslateService): MetaLoader {
   return new MetaStaticLoader({
-    callback: (key: string) => translateService.get(key),
+    callback: (key: string) => {
+      return translateService.get(key);
+    },
     pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
     pageTitleSeparator: ' - ',
     applicationName: ApplicationName,
@@ -77,7 +70,7 @@ export const OauthModalProviders = [
 export const OauthRoutes = [
   {
     path: 'auth/facebook',
-    component: AuthEmptyComponent,
+    component: AuthEmptyPageComponent,
     canActivate: [OauthGuard],
     data: {
       oauth: {
@@ -91,7 +84,7 @@ export const OauthRoutes = [
   },
   {
     path: 'auth/google-plus',
-    component: AuthEmptyComponent,
+    component: AuthEmptyPageComponent,
     canActivate: [OauthGuard],
     data: {
       oauth: {

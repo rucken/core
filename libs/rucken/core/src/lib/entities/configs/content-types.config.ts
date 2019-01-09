@@ -21,10 +21,7 @@ export const defaultContentTypesConfig: IRestProviderOptions<ContentType> = {
         }
       }
     },
-    responsePaginationMeta: (
-      data: any,
-      action: ProviderActionEnum
-    ): PaginationMeta => {
+    responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
       return { totalResults: data.body.meta.totalResults, perPage: undefined };
     }
   },

@@ -15,7 +15,8 @@ export class Permission implements IModel {
     viewTitle: translate('Permission #{{id}}'),
     updateTitle: translate('Update permission #{{id}}'),
     deleteTitle: translate('Delete permission #{{id}}'),
-    deleteMessage: translate('Do you really want to delete permission?')
+    deleteMessage: translate('Do you really want to delete permission?'),
+    selectTitle: translate('Select permission')
   };
   id: number = undefined;
   @IsNotEmpty()

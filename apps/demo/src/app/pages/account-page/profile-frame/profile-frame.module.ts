@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ProfilePanelModule } from '@rucken/web';
 import { NgxPermissionsModule } from 'ngx-permissions';
@@ -9,17 +9,10 @@ import { ProfileFrameRoutes } from './profile-frame.routes';
 @NgModule({
   imports: [
     SharedModule,
-    NgxPermissionsModule,
+    NgxPermissionsModule.forChild(),
     ProfilePanelModule,
     RouterModule.forChild(ProfileFrameRoutes)
   ],
   declarations: [ProfileFrameComponent]
 })
-export class ProfileFrameModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: ProfileFrameModule,
-      providers: []
-    };
-  }
-}
+export class ProfileFrameModule {}

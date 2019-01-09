@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demo",
+            "outputPath": "dist/demo-client",
             "index": "apps/demo/src/index.html",
             "main": "apps/demo/src/main.ts",
             "polyfills": "apps/demo/src/polyfills.ts",
@@ -32,6 +32,23 @@
             "scripts": []
           },
           "configurations": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment.local.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
             "dev": {
               "fileReplacements": [
                 {
@@ -74,6 +91,9 @@
             "browserTarget": "demo:build"
           },
           "configurations": {
+            "local": {
+              "browserTarget": "demo:build:local"
+            },
             "dev": {
               "browserTarget": "demo:build:dev"
             },
@@ -125,6 +145,20 @@
             "tsConfig": "apps/demo/tsconfig.server.json"
           },
           "configurations": {
+            "local": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo/src/environments/environment.ts",
+                  "with": "apps/demo/src/environments/environment-server.local.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false
+            },
             "dev": {
               "fileReplacements": [
                 {
@@ -168,6 +202,9 @@
             "devServerTarget": "demo:serve"
           },
           "configurations": {
+            "local": {
+              "devServerTarget": "demo:serve:local"
+            },
             "dev": {
               "devServerTarget": "demo:serve:dev"
             },

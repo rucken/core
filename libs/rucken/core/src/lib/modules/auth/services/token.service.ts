@@ -3,9 +3,9 @@ import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { decode } from 'jsonwebtoken';
 import { BehaviorSubject } from 'rxjs';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
-import { JWT_CONFIG_TOKEN, defaultJwtConfig } from '../configs/jwt.config';
-import { IJwtConfig } from '../interfaces/jwt-config.interface';
 import { IStorage } from '../../storage/interfaces/storage.interface';
+import { JWT_CONFIG_TOKEN } from '../configs/jwt.config';
+import { IJwtConfig } from '../interfaces/jwt-config.interface';
 
 export function tokenServiceInitializeApp(tokenService: TokenService) {
   return () => tokenService.initializeApp();
@@ -13,24 +13,6 @@ export function tokenServiceInitializeApp(tokenService: TokenService) {
 
 @Injectable()
 export class TokenService {
-  get current() {
-    const token = this._cookies.getItem(
-      this._jwtConfig.storageKeyName
-    ) as string;
-    if (token && token !== 'undefined') {
-      return token;
-    }
-    return this.current$.getValue();
-  }
-  set current(value: string) {
-    if (!value) {
-      this._cookies.removeItem(this._jwtConfig.storageKeyName);
-      this.current$.next(undefined);
-    } else {
-      this._cookies.setItem(this._jwtConfig.storageKeyName, value);
-      this.current$.next(value);
-    }
-  }
   current$ = new BehaviorSubject<string>(undefined);
   tokenHasExpired$ = new BehaviorSubject<boolean | undefined>(undefined);
 
@@ -38,14 +20,37 @@ export class TokenService {
 
   constructor(
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
-    @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
+    @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {}
+  initCurrent() {
+    return new Promise((resolve, reject) => {
+      this._storage.getItem(this._jwtConfig.storageKeyName).then((data: string) => {
+        if (data && data !== 'undefined') {
+          resolve(data);
+        } else {
+          resolve(this.getCurrent());
+        }
+      });
+    });
+  }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      this.current = this.current;
-      resolve();
+      this.initCurrent().then(value => {
+        this.setCurrent(value as string);
+        resolve();
+      });
     });
+  }
+  getCurrent() {
+    return this.current$.getValue();
+  }
+  setCurrent(value: string) {
+    if (!value) {
+      this._storage.removeItem(this._jwtConfig.storageKeyName).then(_ => this.current$.next(undefined));
+    } else {
+      this._storage.setItem(this._jwtConfig.storageKeyName, value).then(_ => this.current$.next(value));
+    }
   }
   stopCheckTokenHasExpired() {
     if (!isPlatformServer(this._platformId)) {
@@ -68,11 +73,10 @@ export class TokenService {
   }
   tokenHasExpired(token?: string) {
     if (!token) {
-      token = this.current;
+      token = this.getCurrent();
     }
     try {
-      const result =
-        new Date() > new Date(this.getTokenData(token).payload.exp * 1000);
+      const result = new Date() > new Date(this.getTokenData(token).payload.exp * 1000);
       return result;
     } catch (error) {
       return true;
@@ -80,8 +84,7 @@ export class TokenService {
   }
   getHeader() {
     const headers = {};
-    headers[this._jwtConfig.headerName] =
-      this._jwtConfig.headerPrefix + ' ' + this.current;
+    headers[this._jwtConfig.headerName] = this._jwtConfig.headerPrefix + ' ' + this.getCurrent();
     return headers;
   }
 }

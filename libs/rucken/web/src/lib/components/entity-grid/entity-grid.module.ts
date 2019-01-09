@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TranslateModule } from '@ngx-translate/core';
-import { ModalModule } from 'ngx-bootstrap/modal';
-import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { PipesModule } from '../../pipes/pipes.module';
-import { MessageModalModule } from '../../modals/message-modal/message-modal.module';
-import { EntityGridComponent } from './entity-grid.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from '@rucken/core';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { EntityGridComponent } from './entity-grid.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,25 +14,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PaginationModule.forRoot(),
     TranslateModule.forChild(),
     PipesModule,
-    MessageModalModule,
-    ModalModule.forRoot(),
     FontAwesomeModule
   ],
   declarations: [EntityGridComponent],
   entryComponents: [EntityGridComponent],
-  exports: [
-    EntityGridComponent,
-    FormsModule,
-    ReactiveFormsModule,
-    PipesModule,
-    MessageModalModule
-  ]
+  exports: [EntityGridComponent, FormsModule, ReactiveFormsModule, PipesModule]
 })
-export class EntityGridModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntityGridModule,
-      providers: []
-    };
-  }
-}
+export class EntityGridModule {}

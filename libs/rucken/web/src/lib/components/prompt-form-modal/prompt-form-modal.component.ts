@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  TemplateRef,
-  Input
-} from '@angular/core';
-import { BsModalRef } from 'ngx-bootstrap/modal';
-import { BasePromptModalComponent } from '../../base/base-prompt-modal.component';
+import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
+import { BasePromptModalComponent } from '@rucken/core';
 
 @Component({
   selector: 'prompt-form-modal',
@@ -21,7 +15,7 @@ export class PromptFormModalComponent extends BasePromptModalComponent {
   readonlyFooterButtonsTemplate: TemplateRef<any>;
   @Input()
   headerTemplate: TemplateRef<any>;
-  constructor(protected bsModalRef: BsModalRef) {
-    super(bsModalRef);
+  constructor() {
+    super();
   }
 }

@@ -4,22 +4,130 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Cancel"
+msgid "Create"
+msgstr ""
+
+msgid "Select content type"
+msgstr ""
+
+msgid "Select"
+msgstr ""
+
+msgid "Content types"
+msgstr ""
+
+msgid "Select group"
+msgstr ""
+
+msgid "Delete permission"
+msgstr ""
+
+msgid "Do you really want to delete permission \"{{title}}\" from group?"
+msgstr ""
+
+msgid "Select permissions for append to group"
+msgstr ""
+
+msgid "Groups"
+msgstr ""
+
+msgid "Select permission"
+msgstr ""
+
+msgid "Permissions"
+msgstr ""
+
+msgid "Delete group"
+msgstr ""
+
+msgid "Do you really want to delete group \"{{title}}\" from user?"
+msgstr ""
+
+msgid "Select groups for append to user"
+msgstr ""
+
+msgid "Select user"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Info"
 msgstr ""
 
 msgid "OK"
 msgstr ""
 
-msgid "Item #{{id}}"
+msgid "Error"
+msgstr ""
+
+msgid "Error Log"
 msgstr ""
 
 msgid "Close"
 msgstr ""
 
-msgid "Create new item"
+msgid "Append"
 msgstr ""
 
-msgid "Create"
+msgid "No data"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "Split button!"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Item #{{id}}"
+msgstr ""
+
+msgid "Create new item"
 msgstr ""
 
 msgid "Update item #{{id}}"
@@ -37,85 +145,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-msgid "Select content type"
-msgstr ""
-
-msgid "Select"
-msgstr ""
-
-msgid "Delete permission"
-msgstr ""
-
-msgid "Do you really want to delete permission \"{{title}}\" from group?"
-msgstr ""
-
-msgid "Select permissions for append to group"
-msgstr ""
-
-msgid "Append"
-msgstr ""
-
-msgid "Delete group"
-msgstr ""
-
-msgid "Do you really want to delete group \"{{title}}\" from user?"
-msgstr ""
-
-msgid "Select groups for append to user"
-msgstr ""
-
-msgid "Sign in"
-msgstr ""
-
-msgid "Authorization"
-msgstr ""
-
-msgid "Sign up"
-msgstr ""
-
-msgid "Registration"
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
-msgid "Sign out"
-msgstr ""
-
-msgid "Do you really want to leave?"
-msgstr ""
-
-msgid "Email"
-msgstr ""
-
-msgid "Password"
-msgstr ""
-
-msgid "Confirm password"
-msgstr ""
-
-msgid "Info"
-msgstr ""
-
-msgid "Error"
-msgstr ""
-
-msgid "Error Log"
-msgstr ""
-
-msgid "No data"
-msgstr ""
-
-msgid "Loading..."
-msgstr ""
-
-msgid "Action"
-msgstr ""
-
-msgid "Language"
-msgstr ""
-
-msgid "Split button!"
+msgid "Select item"
 msgstr ""
 
 msgid "Menu"

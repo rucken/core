@@ -4,8 +4,7 @@ export const defaultThemesConfig: IThemesConfig = {
   mockedItems: [
     {
       name: 'Default',
-      url:
-        'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'
+      url: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'
     },
     {
       name: 'Cerulean',

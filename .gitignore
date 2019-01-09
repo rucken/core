@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 .env
 server.js
+*.local.ts

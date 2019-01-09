@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { NavSidebarComponent } from '@rucken/web';
 import { AdminPageChildrenRoutes } from './admin-page.children-routes';
 
 @Component({
@@ -7,7 +7,10 @@ import { AdminPageChildrenRoutes } from './admin-page.children-routes';
   templateUrl: './admin-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AdminPageComponent {
-  public routes = AdminPageChildrenRoutes;
-  constructor(public activatedRoute: ActivatedRoute) {}
+export class AdminPageComponent implements OnInit {
+  @ViewChild('sidebar')
+  sidebar: NavSidebarComponent;
+  ngOnInit() {
+    this.sidebar.setRoutes(AdminPageChildrenRoutes);
+  }
 }

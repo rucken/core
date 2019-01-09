@@ -1,41 +1,23 @@
 import { Injectable } from '@angular/core';
-import {
-  CanActivate,
-  Router,
-  ActivatedRouteSnapshot,
-  RouterStateSnapshot
-} from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { UserTokenDto } from '../dto/user-token.dto';
+import { AuthService } from '../services/auth.service';
 import { TokenService } from '../services/token.service';
 
 @Injectable()
 export class OauthGuard implements CanActivate {
-  constructor(
-    public authService: AuthService,
-    public tokenService: TokenService,
-    private router: Router
-  ) {}
+  constructor(public authService: AuthService, public tokenService: TokenService, private router: Router) {}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Promise<boolean> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     const provider =
-      route.routeConfig.data && route.routeConfig.data.oauth
-        ? route.routeConfig.data.oauth.provider
-        : 'empty';
+      route.routeConfig.data && route.routeConfig.data.oauth ? route.routeConfig.data.oauth.provider : 'empty';
     const redirectToIfSuccess =
-      route.routeConfig.data &&
-      route.routeConfig.data.oauth &&
-      route.routeConfig.data.oauth.redirectTo
+      route.routeConfig.data && route.routeConfig.data.oauth && route.routeConfig.data.oauth.redirectTo
         ? route.routeConfig.data.oauth.redirectTo.ifSuccess
         : '/home';
     const redirectToIfFail =
-      route.routeConfig.data &&
-      route.routeConfig.data.oauth &&
-      route.routeConfig.data.oauth.redirectTo
+      route.routeConfig.data && route.routeConfig.data.oauth && route.routeConfig.data.oauth.redirectTo
         ? route.routeConfig.data.oauth.redirectTo.ifFail
         : '/home';
     return new Promise((resolve, reject) => {
@@ -44,8 +26,8 @@ export class OauthGuard implements CanActivate {
         .pipe(first())
         .subscribe(
           (data: UserTokenDto) => {
-            this.tokenService.current = data.token;
-            this.authService.current = data.user;
+            this.tokenService.setCurrent(data.token);
+            this.authService.setCurrent(data.user);
             this.tokenService.startCheckTokenHasExpired();
             this.router.navigate([redirectToIfSuccess]);
             resolve(true);

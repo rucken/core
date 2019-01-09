@@ -1,30 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { MessageModalModule, PipesModule } from '@rucken/web';
+import { PipesModule } from '@rucken/core';
 import { NgxRepositoryModule } from 'ngx-repository';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NgxRepositoryModule.forRoot(),
-    MessageModalModule.forRoot(),
-    PipesModule,
-    TranslateModule.forChild()
-  ],
-  exports: [
-    CommonModule,
-    NgxRepositoryModule,
-    MessageModalModule,
-    PipesModule,
-    TranslateModule
-  ]
+  imports: [CommonModule, PipesModule, NgxRepositoryModule.forRoot(), TranslateModule.forChild()],
+  exports: [CommonModule, PipesModule, NgxRepositoryModule, TranslateModule]
 })
-export class SharedModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: SharedModule,
-      providers: []
-    };
-  }
-}
+export class SharedModule {}

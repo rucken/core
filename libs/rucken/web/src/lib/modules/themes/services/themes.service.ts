@@ -1,13 +1,11 @@
-import { isPlatformBrowser, DOCUMENT } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable } from '@angular/core';
+import { IStorage, STORAGE_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, Repository } from 'ngx-repository';
-import { Theme } from '../models/theme';
 import { BehaviorSubject } from 'rxjs';
-
-import { STORAGE_CONFIG_TOKEN } from '@rucken/core';
 import { THEMES_CONFIG_TOKEN } from '../configs/themes.config';
 import { IThemesConfig } from '../interfaces/themes-config.interface';
-import { IStorage } from '@rucken/core';
+import { Theme } from '../models/theme';
 
 export function themesServiceInitializeApp(themesService: ThemesService) {
   return () => themesService.initializeApp();
@@ -15,40 +13,17 @@ export function themesServiceInitializeApp(themesService: ThemesService) {
 
 @Injectable()
 export class ThemesService {
-  get current() {
-    const theme = this._cookies.getItem(this._themesConfig.storageKeyName);
-    if (theme && theme !== 'undefined') {
-      return this._cookies.getItem(this._themesConfig.storageKeyName) as string;
-    }
-    if (!this.current$.getValue()) {
-      return this.getStyleLinkHref();
-    }
-    return this.current$.getValue();
-  }
-  set current(value: string) {
-    if (!value) {
-      this._cookies.removeItem(this._themesConfig.storageKeyName);
-    } else {
-      this._cookies.setItem(this._themesConfig.storageKeyName, value);
-    }
-    this.setStyleLinkHref(value);
-    this.current$.next(value);
-  }
   repository: Repository<Theme>;
   current$ = new BehaviorSubject<string>(undefined);
 
   constructor(
     @Inject(THEMES_CONFIG_TOKEN) private _themesConfig: IThemesConfig,
-    @Inject(STORAGE_CONFIG_TOKEN) private _cookies: IStorage,
-    @Inject(PLATFORM_ID) private _platformId: Object,
+    @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     @Inject(DOCUMENT) private _document: any,
     private _dynamicRepository: DynamicRepository
   ) {
     this.repository = this._dynamicRepository.fork<Theme>(Theme);
-    const items = (this._themesConfig.mockedItems
-      ? this._themesConfig.mockedItems
-      : []
-    ).map((item, index) => {
+    const items = (this._themesConfig.mockedItems ? this._themesConfig.mockedItems : []).map((item, index) => {
       item.id = index + 1;
       return item;
     });
@@ -59,15 +34,43 @@ export class ThemesService {
       }
     });
   }
+  initCurrent() {
+    return new Promise((resolve, reject) => {
+      this._storage.getItem(this._themesConfig.storageKeyName).then((data: string) => {
+        if (data && data !== 'undefined') {
+          resolve(data);
+        } else {
+          resolve(this.getCurrent());
+        }
+      });
+    });
+  }
   initializeApp() {
     return new Promise((resolve, reject) => {
-      this.current = this.current;
-      if (isPlatformBrowser(this._platformId)) {
-        setTimeout(_ => resolve(), 100);
-      } else {
+      this.initCurrent().then(value => {
+        this.setCurrent(value as string);
         resolve();
-      }
+      });
     });
+  }
+  getCurrent() {
+    if (!this.current$.getValue()) {
+      return this.getStyleLinkHref();
+    }
+    return this.current$.getValue();
+  }
+  setCurrent(value: string) {
+    if (!value) {
+      this.setStyleLinkHref(value);
+      this._storage.removeItem(this._themesConfig.storageKeyName).then(_ => {
+        this.current$.next(value);
+      });
+    } else {
+      this.setStyleLinkHref(value);
+      this._storage.setItem(this._themesConfig.storageKeyName, value).then(_ => {
+        this.current$.next(value);
+      });
+    }
   }
   setStyleLinkHref(url: string) {
     if (url) {

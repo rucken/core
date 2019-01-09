@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule } from '@ngx-translate/core';
-import { DirectivesModule } from '../../directives/directives.module';
+import { DirectivesModule } from '@rucken/core';
+import { EntityModalModule } from '../entity-modal/entity-modal.module';
 import { FormGroupModule } from '../form-group/form-group.module';
 import { EntityGridModalComponent } from './entity-grid-modal.component';
-import { EntityModalModule } from '../entity-modal/entity-modal.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -30,11 +30,4 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     EntityModalModule
   ]
 })
-export class EntityGridModalModule {
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: EntityGridModalModule,
-      providers: []
-    };
-  }
-}
+export class EntityGridModalModule {}

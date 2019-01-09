@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, Output, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  EventEmitter,
+  Input,
+  isDevMode,
+  Output,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { IModel, PaginationMeta } from 'ngx-repository';
@@ -76,14 +86,12 @@ export class EntityGridComponent<TModel extends IModel> {
   }
   get columns() {
     if (this._columns) {
-      return this._columns.filter(
-        column =>
-          column === 'action'
-            ? this.readonly === true ||
-              (!this.isEnableDelete && !this.isEnableUpdate)
-              ? false
-              : true
+      return this._columns.filter(column =>
+        column === 'action'
+          ? this.readonly === true || (!this.isEnableDelete && !this.isEnableUpdate)
+            ? false
             : true
+          : true
       );
     } else {
       return this._columns;
@@ -100,12 +108,7 @@ export class EntityGridComponent<TModel extends IModel> {
       this.selectFirst !== false &&
       items &&
       items.length &&
-      items.filter(
-        item =>
-          this._selected &&
-          this._selected.length &&
-          this._selected[0].id === item.id
-      ).length === 0
+      items.filter(item => this._selected && this._selected.length && this._selected[0].id === item.id).length === 0
     ) {
       this.onSelected([]);
     }
@@ -152,10 +155,7 @@ export class EntityGridComponent<TModel extends IModel> {
   paginationMeta: PaginationMeta;
 
   get enableOnlyUpdateOrDelete() {
-    return (
-      (this.isEnableDelete && !this.isEnableUpdate) ||
-      (!this.isEnableDelete && this.isEnableUpdate)
-    );
+    return (this.isEnableDelete && !this.isEnableUpdate) || (!this.isEnableDelete && this.isEnableUpdate);
   }
   get enableUpdateAndDelete() {
     return this.isEnableDelete && this.isEnableUpdate;
@@ -277,13 +277,7 @@ export class EntityGridComponent<TModel extends IModel> {
     this._selected = [];
   }
   onSelected(items: TModel[]) {
-    if (
-      this.selectFirst !== false &&
-      items &&
-      items.length === 0 &&
-      this._items &&
-      this._items.length
-    ) {
+    if (this.selectFirst !== false && items && items.length === 0 && this._items && this._items.length) {
       items = [this._items[0]];
     }
     this._selected = items;
@@ -293,22 +287,15 @@ export class EntityGridComponent<TModel extends IModel> {
     return item.id;
   }
   isSelected(item: TModel) {
-    const index = this._selected.findIndex(
-      eachItem => eachItem && item && eachItem.id === item.id
-    );
+    const index = this._selected.findIndex(eachItem => eachItem && item && eachItem.id === item.id);
     return index !== -1;
   }
   toggle(item: TModel, col: string) {
-    if (
-      !this.multiSelectColumns ||
-      this.multiSelectColumns.indexOf(col) === -1
-    ) {
+    if (!this.multiSelectColumns || this.multiSelectColumns.indexOf(col) === -1) {
       this._selected = [];
     }
     const selected = this._selected ? this._selected : [];
-    const index = selected.findIndex(
-      eachItem => eachItem && item && eachItem.id === item.id
-    );
+    const index = selected.findIndex(eachItem => eachItem && item && eachItem.id === item.id);
     if (index === -1) {
       selected.push(item);
     } else {
