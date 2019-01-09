@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-12-09 18:32\n"
+"PO-Revision-Date: 2019-01-09 04:39\n"
 
 msgid "Create"
 msgstr "Создать"
@@ -24,10 +24,10 @@ msgid "Select"
 msgstr "Выбрать"
 
 msgid "Content types"
-msgstr ""
+msgstr "Типы содержимого"
 
 msgid "Select group"
-msgstr ""
+msgstr "Выберите группу"
 
 msgid "Delete permission"
 msgstr "Удалить разрешение"
@@ -39,13 +39,13 @@ msgid "Select permissions for append to group"
 msgstr "Выберите разрешения для добавления в группу"
 
 msgid "Groups"
-msgstr ""
+msgstr "Группы"
 
 msgid "Select permission"
-msgstr ""
+msgstr "Выберите разрешение"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Разрешения"
 
 msgid "Delete group"
 msgstr "Удалить группу"
@@ -57,10 +57,10 @@ msgid "Select groups for append to user"
 msgstr "Выберите группы для добавления пользователю"
 
 msgid "Select user"
-msgstr ""
+msgstr "Выберите пользователя"
 
 msgid "Users"
-msgstr ""
+msgstr "Пользователи"
 
 msgid "Info"
 msgstr "Информация"
@@ -117,10 +117,10 @@ msgid "Do you really want to leave?"
 msgstr "Вы действительно хотите выйти?"
 
 msgid "Your session has expired, please re-login"
-msgstr ""
+msgstr "Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
 
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 msgid "Email"
 msgstr "Эл. почта"
@@ -156,7 +156,7 @@ msgid "Delete"
 msgstr "Удалить"
 
 msgid "Select item"
-msgstr ""
+msgstr "Выберите пункт"
 
 msgid "Menu"
 msgstr "Меню"
