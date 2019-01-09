@@ -12,46 +12,46 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2018-12-09 18:33\n"
+"PO-Revision-Date: 2019-01-09 04:39\n"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 msgid "OK"
-msgstr ""
+msgstr "Ок"
 
 msgid "Item #{{id}}"
-msgstr ""
+msgstr "Запись #{{id}}"
 
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 msgid "Create new item"
-msgstr ""
+msgstr "Создать новую запись"
 
 msgid "Create"
-msgstr ""
+msgstr "Создать"
 
 msgid "Update item #{{id}}"
-msgstr ""
+msgstr "Изменить запись #{{id}}"
 
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 msgid "Delete item #{{id}}"
-msgstr ""
+msgstr "Удалить запись #{{id}}"
 
 msgid "Do you really want to delete item?"
-msgstr ""
+msgstr "Вы действительно хотите удалить эту запись?"
 
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 msgid "Select item"
-msgstr ""
+msgstr "Выберите пункт"
 
 msgid "Append"
-msgstr ""
+msgstr "Добавить"
 
 msgid "Id"
 msgstr "Ид."
@@ -78,7 +78,7 @@ msgid "Do you really want to delete content type?"
 msgstr "Вы действительно хотите удалить этот тип содержимого?"
 
 msgid "Select content type"
-msgstr ""
+msgstr "Выберите тип содержимого"
 
 msgid "Permissions"
 msgstr "Разрешения"
@@ -99,7 +99,7 @@ msgid "Do you really want to delete group?"
 msgstr "Вы действительно хотите удалить эту группу?"
 
 msgid "Select group"
-msgstr ""
+msgstr "Выберите группу"
 
 msgid "Content type"
 msgstr "Тип содержимого"
@@ -120,7 +120,7 @@ msgid "Do you really want to delete permission?"
 msgstr "Вы действительно хотите удалить разрешение?"
 
 msgid "Select permission"
-msgstr ""
+msgstr "Выберите разрешение"
 
 msgid "Username"
 msgstr "Имя пользователя"
@@ -180,37 +180,37 @@ msgid "Do you really want to delete user?"
 msgstr "Вы действительно хотите удалить пользователя?"
 
 msgid "Select user"
-msgstr ""
+msgstr "Выберите пользователя"
 
 msgid "Sign in"
-msgstr ""
+msgstr "Войти"
 
 msgid "Authorization"
-msgstr ""
+msgstr "Авторизация"
 
 msgid "Sign up"
-msgstr ""
+msgstr "Зарегистрироваться"
 
 msgid "Registration"
-msgstr ""
+msgstr "Регистрация"
 
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 msgid "Sign out"
-msgstr ""
+msgstr "Выйти"
 
 msgid "Do you really want to leave?"
-msgstr ""
+msgstr "Вы действительно хотите выйти?"
 
 msgid "Confirm password"
-msgstr ""
+msgstr "Пароль еще раз"
 
 msgid "Your session has expired, please re-login"
-msgstr ""
+msgstr "Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
 
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 msgid "Oauth provider with name \"{provider}\" not founded"
 msgstr "Поставщик OAuth с именем \"{provider}\" не найден"
