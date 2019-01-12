@@ -1,3 +1,5 @@
+import { plainToClass } from 'class-transformer';
+
 export function transformStringToObject(value: string | Object) {
   if (typeof value === 'string') {
     return null;
@@ -17,7 +19,18 @@ export function transformDateToString(value: Date) {
   return value;
 }
 export function serializeModel<T>(object: T) {
-  return function() {
+  return function () {
     return object;
+  };
+}
+
+export function serializeIdToObject<T>(object: T) {
+  return function (value: number) {
+    return plainToClass(object as any, { id: value });
+  };
+}
+export function serializeObjectToId<T>(object: T) {
+  return function (value: T) {
+    return value ? (value as any).id : undefined;
   };
 }

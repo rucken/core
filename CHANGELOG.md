@@ -1,3 +1,12 @@
+## [3.7.1](https://github.com/rucken/core/compare/3.7.0...3.7.1) (2019-01-12)
+
+
+### Bug Fixes
+
+* Add clearExternalErrorsAsync if profile save is success ([f8ca8e1](https://github.com/rucken/core/commit/f8ca8e1))
+
+
+
 # [3.7.0](https://github.com/rucken/core/compare/3.6.0...3.7.0) (2019-01-08)
 
 

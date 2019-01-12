@@ -68,8 +68,10 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
   }
   onSave(user: User, saveData?: any) {
     this.processing = false;
-    this.data = user;
-    this._authService.setCurrent(user);
+    this.form.clearExternalErrorsAsync().then(() => {
+      this.data = user;
+      this._authService.setCurrent(user);
+    });
   }
   onError(error: any) {
     this._modalsService.error({
