@@ -113,7 +113,7 @@
     "jsonwebtoken": "^8.4.0",
     "ngx-bootstrap": "^3.1.4",
     "ngx-cookie-service": "^2.1.0",
-    "ngx-dynamic-form-builder": "^0.7.0",
+    "ngx-dynamic-form-builder": "^0.8.1",
     "ngx-permissions": "^6.0.4",
     "ngx-repository": "^0.6.2",
     "node-fetch": "^2.3.0",
