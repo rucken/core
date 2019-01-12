@@ -5,11 +5,12 @@
     "node": ">=10",
     "npm": ">=6.4.0"
   },
-  "description": "Base components and ui for admin entities for application maked on Angular7+",
+  "description": "Admin UI for Angular7+ web applications based on Rucken template",
   "keywords": [
     "ngx",
     "angular",
     "angular7",
+    "ngx-bootstrap",
     "i18n",
     "shared",
     "components",

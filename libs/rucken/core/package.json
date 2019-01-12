@@ -5,7 +5,7 @@
     "node": ">=10",
     "npm": ">=6.4.0"
   },
-  "description": "Core with base class and admin entities for application maked on Angular7+",
+  "description": "Core with base class and admin entities for Angular7+ applications based on Rucken template",
   "keywords": [
     "ngx",
     "angular",
