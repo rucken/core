@@ -460,7 +460,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:76</a></div>
                             </td>
                         </tr>
 
@@ -679,7 +679,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:79</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:81</a></div>
                             </td>
                         </tr>
 
@@ -876,8 +876,10 @@ export class ProfilePanelComponent extends BasePromptPanelComponent&lt;User&gt; 
   }
   onSave(user: User, saveData?: any) {
     this.processing &#x3D; false;
-    this.data &#x3D; user;
-    this._authService.setCurrent(user);
+    this.form.clearExternalErrorsAsync().then(() &#x3D;&gt; {
+      this.data &#x3D; user;
+      this._authService.setCurrent(user);
+    });
   }
   onError(error: any) {
     this._modalsService.error({
