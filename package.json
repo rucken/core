@@ -43,7 +43,7 @@
     "lib:build-core": "ng build @rucken/core --prod",
     "lib:build-web": "ng build @rucken/web --prod",
     "lib:build": "run-s prepare:prod lib:build-core lib:build-web",
-    "app:prebuild": "ng build demo --prod -c=production",
+    "app:prebuild": "node --max_old_space_size=1024 ./node_modules/@angular/cli/bin/ng build demo --prod -c=production",
     "app:prebuild:dev": "ng build demo --prod -c=dev",
     "app:prebuild:local": "ng build demo --prod -c=local",
     "app:build": "run-s prepare:mono app:prebuild",
