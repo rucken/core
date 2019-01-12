@@ -2,8 +2,8 @@
   "name": "rucken",
   "version": "3.7.1",
   "engines": {
-    "node": ">=10",
-    "npm": ">=6.4.0"
+    "node": ">=11",
+    "npm": ">=6.5.0"
   },
   "private": true,
   "license": "MIT",
