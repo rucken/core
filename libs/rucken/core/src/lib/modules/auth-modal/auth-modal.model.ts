@@ -1,7 +1,7 @@
 import { IsNotEmpty, Validate } from 'class-validator';
 import { IModel } from 'ngx-repository';
+import { EqualsToOtherProperty } from '../../utils/custom-validators';
 import { translate } from '../../utils/translate';
-import { EqualsToOtherProperty } from '../../validators/equals-to-other-property.validator';
 import { AuthModalTypeEnum } from './auth-modal-type.enum';
 
 export class AuthModalModel implements IModel {

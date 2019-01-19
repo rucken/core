@@ -103,4 +103,3 @@ export * from './lib/utils/interpolate';
 export * from './lib/utils/permissions-guard.const';
 export * from './lib/utils/permissions-guard.service';
 export * from './lib/utils/translate';
-export * from './lib/validators/equals-to-other-property.validator';

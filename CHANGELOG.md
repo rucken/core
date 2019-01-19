@@ -1,3 +1,12 @@
+## [3.7.2](https://github.com/rucken/core/compare/3.7.1...3.7.2) (2019-01-19)
+
+
+### Bug Fixes
+
+* Remove duplicate validator NotEqualsToPassword ([9f47d57](https://github.com/rucken/core/commit/9f47d57))
+
+
+
 ## [3.7.1](https://github.com/rucken/core/compare/3.7.0...3.7.1) (2019-01-12)
 
 
