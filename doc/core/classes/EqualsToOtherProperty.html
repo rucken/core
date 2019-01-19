@@ -60,7 +60,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>libs/rucken/core/src/lib/validators/equals-to-other-property.validator.ts</code>
+            <code>libs/rucken/core/src/lib/utils/custom-validators.ts</code>
         </p>
 
 
@@ -133,7 +133,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">libs/rucken/core/src/lib/validators/equals-to-other-property.validator.ts:10</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">libs/rucken/core/src/lib/utils/custom-validators.ts:10</a></div>
                             </td>
                         </tr>
 
@@ -202,7 +202,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">libs/rucken/core/src/lib/validators/equals-to-other-property.validator.ts:6</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">libs/rucken/core/src/lib/utils/custom-validators.ts:6</a></div>
                             </td>
                         </tr>
 
@@ -272,8 +272,8 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ValidatorConstraint, ValidatorConstraintInterface, ValidationArguments } from &#x27;class-validator&#x27;;
-import { translate } from &#x27;../utils/translate&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ValidationArguments, ValidatorConstraint, ValidatorConstraintInterface } from &#x27;class-validator&#x27;;
+import { translate } from &#x27;./translate&#x27;;
 
 @ValidatorConstraint()
 export class EqualsToOtherProperty implements ValidatorConstraintInterface {
