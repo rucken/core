@@ -283,6 +283,11 @@
 
                         </td>
                     </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">libs/rucken/core/src/lib/base/base-entity-list-modal.component.ts:83</a></div>
@@ -739,6 +744,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -840,6 +848,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -861,6 +872,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -1047,6 +1061,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -1128,6 +1145,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -1149,6 +1169,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -1347,13 +1370,13 @@ export class BaseEntityListModalComponent&lt;TModel extends IModel&gt; implement
   processing &#x3D; false;
   processing$: Observable&lt;boolean&gt;;
   @Input()
-  title: string;
+  title: string &#x3D; undefined;
   @Input()
-  message: string;
+  message: string &#x3D; undefined;
   @Input()
-  infoMessage: string;
+  infoMessage: string &#x3D; undefined;
   @Input()
-  errorMessage: string;
+  errorMessage: string &#x3D; undefined;
   @Input()
   noTitle &#x3D; translate(&#x27;Cancel&#x27;);
   @Input()
@@ -1365,11 +1388,11 @@ export class BaseEntityListModalComponent&lt;TModel extends IModel&gt; implement
 
   @BindObservable()
   @Input()
-  yesClass: string;
+  yesClass: string &#x3D; undefined;
   yesClass$: Observable&lt;string&gt;;
   @BindObservable()
   @Input()
-  noClass: string;
+  noClass: string &#x3D; undefined;
   noClass$: Observable&lt;string&gt;;
 
   @Input()
@@ -1401,7 +1424,7 @@ export class BaseEntityListModalComponent&lt;TModel extends IModel&gt; implement
   yesData: any;
   noData: any;
 
-  private _mockedItems: TModel[];
+  private _mockedItems: TModel[] &#x3D; undefined;
 
   modalRef: IModalRef&lt;BaseEntityListModalComponent&lt;TModel&gt;&gt;;
 

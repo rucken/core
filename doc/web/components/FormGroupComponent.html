@@ -278,6 +278,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -299,6 +302,9 @@
                             <em>Type :</em>    <code>DynamicFormGroup&lt;any&gt;</code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -341,6 +347,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -362,6 +371,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -449,6 +461,11 @@
                         <td class="col-md-4">
                             <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
                         </td>
                     </tr>
                         <tr>
@@ -596,9 +613,9 @@ import { map } from &#x27;rxjs/operators&#x27;;
 })
 export class FormGroupComponent implements AfterViewInit {
   @Input()
-  checkIsDirty?: boolean;
+  checkIsDirty?: boolean &#x3D; undefined;
   @Input()
-  tooltipPlacement?: string;
+  tooltipPlacement?: string &#x3D; undefined;
 
   get errors(): Observable&lt;any&gt; {
     if (this.form &amp;&amp; (this.checkIsDirty !&#x3D;&#x3D; true || this.form.dirty)) {
@@ -612,7 +629,7 @@ export class FormGroupComponent implements AfterViewInit {
     }
   }
   @Input()
-  form: DynamicFormGroup&lt;any&gt;;
+  form: DynamicFormGroup&lt;any&gt; &#x3D; undefined;
   @Input()
   set name(name: string) {
     this._name &#x3D; name;
@@ -621,12 +638,12 @@ export class FormGroupComponent implements AfterViewInit {
     return this._name;
   }
   @Input()
-  title: string;
+  title: string &#x3D; undefined;
 
   get valid() {
     return !this.form || this.form.get(this.name).valid;
   }
-  private _name: string;
+  private _name: string &#x3D; undefined;
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
   ngAfterViewInit() {

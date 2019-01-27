@@ -254,13 +254,14 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { WebModalsModule } from &#x27;../../../modules/modals/modals.module&#x27;;
 import { GroupModalModule } from &#x27;../../groups/group-modal/group-modal.module&#x27;;
 import { GroupsGridModalModule } from &#x27;../../groups/groups-grid-modal/groups-grid-modal.module&#x27;;
 import { UserGroupsGridComponent } from &#x27;./user-groups-grid.component&#x27;;
 
 @NgModule({
-  imports: [CommonModule, WebModalsModule, GroupsGridModalModule, GroupModalModule],
+  imports: [CommonModule, WebModalsModule, GroupsGridModalModule, GroupModalModule, NgxBindIOModule],
   declarations: [UserGroupsGridComponent],
   exports: [UserGroupsGridComponent, GroupsGridModalModule, GroupModalModule]
 })

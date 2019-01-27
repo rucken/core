@@ -1744,6 +1744,9 @@
                             <em>Type :</em>    <code><a href="../miscellaneous/enumerations.html#AuthModalTypeEnum" target="_self" >AuthModalTypeEnum</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -1772,7 +1775,7 @@ import { IAuthModalOauthProvider } from &#x27;./interfaces/auth-modal-oauth-prov
 
 export class AuthModalComponent extends BasePromptFormModalComponent&lt;AuthModalModel&gt; implements OnInit {
   @Input()
-  type: AuthModalTypeEnum;
+  type: AuthModalTypeEnum &#x3D; undefined;
   @Input()
   signInYesTitle &#x3D; translate(&#x27;Sign in&#x27;);
   @Input()

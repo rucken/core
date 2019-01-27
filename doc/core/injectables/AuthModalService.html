@@ -1230,7 +1230,7 @@ export class AuthModalService {
     });
     modalRef.instance.yes.subscribe((modal: AuthModalComponent) &#x3D;&gt; {
       modal.processing &#x3D; true;
-      if (modal.yesData) {
+      if (typeof modal.yesData &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
         this.authService
           .oauthRedirectUrl(modal.yesData)
           .subscribe(data &#x3D;&gt; this.onOauthSignInSuccess(modal, data), error &#x3D;&gt; this.onSignInError(modal, error));

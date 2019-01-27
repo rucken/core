@@ -189,6 +189,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -270,7 +273,7 @@ export class PermissionsGridModalComponent extends BaseEntityListModalComponent&
   @ViewChild(&#x27;grid&#x27;)
   grid: PermissionsGridComponent;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string &#x3D; undefined;
 
   constructor() {
     super();
@@ -280,14 +283,7 @@ export class PermissionsGridModalComponent extends BaseEntityListModalComponent&
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;entity-grid-modal
-    [title]&#x3D;&quot;title&quot;
-    [yesTitle]&#x3D;&quot;yesTitle&quot;
-    [readonly]&#x3D;&quot;readonly&quot;
-    [noTitle]&#x3D;&quot;noTitle&quot;
-    (yes)&#x3D;&quot;onYesClick()&quot;
-    (no)&#x3D;&quot;onNoClick()&quot;
-    [processing]&#x3D;&quot;processing$ | async&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;entity-grid-modal bindIO&gt;
     &lt;permissions-grid
         [apiUrl]&#x3D;&quot;apiUrl&quot;
         #grid&gt;
@@ -322,7 +318,7 @@ export class PermissionsGridModalComponent extends BaseEntityListModalComponent&
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><entity-grid-modal    [title]="title"    [yesTitle]="yesTitle"    [readonly]="readonly"    [noTitle]="noTitle"    (yes)="onYesClick()"    (no)="onNoClick()"    [processing]="processing$ | async">    <permissions-grid        [apiUrl]="apiUrl"        #grid>    </permissions-grid></entity-grid-modal></div>'
+        var COMPONENT_TEMPLATE = '<div><entity-grid-modal bindIO>    <permissions-grid        [apiUrl]="apiUrl"        #grid>    </permissions-grid></entity-grid-modal></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PermissionsGridModalComponent'};

@@ -185,6 +185,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -206,6 +209,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -236,9 +242,9 @@ import { BasePromptModalComponent } from &#x27;@rucken/core&#x27;;
 })
 export class MessageModalComponent extends BasePromptModalComponent {
   @Input()
-  isInfo?: boolean;
+  isInfo?: boolean &#x3D; undefined;
   @Input()
-  isError?: boolean;
+  isError?: boolean &#x3D; undefined;
 
   constructor() {
     super();

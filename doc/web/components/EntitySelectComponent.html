@@ -239,6 +239,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -443,7 +446,7 @@ export class EntitySelectComponent implements AfterViewInit {
   @Input()
   searchField: FormControl &#x3D; new FormControl();
   @Input()
-  readonly: boolean;
+  readonly: boolean &#x3D; undefined;
   @Output()
   search &#x3D; new EventEmitter&lt;string&gt;();
   get parent(): any {

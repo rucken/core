@@ -291,6 +291,9 @@
                             <em>Type :</em>    <code>Group</code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -363,6 +366,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                             <tr>
@@ -560,7 +566,7 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
     component: PermissionsGridModalComponent
   };
   @Input()
-  group: Group;
+  group: Group &#x3D; undefined;
   @Input()
   strings &#x3D; {
     ...Permission.strings,
@@ -606,22 +612,12 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;entity-grid
-    [title]&#x3D;&quot;title&quot;
-    [items]&#x3D;&quot;items$ | async&quot;
-    (selected)&#x3D;&quot;onSelected($event)&quot;
-    [readonly]&#x3D;&quot;readonly&quot;
+    bindIO
     [columnsClasses]&#x3D;&quot;{title:&#x27;width-150&#x27;}&quot;
     [columns]&#x3D;&quot;[&#x27;title&#x27;, &#x27;contentType&#x27;, &#x27;action&#x27;]&quot;
-    [strings]&#x3D;&quot;strings&quot;
-    (delete)&#x3D;&quot;onDeleteClick($event)&quot;
-    (appendFromGrid)&#x3D;&quot;onAppendFromGridClick($event)&quot;
-    (view)&#x3D;&quot;onViewClick($event)&quot;
-    [paginationMeta]&#x3D;&quot;paginationMeta$ | async&quot;
     [enableAppendFromGrid]&#x3D;&quot;&#x27;change_group&#x27; | perm:false | async&quot;
     [enableUpdate]&#x3D;&quot;false&quot;
-    [enableDelete]&#x3D;&quot;&#x27;change_group&#x27; | perm:false | async&quot;
-    (changePage)&#x3D;&quot;onChangePage($event)&quot;
-    [processing]&#x3D;&quot;processing$ | async&quot;&gt;
+    [enableDelete]&#x3D;&quot;&#x27;change_group&#x27; | perm:false | async&quot;&gt;
 &lt;/entity-grid&gt;
 </code></pre>
     </div>
@@ -652,7 +648,7 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><entity-grid    [title]="title"    [items]="items$ | async"    (selected)="onSelected($event)"    [readonly]="readonly"    [columnsClasses]="{title:\'width-150\'}"    [columns]="[\'title\', \'contentType\', \'action\']"    [strings]="strings"    (delete)="onDeleteClick($event)"    (appendFromGrid)="onAppendFromGridClick($event)"    (view)="onViewClick($event)"    [paginationMeta]="paginationMeta$ | async"    [enableAppendFromGrid]="\'change_group\' | perm:false | async"    [enableUpdate]="false"    [enableDelete]="\'change_group\' | perm:false | async"    (changePage)="onChangePage($event)"    [processing]="processing$ | async"></entity-grid></div>'
+        var COMPONENT_TEMPLATE = '<div><entity-grid    bindIO    [columnsClasses]="{title:\'width-150\'}"    [columns]="[\'title\', \'contentType\', \'action\']"    [enableAppendFromGrid]="\'change_group\' | perm:false | async"    [enableUpdate]="false"    [enableDelete]="\'change_group\' | perm:false | async"></entity-grid></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GroupPermissionsGridComponent'};

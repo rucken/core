@@ -628,6 +628,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -649,6 +652,9 @@
                             <em>Type :</em>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -670,6 +676,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -691,6 +700,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -812,6 +824,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -833,6 +848,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -854,6 +872,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -935,6 +956,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -956,6 +980,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -1046,19 +1073,19 @@ export class BasePromptModalComponent implements IBaseForm {
   processing &#x3D; false;
   processing$: Observable&lt;boolean&gt;;
   @Input()
-  checkIsDirty?: boolean;
+  checkIsDirty?: boolean &#x3D; undefined;
   @Input()
-  data?: any;
+  data?: any &#x3D; undefined;
   @Input()
   focused &#x3D; false;
   @Input()
-  title: string;
+  title: string &#x3D; undefined;
   @Input()
-  message: string;
+  message: string &#x3D; undefined;
   @Input()
-  infoMessage: string;
+  infoMessage: string &#x3D; undefined;
   @Input()
-  errorMessage: string;
+  errorMessage: string &#x3D; undefined;
   @Input()
   noTitle &#x3D; translate(&#x27;Cancel&#x27;);
   @Input()
@@ -1068,15 +1095,15 @@ export class BasePromptModalComponent implements IBaseForm {
   @Output()
   yes &#x3D; new EventEmitter&lt;any&gt;();
   @Input()
-  disabled: boolean;
+  disabled: boolean &#x3D; undefined;
 
   @BindObservable()
   @Input()
-  yesClass: string;
+  yesClass: string &#x3D; undefined;
   yesClass$: Observable&lt;string&gt;;
   @BindObservable()
   @Input()
-  noClass: string;
+  noClass: string &#x3D; undefined;
   noClass$: Observable&lt;string&gt;;
 
   @Input()

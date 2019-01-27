@@ -184,6 +184,9 @@
                             <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -205,6 +208,9 @@
                             <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -226,6 +232,9 @@
                             <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -247,6 +256,9 @@
                             <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -276,13 +288,13 @@ import { BasePromptModalComponent } from &#x27;@rucken/core&#x27;;
 })
 export class PromptFormModalComponent extends BasePromptModalComponent {
   @Input()
-  footerButtonsTemplate: TemplateRef&lt;any&gt;;
+  footerButtonsTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   @Input()
-  leftFooterButtonsTemplate: TemplateRef&lt;any&gt;;
+  leftFooterButtonsTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   @Input()
-  readonlyFooterButtonsTemplate: TemplateRef&lt;any&gt;;
+  readonlyFooterButtonsTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   @Input()
-  headerTemplate: TemplateRef&lt;any&gt;;
+  headerTemplate: TemplateRef&lt;any&gt; &#x3D; undefined;
   constructor() {
     super();
   }

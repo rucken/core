@@ -279,6 +279,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -415,7 +418,7 @@ export class PermissionsGridComponent extends BaseEntityListComponent&lt;Permiss
   @Input()
   title &#x3D; translate(&#x27;Permissions&#x27;);
   @Input()
-  apiUrl?: string;
+  apiUrl?: string &#x3D; undefined;
 
   constructor(
     modalsService: ModalsService,
@@ -446,25 +449,13 @@ export class PermissionsGridComponent extends BaseEntityListComponent&lt;Permiss
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;entity-grid
-    [title]&#x3D;&quot;title&quot;
-    [items]&#x3D;&quot;items$ | async&quot;
-    (selected)&#x3D;&quot;onSelected($event)&quot;
+    bindIO
+    excludeOutputs&#x3D;&quot;appendFromGrid&quot;
     [columnsClasses]&#x3D;&quot;{title:&#x27;width-150&#x27;}&quot;
     [columns]&#x3D;&quot;[&#x27;title&#x27;, &#x27;contentType&#x27;,&#x27;action&#x27;]&quot;
-    [readonly]&#x3D;&quot;readonly&quot;
-    [strings]&#x3D;&quot;strings&quot;
-    (create)&#x3D;&quot;onCreateClick($event)&quot;
-    (update)&#x3D;&quot;onUpdateClick($event)&quot;
-    (delete)&#x3D;&quot;onDeleteClick($event)&quot;
-    (view)&#x3D;&quot;onViewClick($event)&quot;
-    (search)&#x3D;&quot;onSearch($event)&quot;
-    [paginationMeta]&#x3D;&quot;paginationMeta$ | async&quot;
     [enableCreate]&#x3D;&quot;&#x27;add_permission&#x27; | perm:false | async&quot;
     [enableUpdate]&#x3D;&quot;&#x27;change_permission&#x27; | perm:false | async&quot;
-    [enableDelete]&#x3D;&quot;&#x27;delete_permission&#x27; | perm:false | async&quot;
-    (changePage)&#x3D;&quot;onChangePage($event)&quot;
-    (changeOrder)&#x3D;&quot;onChangeOrder($event)&quot;
-    [processing]&#x3D;&quot;processing$ | async&quot;&gt;
+    [enableDelete]&#x3D;&quot;&#x27;delete_permission&#x27; | perm:false | async&quot;&gt;
 &lt;/entity-grid&gt;
 </code></pre>
     </div>
@@ -495,7 +486,7 @@ export class PermissionsGridComponent extends BaseEntityListComponent&lt;Permiss
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><entity-grid    [title]="title"    [items]="items$ | async"    (selected)="onSelected($event)"    [columnsClasses]="{title:\'width-150\'}"    [columns]="[\'title\', \'contentType\',\'action\']"    [readonly]="readonly"    [strings]="strings"    (create)="onCreateClick($event)"    (update)="onUpdateClick($event)"    (delete)="onDeleteClick($event)"    (view)="onViewClick($event)"    (search)="onSearch($event)"    [paginationMeta]="paginationMeta$ | async"    [enableCreate]="\'add_permission\' | perm:false | async"    [enableUpdate]="\'change_permission\' | perm:false | async"    [enableDelete]="\'delete_permission\' | perm:false | async"    (changePage)="onChangePage($event)"    (changeOrder)="onChangeOrder($event)"    [processing]="processing$ | async"></entity-grid></div>'
+        var COMPONENT_TEMPLATE = '<div><entity-grid    bindIO    excludeOutputs="appendFromGrid"    [columnsClasses]="{title:\'width-150\'}"    [columns]="[\'title\', \'contentType\',\'action\']"    [enableCreate]="\'add_permission\' | perm:false | async"    [enableUpdate]="\'change_permission\' | perm:false | async"    [enableDelete]="\'delete_permission\' | perm:false | async"></entity-grid></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PermissionsGridComponent'};

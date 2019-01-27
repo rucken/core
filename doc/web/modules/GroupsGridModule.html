@@ -258,9 +258,10 @@ import { EntityGridModule } from &#x27;../../../components/entity-grid/entity-gr
 import { WebModalsModule } from &#x27;../../../modules/modals/modals.module&#x27;;
 import { GroupModalModule } from &#x27;../group-modal/group-modal.module&#x27;;
 import { GroupsGridComponent } from &#x27;./groups-grid.component&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 
 @NgModule({
-  imports: [CommonModule, WebModalsModule, EntityGridModule, GroupModalModule],
+  imports: [CommonModule, WebModalsModule, EntityGridModule, GroupModalModule, NgxBindIOModule],
   declarations: [GroupsGridComponent],
   exports: [GroupsGridComponent, EntityGridModule, GroupModalModule]
 })

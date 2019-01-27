@@ -381,6 +381,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -402,6 +405,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -423,6 +429,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -1148,11 +1157,11 @@ export class NavbarComponent {
   @ViewChild(&#x27;languagesDropdown&#x27;)
   languagesDropdown: ElementRef;
   @Input()
-  showSignIn: boolean;
+  showSignIn: boolean &#x3D; undefined;
   @Input()
-  showSignOut: boolean;
+  showSignOut: boolean &#x3D; undefined;
   @Input()
-  title: string;
+  title: string &#x3D; undefined;
 
   @Output()
   signIn &#x3D; new EventEmitter();

@@ -175,6 +175,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -204,7 +207,7 @@ import { BasePromptFormModalComponent, Group } from &#x27;@rucken/core&#x27;;
 })
 export class GroupModalComponent extends BasePromptFormModalComponent&lt;Group&gt; {
   @Input()
-  apiUrl?: string;
+  apiUrl?: string &#x3D; undefined;
 
   constructor() {
     super();
@@ -218,23 +221,9 @@ export class GroupModalComponent extends BasePromptFormModalComponent&lt;Group&g
         <pre class="line-numbers"><code class="language-html">&lt;form
     [formGroup]&#x3D;&quot;form&quot;
     novalidate&gt;
-    &lt;prompt-form-modal
-        [title]&#x3D;&quot;title&quot;
-        [message]&#x3D;&quot;message&quot;
-        [infoMessage]&#x3D;&quot;infoMessage&quot;
-        [errorMessage]&#x3D;&quot;errorMessage&quot;
-        [noTitle]&#x3D;&quot;noTitle&quot;
-        [yesTitle]&#x3D;&quot;yesTitle&quot;
-        [readonly]&#x3D;&quot;readonly&quot;
-        (no)&#x3D;&quot;onNoClick()&quot;
-        (yes)&#x3D;&quot;onYesClick()&quot;
-        [data]&#x3D;&quot;data&quot;
-        [processing]&#x3D;&quot;processing$ | async&quot;
-        [yesClass]&#x3D;&quot;yesClass$ | async&quot;
-        [noClass]&#x3D;&quot;noClass$ | async&quot;&gt;
+    &lt;prompt-form-modal bindIO&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            bindIO
             name&#x3D;&quot;name&quot;
             [title]&#x3D;&quot;strings.name&quot;&gt;
             &lt;input
@@ -243,8 +232,7 @@ export class GroupModalComponent extends BasePromptFormModalComponent&lt;Group&g
                 focused&gt;
         &lt;/form-group&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            bindIO
             name&#x3D;&quot;title&quot;
             [title]&#x3D;&quot;strings.title&quot;&gt;
             &lt;input
@@ -288,7 +276,7 @@ export class GroupModalComponent extends BasePromptFormModalComponent&lt;Group&g
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal        [title]="title"        [message]="message"        [infoMessage]="infoMessage"        [errorMessage]="errorMessage"        [noTitle]="noTitle"        [yesTitle]="yesTitle"        [readonly]="readonly"        (no)="onNoClick()"        (yes)="onYesClick()"        [data]="data"        [processing]="processing$ | async"        [yesClass]="yesClass$ | async"        [noClass]="noClass$ | async">        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="name"            [title]="strings.name">            <input                formControlName="name"                [readonly]="readonly"                focused>        </form-group>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="title"            [title]="strings.title">            <input                formControlName="title"                [readonly]="readonly">        </form-group>        <group-permissions-grid            [mockedItems]="data.permissions"            (mockedItemsChange)="form.get(\'permissions\').setValue($event)"            [readonly]="readonly"            [title]="strings.permissions"            [apiUrl]="apiUrl"></group-permissions-grid>    </prompt-form-modal></form></div>'
+        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal bindIO>        <form-group            bindIO            name="name"            [title]="strings.name">            <input                formControlName="name"                [readonly]="readonly"                focused>        </form-group>        <form-group            bindIO            name="title"            [title]="strings.title">            <input                formControlName="title"                [readonly]="readonly">        </form-group>        <group-permissions-grid            [mockedItems]="data.permissions"            (mockedItemsChange)="form.get(\'permissions\').setValue($event)"            [readonly]="readonly"            [title]="strings.permissions"            [apiUrl]="apiUrl"></group-permissions-grid>    </prompt-form-modal></form></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'GroupModalComponent'};

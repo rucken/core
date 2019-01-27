@@ -233,12 +233,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { PromptFormModalModule } from &#x27;../../../components/prompt-form-modal/prompt-form-modal.module&#x27;;
 import { GroupPermissionsGridModule } from &#x27;../group-permissions-grid/group-permissions-grid.module&#x27;;
 import { GroupModalComponent } from &#x27;./group-modal.component&#x27;;
 
 @NgModule({
-  imports: [CommonModule, PromptFormModalModule, GroupPermissionsGridModule],
+  imports: [CommonModule, PromptFormModalModule, GroupPermissionsGridModule, NgxBindIOModule],
   declarations: [GroupModalComponent],
   entryComponents: [GroupModalComponent],
   exports: [GroupModalComponent, PromptFormModalModule]

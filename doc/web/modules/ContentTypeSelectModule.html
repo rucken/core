@@ -239,12 +239,13 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { EntitySelectModule } from &#x27;../../../components/entity-select/entity-select.module&#x27;;
 import { ContentTypesGridModalModule } from &#x27;../content-types-grid-modal/content-types-grid-modal.module&#x27;;
 import { ContentTypeSelectComponent } from &#x27;./content-type-select.component&#x27;;
 
 @NgModule({
-  imports: [CommonModule, EntitySelectModule, ContentTypesGridModalModule],
+  imports: [CommonModule, EntitySelectModule, ContentTypesGridModalModule, NgxBindIOModule],
   declarations: [ContentTypeSelectComponent],
   exports: [ContentTypeSelectComponent, EntitySelectModule, ContentTypesGridModalModule]
 })

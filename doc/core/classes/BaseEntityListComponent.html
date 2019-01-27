@@ -472,6 +472,11 @@
 
                         </td>
                     </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>undefined</code>
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">libs/rucken/core/src/lib/base/base-entity-list.component.ts:83</a></div>
@@ -3279,6 +3284,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3300,6 +3308,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3321,6 +3332,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3551,6 +3565,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3572,6 +3589,9 @@
                             <em>Type :</em>    <code>literal type</code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3593,6 +3613,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3614,6 +3637,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3635,6 +3661,9 @@
                             <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                             </p>
+                        <p>
+                            <em>Default value : </em><code>undefined</code>
+                        </p>
                     </td>
                 </tr>
                         <tr>
@@ -3806,15 +3835,15 @@ export class BaseEntityListComponent&lt;TModel extends IModel&gt; implements IBa
   processing &#x3D; false;
   processing$: Observable&lt;boolean&gt;;
   @Input()
-  createLink: string;
+  createLink: string &#x3D; undefined;
   @Input()
-  viewLink: string;
+  viewLink: string &#x3D; undefined;
   @Input()
-  updateLink: string;
+  updateLink: string &#x3D; undefined;
   @Input()
-  deleteLink: string;
+  deleteLink: string &#x3D; undefined;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string &#x3D; undefined;
   @Input()
   set mockedItems(items: TModel[]) {
     this._mockedItems &#x3D; items;
@@ -3833,13 +3862,13 @@ export class BaseEntityListComponent&lt;TModel extends IModel&gt; implements IBa
     deleteMessage?: string;
     selectTitle?: string;
     [key: string]: string;
-  };
+  } &#x3D; undefined;
   @Output()
   selected: EventEmitter&lt;TModel[]&gt; &#x3D; new EventEmitter&lt;TModel[]&gt;();
   @Input()
-  readonly: boolean;
+  readonly: boolean &#x3D; undefined;
   @Input()
-  title: string;
+  title: string &#x3D; undefined;
   @Input()
   filter: IBaseEntityGridFilter &#x3D; { searchText: &#x27;&#x27;, sort: &#x27;-id&#x27; };
 
@@ -3848,7 +3877,7 @@ export class BaseEntityListComponent&lt;TModel extends IModel&gt; implements IBa
   createData: any;
   appendFromGridData: any;
 
-  private _mockedItems: TModel[];
+  private _mockedItems: TModel[] &#x3D; undefined;
   private _selected: TModel[] &#x3D; [];
 
   constructor(

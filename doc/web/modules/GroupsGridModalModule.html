@@ -247,13 +247,14 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { EntityGridModalModule } from &#x27;../../../components/entity-grid-modal/entity-grid-modal.module&#x27;;
 import { GroupsGridModule } from &#x27;../groups-grid/groups-grid.module&#x27;;
 import { GroupsGridModalComponent } from &#x27;./groups-grid-modal.component&#x27;;
 
 @NgModule({
-  imports: [CommonModule, EntityGridModalModule, GroupsGridModule],
+  imports: [CommonModule, EntityGridModalModule, GroupsGridModule, NgxBindIOModule],
   declarations: [GroupsGridModalComponent],
   entryComponents: [GroupsGridModalComponent],
   exports: [GroupsGridModalComponent, EntityGridModalModule, GroupsGridModule]

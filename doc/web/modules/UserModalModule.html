@@ -249,13 +249,21 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
+import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { BsDatepickerModule } from &#x27;ngx-bootstrap/datepicker&#x27;;
 import { PromptFormModalModule } from &#x27;../../../components/prompt-form-modal/prompt-form-modal.module&#x27;;
 import { UserGroupsGridModule } from &#x27;../user-groups-grid/user-groups-grid.module&#x27;;
 import { UserModalComponent } from &#x27;./user-modal.component&#x27;;
 
 @NgModule({
-  imports: [CommonModule, TranslateModule.forChild(), BsDatepickerModule, UserGroupsGridModule, PromptFormModalModule],
+  imports: [
+    CommonModule,
+    TranslateModule.forChild(),
+    BsDatepickerModule,
+    UserGroupsGridModule,
+    PromptFormModalModule,
+    NgxBindIOModule
+  ],
   declarations: [UserModalComponent],
   entryComponents: [UserModalComponent],
   exports: [UserModalComponent, BsDatepickerModule, UserGroupsGridModule, PromptFormModalModule]
