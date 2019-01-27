@@ -3,7 +3,8 @@
     novalidate>
     <prompt-form-modal bindIO>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="name"
             [title]="strings.name">
             <input
@@ -12,7 +13,8 @@
                 focused>
         </form-group>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="title"
             [title]="strings.title">
             <input
@@ -20,7 +22,8 @@
                 [readonly]="readonly">
         </form-group>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="contentType"
             [title]="strings.contentType">
             <content-type-select

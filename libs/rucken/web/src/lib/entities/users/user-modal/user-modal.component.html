@@ -7,7 +7,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <form-group
-                            bindIO
+                            [checkIsDirty]="checkIsDirty"
+                            [form]="form"
                             name="username"
                             [title]="strings.username">
                             <input
@@ -18,7 +19,8 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            bindIO
+                            [checkIsDirty]="checkIsDirty"
+                            [form]="form"
                             name="email"
                             [title]="strings.email">
                             <input
@@ -28,7 +30,8 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            bindIO
+                            [checkIsDirty]="checkIsDirty"
+                            [form]="form"
                             name="dateOfBirth"
                             [title]="strings.dateOfBirth">
                             <input
@@ -40,7 +43,8 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            bindIO
+                            [checkIsDirty]="checkIsDirty"
+                            [form]="form"
                             name="password"
                             [title]="strings.password">
                             <input
@@ -51,7 +55,8 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            bindIO
+                            [checkIsDirty]="checkIsDirty"
+                            [form]="form"
                             name="rePassword"
                             [title]="strings.rePassword">
                             <input
@@ -62,7 +67,8 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            bindIO
+                            [checkIsDirty]="checkIsDirty"
+                            [form]="form"
                             name="lastName"
                             [title]="strings.lastName">
                             <input
@@ -72,7 +78,8 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            bindIO
+                            [checkIsDirty]="checkIsDirty"
+                            [form]="form"
                             name="firstName"
                             [title]="strings.firstName">
                             <input
@@ -86,7 +93,8 @@
                 class="col-md-6"
                 *ngIf="!simpleMode">
                 <form-group
-                    bindIO
+                    [checkIsDirty]="checkIsDirty"
+                    [form]="form"
                     [title]="strings.roles">
                     <div class="checkboxes-group form-control">
                         <div class="checkbox">
