@@ -5,7 +5,8 @@
     <prompt-form-modal bindIO>
         <span *ngFor="let key of keys; let i = index">
             <form-group
-                bindIO
+                [checkIsDirty]="checkIsDirty"
+                [form]="form"
                 [name]="key"
                 [title]="strings[key]">
                 <input

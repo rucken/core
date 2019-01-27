@@ -8,7 +8,8 @@
         [footerButtonsTemplate]="signOutType !== type && !readonly ? socialFooterButtonsTemplate : null"
         #promptFormModal>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="username"
             [title]="strings.username"
             *ngIf="signUpType === type">
@@ -18,7 +19,8 @@
                 focused>
         </form-group>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="email"
             [title]="strings.email">
             <input
@@ -27,7 +29,8 @@
                 focused>
         </form-group>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="password"
             [title]="strings.password">
             <input
@@ -35,7 +38,8 @@
                 type="password">
         </form-group>
         <form-group
-            bindIO
+            [checkIsDirty]="checkIsDirty"
+            [form]="form"
             name="rePassword"
             [title]="strings.rePassword"
             *ngIf="signUpType === type">
