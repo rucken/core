@@ -11,7 +11,7 @@ export class GroupsGridModalComponent extends BaseEntityListModalComponent<Group
   @ViewChild('grid')
   grid: GroupsGridComponent;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
 
   constructor() {
     super();

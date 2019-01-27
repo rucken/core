@@ -7,13 +7,15 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PromptFormModalModule } from '../../components/prompt-form-modal/prompt-form-modal.module';
 import { WebAuthModalComponent } from './auth-modal.component';
 import { WebAuthModalService } from './auth-modal.service';
+import { NgxBindIOModule } from 'ngx-bind-io';
 @NgModule({
   imports: [
     CommonModule,
     PromptFormModalModule,
     TranslateModule.forChild(),
     BsDropdownModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxBindIOModule
   ],
   declarations: [WebAuthModalComponent],
   entryComponents: [WebAuthModalComponent],

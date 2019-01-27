@@ -8,9 +8,9 @@ import { BasePromptFormModalComponent, User } from '@rucken/core';
 })
 export class UserModalComponent extends BasePromptFormModalComponent<User> {
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
   @Input()
-  simpleMode: boolean;
+  simpleMode: boolean = undefined;
 
   constructor() {
     super();

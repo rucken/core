@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { NgxBindIOModule } from 'ngx-bind-io';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { PromptFormModalModule } from '../../../components/prompt-form-modal/prompt-form-modal.module';
 import { ContentTypeInputModule } from '../../content-types/content-type-input/content-type-input.module';
@@ -12,7 +13,8 @@ import { PermissionModalComponent } from './permission-modal.component';
     PromptFormModalModule,
     ContentTypeInputModule,
     ContentTypeSelectModule,
-    TypeaheadModule.forRoot()
+    TypeaheadModule.forRoot(),
+    NgxBindIOModule
   ],
   declarations: [PermissionModalComponent],
   entryComponents: [PermissionModalComponent],

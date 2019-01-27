@@ -8,7 +8,7 @@ import { BasePromptFormModalComponent, Group } from '@rucken/core';
 })
 export class GroupModalComponent extends BasePromptFormModalComponent<Group> {
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
 
   constructor() {
     super();

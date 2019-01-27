@@ -24,7 +24,7 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
     component: PermissionsGridModalComponent
   };
   @Input()
-  group: Group;
+  group: Group = undefined;
   @Input()
   strings = {
     ...Permission.strings,

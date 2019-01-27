@@ -11,11 +11,7 @@ import { initializeBrowserApp } from './shared/utils/initialize-browser-app';
 
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [
-    BrowserModule.withServerTransition({ appId: AppId }),
-    FontAwesomeModule,
-    AppModule
-  ],
+  imports: [BrowserModule.withServerTransition({ appId: AppId }), FontAwesomeModule, AppModule],
   providers: [
     {
       provide: REQUEST,
@@ -33,4 +29,4 @@ import { initializeBrowserApp } from './shared/utils/initialize-browser-app';
     }
   ]
 })
-export class AppBrowserModule { }
+export class AppBrowserModule {}

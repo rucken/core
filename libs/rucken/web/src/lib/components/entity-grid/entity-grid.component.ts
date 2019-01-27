@@ -38,34 +38,34 @@ export class EntityGridComponent<TModel extends IModel> {
   defaultEntityGridHeaderTemplate: TemplateRef<any>;
 
   @Input()
-  gridFieldTemplate: TemplateRef<any>;
+  gridFieldTemplate: TemplateRef<any> = undefined;
   @Input()
-  gridCellTemplate: TemplateRef<any>;
+  gridCellTemplate: TemplateRef<any> = undefined;
   @Input()
-  gridFieldContent: TemplateRef<any>;
+  gridFieldContent: TemplateRef<any> = undefined;
   @Input()
-  gridFieldActionContent: TemplateRef<any>;
+  gridFieldActionContent: TemplateRef<any> = undefined;
   @Input()
-  gridCellContent: TemplateRef<any>;
+  gridCellContent: TemplateRef<any> = undefined;
   @Input()
-  gridCellTranslatedContent: TemplateRef<any>;
+  gridCellTranslatedContent: TemplateRef<any> = undefined;
   @Input()
-  gridCellActionContent: TemplateRef<any>;
+  gridCellActionContent: TemplateRef<any> = undefined;
   @Input()
-  searchFieldTemplate: TemplateRef<any>;
+  searchFieldTemplate: TemplateRef<any> = undefined;
   @Input()
-  entityGridFooterTemplate: TemplateRef<any>;
+  entityGridFooterTemplate: TemplateRef<any> = undefined;
   @Input()
-  entityGridHeaderTemplate: TemplateRef<any>;
+  entityGridHeaderTemplate: TemplateRef<any> = undefined;
 
   @Input()
-  selectFirst?: boolean;
+  selectFirst?: boolean = undefined;
   @Input()
-  processing: boolean;
+  processing: boolean = undefined;
   @Input()
   searchField: FormControl = new FormControl();
   @Input()
-  title: string;
+  title: string = undefined;
   @Input()
   createTitle = translate('Create');
   @Input()
@@ -73,13 +73,13 @@ export class EntityGridComponent<TModel extends IModel> {
   @Input()
   translatedCells: string[] = [];
   @Input()
-  orderColumns: string[];
+  orderColumns: string[] = undefined;
   @Input()
-  columnsClasses: { [key: string]: string };
+  columnsClasses: { [key: string]: string } = undefined;
   @Input()
-  orderBy: string;
+  orderBy: string = undefined;
   @Input()
-  multiSelectColumns: string[];
+  multiSelectColumns: string[] = undefined;
   @Input()
   set columns(columns: string[]) {
     this._columns = columns;
@@ -98,9 +98,9 @@ export class EntityGridComponent<TModel extends IModel> {
     }
   }
   @Input()
-  classes: string[];
+  classes: string[] = undefined;
   @Input()
-  strings: any;
+  strings: any = undefined;
   @Input()
   set items(items: TModel[]) {
     this._items = items;
@@ -142,7 +142,7 @@ export class EntityGridComponent<TModel extends IModel> {
   }> = new EventEmitter<{ page: number; itemsPerPage: number }>();
 
   @Input()
-  readonly: boolean;
+  readonly: boolean = undefined;
   @Input()
   enableCreate = true;
   @Input()
@@ -152,7 +152,7 @@ export class EntityGridComponent<TModel extends IModel> {
   @Input()
   enableAppendFromGrid = true;
   @Input()
-  paginationMeta: PaginationMeta;
+  paginationMeta: PaginationMeta = undefined;
 
   get enableOnlyUpdateOrDelete() {
     return (this.isEnableDelete && !this.isEnableUpdate) || (!this.isEnableDelete && this.isEnableUpdate);
@@ -164,9 +164,9 @@ export class EntityGridComponent<TModel extends IModel> {
     return this.appendFromGrid.observers.length > 0;
   }
 
-  private _selected: TModel[];
-  private _items: TModel[];
-  private _columns: string[];
+  private _selected: TModel[] = undefined;
+  private _items: TModel[] = undefined;
+  private _columns: string[] = undefined;
 
   constructor(private _viewContainerRef: ViewContainerRef) {
     this.searchField.valueChanges

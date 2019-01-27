@@ -8,13 +8,13 @@ import { BasePromptModalComponent } from '@rucken/core';
 })
 export class PromptFormModalComponent extends BasePromptModalComponent {
   @Input()
-  footerButtonsTemplate: TemplateRef<any>;
+  footerButtonsTemplate: TemplateRef<any> = undefined;
   @Input()
-  leftFooterButtonsTemplate: TemplateRef<any>;
+  leftFooterButtonsTemplate: TemplateRef<any> = undefined;
   @Input()
-  readonlyFooterButtonsTemplate: TemplateRef<any>;
+  readonlyFooterButtonsTemplate: TemplateRef<any> = undefined;
   @Input()
-  headerTemplate: TemplateRef<any>;
+  headerTemplate: TemplateRef<any> = undefined;
   constructor() {
     super();
   }

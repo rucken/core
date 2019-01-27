@@ -14,15 +14,15 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   processing = false;
   processing$: Observable<boolean>;
   @Input()
-  checkIsDirty?: boolean;
+  checkIsDirty?: boolean = undefined;
   @Input()
-  title: string;
+  title: string = undefined;
   @Input()
-  message: string;
+  message: string = undefined;
   @Input()
-  infoMessage: string;
+  infoMessage: string = undefined;
   @Input()
-  errorMessage: string;
+  errorMessage: string = undefined;
   @Input()
   noTitle = translate('Cancel');
   @Input()
@@ -34,11 +34,11 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
 
   @BindObservable()
   @Input()
-  yesClass: string;
+  yesClass: string = undefined;
   yesClass$: Observable<string>;
   @BindObservable()
   @Input()
-  noClass: string;
+  noClass: string = undefined;
   noClass$: Observable<string>;
 
   @Input()
@@ -48,7 +48,7 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   @Input()
   readonly = false;
   @Input()
-  disabled: boolean;
+  disabled: boolean = undefined;
   @Input()
   validateForm = true;
 

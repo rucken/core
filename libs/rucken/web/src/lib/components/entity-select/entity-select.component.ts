@@ -20,7 +20,7 @@ export class EntitySelectComponent implements AfterViewInit {
   @Input()
   searchField: FormControl = new FormControl();
   @Input()
-  readonly: boolean;
+  readonly: boolean = undefined;
   @Output()
   search = new EventEmitter<string>();
   get parent(): any {

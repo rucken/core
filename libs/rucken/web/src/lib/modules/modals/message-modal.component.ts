@@ -9,9 +9,9 @@ import { BasePromptModalComponent } from '@rucken/core';
 })
 export class MessageModalComponent extends BasePromptModalComponent {
   @Input()
-  isInfo?: boolean;
+  isInfo?: boolean = undefined;
   @Input()
-  isError?: boolean;
+  isError?: boolean = undefined;
 
   constructor() {
     super();

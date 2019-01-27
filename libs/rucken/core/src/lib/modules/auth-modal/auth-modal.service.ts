@@ -80,7 +80,7 @@ export class AuthModalService {
     });
     modalRef.instance.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
-      if (modal.yesData) {
+      if (typeof modal.yesData === 'string') {
         this.authService
           .oauthRedirectUrl(modal.yesData)
           .subscribe(data => this.onOauthSignInSuccess(modal, data), error => this.onSignInError(modal, error));

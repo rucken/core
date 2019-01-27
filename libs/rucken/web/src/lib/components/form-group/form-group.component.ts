@@ -10,9 +10,9 @@ import { map } from 'rxjs/operators';
 })
 export class FormGroupComponent implements AfterViewInit {
   @Input()
-  checkIsDirty?: boolean;
+  checkIsDirty?: boolean = undefined;
   @Input()
-  tooltipPlacement?: string;
+  tooltipPlacement?: string = undefined;
 
   get errors(): Observable<any> {
     if (this.form && (this.checkIsDirty !== true || this.form.dirty)) {
@@ -26,7 +26,7 @@ export class FormGroupComponent implements AfterViewInit {
     }
   }
   @Input()
-  form: DynamicFormGroup<any>;
+  form: DynamicFormGroup<any> = undefined;
   @Input()
   set name(name: string) {
     this._name = name;
@@ -35,12 +35,12 @@ export class FormGroupComponent implements AfterViewInit {
     return this._name;
   }
   @Input()
-  title: string;
+  title: string = undefined;
 
   get valid() {
     return !this.form || this.form.get(this.name).valid;
   }
-  private _name: string;
+  private _name: string = undefined;
 
   constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
   ngAfterViewInit() {

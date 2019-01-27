@@ -8,7 +8,7 @@ import { BasePromptFormModalComponent, Permission } from '@rucken/core';
 })
 export class PermissionModalComponent extends BasePromptFormModalComponent<Permission> {
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
 
   constructor() {
     super();

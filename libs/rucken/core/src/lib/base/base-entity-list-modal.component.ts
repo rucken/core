@@ -26,13 +26,13 @@ export class BaseEntityListModalComponent<TModel extends IModel> implements IBas
   processing = false;
   processing$: Observable<boolean>;
   @Input()
-  title: string;
+  title: string = undefined;
   @Input()
-  message: string;
+  message: string = undefined;
   @Input()
-  infoMessage: string;
+  infoMessage: string = undefined;
   @Input()
-  errorMessage: string;
+  errorMessage: string = undefined;
   @Input()
   noTitle = translate('Cancel');
   @Input()
@@ -44,11 +44,11 @@ export class BaseEntityListModalComponent<TModel extends IModel> implements IBas
 
   @BindObservable()
   @Input()
-  yesClass: string;
+  yesClass: string = undefined;
   yesClass$: Observable<string>;
   @BindObservable()
   @Input()
-  noClass: string;
+  noClass: string = undefined;
   noClass$: Observable<string>;
 
   @Input()
@@ -80,7 +80,7 @@ export class BaseEntityListModalComponent<TModel extends IModel> implements IBas
   yesData: any;
   noData: any;
 
-  private _mockedItems: TModel[];
+  private _mockedItems: TModel[] = undefined;
 
   modalRef: IModalRef<BaseEntityListModalComponent<TModel>>;
 
