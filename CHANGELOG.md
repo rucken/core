@@ -1,3 +1,12 @@
+# [3.8.0](https://github.com/rucken/core/compare/3.7.2...3.8.0) (2019-01-27)
+
+
+### Features
+
+* Add ngx-bind-io and update all sources ([fb362de](https://github.com/rucken/core/commit/fb362de))
+
+
+
 ## [3.7.2](https://github.com/rucken/core/compare/3.7.1...3.7.2) (2019-01-19)
 
 
