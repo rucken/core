@@ -223,7 +223,8 @@ export class PermissionModalComponent extends BasePromptFormModalComponent&lt;Pe
     novalidate&gt;
     &lt;prompt-form-modal bindIO&gt;
         &lt;form-group
-            bindIO
+            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
+            [form]&#x3D;&quot;form&quot;
             name&#x3D;&quot;name&quot;
             [title]&#x3D;&quot;strings.name&quot;&gt;
             &lt;input
@@ -232,7 +233,8 @@ export class PermissionModalComponent extends BasePromptFormModalComponent&lt;Pe
                 focused&gt;
         &lt;/form-group&gt;
         &lt;form-group
-            bindIO
+            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
+            [form]&#x3D;&quot;form&quot;
             name&#x3D;&quot;title&quot;
             [title]&#x3D;&quot;strings.title&quot;&gt;
             &lt;input
@@ -240,7 +242,8 @@ export class PermissionModalComponent extends BasePromptFormModalComponent&lt;Pe
                 [readonly]&#x3D;&quot;readonly&quot;&gt;
         &lt;/form-group&gt;
         &lt;form-group
-            bindIO
+            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
+            [form]&#x3D;&quot;form&quot;
             name&#x3D;&quot;contentType&quot;
             [title]&#x3D;&quot;strings.contentType&quot;&gt;
             &lt;content-type-select
@@ -301,7 +304,7 @@ export class PermissionModalComponent extends BasePromptFormModalComponent&lt;Pe
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal bindIO>        <form-group            bindIO            name="name"            [title]="strings.name">            <input                formControlName="name"                [readonly]="readonly"                focused>        </form-group>        <form-group            bindIO            name="title"            [title]="strings.title">            <input                formControlName="title"                [readonly]="readonly">        </form-group>        <form-group            bindIO            name="contentType"            [title]="strings.contentType">            <content-type-select                [searchField]="form.get(\'contentType\')"                [readonly]="readonly"                [apiUrl]="apiUrl"                *ngIf="data.id"                #contentTypeSelect>                <input                    formControlName="contentType"                    [typeaheadLatinize]="false"                    [typeaheadMinLength]="0"                    [typeaheadOptionField]="contentTypeSelect.nameField"                    [typeahead]="contentTypeSelect.items$"                    (typeaheadOnSelect)="contentTypeSelect.checkChange(form.get(\'contentType\').value, $event?.item)              ? form.get(\'contentType\').setValue($event.item)              : null"                    [readonly]="readonly">            </content-type-select>            <content-type-input                (select)="form.get(\'contentType\').setValue($event)"                [readonly]="readonly"                [apiUrl]="apiUrl"                *ngIf="!data.id">                <input                    formControlName="contentType"                    [readonly]="readonly">            </content-type-input>        </form-group>    </prompt-form-modal></form></div>'
+        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal bindIO>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="name"            [title]="strings.name">            <input                formControlName="name"                [readonly]="readonly"                focused>        </form-group>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="title"            [title]="strings.title">            <input                formControlName="title"                [readonly]="readonly">        </form-group>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="contentType"            [title]="strings.contentType">            <content-type-select                [searchField]="form.get(\'contentType\')"                [readonly]="readonly"                [apiUrl]="apiUrl"                *ngIf="data.id"                #contentTypeSelect>                <input                    formControlName="contentType"                    [typeaheadLatinize]="false"                    [typeaheadMinLength]="0"                    [typeaheadOptionField]="contentTypeSelect.nameField"                    [typeahead]="contentTypeSelect.items$"                    (typeaheadOnSelect)="contentTypeSelect.checkChange(form.get(\'contentType\').value, $event?.item)              ? form.get(\'contentType\').setValue($event.item)              : null"                    [readonly]="readonly">            </content-type-select>            <content-type-input                (select)="form.get(\'contentType\').setValue($event)"                [readonly]="readonly"                [apiUrl]="apiUrl"                *ngIf="!data.id">                <input                    formControlName="contentType"                    [readonly]="readonly">            </content-type-input>        </form-group>    </prompt-form-modal></form></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PermissionModalComponent'};
