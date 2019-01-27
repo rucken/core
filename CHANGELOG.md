@@ -1,3 +1,12 @@
+## [3.8.1](https://github.com/rucken/core/compare/3.8.0...3.8.1) (2019-01-27)
+
+
+### Bug Fixes
+
+* Change use form-group without bindIO ([8ede3f2](https://github.com/rucken/core/commit/8ede3f2))
+
+
+
 # [3.8.0](https://github.com/rucken/core/compare/3.7.2...3.8.0) (2019-01-27)
 
 
