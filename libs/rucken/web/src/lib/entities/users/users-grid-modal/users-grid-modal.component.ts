@@ -11,7 +11,7 @@ export class UsersGridModalComponent extends BaseEntityListModalComponent<User> 
   @ViewChild('grid')
   grid: UsersGridComponent;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
   @Input()
   simpleMode = false;
 

@@ -1,18 +1,8 @@
 <entity-grid
-    [title]="title"
-    [items]="items$ | async"
+    bindIO
     [columnsClasses]="{title:'width-150'}"
-    (selected)="onSelected($event)"
-    [readonly]="readonly"
     [columns]="['title', 'permissions', 'action']"
-    [strings]="strings"
-    (delete)="onDeleteClick($event)"
-    (appendFromGrid)="onAppendFromGridClick($event)"
-    (view)="onViewClick($event)"
-    [paginationMeta]="paginationMeta$ | async"
     [enableAppendFromGrid]="'change_user' | perm:false | async"
     [enableUpdate]="false"
-    [enableDelete]="'change_user' | perm:false | async"
-    (changePage)="onChangePage($event)"
-    [processing]="processing$ | async">
+    [enableDelete]="'change_user' | perm:false | async">
 </entity-grid>

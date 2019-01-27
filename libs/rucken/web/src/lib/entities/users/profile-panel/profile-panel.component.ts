@@ -32,7 +32,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
   @Input()
   yesClass = 'btn btn-primary';
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
   @Input()
   enableSave = true;
   @Input()

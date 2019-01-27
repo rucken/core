@@ -1,27 +1,13 @@
 <form
     [formGroup]="form"
     novalidate>
-    <prompt-form-modal
-        [title]="title"
-        [message]="message"
-        [infoMessage]="infoMessage"
-        [errorMessage]="errorMessage"
-        [noTitle]="noTitle"
-        [yesTitle]="yesTitle"
-        [readonly]="readonly"
-        (no)="onNoClick()"
-        (yes)="onYesClick()"
-        [data]="data"
-        [processing]="processing$ | async"
-        [yesClass]="yesClass$ | async"
-        [noClass]="noClass$ | async">
+    <prompt-form-modal bindIO>
         <div class="row">
             <div [ngClass]="{ 'col-md-6': !simpleMode, 'col-md-12': simpleMode }">
                 <div class="row">
                     <div class="col-md-12">
                         <form-group
-                            [checkIsDirty]="checkIsDirty"
-                            [form]="form"
+                            bindIO
                             name="username"
                             [title]="strings.username">
                             <input
@@ -32,8 +18,7 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            [checkIsDirty]="checkIsDirty"
-                            [form]="form"
+                            bindIO
                             name="email"
                             [title]="strings.email">
                             <input
@@ -43,8 +28,7 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            [checkIsDirty]="checkIsDirty"
-                            [form]="form"
+                            bindIO
                             name="dateOfBirth"
                             [title]="strings.dateOfBirth">
                             <input
@@ -56,8 +40,7 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            [checkIsDirty]="checkIsDirty"
-                            [form]="form"
+                            bindIO
                             name="password"
                             [title]="strings.password">
                             <input
@@ -68,8 +51,7 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            [checkIsDirty]="checkIsDirty"
-                            [form]="form"
+                            bindIO
                             name="rePassword"
                             [title]="strings.rePassword">
                             <input
@@ -80,8 +62,7 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            [checkIsDirty]="checkIsDirty"
-                            [form]="form"
+                            bindIO
                             name="lastName"
                             [title]="strings.lastName">
                             <input
@@ -91,8 +72,7 @@
                     </div>
                     <div class="col-md-6">
                         <form-group
-                            [checkIsDirty]="checkIsDirty"
-                            [form]="form"
+                            bindIO
                             name="firstName"
                             [title]="strings.firstName">
                             <input
@@ -106,7 +86,7 @@
                 class="col-md-6"
                 *ngIf="!simpleMode">
                 <form-group
-                    [checkIsDirty]="checkIsDirty"
+                    bindIO
                     [title]="strings.roles">
                     <div class="checkboxes-group form-control">
                         <div class="checkbox">

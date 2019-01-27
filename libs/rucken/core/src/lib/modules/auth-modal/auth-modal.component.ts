@@ -9,7 +9,7 @@ import { IAuthModalOauthProvider } from './interfaces/auth-modal-oauth-provider.
 
 export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalModel> implements OnInit {
   @Input()
-  type: AuthModalTypeEnum;
+  type: AuthModalTypeEnum = undefined;
   @Input()
   signInYesTitle = translate('Sign in');
   @Input()

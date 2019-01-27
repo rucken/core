@@ -4,16 +4,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { MetaLoader, MetaModule } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountModule, AuthModalModule, AuthModule, entitiesProviders, ErrorsExtractor, LangModule, PermissionsGuard, TransferHttpCacheModule } from '@rucken/core';
+import {
+  AccountModule,
+  AuthModalModule,
+  AuthModule,
+  entitiesProviders,
+  ErrorsExtractor,
+  LangModule,
+  PermissionsGuard,
+  TransferHttpCacheModule
+} from '@rucken/core';
 import { NavbarModule, ThemesModule, WebAuthModalModule, WebModalsModule } from '@rucken/web';
+import { NgxBindIOModule } from 'ngx-bind-io';
 import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { AllRoutes, AppLangs, appMetaFactory, AppId, OauthModalProviders, OauthProviders } from './app.config';
+import { AllRoutes, AppId, AppLangs, appMetaFactory, OauthModalProviders, OauthProviders } from './app.config';
 import { SharedModule } from './shared/shared.module';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -53,9 +62,10 @@ import { SharedModule } from './shared/shared.module';
     WebAuthModalModule,
     NavbarModule,
     BsDatepickerModule.forRoot(),
-    WebModalsModule
+    WebModalsModule,
+    NgxBindIOModule.forRoot()
   ],
   providers: [...entitiesProviders, CookieService, ErrorsExtractor, BsLocaleService, PermissionsGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

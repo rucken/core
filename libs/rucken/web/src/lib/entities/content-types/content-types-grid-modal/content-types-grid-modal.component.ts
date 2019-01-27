@@ -11,7 +11,7 @@ export class ContentTypesGridModalComponent extends BaseEntityListModalComponent
   @ViewChild('grid')
   grid: ContentTypesGridComponent;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
 
   constructor() {
     super();

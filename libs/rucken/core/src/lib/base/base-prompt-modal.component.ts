@@ -11,19 +11,19 @@ export class BasePromptModalComponent implements IBaseForm {
   processing = false;
   processing$: Observable<boolean>;
   @Input()
-  checkIsDirty?: boolean;
+  checkIsDirty?: boolean = undefined;
   @Input()
-  data?: any;
+  data?: any = undefined;
   @Input()
   focused = false;
   @Input()
-  title: string;
+  title: string = undefined;
   @Input()
-  message: string;
+  message: string = undefined;
   @Input()
-  infoMessage: string;
+  infoMessage: string = undefined;
   @Input()
-  errorMessage: string;
+  errorMessage: string = undefined;
   @Input()
   noTitle = translate('Cancel');
   @Input()
@@ -33,15 +33,15 @@ export class BasePromptModalComponent implements IBaseForm {
   @Output()
   yes = new EventEmitter<any>();
   @Input()
-  disabled: boolean;
+  disabled: boolean = undefined;
 
   @BindObservable()
   @Input()
-  yesClass: string;
+  yesClass: string = undefined;
   yesClass$: Observable<string>;
   @BindObservable()
   @Input()
-  noClass: string;
+  noClass: string = undefined;
   noClass$: Observable<string>;
 
   @Input()

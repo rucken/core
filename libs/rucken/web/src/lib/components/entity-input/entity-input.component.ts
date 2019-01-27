@@ -15,7 +15,7 @@ import {
 })
 export class EntityInputComponent {
   @Input()
-  readonly: boolean;
+  readonly: boolean = undefined;
   @Output()
   select = new EventEmitter<boolean>();
   selectData: any;

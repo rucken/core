@@ -1,24 +1,23 @@
-<form [formGroup]="form" novalidate>
-  <prompt-form-modal
-    [title]="title"
-    [message]="message"
-    [infoMessage]="infoMessage"
-    [errorMessage]="errorMessage"
-    [noTitle]="noTitle"
-    [yesTitle]="yesTitle"
-    [readonly]="readonly"
-    (no)="onNoClick()"
-    (yes)="onYesClick()"
-    [data]="data"
-    [processing]="processing$ | async"
-    [yesClass]="yesClass$ | async"
-    [noClass]="noClass$ | async"
-  >
-    <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="name" [title]="strings.name">
-      <input formControlName="name" [readonly]="readonly" focused />
-    </form-group>
-    <form-group [checkIsDirty]="checkIsDirty" [form]="form" name="title" [title]="strings.title">
-      <input formControlName="title" [readonly]="readonly" />
-    </form-group>
-  </prompt-form-modal>
+<form
+    [formGroup]="form"
+    novalidate>
+    <prompt-form-modal bindIO>
+        <form-group
+            bindIO
+            name="name"
+            [title]="strings.name">
+            <input
+                formControlName="name"
+                [readonly]="readonly"
+                focused>
+        </form-group>
+        <form-group
+            bindIO
+            name="title"
+            [title]="strings.title">
+            <input
+                formControlName="title"
+                [readonly]="readonly">
+        </form-group>
+    </prompt-form-modal>
 </form>

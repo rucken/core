@@ -4,9 +4,10 @@ import { EntityGridModule } from '../../../components/entity-grid/entity-grid.mo
 import { WebModalsModule } from '../../../modules/modals/modals.module';
 import { GroupModalModule } from '../group-modal/group-modal.module';
 import { GroupsGridComponent } from './groups-grid.component';
+import { NgxBindIOModule } from 'ngx-bind-io';
 
 @NgModule({
-  imports: [CommonModule, WebModalsModule, EntityGridModule, GroupModalModule],
+  imports: [CommonModule, WebModalsModule, EntityGridModule, GroupModalModule, NgxBindIOModule],
   declarations: [GroupsGridComponent],
   exports: [GroupsGridComponent, EntityGridModule, GroupModalModule]
 })

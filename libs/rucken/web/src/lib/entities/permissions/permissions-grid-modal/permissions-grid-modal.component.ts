@@ -11,7 +11,7 @@ export class PermissionsGridModalComponent extends BaseEntityListModalComponent<
   @ViewChild('grid')
   grid: PermissionsGridComponent;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
 
   constructor() {
     super();

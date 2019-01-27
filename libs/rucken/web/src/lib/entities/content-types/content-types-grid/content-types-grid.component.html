@@ -1,20 +1,8 @@
 <entity-grid
-    [title]="title"
-    [items]="items$ | async"
-    (selected)="onSelected($event)"
+    bindIO
+    excludeOutputs="appendFromGrid"
     [columns]="['title', 'action']"
-    [readonly]="readonly"
-    [strings]="strings"
-    (create)="onCreateClick($event)"
-    (update)="onUpdateClick($event)"
-    (delete)="onDeleteClick($event)"
-    (view)="onViewClick($event)"
-    (search)="onSearch($event)"
-    (changeOrder)="onChangeOrder($event)"
-    [paginationMeta]="paginationMeta$ | async"
     [enableCreate]="'add_content-type' | perm:false | async"
     [enableUpdate]="'change_content-type' | perm:false | async"
-    [enableDelete]="'delete_content-type' | perm:false | async"
-    (changePage)="onChangePage($event)"
-    [processing]="processing$ | async">
+    [enableDelete]="'delete_content-type' | perm:false | async">
 </entity-grid>

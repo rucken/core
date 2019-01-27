@@ -24,7 +24,7 @@ export class UserGroupsGridComponent extends GroupsGridComponent implements OnIn
     component: GroupsGridModalComponent
   };
   @Input()
-  user: User;
+  user: User = undefined;
   @Input()
   strings = {
     ...Group.strings,

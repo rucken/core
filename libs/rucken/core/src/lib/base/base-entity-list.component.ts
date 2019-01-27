@@ -38,15 +38,15 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   processing = false;
   processing$: Observable<boolean>;
   @Input()
-  createLink: string;
+  createLink: string = undefined;
   @Input()
-  viewLink: string;
+  viewLink: string = undefined;
   @Input()
-  updateLink: string;
+  updateLink: string = undefined;
   @Input()
-  deleteLink: string;
+  deleteLink: string = undefined;
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
   @Input()
   set mockedItems(items: TModel[]) {
     this._mockedItems = items;
@@ -65,13 +65,13 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     deleteMessage?: string;
     selectTitle?: string;
     [key: string]: string;
-  };
+  } = undefined;
   @Output()
   selected: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
   @Input()
-  readonly: boolean;
+  readonly: boolean = undefined;
   @Input()
-  title: string;
+  title: string = undefined;
   @Input()
   filter: IBaseEntityGridFilter = { searchText: '', sort: '-id' };
 
@@ -80,7 +80,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   createData: any;
   appendFromGridData: any;
 
-  private _mockedItems: TModel[];
+  private _mockedItems: TModel[] = undefined;
   private _selected: TModel[] = [];
 
   constructor(

@@ -24,11 +24,11 @@ export class NavbarComponent {
   @ViewChild('languagesDropdown')
   languagesDropdown: ElementRef;
   @Input()
-  showSignIn: boolean;
+  showSignIn: boolean = undefined;
   @Input()
-  showSignOut: boolean;
+  showSignOut: boolean = undefined;
   @Input()
-  title: string;
+  title: string = undefined;
 
   @Output()
   signIn = new EventEmitter();

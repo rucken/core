@@ -25,7 +25,7 @@ export class PermissionsGridComponent extends BaseEntityListComponent<Permission
   @Input()
   title = translate('Permissions');
   @Input()
-  apiUrl?: string;
+  apiUrl?: string = undefined;
 
   constructor(
     modalsService: ModalsService,
