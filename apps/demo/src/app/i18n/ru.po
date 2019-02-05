@@ -12,19 +12,19 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2019-01-09 04:39\n"
-
-msgid "Russian"
-msgstr "Русский"
-
-msgid "English"
-msgstr "Английский"
+"PO-Revision-Date: 2019-02-05 18:13\n"
 
 msgid "Rucken: Demo"
 msgstr "Rucken: Демо"
 
 msgid "Core with Admin UI for web and native application maked on Angular7+"
 msgstr "Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +"
+
+msgid "Russian"
+msgstr "Русский"
+
+msgid "English"
+msgstr "Английский"
 
 msgid "<p>Demo users:</p><ul>\n"
 "<li>user with admin group: admin@admin.com, password: 12345678</li>\n"
