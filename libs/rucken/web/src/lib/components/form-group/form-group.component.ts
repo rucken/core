@@ -1,48 +1,30 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, Renderer2 } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
+import { BindIoInner } from 'ngx-bind-io';
 import { DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+@BindIoInner()
 @Component({
   selector: 'form-group',
   templateUrl: './form-group.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FormGroupComponent implements AfterViewInit {
+export class FormGroupComponent implements AfterViewInit, OnChanges {
   @Input()
   checkIsDirty?: boolean = undefined;
   @Input()
   tooltipPlacement?: string = undefined;
 
-  get errors(): Observable<any> {
-    if (this.form && (this.checkIsDirty !== true || this.form.dirty)) {
-      return this.form.customValidateErrors.pipe(
-        map(customValidateErrors =>
-          customValidateErrors[this.name] ? (customValidateErrors[this.name] as string[]) : []
-        )
-      );
-    } else {
-      return of([]);
-    }
-  }
   @Input()
   form: DynamicFormGroup<any> = undefined;
   @Input()
-  set name(name: string) {
-    this._name = name;
-  }
-  get name() {
-    return this._name;
-  }
+  name: string = undefined;
   @Input()
   title: string = undefined;
+  errors$: Observable<any>;
 
-  get valid() {
-    return !this.form || this.form.get(this.name).valid;
-  }
-  private _name: string = undefined;
-
-  constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
+  constructor(private _renderer: Renderer2, private _elementRef: ElementRef) { }
   ngAfterViewInit() {
     const tags = ['input', 'textarea'];
     tags.forEach(tag => {
@@ -59,5 +41,21 @@ export class FormGroupComponent implements AfterViewInit {
         }
       }
     });
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.form && changes.form.currentValue) {
+      this.errors$ = changes.form.currentValue.customValidateErrors.pipe(
+        map(customValidateErrors =>
+          (
+            (this.checkIsDirty !== true || changes.form.currentValue.dirty) &&
+            customValidateErrors[this.name]
+          ) ? (customValidateErrors[this.name] as string[]) : []
+        )
+      );
+    }
+  }
+
+  getValid() {
+    return !this.form || this.form.get(this.name).valid;
   }
 }

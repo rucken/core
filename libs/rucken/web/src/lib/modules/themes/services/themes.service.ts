@@ -1,8 +1,9 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
 import { IStorage, STORAGE_CONFIG_TOKEN } from '@rucken/core';
+import { BindObservable } from 'bind-observable';
 import { DynamicRepository, Repository } from 'ngx-repository';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { THEMES_CONFIG_TOKEN } from '../configs/themes.config';
 import { IThemesConfig } from '../interfaces/themes-config.interface';
 import { Theme } from '../models/theme';
@@ -13,8 +14,10 @@ export function themesServiceInitializeApp(themesService: ThemesService) {
 
 @Injectable()
 export class ThemesService {
-  repository: Repository<Theme>;
-  current$ = new BehaviorSubject<string>(undefined);
+  repository: Repository<Theme> = undefined;
+  @BindObservable()
+  current: string = undefined;
+  current$: Observable<string>;
 
   constructor(
     @Inject(THEMES_CONFIG_TOKEN) private _themesConfig: IThemesConfig,
@@ -54,21 +57,21 @@ export class ThemesService {
     });
   }
   getCurrent() {
-    if (!this.current$.getValue()) {
+    if (!this.current) {
       return this.getStyleLinkHref();
     }
-    return this.current$.getValue();
+    return this.current;
   }
   setCurrent(value: string) {
     if (!value) {
       this.setStyleLinkHref(value);
       this._storage.removeItem(this._themesConfig.storageKeyName).then(_ => {
-        this.current$.next(value);
+        this.current = value;
       });
     } else {
       this.setStyleLinkHref(value);
       this._storage.setItem(this._themesConfig.storageKeyName, value).then(_ => {
-        this.current$.next(value);
+        this.current = value;
       });
     }
   }

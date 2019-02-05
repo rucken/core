@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { BehaviorSubject } from 'rxjs';
+import { BindObservable } from 'bind-observable';
+import { Observable } from 'rxjs';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
 import { IStorage } from '../../storage/interfaces/storage.interface';
 import { LANG_CONFIG_TOKEN } from '../configs/lang.config';
@@ -12,14 +13,18 @@ export function langServiceInitializeApp(langService: LangService) {
 }
 @Injectable()
 export class LangService {
-  current$ = new BehaviorSubject<string>(undefined);
-  languages$ = new BehaviorSubject<ILanguagesItem[]>([]);
+  @BindObservable()
+  current: string = undefined;
+  current$: Observable<string>;
+  @BindObservable()
+  languages: ILanguagesItem[] = [];
+  languages$: Observable<ILanguagesItem[]>;
 
   constructor(
     @Inject(LANG_CONFIG_TOKEN) private _langConfig: ILangConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     private _translateService: TranslateService
-  ) {}
+  ) { }
   async initLanguages() {
     this._translateService.setDefaultLang(this._langConfig.appLang);
     this._translateService.addLangs(this._langConfig.languages.map((lang: ILanguagesItem) => lang.code));
@@ -53,31 +58,31 @@ export class LangService {
     });
   }
   getCurrent() {
-    if (!this.current$.getValue()) {
+    if (!this.current) {
       return this._langConfig.defaultLang;
     }
-    return this.current$.getValue();
+    return this.current;
   }
   setCurrent(value: string) {
     if (!value) {
       this._translateService.use(value);
       this._storage.removeItem(this._langConfig.storageKeyName).then(_ => {
-        this.current$.next(value);
+        this.current = value;
       });
     } else {
       this._translateService.use(value);
       this._storage.setItem(this._langConfig.storageKeyName, value).then(_ => {
-        this.current$.next(value);
+        this.current = value;
       });
     }
   }
   getLanguages() {
-    if (!this.languages$.getValue()) {
+    if (!this.languages) {
       return this._langConfig.languages;
     }
-    return this.languages$.getValue();
+    return this.languages;
   }
   setLanguages(langs: ILanguagesItem[]) {
-    this.languages$.next(langs);
+    this.languages = langs;
   }
 }

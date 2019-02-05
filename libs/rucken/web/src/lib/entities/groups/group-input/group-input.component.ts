@@ -11,6 +11,9 @@ import {
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { GroupsGridModalComponent } from '../groups-grid-modal/groups-grid-modal.component';
 import { GroupsGridComponent } from '../groups-grid/groups-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
+
+@BindIoInner()
 @Component({
   selector: 'group-input',
   templateUrl: './group-input.component.html',

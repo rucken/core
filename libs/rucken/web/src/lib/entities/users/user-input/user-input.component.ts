@@ -11,7 +11,9 @@ import {
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { UsersGridModalComponent } from '../users-grid-modal/users-grid-modal.component';
 import { UsersGridComponent } from '../users-grid/users-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'user-input',
   templateUrl: './user-input.component.html',

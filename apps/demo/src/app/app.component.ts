@@ -18,7 +18,9 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from './app.config';
 import { AppRoutes } from './app.routes';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

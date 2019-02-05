@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BasePromptFormModalComponent, Permission } from '@rucken/core';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'permission-modal',
   templateUrl: './permission-modal.component.html',

@@ -11,7 +11,9 @@ import {
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { ContentTypesGridModalComponent } from '../content-types-grid-modal/content-types-grid-modal.component';
 import { ContentTypesGridComponent } from '../content-types-grid/content-types-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'content-type-input',
   templateUrl: './content-type-input.component.html',

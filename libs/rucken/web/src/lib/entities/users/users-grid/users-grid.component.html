@@ -1,5 +1,5 @@
 <entity-grid
-    bindIO
+    [bindIO]
     excludeOutputs="appendFromGrid"
     [columns]="simpleMode ? ['username', 'fullName', 'action'] : ['username', 'fullName', 'roles', 'groups', 'action']"
     [enableCreate]="'add_user' | perm:false | async"

@@ -1,10 +1,9 @@
 <form
     [formGroup]="form"
     novalidate>
-    <prompt-form-modal bindIO>
+    <prompt-form-modal [bindIO]>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="name"
             [title]="strings.name">
             <input
@@ -13,8 +12,7 @@
                 focused>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="title"
             [title]="strings.title">
             <input
@@ -22,8 +20,7 @@
                 [readonly]="readonly">
         </form-group>
         <group-permissions-grid
-            [mockedItems]="data.permissions"
-            (mockedItemsChange)="form.get('permissions').setValue($event)"
+            formControlName="permissions"
             [readonly]="readonly"
             [title]="strings.permissions"
             [apiUrl]="apiUrl"></group-permissions-grid>

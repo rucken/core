@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { BasePromptFormModalComponent } from '@rucken/core';
 import { DynamicFormGroup } from 'ngx-dynamic-form-builder';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'entity-modal',
   templateUrl: './entity-modal.component.html',

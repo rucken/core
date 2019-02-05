@@ -1,25 +1,19 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ContentChild,
-  EventEmitter,
-  Input,
-  isDevMode,
-  Output,
-  TemplateRef,
-  ViewContainerRef
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, OnChanges, Output, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
+import { BindObservable } from 'bind-observable';
+import { BindIoInner } from 'ngx-bind-io';
 import { IModel, PaginationMeta } from 'ngx-repository';
+import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
+@BindIoInner()
 @Component({
   selector: 'entity-grid',
   templateUrl: './entity-grid.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EntityGridComponent<TModel extends IModel> {
+export class EntityGridComponent<TModel extends IModel> implements OnChanges {
   @ContentChild('#defaultGridFieldContent')
   defaultGridFieldContent: TemplateRef<any>;
   @ContentChild('#defaultGridFieldActionContent')
@@ -81,42 +75,13 @@ export class EntityGridComponent<TModel extends IModel> {
   @Input()
   multiSelectColumns: string[] = undefined;
   @Input()
-  set columns(columns: string[]) {
-    this._columns = columns;
-  }
-  get columns() {
-    if (this._columns) {
-      return this._columns.filter(column =>
-        column === 'action'
-          ? this.readonly === true || (!this.isEnableDelete && !this.isEnableUpdate)
-            ? false
-            : true
-          : true
-      );
-    } else {
-      return this._columns;
-    }
-  }
+  columns: string[] = undefined;
   @Input()
   classes: string[] = undefined;
   @Input()
   strings: any = undefined;
   @Input()
-  set items(items: TModel[]) {
-    this._items = items;
-    if (
-      this.selectFirst !== false &&
-      items &&
-      items.length &&
-      items.filter(item => this._selected && this._selected.length && this._selected[0].id === item.id).length === 0
-    ) {
-      this.onSelected([]);
-    }
-  }
-  get items() {
-    return this._items;
-  }
-
+  items: TModel[] = undefined;
   @Output()
   delete: EventEmitter<TModel> = new EventEmitter<TModel>();
   @Output()
@@ -150,25 +115,40 @@ export class EntityGridComponent<TModel extends IModel> {
   @Input()
   enableDelete = true;
   @Input()
-  enableAppendFromGrid = true;
+  enableAppendFromGrid = false;
   @Input()
   paginationMeta: PaginationMeta = undefined;
 
-  get enableOnlyUpdateOrDelete() {
-    return (this.isEnableDelete && !this.isEnableUpdate) || (!this.isEnableDelete && this.isEnableUpdate);
-  }
-  get enableUpdateAndDelete() {
-    return this.isEnableDelete && this.isEnableUpdate;
-  }
-  get isAppendFromGridMode() {
-    return this.appendFromGrid.observers.length > 0;
-  }
+  @BindObservable()
+  parent: any = undefined;
+  parent$: Observable<any>;
+  @BindObservable()
+  filteredItems: TModel[] = undefined;
+  filteredItems$: Observable<TModel[]>;
+  @BindObservable()
+  filtredColumns: string[] = undefined;
+  filtredColumns$: Observable<string[]>;
+  @BindObservable()
+  enableOnlyUpdateOrDelete: boolean = undefined;
+  enableOnlyUpdateOrDelete$: Observable<boolean>;
+  @BindObservable()
+  enableUpdateAndDelete: boolean = undefined;
+  enableUpdateAndDelete$: Observable<boolean>;
+  @BindObservable()
+  notReadonlyAndEnableCreate: boolean = undefined;
+  notReadonlyAndEnableCreate$: Observable<boolean>;
+  @BindObservable()
+  notReadonlyAndEnableDelete: boolean = undefined;
+  notReadonlyAndEnableDelete$: Observable<boolean>;
+  @BindObservable()
+  notReadonlyAndEnableUpdate: boolean = undefined;
+  notReadonlyAndEnableUpdate$: Observable<boolean>;
 
   private _selected: TModel[] = undefined;
-  private _items: TModel[] = undefined;
-  private _columns: string[] = undefined;
 
-  constructor(private _viewContainerRef: ViewContainerRef) {
+  constructor(
+    private _viewContainerRef: ViewContainerRef
+  ) {
     this.searchField.valueChanges
       .pipe(
         debounceTime(400),
@@ -176,20 +156,79 @@ export class EntityGridComponent<TModel extends IModel> {
       )
       .subscribe(value => this.onSearch(value));
   }
-  get isEnableAppendFromGrid() {
-    return !this.readonly && this.enableAppendFromGrid;
+  ngOnChanges(changes: SimpleChanges) {
+    this.calcParent();
+    this.calcEnableCreate();
+    this.calcEnableDelete();
+    this.calcEnableUpdate();
+    this.calcEnableOnlyUpdateOrDelete();
+    this.calcEnableUpdateAndDelete();
+    this.calcEnableAppendFromGrid();
+    if (changes.columns || changes.readonly || changes.enableDelete || changes.enableUpdate) {
+      this.setColumns(this.columns);
+    }
+    if (changes.items) {
+      this.setItems(this.items);
+    }
   }
-  get isEnableCreate() {
-    return !this.readonly && this.enableCreate;
+  calcEnableOnlyUpdateOrDelete() {
+    this.enableOnlyUpdateOrDelete =
+      (
+        this.notReadonlyAndEnableDelete &&
+        !this.notReadonlyAndEnableUpdate
+      ) || (
+        !this.notReadonlyAndEnableDelete &&
+        this.notReadonlyAndEnableUpdate
+      );
   }
-  get isEnableDelete() {
-    return !this.readonly && this.enableDelete;
+  calcEnableUpdateAndDelete() {
+    this.enableUpdateAndDelete =
+      this.notReadonlyAndEnableDelete &&
+      this.notReadonlyAndEnableUpdate;
   }
-  get isEnableUpdate() {
-    return !this.readonly && this.enableUpdate;
+  calcEnableAppendFromGrid() {
+    this.enableAppendFromGrid = !this.readonly && this.enableAppendFromGrid;
   }
-  get parent(): any {
-    return this._viewContainerRef['_view'].component;
+  calcEnableCreate() {
+    this.notReadonlyAndEnableCreate = !this.readonly && this.enableCreate;
+  }
+  calcEnableDelete() {
+    this.notReadonlyAndEnableDelete = !this.readonly && this.enableDelete;
+  }
+  calcEnableUpdate() {
+    this.notReadonlyAndEnableUpdate = !this.readonly && this.enableUpdate;
+  }
+  setColumns(columns: string[]) {
+    this.filtredColumns =
+      (columns || []).filter(column =>
+        column === 'action'
+          ? (
+            this.readonly === true || (
+              !this.readonly &&
+              this.enableDelete &&
+              this.enableUpdate
+            )
+              ? false
+              : true
+          )
+          : true
+      );
+  }
+  setItems(items: TModel[]) {
+    this.filteredItems = items;
+    if (
+      this.selectFirst !== false &&
+      items &&
+      items.length &&
+      items.filter(item => this._selected && this._selected.length && this._selected[0].id === item.id).length === 0
+    ) {
+      this.onSelected([]);
+    }
+  }
+  calcParent(): any {
+    if (this._viewContainerRef) {
+      this.parent = this._viewContainerRef['_view'].component;
+    }
   }
   onChangeOrder(column: string) {
     if (this.orderBy === `${column}`) {
@@ -212,7 +251,7 @@ export class EntityGridComponent<TModel extends IModel> {
     this.search.emit(text);
   }
   onDelete(item: TModel) {
-    if (isDevMode() && !this.isEnableDelete) {
+    if (isDevMode() && !this.notReadonlyAndEnableDelete) {
       console.warn('Delete action is disabled', this.parent);
     }
     if (isDevMode() && this.delete.observers.length === 0) {
@@ -221,7 +260,7 @@ export class EntityGridComponent<TModel extends IModel> {
     this.delete.emit(item);
   }
   onUpdate(item: TModel) {
-    if (isDevMode() && !this.isEnableUpdate) {
+    if (isDevMode() && !this.notReadonlyAndEnableUpdate) {
       console.warn('Update action is disabled', this.parent);
     }
     if (isDevMode() && this.update.observers.length === 0) {
@@ -230,7 +269,7 @@ export class EntityGridComponent<TModel extends IModel> {
     this.update.emit(item);
   }
   onCreate() {
-    if (isDevMode() && !this.isEnableCreate) {
+    if (isDevMode() && !this.notReadonlyAndEnableCreate) {
       console.warn('Create action is disabled', this.parent);
     }
     if (isDevMode() && this.create.observers.length === 0) {
@@ -251,7 +290,7 @@ export class EntityGridComponent<TModel extends IModel> {
       if (isDevMode() && this.dblClick.observers.length === 0) {
         console.warn('No subscribers found for "dblClick"', this.parent);
       }
-      if (this.readonly === true || !this.isEnableUpdate) {
+      if (this.readonly === true || !this.notReadonlyAndEnableUpdate) {
         if (isDevMode() && this.dblClick.observers.length === 0) {
           console.warn('Try call "view" for "dblClick"', this.parent);
         }
@@ -265,7 +304,7 @@ export class EntityGridComponent<TModel extends IModel> {
     }
   }
   onAppendFromGrid() {
-    if (isDevMode() && !this.isEnableAppendFromGrid) {
+    if (isDevMode() && !this.enableAppendFromGrid) {
       console.warn('Append from grid action is disabled', this.parent);
     }
     if (isDevMode() && this.appendFromGrid.observers.length === 0) {
@@ -277,11 +316,13 @@ export class EntityGridComponent<TModel extends IModel> {
     this._selected = [];
   }
   onSelected(items: TModel[]) {
-    if (this.selectFirst !== false && items && items.length === 0 && this._items && this._items.length) {
-      items = [this._items[0]];
+    if (this.selectFirst !== false && items && items.length === 0 && this.items && this.items.length) {
+      items = [this.items[0]];
     }
     this._selected = items;
-    this.selected.emit(items);
+    if (this.selected) {
+      this.selected.emit(items);
+    }
   }
   trackByFn(index, item) {
     return item.id;

@@ -2,7 +2,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { BindObservable } from 'bind-observable';
 import { Observable } from 'rxjs';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   // tslint:disable-next-line:component-selector
   selector: 'nav-sidebar',
