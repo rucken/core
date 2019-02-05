@@ -680,7 +680,7 @@ export class ThemesService {
   initCurrent() {
     return new Promise((resolve, reject) &#x3D;&gt; {
       this._storage.getItem(this._themesConfig.storageKeyName).then((data: string) &#x3D;&gt; {
-        if (data &amp;&amp; data !&#x3D;&#x3D; &#x27;undefined&#x27;) {
+        if (data &amp;&amp; data !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; data.indexOf(&#x27;http&#x27;) !&#x3D;&#x3D; -1) {
           resolve(data);
         } else {
           resolve(this.getCurrent());
@@ -697,7 +697,7 @@ export class ThemesService {
     });
   }
   getCurrent() {
-    if (!this.current) {
+    if (!this.current || this.current &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; || this.current.indexOf(&#x27;http&#x27;) &#x3D;&#x3D;&#x3D; -1) {
       return this.getStyleLinkHref();
     }
     return this.current;
@@ -745,8 +745,7 @@ export class ThemesService {
           link.getAttribute(&#x27;rel&#x27;) &amp;&amp;
           link.getAttribute(&#x27;rel&#x27;).indexOf(&#x27;style&#x27;) !&#x3D;&#x3D; -1 &amp;&amp;
           link.getAttribute(&#x27;title&#x27;) &amp;&amp;
-          link.getAttribute(&#x27;title&#x27;) &#x3D;&#x3D;&#x3D; &#x27;bootstrap&#x27; &amp;&amp;
-          link.getAttribute(&#x27;href&#x27;).indexOf(&#x27;/3/&#x27;) &#x3D;&#x3D;&#x3D; -1
+          link.getAttribute(&#x27;title&#x27;) &#x3D;&#x3D;&#x3D; &#x27;bootstrap&#x27;
         ) {
           return link.getAttribute(&#x27;href&#x27;);
         }
