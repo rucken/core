@@ -2,7 +2,7 @@ import { translate } from '@rucken/core';
 import { UsersFrameComponent } from './users-frame.component';
 import { MetaGuard } from '@ngx-meta/core';
 
-export const UsersFrameRoutes = [
+export const USERS_FRAME_ROUTES = [
   {
     path: '',
     component: UsersFrameComponent,

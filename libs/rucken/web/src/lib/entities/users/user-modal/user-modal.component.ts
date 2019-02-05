@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { BasePromptFormModalComponent, User } from '@rucken/core';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'user-modal',
   templateUrl: './user-modal.component.html',

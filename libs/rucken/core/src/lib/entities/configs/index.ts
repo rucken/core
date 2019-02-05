@@ -1,24 +1,24 @@
 import { Provider } from '@angular/core';
-import { CONTENT_TYPES_CONFIG_TOKEN, defaultContentTypesConfig } from './content-types.config';
-import { defaultGroupsConfig, GROUPS_CONFIG_TOKEN } from './groups.config';
-import { defaultPermissionsConfig, PERMISSIONS_CONFIG_TOKEN } from './permissions.config';
-import { defaultUsersConfig, USERS_CONFIG_TOKEN } from './users.config';
+import { CONTENT_TYPES_CONFIG_TOKEN, DEFAULT_CONTENT_TYPES_CONFIG } from './content-types.config';
+import { DEFAULT_GROUPS_CONFIG, GROUPS_CONFIG_TOKEN } from './groups.config';
+import { DEFAULT_PERMISSIONS_CONFIG, PERMISSIONS_CONFIG_TOKEN } from './permissions.config';
+import { DEFAULT_USERS_CONFIG, USERS_CONFIG_TOKEN } from './users.config';
 
-export const entitiesProviders: Provider[] = [
+export const ENTITIES_PROVIDERS: Provider[] = [
   {
     provide: CONTENT_TYPES_CONFIG_TOKEN,
-    useValue: defaultContentTypesConfig
+    useValue: DEFAULT_CONTENT_TYPES_CONFIG
   },
   {
     provide: GROUPS_CONFIG_TOKEN,
-    useValue: defaultGroupsConfig
+    useValue: DEFAULT_GROUPS_CONFIG
   },
   {
     provide: PERMISSIONS_CONFIG_TOKEN,
-    useValue: defaultPermissionsConfig
+    useValue: DEFAULT_PERMISSIONS_CONFIG
   },
   {
     provide: USERS_CONFIG_TOKEN,
-    useValue: defaultUsersConfig
+    useValue: DEFAULT_USERS_CONFIG
   }
 ];

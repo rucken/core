@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
-import { accountProviders } from './configs';
+import { ACCOUNT_PROVIDERS } from './configs';
 import { AccountService } from './account.service';
-import { ACCOUNT_CONFIG_TOKEN, defaultAccountConfig } from './configs/account.config';
+import { ACCOUNT_CONFIG_TOKEN, DEFAULT_ACCOUNT_CONFIG } from './configs/account.config';
 @NgModule({
   imports: [CommonModule],
   providers: [AccountService]
@@ -15,8 +15,8 @@ export class AccountModule {
         {
           provide: ACCOUNT_CONFIG_TOKEN,
           useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : defaultAccountConfig.apiUrl,
-            updateUrl: defaultAccountConfig.updateUrl
+            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_ACCOUNT_CONFIG.apiUrl,
+            updateUrl: DEFAULT_ACCOUNT_CONFIG.updateUrl
           }
         },
         AccountService

@@ -1,13 +1,6 @@
 import { EventEmitter, Input, isDevMode, Output } from '@angular/core';
 import { BindObservable } from 'bind-observable';
-import {
-  IFactoryModel,
-  IMockProviderOptions,
-  IModel,
-  IPaginationMeta,
-  IRestProviderOptions,
-  Repository
-} from 'ngx-repository';
+import { IFactoryModel, IMockProviderOptions, IModel, IPaginationMeta, IRestProviderOptions, Repository } from 'ngx-repository';
 import { forkJoin, Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
 import { IModalRef } from '../modules/modals/modal-ref.interface';
@@ -48,12 +41,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   @Input()
   apiUrl?: string = undefined;
   @Input()
-  set mockedItems(items: TModel[]) {
-    this._mockedItems = items;
-  }
-  get mockedItems() {
-    return this._mockedItems;
-  }
+  mockedItems: TModel[] = undefined;
   @Output()
   mockedItemsChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
   @Input()
@@ -80,7 +68,6 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
   createData: any;
   appendFromGridData: any;
 
-  private _mockedItems: TModel[] = undefined;
   private _selected: TModel[] = [];
 
   constructor(
@@ -194,7 +181,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.data = item;
+    modalRef.instance.setData(item);
     return modalRef;
   }
   createViewModal(item: TModel) {
@@ -231,7 +218,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.data = item;
+    modalRef.instance.setData(item);
     return modalRef;
   }
   createCreateModal(data?: any) {
@@ -269,7 +256,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     }
     modalRef.instance.yes.subscribe((modal: BasePromptFormModalComponent<TModel>) => {
       modal.processing = true;
-      this.repository.create(modal.data).subscribe(
+      this.repository.create(modal.getData()).subscribe(
         createdItem => {
           modal.processing = false;
           if (this.mockedItems) {
@@ -299,7 +286,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.data = item;
+    modalRef.instance.setData(item);
     return modalRef;
   }
   createUpdateModal(item: TModel) {
@@ -336,7 +323,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
     }
     modalRef.instance.yes.subscribe((modal: BasePromptFormModalComponent<TModel>) => {
       modal.processing = true;
-      this.repository.update(item.id, modal.data).subscribe(
+      this.repository.update(item.id, modal.getData()).subscribe(
         updatedItem => {
           modal.processing = false;
           if (this.mockedItems) {
@@ -371,7 +358,7 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.data = item;
+    modalRef.instance.setData(item);
     return modalRef;
   }
   createDeleteModal(item: TModel) {

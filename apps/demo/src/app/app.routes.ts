@@ -1,12 +1,43 @@
-import { Routes, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { AccountPageRoutes } from './pages/account-page/account-page.routes';
-import { AdminPageRoutes } from './pages/admin-page/admin-page.routes';
-import { EntitiesPageRoutes } from './pages/entities-page/entities-page.routes';
-import { HomePageRoutes } from './pages/home-page/home-page.routes';
-import { ThemesPageRoutes } from './pages/themes-page/themes-page.routes';
-import { OauthGuard } from '@rucken/core';
+import { Routes } from '@angular/router';
+import { AuthEmptyPageComponent, OauthGuard } from '@rucken/core';
+import { ACCOUNT_PAGE_ROUTES } from './pages/account-page/account-page.routes';
+import { ADMIN_PAGE_ROUTES } from './pages/admin-page/admin-page.routes';
+import { ENTITIES_PAGE_ROUTES } from './pages/entities-page/entities-page.routes';
+import { HOME_PAGE_ROUTES } from './pages/home-page/home-page.routes';
+import { THEMES_PAGE_ROUTES } from './pages/themes-page/themes-page.routes';
 
-export const AppRoutes: Routes = [
+export const OAUTH_ROUTES = [
+  {
+    path: 'auth/facebook',
+    component: AuthEmptyPageComponent,
+    canActivate: [OauthGuard],
+    data: {
+      oauth: {
+        provider: 'facebook',
+        redirectTo: {
+          ifSuccess: '/home',
+          ifFail: '/home'
+        }
+      }
+    }
+  },
+  {
+    path: 'auth/google-plus',
+    component: AuthEmptyPageComponent,
+    canActivate: [OauthGuard],
+    data: {
+      oauth: {
+        provider: 'google-plus',
+        redirectTo: {
+          ifSuccess: '/home',
+          ifFail: '/home'
+        }
+      }
+    }
+  }
+];
+export const APP_ROUTES: Routes = [
+  ...OAUTH_ROUTES,
   {
     path: '',
     redirectTo: '/home',
@@ -15,27 +46,27 @@ export const AppRoutes: Routes = [
   {
     path: 'home',
     loadChildren: './pages/home-page/home-page.module#HomePageModule',
-    data: HomePageRoutes[0].data
+    data: HOME_PAGE_ROUTES[0].data
   },
   {
     path: 'entities',
     loadChildren: './pages/entities-page/entities-page.module#EntitiesPageModule',
-    data: EntitiesPageRoutes[0].data
+    data: ENTITIES_PAGE_ROUTES[0].data
   },
   {
     path: 'themes',
     loadChildren: './pages/themes-page/themes-page.module#ThemesPageModule',
-    data: ThemesPageRoutes[0].data
+    data: THEMES_PAGE_ROUTES[0].data
   },
   {
     path: 'account',
     loadChildren: './pages/account-page/account-page.module#AccountPageModule',
-    data: AccountPageRoutes[0].data
+    data: ACCOUNT_PAGE_ROUTES[0].data
   },
   {
     path: 'admin',
     loadChildren: './pages/admin-page/admin-page.module#AdminPageModule',
-    data: AdminPageRoutes[0].data
+    data: ADMIN_PAGE_ROUTES[0].data
   },
   {
     path: '**',

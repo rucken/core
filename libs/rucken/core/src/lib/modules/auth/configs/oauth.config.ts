@@ -1,6 +1,6 @@
 import { IOauthConfig } from '../interfaces/oauth-config.interface';
 
-export const defaultOauthConfig: IOauthConfig = {
+export const DEFAULT_OAUTH_CONFIG: IOauthConfig = {
   apiUrl: '/api',
   signInUrl: '/auth/{provider}/signin',
   redirectUrl: '/auth/{provider}/uri',

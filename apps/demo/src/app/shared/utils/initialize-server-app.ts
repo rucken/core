@@ -15,7 +15,7 @@ export function initializeServerApp(
           authService.initializeApp().then(___ => {
             tokenService.initializeApp().then(____ => {
               const token = tokenService.getCurrent();
-              if (token && !tokenService.tokenHasExpired(token)) {
+              if (token && !tokenService.checkTokenHasExpired(token)) {
                 if (!authService.getCurrent()) {
                   authService.info(token).subscribe(
                     data => {

@@ -2,14 +2,24 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        bindIO
+        [title]="title"
+        [message]="message"
         [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"
+        [errorMessage]="errorMessage"
+        [readonly]="readonly"
+        [noTitle]="noTitle"
+        [yesTitle]="yesTitle"
+        (no)="onNoClick()"
+        (yes)="onYesClick()"
+        [data]="data"
+        [processing]="processing$ | async"
         [leftFooterButtonsTemplate]="signOutType !== type && !readonly ? leftFooterButtonsTemplate : null"
         [footerButtonsTemplate]="signOutType !== type && !readonly ? socialFooterButtonsTemplate : null"
-        #promptFormModal>
+        #promptFormModal
+        [yesClass]="yesClass$ | async"
+        [noClass]="noClass$ | async">
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="username"
             [title]="strings.username"
             *ngIf="signUpType === type">
@@ -19,8 +29,7 @@
                 focused>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="email"
             [title]="strings.email">
             <input
@@ -29,8 +38,7 @@
                 focused>
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="password"
             [title]="strings.password">
             <input
@@ -38,8 +46,7 @@
                 type="password">
         </form-group>
         <form-group
-            [checkIsDirty]="checkIsDirty"
-            [form]="form"
+            [bindIO]
             name="rePassword"
             [title]="strings.rePassword"
             *ngIf="signUpType === type">
@@ -99,7 +106,7 @@
             aria-labelledby="button-split">
             <li
                 role="menuitem"
-                *ngFor="let oauthProvider of (oauthProviders$ | async) as oauthProviders">
+                *ngFor="let oauthProvider of (oauthProviders$ | async)">
                 <a
                     href="javascript:void(0)"
                     class="dropdown-item"

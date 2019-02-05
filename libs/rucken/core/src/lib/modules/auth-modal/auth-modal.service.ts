@@ -22,11 +22,11 @@ export class AuthModalService {
     public errorsExtractor: ErrorsExtractor,
     public tokenService: TokenService,
     public modalsService: ModalsService
-  ) {}
+  ) { }
   onInfo() {
     const token = this.tokenService.getCurrent();
     if (token) {
-      if (this.tokenService.tokenHasExpired(token)) {
+      if (this.tokenService.checkTokenHasExpired(token)) {
         this.tokenService.stopCheckTokenHasExpired();
         this.modalsService
           .errorAsync({
@@ -85,15 +85,16 @@ export class AuthModalService {
           .oauthRedirectUrl(modal.yesData)
           .subscribe(data => this.onOauthSignInSuccess(modal, data), error => this.onSignInError(modal, error));
       } else {
+        const data = modal.getData();
         if (modal.type === AuthModalTypeEnum.SignIn) {
           this.authService
-            .signIn(modal.data.email, modal.data.password)
-            .subscribe(data => this.onSignInOrInfoSuccess(modal, data), error => this.onSignInError(modal, error));
+            .signIn(data.email, data.password)
+            .subscribe(result => this.onSignInOrInfoSuccess(modal, result), error => this.onSignInError(modal, error));
         }
         if (modal.type === AuthModalTypeEnum.SignUp) {
           this.authService
-            .signUp(modal.data.email, modal.data.password, modal.data.username)
-            .subscribe(data => this.onSignInOrInfoSuccess(modal, data), error => this.onSignInError(modal, error));
+            .signUp(data.email, data.password, data.username)
+            .subscribe(result => this.onSignInOrInfoSuccess(modal, result), error => this.onSignInError(modal, error));
         }
       }
     });

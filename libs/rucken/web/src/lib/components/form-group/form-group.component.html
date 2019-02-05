@@ -1,8 +1,8 @@
 <div
     class="form-group"
-    [ngClass]="{'has-error': (errors | async)[0]}"
-    [containerClass]="(errors | async)[0]?'error-tooltip':'success-tooltip'"
-    [tooltip]="(errors | async)[0] | translate"
+    [ngClass]="{'has-error': ((errors$ | async)||[])[0]}"
+    [containerClass]="((errors$ | async)||[])[0]?'error-tooltip':'success-tooltip'"
+    [tooltip]="((errors$ | async)||[])[0] | translate"
     [placement]="tooltipPlacement?tooltipPlacement:'bottom'">
     <label
         class="control-label"

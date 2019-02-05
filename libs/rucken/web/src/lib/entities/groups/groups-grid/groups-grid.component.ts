@@ -11,7 +11,9 @@ import {
 } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { GroupModalComponent } from '../group-modal/group-modal.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'groups-grid',
   templateUrl: './groups-grid.component.html',

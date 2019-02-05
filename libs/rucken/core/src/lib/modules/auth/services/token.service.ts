@@ -1,7 +1,8 @@
 import { isPlatformServer } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { BindObservable } from 'bind-observable';
 import { decode } from 'jsonwebtoken';
-import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { STORAGE_CONFIG_TOKEN } from '../../storage/configs/storage.config';
 import { IStorage } from '../../storage/interfaces/storage.interface';
 import { JWT_CONFIG_TOKEN } from '../configs/jwt.config';
@@ -13,8 +14,12 @@ export function tokenServiceInitializeApp(tokenService: TokenService) {
 
 @Injectable()
 export class TokenService {
-  current$ = new BehaviorSubject<string>(undefined);
-  tokenHasExpired$ = new BehaviorSubject<boolean | undefined>(undefined);
+  @BindObservable()
+  current: string = undefined;
+  current$: Observable<string>;
+  @BindObservable()
+  tokenHasExpired: boolean | undefined = undefined;
+  tokenHasExpired$: Observable<boolean | undefined>;
 
   private _checkTokenHasExpiredIntervalRef;
 
@@ -22,7 +27,7 @@ export class TokenService {
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
-  ) {}
+  ) { }
   initCurrent() {
     return new Promise((resolve, reject) => {
       this._storage.getItem(this._jwtConfig.storageKeyName).then((data: string) => {
@@ -43,13 +48,13 @@ export class TokenService {
     });
   }
   getCurrent() {
-    return this.current$.getValue();
+    return this.current;
   }
   setCurrent(value: string) {
     if (!value) {
-      this._storage.removeItem(this._jwtConfig.storageKeyName).then(_ => this.current$.next(undefined));
+      this._storage.removeItem(this._jwtConfig.storageKeyName).then(_ => this.current = undefined);
     } else {
-      this._storage.setItem(this._jwtConfig.storageKeyName, value).then(_ => this.current$.next(value));
+      this._storage.setItem(this._jwtConfig.storageKeyName, value).then(_ => this.current = value);
     }
   }
   stopCheckTokenHasExpired() {
@@ -62,8 +67,8 @@ export class TokenService {
   startCheckTokenHasExpired() {
     if (!isPlatformServer(this._platformId)) {
       this._checkTokenHasExpiredIntervalRef = setInterval(_ => {
-        if (this.tokenHasExpired()) {
-          this.tokenHasExpired$.next(true);
+        if (this.checkTokenHasExpired()) {
+          this.tokenHasExpired = true;
         }
       }, 30 * 1000);
     }
@@ -71,7 +76,7 @@ export class TokenService {
   getTokenData(token: string): { payload: { exp: number } } {
     return decode(token, { complete: true }) as any;
   }
-  tokenHasExpired(token?: string) {
+  checkTokenHasExpired(token?: string) {
     if (!token) {
       token = this.getCurrent();
     }

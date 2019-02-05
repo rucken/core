@@ -2,7 +2,7 @@ import { plainToClass } from 'class-transformer';
 import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
 import { Group } from '../models/group';
 
-export const defaultGroupsConfig: IRestProviderOptions<Group> = {
+export const DEFAULT_GROUPS_CONFIG: IRestProviderOptions<Group> = {
   name: 'group',
   pluralName: 'groups',
   autoload: true,

@@ -3,7 +3,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { ILangConfig } from './interfaces/lang-config.interface';
 import { LangService } from './services/lang.service';
-import { LANG_CONFIG_TOKEN, defaultLangConfig } from './configs/lang.config';
+import { LANG_CONFIG_TOKEN, DEFAULT_LANG_CONFIG } from './configs/lang.config';
 @NgModule({
   imports: [
     CommonModule,
@@ -21,10 +21,10 @@ export class LangModule {
         {
           provide: LANG_CONFIG_TOKEN,
           useValue: {
-            appLang: options.appLang ? options.appLang : defaultLangConfig.appLang,
-            defaultLang: options.defaultLang ? options.defaultLang : defaultLangConfig.defaultLang,
-            storageKeyName: options.storageKeyName ? options.storageKeyName : defaultLangConfig.storageKeyName,
-            languages: options.languages ? options.languages : defaultLangConfig.languages
+            appLang: options.appLang ? options.appLang : DEFAULT_LANG_CONFIG.appLang,
+            defaultLang: options.defaultLang ? options.defaultLang : DEFAULT_LANG_CONFIG.defaultLang,
+            storageKeyName: options.storageKeyName ? options.storageKeyName : DEFAULT_LANG_CONFIG.storageKeyName,
+            languages: options.languages ? options.languages : DEFAULT_LANG_CONFIG.languages
           }
         },
         LangService

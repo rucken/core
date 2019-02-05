@@ -71,6 +71,7 @@ export * from './lib/modules/auth/dto/user-token.dto';
 export * from './lib/modules/auth/guards/oauth.guard';
 export * from './lib/modules/auth/interceptors/token.interceptor';
 export * from './lib/modules/auth/interfaces/auth-config.interface';
+export * from './lib/modules/auth/interfaces/auth-oauth-provider.interface';
 export * from './lib/modules/auth/interfaces/jwt-config.interface';
 export * from './lib/modules/auth/interfaces/oauth-config.interface';
 export * from './lib/modules/auth/services/auth.service';

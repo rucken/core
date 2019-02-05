@@ -11,7 +11,9 @@ import {
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { PermissionsGridModalComponent } from '../permissions-grid-modal/permissions-grid-modal.component';
 import { PermissionsGridComponent } from '../permissions-grid/permissions-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'permission-input',
   templateUrl: './permission-input.component.html',

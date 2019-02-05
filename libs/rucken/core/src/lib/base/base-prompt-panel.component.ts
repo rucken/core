@@ -52,21 +52,15 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   @Input()
   validateForm = true;
 
-  get data() {
-    return this.form.object;
-  }
-  set data(data: TModel) {
-    this.form.object = data;
-  }
-
   form: DynamicFormGroup<TModel>;
   strings: any;
   formBuilder = new DynamicFormBuilder();
   yesData: any;
   noData: any;
 
-  propagateChange: any = () => {};
-  validateFn: any = () => {};
+  propagateChange: any = () => { };
+  validateFn: any = () => { };
+
 
   constructor(
     public factoryModel?: IFactoryModel<TModel>,
@@ -117,6 +111,20 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
       this.form = this.formBuilder.group(this.factoryModel, controlsConfig, extra);
     }
   }
+  get data() {
+    return this.getData();
+  }
+  set data(data: any) {
+    this.setData(data);
+  }
+  getData() {
+    return this.form && this.form.object;
+  }
+  setData(data: any) {
+    if (this.form) {
+      this.form.object = data;
+    }
+  }
   onNoClick(data?: any): void {
     this.noData = data;
     if (isDevMode() && this.no.observers.length === 0) {
@@ -139,13 +147,13 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
         if (isDevMode() && this.yes.observers.length === 0) {
           console.warn('No subscribers found for "yes"', this);
         }
-        this.propagateChange(this.data);
+        this.propagateChange(this.form.object);
         this.yes.emit(this);
       } else {
         this.form.validateAllFormFields();
       }
     } else {
-      this.propagateChange(this.data);
+      this.propagateChange(this.form.object);
       this.yes.emit(this);
     }
   }
@@ -153,13 +161,13 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
     return this.validateFn(c);
   }
   ngOnChanges(inputs) {
-    this.propagateChange(this.data);
+    this.propagateChange(this.form.object);
   }
   writeValue(value) {
-    this.data = value;
+    this.setData(value);
   }
   registerOnChange(fn) {
     this.propagateChange = fn;
   }
-  registerOnTouched() {}
+  registerOnTouched() { }
 }

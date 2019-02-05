@@ -4,7 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, ModalsService, User, USERS_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { UsersGridComponent } from '../users-grid/users-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'user-select',
   templateUrl: './user-select.component.html',

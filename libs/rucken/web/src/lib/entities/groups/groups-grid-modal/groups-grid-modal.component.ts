@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
 import { BaseEntityListModalComponent, Group } from '@rucken/core';
 import { GroupsGridComponent } from '../groups-grid/groups-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'groups-grid-modal',
   templateUrl: './groups-grid-modal.component.html',

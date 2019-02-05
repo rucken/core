@@ -11,7 +11,9 @@ import {
 } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { UserModalComponent } from '../user-modal/user-modal.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'users-grid',
   templateUrl: './users-grid.component.html',

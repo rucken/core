@@ -1,5 +1,6 @@
 import { Input, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BindObservable } from 'bind-observable';
+import { Observable } from 'rxjs';
 import { BasePromptFormModalComponent } from '../../base/base-prompt-form-modal.component';
 import { translate } from '../../utils/translate';
 import { AuthModalTypeEnum } from './auth-modal-type.enum';
@@ -25,11 +26,13 @@ export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalMo
   @Input()
   signOutMesage = translate('Do you really want to leave?');
 
-  signInInfoMessage: string;
-  signUpInfoMessage: string;
+  signInInfoMessage: string = undefined;
+  signUpInfoMessage: string = undefined;
 
-  extTitle: string;
-  oauthProviders$ = new BehaviorSubject<IAuthModalOauthProvider[]>([]);
+  extTitle: string = undefined;
+  @BindObservable()
+  oauthProviders: IAuthModalOauthProvider[] = [];
+  oauthProviders$: Observable<IAuthModalOauthProvider[]>;
 
   signInType = AuthModalTypeEnum.SignIn;
   signUpType = AuthModalTypeEnum.SignUp;
@@ -38,7 +41,7 @@ export class AuthModalComponent extends BasePromptFormModalComponent<AuthModalMo
   constructor(protected authModalConfig: IAuthModalConfig) {
     super();
     this.initSignIn();
-    this.oauthProviders$.next(this.authModalConfig.oauth.providers);
+    this.oauthProviders = this.authModalConfig.oauth.providers;
   }
   ngOnInit() {
     if (this.type === AuthModalTypeEnum.SignIn) {

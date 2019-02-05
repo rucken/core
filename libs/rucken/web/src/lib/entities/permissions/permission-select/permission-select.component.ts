@@ -4,7 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, ModalsService, Permission, PERMISSIONS_CONFIG_TOKEN } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { PermissionsGridComponent } from '../permissions-grid/permissions-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'permission-select',
   templateUrl: './permission-select.component.html',

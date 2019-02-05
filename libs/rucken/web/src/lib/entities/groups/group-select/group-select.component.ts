@@ -4,7 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, ModalsService } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { GroupsGridComponent } from '../groups-grid/groups-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'group-select',
   templateUrl: './group-select.component.html',

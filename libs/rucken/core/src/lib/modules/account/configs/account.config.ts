@@ -1,6 +1,6 @@
 import { IAccountConfig } from '../interfaces/account-config.interface';
 
-export const defaultAccountConfig: IAccountConfig = {
+export const DEFAULT_ACCOUNT_CONFIG: IAccountConfig = {
   apiUrl: '/api',
   updateUrl: '/account/update'
 };

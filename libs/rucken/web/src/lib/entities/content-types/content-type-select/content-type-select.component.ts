@@ -4,7 +4,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { ContentType, CONTENT_TYPES_CONFIG_TOKEN, ErrorsExtractor, ModalsService } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { ContentTypesGridComponent } from '../content-types-grid/content-types-grid.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'content-type-select',
   templateUrl: './content-type-select.component.html',

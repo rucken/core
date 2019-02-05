@@ -1,4 +1,4 @@
-import { EventEmitter, Input, isDevMode, Output, ViewChild } from '@angular/core';
+import { EventEmitter, Input, isDevMode, OnChanges, Output, SimpleChanges, ViewChild } from '@angular/core';
 import { BindObservable } from 'bind-observable';
 import { IModel } from 'ngx-repository';
 import { Observable } from 'rxjs';
@@ -8,7 +8,7 @@ import { IBaseEntityListModal } from './base-entity-list-modal.interface';
 import { IBaseEntityList } from './base-entity-list.interface';
 import { IBaseEntityModalOptions } from './base-entity-modals.interface';
 
-export class BaseEntityListModalComponent<TModel extends IModel> implements IBaseEntityListModal<TModel> {
+export class BaseEntityListModalComponent<TModel extends IModel> implements IBaseEntityListModal<TModel>, OnChanges {
   @Input()
   modalItem: IBaseEntityModalOptions = {};
   @Input()
@@ -67,23 +67,24 @@ export class BaseEntityListModalComponent<TModel extends IModel> implements IBas
   grid: IBaseEntityList<TModel>;
 
   @Input()
-  set mockedItems(items: TModel[]) {
-    this._mockedItems = items;
-    this.grid.mockedItems = this.mockedItems;
-  }
-  get mockedItems() {
-    return this._mockedItems;
-  }
+  mockedItems: TModel[] = undefined;
   @Output()
   mockedItemsChange: EventEmitter<TModel[]> = new EventEmitter<TModel[]>();
 
   yesData: any;
   noData: any;
 
-  private _mockedItems: TModel[] = undefined;
-
   modalRef: IModalRef<BaseEntityListModalComponent<TModel>>;
 
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.mockedItems) {
+      this.setMockedItems(changes.mockedItems.currentValue);
+    }
+  }
+  setMockedItems(items: TModel[]) {
+    this.mockedItems = items;
+    this.grid.mockedItems = this.mockedItems;
+  }
   onNoClick(data?: any): void {
     this.noData = data;
     this.no.emit(this);

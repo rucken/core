@@ -11,7 +11,9 @@ import {
 } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { ContentTypeModalComponent } from '../content-type-modal/content-type-modal.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'content-types-grid',
   templateUrl: './content-types-grid.component.html',

@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <th
-                    *ngFor="let col of columns"
+                    *ngFor="let col of (filtredColumns$ | async)"
                     class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:''}}"
                     [ngClass]="{'text-center':col==='action','width-100': enableUpdateAndDelete && col==='action','width-50': enableOnlyUpdateOrDelete && col==='action'}">
                     <ng-container *ngTemplateOutlet="gridFieldTemplate ? gridFieldTemplate : defaultGridFieldTemplate, context: { $implicit: {field:{name:col}} }"></ng-container>
@@ -14,9 +14,9 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngIf="!processing && (!items || !items.length)">
+            <tr *ngIf="!processing && (!(filteredItems$ | async) || !(filteredItems$ | async).length)">
                 <td
-                    [attr.colspan]="columns?.length"
+                    [attr.colspan]="(filtredColumns$ | async)?.length"
                     class="text-center"
                     translate>
                     No data
@@ -24,7 +24,7 @@
             </tr>
             <tr *ngIf="processing">
                 <td
-                    [attr.colspan]="columns?.length"
+                    [attr.colspan]="(filtredColumns$ | async)?.length"
                     class="text-center"
                     translate>
                     <fa-layers
@@ -38,11 +38,11 @@
                 </td>
             </tr>
             <tr
-                *ngFor="let item of items; trackBy: trackByFn;"
+                *ngFor="let item of (filteredItems$ | async); trackBy: trackByFn;"
                 (dblclick)="onDblClick(item)"
                 [ngClass]="{'info':isSelected(item)}">
                 <td
-                    *ngFor="let col of columns"
+                    *ngFor="let col of (filtredColumns$ | async)"
                     (click)="col!=='action'?toggle(item, col):null"
                     class="{{(columnsClasses && columnsClasses[col])?columnsClasses[col]:''}}"
                     [ngClass]="{'text-center':col==='action','width-100': enableUpdateAndDelete && col==='action','width-50': enableOnlyUpdateOrDelete && col==='action'}">
@@ -59,11 +59,11 @@
     #entityGridHeaderTemplate
     let-ctx>
     <form
-        [ngClass]="{'form-inline':isEnableCreate || title}"
-        *ngIf="!isAppendFromGridMode">
+        [ngClass]="{'form-inline':(notReadonlyAndEnableCreate$ | async) || title}"
+        *ngIf="!enableAppendFromGrid">
         <div
             class="row"
-            *ngIf="isEnableCreate">
+            *ngIf="notReadonlyAndEnableCreate$ | async">
             <div class="col-sm-4">
                 <button
                     type="button"
@@ -84,7 +84,7 @@
         </div>
         <div
             class="row"
-            *ngIf="!isEnableCreate">
+            *ngIf="!(notReadonlyAndEnableCreate$ | async)">
             <div
                 class="col-sm-12"
                 *ngIf="!title">
@@ -106,10 +106,10 @@
             </div>
         </div>
     </form>
-    <div *ngIf="isAppendFromGridMode">
+    <ng-container *ngIf="enableAppendFromGrid">
         <div
             class="row"
-            *ngIf="isEnableAppendFromGrid">
+            *ngIf="notReadonlyAndEnableCreate$ | async">
             <div class="col-sm-8">
                 <h4>{{title | translate}}</h4>
             </div>
@@ -125,12 +125,12 @@
         </div>
         <div
             class="row"
-            *ngIf="!isEnableAppendFromGrid">
+            *ngIf="!(notReadonlyAndEnableCreate$ | async)">
             <div class="col-sm-12">
                 <h4>{{title | translate}}</h4>
             </div>
         </div>
-    </div>
+    </ng-container>
 </ng-template>
 <ng-template
     #entityGridFooterTemplate
@@ -206,14 +206,14 @@
         type="button"
         class="btn btn-default btn-sm"
         (click)="onUpdate(ctx.item)"
-        *ngIf="isEnableUpdate">
+        *ngIf="notReadonlyAndEnableUpdate$ | async">
         <fa-icon [icon]="['fas', 'edit']"></fa-icon>
     </button>
     <button
         type="button"
         class="btn btn-default btn-sm"
         (click)="onDelete(ctx.item)"
-        *ngIf="isEnableDelete">
+        *ngIf="notReadonlyAndEnableDelete$ | async">
         <fa-icon [icon]="['fas', 'trash']"></fa-icon>
     </button>
 </ng-template>

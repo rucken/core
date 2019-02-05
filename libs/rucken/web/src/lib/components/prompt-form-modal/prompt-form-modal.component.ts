@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, TemplateRef } from '@angular/core';
 import { BasePromptModalComponent } from '@rucken/core';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'prompt-form-modal',
   templateUrl: './prompt-form-modal.component.html',

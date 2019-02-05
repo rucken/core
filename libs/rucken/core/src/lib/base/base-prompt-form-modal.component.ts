@@ -57,22 +57,13 @@ export class BasePromptFormModalComponent<TModel extends IModel> implements IBas
   @Input()
   hideOnYes = false;
 
-  get data() {
-    return this.form && this.form.object;
-  }
-  set data(data: any) {
-    if (this.form) {
-      this.form.object = data;
-    }
-  }
-
-  form: DynamicFormGroup<TModel>;
-  strings: any;
+  form: DynamicFormGroup<TModel> = undefined;
+  strings: any = undefined;
   formBuilder = new DynamicFormBuilder();
-  yesData: any;
-  noData: any;
+  yesData: any = undefined;
+  noData: any = undefined;
 
-  modalRef: IModalRef<BasePromptFormModalComponent<TModel>>;
+  modalRef: IModalRef<BasePromptFormModalComponent<TModel>> = undefined;
 
   constructor(
     private _factoryModel?: IFactoryModel<TModel>,
@@ -121,6 +112,20 @@ export class BasePromptFormModalComponent<TModel extends IModel> implements IBas
         keys.map(key => (controlsConfig[key] = ''));
       }
       this.form = this.formBuilder.group(this._factoryModel, controlsConfig, extra);
+    }
+  }
+  get data() {
+    return this.getData();
+  }
+  set data(data: any) {
+    this.setData(data);
+  }
+  getData() {
+    return this.form && this.form.object;
+  }
+  setData(data: any) {
+    if (this.form) {
+      this.form.object = data;
     }
   }
   onYesClick(data?: any) {

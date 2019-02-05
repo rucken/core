@@ -1,16 +1,12 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, isDevMode, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, Input, isDevMode, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  AccountService,
-  AuthService,
-  BasePromptPanelComponent,
-  ErrorsExtractor,
-  ModalsService,
-  User
-} from '@rucken/core';
-import { Subject } from 'rxjs';
+import { AccountService, AuthService, BasePromptPanelComponent, ErrorsExtractor, ModalsService, User } from '@rucken/core';
+import { BindObservable } from 'bind-observable';
+import { BindIoInner } from 'ngx-bind-io';
+import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+@BindIoInner()
 @Component({
   selector: 'profile-panel',
   templateUrl: './profile-panel.component.html',
@@ -28,7 +24,7 @@ import { takeUntil } from 'rxjs/operators';
     }
   ]
 })
-export class ProfilePanelComponent extends BasePromptPanelComponent<User> implements OnDestroy {
+export class ProfilePanelComponent extends BasePromptPanelComponent<User> implements OnDestroy, OnChanges {
   @Input()
   yesClass = 'btn btn-primary';
   @Input()
@@ -37,6 +33,10 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
   enableSave = true;
   @Input()
   simpleMode = false;
+
+  @BindObservable()
+  readonlyOrNotEnableSave: boolean = undefined;
+  readonlyOrNotEnableSave$: Observable<boolean>;
 
   private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
@@ -49,27 +49,32 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     super(User);
     this._authService.current$.pipe(takeUntil(this._destroyed$)).subscribe(user => {
       if (user) {
-        this.data = user;
+        this.setData(user);
       }
     });
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    if (
+      (changes.readonly && changes.readonly.currentValue !== changes.readonly.previousValue) ||
+      (changes.enableSave && changes.enableSave.currentValue !== changes.enableSave.previousValue)
+    ) {
+      this.readonlyOrNotEnableSave = this.readonly || !this.enableSave;
+    }
   }
   ngOnDestroy() {
     this._destroyed$.next(true);
     this._destroyed$.complete();
   }
-  get isReadonly() {
-    return this.readonly || !this.enableSave;
-  }
   onSaveClick(saveData?: any) {
     this.processing = true;
     this._accountService
-      .update(this.data)
+      .update(this.getData())
       .subscribe(data => this.onSave(data.user, saveData), error => this.onSaveError(error));
   }
   onSave(user: User, saveData?: any) {
     this.processing = false;
     this.form.clearExternalErrorsAsync().then(() => {
-      this.data = user;
+      this.setData(user);
       this._authService.setCurrent(user);
     });
   }

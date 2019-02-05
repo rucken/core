@@ -1,6 +1,6 @@
 import { IAuthConfig } from '../interfaces/auth-config.interface';
 
-export const defaultAuthConfig: IAuthConfig = {
+export const DEFAULT_AUTH_CONFIG: IAuthConfig = {
   apiUrl: '/api',
   signInUrl: '/auth/signin',
   signUpUrl: '/auth/signup',

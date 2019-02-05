@@ -2,7 +2,7 @@ import { translate } from '@rucken/core';
 import { ContentTypesFrameComponent } from './content-types-frame.component';
 import { MetaGuard } from '@ngx-meta/core';
 
-export const ContentTypesFrameRoutes = [
+export const CONTENT_TYPES_FRAME_ROUTES = [
   {
     path: '',
     component: ContentTypesFrameComponent,

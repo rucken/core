@@ -5,16 +5,16 @@ import { PermissionsGridModule } from '@rucken/web';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { SharedModule } from '../../../shared/shared.module';
 import { PermissionsFrameComponent } from './permissions-frame.component';
-import { PermissionsFrameRoutes } from './permissions-frame.routes';
+import { PERMISSIONS_FRAME_ROUTES } from './permissions-frame.routes';
 
 @NgModule({
   imports: [
     SharedModule,
     NgxPermissionsModule.forChild(),
-    RouterModule.forChild(PermissionsFrameRoutes),
+    RouterModule.forChild(PERMISSIONS_FRAME_ROUTES),
     PermissionsGridModule,
     FormsModule
   ],
   declarations: [PermissionsFrameComponent]
 })
-export class PermissionsFrameModule {}
+export class PermissionsFrameModule { }

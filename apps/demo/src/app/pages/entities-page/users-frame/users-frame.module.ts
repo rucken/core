@@ -5,16 +5,16 @@ import { UsersGridModule } from '@rucken/web';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { SharedModule } from '../../../shared/shared.module';
 import { UsersFrameComponent } from './users-frame.component';
-import { UsersFrameRoutes } from './users-frame.routes';
+import { USERS_FRAME_ROUTES } from './users-frame.routes';
 
 @NgModule({
   imports: [
     SharedModule,
     NgxPermissionsModule.forChild(),
-    RouterModule.forChild(UsersFrameRoutes),
+    RouterModule.forChild(USERS_FRAME_ROUTES),
     UsersGridModule,
     FormsModule
   ],
   declarations: [UsersFrameComponent]
 })
-export class UsersFrameModule {}
+export class UsersFrameModule { }

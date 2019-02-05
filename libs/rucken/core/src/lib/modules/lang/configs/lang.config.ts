@@ -1,6 +1,6 @@
 import { ILangConfig } from '../interfaces/lang-config.interface';
 
-export const defaultLangConfig: ILangConfig = {
+export const DEFAULT_LANG_CONFIG: ILangConfig = {
   appLang: 'en',
   defaultLang: 'en',
   storageKeyName: 'lang'

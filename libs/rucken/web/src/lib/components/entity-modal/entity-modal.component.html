@@ -2,11 +2,10 @@
     [formGroup]="form"
     *ngIf="form"
     novalidate>
-    <prompt-form-modal bindIO>
+    <prompt-form-modal [bindIO]>
         <span *ngFor="let key of keys; let i = index">
             <form-group
-                [checkIsDirty]="checkIsDirty"
-                [form]="form"
+                [bindIO]
                 [name]="key"
                 [title]="strings[key]">
                 <input

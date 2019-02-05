@@ -11,7 +11,9 @@ import {
 } from '@rucken/core';
 import { DynamicRepository, IRestProviderOptions } from 'ngx-repository';
 import { PermissionModalComponent } from '../permission-modal/permission-modal.component';
+import { BindIoInner } from 'ngx-bind-io';
 
+@BindIoInner()
 @Component({
   selector: 'permissions-grid',
   templateUrl: './permissions-grid.component.html',

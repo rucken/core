@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { BindObservable } from 'bind-observable';
 import { plainToClass } from 'class-transformer';
 import { NgxPermissionsService } from 'ngx-permissions';
-import { BehaviorSubject, Observable, of, throwError } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../../../entities/models/user';
 import { EMPTY_PERMISSIONS, INITED_PERMISSIONS } from '../../../utils/permissions-guard.const';
@@ -20,7 +21,9 @@ export function authServiceInitializeApp(authService: AuthService) {
 
 @Injectable()
 export class AuthService {
-  current$ = new BehaviorSubject<User>(undefined);
+  @BindObservable()
+  current: User = undefined;
+  current$: Observable<User>;
 
   constructor(
     @Inject(AUTH_CONFIG_TOKEN) private _authConfig: IAuthConfig,
@@ -43,16 +46,16 @@ export class AuthService {
     });
   }
   getCurrent() {
-    return this.current$.getValue();
+    return this.current;
   }
   setCurrent(value: User) {
     if (!value) {
-      this.clearPermissions().then(_ => this.current$.next(undefined));
+      this.clearPermissions().then(_ => this.current = undefined);
     } else {
       if (value.permissionNames.length) {
-        this.loadPermissions(value).then(_ => this.current$.next(value));
+        this.loadPermissions(value).then(_ => this.current = value);
       } else {
-        this.clearPermissions().then(_ => this.current$.next(undefined));
+        this.clearPermissions().then(_ => this.current = undefined);
       }
     }
   }
@@ -106,26 +109,26 @@ export class AuthService {
       })
       .pipe(map(data => plainToClass(UserTokenDto, data)));
   }
-  oauthRedirectUrl(provider: string): Observable<RedirectUrlDto> {
-    if (this._oauthConfig.providers.indexOf(provider) === -1) {
+  oauthRedirectUrl(providerName: string): Observable<RedirectUrlDto> {
+    if (this._oauthConfig.providers.map(provider => provider.name).indexOf(providerName) === -1) {
       return throwError(
         this._translateService
           .instant('Oauth provider with name "{provider}" not founded')
-          .replace('{provider}', provider)
+          .replace('{provider}', providerName)
       );
     }
-    const uri = this._oauthConfig.apiUrl + this._oauthConfig.redirectUrl.replace('{provider}', provider);
+    const uri = this._oauthConfig.apiUrl + this._oauthConfig.redirectUrl.replace('{provider}', providerName);
     return this._httpClient.get(uri).pipe(map(data => plainToClass(RedirectUrlDto, data)));
   }
-  oauthSignIn(provider: string, code: string): Observable<UserTokenDto> {
-    if (this._oauthConfig.providers.indexOf(provider) === -1) {
+  oauthSignIn(providerName: string, code: string): Observable<UserTokenDto> {
+    if (this._oauthConfig.providers.map(provider => provider.name).indexOf(providerName) === -1) {
       return throwError(
         this._translateService
           .instant('Oauth provider with name "{provider}" not founded')
-          .replace('{provider}', provider)
+          .replace('{provider}', providerName)
       );
     }
-    const uri = this._oauthConfig.apiUrl + this._oauthConfig.signInUrl.replace('{provider}', provider);
+    const uri = this._oauthConfig.apiUrl + this._oauthConfig.signInUrl.replace('{provider}', providerName);
     return this._httpClient
       .post(uri, {
         code
