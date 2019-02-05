@@ -1,9 +1,9 @@
 import { MetaGuard } from '@ngx-meta/core';
 import { PermissionsGuard, translate } from '@rucken/core';
-import { AccountPageChildrenRoutes } from './account-page.children-routes';
+import { ACCOUNT_PAGE_CHILDREN_ROUTES } from './account-page.children-routes';
 import { AccountPageComponent } from './account-page.component';
 
-export const AccountPageRoutes = [
+export const ACCOUNT_PAGE_ROUTES = [
   {
     path: '',
     component: AccountPageComponent,
@@ -19,6 +19,6 @@ export const AccountPageRoutes = [
         description: translate('Account page')
       }
     },
-    children: AccountPageChildrenRoutes
+    children: ACCOUNT_PAGE_CHILDREN_ROUTES
   }
 ];

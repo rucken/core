@@ -2,23 +2,14 @@ import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  AuthModalComponent,
-  AuthModalService,
-  AuthService,
-  LangService,
-  RedirectUrlDto,
-  TokenService,
-  User,
-  UserTokenDto
-} from '@rucken/core';
+import { AuthModalComponent, AuthModalService, AuthService, LangService, RedirectUrlDto, TokenService, User, UserTokenDto } from '@rucken/core';
 import { NavbarComponent } from '@rucken/web';
+import { BindIoInner } from 'ngx-bind-io';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { AuthModalSignInInfoMessage, AuthModalSignUpInfoMessage } from './app.config';
-import { AppRoutes } from './app.routes';
-import { BindIoInner } from 'ngx-bind-io';
+import { APP_ROUTES } from './app.routes';
+import { config } from './config/config';
 
 @BindIoInner()
 @Component({
@@ -43,8 +34,8 @@ export class AppComponent implements OnDestroy, OnInit {
     private _authModalService: AuthModalService,
     @Inject(PLATFORM_ID) private _platformId: Object
   ) {
-    this._authModalService.signInInfoMessage = AuthModalSignInInfoMessage;
-    this._authModalService.signUpInfoMessage = AuthModalSignUpInfoMessage;
+    this._authModalService.signInInfoMessage = config.authModal.signInInfoMessage;
+    this._authModalService.signUpInfoMessage = config.authModal.signUpInfoMessage;
     this.currentUser$ = this._authService.current$;
     this._langService.current$.pipe(takeUntil(this._destroyed$)).subscribe(lang => {
       this._bsLocaleService.use(lang);
@@ -63,7 +54,7 @@ export class AppComponent implements OnDestroy, OnInit {
     if (isPlatformBrowser(this._platformId)) {
       this.onInfo();
     }
-    this.navbar.setRoutes(AppRoutes);
+    this.navbar.setRoutes(APP_ROUTES);
   }
   ngOnDestroy() {
     this._destroyed$.next(true);

@@ -1,9 +1,9 @@
 import { translate } from '@rucken/core';
-import { EntitiesPageChildrenRoutes } from './entities-page.children-routes';
+import { ENTITIES_PAGE_CHILDREN_ROUTES } from './entities-page.children-routes';
 import { EntitiesPageComponent } from './entities-page.component';
 import { MetaGuard } from '@ngx-meta/core';
 
-export const EntitiesPageRoutes = [
+export const ENTITIES_PAGE_ROUTES = [
   {
     path: '',
     component: EntitiesPageComponent,
@@ -15,6 +15,6 @@ export const EntitiesPageRoutes = [
         description: translate('Entities page')
       }
     },
-    children: EntitiesPageChildrenRoutes
+    children: ENTITIES_PAGE_CHILDREN_ROUTES
   }
 ];

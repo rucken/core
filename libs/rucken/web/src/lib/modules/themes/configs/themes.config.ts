@@ -1,6 +1,6 @@
 import { IThemesConfig } from '../interfaces/themes-config.interface';
 
-export const defaultThemesConfig: IThemesConfig = {
+export const DEFAULT_THEMES_CONFIG: IThemesConfig = {
   mockedItems: [
     {
       name: 'Default',

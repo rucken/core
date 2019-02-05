@@ -1,9 +1,9 @@
 import { MetaGuard } from '@ngx-meta/core';
 import { PermissionsGuard, translate } from '@rucken/core';
-import { AdminPageChildrenRoutes } from './admin-page.children-routes';
+import { ADMIN_PAGE_CHILDREN_ROUTES } from './admin-page.children-routes';
 import { AdminPageComponent } from './admin-page.component';
 
-export const AdminPageRoutes = [
+export const ADMIN_PAGE_ROUTES = [
   {
     path: '',
     component: AdminPageComponent,
@@ -19,6 +19,6 @@ export const AdminPageRoutes = [
         description: translate('Administration page')
       }
     },
-    children: AdminPageChildrenRoutes
+    children: ADMIN_PAGE_CHILDREN_ROUTES
   }
 ];

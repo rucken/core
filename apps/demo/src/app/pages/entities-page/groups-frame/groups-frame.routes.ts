@@ -2,7 +2,7 @@ import { translate } from '@rucken/core';
 import { GroupsFrameComponent } from './groups-frame.component';
 import { MetaGuard } from '@ngx-meta/core';
 
-export const GroupsFrameRoutes = [
+export const GROUPS_FRAME_ROUTES = [
   {
     path: '',
     component: GroupsFrameComponent,

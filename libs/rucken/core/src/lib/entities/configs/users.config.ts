@@ -2,7 +2,7 @@ import { plainToClass } from 'class-transformer';
 import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
 import { User } from '../models/user';
 
-export const defaultUsersConfig: IRestProviderOptions<User> = {
+export const DEFAULT_USERS_CONFIG: IRestProviderOptions<User> = {
   name: 'user',
   pluralName: 'users',
   autoload: true,

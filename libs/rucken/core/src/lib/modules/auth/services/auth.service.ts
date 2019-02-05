@@ -109,26 +109,26 @@ export class AuthService {
       })
       .pipe(map(data => plainToClass(UserTokenDto, data)));
   }
-  oauthRedirectUrl(provider: string): Observable<RedirectUrlDto> {
-    if (this._oauthConfig.providers.indexOf(provider) === -1) {
+  oauthRedirectUrl(providerName: string): Observable<RedirectUrlDto> {
+    if (this._oauthConfig.providers.map(provider => provider.name).indexOf(providerName) === -1) {
       return throwError(
         this._translateService
           .instant('Oauth provider with name "{provider}" not founded')
-          .replace('{provider}', provider)
+          .replace('{provider}', providerName)
       );
     }
-    const uri = this._oauthConfig.apiUrl + this._oauthConfig.redirectUrl.replace('{provider}', provider);
+    const uri = this._oauthConfig.apiUrl + this._oauthConfig.redirectUrl.replace('{provider}', providerName);
     return this._httpClient.get(uri).pipe(map(data => plainToClass(RedirectUrlDto, data)));
   }
-  oauthSignIn(provider: string, code: string): Observable<UserTokenDto> {
-    if (this._oauthConfig.providers.indexOf(provider) === -1) {
+  oauthSignIn(providerName: string, code: string): Observable<UserTokenDto> {
+    if (this._oauthConfig.providers.map(provider => provider.name).indexOf(providerName) === -1) {
       return throwError(
         this._translateService
           .instant('Oauth provider with name "{provider}" not founded')
-          .replace('{provider}', provider)
+          .replace('{provider}', providerName)
       );
     }
-    const uri = this._oauthConfig.apiUrl + this._oauthConfig.signInUrl.replace('{provider}', provider);
+    const uri = this._oauthConfig.apiUrl + this._oauthConfig.signInUrl.replace('{provider}', providerName);
     return this._httpClient
       .post(uri, {
         code

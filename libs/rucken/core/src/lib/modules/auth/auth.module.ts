@@ -4,11 +4,12 @@ import { APP_INITIALIZER, ModuleWithProviders, NgModule } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AuthEmptyPageComponent } from './components/auth-empty-page.component';
-import { AUTH_CONFIG_TOKEN, defaultAuthConfig } from './configs/auth.config';
-import { defaultJwtConfig, JWT_CONFIG_TOKEN } from './configs/jwt.config';
-import { defaultOauthConfig, OAUTH_CONFIG_TOKEN } from './configs/oauth.config';
+import { AUTH_CONFIG_TOKEN, DEFAULT_AUTH_CONFIG } from './configs/auth.config';
+import { DEFAULT_JWT_CONFIG, JWT_CONFIG_TOKEN } from './configs/jwt.config';
+import { DEFAULT_OAUTH_CONFIG, OAUTH_CONFIG_TOKEN } from './configs/oauth.config';
 import { OauthGuard } from './guards/oauth.guard';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { IAuthOauthProvider } from './interfaces/auth-oauth-provider.interface';
 import { AuthService, authServiceInitializeApp } from './services/auth.service';
 import { TokenService, tokenServiceInitializeApp } from './services/token.service';
 @NgModule({
@@ -17,37 +18,37 @@ import { TokenService, tokenServiceInitializeApp } from './services/token.servic
   providers: [AuthService, TokenService, OauthGuard]
 })
 export class AuthModule {
-  static forRoot(options?: { apiUrl?: string; oauth?: { providers?: string[] } }): ModuleWithProviders {
+  static forRoot(options?: { apiUrl?: string; oauth?: { providers?: IAuthOauthProvider[] } }): ModuleWithProviders {
     return {
       ngModule: AuthModule,
       providers: [
         {
           provide: AUTH_CONFIG_TOKEN,
           useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : defaultAuthConfig.apiUrl,
-            infoUrl: defaultAuthConfig.infoUrl,
-            signInUrl: defaultAuthConfig.signInUrl,
-            signUpUrl: defaultAuthConfig.signUpUrl
+            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_AUTH_CONFIG.apiUrl,
+            infoUrl: DEFAULT_AUTH_CONFIG.infoUrl,
+            signInUrl: DEFAULT_AUTH_CONFIG.signInUrl,
+            signUpUrl: DEFAULT_AUTH_CONFIG.signUpUrl
           }
         },
         {
           provide: JWT_CONFIG_TOKEN,
           useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : defaultJwtConfig.apiUrl,
-            headerName: defaultJwtConfig.headerName,
-            headerPrefix: defaultJwtConfig.headerPrefix,
-            storageKeyName: defaultJwtConfig.storageKeyName,
-            tokenName: defaultJwtConfig.tokenName,
-            withoutTokenUrls: defaultJwtConfig.withoutTokenUrls
+            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_JWT_CONFIG.apiUrl,
+            headerName: DEFAULT_JWT_CONFIG.headerName,
+            headerPrefix: DEFAULT_JWT_CONFIG.headerPrefix,
+            storageKeyName: DEFAULT_JWT_CONFIG.storageKeyName,
+            tokenName: DEFAULT_JWT_CONFIG.tokenName,
+            withoutTokenUrls: DEFAULT_JWT_CONFIG.withoutTokenUrls
           }
         },
         {
           provide: OAUTH_CONFIG_TOKEN,
           useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : defaultOauthConfig.apiUrl,
-            redirectUrl: defaultOauthConfig.redirectUrl,
-            signInUrl: defaultOauthConfig.signInUrl,
-            providers: options.oauth && options.oauth.providers ? options.oauth.providers : defaultOauthConfig.providers
+            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_OAUTH_CONFIG.apiUrl,
+            redirectUrl: DEFAULT_OAUTH_CONFIG.redirectUrl,
+            signInUrl: DEFAULT_OAUTH_CONFIG.signInUrl,
+            providers: options.oauth && options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
           }
         },
         AuthService,
@@ -64,7 +65,7 @@ export class AuthModule {
   }
   static forRootWithAppInitializer(options?: {
     apiUrl?: string;
-    oauth?: { providers?: string[] };
+    oauth?: { providers?: IAuthOauthProvider[] };
   }): ModuleWithProviders {
     return {
       ngModule: AuthModule,
@@ -72,30 +73,30 @@ export class AuthModule {
         {
           provide: AUTH_CONFIG_TOKEN,
           useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : defaultAuthConfig.apiUrl,
-            infoUrl: defaultAuthConfig.infoUrl,
-            signInUrl: defaultAuthConfig.signInUrl,
-            signUpUrl: defaultAuthConfig.signUpUrl
+            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_AUTH_CONFIG.apiUrl,
+            infoUrl: DEFAULT_AUTH_CONFIG.infoUrl,
+            signInUrl: DEFAULT_AUTH_CONFIG.signInUrl,
+            signUpUrl: DEFAULT_AUTH_CONFIG.signUpUrl
           }
         },
         {
           provide: JWT_CONFIG_TOKEN,
           useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : defaultJwtConfig.apiUrl,
-            headerName: defaultJwtConfig.headerName,
-            headerPrefix: defaultJwtConfig.headerPrefix,
-            storageKeyName: defaultJwtConfig.storageKeyName,
-            tokenName: defaultJwtConfig.tokenName,
-            withoutTokenUrls: defaultJwtConfig.withoutTokenUrls
+            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_JWT_CONFIG.apiUrl,
+            headerName: DEFAULT_JWT_CONFIG.headerName,
+            headerPrefix: DEFAULT_JWT_CONFIG.headerPrefix,
+            storageKeyName: DEFAULT_JWT_CONFIG.storageKeyName,
+            tokenName: DEFAULT_JWT_CONFIG.tokenName,
+            withoutTokenUrls: DEFAULT_JWT_CONFIG.withoutTokenUrls
           }
         },
         {
           provide: OAUTH_CONFIG_TOKEN,
           useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : defaultOauthConfig.apiUrl,
-            redirectUrl: defaultOauthConfig.redirectUrl,
-            signInUrl: defaultOauthConfig.signInUrl,
-            providers: options.oauth && options.oauth.providers ? options.oauth.providers : defaultOauthConfig.providers
+            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_OAUTH_CONFIG.apiUrl,
+            redirectUrl: DEFAULT_OAUTH_CONFIG.redirectUrl,
+            signInUrl: DEFAULT_OAUTH_CONFIG.signInUrl,
+            providers: options.oauth && options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
           }
         },
         AuthService,

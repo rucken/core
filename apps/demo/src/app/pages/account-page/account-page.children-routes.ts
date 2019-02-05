@@ -1,10 +1,10 @@
-import { ProfileFrameRoutes } from './profile-frame/profile-frame.routes';
+import { PROFILE_FRAME_ROUTES } from './profile-frame/profile-frame.routes';
 
-export const AccountPageChildrenRoutes = [
+export const ACCOUNT_PAGE_CHILDREN_ROUTES = [
   { path: '', redirectTo: '/account/profile', pathMatch: 'full' },
   {
     path: 'profile',
     loadChildren: './profile-frame/profile-frame.module#ProfileFrameModule',
-    data: ProfileFrameRoutes[0].data
+    data: PROFILE_FRAME_ROUTES[0].data
   }
 ];

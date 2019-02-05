@@ -5,13 +5,12 @@ import { REQUEST } from '@nguniversal/express-engine/tokens';
 import { BrowserStorage, LangService, STORAGE_CONFIG_TOKEN, TokenService } from '@rucken/core';
 import { ThemesService } from '@rucken/web';
 import { AppComponent } from './app.component';
-import { AppId } from './app.config';
 import { AppModule } from './app.module';
+import { config } from './config/config';
 import { initializeBrowserApp } from './shared/utils/initialize-browser-app';
-
 @NgModule({
   bootstrap: [AppComponent],
-  imports: [BrowserModule.withServerTransition({ appId: AppId }), FontAwesomeModule, AppModule],
+  imports: [BrowserModule.withServerTransition({ appId: config.app.id }), FontAwesomeModule, AppModule],
   providers: [
     {
       provide: REQUEST,
@@ -29,4 +28,4 @@ import { initializeBrowserApp } from './shared/utils/initialize-browser-app';
     }
   ]
 })
-export class AppBrowserModule {}
+export class AppBrowserModule { }

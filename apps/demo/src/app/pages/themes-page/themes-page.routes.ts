@@ -2,7 +2,7 @@ import { translate } from '@rucken/core';
 import { ThemesPageComponent } from './themes-page.component';
 import { MetaGuard } from '@ngx-meta/core';
 
-export const ThemesPageRoutes = [
+export const THEMES_PAGE_ROUTES = [
   {
     path: '',
     component: ThemesPageComponent,

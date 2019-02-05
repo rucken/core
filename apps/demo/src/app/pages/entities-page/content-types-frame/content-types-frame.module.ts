@@ -5,16 +5,16 @@ import { ContentTypesGridModule } from '@rucken/web';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { SharedModule } from '../../../shared/shared.module';
 import { ContentTypesFrameComponent } from './content-types-frame.component';
-import { ContentTypesFrameRoutes } from './content-types-frame.routes';
+import { CONTENT_TYPES_FRAME_ROUTES } from './content-types-frame.routes';
 
 @NgModule({
   imports: [
     SharedModule,
     NgxPermissionsModule.forChild(),
-    RouterModule.forChild(ContentTypesFrameRoutes),
+    RouterModule.forChild(CONTENT_TYPES_FRAME_ROUTES),
     ContentTypesGridModule,
     FormsModule
   ],
   declarations: [ContentTypesFrameComponent]
 })
-export class ContentTypesFrameModule {}
+export class ContentTypesFrameModule { }

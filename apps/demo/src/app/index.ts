@@ -1,9 +1,10 @@
 export * from './app.browser.module';
 export * from './app.component.spec';
 export * from './app.component';
-export * from './app.config';
 export * from './app.module';
 export * from './app.routes';
+export * from './config/config.interface';
+export * from './config/config';
 export * from './i18n/af.i18n';
 export * from './i18n/ru.i18n';
 export * from './i18n/tr.i18n';
@@ -45,3 +46,4 @@ export * from './pages/themes-page/themes-page.routes';
 export * from './shared/shared.module';
 export * from './shared/exceptions/error.handler';
 export * from './shared/utils/initialize-browser-app';
+export * from './shared/utils/meta-factory';

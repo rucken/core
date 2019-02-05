@@ -1,6 +1,6 @@
 import { IJwtConfig } from '../interfaces/jwt-config.interface';
 
-export const defaultJwtConfig: IJwtConfig = {
+export const DEFAULT_JWT_CONFIG: IJwtConfig = {
   withoutTokenUrls: ['auth/'],
   headerName: 'Authorization',
   headerPrefix: 'JWT',

@@ -1,6 +1,6 @@
 import { IAuthModalConfig } from './interfaces/auth-modal-config.interface';
 
-export const defaultAuthModalConfig: IAuthModalConfig = {
+export const DEFAULT_AUTH_MODAL_CONFIG: IAuthModalConfig = {
   oauth: {
     providers: []
   }

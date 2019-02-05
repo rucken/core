@@ -205,8 +205,8 @@ export class EntityGridComponent<TModel extends IModel> implements OnChanges {
           ? (
             this.readonly === true || (
               !this.readonly &&
-              this.enableDelete &&
-              this.enableUpdate
+              !this.enableDelete &&
+              !this.enableUpdate
             )
               ? false
               : true

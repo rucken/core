@@ -2,7 +2,7 @@ import { plainToClass } from 'class-transformer';
 import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
 import { ContentType } from '../models/content-type';
 
-export const defaultContentTypesConfig: IRestProviderOptions<ContentType> = {
+export const DEFAULT_CONTENT_TYPES_CONFIG: IRestProviderOptions<ContentType> = {
   name: 'content_type',
   pluralName: 'content_types',
   autoload: true,

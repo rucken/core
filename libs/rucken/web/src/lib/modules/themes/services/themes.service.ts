@@ -51,7 +51,7 @@ export class ThemesService {
   initializeApp() {
     return new Promise((resolve, reject) => {
       this.initCurrent().then(value => {
-        this.setCurrent(value as string);
+        this.setCurrent(String(value));
         resolve();
       });
     });
@@ -84,7 +84,7 @@ export class ThemesService {
           if (
             link &&
             link.getAttribute('rel') &&
-            (link.getAttribute('rel') as string).indexOf('style') !== -1 &&
+            String(link.getAttribute('rel')).indexOf('style') !== -1 &&
             link.getAttribute('title') &&
             link.getAttribute('title') === 'bootstrap' &&
             link.getAttribute('href') !== url
