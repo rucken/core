@@ -1,7 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { BindIoInner } from 'ngx-bind-io';
 
-@BindIoInner()
 @Component({
   selector: 'auth-empty-page',
   template: '',
