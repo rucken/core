@@ -1,3 +1,12 @@
+## [3.9.1](https://github.com/rucken/core/compare/3.9.0...3.9.1) (2019-02-05)
+
+
+### Bug Fixes
+
+* Update logic for detect current site theme ([3186efc](https://github.com/rucken/core/commit/3186efc))
+
+
+
 # [3.9.0](https://github.com/rucken/core/compare/3.8.1...3.9.0) (2019-02-05)
 
 
