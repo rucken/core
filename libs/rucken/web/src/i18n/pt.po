@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Portuguese, Brazilian\n"
 "Language: pt_BR\n"
-"PO-Revision-Date: 2019-01-09 04:45\n"
+"PO-Revision-Date: 2019-02-05 17:23\n"
 
 msgid "Create"
 msgstr ""
@@ -99,6 +99,11 @@ msgid "Sign in"
 msgstr ""
 
 msgid "Split button!"
+msgstr ""
+
+msgid "No data s\n"
+"                    {{filtredColumns$ | async |json}}\n"
+"                    {{filteredItems$ | async |json}}"
 msgstr ""
 
 msgid "Authorization"
