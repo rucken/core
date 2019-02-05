@@ -1,3 +1,17 @@
+# [3.9.0](https://github.com/rucken/core/compare/3.8.1...3.9.0) (2019-02-05)
+
+
+### Bug Fixes
+
+* Update more constants names to UPPER_CASE, change config in auth module ([084dce9](https://github.com/rucken/core/commit/084dce9))
+
+
+### Features
+
+* Add BindIoInner decorator for all classes, remove more getter and setter and change them to use ngOnChange, change all BehaviorSubjects to BindObservable ([4a98023](https://github.com/rucken/core/commit/4a98023))
+
+
+
 ## [3.8.1](https://github.com/rucken/core/compare/3.8.0...3.8.1) (2019-01-27)
 
 
