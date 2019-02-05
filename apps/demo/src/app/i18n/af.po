@@ -12,18 +12,18 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Afrikaans\n"
 "Language: af_ZA\n"
-"PO-Revision-Date: 2018-12-09 18:52\n"
-
-msgid "Russian"
-msgstr ""
-
-msgid "English"
-msgstr ""
+"PO-Revision-Date: 2019-02-05 17:23\n"
 
 msgid "Rucken: Demo"
 msgstr ""
 
 msgid "Core with Admin UI for web and native application maked on Angular7+"
+msgstr ""
+
+msgid "Russian"
+msgstr ""
+
+msgid "English"
 msgstr ""
 
 msgid "<p>Demo users:</p><ul>\n"
