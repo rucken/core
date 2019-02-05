@@ -40,7 +40,7 @@ export class ThemesService {
   initCurrent() {
     return new Promise((resolve, reject) => {
       this._storage.getItem(this._themesConfig.storageKeyName).then((data: string) => {
-        if (data && data !== 'undefined') {
+        if (data && data !== 'undefined' && data.indexOf('http') !== -1) {
           resolve(data);
         } else {
           resolve(this.getCurrent());
@@ -57,7 +57,7 @@ export class ThemesService {
     });
   }
   getCurrent() {
-    if (!this.current) {
+    if (!this.current || this.current === 'undefined' || this.current.indexOf('http') === -1) {
       return this.getStyleLinkHref();
     }
     return this.current;
@@ -105,8 +105,7 @@ export class ThemesService {
           link.getAttribute('rel') &&
           link.getAttribute('rel').indexOf('style') !== -1 &&
           link.getAttribute('title') &&
-          link.getAttribute('title') === 'bootstrap' &&
-          link.getAttribute('href').indexOf('/3/') === -1
+          link.getAttribute('title') === 'bootstrap'
         ) {
           return link.getAttribute('href');
         }
