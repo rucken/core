@@ -174,19 +174,19 @@ import { PermissionsGridModule } from &#x27;@rucken/web&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../../shared/shared.module&#x27;;
 import { PermissionsFrameComponent } from &#x27;./permissions-frame.component&#x27;;
-import { PermissionsFrameRoutes } from &#x27;./permissions-frame.routes&#x27;;
+import { PERMISSIONS_FRAME_ROUTES } from &#x27;./permissions-frame.routes&#x27;;
 
 @NgModule({
   imports: [
     SharedModule,
     NgxPermissionsModule.forChild(),
-    RouterModule.forChild(PermissionsFrameRoutes),
+    RouterModule.forChild(PERMISSIONS_FRAME_ROUTES),
     PermissionsGridModule,
     FormsModule
   ],
   declarations: [PermissionsFrameComponent]
 })
-export class PermissionsFrameModule {}
+export class PermissionsFrameModule { }
 </code></pre>
     </div>
 </div>

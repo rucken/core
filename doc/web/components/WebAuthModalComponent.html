@@ -69,6 +69,12 @@
             <code>AuthModalComponent</code>
     </p>
 
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
 
 
 <section>
@@ -126,7 +132,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">libs/rucken/web/src/lib/modules/auth-modal/auth-modal.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">libs/rucken/web/src/lib/modules/auth-modal/auth-modal.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -174,16 +180,20 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Inject } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
 import { AuthModalComponent, AUTH_MODAL_CONFIG_TOKEN, IAuthModalConfig } from &#x27;@rucken/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;auth-modal&#x27;,
   templateUrl: &#x27;./auth-modal.component.html&#x27;,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WebAuthModalComponent extends AuthModalComponent {
-  constructor(@Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig) {
+export class WebAuthModalComponent extends AuthModalComponent implements OnInit {
+  constructor(
+    @Inject(AUTH_MODAL_CONFIG_TOKEN) private _authModalConfig: IAuthModalConfig
+  ) {
     super(_authModalConfig);
   }
 }
@@ -195,14 +205,24 @@ export class WebAuthModalComponent extends AuthModalComponent {
     [formGroup]&#x3D;&quot;form&quot;
     novalidate&gt;
     &lt;prompt-form-modal
-        bindIO
+        [title]&#x3D;&quot;title&quot;
+        [message]&#x3D;&quot;message&quot;
         [infoMessage]&#x3D;&quot;signInType &#x3D;&#x3D;&#x3D; type ? signInInfoMessage : signUpInfoMessage&quot;
+        [errorMessage]&#x3D;&quot;errorMessage&quot;
+        [readonly]&#x3D;&quot;readonly&quot;
+        [noTitle]&#x3D;&quot;noTitle&quot;
+        [yesTitle]&#x3D;&quot;yesTitle&quot;
+        (no)&#x3D;&quot;onNoClick()&quot;
+        (yes)&#x3D;&quot;onYesClick()&quot;
+        [data]&#x3D;&quot;data&quot;
+        [processing]&#x3D;&quot;processing$ | async&quot;
         [leftFooterButtonsTemplate]&#x3D;&quot;signOutType !&#x3D;&#x3D; type &amp;&amp; !readonly ? leftFooterButtonsTemplate : null&quot;
         [footerButtonsTemplate]&#x3D;&quot;signOutType !&#x3D;&#x3D; type &amp;&amp; !readonly ? socialFooterButtonsTemplate : null&quot;
-        #promptFormModal&gt;
+        #promptFormModal
+        [yesClass]&#x3D;&quot;yesClass$ | async&quot;
+        [noClass]&#x3D;&quot;noClass$ | async&quot;&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            [bindIO]
             name&#x3D;&quot;username&quot;
             [title]&#x3D;&quot;strings.username&quot;
             *ngIf&#x3D;&quot;signUpType &#x3D;&#x3D;&#x3D; type&quot;&gt;
@@ -212,8 +232,7 @@ export class WebAuthModalComponent extends AuthModalComponent {
                 focused&gt;
         &lt;/form-group&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            [bindIO]
             name&#x3D;&quot;email&quot;
             [title]&#x3D;&quot;strings.email&quot;&gt;
             &lt;input
@@ -222,8 +241,7 @@ export class WebAuthModalComponent extends AuthModalComponent {
                 focused&gt;
         &lt;/form-group&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            [bindIO]
             name&#x3D;&quot;password&quot;
             [title]&#x3D;&quot;strings.password&quot;&gt;
             &lt;input
@@ -231,8 +249,7 @@ export class WebAuthModalComponent extends AuthModalComponent {
                 type&#x3D;&quot;password&quot;&gt;
         &lt;/form-group&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            [bindIO]
             name&#x3D;&quot;rePassword&quot;
             [title]&#x3D;&quot;strings.rePassword&quot;
             *ngIf&#x3D;&quot;signUpType &#x3D;&#x3D;&#x3D; type&quot;&gt;
@@ -292,7 +309,7 @@ export class WebAuthModalComponent extends AuthModalComponent {
             aria-labelledby&#x3D;&quot;button-split&quot;&gt;
             &lt;li
                 role&#x3D;&quot;menuitem&quot;
-                *ngFor&#x3D;&quot;let oauthProvider of (oauthProviders$ | async) as oauthProviders&quot;&gt;
+                *ngFor&#x3D;&quot;let oauthProvider of (oauthProviders$ | async)&quot;&gt;
                 &lt;a
                     href&#x3D;&quot;javascript:void(0)&quot;
                     class&#x3D;&quot;dropdown-item&quot;
@@ -333,7 +350,7 @@ export class WebAuthModalComponent extends AuthModalComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal        bindIO        [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"        [leftFooterButtonsTemplate]="signOutType !== type && !readonly ? leftFooterButtonsTemplate : null"        [footerButtonsTemplate]="signOutType !== type && !readonly ? socialFooterButtonsTemplate : null"        #promptFormModal>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="username"            [title]="strings.username"            *ngIf="signUpType === type">            <input                autocomplete="on"                formControlName="username"                focused>        </form-group>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="email"            [title]="strings.email">            <input                autocomplete="on"                formControlName="email"                focused>        </form-group>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="password"            [title]="strings.password">            <input                formControlName="password"                type="password">        </form-group>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="rePassword"            [title]="strings.rePassword"            *ngIf="signUpType === type">            <input                formControlName="rePassword"                type="password">        </form-group>    </prompt-form-modal></form><ng-template #leftFooterButtonsTemplate>    <a        class="btn btn-link"        (click)="onExtClick($event)">        {{ extTitle | translate }}    </a></ng-template><ng-template #socialFooterButtonsTemplate>    <div        class="btn-group"        dropdown>        <button            type="submit"            [ngClass]="promptFormModal.yesClass"            (click)="promptFormModal.onYesClick($event)"            [disabled]="promptFormModal.processing || promptFormModal.disabled"            *ngIf="!promptFormModal.hideYes"            [focused]="promptFormModal.message || (!promptFormModal.message && promptFormModal.focused)">            <fa-layers                class="fa-fw"                *ngIf="promptFormModal.processing">                <fa-icon                    [icon]="[\'fas\', \'spinner\']"                    [pulse]="true"></fa-icon>            </fa-layers>            {{ promptFormModal.yesTitle | translate }}        </button>        <button            id="button-split"            type="button"            dropdownToggle            [ngClass]="promptFormModal.yesClass"            [disabled]="promptFormModal.processing || promptFormModal.disabled"            class="dropdown-toggle dropdown-toggle-split"            aria-controls="dropdown-split">            <span class="caret"></span>            <span                class="sr-only"                translate>                Split button!            </span>        </button>        <ul            id="dropdown-split"            *dropdownMenu            class="dropdown-menu dropdown-menu-right"            role="menu"            aria-labelledby="button-split">            <li                role="menuitem"                *ngFor="let oauthProvider of (oauthProviders$ | async) as oauthProviders">                <a                    href="javascript:void(0)"                    class="dropdown-item"                    (click)="onOauthYesClick(oauthProvider)">                    <fa-icon [icon]="oauthProvider.icon"></fa-icon>                    {{ oauthProvider.signInTitle | translate }}                </a>            </li>        </ul>    </div></ng-template></div>'
+        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal        [title]="title"        [message]="message"        [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"        [errorMessage]="errorMessage"        [readonly]="readonly"        [noTitle]="noTitle"        [yesTitle]="yesTitle"        (no)="onNoClick()"        (yes)="onYesClick()"        [data]="data"        [processing]="processing$ | async"        [leftFooterButtonsTemplate]="signOutType !== type && !readonly ? leftFooterButtonsTemplate : null"        [footerButtonsTemplate]="signOutType !== type && !readonly ? socialFooterButtonsTemplate : null"        #promptFormModal        [yesClass]="yesClass$ | async"        [noClass]="noClass$ | async">        <form-group            [bindIO]            name="username"            [title]="strings.username"            *ngIf="signUpType === type">            <input                autocomplete="on"                formControlName="username"                focused>        </form-group>        <form-group            [bindIO]            name="email"            [title]="strings.email">            <input                autocomplete="on"                formControlName="email"                focused>        </form-group>        <form-group            [bindIO]            name="password"            [title]="strings.password">            <input                formControlName="password"                type="password">        </form-group>        <form-group            [bindIO]            name="rePassword"            [title]="strings.rePassword"            *ngIf="signUpType === type">            <input                formControlName="rePassword"                type="password">        </form-group>    </prompt-form-modal></form><ng-template #leftFooterButtonsTemplate>    <a        class="btn btn-link"        (click)="onExtClick($event)">        {{ extTitle | translate }}    </a></ng-template><ng-template #socialFooterButtonsTemplate>    <div        class="btn-group"        dropdown>        <button            type="submit"            [ngClass]="promptFormModal.yesClass"            (click)="promptFormModal.onYesClick($event)"            [disabled]="promptFormModal.processing || promptFormModal.disabled"            *ngIf="!promptFormModal.hideYes"            [focused]="promptFormModal.message || (!promptFormModal.message && promptFormModal.focused)">            <fa-layers                class="fa-fw"                *ngIf="promptFormModal.processing">                <fa-icon                    [icon]="[\'fas\', \'spinner\']"                    [pulse]="true"></fa-icon>            </fa-layers>            {{ promptFormModal.yesTitle | translate }}        </button>        <button            id="button-split"            type="button"            dropdownToggle            [ngClass]="promptFormModal.yesClass"            [disabled]="promptFormModal.processing || promptFormModal.disabled"            class="dropdown-toggle dropdown-toggle-split"            aria-controls="dropdown-split">            <span class="caret"></span>            <span                class="sr-only"                translate>                Split button!            </span>        </button>        <ul            id="dropdown-split"            *dropdownMenu            class="dropdown-menu dropdown-menu-right"            role="menu"            aria-labelledby="button-split">            <li                role="menuitem"                *ngFor="let oauthProvider of (oauthProviders$ | async)">                <a                    href="javascript:void(0)"                    class="dropdown-item"                    (click)="onOauthYesClick(oauthProvider)">                    <fa-icon [icon]="oauthProvider.icon"></fa-icon>                    {{ oauthProvider.signInTitle | translate }}                </a>            </li>        </ul>    </div></ng-template></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'WebAuthModalComponent'};

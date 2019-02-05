@@ -272,7 +272,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:132</a></div>
                             </td>
                         </tr>
 
@@ -379,7 +379,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:101</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:102</a></div>
                             </td>
                         </tr>
 
@@ -538,7 +538,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:138</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:139</a></div>
                             </td>
                         </tr>
 
@@ -619,7 +619,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:109</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:110</a></div>
                             </td>
                         </tr>
 
@@ -778,7 +778,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:121</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.service.ts:122</a></div>
                             </td>
                         </tr>
 
@@ -1172,11 +1172,11 @@ export class AuthModalService {
     public errorsExtractor: ErrorsExtractor,
     public tokenService: TokenService,
     public modalsService: ModalsService
-  ) {}
+  ) { }
   onInfo() {
     const token &#x3D; this.tokenService.getCurrent();
     if (token) {
-      if (this.tokenService.tokenHasExpired(token)) {
+      if (this.tokenService.checkTokenHasExpired(token)) {
         this.tokenService.stopCheckTokenHasExpired();
         this.modalsService
           .errorAsync({
@@ -1235,15 +1235,16 @@ export class AuthModalService {
           .oauthRedirectUrl(modal.yesData)
           .subscribe(data &#x3D;&gt; this.onOauthSignInSuccess(modal, data), error &#x3D;&gt; this.onSignInError(modal, error));
       } else {
+        const data &#x3D; modal.getData();
         if (modal.type &#x3D;&#x3D;&#x3D; AuthModalTypeEnum.SignIn) {
           this.authService
-            .signIn(modal.data.email, modal.data.password)
-            .subscribe(data &#x3D;&gt; this.onSignInOrInfoSuccess(modal, data), error &#x3D;&gt; this.onSignInError(modal, error));
+            .signIn(data.email, data.password)
+            .subscribe(result &#x3D;&gt; this.onSignInOrInfoSuccess(modal, result), error &#x3D;&gt; this.onSignInError(modal, error));
         }
         if (modal.type &#x3D;&#x3D;&#x3D; AuthModalTypeEnum.SignUp) {
           this.authService
-            .signUp(modal.data.email, modal.data.password, modal.data.username)
-            .subscribe(data &#x3D;&gt; this.onSignInOrInfoSuccess(modal, data), error &#x3D;&gt; this.onSignInError(modal, error));
+            .signUp(data.email, data.password, data.username)
+            .subscribe(result &#x3D;&gt; this.onSignInOrInfoSuccess(modal, result), error &#x3D;&gt; this.onSignInError(modal, error));
         }
       }
     });

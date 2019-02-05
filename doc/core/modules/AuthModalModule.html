@@ -239,7 +239,7 @@ import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
 import { TranslateModule } from &#x27;@ngx-translate/core&#x27;;
 import { AuthModule } from &#x27;../auth/auth.module&#x27;;
 import { ModalsModule } from &#x27;../modals/modals.module&#x27;;
-import { AUTH_MODAL_CONFIG_TOKEN, defaultAuthModalConfig } from &#x27;./auth-modal.config&#x27;;
+import { AUTH_MODAL_CONFIG_TOKEN, DEFAULT_AUTH_MODAL_CONFIG } from &#x27;./auth-modal.config&#x27;;
 import { IAuthModalConfig } from &#x27;./interfaces/auth-modal-config.interface&#x27;;
 @NgModule({
   imports: [CommonModule, ModalsModule, AuthModule, TranslateModule.forChild()]
@@ -252,7 +252,7 @@ export class AuthModalModule {
         {
           provide: AUTH_MODAL_CONFIG_TOKEN,
           useValue: {
-            oauth: options.oauth ? options.oauth : defaultAuthModalConfig.oauth
+            oauth: options.oauth ? options.oauth : DEFAULT_AUTH_MODAL_CONFIG.oauth
           }
         }
       ]

@@ -114,36 +114,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#apiUrl">apiUrl</a>
-                            </li>
-                            <li>
-                                <a href="#simpleMode">simpleMode</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-        </tbody>
-    </table>
-</section>
 
     <section>
     <h3 id="constructor">Constructor</h3>
@@ -156,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-modal/user-modal.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-modal/user-modal.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -164,57 +134,7 @@
         </table>
 </section>
 
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="apiUrl"></a>
-                        <code>apiUrl</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>undefined</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-modal/user-modal.component.ts:11</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="simpleMode"></a>
-                        <code>simpleMode</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>undefined</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">libs/rucken/web/src/lib/entities/users/user-modal/user-modal.component.ts:13</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -226,7 +146,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Input } from &#x27;@angular/core&#x27;;
 import { BasePromptFormModalComponent, User } from &#x27;@rucken/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;user-modal&#x27;,
   templateUrl: &#x27;./user-modal.component.html&#x27;,
@@ -250,14 +172,13 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
         <pre class="line-numbers"><code class="language-html">&lt;form
     [formGroup]&#x3D;&quot;form&quot;
     novalidate&gt;
-    &lt;prompt-form-modal bindIO&gt;
+    &lt;prompt-form-modal [bindIO]&gt;
         &lt;div class&#x3D;&quot;row&quot;&gt;
             &lt;div [ngClass]&#x3D;&quot;{ &#x27;col-md-6&#x27;: !simpleMode, &#x27;col-md-12&#x27;: simpleMode }&quot;&gt;
                 &lt;div class&#x3D;&quot;row&quot;&gt;
                     &lt;div class&#x3D;&quot;col-md-12&quot;&gt;
                         &lt;form-group
-                            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-                            [form]&#x3D;&quot;form&quot;
+                            [bindIO]
                             name&#x3D;&quot;username&quot;
                             [title]&#x3D;&quot;strings.username&quot;&gt;
                             &lt;input
@@ -268,8 +189,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
                     &lt;/div&gt;
                     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
                         &lt;form-group
-                            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-                            [form]&#x3D;&quot;form&quot;
+                            [bindIO]
                             name&#x3D;&quot;email&quot;
                             [title]&#x3D;&quot;strings.email&quot;&gt;
                             &lt;input
@@ -279,8 +199,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
                     &lt;/div&gt;
                     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
                         &lt;form-group
-                            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-                            [form]&#x3D;&quot;form&quot;
+                            [bindIO]
                             name&#x3D;&quot;dateOfBirth&quot;
                             [title]&#x3D;&quot;strings.dateOfBirth&quot;&gt;
                             &lt;input
@@ -292,8 +211,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
                     &lt;/div&gt;
                     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
                         &lt;form-group
-                            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-                            [form]&#x3D;&quot;form&quot;
+                            [bindIO]
                             name&#x3D;&quot;password&quot;
                             [title]&#x3D;&quot;strings.password&quot;&gt;
                             &lt;input
@@ -304,8 +222,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
                     &lt;/div&gt;
                     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
                         &lt;form-group
-                            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-                            [form]&#x3D;&quot;form&quot;
+                            [bindIO]
                             name&#x3D;&quot;rePassword&quot;
                             [title]&#x3D;&quot;strings.rePassword&quot;&gt;
                             &lt;input
@@ -316,8 +233,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
                     &lt;/div&gt;
                     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
                         &lt;form-group
-                            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-                            [form]&#x3D;&quot;form&quot;
+                            [bindIO]
                             name&#x3D;&quot;lastName&quot;
                             [title]&#x3D;&quot;strings.lastName&quot;&gt;
                             &lt;input
@@ -327,8 +243,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
                     &lt;/div&gt;
                     &lt;div class&#x3D;&quot;col-md-6&quot;&gt;
                         &lt;form-group
-                            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-                            [form]&#x3D;&quot;form&quot;
+                            [bindIO]
                             name&#x3D;&quot;firstName&quot;
                             [title]&#x3D;&quot;strings.firstName&quot;&gt;
                             &lt;input
@@ -383,8 +298,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
                 class&#x3D;&quot;col-md-6&quot;
                 *ngIf&#x3D;&quot;!simpleMode&quot;&gt;
                 &lt;user-groups-grid
-                    [mockedItems]&#x3D;&quot;data.groups&quot;
-                    (mockedItemsChange)&#x3D;&quot;form.get(&#x27;groups&#x27;).setValue($event)&quot;
+                    formControlName&#x3D;&quot;groups&quot;
                     [readonly]&#x3D;&quot;readonly&quot;
                     [title]&#x3D;&quot;strings.groups&quot;
                     [apiUrl]&#x3D;&quot;apiUrl&quot;&gt;&lt;/user-groups-grid&gt;
@@ -421,7 +335,7 @@ export class UserModalComponent extends BasePromptFormModalComponent&lt;User&gt;
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal bindIO>        <div class="row">            <div [ngClass]="{ \'col-md-6\': !simpleMode, \'col-md-12\': simpleMode }">                <div class="row">                    <div class="col-md-12">                        <form-group                            [checkIsDirty]="checkIsDirty"                            [form]="form"                            name="username"                            [title]="strings.username">                            <input                                formControlName="username"                                [readonly]="readonly"                                focused>                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [checkIsDirty]="checkIsDirty"                            [form]="form"                            name="email"                            [title]="strings.email">                            <input                                formControlName="email"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [checkIsDirty]="checkIsDirty"                            [form]="form"                            name="dateOfBirth"                            [title]="strings.dateOfBirth">                            <input                                bsDatepicker                                formControlName="dateOfBirth"                                [isDisabled]="readonly"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [checkIsDirty]="checkIsDirty"                            [form]="form"                            name="password"                            [title]="strings.password">                            <input                                formControlName="password"                                type="password"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [checkIsDirty]="checkIsDirty"                            [form]="form"                            name="rePassword"                            [title]="strings.rePassword">                            <input                                formControlName="rePassword"                                type="password"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [checkIsDirty]="checkIsDirty"                            [form]="form"                            name="lastName"                            [title]="strings.lastName">                            <input                                formControlName="lastName"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [checkIsDirty]="checkIsDirty"                            [form]="form"                            name="firstName"                            [title]="strings.firstName">                            <input                                formControlName="firstName"                                [readonly]="readonly">                        </form-group>                    </div>                </div>            </div>            <div                class="col-md-6"                *ngIf="!simpleMode">                <form-group                    [checkIsDirty]="checkIsDirty"                    [form]="form"                    [title]="strings.roles">                    <div class="checkboxes-group form-control">                        <div class="checkbox">                            <label>                                <input                                    formControlName="isActive"                                    type="checkbox"                                    [readonly]="readonly"                                    [disableControl]="readonly || !(\'change_user\' | perm: false | async)">                                {{ strings.isActive | translate }}                            </label>                        </div>                        <div class="checkbox">                            <label>                                <input                                    formControlName="isStaff"                                    type="checkbox"                                    [readonly]="readonly"                                    [disableControl]="readonly || !(\'change_user\' | perm: false | async)">                                {{ strings.isStaff | translate }}                            </label>                        </div>                        <div class="checkbox">                            <label>                                <input                                    formControlName="isSuperuser"                                    type="checkbox"                                    [readonly]="readonly"                                    [disableControl]="readonly || !(\'change_user\' | perm: false | async)">                                {{ strings.isSuperuser | translate }}                            </label>                        </div>                    </div>                </form-group>            </div>            <div                class="col-md-6"                *ngIf="!simpleMode">                <user-groups-grid                    [mockedItems]="data.groups"                    (mockedItemsChange)="form.get(\'groups\').setValue($event)"                    [readonly]="readonly"                    [title]="strings.groups"                    [apiUrl]="apiUrl"></user-groups-grid>            </div>        </div>    </prompt-form-modal></form></div>'
+        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal [bindIO]>        <div class="row">            <div [ngClass]="{ \'col-md-6\': !simpleMode, \'col-md-12\': simpleMode }">                <div class="row">                    <div class="col-md-12">                        <form-group                            [bindIO]                            name="username"                            [title]="strings.username">                            <input                                formControlName="username"                                [readonly]="readonly"                                focused>                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [bindIO]                            name="email"                            [title]="strings.email">                            <input                                formControlName="email"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [bindIO]                            name="dateOfBirth"                            [title]="strings.dateOfBirth">                            <input                                bsDatepicker                                formControlName="dateOfBirth"                                [isDisabled]="readonly"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [bindIO]                            name="password"                            [title]="strings.password">                            <input                                formControlName="password"                                type="password"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [bindIO]                            name="rePassword"                            [title]="strings.rePassword">                            <input                                formControlName="rePassword"                                type="password"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [bindIO]                            name="lastName"                            [title]="strings.lastName">                            <input                                formControlName="lastName"                                [readonly]="readonly">                        </form-group>                    </div>                    <div class="col-md-6">                        <form-group                            [bindIO]                            name="firstName"                            [title]="strings.firstName">                            <input                                formControlName="firstName"                                [readonly]="readonly">                        </form-group>                    </div>                </div>            </div>            <div                class="col-md-6"                *ngIf="!simpleMode">                <form-group                    [checkIsDirty]="checkIsDirty"                    [form]="form"                    [title]="strings.roles">                    <div class="checkboxes-group form-control">                        <div class="checkbox">                            <label>                                <input                                    formControlName="isActive"                                    type="checkbox"                                    [readonly]="readonly"                                    [disableControl]="readonly || !(\'change_user\' | perm: false | async)">                                {{ strings.isActive | translate }}                            </label>                        </div>                        <div class="checkbox">                            <label>                                <input                                    formControlName="isStaff"                                    type="checkbox"                                    [readonly]="readonly"                                    [disableControl]="readonly || !(\'change_user\' | perm: false | async)">                                {{ strings.isStaff | translate }}                            </label>                        </div>                        <div class="checkbox">                            <label>                                <input                                    formControlName="isSuperuser"                                    type="checkbox"                                    [readonly]="readonly"                                    [disableControl]="readonly || !(\'change_user\' | perm: false | async)">                                {{ strings.isSuperuser | translate }}                            </label>                        </div>                    </div>                </form-group>            </div>            <div                class="col-md-6"                *ngIf="!simpleMode">                <user-groups-grid                    formControlName="groups"                    [readonly]="readonly"                    [title]="strings.groups"                    [apiUrl]="apiUrl"></user-groups-grid>            </div>        </div>    </prompt-form-modal></form></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UserModalComponent'};

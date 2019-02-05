@@ -223,7 +223,7 @@
 import { ModuleWithProviders, NgModule, APP_INITIALIZER } from &#x27;@angular/core&#x27;;
 import { ThemesService, themesServiceInitializeApp } from &#x27;./services/themes.service&#x27;;
 import { IThemesConfig } from &#x27;./interfaces/themes-config.interface&#x27;;
-import { THEMES_CONFIG_TOKEN, defaultThemesConfig } from &#x27;./configs/themes.config&#x27;;
+import { THEMES_CONFIG_TOKEN, DEFAULT_THEMES_CONFIG } from &#x27;./configs/themes.config&#x27;;
 @NgModule({
   imports: [CommonModule],
   providers: [ThemesService]
@@ -236,9 +236,9 @@ export class ThemesModule {
         {
           provide: THEMES_CONFIG_TOKEN,
           useValue: {
-            mockedItems: options &amp;&amp; options.mockedItems ? options.mockedItems : defaultThemesConfig.mockedItems,
+            mockedItems: options &amp;&amp; options.mockedItems ? options.mockedItems : DEFAULT_THEMES_CONFIG.mockedItems,
             storageKeyName:
-              options &amp;&amp; options.storageKeyName ? options.storageKeyName : defaultThemesConfig.storageKeyName
+              options &amp;&amp; options.storageKeyName ? options.storageKeyName : DEFAULT_THEMES_CONFIG.storageKeyName
           }
         },
         {

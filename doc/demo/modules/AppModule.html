@@ -198,59 +198,55 @@ import { BrowserModule } from &#x27;@angular/platform-browser&#x27;;
 import { PreloadAllModules, RouterModule } from &#x27;@angular/router&#x27;;
 import { MetaLoader, MetaModule } from &#x27;@ngx-meta/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
-import {
-  AccountModule,
-  AuthModalModule,
-  AuthModule,
-  entitiesProviders,
-  ErrorsExtractor,
-  LangModule,
-  PermissionsGuard,
-  TransferHttpCacheModule
-} from &#x27;@rucken/core&#x27;;
+import { AccountModule, AuthModalModule, AuthModule, ENTITIES_PROVIDERS, ErrorsExtractor, LangModule, PermissionsGuard, TransferHttpCacheModule } from &#x27;@rucken/core&#x27;;
 import { NavbarModule, ThemesModule, WebAuthModalModule, WebModalsModule } from &#x27;@rucken/web&#x27;;
+import { environment } from &#x27;apps/demo/src/environments/environment&#x27;;
 import { NgxBindIOModule } from &#x27;ngx-bind-io&#x27;;
 import { BsDatepickerModule, BsLocaleService } from &#x27;ngx-bootstrap/datepicker&#x27;;
 import { CookieService } from &#x27;ngx-cookie-service&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
-import { environment } from &#x27;../environments/environment&#x27;;
 import { AppComponent } from &#x27;./app.component&#x27;;
-import { AllRoutes, AppId, AppLangs, appMetaFactory, OauthModalProviders, OauthProviders } from &#x27;./app.config&#x27;;
+import { APP_ROUTES } from &#x27;./app.routes&#x27;;
+import { config } from &#x27;./config/config&#x27;;
 import { SharedModule } from &#x27;./shared/shared.module&#x27;;
+import { metaFactory } from &#x27;./shared/utils/meta-factory&#x27;;
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     RouterModule,
     SharedModule,
     HttpClientModule,
-    BrowserModule.withServerTransition({ appId: AppId }),
+    BrowserModule.withServerTransition({
+      appId: config.app.id
+    }),
     TransferHttpCacheModule.forRoot(),
     NgxPermissionsModule.forRoot(),
     AuthModule.forRoot({
       apiUrl: environment.apiUrl,
       oauth: {
-        providers: OauthProviders
+        providers: config.oauth
       }
     }),
     AccountModule.forRoot({
       apiUrl: environment.apiUrl
     }),
     LangModule.forRoot({
-      languages: AppLangs
+      languages: config.app.languages
     }),
     ThemesModule.forRoot(),
-    RouterModule.forRoot(AllRoutes, {
+    RouterModule.forRoot(APP_ROUTES, {
       preloadingStrategy: PreloadAllModules,
       initialNavigation: &#x27;enabled&#x27;
     }),
     MetaModule.forRoot({
       provide: MetaLoader,
-      useFactory: appMetaFactory,
+      useFactory: metaFactory,
       deps: [TranslateService]
     }),
     AuthModalModule.forRoot({
       oauth: {
-        providers: OauthModalProviders
+        providers: config.oauth
       }
     }),
     WebAuthModalModule,
@@ -259,10 +255,10 @@ import { SharedModule } from &#x27;./shared/shared.module&#x27;;
     WebModalsModule,
     NgxBindIOModule.forRoot()
   ],
-  providers: [...entitiesProviders, CookieService, ErrorsExtractor, BsLocaleService, PermissionsGuard],
+  providers: [...ENTITIES_PROVIDERS, CookieService, ErrorsExtractor, BsLocaleService, PermissionsGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
 </code></pre>
     </div>
 </div>

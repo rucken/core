@@ -188,7 +188,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/demo/src/app/pages/admin-page/admin-page.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/demo/src/app/pages/admin-page/admin-page.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -247,7 +247,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">apps/demo/src/app/pages/admin-page/admin-page.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">apps/demo/src/app/pages/admin-page/admin-page.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -262,8 +262,10 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { NavSidebarComponent } from &#x27;@rucken/web&#x27;;
-import { AdminPageChildrenRoutes } from &#x27;./admin-page.children-routes&#x27;;
+import { ADMIN_PAGE_CHILDREN_ROUTES } from &#x27;./admin-page.children-routes&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;admin-page&#x27;,
   templateUrl: &#x27;./admin-page.component.html&#x27;,
@@ -273,7 +275,7 @@ export class AdminPageComponent implements OnInit {
   @ViewChild(&#x27;sidebar&#x27;)
   sidebar: NavSidebarComponent;
   ngOnInit() {
-    this.sidebar.setRoutes(AdminPageChildrenRoutes);
+    this.sidebar.setRoutes(ADMIN_PAGE_CHILDREN_ROUTES);
   }
 }
 </code></pre>

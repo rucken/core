@@ -174,19 +174,19 @@ import { GroupsGridModule } from &#x27;@rucken/web&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../../shared/shared.module&#x27;;
 import { GroupsFrameComponent } from &#x27;./groups-frame.component&#x27;;
-import { GroupsFrameRoutes } from &#x27;./groups-frame.routes&#x27;;
+import { GROUPS_FRAME_ROUTES } from &#x27;./groups-frame.routes&#x27;;
 
 @NgModule({
   imports: [
     SharedModule,
     NgxPermissionsModule.forChild(),
-    RouterModule.forChild(GroupsFrameRoutes),
+    RouterModule.forChild(GROUPS_FRAME_ROUTES),
     GroupsGridModule,
     FormsModule
   ],
   declarations: [GroupsFrameComponent]
 })
-export class GroupsFrameModule {}
+export class GroupsFrameModule { }
 </code></pre>
     </div>
 </div>

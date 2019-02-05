@@ -795,12 +795,12 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { isPlatformServer } from &#x27;@angular/common&#x27;;
-import { Inject, Injectable, PLATFORM_ID, TemplateRef } from &#x27;@angular/core&#x27;;
+import { Inject, Injectable, PLATFORM_ID, TemplateRef, isDevMode } from &#x27;@angular/core&#x27;;
 import { TranslateService } from &#x27;@ngx-translate/core&#x27;;
 import { ErrorsExtractor, IModalRef, ModalsService } from &#x27;@rucken/core&#x27;;
 import { BsModalRef, BsModalService } from &#x27;ngx-bootstrap/modal&#x27;;
 import { MessageModalComponent } from &#x27;./message-modal.component&#x27;;
-
+import { NgxBindIoService } from &#x27;ngx-bind-io&#x27;;
 @Injectable()
 export class WebModalsService extends ModalsService {
   componentInfoModal: MessageModalComponent;
@@ -831,7 +831,7 @@ export class WebModalsService extends ModalsService {
     });
     const modalRef: IModalRef&lt;TComponent&gt; &#x3D; {
       instance: bsModalRef.content,
-      hide: function() {
+      hide: function () {
         this.hide();
       }.bind(bsModalRef)
     };
@@ -941,7 +941,7 @@ export class WebModalsService extends ModalsService {
     return message ? (message.length &gt; 150 ? &#x27;modal-md&#x27; : &#x27;modal-sm&#x27;) : undefined;
   }
   private onErrorInConsole(error: any, message?: string): void {
-    if (error &amp;&amp; console &amp;&amp; console.group &amp;&amp; console.error) {
+    if (isDevMode() &amp;&amp; error &amp;&amp; console &amp;&amp; console.group &amp;&amp; console.error) {
       console.group(this._translateService.instant(&#x27;Error Log&#x27;));
       if (message) {
         console.error(message);

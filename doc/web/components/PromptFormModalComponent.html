@@ -114,42 +114,6 @@
     </table>
 </section>
 
-    <section>
-    <h3 id="index">Index</h3>
-    <table class="table table-sm table-bordered index-table">
-        <tbody>
-
-
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#footerButtonsTemplate">footerButtonsTemplate</a>
-                            </li>
-                            <li>
-                                <a href="#headerTemplate">headerTemplate</a>
-                            </li>
-                            <li>
-                                <a href="#leftFooterButtonsTemplate">leftFooterButtonsTemplate</a>
-                            </li>
-                            <li>
-                                <a href="#readonlyFooterButtonsTemplate">readonlyFooterButtonsTemplate</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
-
-
-
-
-        </tbody>
-    </table>
-</section>
 
     <section>
     <h3 id="constructor">Constructor</h3>
@@ -162,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/components/prompt-form-modal/prompt-form-modal.component.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">libs/rucken/web/src/lib/components/prompt-form-modal/prompt-form-modal.component.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -170,105 +134,7 @@
         </table>
 </section>
 
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="footerButtonsTemplate"></a>
-                        <code>footerButtonsTemplate</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
 
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>undefined</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">libs/rucken/web/src/lib/components/prompt-form-modal/prompt-form-modal.component.ts:11</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="headerTemplate"></a>
-                        <code>headerTemplate</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
-
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>undefined</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">libs/rucken/web/src/lib/components/prompt-form-modal/prompt-form-modal.component.ts:17</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="leftFooterButtonsTemplate"></a>
-                        <code>leftFooterButtonsTemplate</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
-
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>undefined</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">libs/rucken/web/src/lib/components/prompt-form-modal/prompt-form-modal.component.ts:13</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="readonlyFooterButtonsTemplate"></a>
-                        <code>readonlyFooterButtonsTemplate</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code>TemplateRef&lt;any&gt;</code>
-
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>undefined</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">libs/rucken/web/src/lib/components/prompt-form-modal/prompt-form-modal.component.ts:15</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -280,7 +146,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Input, TemplateRef } from &#x27;@angular/core&#x27;;
 import { BasePromptModalComponent } from &#x27;@rucken/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;prompt-form-modal&#x27;,
   templateUrl: &#x27;./prompt-form-modal.component.html&#x27;,

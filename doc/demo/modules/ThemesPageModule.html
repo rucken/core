@@ -171,13 +171,13 @@
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { SharedModule } from &#x27;../../shared/shared.module&#x27;;
 import { ThemesPageComponent } from &#x27;./themes-page.component&#x27;;
-import { ThemesPageRoutes } from &#x27;./themes-page.routes&#x27;;
+import { THEMES_PAGE_ROUTES } from &#x27;./themes-page.routes&#x27;;
 
 @NgModule({
-  imports: [SharedModule, RouterModule.forChild(ThemesPageRoutes)],
+  imports: [SharedModule, RouterModule.forChild(THEMES_PAGE_ROUTES)],
   declarations: [ThemesPageComponent]
 })
-export class ThemesPageModule {}
+export class ThemesPageModule { }
 </code></pre>
     </div>
 </div>

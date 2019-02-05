@@ -248,12 +248,12 @@
 import { Injectable, InjectionToken, Inject } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { TokenService } from &#x27;../services/token.service&#x27;;
-import { JWT_CONFIG_TOKEN, defaultJwtConfig } from &#x27;../configs/jwt.config&#x27;;
+import { JWT_CONFIG_TOKEN, DEFAULT_JWT_CONFIG } from &#x27;../configs/jwt.config&#x27;;
 import { IJwtConfig } from &#x27;../interfaces/jwt-config.interface&#x27;;
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(@Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig, private _tokenService: TokenService) {}
+  constructor(@Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig, private _tokenService: TokenService) { }
   intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     if (
       this._jwtConfig &amp;&amp;

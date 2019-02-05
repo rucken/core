@@ -134,23 +134,6 @@
                 </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#apiUrl">apiUrl</a>
-                            </li>
-                            <li>
-                                <a href="#simpleMode">simpleMode</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -170,7 +153,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">libs/rucken/web/src/lib/entities/users/users-grid-modal/users-grid-modal.component.ts:16</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">libs/rucken/web/src/lib/entities/users/users-grid-modal/users-grid-modal.component.ts:18</a></div>
                             </td>
                         </tr>
 
@@ -178,53 +161,7 @@
         </table>
 </section>
 
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="apiUrl"></a>
-                        <code>apiUrl</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>undefined</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">libs/rucken/web/src/lib/entities/users/users-grid-modal/users-grid-modal.component.ts:14</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="simpleMode"></a>
-                        <code>simpleMode</code>
-                    </td>
-                    <td class="col-md-10">
-                        <p>
-                            <em>Default value : </em><code>false</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">libs/rucken/web/src/lib/entities/users/users-grid-modal/users-grid-modal.component.ts:16</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -270,7 +207,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">libs/rucken/web/src/lib/entities/users/users-grid-modal/users-grid-modal.component.ts:12</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">libs/rucken/web/src/lib/entities/users/users-grid-modal/users-grid-modal.component.ts:14</a></div>
                             </td>
                         </tr>
 
@@ -286,7 +223,9 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, Input, ViewChild } from &#x27;@angular/core&#x27;;
 import { BaseEntityListModalComponent, User } from &#x27;@rucken/core&#x27;;
 import { UsersGridComponent } from &#x27;../users-grid/users-grid.component&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;users-grid-modal&#x27;,
   templateUrl: &#x27;./users-grid-modal.component.html&#x27;,
@@ -308,7 +247,7 @@ export class UsersGridModalComponent extends BaseEntityListModalComponent&lt;Use
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;entity-grid-modal bindIO&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;entity-grid-modal [bindIO]&gt;
     &lt;users-grid
         [apiUrl]&#x3D;&quot;apiUrl&quot;
         #grid&gt;
@@ -343,7 +282,7 @@ export class UsersGridModalComponent extends BaseEntityListModalComponent&lt;Use
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><entity-grid-modal bindIO>    <users-grid        [apiUrl]="apiUrl"        #grid>    </users-grid></entity-grid-modal></div>'
+        var COMPONENT_TEMPLATE = '<div><entity-grid-modal [bindIO]>    <users-grid        [apiUrl]="apiUrl"        #grid>    </users-grid></entity-grid-modal></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UsersGridModalComponent'};

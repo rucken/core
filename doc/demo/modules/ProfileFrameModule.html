@@ -173,14 +173,14 @@ import { ProfilePanelModule } from &#x27;@rucken/web&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../../shared/shared.module&#x27;;
 import { ProfileFrameComponent } from &#x27;./profile-frame.component&#x27;;
-import { ProfileFrameRoutes } from &#x27;./profile-frame.routes&#x27;;
+import { PROFILE_FRAME_ROUTES } from &#x27;./profile-frame.routes&#x27;;
 
 @NgModule({
   imports: [
     SharedModule,
     NgxPermissionsModule.forChild(),
     ProfilePanelModule,
-    RouterModule.forChild(ProfileFrameRoutes)
+    RouterModule.forChild(PROFILE_FRAME_ROUTES)
   ],
   declarations: [ProfileFrameComponent]
 })

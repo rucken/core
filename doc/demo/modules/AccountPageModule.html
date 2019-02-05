@@ -173,13 +173,13 @@ import { NavSidebarModule } from &#x27;@rucken/web&#x27;;
 import { NgxPermissionsModule } from &#x27;ngx-permissions&#x27;;
 import { SharedModule } from &#x27;../../shared/shared.module&#x27;;
 import { AccountPageComponent } from &#x27;./account-page.component&#x27;;
-import { AccountPageRoutes } from &#x27;./account-page.routes&#x27;;
+import { ACCOUNT_PAGE_ROUTES } from &#x27;./account-page.routes&#x27;;
 
 @NgModule({
-  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(AccountPageRoutes)],
+  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(ACCOUNT_PAGE_ROUTES)],
   declarations: [AccountPageComponent]
 })
-export class AccountPageModule {}
+export class AccountPageModule { }
 </code></pre>
     </div>
 </div>

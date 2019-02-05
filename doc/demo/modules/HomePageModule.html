@@ -171,13 +171,13 @@
 import { RouterModule } from &#x27;@angular/router&#x27;;
 import { SharedModule } from &#x27;../../shared/shared.module&#x27;;
 import { HomePageComponent } from &#x27;./home-page.component&#x27;;
-import { HomePageRoutes } from &#x27;./home-page.routes&#x27;;
+import { HOME_PAGE_ROUTES } from &#x27;./home-page.routes&#x27;;
 
 @NgModule({
-  imports: [SharedModule, RouterModule.forChild(HomePageRoutes)],
+  imports: [SharedModule, RouterModule.forChild(HOME_PAGE_ROUTES)],
   declarations: [HomePageComponent]
 })
-export class HomePageModule {}
+export class HomePageModule { }
 </code></pre>
     </div>
 </div>

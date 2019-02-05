@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-modal/content-type-modal.component.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-type-modal/content-type-modal.component.ts:11</a></div>
                             </td>
                         </tr>
 
@@ -146,7 +146,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component } from &#x27;@angular/core&#x27;;
 import { BasePromptFormModalComponent, ContentType } from &#x27;@rucken/core&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;content-type-modal&#x27;,
   templateUrl: &#x27;./content-type-modal.component.html&#x27;,
@@ -165,10 +167,9 @@ export class ContentTypeModalComponent extends BasePromptFormModalComponent&lt;C
         <pre class="line-numbers"><code class="language-html">&lt;form
     [formGroup]&#x3D;&quot;form&quot;
     novalidate&gt;
-    &lt;prompt-form-modal bindIO&gt;
+    &lt;prompt-form-modal [bindIO]&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            [bindIO]
             name&#x3D;&quot;name&quot;
             [title]&#x3D;&quot;strings.name&quot;&gt;
             &lt;input
@@ -177,8 +178,7 @@ export class ContentTypeModalComponent extends BasePromptFormModalComponent&lt;C
                 focused&gt;
         &lt;/form-group&gt;
         &lt;form-group
-            [checkIsDirty]&#x3D;&quot;checkIsDirty&quot;
-            [form]&#x3D;&quot;form&quot;
+            [bindIO]
             name&#x3D;&quot;title&quot;
             [title]&#x3D;&quot;strings.title&quot;&gt;
             &lt;input
@@ -216,7 +216,7 @@ export class ContentTypeModalComponent extends BasePromptFormModalComponent&lt;C
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal bindIO>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="name"            [title]="strings.name">            <input                formControlName="name"                [readonly]="readonly"                focused>        </form-group>        <form-group            [checkIsDirty]="checkIsDirty"            [form]="form"            name="title"            [title]="strings.title">            <input                formControlName="title"                [readonly]="readonly">        </form-group>    </prompt-form-modal></form></div>'
+        var COMPONENT_TEMPLATE = '<div><form    [formGroup]="form"    novalidate>    <prompt-form-modal [bindIO]>        <form-group            [bindIO]            name="name"            [title]="strings.name">            <input                formControlName="name"                [readonly]="readonly"                focused>        </form-group>        <form-group            [bindIO]            name="title"            [title]="strings.title">            <input                formControlName="title"                [readonly]="readonly">        </form-group>    </prompt-form-modal></form></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ContentTypeModalComponent'};

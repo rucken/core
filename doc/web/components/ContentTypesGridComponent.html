@@ -140,23 +140,6 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                        <h6><b>Inputs</b></h6>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <ul class="index-list">
-                            <li>
-                                <a href="#modalItem">modalItem</a>
-                            </li>
-                            <li>
-                                <a href="#title">title</a>
-                            </li>
-                        </ul>
-                    </td>
-                </tr>
 
 
 
@@ -176,7 +159,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-types-grid/content-types-grid.component.ts:26</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-types-grid/content-types-grid.component.ts:28</a></div>
                             </td>
                         </tr>
 
@@ -262,55 +245,7 @@
         </table>
 </section>
 
-    <section>
-    <h3 id="inputs">Inputs</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="modalItem"></a>
-                        <code>modalItem</code>
-                    </td>
-                    <td class="col-md-10">
-                            <p>
-                            <em>Type :</em>    <code>IBaseEntityModalOptions</code>
 
-                            </p>
-                        <p>
-                            <em>Default value : </em><code>{
-    component: ContentTypeModalComponent
-  }</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-types-grid/content-types-grid.component.ts:22</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-2">
-                        <a name="title"></a>
-                        <code>title</code>
-                    </td>
-                    <td class="col-md-10">
-                        <p>
-                            <em>Default value : </em><code>translate(&#x27;Content types&#x27;)</code>
-                        </p>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-types-grid/content-types-grid.component.ts:26</a></div>
-                            </td>
-                        </tr>
-            </tbody>
-        </table>
-</section>
 
 
 
@@ -341,7 +276,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-types-grid/content-types-grid.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">libs/rucken/web/src/lib/entities/content-types/content-types-grid/content-types-grid.component.ts:38</a></div>
                             </td>
                         </tr>
 
@@ -377,7 +312,9 @@ import {
 } from &#x27;@rucken/core&#x27;;
 import { DynamicRepository, IRestProviderOptions } from &#x27;ngx-repository&#x27;;
 import { ContentTypeModalComponent } from &#x27;../content-type-modal/content-type-modal.component&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;content-types-grid&#x27;,
   templateUrl: &#x27;./content-types-grid.component.html&#x27;,
@@ -419,7 +356,7 @@ export class ContentTypesGridComponent extends BaseEntityListComponent&lt;Conten
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;entity-grid
-    bindIO
+    [bindIO]
     excludeOutputs&#x3D;&quot;appendFromGrid&quot;
     [columns]&#x3D;&quot;[&#x27;title&#x27;, &#x27;action&#x27;]&quot;
     [enableCreate]&#x3D;&quot;&#x27;add_content-type&#x27; | perm:false | async&quot;
@@ -455,7 +392,7 @@ export class ContentTypesGridComponent extends BaseEntityListComponent&lt;Conten
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><entity-grid    bindIO    excludeOutputs="appendFromGrid"    [columns]="[\'title\', \'action\']"    [enableCreate]="\'add_content-type\' | perm:false | async"    [enableUpdate]="\'change_content-type\' | perm:false | async"    [enableDelete]="\'delete_content-type\' | perm:false | async"></entity-grid></div>'
+        var COMPONENT_TEMPLATE = '<div><entity-grid    [bindIO]    excludeOutputs="appendFromGrid"    [columns]="[\'title\', \'action\']"    [enableCreate]="\'add_content-type\' | perm:false | async"    [enableUpdate]="\'change_content-type\' | perm:false | async"    [enableDelete]="\'delete_content-type\' | perm:false | async"></entity-grid></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ContentTypesGridComponent'};

@@ -167,7 +167,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/demo/src/app/pages/entities-page/entities-page.component.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/demo/src/app/pages/entities-page/entities-page.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -236,7 +236,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/demo/src/app/pages/entities-page/entities-page.component.ts:15</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">apps/demo/src/app/pages/entities-page/entities-page.component.ts:17</a></div>
                             </td>
                         </tr>
 
@@ -295,7 +295,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">apps/demo/src/app/pages/entities-page/entities-page.component.ts:13</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">apps/demo/src/app/pages/entities-page/entities-page.component.ts:15</a></div>
                             </td>
                         </tr>
 
@@ -311,8 +311,10 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from &#x27;@angular/core&#x27;;
 import { ActivatedRoute } from &#x27;@angular/router&#x27;;
 import { NavSidebarComponent } from &#x27;@rucken/web&#x27;;
-import { EntitiesPageChildrenRoutes } from &#x27;./entities-page.children-routes&#x27;;
+import { ENTITIES_PAGE_CHILDREN_ROUTES } from &#x27;./entities-page.children-routes&#x27;;
+import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 
+@BindIoInner()
 @Component({
   selector: &#x27;entities-page&#x27;,
   templateUrl: &#x27;./entities-page.component.html&#x27;,
@@ -321,9 +323,9 @@ import { EntitiesPageChildrenRoutes } from &#x27;./entities-page.children-routes
 export class EntitiesPageComponent implements OnInit {
   @ViewChild(&#x27;sidebar&#x27;)
   sidebar: NavSidebarComponent;
-  constructor(private _activatedRoute: ActivatedRoute) {}
+  constructor(private _activatedRoute: ActivatedRoute) { }
   ngOnInit() {
-    this.sidebar.setRoutes(EntitiesPageChildrenRoutes);
+    this.sidebar.setRoutes(ENTITIES_PAGE_CHILDREN_ROUTES);
   }
 }
 </code></pre>
