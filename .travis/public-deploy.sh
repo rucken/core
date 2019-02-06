@@ -9,7 +9,7 @@ setup_ssh() {
 setup_git() {
   git config user.email "travis@travis-ci.org"
   git config user.name "Travis CI"
-  git remote add public ssh://${REMOTE_HOST_GIT_URL} > /dev/null 2>&1
+  git remote add public git+ssh://${REMOTE_HOST_GIT_URL} > /dev/null 2>&1
   git config push.default simple
   yes | cp -rf .travis/public-gitignore .gitignore
   yes | cp -rf .travis/public-package.json package.json
