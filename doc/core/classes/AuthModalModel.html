@@ -158,13 +158,13 @@
                             <b>Decorators : </b>
                             <br />
                             <code>
-                                @IsNotEmpty({groups: undefined})<br />
+                                @IsNotEmpty({groups: undefined})<br />@IsEmail(undefined, {groups: undefined})<br />
                             </code>
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.model.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.model.ts:25</a></div>
                             </td>
                         </tr>
 
@@ -251,7 +251,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.model.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.model.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -299,7 +299,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.model.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">libs/rucken/core/src/lib/modules/auth-modal/auth-modal.model.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -411,7 +411,7 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsNotEmpty, Validate } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsEmail, IsNotEmpty, Validate } from &#x27;class-validator&#x27;;
 import { IModel } from &#x27;ngx-repository&#x27;;
 import { EqualsToOtherProperty } from &#x27;../../utils/custom-validators&#x27;;
 import { translate } from &#x27;../../utils/translate&#x27;;
@@ -430,6 +430,9 @@ export class AuthModalModel implements IModel {
   })
   username: string &#x3D; undefined;
   @IsNotEmpty({
+    groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
+  })
+  @IsEmail(undefined, {
     groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
   })
   email: string &#x3D; undefined;
