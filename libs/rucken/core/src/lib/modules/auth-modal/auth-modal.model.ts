@@ -1,4 +1,4 @@
-import { IsNotEmpty, Validate } from 'class-validator';
+import { IsEmail, IsNotEmpty, Validate } from 'class-validator';
 import { IModel } from 'ngx-repository';
 import { EqualsToOtherProperty } from '../../utils/custom-validators';
 import { translate } from '../../utils/translate';
@@ -17,6 +17,9 @@ export class AuthModalModel implements IModel {
   })
   username: string = undefined;
   @IsNotEmpty({
+    groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
+  })
+  @IsEmail(undefined, {
     groups: [AuthModalTypeEnum.SignIn.toString(), AuthModalTypeEnum.SignUp.toString()]
   })
   email: string = undefined;

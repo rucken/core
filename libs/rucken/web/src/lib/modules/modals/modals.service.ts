@@ -1,10 +1,9 @@
 import { isPlatformServer } from '@angular/common';
-import { Inject, Injectable, PLATFORM_ID, TemplateRef, isDevMode } from '@angular/core';
+import { Inject, Injectable, isDevMode, PLATFORM_ID, TemplateRef } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { ErrorsExtractor, IModalRef, ModalsService } from '@rucken/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { MessageModalComponent } from './message-modal.component';
-import { NgxBindIoService } from 'ngx-bind-io';
 @Injectable()
 export class WebModalsService extends ModalsService {
   componentInfoModal: MessageModalComponent;
