@@ -9,7 +9,10 @@ setup_ssh() {
 setup_git() {
   git config user.email "travis@travis-ci.org"
   git config user.name "Travis CI"
-  git remote add public ssh://${REMOTE_HOST_GIT_URL}
+  git remote add public ${REMOTE_HOST_GIT_URL} > /dev/null 2>&1
+  git remote -v
+  git clean -fx
+  git pull origin master --rebase=preserve --allow-unrelated-histories
   yes | cp -rf .travis/public-gitignore .gitignore
   yes | cp -rf .travis/public-package.json package.json
 }
@@ -20,7 +23,7 @@ commit_files() {
 }
 
 upload_files() {
-  git push public master
+  git push --quiet --set-upstream public master
 }
 
 if [[ $TRAVIS_BRANCH == 'master' ]]
