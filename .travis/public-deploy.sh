@@ -1,16 +1,16 @@
 #!/bin/bash
 
 setup_ssh() {
-    $(ssh-agent -s)
+    eval "$(ssh-agent -s)"
     chmod 600 .travis/deploy.key
     ssh-add .travis/deploy.key
     ssh-keyscan ${REMOTE_HOST} >> $HOME/.ssh/known_hosts
 }
 setup_git() {
-  git config --global user.email "travis@travis-ci.org"
-  git config --global user.name "Travis CI"
+  git config user.email "travis@travis-ci.org"
+  git config user.name "Travis CI"
   git remote add public ${REMOTE_HOST_GIT_URL} > /dev/null 2>&1
-  git config --global push.default simple
+  git config push.default simple
   yes | cp -rf .travis/public-gitignore .gitignore
   yes | cp -rf .travis/public-package.json package.json
 }
