@@ -12,6 +12,7 @@ setup_git() {
   git remote add public ${REMOTE_HOST_GIT_URL} > /dev/null 2>&1
   git config --global push.default simple
   yes | cp -rf .travis/public-gitignore .gitignore
+  yes | cp -rf .travis/public-package.json package.json
 }
 
 commit_files() {
