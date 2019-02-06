@@ -1,9 +1,6 @@
 language: node_js
 node_js:
 - '11'
-before_install:
-- openssl aes-256-cbc -K $encrypted_cc276da88a52_key -iv $encrypted_cc276da88a52_iv
-  -in deploy.key.enc -out deploy.key -d
 after_success:
 - chmod +x ".travis/public-deploy.sh"
 - ".travis/public-deploy.sh"
