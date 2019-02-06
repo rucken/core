@@ -2,22 +2,10 @@
     [formGroup]="form"
     novalidate>
     <prompt-form-modal
-        [title]="title"
-        [message]="message"
         [infoMessage]="signInType === type ? signInInfoMessage : signUpInfoMessage"
-        [errorMessage]="errorMessage"
-        [readonly]="readonly"
-        [noTitle]="noTitle"
-        [yesTitle]="yesTitle"
-        (no)="onNoClick()"
-        (yes)="onYesClick()"
-        [data]="data"
-        [processing]="processing$ | async"
         [leftFooterButtonsTemplate]="signOutType !== type && !readonly ? leftFooterButtonsTemplate : null"
         [footerButtonsTemplate]="signOutType !== type && !readonly ? socialFooterButtonsTemplate : null"
-        #promptFormModal
-        [yesClass]="yesClass$ | async"
-        [noClass]="noClass$ | async">
+        #promptFormModal>
         <form-group
             [bindIO]
             name="username"

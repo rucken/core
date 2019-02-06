@@ -86,8 +86,7 @@
                 class="col-md-6"
                 *ngIf="!simpleMode">
                 <form-group
-                    [checkIsDirty]="checkIsDirty"
-                    [form]="form"
+                    [bindIO]
                     [title]="strings.roles">
                     <div class="checkboxes-group form-control">
                         <div class="checkbox">
