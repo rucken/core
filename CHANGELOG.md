@@ -1,3 +1,12 @@
+## [3.9.2](https://github.com/rucken/core/compare/3.9.1...3.9.2) (2019-02-06)
+
+
+### Bug Fixes
+
+* **web:** Remove inputs and outputs properties in auth-modal, replace them to bindIO ([5a71d39](https://github.com/rucken/core/commit/5a71d39))
+
+
+
 ## [3.9.1](https://github.com/rucken/core/compare/3.9.0...3.9.1) (2019-02-05)
 
 
