@@ -7,7 +7,7 @@ import { ThemesService } from '@rucken/web';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
 import { config } from './config/config';
-import { initializeBrowserApp } from './shared/utils/initialize-browser-app';
+import { initializeBrowserApp } from './utils/initialize-browser-app';
 @NgModule({
   bootstrap: [AppComponent],
   imports: [BrowserModule.withServerTransition({ appId: config.app.id }), FontAwesomeModule, AppModule],

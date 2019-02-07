@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
 import { config } from './config/config';
 import { SharedModule } from './shared/shared.module';
-import { metaFactory } from './shared/utils/meta-factory';
+import { metaFactory } from './utils/meta-factory';
 
 @NgModule({
   declarations: [AppComponent],
