@@ -12,7 +12,46 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Swedish\n"
 "Language: sv_SE\n"
-"PO-Revision-Date: 2018-09-17 13:03\n"
+"PO-Revision-Date: 2018-12-09 18:33\n"
+
+msgid "Cancel"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Item #{{id}}"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Create new item"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Update item #{{id}}"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Delete item #{{id}}"
+msgstr ""
+
+msgid "Do you really want to delete item?"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Select item"
+msgstr ""
+
+msgid "Append"
+msgstr ""
 
 msgid "Id"
 msgstr ""
@@ -38,6 +77,9 @@ msgstr ""
 msgid "Do you really want to delete content type?"
 msgstr ""
 
+msgid "Select content type"
+msgstr ""
+
 msgid "Permissions"
 msgstr ""
 
@@ -56,6 +98,9 @@ msgstr ""
 msgid "Do you really want to delete group?"
 msgstr ""
 
+msgid "Select group"
+msgstr ""
+
 msgid "Content type"
 msgstr ""
 
@@ -72,6 +117,9 @@ msgid "Delete permission #{{id}}"
 msgstr ""
 
 msgid "Do you really want to delete permission?"
+msgstr ""
+
+msgid "Select permission"
 msgstr ""
 
 msgid "Username"
@@ -129,6 +177,39 @@ msgid "Delete user #{{id}}"
 msgstr ""
 
 msgid "Do you really want to delete user?"
+msgstr ""
+
+msgid "Select user"
+msgstr ""
+
+msgid "Sign in"
+msgstr ""
+
+msgid "Authorization"
+msgstr ""
+
+msgid "Sign up"
+msgstr ""
+
+msgid "Registration"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Sign out"
+msgstr ""
+
+msgid "Do you really want to leave?"
+msgstr ""
+
+msgid "Confirm password"
+msgstr ""
+
+msgid "Your session has expired, please re-login"
+msgstr ""
+
+msgid "No"
 msgstr ""
 
 msgid "Oauth provider with name \"{provider}\" not founded"
