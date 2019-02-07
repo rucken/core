@@ -56,7 +56,7 @@
     "start:dev": "run-s prepare:mono serve:dev",
     "build": "run-s clean format:fix config:mono app:build ssr:build",
     "build:dev": "run-s clean format:fix config:mono app:build:dev ssr:build:dev",
-    "test": "run-s github:build ssr:build",
+    "test": "run-s build",
     "lint": "ng lint",
     "clean": "./node_modules/.bin/del-cli dist",
     "e2e": "ng e2e",
