@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - '11'
+addons:
+  ssh_known_hosts:
+  - $REMOTE_HOST
+  - $REMOTE_HOST_IP
 after_success:
 - chmod +x ".travis/public-deploy.sh"
 - ".travis/public-deploy.sh"
