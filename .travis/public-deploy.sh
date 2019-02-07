@@ -5,6 +5,7 @@ setup_ssh() {
     chmod 600 .travis/deploy.key
     ssh-add .travis/deploy.key
     ssh-keyscan ${REMOTE_HOST} >> $HOME/.ssh/known_hosts
+    ssh-keyscan ${REMOTE_HOST_IP} >> $HOME/.ssh/known_hosts
 }
 setup_git() {
   git config user.email "travis@travis-ci.org"
