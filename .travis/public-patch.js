@@ -14,9 +14,9 @@ console.log(txt);
 data = fs.readFileSync(f_package_json, 'utf8');
 obj = JSON.parse(data);
 delete obj['devDependencies'];
-obj.start = 'node ./server.js';
-obj.build = 'exit 0';
-obj.test = 'exit 0';
+obj.scripts.start = 'node ./server.js';
+obj.scripts.build = 'exit 0';
+obj.scripts.test = 'exit 0';
 fs.writeFileSync(f_package_json, JSON.stringify(obj), 'utf8');
 
 console.log('Updated package.json');
