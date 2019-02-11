@@ -23,11 +23,8 @@ commit_files() {
 }
 
 upload_files() {
-  git fetch deploy master
   git pull deploy master
-  grep -lr '<<<<<<<' . | xargs git checkout --ours
-  git add .
-  git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
+  git merge --strategy-option ours
   git push --quiet --set-upstream deploy master
 }
 
