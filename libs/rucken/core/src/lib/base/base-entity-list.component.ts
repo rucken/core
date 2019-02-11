@@ -181,7 +181,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.setData(item);
+    if (modalRef.instance.setData) {
+      modalRef.instance.setData(item);
+    }
     return modalRef;
   }
   createViewModal(item: TModel) {
@@ -218,7 +220,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.setData(item);
+    if (modalRef.instance.setData) {
+      modalRef.instance.setData(item);
+    }
     return modalRef;
   }
   createCreateModal(data?: any) {
@@ -286,7 +290,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.setData(item);
+    if (modalRef.instance.setData) {
+      modalRef.instance.setData(item);
+    }
     return modalRef;
   }
   createUpdateModal(item: TModel) {
@@ -358,7 +364,9 @@ export class BaseEntityListComponent<TModel extends IModel> implements IBaseEnti
       }
     );
     modalRef.instance.group(this.factoryModel);
-    modalRef.instance.setData(item);
+    if (modalRef.instance.setData) {
+      modalRef.instance.setData(item);
+    }
     return modalRef;
   }
   createDeleteModal(item: TModel) {
