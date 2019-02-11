@@ -6,7 +6,7 @@ fs.readFile(f_gitignore, 'utf8', function (err, data) {
     if (err) {
         return console.log(err);
     }
-    var result = data.replace(/\/dist/g, '/dist/rucken');
+    var result = data.replace(/\/dist/g, '/dist/rucken').replace(/server.js/g, '');
     fs.writeFile(f_gitignore, result, 'utf8', function (err) {
         if (err) return console.log(err);
     });
