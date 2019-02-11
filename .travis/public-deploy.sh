@@ -16,11 +16,11 @@ setup_git() {
 }
 
 commit_files() {
-  node .travis/public-patch.js
   git stash
   git fetch deploy master
   git pull deploy master
   git stash apply
+  node .travis/public-patch.js
   git add .
   git add -u
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
