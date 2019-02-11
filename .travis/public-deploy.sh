@@ -23,7 +23,7 @@ setup_git() {
 }
 
 commit_files() {
-  .travis/public-patch.js
+  node .travis/public-patch.js
   cp -av ./dist/* ./deploy/dist
   cp -av ./package.json ./deploy/package.json 
   cp -av ./.gitignore ./deploy/.gitignore
