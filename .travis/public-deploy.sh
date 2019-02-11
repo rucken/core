@@ -30,7 +30,7 @@ commit_files() {
   cd deploy
   git add .
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
-  git push deploy HEAD
+  git push --quiet --set-upstream deploy master
   cd ..
 }
 
