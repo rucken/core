@@ -10,8 +10,10 @@ setup_ssh() {
 setup_git() {
   git config user.email "travis@travis-ci.org"
   git config user.name "Travis CI"
-  git remote add deploy "${REMOTE_HOST_GIT_URL}"
+  git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
   git config push.default simple
+  git fetch origin deploy
+  git pull origin deploy
   git remote -v
   yes | cp -rf .travis/public-gitignore .gitignore
   yes | cp -rf .travis/public-package.json package.json
@@ -23,7 +25,7 @@ commit_files() {
 }
 
 upload_files() {
-  git push deploy HEAD:master
+  git push --quiet --set-upstream origin generators-outputs 
 }
 
 if [[ $TRAVIS_BRANCH == 'master' ]]
