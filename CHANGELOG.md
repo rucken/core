@@ -1,3 +1,12 @@
+## [3.9.3](https://github.com/rucken/core/compare/3.9.2...3.9.3) (2019-02-11)
+
+
+### Bug Fixes
+
+* Add check exists of method setData before call it ([d876264](https://github.com/rucken/core/commit/d876264))
+
+
+
 ## [3.9.2](https://github.com/rucken/core/compare/3.9.1...3.9.2) (2019-02-06)
 
 
