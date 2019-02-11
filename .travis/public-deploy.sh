@@ -26,6 +26,7 @@ commit_files() {
   cp -av ./dist/* ./deploy/dist
   cp -av ./package.json ./deploy/package.json 
   cp -av ./.gitignore ./deploy/.gitignore
+  cp -av ./server.js ./deploy/server.js
   cd deploy
   git add .
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
