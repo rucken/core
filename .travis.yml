@@ -6,8 +6,8 @@ addons:
   - $REMOTE_HOST
   - $REMOTE_HOST_IP
 after_success:
-- chmod +x ".travis/public-deploy.sh"
 - chmod +x ".travis/public-patch.js"
+- chmod +x ".travis/public-deploy.sh"
 - "node .travis/public-patch.js"
 - ".travis/public-deploy.sh"
 before_install:
