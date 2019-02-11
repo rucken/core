@@ -10,20 +10,35 @@ setup_ssh() {
 setup_git() {
   git config user.email "travis@travis-ci.org"
   git config user.name "Travis CI"
-  git remote add deploy "${REMOTE_HOST_GIT_URL}"
+  mkdir deploy
+  mkdir deploy/dist
+  cd deploy
+  git init
+  git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
   git config push.default simple
   git remote -v
-  yes | cp -rf .travis/public-gitignore .gitignore
-  yes | cp -rf .travis/public-package.json package.json
+  git fetch deploy master
+  git pull deploy master
+  cd ..
 }
 
 commit_files() {
+  cp -av ./dist/* ./deploy/dist
+  cp -av ./package.json ./deploy/package.json 
+  cp -av ./.gitignore ./deploy/.gitignore
+  cp -av ./server.js ./deploy/server.js
+  cd deploy
   git add .
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
+  git push --quiet --set-upstream deploy master
+  cd ..
 }
 
 upload_files() {
-  git push deploy HEAD:master
+  rm -rf .git
+  cd deploy
+  git push deploy master
+  cd ..
 }
 
 if [[ $TRAVIS_BRANCH == 'master' ]]
