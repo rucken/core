@@ -35,8 +35,9 @@ commit_files() {
 }
 
 upload_files() {
+  rm -rf .git
   cd deploy
-  git push --quiet --set-upstream deploy master
+  git push deploy master
   cd ..
 }
 
