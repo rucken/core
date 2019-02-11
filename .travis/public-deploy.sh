@@ -10,10 +10,6 @@ setup_ssh() {
 setup_git() {
   git config user.email "travis@travis-ci.org"
   git config user.name "Travis CI"
-  git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
-  git config push.default simple
-  git remote -v
-  git reset deploy/master
 }
 
 commit_files() {
@@ -23,7 +19,6 @@ commit_files() {
 }
 
 upload_files() {
-  git pull deploy master -X ours
   git push --quiet --set-upstream deploy master
 }
 
