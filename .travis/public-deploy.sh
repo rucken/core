@@ -12,8 +12,6 @@ setup_git() {
   git config user.name "Travis CI"
   git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
   git config push.default simple
-  git fetch deploy master
-  git pull deploy master
   git remote -v
   yes | cp -rf .travis/public-gitignore .gitignore
   yes | cp -rf .travis/public-package.json package.json
@@ -22,6 +20,8 @@ setup_git() {
 commit_files() {
   git add .
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
+  git fetch deploy master
+  git pull deploy master
 }
 
 upload_files() {
