@@ -23,6 +23,8 @@ commit_files() {
 }
 
 upload_files() {
+  git fetch deploy master
+  git pull deploy master
   git push --quiet --set-upstream deploy master
 }
 
