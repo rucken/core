@@ -9,7 +9,6 @@ txt = data.replace(/\/dist/g, '/dist/rucken').replace(/server.js/g, '');
 fs.writeFileSync(f_gitignore, txt, 'utf8');
 
 console.log('Updated .gitignore');
-console.log(txt);
 
 data = fs.readFileSync(f_package_json, 'utf8');
 obj = JSON.parse(data);
@@ -20,4 +19,3 @@ obj.scripts.test = 'exit 0';
 fs.writeFileSync(f_package_json, JSON.stringify(obj), 'utf8');
 
 console.log('Updated package.json');
-console.log(JSON.stringify(obj));
