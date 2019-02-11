@@ -1,6 +1,6 @@
 import { MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { config } from '../../config/config';
+import { config } from '../config/config';
 
 export function metaFactory(translateService: TranslateService): MetaLoader {
     return new MetaStaticLoader({

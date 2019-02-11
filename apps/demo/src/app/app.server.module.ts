@@ -7,7 +7,7 @@ import { AuthService, LangService, STORAGE_CONFIG_TOKEN, TokenService, Universal
 import { ThemesService } from '@rucken/web';
 import { AppComponent } from './app.component';
 import { AppModule } from './app.module';
-import { initializeServerApp } from './shared/utils/initialize-server-app';
+import { initializeServerApp } from './utils/initialize-server-app';
 
 @NgModule({
   imports: [
@@ -32,4 +32,4 @@ import { initializeServerApp } from './shared/utils/initialize-server-app';
     }
   ]
 })
-export class AppServerModule {}
+export class AppServerModule { }
