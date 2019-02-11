@@ -13,7 +13,3 @@ after_success:
 before_install:
 - openssl aes-256-cbc -K $encrypted_cc276da88a52_key -iv $encrypted_cc276da88a52_iv
   -in .travis/deploy.key.enc -out .travis/deploy.key -d
-- git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
-- git config push.default simple
-- git remote -v
-- git pull deploy master -X ours
