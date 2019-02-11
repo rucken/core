@@ -13,9 +13,11 @@ setup_git() {
   git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
   git config push.default simple
   git remote -v
+  git reset deploy/master
 }
 
 commit_files() {
+  node .travis/public-patch.js
   git add .
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
 }
