@@ -22,7 +22,7 @@ commit_files() {
 }
 
 upload_files() {
-  git push -f deploy HEAD:master
+  git push -f deploy master
 }
 
 if [[ $TRAVIS_BRANCH == 'master' ]]
