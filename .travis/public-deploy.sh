@@ -16,6 +16,7 @@ setup_git() {
 }
 
 commit_files() {
+  node .travis/public-patch.js
   git add .
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
 }
