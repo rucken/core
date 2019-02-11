@@ -13,19 +13,16 @@ setup_git() {
   git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
   git config push.default simple
   git remote -v
-  yes | cp -rf .travis/public-gitignore .gitignore
-  yes | cp -rf .travis/public-package.json package.json
+  node ./.travis/public-patch.js
 }
 
 commit_files() {
   git add .
   git commit --message "Version: $PACKAGE_VERSION Commit: $TRAVIS_COMMIT"
-  git fetch deploy master
-  git pull deploy master
 }
 
 upload_files() {
-  git push --quiet --set-upstream deploy master
+  git push deploy HEAD:master
 }
 
 if [[ $TRAVIS_BRANCH == 'master' ]]
