@@ -23,8 +23,7 @@ commit_files() {
 }
 
 upload_files() {
-  git pull deploy master
-  git merge --strategy-option ours
+  git pull deploy master -X ours
   git push --quiet --set-upstream deploy master
 }
 
