@@ -12,8 +12,8 @@ setup_git() {
   git config user.name "Travis CI"
   git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
   git config push.default simple
-  git fetch origin deploy
-  git pull origin deploy
+  git fetch deploy master
+  git pull deploy master
   git remote -v
   yes | cp -rf .travis/public-gitignore .gitignore
   yes | cp -rf .travis/public-package.json package.json
@@ -25,7 +25,7 @@ commit_files() {
 }
 
 upload_files() {
-  git push --quiet --set-upstream origin generators-outputs 
+  git push --quiet --set-upstream deploy master
 }
 
 if [[ $TRAVIS_BRANCH == 'master' ]]
