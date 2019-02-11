@@ -13,7 +13,6 @@ setup_git() {
   git remote add deploy "${REMOTE_HOST_GIT_URL}" > /dev/null 2>&1
   git config push.default simple
   git remote -v
-  node ./.travis/public-patch.js
 }
 
 commit_files() {
