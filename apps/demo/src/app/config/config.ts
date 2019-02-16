@@ -16,7 +16,7 @@ defineLocale('en', enGbLocale);
 export const config: ICoreConfig = {
     app: {
         id: 'demo',
-        title: translate('Rucken: Demo'),
+        title: translate('Rucken: Web'),
         description: translate('Core with Admin UI for web and native application maked on Angular7+'),
         languages: [
             {

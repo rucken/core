@@ -1,10 +1,7 @@
 {
     "alias": [
         "rucken.now.sh",
-        "rucken-material.now.sh",
-        "rucken-material-todo.now.sh",
-        "rucken-ionic.now.sh",
-        "rucken-ionic-todo.now.sh"
+        "rucken-web.now.sh"
     ],
     "env": {
         "DEBUG": "@debug"

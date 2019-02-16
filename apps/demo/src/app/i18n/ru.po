@@ -26,8 +26,8 @@ msgstr "Русский"
 msgid "English"
 msgstr "Английский"
 
-msgid "Rucken: Demo"
-msgstr "Rucken: Демо"
+msgid "Rucken: Web"
+msgstr "Rucken: Веб"
 
 msgid "Core with Admin UI for web and native application maked on Angular7+"
 msgstr "Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +"

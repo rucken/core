@@ -3,7 +3,7 @@ export const RuI18n = {
   No: 'Нет',
   Russian: 'Русский',
   English: 'Английский',
-  'Rucken: Demo': 'Rucken: Демо',
+  'Rucken: Web': 'Rucken: Веб',
   'Core with Admin UI for web and native application maked on Angular7+': 'Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +',
   '<p>Demo users:</p><ul>\n': '<p>Демо пользователи:</p><ul>\n',
   'Sign in with Facebook': 'Вход через Facebook',
