@@ -138,7 +138,7 @@
     "conventional-commits-detector": "^1.0.2",
     "conventional-recommended-bump": "^4.0.4",
     "cookie-parser": "^1.4.4",
-    "cp-cli": "^1.1.2",
+    "cp-cli": "^2.0.0",
     "del-cli": "^1.1.0",
     "domino": "^2.1.2",
     "gh-pages": "^2.0.1",
