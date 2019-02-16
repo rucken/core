@@ -26,7 +26,7 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-msgid "Rucken: Demo"
+msgid "Rucken: Web"
 msgstr ""
 
 msgid "Core with Admin UI for web and native application maked on Angular7+"

@@ -3,7 +3,7 @@ export const ViI18n = {
   No: '',
   Russian: '',
   English: '',
-  'Rucken: Demo': '',
+  'Rucken: Web': '',
   'Core with Admin UI for web and native application maked on Angular7+': '',
   '<p>Demo users:</p><ul>\n': '',
   'Sign in with Facebook': '',
