@@ -12,9 +12,9 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Catalan\n"
 "Language: ca_ES\n"
-"PO-Revision-Date: 2019-02-06 13:34\n"
+"PO-Revision-Date: 2019-02-17 10:23\n"
 
-msgid "Rucken: Demo"
+msgid "Rucken: Web"
 msgstr ""
 
 msgid "Core with Admin UI for web and native application maked on Angular7+"
