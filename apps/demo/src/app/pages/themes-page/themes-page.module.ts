@@ -8,4 +8,4 @@ import { THEMES_PAGE_ROUTES } from './themes-page.routes';
   imports: [SharedModule, RouterModule.forChild(THEMES_PAGE_ROUTES)],
   declarations: [ThemesPageComponent]
 })
-export class ThemesPageModule { }
+export class ThemesPageModule {}

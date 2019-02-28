@@ -17,4 +17,4 @@ import { GROUPS_FRAME_ROUTES } from './groups-frame.routes';
   ],
   declarations: [GroupsFrameComponent]
 })
-export class GroupsFrameModule { }
+export class GroupsFrameModule {}

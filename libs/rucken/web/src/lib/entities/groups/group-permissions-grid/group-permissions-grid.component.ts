@@ -20,14 +20,17 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'group-permissions-grid',
   templateUrl: './group-permissions-grid.component.html',
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => GroupPermissionsGridComponent),
-    multi: true
-  }],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => GroupPermissionsGridComponent),
+      multi: true
+    }
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GroupPermissionsGridComponent extends PermissionsGridComponent implements ControlValueAccessor, OnInit, OnDestroy {
+export class GroupPermissionsGridComponent extends PermissionsGridComponent
+  implements ControlValueAccessor, OnInit, OnDestroy {
   @Input()
   modalAppendFromGrid: IBaseEntityModalOptions = {
     component: PermissionsGridModalComponent
@@ -96,8 +99,7 @@ export class GroupPermissionsGridComponent extends PermissionsGridComponent impl
   registerOnTouched(fn: any): void {
     this._onTouched = fn;
   }
-  setDisabledState?(isDisabled: boolean): void {
-  }
-  _onChange = (value: Permission) => { };
-  _onTouched = () => { };
+  setDisabledState?(isDisabled: boolean): void {}
+  _onChange = (value: Permission) => {};
+  _onTouched = () => {};
 }

@@ -17,4 +17,4 @@ import { USERS_FRAME_ROUTES } from './users-frame.routes';
   ],
   declarations: [UsersFrameComponent]
 })
-export class UsersFrameModule { }
+export class UsersFrameModule {}

@@ -17,4 +17,4 @@ import { PERMISSIONS_FRAME_ROUTES } from './permissions-frame.routes';
   ],
   declarations: [PermissionsFrameComponent]
 })
-export class PermissionsFrameModule { }
+export class PermissionsFrameModule {}

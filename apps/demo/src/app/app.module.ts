@@ -4,7 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { MetaLoader, MetaModule } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AccountModule, AuthModalModule, AuthModule, ENTITIES_PROVIDERS, ErrorsExtractor, LangModule, PermissionsGuard, TransferHttpCacheModule } from '@rucken/core';
+import {
+  AccountModule,
+  AuthModalModule,
+  AuthModule,
+  ENTITIES_PROVIDERS,
+  ErrorsExtractor,
+  LangModule,
+  PermissionsGuard,
+  TransferHttpCacheModule
+} from '@rucken/core';
 import { NavbarModule, ThemesModule, WebAuthModalModule, WebModalsModule } from '@rucken/web';
 import { environment } from 'apps/demo/src/environments/environment';
 import { NgxBindIOModule } from 'ngx-bind-io';
@@ -64,4 +73,4 @@ import { metaFactory } from './utils/meta-factory';
   providers: [...ENTITIES_PROVIDERS, CookieService, ErrorsExtractor, BsLocaleService, PermissionsGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

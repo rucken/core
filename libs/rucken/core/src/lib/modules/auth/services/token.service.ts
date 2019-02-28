@@ -27,7 +27,7 @@ export class TokenService {
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
-  ) { }
+  ) {}
   initCurrent() {
     return new Promise((resolve, reject) => {
       this._storage.getItem(this._jwtConfig.storageKeyName).then((data: string) => {
@@ -52,9 +52,9 @@ export class TokenService {
   }
   setCurrent(value: string) {
     if (!value) {
-      this._storage.removeItem(this._jwtConfig.storageKeyName).then(_ => this.current = undefined);
+      this._storage.removeItem(this._jwtConfig.storageKeyName).then(_ => (this.current = undefined));
     } else {
-      this._storage.setItem(this._jwtConfig.storageKeyName, value).then(_ => this.current = value);
+      this._storage.setItem(this._jwtConfig.storageKeyName, value).then(_ => (this.current = value));
     }
   }
   stopCheckTokenHasExpired() {

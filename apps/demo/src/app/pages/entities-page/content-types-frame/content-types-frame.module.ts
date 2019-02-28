@@ -17,4 +17,4 @@ import { CONTENT_TYPES_FRAME_ROUTES } from './content-types-frame.routes';
   ],
   declarations: [ContentTypesFrameComponent]
 })
-export class ContentTypesFrameModule { }
+export class ContentTypesFrameModule {}

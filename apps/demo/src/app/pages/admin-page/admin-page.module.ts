@@ -10,4 +10,4 @@ import { ADMIN_PAGE_ROUTES } from './admin-page.routes';
   imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(ADMIN_PAGE_ROUTES)],
   declarations: [AdminPageComponent]
 })
-export class AdminPageModule { }
+export class AdminPageModule {}

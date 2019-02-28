@@ -24,7 +24,7 @@ export class LangService {
     @Inject(LANG_CONFIG_TOKEN) private _langConfig: ILangConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     private _translateService: TranslateService
-  ) { }
+  ) {}
   async initLanguages() {
     this._translateService.setDefaultLang(this._langConfig.appLang);
     this._translateService.addLangs(this._langConfig.languages.map((lang: ILanguagesItem) => lang.code));

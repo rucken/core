@@ -7,7 +7,12 @@ import { EntitiesPageComponent } from './entities-page.component';
 import { ENTITIES_PAGE_ROUTES } from './entities-page.routes';
 
 @NgModule({
-  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(ENTITIES_PAGE_ROUTES)],
+  imports: [
+    SharedModule,
+    NgxPermissionsModule.forChild(),
+    NavSidebarModule,
+    RouterModule.forChild(ENTITIES_PAGE_ROUTES)
+  ],
   declarations: [EntitiesPageComponent]
 })
-export class EntitiesPageModule { }
+export class EntitiesPageModule {}

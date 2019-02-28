@@ -28,4 +28,4 @@ import { initializeBrowserApp } from './utils/initialize-browser-app';
     }
   ]
 })
-export class AppBrowserModule { }
+export class AppBrowserModule {}

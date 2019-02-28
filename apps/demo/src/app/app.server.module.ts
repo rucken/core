@@ -32,4 +32,4 @@ import { initializeServerApp } from './utils/initialize-server-app';
     }
   ]
 })
-export class AppServerModule { }
+export class AppServerModule {}

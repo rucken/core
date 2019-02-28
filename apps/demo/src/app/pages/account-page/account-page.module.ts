@@ -7,7 +7,12 @@ import { AccountPageComponent } from './account-page.component';
 import { ACCOUNT_PAGE_ROUTES } from './account-page.routes';
 
 @NgModule({
-  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(ACCOUNT_PAGE_ROUTES)],
+  imports: [
+    SharedModule,
+    NgxPermissionsModule.forChild(),
+    NavSidebarModule,
+    RouterModule.forChild(ACCOUNT_PAGE_ROUTES)
+  ],
   declarations: [AccountPageComponent]
 })
-export class AccountPageModule { }
+export class AccountPageModule {}

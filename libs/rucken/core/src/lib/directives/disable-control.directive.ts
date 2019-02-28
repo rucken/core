@@ -7,7 +7,7 @@ import { NgControl } from '@angular/forms';
 export class DisableControlDirective implements OnChanges {
   @Input()
   disableControl: boolean = undefined;
-  constructor(private _ngControl: NgControl) { }
+  constructor(private _ngControl: NgControl) {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.disableControl) {
       const action = this.disableControl ? 'disable' : 'enable';

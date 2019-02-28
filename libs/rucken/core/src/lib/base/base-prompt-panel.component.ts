@@ -58,9 +58,8 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   yesData: any;
   noData: any;
 
-  propagateChange: any = () => { };
-  validateFn: any = () => { };
-
+  propagateChange: any = () => {};
+  validateFn: any = () => {};
 
   constructor(
     public factoryModel?: IFactoryModel<TModel>,
@@ -169,5 +168,5 @@ export class BasePromptPanelComponent<TModel extends IModel> implements ControlV
   registerOnChange(fn) {
     this.propagateChange = fn;
   }
-  registerOnTouched() { }
+  registerOnTouched() {}
 }

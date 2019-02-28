@@ -50,12 +50,12 @@ export class AuthService {
   }
   setCurrent(value: User) {
     if (!value) {
-      this.clearPermissions().then(_ => this.current = undefined);
+      this.clearPermissions().then(_ => (this.current = undefined));
     } else {
       if (value.permissionNames.length) {
-        this.loadPermissions(value).then(_ => this.current = value);
+        this.loadPermissions(value).then(_ => (this.current = value));
       } else {
-        this.clearPermissions().then(_ => this.current = undefined);
+        this.clearPermissions().then(_ => (this.current = undefined));
       }
     }
   }
