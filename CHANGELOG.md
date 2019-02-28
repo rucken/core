@@ -1,3 +1,12 @@
+## [3.9.6](https://github.com/rucken/core/compare/3.9.5...3.9.6) (2019-02-28)
+
+
+### Bug Fixes
+
+* Update dependencies and format sources ([b546c79](https://github.com/rucken/core/commit/b546c79))
+
+
+
 ## [3.9.5](https://github.com/rucken/core/compare/3.9.4...3.9.5) (2019-02-16)
 
 
