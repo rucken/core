@@ -1,7 +1,15 @@
 import { ChangeDetectionStrategy, Component, forwardRef, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { ErrorsExtractor, Group, GROUPS_CONFIG_TOKEN, IBaseEntityModalOptions, ModalsService, translate, User } from '@rucken/core';
+import {
+  ErrorsExtractor,
+  Group,
+  GROUPS_CONFIG_TOKEN,
+  IBaseEntityModalOptions,
+  ModalsService,
+  translate,
+  User
+} from '@rucken/core';
 import { BindIoInner } from 'ngx-bind-io';
 import { DynamicRepository, IRestProviderOptions, ProviderActionEnum } from 'ngx-repository';
 import { Subscription } from 'rxjs';
@@ -12,11 +20,13 @@ import { GroupsGridComponent } from '../../groups/groups-grid/groups-grid.compon
 @Component({
   selector: 'user-groups-grid',
   templateUrl: './user-groups-grid.component.html',
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => UserGroupsGridComponent),
-    multi: true
-  }],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => UserGroupsGridComponent),
+      multi: true
+    }
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserGroupsGridComponent extends GroupsGridComponent implements ControlValueAccessor, OnInit, OnDestroy {
@@ -88,8 +98,7 @@ export class UserGroupsGridComponent extends GroupsGridComponent implements Cont
   registerOnTouched(fn: any): void {
     this._onTouched = fn;
   }
-  setDisabledState?(isDisabled: boolean): void {
-  }
-  _onChange = (value: Group) => { };
-  _onTouched = () => { };
+  setDisabledState?(isDisabled: boolean): void {}
+  _onChange = (value: Group) => {};
+  _onTouched = () => {};
 }

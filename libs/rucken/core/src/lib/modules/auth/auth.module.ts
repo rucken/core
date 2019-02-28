@@ -48,7 +48,8 @@ export class AuthModule {
             apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_OAUTH_CONFIG.apiUrl,
             redirectUrl: DEFAULT_OAUTH_CONFIG.redirectUrl,
             signInUrl: DEFAULT_OAUTH_CONFIG.signInUrl,
-            providers: options.oauth && options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
+            providers:
+              options.oauth && options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
           }
         },
         AuthService,
@@ -96,7 +97,8 @@ export class AuthModule {
             apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_OAUTH_CONFIG.apiUrl,
             redirectUrl: DEFAULT_OAUTH_CONFIG.redirectUrl,
             signInUrl: DEFAULT_OAUTH_CONFIG.signInUrl,
-            providers: options.oauth && options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
+            providers:
+              options.oauth && options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
           }
         },
         AuthService,

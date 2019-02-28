@@ -1,4 +1,13 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  Renderer2,
+  SimpleChanges
+} from '@angular/core';
 import { BindIoInner } from 'ngx-bind-io';
 import { DynamicFormGroup } from 'ngx-dynamic-form-builder';
 import { Observable, of } from 'rxjs';
@@ -24,7 +33,7 @@ export class FormGroupComponent implements AfterViewInit, OnChanges {
   title: string = undefined;
   errors$: Observable<any>;
 
-  constructor(private _renderer: Renderer2, private _elementRef: ElementRef) { }
+  constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
   ngAfterViewInit() {
     const tags = ['input', 'textarea'];
     tags.forEach(tag => {
@@ -46,10 +55,9 @@ export class FormGroupComponent implements AfterViewInit, OnChanges {
     if (changes.form && changes.form.currentValue) {
       this.errors$ = changes.form.currentValue.customValidateErrors.pipe(
         map(customValidateErrors =>
-          (
-            (this.checkIsDirty !== true || changes.form.currentValue.dirty) &&
-            customValidateErrors[this.name]
-          ) ? (customValidateErrors[this.name] as string[]) : []
+          (this.checkIsDirty !== true || changes.form.currentValue.dirty) && customValidateErrors[this.name]
+            ? (customValidateErrors[this.name] as string[])
+            : []
         )
       );
     }

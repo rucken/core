@@ -2,7 +2,16 @@ import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import { AuthModalComponent, AuthModalService, AuthService, LangService, RedirectUrlDto, TokenService, User, UserTokenDto } from '@rucken/core';
+import {
+  AuthModalComponent,
+  AuthModalService,
+  AuthService,
+  LangService,
+  RedirectUrlDto,
+  TokenService,
+  User,
+  UserTokenDto
+} from '@rucken/core';
 import { NavbarComponent } from '@rucken/web';
 import { BindIoInner } from 'ngx-bind-io';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';

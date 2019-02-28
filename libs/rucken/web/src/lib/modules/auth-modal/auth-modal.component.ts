@@ -21,11 +21,6 @@ export class WebAuthModalComponent extends AuthModalComponent implements OnInit 
   }
   ngOnInit() {
     super.ngOnInit();
-    this._ngxBindIoService.linkHostToInner(
-      this,
-      this.promptFormModal,
-      undefined,
-      this._changeDetectorRef
-    );
+    this._ngxBindIoService.linkHostToInner(this, this.promptFormModal, undefined, this._changeDetectorRef);
   }
 }

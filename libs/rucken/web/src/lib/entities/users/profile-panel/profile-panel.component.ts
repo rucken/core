@@ -1,6 +1,22 @@
-import { ChangeDetectionStrategy, Component, forwardRef, Input, isDevMode, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  Input,
+  isDevMode,
+  OnChanges,
+  OnDestroy,
+  SimpleChanges
+} from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { AccountService, AuthService, BasePromptPanelComponent, ErrorsExtractor, ModalsService, User } from '@rucken/core';
+import {
+  AccountService,
+  AuthService,
+  BasePromptPanelComponent,
+  ErrorsExtractor,
+  ModalsService,
+  User
+} from '@rucken/core';
 import { BindObservable } from 'bind-observable';
 import { BindIoInner } from 'ngx-bind-io';
 import { Observable, Subject } from 'rxjs';

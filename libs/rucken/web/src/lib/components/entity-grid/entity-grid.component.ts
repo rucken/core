@@ -1,4 +1,16 @@
-import { ChangeDetectionStrategy, Component, ContentChild, EventEmitter, Input, isDevMode, OnChanges, Output, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ContentChild,
+  EventEmitter,
+  Input,
+  isDevMode,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  TemplateRef,
+  ViewContainerRef
+} from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { translate } from '@rucken/core';
 import { BindObservable } from 'bind-observable';
@@ -146,9 +158,7 @@ export class EntityGridComponent<TModel extends IModel> implements OnChanges {
 
   private _selected: TModel[] = undefined;
 
-  constructor(
-    private _viewContainerRef: ViewContainerRef
-  ) {
+  constructor(private _viewContainerRef: ViewContainerRef) {
     this.searchField.valueChanges
       .pipe(
         debounceTime(400),
@@ -173,18 +183,11 @@ export class EntityGridComponent<TModel extends IModel> implements OnChanges {
   }
   calcEnableOnlyUpdateOrDelete() {
     this.enableOnlyUpdateOrDelete =
-      (
-        this.notReadonlyAndEnableDelete &&
-        !this.notReadonlyAndEnableUpdate
-      ) || (
-        !this.notReadonlyAndEnableDelete &&
-        this.notReadonlyAndEnableUpdate
-      );
+      (this.notReadonlyAndEnableDelete && !this.notReadonlyAndEnableUpdate) ||
+      (!this.notReadonlyAndEnableDelete && this.notReadonlyAndEnableUpdate);
   }
   calcEnableUpdateAndDelete() {
-    this.enableUpdateAndDelete =
-      this.notReadonlyAndEnableDelete &&
-      this.notReadonlyAndEnableUpdate;
+    this.enableUpdateAndDelete = this.notReadonlyAndEnableDelete && this.notReadonlyAndEnableUpdate;
   }
   calcEnableAppendFromGrid() {
     this.enableAppendFromGrid = !this.readonly && this.enableAppendFromGrid;
@@ -199,20 +202,13 @@ export class EntityGridComponent<TModel extends IModel> implements OnChanges {
     this.notReadonlyAndEnableUpdate = !this.readonly && this.enableUpdate;
   }
   setColumns(columns: string[]) {
-    this.filtredColumns =
-      (columns || []).filter(column =>
-        column === 'action'
-          ? (
-            this.readonly === true || (
-              !this.readonly &&
-              !this.enableDelete &&
-              !this.enableUpdate
-            )
-              ? false
-              : true
-          )
+    this.filtredColumns = (columns || []).filter(column =>
+      column === 'action'
+        ? this.readonly === true || (!this.readonly && !this.enableDelete && !this.enableUpdate)
+          ? false
           : true
-      );
+        : true
+    );
   }
   setItems(items: TModel[]) {
     this.filteredItems = items;

@@ -22,7 +22,7 @@ export class AuthModalService {
     public errorsExtractor: ErrorsExtractor,
     public tokenService: TokenService,
     public modalsService: ModalsService
-  ) { }
+  ) {}
   onInfo() {
     const token = this.tokenService.getCurrent();
     if (token) {

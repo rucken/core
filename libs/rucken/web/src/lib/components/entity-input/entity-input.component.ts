@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, OnChanges, Output, SimpleChanges, ViewContainerRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  isDevMode,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewContainerRef
+} from '@angular/core';
 import { BindObservable } from 'bind-observable';
 import { BindIoInner } from 'ngx-bind-io';
 import { Observable } from 'rxjs';
@@ -18,7 +28,7 @@ export class EntityInputComponent implements OnChanges {
   @BindObservable()
   parent: any = undefined;
   parent$: Observable<any>;
-  constructor(private _viewContainerRef: ViewContainerRef) { }
+  constructor(private _viewContainerRef: ViewContainerRef) {}
   ngOnChanges(changes: SimpleChanges): void {
     this.calcParent();
   }

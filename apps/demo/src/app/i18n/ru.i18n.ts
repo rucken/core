@@ -1,10 +1,12 @@
 export const RuI18n = {
-  'Your session has expired, please re-login': 'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
+  'Your session has expired, please re-login':
+    'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
   No: 'Нет',
   Russian: 'Русский',
   English: 'Английский',
   'Rucken: Web': 'Rucken: Веб',
-  'Core with Admin UI for web and native application maked on Angular7+': 'Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +',
+  'Core with Admin UI for web and native application maked on Angular7+':
+    'Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +',
   '<p>Demo users:</p><ul>\n': '<p>Демо пользователи:</p><ul>\n',
   'Sign in with Facebook': 'Вход через Facebook',
   'Sign in with Google+': 'Вход через Google+',
