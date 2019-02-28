@@ -277,7 +277,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/auth.module.ts:66</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">libs/rucken/core/src/lib/modules/auth/auth.module.ts:67</a></div>
                             </td>
                         </tr>
 
@@ -380,7 +380,8 @@ export class AuthModule {
             apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_OAUTH_CONFIG.apiUrl,
             redirectUrl: DEFAULT_OAUTH_CONFIG.redirectUrl,
             signInUrl: DEFAULT_OAUTH_CONFIG.signInUrl,
-            providers: options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
+            providers:
+              options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
           }
         },
         AuthService,
@@ -428,7 +429,8 @@ export class AuthModule {
             apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_OAUTH_CONFIG.apiUrl,
             redirectUrl: DEFAULT_OAUTH_CONFIG.redirectUrl,
             signInUrl: DEFAULT_OAUTH_CONFIG.signInUrl,
-            providers: options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
+            providers:
+              options.oauth &amp;&amp; options.oauth.providers ? options.oauth.providers : DEFAULT_OAUTH_CONFIG.providers
           }
         },
         AuthService,

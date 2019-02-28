@@ -1172,12 +1172,12 @@ export class AuthService {
   }
   setCurrent(value: User) {
     if (!value) {
-      this.clearPermissions().then(_ &#x3D;&gt; this.current &#x3D; undefined);
+      this.clearPermissions().then(_ &#x3D;&gt; (this.current &#x3D; undefined));
     } else {
       if (value.permissionNames.length) {
-        this.loadPermissions(value).then(_ &#x3D;&gt; this.current &#x3D; value);
+        this.loadPermissions(value).then(_ &#x3D;&gt; (this.current &#x3D; value));
       } else {
-        this.clearPermissions().then(_ &#x3D;&gt; this.current &#x3D; undefined);
+        this.clearPermissions().then(_ &#x3D;&gt; (this.current &#x3D; undefined));
       }
     }
   }

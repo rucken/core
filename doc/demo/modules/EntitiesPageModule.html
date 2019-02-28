@@ -176,10 +176,15 @@ import { EntitiesPageComponent } from &#x27;./entities-page.component&#x27;;
 import { ENTITIES_PAGE_ROUTES } from &#x27;./entities-page.routes&#x27;;
 
 @NgModule({
-  imports: [SharedModule, NgxPermissionsModule.forChild(), NavSidebarModule, RouterModule.forChild(ENTITIES_PAGE_ROUTES)],
+  imports: [
+    SharedModule,
+    NgxPermissionsModule.forChild(),
+    NavSidebarModule,
+    RouterModule.forChild(ENTITIES_PAGE_ROUTES)
+  ],
   declarations: [EntitiesPageComponent]
 })
-export class EntitiesPageModule { }
+export class EntitiesPageModule {}
 </code></pre>
     </div>
 </div>

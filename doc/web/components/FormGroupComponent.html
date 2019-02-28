@@ -174,7 +174,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -255,7 +255,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:58</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:66</a></div>
                             </td>
                         </tr>
 
@@ -293,7 +293,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:37</a></div>
                             </td>
                         </tr>
 
@@ -331,7 +331,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:45</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:54</a></div>
                             </td>
                         </tr>
 
@@ -405,7 +405,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">libs/rucken/web/src/lib/components/form-group/form-group.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -418,7 +418,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  Input,
+  OnChanges,
+  Renderer2,
+  SimpleChanges
+} from &#x27;@angular/core&#x27;;
 import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 import { DynamicFormGroup } from &#x27;ngx-dynamic-form-builder&#x27;;
 import { Observable, of } from &#x27;rxjs&#x27;;
@@ -444,7 +453,7 @@ export class FormGroupComponent implements AfterViewInit, OnChanges {
   title: string &#x3D; undefined;
   errors$: Observable&lt;any&gt;;
 
-  constructor(private _renderer: Renderer2, private _elementRef: ElementRef) { }
+  constructor(private _renderer: Renderer2, private _elementRef: ElementRef) {}
   ngAfterViewInit() {
     const tags &#x3D; [&#x27;input&#x27;, &#x27;textarea&#x27;];
     tags.forEach(tag &#x3D;&gt; {
@@ -466,10 +475,9 @@ export class FormGroupComponent implements AfterViewInit, OnChanges {
     if (changes.form &amp;&amp; changes.form.currentValue) {
       this.errors$ &#x3D; changes.form.currentValue.customValidateErrors.pipe(
         map(customValidateErrors &#x3D;&gt;
-          (
-            (this.checkIsDirty !&#x3D;&#x3D; true || changes.form.currentValue.dirty) &amp;&amp;
-            customValidateErrors[this.name]
-          ) ? (customValidateErrors[this.name] as string[]) : []
+          (this.checkIsDirty !&#x3D;&#x3D; true || changes.form.currentValue.dirty) &amp;&amp; customValidateErrors[this.name]
+            ? (customValidateErrors[this.name] as string[])
+            : []
         )
       );
     }

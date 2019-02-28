@@ -295,7 +295,7 @@ import { NgControl } from &#x27;@angular/forms&#x27;;
 export class DisableControlDirective implements OnChanges {
   @Input()
   disableControl: boolean &#x3D; undefined;
-  constructor(private _ngControl: NgControl) { }
+  constructor(private _ngControl: NgControl) {}
   ngOnChanges(changes: SimpleChanges): void {
     if (changes.disableControl) {
       const action &#x3D; this.disableControl ? &#x27;disable&#x27; : &#x27;enable&#x27;;

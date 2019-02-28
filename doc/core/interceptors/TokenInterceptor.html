@@ -253,7 +253,7 @@ import { IJwtConfig } from &#x27;../interfaces/jwt-config.interface&#x27;;
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(@Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig, private _tokenService: TokenService) { }
+  constructor(@Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig, private _tokenService: TokenService) {}
   intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     if (
       this._jwtConfig &amp;&amp;

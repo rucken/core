@@ -402,43 +402,43 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-    app: {
-        id: &#x27;demo&#x27;,
-        title: translate(&#x27;Rucken: Web&#x27;),
-        description: translate(&#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;),
-        languages: [
-            {
-                title: translate(&#x27;Russian&#x27;),
-                code: &#x27;ru&#x27;,
-                translations: [WebRuI18n, CoreRuI18n, RuI18n]
-            },
-            {
-                title: translate(&#x27;English&#x27;),
-                code: &#x27;en&#x27;,
-                translations: []
-            }
-        ]
-    },
-    authModal: {
-        signInInfoMessage: translate(&#x60;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;
+  app: {
+    id: &#x27;demo&#x27;,
+    title: translate(&#x27;Rucken: Web&#x27;),
+    description: translate(&#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;),
+    languages: [
+      {
+        title: translate(&#x27;Russian&#x27;),
+        code: &#x27;ru&#x27;,
+        translations: [WebRuI18n, CoreRuI18n, RuI18n]
+      },
+      {
+        title: translate(&#x27;English&#x27;),
+        code: &#x27;en&#x27;,
+        translations: []
+      }
+    ]
+  },
+  authModal: {
+    signInInfoMessage: translate(&#x60;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;user with admin group: admin@admin.com, password: 12345678&lt;/li&gt;
 &lt;li&gt;user with user group: user1@user1.com, password: 12345678&lt;/li&gt;
 &lt;li&gt;user with user group: user2@user2.com, password: 12345678&lt;/li&gt;
 &lt;/ul&gt;&#x60;),
-        signUpInfoMessage: &#x27;&#x27;,
+    signUpInfoMessage: &#x27;&#x27;
+  },
+  oauth: [
+    {
+      name: &#x27;facebook&#x27;,
+      icon: [&#x27;fab&#x27;, &#x27;facebook-square&#x27;],
+      signInTitle: translate(&#x27;Sign in with Facebook&#x27;)
     },
-    oauth: [
-        {
-            name: &#x27;facebook&#x27;,
-            icon: [&#x27;fab&#x27;, &#x27;facebook-square&#x27;],
-            signInTitle: translate(&#x27;Sign in with Facebook&#x27;)
-        },
-        {
-            name: &#x27;google-plus&#x27;,
-            icon: [&#x27;fab&#x27;, &#x27;google-plus&#x27;],
-            signInTitle: translate(&#x27;Sign in with Google+&#x27;)
-        }
-    ]
+    {
+      name: &#x27;google-plus&#x27;,
+      icon: [&#x27;fab&#x27;, &#x27;google-plus&#x27;],
+      signInTitle: translate(&#x27;Sign in with Google+&#x27;)
+    }
+  ]
 }</code>
                         </td>
                     </tr>
@@ -894,19 +894,19 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
-    {
-      path: &#x27;&#x27;,
-      component: PermissionsFrameComponent,
-      canActivate: [MetaGuard],
-      data: {
-        name: &#x27;permissions&#x27;,
-        meta: {
-          title: translate(&#x27;Permissions&#x27;),
-          description: translate(&#x27;Permissions frame&#x27;)
-        }
+  {
+    path: &#x27;&#x27;,
+    component: PermissionsFrameComponent,
+    canActivate: [MetaGuard],
+    data: {
+      name: &#x27;permissions&#x27;,
+      meta: {
+        title: translate(&#x27;Permissions&#x27;),
+        description: translate(&#x27;Permissions frame&#x27;)
       }
     }
-  ]</code>
+  }
+]</code>
                         </td>
                     </tr>
 
@@ -1009,12 +1009,14 @@
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  &#x27;Your session has expired, please re-login&#x27;: &#x27;Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу&#x27;,
+  &#x27;Your session has expired, please re-login&#x27;:
+    &#x27;Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу&#x27;,
   No: &#x27;Нет&#x27;,
   Russian: &#x27;Русский&#x27;,
   English: &#x27;Английский&#x27;,
   &#x27;Rucken: Web&#x27;: &#x27;Rucken: Веб&#x27;,
-  &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;: &#x27;Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +&#x27;,
+  &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;:
+    &#x27;Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +&#x27;,
   &#x27;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;\n&#x27;: &#x27;&lt;p&gt;Демо пользователи:&lt;/p&gt;&lt;ul&gt;\n&#x27;,
   &#x27;Sign in with Facebook&#x27;: &#x27;Вход через Facebook&#x27;,
   &#x27;Sign in with Google+&#x27;: &#x27;Вход через Google+&#x27;,

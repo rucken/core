@@ -180,7 +180,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -249,7 +249,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:45</a></div>
                             </td>
                         </tr>
 
@@ -287,7 +287,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:50</a></div>
                             </td>
                         </tr>
 
@@ -325,7 +325,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:42</a></div>
                             </td>
                         </tr>
 
@@ -394,7 +394,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -482,7 +482,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:33</a></div>
                             </td>
                         </tr>
 
@@ -509,7 +509,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">libs/rucken/web/src/lib/components/entity-select/entity-select.component.ts:34</a></div>
                             </td>
                         </tr>
 
@@ -522,7 +522,18 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input, isDevMode, OnChanges, Output, SimpleChanges, ViewContainerRef } from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  isDevMode,
+  OnChanges,
+  Output,
+  SimpleChanges,
+  ViewContainerRef
+} from &#x27;@angular/core&#x27;;
 import { FormControl } from &#x27;@angular/forms&#x27;;
 import { BindObservable } from &#x27;bind-observable&#x27;;
 import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
@@ -545,7 +556,7 @@ export class EntitySelectComponent implements AfterViewInit, OnChanges {
   @BindObservable()
   parent: any &#x3D; undefined;
   parent$: Observable&lt;any&gt;;
-  constructor(private _viewContainerRef: ViewContainerRef) { }
+  constructor(private _viewContainerRef: ViewContainerRef) {}
   onSearch(text: string) {
     if (isDevMode() &amp;&amp; this.search.observers.length &#x3D;&#x3D;&#x3D; 0) {
       console.warn(&#x27;No subscribers found for &quot;search&quot;&#x27;, this.parent);

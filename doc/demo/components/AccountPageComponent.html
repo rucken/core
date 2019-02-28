@@ -316,7 +316,7 @@ import { BindIoInner } from &#x27;ngx-bind-io&#x27;;
 export class AccountPageComponent implements OnInit {
   @ViewChild(&#x27;sidebar&#x27;)
   sidebar: NavSidebarComponent;
-  constructor(private _activatedRoute: ActivatedRoute) { }
+  constructor(private _activatedRoute: ActivatedRoute) {}
   ngOnInit() {
     this.sidebar.setRoutes(ACCOUNT_PAGE_CHILDREN_ROUTES);
   }
