@@ -16,6 +16,7 @@ delete obj['devDependencies'];
 obj.scripts.start = 'node ./server.js';
 obj.scripts.build = 'exit 0';
 obj.scripts.test = 'exit 0';
+obj.scripts.postinstall = 'exit 0';
 fs.writeFileSync(f_package_json, JSON.stringify(obj), 'utf8');
 
 console.log('Updated package.json');
