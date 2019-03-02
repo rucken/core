@@ -4,8 +4,11 @@
 .travis/*.key
 .travis/*.key.pub
 
+deploy
+
 # compiled output
 /dist
+/dist/rucken
 /tmp
 /out-tsc
 

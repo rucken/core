@@ -1,6 +1,6 @@
 const fs = require('fs');
-const f_gitignore = './.gitignore';
-const f_package_json = './package.json';
+const f_gitignore = './deploy/.gitignore';
+const f_package_json = './deploy/package.json';
 
 var data = '', obj = {}, txt = '';
 

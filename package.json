@@ -67,7 +67,7 @@
     "ssr:start": "node ./server.js",
     "ssr:build": "run-s ssr:prebuild ssr:webpack",
     "ssr:build:dev": "run-s ssr:prebuild:dev ssr:webpack",
-    "postinstall": "node ./scripts/patch.js",
+    "postinstall": "sh ./scripts/postinstall.sh",
     "github:prebuild": "ng build demo --base-href /core/ --prod",
     "github:postbuild": "./node_modules/.bin/cp-cli ./dist/demo-client/index.html ./dist/demo-client/404.html",
     "github:build": "run-s prepare:prod format:fix lib:build github:prebuild github:postbuild doc",
