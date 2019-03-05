@@ -4,9 +4,12 @@ export const RuI18n = {
   Russian: 'Русский',
   English: 'Английский',
   'Demo users:': 'Демо пользователи:',
-  'user with admin group: admin@admin.com, password: 12345678': 'с группой "Администратор": admin@admin.com, пароль: 12345678',
-  'user with user group: user1@user1.com, password: 12345678': 'с группой "Пользователь": user1@user1.com, пароль: 12345678',
-  'user with user group: user2@user2.com, password: 12345678': 'с группой "Пользователь": user2@user2.com, пароль: 12345678',
+  'user with admin group: admin@admin.com, password: 12345678':
+    'с группой "Администратор": admin@admin.com, пароль: 12345678',
+  'user with user group: user1@user1.com, password: 12345678':
+    'с группой "Пользователь": user1@user1.com, пароль: 12345678',
+  'user with user group: user2@user2.com, password: 12345678':
+    'с группой "Пользователь": user2@user2.com, пароль: 12345678',
   'Sign in with Facebook': 'Вход через Facebook',
   'Sign in with Google+': 'Вход через Google+',
   Account: 'Личный кабинет',

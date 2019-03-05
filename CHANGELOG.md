@@ -1,3 +1,12 @@
+## [3.9.7](https://github.com/rucken/core/compare/3.9.6...3.9.7) (2019-03-05)
+
+
+### Bug Fixes
+
+* Update docs and fix translates ([cd6219d](https://github.com/rucken/core/commit/cd6219d))
+
+
+
 ## [3.9.6](https://github.com/rucken/core/compare/3.9.5...3.9.6) (2019-02-28)
 
 
