@@ -91,12 +91,6 @@ msgstr ""
 msgid "Split button!"
 msgstr ""
 
-msgid ""
-"No data s\n"
-"                    {{filtredColumns$ | async |json}}\n"
-"                    {{filteredItems$ | async |json}}"
-msgstr ""
-
 msgid "Authorization"
 msgstr ""
 

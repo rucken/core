@@ -1,13 +1,12 @@
 export const RuI18n = {
-  'Your session has expired, please re-login':
-    'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
-  No: 'Нет',
+  'Rucken: Web': 'Rucken: Веб',
+  'Core with Admin UI for web and native application maked on Angular7+': '',
   Russian: 'Русский',
   English: 'Английский',
-  'Rucken: Web': 'Rucken: Веб',
-  'Core with Admin UI for web and native application maked on Angular7+':
-    'Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +',
-  '<p>Demo users:</p><ul>\n': '<p>Демо пользователи:</p><ul>\n',
+  'Demo users:': 'Демо пользователи:',
+  'user with admin group: admin@admin.com, password: 12345678': 'с группой "Администратор": admin@admin.com, пароль: 12345678',
+  'user with user group: user1@user1.com, password: 12345678': 'с группой "Пользователь": user1@user1.com, пароль: 12345678',
+  'user with user group: user2@user2.com, password: 12345678': 'с группой "Пользователь": user2@user2.com, пароль: 12345678',
   'Sign in with Facebook': 'Вход через Facebook',
   'Sign in with Google+': 'Вход через Google+',
   Account: 'Личный кабинет',
@@ -31,6 +30,8 @@ export const RuI18n = {
   'Themes page': 'Страница тем',
   Update: 'Изменить',
   Close: 'Закрыть',
+  'Your session has expired, please re-login': '',
+  No: 'Нет',
   'Sign out': 'Выйти',
   'Do you really want to leave?': 'Вы действительно хотите выйти?',
   Yes: 'Да',

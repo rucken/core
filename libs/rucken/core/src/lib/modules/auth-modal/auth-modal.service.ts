@@ -12,8 +12,8 @@ import { AuthModalComponent } from './auth-modal.component';
 @Injectable()
 export class AuthModalService {
   componentModal: string | TemplateRef<any> | any;
-  signInInfoMessage: string;
-  signUpInfoMessage: string;
+  signInInfoMessage: string | { text: string; data: { [key: string]: string } };
+  signUpInfoMessage: string | { text: string; data: { [key: string]: string } };
   signInModalClass: string;
   signOutModalClass: string;
 
@@ -22,7 +22,7 @@ export class AuthModalService {
     public errorsExtractor: ErrorsExtractor,
     public tokenService: TokenService,
     public modalsService: ModalsService
-  ) {}
+  ) { }
   onInfo() {
     const token = this.tokenService.getCurrent();
     if (token) {

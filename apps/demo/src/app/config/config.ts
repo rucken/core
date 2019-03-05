@@ -32,11 +32,15 @@ export const config: ICoreConfig = {
     ]
   },
   authModal: {
-    signInInfoMessage: translate(`<p>Demo users:</p><ul>
-<li>user with admin group: admin@admin.com, password: 12345678</li>
-<li>user with user group: user1@user1.com, password: 12345678</li>
-<li>user with user group: user2@user2.com, password: 12345678</li>
-</ul>`),
+    signInInfoMessage: {
+      text: `<p>{{title}}</p><ul><li>{{user1}}</li><li>{{user2}}</li><li>{{user3}}</li></ul>`,
+      data: {
+        title: translate('Demo users:'),
+        user1: translate('user with admin group: admin@admin.com, password: 12345678'),
+        user2: translate('user with user group: user1@user1.com, password: 12345678'),
+        user3: translate('user with user group: user2@user2.com, password: 12345678')
+      }
+    },
     signUpInfoMessage: ''
   },
   oauth: [
