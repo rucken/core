@@ -8,8 +8,8 @@ export interface ICoreConfig {
     languages: ILanguagesItem[];
   };
   authModal: {
-    signInInfoMessage: string;
-    signUpInfoMessage: string;
+    signInInfoMessage: string | { text: string; data: { [key: string]: string } };
+    signUpInfoMessage: string | { text: string; data: { [key: string]: string } };
   };
   oauth: IAuthModalOauthProvider[];
 }

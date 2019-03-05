@@ -7,7 +7,7 @@ export class IBaseForm {
   data?: any;
   title: string;
   message: string;
-  infoMessage: string;
+  infoMessage: string | { text: string; data: { [key: string]: string } };
   errorMessage: string;
   noTitle: string;
   yesTitle: string;

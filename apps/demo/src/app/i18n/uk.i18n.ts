@@ -5,7 +5,6 @@ export const UkI18n = {
   English: '',
   'Rucken: Web': '',
   'Core with Admin UI for web and native application maked on Angular7+': '',
-  '<p>Demo users:</p><ul>\n': '',
   'Sign in with Facebook': '',
   'Sign in with Google+': '',
   Account: '',

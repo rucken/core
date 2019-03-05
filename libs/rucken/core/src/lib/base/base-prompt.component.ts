@@ -16,7 +16,7 @@ export class BasePromptComponent implements IBaseForm {
   @Input()
   message: string;
   @Input()
-  infoMessage: string;
+  infoMessage: string | { text: string; data: { [key: string]: string } };
   @Input()
   errorMessage: string;
   @Input()
