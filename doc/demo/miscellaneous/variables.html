@@ -329,7 +329,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                         </td>
                     </tr>
@@ -342,7 +342,6 @@
   English: &#x27;&#x27;,
   &#x27;Rucken: Web&#x27;: &#x27;&#x27;,
   &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;: &#x27;&#x27;,
-  &#x27;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;\n&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Facebook&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Google+&#x27;: &#x27;&#x27;,
   Account: &#x27;&#x27;,
@@ -395,7 +394,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/ICoreConfig.html" target="_self" >ICoreConfig</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/ICoreConfig.html" target="_self" >ICoreConfig</a></code>
 
                         </td>
                     </tr>
@@ -420,11 +419,15 @@
     ]
   },
   authModal: {
-    signInInfoMessage: translate(&#x60;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;
-&lt;li&gt;user with admin group: admin@admin.com, password: 12345678&lt;/li&gt;
-&lt;li&gt;user with user group: user1@user1.com, password: 12345678&lt;/li&gt;
-&lt;li&gt;user with user group: user2@user2.com, password: 12345678&lt;/li&gt;
-&lt;/ul&gt;&#x60;),
+    signInInfoMessage: {
+      text: &#x60;&lt;p&gt;{{title}}&lt;/p&gt;&lt;ul&gt;&lt;li&gt;{{user1}}&lt;/li&gt;&lt;li&gt;{{user2}}&lt;/li&gt;&lt;li&gt;{{user3}}&lt;/li&gt;&lt;/ul&gt;&#x60;,
+      data: {
+        title: translate(&#x27;Demo users:&#x27;),
+        user1: translate(&#x27;user with admin group: admin@admin.com, password: 12345678&#x27;),
+        user2: translate(&#x27;user with user group: user1@user1.com, password: 12345678&#x27;),
+        user3: translate(&#x27;user with user group: user2@user2.com, password: 12345678&#x27;)
+      }
+    },
     signUpInfoMessage: &#x27;&#x27;
   },
   oauth: [
@@ -602,7 +605,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
 
                         </td>
                     </tr>
@@ -637,7 +640,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
 
                         </td>
                     </tr>
@@ -672,7 +675,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
 
                         </td>
                     </tr>
@@ -707,7 +710,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
+                            <i>Type : </i>        <code><a href="../interfaces/IEnvironment.html" target="_self" >IEnvironment</a></code>
 
                         </td>
                     </tr>
@@ -977,7 +980,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </td>
                     </tr>
@@ -1002,22 +1005,24 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
                             <i>Default value : </i><code>{
-  &#x27;Your session has expired, please re-login&#x27;:
-    &#x27;Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу&#x27;,
-  No: &#x27;Нет&#x27;,
+  &#x27;Rucken: Web&#x27;: &#x27;Rucken: Веб&#x27;,
+  &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;: &#x27;&#x27;,
   Russian: &#x27;Русский&#x27;,
   English: &#x27;Английский&#x27;,
-  &#x27;Rucken: Web&#x27;: &#x27;Rucken: Веб&#x27;,
-  &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;:
-    &#x27;Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +&#x27;,
-  &#x27;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;\n&#x27;: &#x27;&lt;p&gt;Демо пользователи:&lt;/p&gt;&lt;ul&gt;\n&#x27;,
+  &#x27;Demo users:&#x27;: &#x27;Демо пользователи:&#x27;,
+  &#x27;user with admin group: admin@admin.com, password: 12345678&#x27;:
+    &#x27;с группой &quot;Администратор&quot;: admin@admin.com, пароль: 12345678&#x27;,
+  &#x27;user with user group: user1@user1.com, password: 12345678&#x27;:
+    &#x27;с группой &quot;Пользователь&quot;: user1@user1.com, пароль: 12345678&#x27;,
+  &#x27;user with user group: user2@user2.com, password: 12345678&#x27;:
+    &#x27;с группой &quot;Пользователь&quot;: user2@user2.com, пароль: 12345678&#x27;,
   &#x27;Sign in with Facebook&#x27;: &#x27;Вход через Facebook&#x27;,
   &#x27;Sign in with Google+&#x27;: &#x27;Вход через Google+&#x27;,
   Account: &#x27;Личный кабинет&#x27;,
@@ -1041,6 +1046,8 @@
   &#x27;Themes page&#x27;: &#x27;Страница тем&#x27;,
   Update: &#x27;Изменить&#x27;,
   Close: &#x27;Закрыть&#x27;,
+  &#x27;Your session has expired, please re-login&#x27;: &#x27;&#x27;,
+  No: &#x27;Нет&#x27;,
   &#x27;Sign out&#x27;: &#x27;Выйти&#x27;,
   &#x27;Do you really want to leave?&#x27;: &#x27;Вы действительно хотите выйти?&#x27;,
   Yes: &#x27;Да&#x27;,
@@ -1113,7 +1120,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                         </td>
                     </tr>
@@ -1126,7 +1133,6 @@
   English: &#x27;&#x27;,
   &#x27;Rucken: Web&#x27;: &#x27;&#x27;,
   &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;: &#x27;&#x27;,
-  &#x27;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;\n&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Facebook&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Google+&#x27;: &#x27;&#x27;,
   Account: &#x27;&#x27;,
@@ -1179,7 +1185,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                         </td>
                     </tr>
@@ -1192,7 +1198,6 @@
   English: &#x27;&#x27;,
   &#x27;Rucken: Web&#x27;: &#x27;&#x27;,
   &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;: &#x27;&#x27;,
-  &#x27;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;\n&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Facebook&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Google+&#x27;: &#x27;&#x27;,
   Account: &#x27;&#x27;,
@@ -1288,7 +1293,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
 
                         </td>
                     </tr>
@@ -1301,7 +1306,6 @@
   English: &#x27;&#x27;,
   &#x27;Rucken: Web&#x27;: &#x27;&#x27;,
   &#x27;Core with Admin UI for web and native application maked on Angular7+&#x27;: &#x27;&#x27;,
-  &#x27;&lt;p&gt;Demo users:&lt;/p&gt;&lt;ul&gt;\n&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Facebook&#x27;: &#x27;&#x27;,
   &#x27;Sign in with Google+&#x27;: &#x27;&#x27;,
   Account: &#x27;&#x27;,

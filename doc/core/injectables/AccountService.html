@@ -61,6 +61,7 @@
 
 
 
+
             <section>
     <h3 id="index">Index</h3>
     <table class="table table-sm table-bordered index-table">
@@ -121,7 +122,7 @@
                                                         <td>accountConfig</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../interfaces/IAccountConfig.html" target="_self" >IAccountConfig</a></code>
+                                                                        <code><a href="../interfaces/IAccountConfig.html" target="_self" >IAccountConfig</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -133,7 +134,7 @@
                                                         <td>_httpClient</td>
                                                   
                                                         <td>
-                                                                    <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
+                                                                        <code><a href="https://angular.io/api/common/http/HttpClient" target="_blank" >HttpClient</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -152,80 +153,80 @@
 
             <section>
     
-        <h3 id="methods">
-            Methods
-        </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="update"></a>
-                        <span class="name">
-                            <b>
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="update"></a>
+                    <span class="name">
+                        <b>
                             update
-                            </b>
-                            <a href="#update"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
+                        </b>
+                        <a href="#update"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
 <code>update(user: <a href="../classes/User.html">User</a>)</code>
-                    </td>
-                </tr>
+                </td>
+            </tr>
 
 
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">libs/rucken/core/src/lib/modules/account/account.service.ts:14</a></div>
-                            </td>
-                        </tr>
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="14"
+                            class="link-to-prism">libs/rucken/core/src/lib/modules/account/account.service.ts:14</a></div>
+                </td>
+            </tr>
 
 
-                <tr>
-                    <td class="col-md-4">
+            <tr>
+                <td class="col-md-4">
 
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>user</td>
-                                                        <td>
-                                                                    <code><a href="../classes/User.html" target="_self" >User</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            No
-                                                    </td>
-                                                    
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>user</td>
+                                    <td>
+                                                <code><a href="../classes/User.html" target="_self" >User</a></code>
+                                    </td>
 
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/UserDto.html" target="_self" >Observable&lt;UserDto&gt;</a></code>
+                                    <td>
+                                        No
+                                    </td>
 
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Observable&lt;UserDto&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
-
 
     </div>
 
@@ -236,7 +237,7 @@ import { Inject, Injectable } from &#x27;@angular/core&#x27;;
 import { classToPlain, plainToClass } from &#x27;class-transformer&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { map } from &#x27;rxjs/operators&#x27;;
-import { User } from &#x27;../../entities/models/user&#x27;;
+import { User } from &#x27;../../models/user&#x27;;
 import { ACCOUNT_CONFIG_TOKEN } from &#x27;./configs/account.config&#x27;;
 import { UserDto } from &#x27;./dto/user.dto&#x27;;
 import { IAccountConfig } from &#x27;./interfaces/account-config.interface&#x27;;
