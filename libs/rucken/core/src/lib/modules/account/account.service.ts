@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@angular/core';
 import { classToPlain, plainToClass } from 'class-transformer';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../../entities/models/user';
+import { User } from '../../models/user';
 import { ACCOUNT_CONFIG_TOKEN } from './configs/account.config';
 import { UserDto } from './dto/user.dto';
 import { IAccountConfig } from './interfaces/account-config.interface';

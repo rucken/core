@@ -1,8 +1,8 @@
 import { Transform, Type } from 'class-transformer';
 import { IsNotEmpty } from 'class-validator';
 import { IModel } from 'ngx-repository';
-import { serializeModel, transformStringToObject } from '../../utils/custom-transforms';
-import { translate } from '../../utils/translate';
+import { serializeModel, transformStringToObject } from '../utils/custom-transforms';
+import { translate } from '../utils/translate';
 import { ContentType } from './content-type';
 
 export class Permission implements IModel {

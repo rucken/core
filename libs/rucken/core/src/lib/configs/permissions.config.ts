@@ -1,10 +1,10 @@
 import { plainToClass } from 'class-transformer';
 import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
-import { Group } from '../models/group';
+import { Permission } from '../models/permission';
 
-export const DEFAULT_GROUPS_CONFIG: IRestProviderOptions<Group> = {
-  name: 'group',
-  pluralName: 'groups',
+export const DEFAULT_PERMISSIONS_CONFIG: IRestProviderOptions<Permission> = {
+  name: 'permission',
+  pluralName: 'permissions',
   autoload: true,
   paginationMeta: {
     perPage: 5
@@ -15,14 +15,14 @@ export const DEFAULT_GROUPS_CONFIG: IRestProviderOptions<Group> = {
         return true;
       } else {
         if (action === ProviderActionEnum.LoadAll) {
-          return plainToClass(Group, data.body.groups);
+          return plainToClass(Permission, data && data.body && data.body.permissions);
         } else {
-          return plainToClass(Group, data.body.group);
+          return plainToClass(Permission, data && data.body && data.body.permission);
         }
       }
     },
     responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
-      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+      return { totalResults: data && data.body && data.body.meta && data.body.meta.totalResults, perPage: undefined };
     }
   },
   restOptions: {
@@ -31,4 +31,4 @@ export const DEFAULT_GROUPS_CONFIG: IRestProviderOptions<Group> = {
     searchTextQueryParam: 'q'
   }
 };
-export const GROUPS_CONFIG_TOKEN = 'GroupsConfig';
+export const PERMISSIONS_CONFIG_TOKEN = 'PermissionsConfig';

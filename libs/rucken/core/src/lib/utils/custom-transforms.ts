@@ -24,13 +24,23 @@ export function serializeModel<T>(object: T) {
   };
 }
 
-export function serializeIdToObject<T>(object: T) {
+export function serializeIdToObject<T>(object: T, isArray = false, fieldName = 'id') {
+  if (isArray) {
+    return function(values: number[]) {
+      return values.map(value => plainToClass(object as any, { [fieldName]: value }));
+    };
+  }
   return function(value: number) {
-    return plainToClass(object as any, { id: value });
+    return plainToClass(object as any, { [fieldName]: value });
   };
 }
-export function serializeObjectToId<T>(object: T) {
+export function serializeObjectToId<T>(object: T, isArray = false, fieldName = 'id') {
+  if (isArray) {
+    return function(values: T[]) {
+      return values.map(value => (value ? (value as any)[fieldName] : undefined));
+    };
+  }
   return function(value: T) {
-    return value ? (value as any).id : undefined;
+    return value ? (value as any)[fieldName] : undefined;
   };
 }

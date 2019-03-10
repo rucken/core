@@ -1,10 +1,10 @@
 import { plainToClass } from 'class-transformer';
 import { IRestProviderOptions, PaginationMeta, ProviderActionEnum } from 'ngx-repository';
-import { User } from '../models/user';
+import { Group } from '../models/group';
 
-export const DEFAULT_USERS_CONFIG: IRestProviderOptions<User> = {
-  name: 'user',
-  pluralName: 'users',
+export const DEFAULT_GROUPS_CONFIG: IRestProviderOptions<Group> = {
+  name: 'group',
+  pluralName: 'groups',
   autoload: true,
   paginationMeta: {
     perPage: 5
@@ -15,14 +15,14 @@ export const DEFAULT_USERS_CONFIG: IRestProviderOptions<User> = {
         return true;
       } else {
         if (action === ProviderActionEnum.LoadAll) {
-          return plainToClass(User, data.body.users);
+          return plainToClass(Group, data && data.body && data.body.groups);
         } else {
-          return plainToClass(User, data.body.user);
+          return plainToClass(Group, data && data.body && data.body.group);
         }
       }
     },
     responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
-      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+      return { totalResults: data && data.body && data.body.meta && data.body.meta.totalResults, perPage: undefined };
     }
   },
   restOptions: {
@@ -31,4 +31,4 @@ export const DEFAULT_USERS_CONFIG: IRestProviderOptions<User> = {
     searchTextQueryParam: 'q'
   }
 };
-export const USERS_CONFIG_TOKEN = 'UsersConfig';
+export const GROUPS_CONFIG_TOKEN = 'GroupsConfig';

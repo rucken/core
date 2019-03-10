@@ -1,8 +1,8 @@
 import { Type } from 'class-transformer';
 import { IsNotEmpty } from 'class-validator';
 import { IModel } from 'ngx-repository';
-import { serializeModel } from '../../utils/custom-transforms';
-import { translate } from '../../utils/translate';
+import { serializeModel } from '../utils/custom-transforms';
+import { translate } from '../utils/translate';
 import { Permission } from './permission';
 
 export class Group implements IModel {
