@@ -190,7 +190,7 @@ export class CustomTranslatePipe implements PipeTransform {
     if (words &#x3D;&#x3D;&#x3D; undefined) {
       words &#x3D; {};
     }
-    if (typeof value !&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; value.text &amp;&amp; value.data) {
+    if (typeof value !&#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; (value &amp;&amp; value.text &amp;&amp; value.data)) {
       words &#x3D; { ...words, ...value.data };
       value &#x3D; value.text;
     }
