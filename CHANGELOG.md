@@ -1,3 +1,12 @@
+## [3.9.9](https://github.com/rucken/core/compare/3.9.8...3.9.9) (2019-03-10)
+
+
+### Bug Fixes
+
+* Update customTranslate pipe ([4e80ad6](https://github.com/rucken/core/commit/4e80ad6))
+
+
+
 # [3.10.0](https://github.com/rucken/core/compare/3.9.7...3.10.0) (2019-03-10)
 
 

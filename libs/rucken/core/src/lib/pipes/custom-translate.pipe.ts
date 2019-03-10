@@ -18,7 +18,7 @@ export class CustomTranslatePipe implements PipeTransform {
     if (words === undefined) {
       words = {};
     }
-    if (typeof value !== 'string' && value.text && value.data) {
+    if (typeof value !== 'string' && (value && value.text && value.data)) {
       words = { ...words, ...value.data };
       value = value.text;
     }
