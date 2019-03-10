@@ -48,16 +48,16 @@ export class User implements IModel {
   isActive = false;
   @Transform(transformStringToDate, { toClassOnly: true })
   @Transform(transformDateToString, { toPlainOnly: true })
-  lastLogin: Date = undefined;
+  lastLogin: Date | string = undefined;
   @Transform(transformStringToDate, { toClassOnly: true })
   @Transform(transformDateToString, { toPlainOnly: true })
-  dateJoined: Date = undefined;
+  dateJoined: Date | string = undefined;
   @IsOptional()
   @Type(serializeModel(Group))
   groups: Group[] = [];
   @Transform(transformStringToDate, { toClassOnly: true })
   @Transform(transformDateToString, { toPlainOnly: true })
-  dateOfBirth: Date = undefined;
+  dateOfBirth: Date | string = undefined;
   get permissionNames() {
     const permissions = [];
     if (this.groups) {
