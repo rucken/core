@@ -3,22 +3,22 @@ import { TranslateService } from '@ngx-translate/core';
 
 @Pipe({ name: 'customTranslate' })
 export class CustomTranslatePipe implements PipeTransform {
-  constructor(private _translateService: TranslateService) {}
+  constructor(private _translateService: TranslateService) { }
   transform(
     value:
       | string
       | {
-          text: string;
-          data: {
-            [key: string]: string;
-          };
-        },
+        text: string;
+        data: {
+          [key: string]: string;
+        };
+      },
     words?: any
   ): any {
     if (words === undefined) {
       words = {};
     }
-    if (typeof value !== 'string' && value.text && value.data) {
+    if (typeof value !== 'string' && (value && value.text && value.data)) {
       words = { ...words, ...value.data };
       value = value.text;
     }
@@ -39,7 +39,7 @@ export class CustomTranslatePipe implements PipeTransform {
     }
     try {
       value = this._translateService.parser.interpolate(String(value), newArgs);
-    } catch (error) {}
+    } catch (error) { }
     return value;
   }
 }
