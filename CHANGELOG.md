@@ -1,3 +1,20 @@
+# [3.10.0](https://github.com/rucken/core/compare/3.9.7...3.10.0) (2019-03-10)
+
+
+### Bug Fixes
+
+* Add check to undefined ([#278](https://github.com/rucken/core/issues/278)) ([26ef4ee](https://github.com/rucken/core/commit/26ef4ee))
+* Move configs and models from entities folder to parent ([46a8985](https://github.com/rucken/core/commit/46a8985))
+* To all Date field add alternative type "Date | string" ([#279](https://github.com/rucken/core/issues/279)) ([3f313df](https://github.com/rucken/core/commit/3f313df))
+* Update dependencies ([9e7186e](https://github.com/rucken/core/commit/9e7186e))
+
+
+### Features
+
+* Add support arrays with flag isArray ([#277](https://github.com/rucken/core/issues/277)) ([d36bb50](https://github.com/rucken/core/commit/d36bb50))
+
+
+
 ## [3.9.7](https://github.com/rucken/core/compare/3.9.6...3.9.7) (2019-03-05)
 
 
