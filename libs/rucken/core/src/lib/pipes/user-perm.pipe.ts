@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { get, has } from 'object-path';
-import { User } from '../entities/models/user';
+import { User } from '../models/user';
 import { AuthService } from '../modules/auth/services/auth.service';
 
 @Pipe({

@@ -6,7 +6,7 @@ import { plainToClass } from 'class-transformer';
 import { NgxPermissionsService } from 'ngx-permissions';
 import { Observable, of, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { User } from '../../../entities/models/user';
+import { User } from '../../../models/user';
 import { EMPTY_PERMISSIONS, INITED_PERMISSIONS } from '../../../utils/permissions-guard.const';
 import { AUTH_CONFIG_TOKEN } from '../configs/auth.config';
 import { OAUTH_CONFIG_TOKEN } from '../configs/oauth.config';

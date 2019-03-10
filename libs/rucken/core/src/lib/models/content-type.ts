@@ -1,6 +1,6 @@
 import { IsNotEmpty } from 'class-validator';
 import { IModel } from 'ngx-repository';
-import { translate } from '../../utils/translate';
+import { translate } from '../utils/translate';
 
 export class ContentType implements IModel {
   static strings = {
