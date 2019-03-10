@@ -15,14 +15,14 @@ export const DEFAULT_PERMISSIONS_CONFIG: IRestProviderOptions<Permission> = {
         return true;
       } else {
         if (action === ProviderActionEnum.LoadAll) {
-          return plainToClass(Permission, data.body.permissions);
+          return plainToClass(Permission, data && data.body && data.body.permissions);
         } else {
-          return plainToClass(Permission, data.body.permission);
+          return plainToClass(Permission, data && data.body && data.body.permission);
         }
       }
     },
     responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
-      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+      return { totalResults: data && data.body && data.body.meta && data.body.meta.totalResults, perPage: undefined };
     }
   },
   restOptions: {

@@ -15,14 +15,14 @@ export const DEFAULT_CONTENT_TYPES_CONFIG: IRestProviderOptions<ContentType> = {
         return true;
       } else {
         if (action === ProviderActionEnum.LoadAll) {
-          return plainToClass(ContentType, data.body.contentTypes);
+          return plainToClass(ContentType, data && data.body && data.body.contentTypes);
         } else {
-          return plainToClass(ContentType, data.body.contentType);
+          return plainToClass(ContentType, data && data.body && data.body.contentType);
         }
       }
     },
     responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
-      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+      return { totalResults: data && data.body && data.body.meta && data.body.meta.totalResults, perPage: undefined };
     }
   },
   restOptions: {

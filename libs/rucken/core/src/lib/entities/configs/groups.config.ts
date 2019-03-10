@@ -15,14 +15,14 @@ export const DEFAULT_GROUPS_CONFIG: IRestProviderOptions<Group> = {
         return true;
       } else {
         if (action === ProviderActionEnum.LoadAll) {
-          return plainToClass(Group, data.body.groups);
+          return plainToClass(Group, data && data.body && data.body.groups);
         } else {
-          return plainToClass(Group, data.body.group);
+          return plainToClass(Group, data && data.body && data.body.group);
         }
       }
     },
     responsePaginationMeta: (data: any, action: ProviderActionEnum): PaginationMeta => {
-      return { totalResults: data.body.meta.totalResults, perPage: undefined };
+      return { totalResults: data && data.body && data.body.meta && data.body.meta.totalResults, perPage: undefined };
     }
   },
   restOptions: {
