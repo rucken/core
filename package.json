@@ -139,7 +139,7 @@
     "bind-observable": "^1.0.2",
     "core-js": "^2.6.5",
     "cors": "~2.8.5",
-    "dotenv": "^6.2.0",
+    "dotenv": "^7.0.0",
     "jsonwebtoken": "^8.4.0",
     "ngx-bootstrap": "^3.2.0",
     "ngx-cookie-service": "^2.1.0",
