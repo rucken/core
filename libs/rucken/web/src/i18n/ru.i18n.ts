@@ -5,13 +5,15 @@ export const RuI18n = {
   'Content types': 'Типы содержимого',
   'Select group': 'Выберите группу',
   'Delete permission': 'Удалить разрешение',
-  'Do you really want to delete permission "{{title}}" from group?': 'Вы действительно хотите удалить разрешение "{{title}}" у группы?',
+  'Do you really want to delete permission "{{title}}" from group?':
+    'Вы действительно хотите удалить разрешение "{{title}}" у группы?',
   'Select permissions for append to group': 'Выберите разрешения для добавления в группу',
   Groups: 'Группы',
   'Select permission': 'Выберите разрешение',
   Permissions: 'Разрешения',
   'Delete group': 'Удалить группу',
-  'Do you really want to delete group "{{title}}" from user?': 'Вы действительно хотите удалить группу "{{title}}" у пользователя?',
+  'Do you really want to delete group "{{title}}" from user?':
+    'Вы действительно хотите удалить группу "{{title}}" у пользователя?',
   'Select groups for append to user': 'Выберите группы для добавления пользователю',
   'Select user': 'Выберите пользователя',
   Users: 'Пользователи',
@@ -35,7 +37,8 @@ export const RuI18n = {
   Registration: 'Регистрация',
   Yes: 'Да',
   'Do you really want to leave?': 'Вы действительно хотите выйти?',
-  'Your session has expired, please re-login': 'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
+  'Your session has expired, please re-login':
+    'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
   No: 'Нет',
   Email: 'Эл. почта',
   Password: 'Пароль',

@@ -37,4 +37,4 @@ defineLocale('en', enGbLocale);
     }
   ]
 })
-export class RuckenWebModule { }
+export class RuckenWebModule {}

@@ -89,7 +89,7 @@ export * from './lib/modules/modals/message-modal.component';
 export * from './lib/modules/modals/modals.module';
 export * from './lib/modules/modals/modals.service';
 export * from './lib/modules/themes/themes.module';
-export * from './lib/modules/themes/configs/index';
+export * from './lib/modules/themes/configs/providers';
 export * from './lib/modules/themes/configs/themes.config';
 export * from './lib/modules/themes/interfaces/themes-config.interface';
 export * from './lib/modules/themes/models/theme';

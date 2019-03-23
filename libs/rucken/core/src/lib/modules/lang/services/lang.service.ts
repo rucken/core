@@ -26,7 +26,7 @@ export class LangService {
     @Inject(LANGUAGES_ITEM_CONFIG_TOKEN) private _languagesItemConfig: ILanguagesItem,
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     private _translateService: TranslateService
-  ) { }
+  ) {}
   initLanguages() {
     let languagesItemConfig: ILanguagesItem | ILanguagesItem[] = this._languagesItemConfig;
     if (!Array.isArray(languagesItemConfig)) {
