@@ -51,18 +51,18 @@ export class AppComponent implements OnDestroy, OnInit {
       this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
       this.title = this._translateService.instant(this._metaService.loader.settings.applicationName);
     });
-    if (isPlatformBrowser(this._platformId)) {
-      this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
-        if (result === true) {
-          this.onInfo();
+    this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
+      if (result === true) {
+        if (isPlatformBrowser(this._platformId)) {
+          this._authModalService.onTokenError();
+        } else {
+          this._authModalService.onSignOutSuccess(undefined);
         }
-      });
-    }
+      }
+    });
   }
   ngOnInit() {
-    if (isPlatformBrowser(this._platformId)) {
-      this.onInfo();
-    }
+    this._authModalService.onInfo();
     this.navbar.setRoutes(APP_ROUTES);
   }
   ngOnDestroy() {
