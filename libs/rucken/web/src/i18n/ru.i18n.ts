@@ -21,6 +21,8 @@ export const RuI18n = {
   OK: 'Ок',
   Error: 'Ошибка',
   'Error Log': 'Ошибка',
+  Russian: 'Русский',
+  English: 'Английский',
   Close: 'Закрыть',
   Append: 'Добавить',
   'No data': 'Нет данных',
@@ -35,7 +37,8 @@ export const RuI18n = {
   Registration: 'Регистрация',
   Yes: 'Да',
   'Do you really want to leave?': 'Вы действительно хотите выйти?',
-  'Your session has expired, please re-login': '',
+  'Your session has expired, please re-login':
+    'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
   No: 'Нет',
   Email: 'Эл. почта',
   Password: 'Пароль',

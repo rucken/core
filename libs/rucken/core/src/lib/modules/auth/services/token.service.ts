@@ -56,36 +56,27 @@ export class TokenService {
     } else {
       this._storage.setItem(this._jwtConfig.storageKeyName, value).then(_ => (this.current = value));
     }
-  }
-  stopCheckTokenHasExpired() {
     if (!isPlatformServer(this._platformId)) {
-      if (this._checkTokenHasExpiredIntervalRef) {
-        clearInterval(this._checkTokenHasExpiredIntervalRef);
+      if (value) {
+        try {
+          const tokenPayload = this.getTokenData(value).payload;
+          if (this._checkTokenHasExpiredIntervalRef) {
+            clearInterval(this._checkTokenHasExpiredIntervalRef);
+          }
+          this._checkTokenHasExpiredIntervalRef = setInterval(_ => {
+            clearInterval(this._checkTokenHasExpiredIntervalRef);
+            this.tokenHasExpired = true;
+          }, (tokenPayload.exp - tokenPayload.iat) * 1000);
+        } catch (error) {}
+      } else {
+        if (this._checkTokenHasExpiredIntervalRef) {
+          clearInterval(this._checkTokenHasExpiredIntervalRef);
+        }
       }
     }
   }
-  startCheckTokenHasExpired() {
-    if (!isPlatformServer(this._platformId)) {
-      this._checkTokenHasExpiredIntervalRef = setInterval(_ => {
-        if (this.checkTokenHasExpired()) {
-          this.tokenHasExpired = true;
-        }
-      }, 30 * 1000);
-    }
-  }
-  getTokenData(token: string): { payload: { exp: number } } {
+  getTokenData(token: string): { payload: { iat: number; exp: number } } {
     return decode(token, { complete: true }) as any;
-  }
-  checkTokenHasExpired(token?: string) {
-    if (!token) {
-      token = this.getCurrent();
-    }
-    try {
-      const result = new Date() > new Date(this.getTokenData(token).payload.exp * 1000);
-      return result;
-    } catch (error) {
-      return true;
-    }
   }
   getHeader() {
     const headers = {};

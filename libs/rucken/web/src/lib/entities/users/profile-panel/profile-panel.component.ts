@@ -85,6 +85,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent<User> implem
     this.processing = true;
     this._accountService
       .update(this.getData())
+      .pipe(takeUntil(this._destroyed$))
       .subscribe(data => this.onSave(data.user, saveData), error => this.onSaveError(error));
   }
   onSave(user: User, saveData?: any) {

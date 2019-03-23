@@ -1,8 +1,8 @@
 export const RuI18n = {
   'Rucken: Web': 'Rucken: Веб',
-  'Core with Admin UI for web and native application maked on Angular7+': '',
+  'Core with Admin UI for web and native application maked on Angular7+':
+    'Ядро с пользовательским интерфейсом администратора для веб и нативных приложений, сделанных на Angular7 +',
   Russian: 'Русский',
-  English: 'Английский',
   'Demo users:': 'Демо пользователи:',
   'user with admin group: admin@admin.com, password: 12345678':
     'с группой "Администратор": admin@admin.com, пароль: 12345678',
@@ -33,7 +33,9 @@ export const RuI18n = {
   'Themes page': 'Страница тем',
   Update: 'Изменить',
   Close: 'Закрыть',
-  'Your session has expired, please re-login': '',
+  English: 'Английский',
+  'Your session has expired, please re-login':
+    'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
   No: 'Нет',
   'Sign out': 'Выйти',
   'Do you really want to leave?': 'Вы действительно хотите выйти?',

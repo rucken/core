@@ -43,6 +43,12 @@ msgstr ""
 msgid "Append"
 msgstr ""
 
+msgid "Russian"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
 msgid "Id"
 msgstr ""
 

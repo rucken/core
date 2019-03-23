@@ -1,6 +1,6 @@
 {
   "name": "@rucken/core",
-  "version": "3.9.9",
+  "version": "3.9.10",
   "engines": {
     "node": ">=10",
     "npm": ">=6.4.0"
@@ -65,10 +65,10 @@
   ],
   "peerDependencies": {
     "rxjs": "^6.4.0",
-    "@angular/forms": "^7.2.8",
-    "@angular/common": "^7.2.8",
-    "@angular/compiler": "^7.2.8",
-    "@angular/core": "^7.2.8"
+    "@angular/forms": "^7.2.10",
+    "@angular/common": "^7.2.10",
+    "@angular/compiler": "^7.2.10",
+    "@angular/core": "^7.2.10"
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",
@@ -80,6 +80,7 @@
     "ngx-permissions": "^6.0.5",
     "ngx-repository": "^0.6.3",
     "object-path": "^0.11.4",
-    "bind-observable": "^1.0.2"
+    "bind-observable": "^1.0.2",
+    "ngx-bind-io": "^0.6.5"
   }
 }

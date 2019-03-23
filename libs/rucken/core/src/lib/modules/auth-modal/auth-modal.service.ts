@@ -1,4 +1,6 @@
-import { Injectable, isDevMode, TemplateRef } from '@angular/core';
+import { Injectable, isDevMode, OnDestroy, TemplateRef } from '@angular/core';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { ErrorsExtractor } from '../../utils/errors-extractor';
 import { translate } from '../../utils/translate';
 import { RedirectUrlDto } from '../auth/dto/redirect-url.dto';
@@ -10,12 +12,14 @@ import { AuthModalTypeEnum } from './auth-modal-type.enum';
 import { AuthModalComponent } from './auth-modal.component';
 
 @Injectable()
-export class AuthModalService {
+export class AuthModalService implements OnDestroy {
   componentModal: string | TemplateRef<any> | any;
   signInInfoMessage: string | { text: string; data: { [key: string]: string } };
   signUpInfoMessage: string | { text: string; data: { [key: string]: string } };
   signInModalClass: string;
   signOutModalClass: string;
+
+  private _destroyed$: Subject<boolean> = new Subject<boolean>();
 
   constructor(
     public authService: AuthService,
@@ -23,29 +27,37 @@ export class AuthModalService {
     public tokenService: TokenService,
     public modalsService: ModalsService
   ) {}
+  ngOnDestroy() {
+    this._destroyed$.next(true);
+    this._destroyed$.complete();
+  }
+  onTokenError(message?: string | any) {
+    if (!message || message === 'jwt expired') {
+      message = translate('Your session has expired, please re-login');
+    }
+    this.modalsService
+      .errorAsync({
+        error: message,
+        onTop: true
+      })
+      .then(result =>
+        this.authService
+          .signOut()
+          .pipe(takeUntil(this._destroyed$))
+          .subscribe(data => this.onSignOutSuccess(undefined))
+      );
+  }
   onInfo() {
-    const token = this.tokenService.getCurrent();
-    if (token) {
-      if (this.tokenService.checkTokenHasExpired(token)) {
-        this.tokenService.stopCheckTokenHasExpired();
-        this.modalsService
-          .errorAsync({
-            error: translate('Your session has expired, please re-login'),
-            onTop: true
-          })
-          .then(result => this.authService.signOut().subscribe(data => this.onSignOutSuccess(undefined)));
-      } else {
-        if (!this.authService.getCurrent()) {
-          this.authService.info(token).subscribe(
+    if (!this.authService.getCurrent()) {
+      const token = this.tokenService.getCurrent();
+      if (token) {
+        this.authService
+          .info(token)
+          .pipe(takeUntil(this._destroyed$))
+          .subscribe(
             data => this.onSignInOrInfoSuccess(undefined, data),
-            error => {
-              if (this.errorsExtractor.getErrorMessage(error)) {
-                this.onError(error);
-              }
-              this.authService.signOut().subscribe(data => this.onSignOutSuccess(undefined));
-            }
+            error => this.onTokenError(this.errorsExtractor.getErrorMessage(error))
           );
-        }
       }
     }
   }
@@ -62,7 +74,10 @@ export class AuthModalService {
     });
     modalRef.instance.yes.subscribe((modal: AuthModalComponent) => {
       modal.processing = true;
-      this.authService.signOut().subscribe(data => this.onSignOutSuccess(modal));
+      this.authService
+        .signOut()
+        .pipe(takeUntil(this._destroyed$))
+        .subscribe(data => this.onSignOutSuccess(modal));
     });
   }
   onSignIn() {
@@ -83,17 +98,20 @@ export class AuthModalService {
       if (typeof modal.yesData === 'string') {
         this.authService
           .oauthRedirectUrl(modal.yesData)
+          .pipe(takeUntil(this._destroyed$))
           .subscribe(data => this.onOauthSignInSuccess(modal, data), error => this.onSignInError(modal, error));
       } else {
         const data = modal.getData();
         if (modal.type === AuthModalTypeEnum.SignIn) {
           this.authService
             .signIn(data.email, data.password)
+            .pipe(takeUntil(this._destroyed$))
             .subscribe(result => this.onSignInOrInfoSuccess(modal, result), error => this.onSignInError(modal, error));
         }
         if (modal.type === AuthModalTypeEnum.SignUp) {
           this.authService
             .signUp(data.email, data.password, data.username)
+            .pipe(takeUntil(this._destroyed$))
             .subscribe(result => this.onSignInOrInfoSuccess(modal, result), error => this.onSignInError(modal, error));
         }
       }

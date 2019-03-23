@@ -13,9 +13,6 @@ msgstr ""
 msgid "Russian"
 msgstr ""
 
-msgid "English"
-msgstr ""
-
 msgid "Demo users:"
 msgstr ""
 
@@ -95,6 +92,9 @@ msgid "Update"
 msgstr ""
 
 msgid "Close"
+msgstr ""
+
+msgid "English"
 msgstr ""
 
 msgid "Your session has expired, please re-login"
