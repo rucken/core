@@ -65,10 +65,10 @@
   ],
   "peerDependencies": {
     "rxjs": "^6.4.0",
-    "@angular/forms": "^7.2.8",
-    "@angular/common": "^7.2.8",
-    "@angular/compiler": "^7.2.8",
-    "@angular/core": "^7.2.8"
+    "@angular/forms": "^7.2.10",
+    "@angular/common": "^7.2.10",
+    "@angular/compiler": "^7.2.10",
+    "@angular/core": "^7.2.10"
   },
   "dependencies": {
     "@ngx-translate/core": "^11.0.1",
