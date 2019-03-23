@@ -12,7 +12,7 @@ msgstr ""
 "Last-Translator: EndyKaufman <admin@site15.ru>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
-"PO-Revision-Date: 2019-03-05 18:45\n"
+"PO-Revision-Date: 2019-03-23 17:03\n"
 
 msgid "Rucken: Web"
 msgstr ""
@@ -22,9 +22,6 @@ msgstr "Ядро с пользовательским интерфейсом ад
 
 msgid "Russian"
 msgstr "Русский"
-
-msgid "English"
-msgstr "Английский"
 
 msgid "Demo users:"
 msgstr ""
@@ -106,6 +103,9 @@ msgstr "Изменить"
 
 msgid "Close"
 msgstr "Закрыть"
+
+msgid "English"
+msgstr "Английский"
 
 msgid "Your session has expired, please re-login"
 msgstr "Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу"
