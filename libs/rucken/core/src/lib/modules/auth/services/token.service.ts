@@ -27,7 +27,7 @@ export class TokenService {
     @Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig,
     @Inject(STORAGE_CONFIG_TOKEN) private _storage: IStorage,
     @Inject(PLATFORM_ID) private _platformId: Object
-  ) { }
+  ) {}
   initCurrent() {
     return new Promise((resolve, reject) => {
       this._storage.getItem(this._jwtConfig.storageKeyName).then((data: string) => {
@@ -67,7 +67,7 @@ export class TokenService {
             clearInterval(this._checkTokenHasExpiredIntervalRef);
             this.tokenHasExpired = true;
           }, (tokenPayload.exp - tokenPayload.iat) * 1000);
-        } catch (error) { }
+        } catch (error) {}
       } else {
         if (this._checkTokenHasExpiredIntervalRef) {
           clearInterval(this._checkTokenHasExpiredIntervalRef);

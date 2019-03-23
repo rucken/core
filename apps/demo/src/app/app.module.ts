@@ -4,21 +4,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PreloadAllModules, RouterModule } from '@angular/router';
 import { MetaLoader, MetaModule } from '@ngx-meta/core';
 import { TranslateService } from '@ngx-translate/core';
-import {
-  AccountModule,
-  AuthModalModule,
-  AuthModule,
-  ENTITIES_PROVIDERS,
-  ErrorsExtractor,
-  LangModule,
-  PermissionsGuard,
-  TransferHttpCacheModule
-} from '@rucken/core';
-import { NavbarModule, ThemesModule, WebAuthModalModule, WebModalsModule } from '@rucken/web';
+import { AccountModule, AuthModalModule, AuthModule, LangModule, RuckenCoreModule, TransferHttpCacheModule } from '@rucken/core';
+import { RuckenWebModule, ThemesModule } from '@rucken/web';
 import { environment } from 'apps/demo/src/environments/environment';
 import { NgxBindIOModule } from 'ngx-bind-io';
-import { BsDatepickerModule, BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { CookieService } from 'ngx-cookie-service';
+import { BsDatepickerModule } from 'ngx-bootstrap';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { AppComponent } from './app.component';
 import { APP_ROUTES } from './app.routes';
@@ -64,13 +54,11 @@ import { metaFactory } from './utils/meta-factory';
         providers: config.oauth
       }
     }),
-    WebAuthModalModule,
-    NavbarModule,
+    NgxBindIOModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    WebModalsModule,
-    NgxBindIOModule.forRoot()
+    RuckenCoreModule,
+    RuckenWebModule
   ],
-  providers: [...ENTITIES_PROVIDERS, CookieService, ErrorsExtractor, BsLocaleService, PermissionsGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

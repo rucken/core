@@ -34,7 +34,7 @@ export class WebModalsService extends ModalsService {
     });
     const modalRef: IModalRef<TComponent> = {
       instance: bsModalRef.content,
-      hide: function() {
+      hide: function () {
         this.hide();
       }.bind(bsModalRef)
     };

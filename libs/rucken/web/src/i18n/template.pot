@@ -64,6 +64,12 @@ msgstr ""
 msgid "Error Log"
 msgstr ""
 
+msgid "Russian"
+msgstr ""
+
+msgid "English"
+msgstr ""
+
 msgid "Close"
 msgstr ""
 

@@ -80,6 +80,7 @@
     "ngx-permissions": "^6.0.5",
     "ngx-repository": "^0.6.3",
     "object-path": "^0.11.4",
-    "bind-observable": "^1.0.2"
+    "bind-observable": "^1.0.2",
+    "ngx-bind-io": "^0.6.5"
   }
 }

@@ -31,10 +31,13 @@ export class AuthModalService implements OnDestroy {
     this._destroyed$.next(true);
     this._destroyed$.complete();
   }
-  onTokenError(message?: string) {
+  onTokenError(message?: string | any) {
+    if (!message || message === 'jwt expired') {
+      message = translate('Your session has expired, please re-login');
+    }
     this.modalsService
       .errorAsync({
-        error: !message || message === 'jwt expired' ? translate('Your session has expired, please re-login') : message,
+        error: message,
         onTop: true
       })
       .then(result =>
@@ -95,17 +98,20 @@ export class AuthModalService implements OnDestroy {
       if (typeof modal.yesData === 'string') {
         this.authService
           .oauthRedirectUrl(modal.yesData)
+          .pipe(takeUntil(this._destroyed$))
           .subscribe(data => this.onOauthSignInSuccess(modal, data), error => this.onSignInError(modal, error));
       } else {
         const data = modal.getData();
         if (modal.type === AuthModalTypeEnum.SignIn) {
           this.authService
             .signIn(data.email, data.password)
+            .pipe(takeUntil(this._destroyed$))
             .subscribe(result => this.onSignInOrInfoSuccess(modal, result), error => this.onSignInError(modal, error));
         }
         if (modal.type === AuthModalTypeEnum.SignUp) {
           this.authService
             .signUp(data.email, data.password, data.username)
+            .pipe(takeUntil(this._destroyed$))
             .subscribe(result => this.onSignInOrInfoSuccess(modal, result), error => this.onSignInError(modal, error));
         }
       }

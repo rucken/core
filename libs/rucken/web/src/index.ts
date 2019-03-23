@@ -17,6 +17,7 @@ export * from './i18n/sv.i18n';
 export * from './i18n/tr.i18n';
 export * from './i18n/uk.i18n';
 export * from './i18n/zh.i18n';
+export * from './lib/web.module';
 export * from './lib/components/entity-grid-modal/entity-grid-modal.component';
 export * from './lib/components/entity-grid-modal/entity-grid-modal.module';
 export * from './lib/components/entity-grid/entity-grid.component';

@@ -12,6 +12,8 @@ export const RuI18n = {
   Delete: 'Удалить',
   'Select item': 'Выберите запись',
   Append: 'Добавить',
+  Russian: 'Русский',
+  English: 'Английский',
   Id: 'Ид.',
   Name: 'Наименование',
   Title: 'Заголовок',
@@ -63,7 +65,7 @@ export const RuI18n = {
   'Sign out': 'Выйти',
   'Do you really want to leave?': 'Вы действительно хотите выйти?',
   'Confirm password': 'Пароль еще раз',
-  'Your session has expired, please re-login': '',
+  'Your session has expired, please re-login': 'Ваша сессия истекла. Пожалуйста, авторизуйтесь снова, чтобы продолжить работу',
   No: 'Нет',
   'Oauth provider with name "{provider}" not founded': 'Поставщик OAuth с именем "{provider}" не найден',
   '$property must be equal to $constraint1': '$property должно быть равно $constraint1'

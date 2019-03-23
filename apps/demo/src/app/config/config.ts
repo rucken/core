@@ -1,17 +1,11 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { fas } from '@fortawesome/free-solid-svg-icons';
-import { RuI18n as CoreRuI18n, translate } from '@rucken/core';
-import { RuI18n as WebRuI18n } from '@rucken/web';
-import { defineLocale } from 'ngx-bootstrap/chronos';
-import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
+import { translate } from '@rucken/core';
 import { RuI18n } from '../i18n/ru.i18n';
 import { ICoreConfig } from './config.interface';
 
 library.add(fas, fab);
-
-defineLocale('ru', ruLocale);
-defineLocale('en', enGbLocale);
 
 export const config: ICoreConfig = {
   app: {
@@ -22,12 +16,7 @@ export const config: ICoreConfig = {
       {
         title: translate('Russian'),
         code: 'ru',
-        translations: [WebRuI18n, CoreRuI18n, RuI18n]
-      },
-      {
-        title: translate('English'),
-        code: 'en',
-        translations: []
+        translations: [RuI18n]
       }
     ]
   },
