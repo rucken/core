@@ -1,6 +1,6 @@
 {
   "name": "rucken",
-  "version": "3.9.9",
+  "version": "3.9.10",
   "engines": {
     "node": ">=11",
     "npm": ">=6.5.0"

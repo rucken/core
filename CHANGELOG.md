@@ -1,3 +1,19 @@
+# [3.9.10](https://github.com/rucken/core/compare/3.9.9...3.9.10) (2019-03-23)
+
+
+### Bug Fixes
+
+* Algorithm "check token for expired" has be updated, tested for one minute ([#280](https://github.com/rucken/core/issues/280)) ([14e0080](https://github.com/rucken/core/commit/14e0080))
+* Rename child index.ts to providers.ts ([97954a6](https://github.com/rucken/core/commit/97954a6))
+* Update dependencies ([6992870](https://github.com/rucken/core/commit/6992870))
+
+
+### Features
+
+* Create RuckenWebModule and RuckenCoreModule and move translation and model configs  to there ([#287](https://github.com/rucken/core/issues/287)) ([ef18c75](https://github.com/rucken/core/commit/ef18c75))
+
+
+
 ## [3.9.9](https://github.com/rucken/core/compare/3.9.8...3.9.9) (2019-03-10)
 
 
