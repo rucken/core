@@ -421,8 +421,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:97</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="98"
+                            class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:98</a></div>
                 </td>
             </tr>
 
@@ -491,8 +491,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="91"
+                            class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:91</a></div>
                 </td>
             </tr>
 
@@ -643,8 +643,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="102"
-                            class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:102</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="103"
+                            class="link-to-prism">libs/rucken/web/src/lib/entities/users/profile-panel/profile-panel.component.ts:103</a></div>
                 </td>
             </tr>
 
@@ -891,6 +891,7 @@ export class ProfilePanelComponent extends BasePromptPanelComponent&lt;User&gt; 
     this.processing &#x3D; true;
     this._accountService
       .update(this.getData())
+      .pipe(takeUntil(this._destroyed$))
       .subscribe(data &#x3D;&gt; this.onSave(data.user, saveData), error &#x3D;&gt; this.onSaveError(error));
   }
   onSave(user: User, saveData?: any) {

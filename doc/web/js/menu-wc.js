@@ -530,6 +530,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/RuckenWebModule.html" data-type="entity-link">RuckenWebModule</a>
+                            </li>
+                            <li class="link">
                                 <a href="modules/ThemesModule.html" data-type="entity-link">ThemesModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?

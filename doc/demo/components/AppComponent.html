@@ -399,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="62"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:62</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:64</a></div>
                 </td>
             </tr>
 
@@ -1109,18 +1109,18 @@ export class AppComponent implements OnDestroy, OnInit {
       this._metaService.setTag(&#x27;og:locale&#x27;, lang.toLowerCase() + &#x27;-&#x27; + lang.toUpperCase());
       this.title &#x3D; this._translateService.instant(this._metaService.loader.settings.applicationName);
     });
-    if (isPlatformBrowser(this._platformId)) {
-      this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result &#x3D;&gt; {
-        if (result &#x3D;&#x3D;&#x3D; true) {
-          this.onInfo();
+    this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result &#x3D;&gt; {
+      if (result &#x3D;&#x3D;&#x3D; true) {
+        if (isPlatformBrowser(this._platformId)) {
+          this._authModalService.onTokenError();
+        } else {
+          this._authModalService.onSignOutSuccess(undefined);
         }
-      });
-    }
+      }
+    });
   }
   ngOnInit() {
-    if (isPlatformBrowser(this._platformId)) {
-      this.onInfo();
-    }
+    this._authModalService.onInfo();
     this.navbar.setRoutes(APP_ROUTES);
   }
   ngOnDestroy() {

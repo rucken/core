@@ -176,24 +176,38 @@ export class MessageModalComponent extends BasePromptModalComponent {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;message-modal&quot; [ngClass]&#x3D;&quot;{ &#x27;info-modal&#x27;: isInfo, &#x27;error-modal&#x27;: isError }&quot;&gt;
-  &lt;div class&#x3D;&quot;modal-header&quot;&gt;
-    &lt;h4 class&#x3D;&quot;modal-title pull-left&quot;&gt;{{ title | translate }}&lt;/h4&gt;
-    &lt;button type&#x3D;&quot;button&quot; class&#x3D;&quot;close pull-right&quot; [attr.aria-label]&#x3D;&quot;&#x27;Close&#x27; | translate&quot; (click)&#x3D;&quot;onNoClick($event)&quot;&gt;
-      &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;×&lt;/span&gt;
-    &lt;/button&gt;
-  &lt;/div&gt;
-  &lt;div class&#x3D;&quot;modal-body&quot;&gt;
-    &lt;p class&#x3D;&quot;modal-message&quot;&gt;{{ message | translate }}&lt;/p&gt;
-  &lt;/div&gt;
-  &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
-    &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-default&quot; (click)&#x3D;&quot;onYesClick($event)&quot; focused&gt;
-      &lt;fa-layers class&#x3D;&quot;fa-fw&quot; *ngIf&#x3D;&quot;processing&quot;&gt;
-        &lt;fa-icon [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;spinner&#x27;]&quot; [pulse]&#x3D;&quot;true&quot;&gt;&lt;/fa-icon&gt;
-      &lt;/fa-layers&gt;
-      {{ yesTitle | translate }}
-    &lt;/button&gt;
-  &lt;/div&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div
+    class&#x3D;&quot;message-modal&quot;
+    [ngClass]&#x3D;&quot;{ &#x27;info-modal&#x27;: isInfo, &#x27;error-modal&#x27;: isError }&quot;&gt;
+    &lt;div class&#x3D;&quot;modal-header&quot;&gt;
+        &lt;h4 class&#x3D;&quot;modal-title pull-left&quot;&gt;{{ title | translate }}&lt;/h4&gt;
+        &lt;button
+            type&#x3D;&quot;button&quot;
+            class&#x3D;&quot;close pull-right&quot;
+            [attr.aria-label]&#x3D;&quot;&#x27;Close&#x27; | translate&quot;
+            (click)&#x3D;&quot;onNoClick($event)&quot;&gt;
+            &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;×&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-body&quot;&gt;
+        &lt;p class&#x3D;&quot;modal-message&quot;&gt;{{ message | translate }}&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;modal-footer&quot;&gt;
+        &lt;button
+            type&#x3D;&quot;submit&quot;
+            class&#x3D;&quot;btn btn-default&quot;
+            (click)&#x3D;&quot;onYesClick($event)&quot;
+            focused&gt;
+            &lt;fa-layers
+                class&#x3D;&quot;fa-fw&quot;
+                *ngIf&#x3D;&quot;processing&quot;&gt;
+                &lt;fa-icon
+                    [icon]&#x3D;&quot;[&#x27;fas&#x27;, &#x27;spinner&#x27;]&quot;
+                    [pulse]&#x3D;&quot;true&quot;&gt;&lt;/fa-icon&gt;
+            &lt;/fa-layers&gt;
+            {{ yesTitle | translate }}
+        &lt;/button&gt;
+    &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -240,7 +254,7 @@ export class MessageModalComponent extends BasePromptModalComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="message-modal" [ngClass]="{ \'info-modal\': isInfo, \'error-modal\': isError }">  <div class="modal-header">    <h4 class="modal-title pull-left">{{ title | translate }}</h4>    <button type="button" class="close pull-right" [attr.aria-label]="\'Close\' | translate" (click)="onNoClick($event)">      <span aria-hidden="true">×</span>    </button>  </div>  <div class="modal-body">    <p class="modal-message">{{ message | translate }}</p>  </div>  <div class="modal-footer">    <button type="submit" class="btn btn-default" (click)="onYesClick($event)" focused>      <fa-layers class="fa-fw" *ngIf="processing">        <fa-icon [icon]="[\'fas\', \'spinner\']" [pulse]="true"></fa-icon>      </fa-layers>      {{ yesTitle | translate }}    </button>  </div></div></div>'
+        var COMPONENT_TEMPLATE = '<div><div    class="message-modal"    [ngClass]="{ \'info-modal\': isInfo, \'error-modal\': isError }">    <div class="modal-header">        <h4 class="modal-title pull-left">{{ title | translate }}</h4>        <button            type="button"            class="close pull-right"            [attr.aria-label]="\'Close\' | translate"            (click)="onNoClick($event)">            <span aria-hidden="true">×</span>        </button>    </div>    <div class="modal-body">        <p class="modal-message">{{ message | translate }}</p>    </div>    <div class="modal-footer">        <button            type="submit"            class="btn btn-default"            (click)="onYesClick($event)"            focused>            <fa-layers                class="fa-fw"                *ngIf="processing">                <fa-icon                    [icon]="[\'fas\', \'spinner\']"                    [pulse]="true"></fa-icon>            </fa-layers>            {{ yesTitle | translate }}        </button>    </div></div></div>'
     var COMPONENTS = [{'name': 'ContentTypeInputComponent', 'selector': 'content-type-input'},{'name': 'ContentTypeModalComponent', 'selector': 'content-type-modal'},{'name': 'ContentTypeSelectComponent', 'selector': 'content-type-select'},{'name': 'ContentTypesGridComponent', 'selector': 'content-types-grid'},{'name': 'ContentTypesGridModalComponent', 'selector': 'content-types-grid-modal'},{'name': 'EntityGridComponent', 'selector': 'entity-grid'},{'name': 'EntityGridModalComponent', 'selector': 'entity-grid-modal'},{'name': 'EntityInputComponent', 'selector': 'entity-input'},{'name': 'EntityModalComponent', 'selector': 'entity-modal'},{'name': 'EntitySelectComponent', 'selector': 'entity-select'},{'name': 'FormGroupComponent', 'selector': 'form-group'},{'name': 'GroupInputComponent', 'selector': 'group-input'},{'name': 'GroupModalComponent', 'selector': 'group-modal'},{'name': 'GroupPermissionsGridComponent', 'selector': 'group-permissions-grid'},{'name': 'GroupSelectComponent', 'selector': 'group-select'},{'name': 'GroupsGridComponent', 'selector': 'groups-grid'},{'name': 'GroupsGridModalComponent', 'selector': 'groups-grid-modal'},{'name': 'MessageModalComponent', 'selector': 'message-modal'},{'name': 'NavbarComponent', 'selector': 'navbar'},{'name': 'NavSidebarComponent', 'selector': 'nav-sidebar'},{'name': 'PermissionInputComponent', 'selector': 'permission-input'},{'name': 'PermissionModalComponent', 'selector': 'permission-modal'},{'name': 'PermissionSelectComponent', 'selector': 'permission-select'},{'name': 'PermissionsGridComponent', 'selector': 'permissions-grid'},{'name': 'PermissionsGridModalComponent', 'selector': 'permissions-grid-modal'},{'name': 'ProfilePanelComponent', 'selector': 'profile-panel'},{'name': 'PromptFormModalComponent', 'selector': 'prompt-form-modal'},{'name': 'UserGroupsGridComponent', 'selector': 'user-groups-grid'},{'name': 'UserInputComponent', 'selector': 'user-input'},{'name': 'UserModalComponent', 'selector': 'user-modal'},{'name': 'UserSelectComponent', 'selector': 'user-select'},{'name': 'UsersGridComponent', 'selector': 'users-grid'},{'name': 'UsersGridModalComponent', 'selector': 'users-grid-modal'},{'name': 'WebAuthModalComponent', 'selector': 'auth-modal'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'MessageModalComponent'};

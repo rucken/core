@@ -257,20 +257,13 @@ export class ErrorsExtractor {
     return undefined;
   }
   getErrorMessage(error: any) {
-    if (typeof error &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-      return error;
-    }
-    if (error &amp;&amp; error instanceof HttpErrorResponse &amp;&amp; error.error.message) {
+    if (error &amp;&amp; error &amp;&amp; error.error &amp;&amp; error.error.message) {
       return error &amp;&amp; error.error &amp;&amp; error.error.message;
     }
     if (error &amp;&amp; error.message) {
       return error.message;
     }
-    if (error &amp;&amp; error.toString) {
-      return error.toString();
-    }
-    console.log(error);
-    return undefined;
+    return error;
   }
 }
 </code></pre>

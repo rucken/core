@@ -65,13 +65,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/AccountModule.html" data-type="entity-link">AccountModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-AccountModule-47526e2f821f86995c4ab3fe5a8b47aa"' : 'data-target="#xs-injectables-links-module-AccountModule-47526e2f821f86995c4ab3fe5a8b47aa"' }>
+                                        'data-target="#injectables-links-module-AccountModule-7b19744431c9b7778d62c23540f5865f"' : 'data-target="#xs-injectables-links-module-AccountModule-7b19744431c9b7778d62c23540f5865f"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AccountModule-47526e2f821f86995c4ab3fe5a8b47aa"' :
-                                        'id="xs-injectables-links-module-AccountModule-47526e2f821f86995c4ab3fe5a8b47aa"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-AccountModule-7b19744431c9b7778d62c23540f5865f"' :
+                                        'id="xs-injectables-links-module-AccountModule-7b19744431c9b7778d62c23540f5865f"' }>
                                         <li class="link">
                                             <a href="injectables/AccountService.html"
                                                 data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>AccountService</a>
@@ -208,6 +208,28 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     </li>
                             </li>
                             <li class="link">
+                                <a href="modules/RuckenCoreModule.html" data-type="entity-link">RuckenCoreModule</a>
+                                <li class="chapter inner">
+                                    <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
+                                        'data-target="#injectables-links-module-RuckenCoreModule-323e6ba5d833284ffc8ae7063be9a49a"' : 'data-target="#xs-injectables-links-module-RuckenCoreModule-323e6ba5d833284ffc8ae7063be9a49a"' }>
+                                        <span class="icon ion-md-arrow-round-down"></span>
+                                        <span>Injectables</span>
+                                        <span class="icon ion-ios-arrow-down"></span>
+                                    </div>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-RuckenCoreModule-323e6ba5d833284ffc8ae7063be9a49a"' :
+                                        'id="xs-injectables-links-module-RuckenCoreModule-323e6ba5d833284ffc8ae7063be9a49a"' }>
+                                        <li class="link">
+                                            <a href="injectables/ErrorsExtractor.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>ErrorsExtractor</a>
+                                        </li>
+                                        <li class="link">
+                                            <a href="injectables/PermissionsGuard.html"
+                                                data-type="entity-link" data-context="sub-entity" data-context-id="modules" }>PermissionsGuard</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </li>
+                            <li class="link">
                                 <a href="modules/TransferHttpCacheModule.html" data-type="entity-link">TransferHttpCacheModule</a>
                             </li>
                 </ul>
@@ -286,12 +308,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                                 <li class="link">
                                     <a href="injectables/BrowserStorage.html" data-type="entity-link">BrowserStorage</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/ErrorsExtractor.html" data-type="entity-link">ErrorsExtractor</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/PermissionsGuard.html" data-type="entity-link">PermissionsGuard</a>
                                 </li>
                                 <li class="link">
                                     <a href="injectables/UniversalStorage.html" data-type="entity-link">UniversalStorage</a>

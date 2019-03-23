@@ -34,7 +34,7 @@
 
 <ol class="breadcrumb">
     <li>Modules</li>
-    <li>AccountModule</li>
+    <li>RuckenCoreModule</li>
 </ol>
 
 <div class="text-center module-graph-container">
@@ -62,30 +62,42 @@
 <polygon fill="#fb8072" stroke="transparent" points="406,-10 406,-30 426,-30 426,-10 406,-10"/>
 <text text-anchor="start" x="429.7258" y="-15.4" font-family="sans-serif" font-size="14.00" fill="#000000"> &#160;Exports</text>
 <g id="clust1" class="cluster">
-<title>cluster_AccountModule</title>
-<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="159,-70 159,-195 337,-195 337,-70 159,-70"/>
+<title>cluster_RuckenCoreModule</title>
+<polygon fill="none" stroke="#000000" stroke-dasharray="1,5" points="70,-70 70,-195 426,-195 426,-70 70,-70"/>
 </g>
 <g id="clust6" class="cluster">
-<title>cluster_AccountModule_providers</title>
-<polygon fill="none" stroke="#000000" points="167,-78 167,-130 329,-130 329,-78 167,-78"/>
+<title>cluster_RuckenCoreModule_providers</title>
+<polygon fill="none" stroke="#000000" points="78,-78 78,-130 418,-130 418,-78 78,-78"/>
 </g>
-<!-- AccountService -->
+<!-- ErrorsExtractor -->
 <g id="node1" class="node">
-<title>AccountService</title>
-<ellipse fill="#fdb462" stroke="#000000" cx="248" cy="-104" rx="72.9121" ry="18"/>
-<text text-anchor="middle" x="248" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">AccountService</text>
+<title>ErrorsExtractor</title>
+<ellipse fill="#fdb462" stroke="#000000" cx="339" cy="-104" rx="71.1823" ry="18"/>
+<text text-anchor="middle" x="339" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">ErrorsExtractor</text>
 </g>
-<!-- AccountModule -->
-<g id="node2" class="node">
-<title>AccountModule</title>
-<polygon fill="#8dd3c7" stroke="#000000" points="301.4762,-187 298.4762,-191 277.4762,-191 274.4762,-187 194.5238,-187 194.5238,-151 301.4762,-151 301.4762,-187"/>
-<text text-anchor="middle" x="248" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">AccountModule</text>
+<!-- RuckenCoreModule -->
+<g id="node3" class="node">
+<title>RuckenCoreModule</title>
+<polygon fill="#8dd3c7" stroke="#000000" points="317.5283,-187 314.5283,-191 293.5283,-191 290.5283,-187 188.4717,-187 188.4717,-151 317.5283,-151 317.5283,-187"/>
+<text text-anchor="middle" x="253" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">RuckenCoreModule</text>
 </g>
-<!-- AccountService&#45;&gt;AccountModule -->
+<!-- ErrorsExtractor&#45;&gt;RuckenCoreModule -->
 <g id="edge1" class="edge">
-<title>AccountService&#45;&gt;AccountModule</title>
-<path fill="none" stroke="#000000" d="M248,-122.1061C248,-122.1061 248,-140.991 248,-140.991"/>
-<polygon fill="#000000" stroke="#000000" points="244.5001,-140.9909 248,-150.991 251.5001,-140.991 244.5001,-140.9909"/>
+<title>ErrorsExtractor&#45;&gt;RuckenCoreModule</title>
+<path fill="none" stroke="#000000" d="M292.8363,-117.7848C292.8363,-117.7848 292.8363,-140.5475 292.8363,-140.5475"/>
+<polygon fill="#000000" stroke="#000000" points="289.3364,-140.5474 292.8363,-150.5475 296.3364,-140.5475 289.3364,-140.5474"/>
+</g>
+<!-- PermissionsGuard -->
+<g id="node2" class="node">
+<title>PermissionsGuard</title>
+<ellipse fill="#fdb462" stroke="#000000" cx="168" cy="-104" rx="81.6789" ry="18"/>
+<text text-anchor="middle" x="168" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">PermissionsGuard</text>
+</g>
+<!-- PermissionsGuard&#45;&gt;RuckenCoreModule -->
+<g id="edge2" class="edge">
+<title>PermissionsGuard&#45;&gt;RuckenCoreModule</title>
+<path fill="none" stroke="#000000" d="M219.0378,-118.104C219.0378,-118.104 219.0378,-140.7209 219.0378,-140.7209"/>
+<polygon fill="#000000" stroke="#000000" points="215.5379,-140.7209 219.0378,-150.7209 222.5379,-140.7209 215.5379,-140.7209"/>
 </g>
 </g>
 </svg>
@@ -117,7 +129,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>libs/rucken/core/src/lib/modules/account/account.module.ts</code>
+            <code>libs/rucken/core/src/lib/core.module.ts</code>
         </p>
 
 
@@ -130,120 +142,59 @@
                             title="Official documentation about module providers"><span class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../injectables/AccountService.html">AccountService</a>
+                            <a href="../injectables/ErrorsExtractor.html">ErrorsExtractor</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="../injectables/PermissionsGuard.html">PermissionsGuard</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </div>
 
-        <section>
-    
-    <h3 id="methods">
-        Methods
-    </h3>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="forRoot"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Static</span>
-                            forRoot
-                        </b>
-                        <a href="#forRoot"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>forRoot(options?: literal type)</code>
-                </td>
-            </tr>
 
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="10"
-                            class="link-to-prism">libs/rucken/core/src/lib/modules/account/account.module.ts:10</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>options</td>
-                                    <td>
-                                            <code>literal type</code>
-                                    </td>
-
-                                    <td>
-                                        Yes
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { CommonModule } from &#x27;@angular/common&#x27;;
-import { ModuleWithProviders, NgModule } from &#x27;@angular/core&#x27;;
-import { AccountService } from &#x27;./account.service&#x27;;
-import { ACCOUNT_CONFIG_TOKEN, DEFAULT_ACCOUNT_CONFIG } from &#x27;./configs/account.config&#x27;;
+import { NgModule } from &#x27;@angular/core&#x27;;
+import { CookieService } from &#x27;ngx-cookie-service&#x27;;
+import { RuI18n } from &#x27;../i18n/ru.i18n&#x27;;
+import { ENTITIES_PROVIDERS } from &#x27;./configs/providers&#x27;;
+import { LANGUAGES_ITEM_CONFIG_TOKEN } from &#x27;./modules/lang/configs/languages-item.config&#x27;;
+import { ErrorsExtractor } from &#x27;./utils/errors-extractor&#x27;;
+import { PermissionsGuard } from &#x27;./utils/permissions-guard.service&#x27;;
+import { translate } from &#x27;./utils/translate&#x27;;
+
 @NgModule({
   imports: [CommonModule],
-  providers: [AccountService]
+  providers: [
+    CookieService,
+    ErrorsExtractor,
+    PermissionsGuard,
+    {
+      provide: LANGUAGES_ITEM_CONFIG_TOKEN,
+      useValue: {
+        title: translate(&#x27;Russian&#x27;),
+        code: &#x27;ru&#x27;,
+        translations: [RuI18n]
+      },
+      multi: true
+    },
+    {
+      provide: LANGUAGES_ITEM_CONFIG_TOKEN,
+      useValue: {
+        title: translate(&#x27;English&#x27;),
+        code: &#x27;en&#x27;,
+        translations: []
+      },
+      multi: true
+    },
+    ...ENTITIES_PROVIDERS
+  ]
 })
-export class AccountModule {
-  static forRoot(options?: { apiUrl?: string }): ModuleWithProviders {
-    return {
-      ngModule: AccountModule,
-      providers: [
-        {
-          provide: ACCOUNT_CONFIG_TOKEN,
-          useValue: {
-            apiUrl: options.apiUrl ? options.apiUrl : DEFAULT_ACCOUNT_CONFIG.apiUrl,
-            updateUrl: DEFAULT_ACCOUNT_CONFIG.updateUrl
-          }
-        },
-        AccountService
-      ]
-    };
-  }
-}
+export class RuckenCoreModule {}
 </code></pre>
     </div>
 </div>
@@ -278,7 +229,7 @@ export class AccountModule {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
-            var COMPODOC_CURRENT_PAGE_URL = 'AccountModule.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'RuckenCoreModule.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
