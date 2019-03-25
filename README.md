@@ -11,7 +11,7 @@ Core and Admin UI for [Angular7+](https://angular.io) web applications based on 
 
 ## Features
 
-- [Angular](https://angular.io/) - Angular is a development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
+- [Angular](https://angular.io/) - development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
 - [ngx-bootstrap](https://valor-software.com/ngx-bootstrap) - fast and reliable Bootstrap widgets in Angular
 - [TypeScript](https://github.com/Microsoft/TypeScript) - superset of JS which compiles to JS, providing compile-time type checking
 - [@nguniversal/express-engine](https://github.com/angular/universal) - universal javascript support for Angular for server side rendering
