@@ -21,7 +21,7 @@ Core and Admin UI for [Angular7+](https://angular.io) web applications based on 
 - [ngx-dynamic-form-builder](https://www.npmjs.com/package/ngx-dynamic-form-builder) - FormBuilder + class-transformer + class-validator = dynamic form group builder for Angular7+
 - [ngx-repository](https://www.npmjs.com/package/ngx-repository) - custom repository service for Angular7+, for easy work with the REST backend, with switch on fly from REST backend to the MOCK backend with save and use all CRUD operations
 - [ngx-bind-io](https://www.npmjs.com/package/ngx-bind-io) - directives for auto binding Input() and Output() in Angular7+ application
-- [fortawesome](https://www.npmjs.com/package/@fortawesome/angular-fontawesome) - Font Awesome 5 Angular component using SVG with JS
+- [fontawesome](https://www.npmjs.com/package/@fortawesome/angular-fontawesome) - Font Awesome 5 Angular component using SVG with JS
 
 ## Usage
 
