@@ -141,6 +141,7 @@
     "cors": "~2.8.5",
     "dotenv": "^6.2.0",
     "jsonwebtoken": "^8.4.0",
+    "ngx-bind-io": "^0.6.6",
     "ngx-bootstrap": "^3.2.0",
     "ngx-cookie-service": "^2.1.0",
     "ngx-dynamic-form-builder": "^0.9.0",
@@ -151,8 +152,7 @@
     "raw-loader": "^0.5.1",
     "rxjs": "^6.4.0",
     "ts-loader": "5.3.3",
-    "zone.js": "^0.8.29",
-    "ngx-bind-io": "^0.6.5"
+    "zone.js": "^0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.6",
