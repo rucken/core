@@ -3,7 +3,19 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
     "module": "es2015",
-    "types": ["jasmine", "node"]
+    "types": [
+      "jasmine",
+      "node"
+    ],
+    "lib": [
+      "es5",
+      "es6",
+      "es2017",
+      "dom"
+    ]
   },
-  "exclude": ["src/test.ts", "**/*.spec.ts"]
+  "exclude": [
+    "src/test.ts",
+    "**/*.spec.ts"
+  ]
 }
