@@ -1,3 +1,12 @@
+## [3.9.11](https://github.com/rucken/core/compare/3.9.10...3.9.11) (2019-04-08)
+
+
+### Bug Fixes
+
+* Not add auth token if token is empty ([#292](https://github.com/rucken/core/issues/292)) ([1e375ae](https://github.com/rucken/core/commit/1e375ae))
+
+
+
 # [3.9.10](https://github.com/rucken/core/compare/3.9.9...3.9.10) (2019-03-23)
 
 
