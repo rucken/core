@@ -14,12 +14,16 @@ import {
 } from '@rucken/core';
 import { NavbarComponent } from '@rucken/web';
 import { BindIoInner } from 'ngx-bind-io';
+import { defineLocale } from 'ngx-bootstrap/chronos';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
+import { enGbLocale, ruLocale } from 'ngx-bootstrap/locale';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { APP_ROUTES } from './app.routes';
 import { config } from './config/config';
 
+defineLocale('ru', ruLocale);
+defineLocale('en', enGbLocale);
 @BindIoInner()
 @Component({
   selector: 'app-root',
@@ -47,9 +51,11 @@ export class AppComponent implements OnDestroy, OnInit {
     this._authModalService.signUpInfoMessage = config.authModal.signUpInfoMessage;
     this.currentUser$ = this._authService.current$;
     this._langService.current$.pipe(takeUntil(this._destroyed$)).subscribe(lang => {
-      this._bsLocaleService.use(lang);
-      this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
-      this.title = this._translateService.instant(this._metaService.loader.settings.applicationName);
+      if (lang) {
+        this._bsLocaleService.use(lang);
+        this._metaService.setTag('og:locale', lang.toLowerCase() + '-' + lang.toUpperCase());
+        this.title = this._translateService.instant(this._metaService.loader.settings.applicationName);
+      }
     });
     this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result => {
       if (result === true) {
