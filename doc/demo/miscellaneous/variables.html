@@ -838,6 +838,7 @@
     component: AuthEmptyPageComponent,
     canActivate: [OauthGuard],
     data: {
+      visible: false,
       oauth: {
         provider: &#x27;facebook&#x27;,
         redirectTo: {
@@ -852,6 +853,7 @@
     component: AuthEmptyPageComponent,
     canActivate: [OauthGuard],
     data: {
+      visible: false,
       oauth: {
         provider: &#x27;google-plus&#x27;,
         redirectTo: {

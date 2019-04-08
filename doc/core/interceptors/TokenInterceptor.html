@@ -245,17 +245,18 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from &#x27;@angular/common/http&#x27;;
-import { Injectable, InjectionToken, Inject } from &#x27;@angular/core&#x27;;
+import { Inject, Injectable } from &#x27;@angular/core&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
-import { TokenService } from &#x27;../services/token.service&#x27;;
-import { JWT_CONFIG_TOKEN, DEFAULT_JWT_CONFIG } from &#x27;../configs/jwt.config&#x27;;
+import { JWT_CONFIG_TOKEN } from &#x27;../configs/jwt.config&#x27;;
 import { IJwtConfig } from &#x27;../interfaces/jwt-config.interface&#x27;;
+import { TokenService } from &#x27;../services/token.service&#x27;;
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
   constructor(@Inject(JWT_CONFIG_TOKEN) private _jwtConfig: IJwtConfig, private _tokenService: TokenService) {}
   intercept(request: HttpRequest&lt;any&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;any&gt;&gt; {
     if (
+      this._tokenService.getCurrent() &amp;&amp;
       this._jwtConfig &amp;&amp;
       this._jwtConfig.withoutTokenUrls &amp;&amp;
       this._jwtConfig.withoutTokenUrls.filter(rule &#x3D;&gt; request.urlWithParams.indexOf(rule) !&#x3D;&#x3D; -1).length &#x3D;&#x3D;&#x3D; 0
