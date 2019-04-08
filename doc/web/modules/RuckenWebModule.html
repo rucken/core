@@ -231,15 +231,10 @@
 import { NgModule } from &#x27;@angular/core&#x27;;
 import { LANGUAGES_ITEM_CONFIG_TOKEN, translate } from &#x27;@rucken/core&#x27;;
 import { BsLocaleService } from &#x27;ngx-bootstrap&#x27;;
-import { defineLocale } from &#x27;ngx-bootstrap/chronos&#x27;;
-import { enGbLocale, ruLocale } from &#x27;ngx-bootstrap/locale&#x27;;
 import { RuI18n } from &#x27;../i18n/ru.i18n&#x27;;
 import { NavbarModule } from &#x27;./components/navbar/navbar.module&#x27;;
 import { WebAuthModalModule } from &#x27;./modules/auth-modal/auth-modal.module&#x27;;
 import { WebModalsModule } from &#x27;./modules/modals/modals.module&#x27;;
-
-defineLocale(&#x27;ru&#x27;, ruLocale);
-defineLocale(&#x27;en&#x27;, enGbLocale);
 
 @NgModule({
   imports: [CommonModule, WebAuthModalModule, WebModalsModule, NavbarModule],
