@@ -360,8 +360,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="70"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:70</a></div>
                 </td>
             </tr>
 
@@ -399,8 +399,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="64"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:64</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="66"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:66</a></div>
                 </td>
             </tr>
 
@@ -438,8 +438,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="90"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:90</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="92"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:92</a></div>
                 </td>
             </tr>
 
@@ -508,8 +508,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="72"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:72</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:74</a></div>
                 </td>
             </tr>
 
@@ -547,8 +547,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="81"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:81</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="83"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:83</a></div>
                 </td>
             </tr>
 
@@ -629,8 +629,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="78"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:78</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:80</a></div>
                 </td>
             </tr>
 
@@ -668,8 +668,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="93"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:93</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="95"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:95</a></div>
                 </td>
             </tr>
 
@@ -750,8 +750,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="84"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:84</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="86"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:86</a></div>
                 </td>
             </tr>
 
@@ -832,8 +832,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="75"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:75</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="77"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:77</a></div>
                 </td>
             </tr>
 
@@ -871,8 +871,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="87"
-                            class="link-to-prism">apps/demo/src/app/app.component.ts:87</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="89"
+                            class="link-to-prism">apps/demo/src/app/app.component.ts:89</a></div>
                 </td>
             </tr>
 
@@ -1105,9 +1105,11 @@ export class AppComponent implements OnDestroy, OnInit {
     this._authModalService.signUpInfoMessage &#x3D; config.authModal.signUpInfoMessage;
     this.currentUser$ &#x3D; this._authService.current$;
     this._langService.current$.pipe(takeUntil(this._destroyed$)).subscribe(lang &#x3D;&gt; {
-      this._bsLocaleService.use(lang);
-      this._metaService.setTag(&#x27;og:locale&#x27;, lang.toLowerCase() + &#x27;-&#x27; + lang.toUpperCase());
-      this.title &#x3D; this._translateService.instant(this._metaService.loader.settings.applicationName);
+      if (lang) {
+        this._bsLocaleService.use(lang);
+        this._metaService.setTag(&#x27;og:locale&#x27;, lang.toLowerCase() + &#x27;-&#x27; + lang.toUpperCase());
+        this.title &#x3D; this._translateService.instant(this._metaService.loader.settings.applicationName);
+      }
     });
     this._tokenService.tokenHasExpired$.pipe(takeUntil(this._destroyed$)).subscribe(result &#x3D;&gt; {
       if (result &#x3D;&#x3D;&#x3D; true) {
