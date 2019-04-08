@@ -9,11 +9,19 @@
 
 Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://github.com/rucken) template
 
-## What is Rucken?
+## Features
 
-- **Core** - Base entities and services to create applications on [Angular7+](https://angular.io), includes users, groups and permissions solutions.
-- **Web** - Base [Bootstrap3](https://valor-software.com/ngx-bootstrap/) ui grids, inputs and more to manage users, groups and permissions.
-- **Ionic** - Base mobile ui on [Ionic4](https://beta.ionicframework.com) list, inputs and more to manage users, groups and permissions.
+- [Angular](https://angular.io/) - development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
+- [ngx-bootstrap](https://valor-software.com/ngx-bootstrap) - fast and reliable Bootstrap widgets in Angular
+- [TypeScript](https://github.com/Microsoft/TypeScript) - superset of JS which compiles to JS, providing compile-time type checking
+- [@nguniversal/express-engine](https://github.com/angular/universal) - universal javascript support for Angular for server side rendering
+- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - a JavaScript json web tokens implementation by auth0
+- [ngx-permissions](https://www.npmjs.com/package/ngx-permissions) - permission and roles based access control for your angular(angular 2,4,5,6,7+) applications(AOT, lazy modules compatible)
+- [ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service) - an (AOT ready) Angular (4.2+) service for cookies. Originally based on the ng2-cookies library
+- [ngx-dynamic-form-builder](https://www.npmjs.com/package/ngx-dynamic-form-builder) - FormBuilder + class-transformer + class-validator = dynamic form group builder for Angular7+
+- [ngx-repository](https://www.npmjs.com/package/ngx-repository) - custom repository service for Angular7+, for easy work with the REST backend, with switch on fly from REST backend to the MOCK backend with save and use all CRUD operations
+- [ngx-bind-io](https://www.npmjs.com/package/ngx-bind-io) - directives for auto binding Input() and Output() in Angular7+ application
+- [fontawesome](https://www.npmjs.com/package/@fortawesome/angular-fontawesome) - Font Awesome 5 Angular component using SVG with JS
 
 ## Usage
 
@@ -53,6 +61,8 @@ npm run start:prod
 ### Mobile
 
 [@rucken/ionic](https://github.com/rucken/ionic) - Admin UI for [Ionic4](https://beta.ionicframework.com) with [Angular7+](https://angular.io) mobile application.
+
+[@rucken/todo-ionic](https://github.com/rucken/todo-ionic) - Admin UI for [Ionic4](https://beta.ionicframework.com) with [Angular7+](https://angular.io) mobile todo application
 
 ### Console
 
