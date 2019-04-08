@@ -1,3 +1,12 @@
+## [3.9.12](https://github.com/rucken/core/compare/3.9.11...3.9.12) (2019-04-08)
+
+
+### Bug Fixes
+
+* Downgrade version of ngx-bootstrap to 3.2.0 and freeze all dependencies ([2dc68a0](https://github.com/rucken/core/commit/2dc68a0))
+
+
+
 ## [3.9.11](https://github.com/rucken/core/compare/3.9.10...3.9.11) (2019-04-08)
 
 
