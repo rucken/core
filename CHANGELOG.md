@@ -1,3 +1,12 @@
+## [3.9.13](https://github.com/rucken/core/compare/3.9.12...3.9.13) (2019-05-10)
+
+
+### Bug Fixes
+
+* Update dependencies ([091785d](https://github.com/rucken/core/commit/091785d))
+
+
+
 ## [3.9.12](https://github.com/rucken/core/compare/3.9.11...3.9.12) (2019-04-08)
 
 
