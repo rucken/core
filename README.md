@@ -7,7 +7,7 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://github.com/rucken) template
+Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://rucken.io) template
 
 ## Screenshots
 <p>
