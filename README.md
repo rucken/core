@@ -10,10 +10,10 @@
 Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://github.com/rucken) template
 
 ## Screenshots
-<p align="center">
+<p>
   <img src="https://rucken.io/assets/rucken-core/web/rucken-web-account-profile.png" width="250" title="Profile page">
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users.png" width="250" alt="Users page">
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users-create.png" width="250" alt="User create modal">
+  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users.png" width="250" title="Users page">
+  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users-create.png" width="250" title="User create modal">
 </p>
 
 ## Features
