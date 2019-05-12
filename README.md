@@ -9,6 +9,13 @@
 
 Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://github.com/rucken) template
 
+## Screenshots
+<p align="center">
+  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-account-profile.png" width="250" title="Profile page">
+  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users.png" width="250" alt="Users page">
+  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users-create.png" width="250" alt="User create modal">
+</p>
+
 ## Features
 
 - [Angular](https://angular.io/) - development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
