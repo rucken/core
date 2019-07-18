@@ -149,7 +149,7 @@
     "ngx-repository": "0.6.3",
     "node-fetch": "2.5.0",
     "object-path": "0.11.4",
-    "raw-loader": "0.5.1",
+    "raw-loader": "3.1.0",
     "rxjs": "6.5.2",
     "ts-loader": "6.0.0",
     "zone.js": "0.9.1"
