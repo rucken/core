@@ -168,7 +168,7 @@
     "bootstrap-sass": "3.4.1",
     "bootswatch-sass": "3.2.0",
     "codelyzer": "5.0.1",
-    "conventional-changelog-cli": "2.0.21",
+    "conventional-changelog-cli": "2.0.25",
     "conventional-commits-detector": "1.0.2",
     "conventional-recommended-bump": "5.0.0",
     "cookie-parser": "1.4.4",
