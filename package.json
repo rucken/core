@@ -129,7 +129,7 @@
     "@fortawesome/free-brands-svg-icons": "5.8.2",
     "@fortawesome/free-solid-svg-icons": "5.8.2",
     "@nguniversal/express-engine": "7.1.1",
-    "@nguniversal/module-map-ngfactory-loader": "7.1.1",
+    "@nguniversal/module-map-ngfactory-loader": "8.2.5",
     "@ngx-meta/core": "7.0.0",
     "@ngx-translate/core": "11.0.1",
     "@types/dotenv": "6.1.1",
