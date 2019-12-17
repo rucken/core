@@ -134,7 +134,7 @@
     "@ngx-translate/core": "11.0.1",
     "@types/dotenv": "6.1.1",
     "@types/jsonwebtoken": "8.3.2",
-    "@types/node": "12.0.0",
+    "@types/node": "12.12.20",
     "@types/object-path": "0.11.0",
     "bind-observable": "1.0.2",
     "core-js": "2.6.5",
