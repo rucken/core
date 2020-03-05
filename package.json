@@ -127,7 +127,7 @@
     "@fortawesome/angular-fontawesome": "0.3.0",
     "@fortawesome/fontawesome-svg-core": "1.2.27",
     "@fortawesome/free-brands-svg-icons": "5.8.2",
-    "@fortawesome/free-solid-svg-icons": "5.8.2",
+    "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@nguniversal/express-engine": "7.1.1",
     "@nguniversal/module-map-ngfactory-loader": "7.1.1",
     "@ngx-meta/core": "7.0.0",
