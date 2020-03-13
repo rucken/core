@@ -141,7 +141,7 @@
     "cors": "2.8.5",
     "dotenv": "8.0.0",
     "jsonwebtoken": "8.5.1",
-    "ngx-bind-io": "0.6.6",
+    "ngx-bind-io": "0.7.0",
     "ngx-bootstrap": "4.1.1",
     "ngx-cookie-service": "2.1.0",
     "ngx-dynamic-form-builder": "1.0.0",
