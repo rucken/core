@@ -144,7 +144,7 @@
     "ngx-bind-io": "0.6.6",
     "ngx-bootstrap": "4.1.1",
     "ngx-cookie-service": "2.1.0",
-    "ngx-dynamic-form-builder": "1.0.0",
+    "ngx-dynamic-form-builder": "1.4.0",
     "ngx-permissions": "6.0.5",
     "ngx-repository": "0.6.3",
     "node-fetch": "2.5.0",
