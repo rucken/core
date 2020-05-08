@@ -170,7 +170,7 @@
     "codelyzer": "5.0.1",
     "conventional-changelog-cli": "2.0.21",
     "conventional-commits-detector": "1.0.2",
-    "conventional-recommended-bump": "5.0.0",
+    "conventional-recommended-bump": "6.0.9",
     "cookie-parser": "1.4.4",
     "cp-cli": "2.0.0",
     "del-cli": "1.1.0",
