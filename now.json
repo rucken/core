@@ -1,9 +1,0 @@
-{
-    "alias": [
-        "rucken.now.sh",
-        "rucken-web.now.sh"
-    ],
-    "env": {
-        "DEBUG": "@debug"
-    }
-}

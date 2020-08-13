@@ -1,14 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Credentials
-.travis/*.key
-.travis/*.key.pub
-
-deploy
-
 # compiled output
 /dist
-/dist/rucken
 /tmp
 /out-tsc
 
@@ -44,6 +37,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-.env
-server.js
-*.local.ts

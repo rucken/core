@@ -1,91 +1,98 @@
-# rucken
+# Rucken
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/rucken/core.svg)](https://greenkeeper.io/)
-[![NPM version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Crowdin](https://d322cqt584bo4o.cloudfront.net/rucken-core/localized.svg)](https://crowdin.com/project/rucken-core)
-[![Gitter][gitter-image]][gitter-url]
-[![Join the chat at telegram][telegram-image]][telegram-url]
+This project was generated using [Nx](https://nx.dev).
 
-Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://rucken.io) template
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
-## Screenshots
-<p>
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-account-profile.png" width="250" title="Profile page">
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users.png" width="250" title="Users page">
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users-create.png" width="250" title="User create modal">
-</p>
+🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
 
-## Features
+## Quick Start & Documentation
 
-- [Angular](https://angular.io/) - development platform for building mobile and desktop web applications using Typescript/JavaScript and other languages
-- [ngx-bootstrap](https://valor-software.com/ngx-bootstrap) - fast and reliable Bootstrap widgets in Angular
-- [TypeScript](https://github.com/Microsoft/TypeScript) - superset of JS which compiles to JS, providing compile-time type checking
-- [@nguniversal/express-engine](https://github.com/angular/universal) - universal javascript support for Angular for server side rendering
-- [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) - a JavaScript json web tokens implementation by auth0
-- [ngx-permissions](https://www.npmjs.com/package/ngx-permissions) - permission and roles based access control for your angular(angular 2,4,5,6,7+) applications(AOT, lazy modules compatible)
-- [ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service) - an (AOT ready) Angular (4.2+) service for cookies. Originally based on the ng2-cookies library
-- [ngx-dynamic-form-builder](https://www.npmjs.com/package/ngx-dynamic-form-builder) - FormBuilder + class-transformer + class-validator = dynamic form group builder for Angular7+
-- [ngx-repository](https://www.npmjs.com/package/ngx-repository) - custom repository service for Angular7+, for easy work with the REST backend, with switch on fly from REST backend to the MOCK backend with save and use all CRUD operations
-- [ngx-bind-io](https://www.npmjs.com/package/ngx-bind-io) - directives for auto binding Input() and Output() in Angular7+ application
-- [fontawesome](https://www.npmjs.com/package/@fortawesome/angular-fontawesome) - Font Awesome 5 Angular component using SVG with JS
+[Nx Documentation](https://nx.dev/angular)
 
-## Usage
+[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
 
-```
-git clone https://github.com/rucken/core.git my-app
-cd my-app
-npm install
-npm run start:prod
-```
+[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
 
-## Demo
+## Adding capabilities to your workspace
 
-[https://rucken.github.io/core/](https://rucken.github.io/core/) - Static site on [GitHub Pages](https://pages.github.com/)
+Nx supports many plugins which add capabilities for developing different types of applications and different tools.
 
-[https://web.rucken.io](https://web.rucken.io) - Server-side rendering (SSR) on VPS with [Dokku](http://dokku.viewdocs.io/dokku/)
+These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-## Compodoc documentations
+Below are our core plugins:
 
-[https://rucken.github.io/core/doc/demo](https://rucken.github.io/core/doc/demo/index.html) - Demo application documentation
+- [Angular](https://angular.io)
+  - `ng add @nrwl/angular`
+- [React](https://reactjs.org)
+  - `ng add @nrwl/react`
+- Web (no framework frontends)
+  - `ng add @nrwl/web`
+- [Nest](https://nestjs.com)
+  - `ng add @nrwl/nest`
+- [Express](https://expressjs.com)
+  - `ng add @nrwl/express`
+- [Node](https://nodejs.org)
+  - `ng add @nrwl/node`
 
-[https://rucken.github.io/core/doc/core](https://rucken.github.io/core/doc/core/index.html) - Core documentation
+There are also many [community plugins](https://nx.dev/nx-community) you could add.
 
-[https://rucken.github.io/core/doc/web](https://rucken.github.io/core/doc/web/index.html) - Web documentation
+## Generate an application
 
-## Quick links
+Run `ng g @nrwl/angular:app my-app` to generate an application.
 
-### Frontend (with core)
-[@rucken/core](https://github.com/rucken/core) - Core with Admin UI for web application maked on [Angular7+](https://angular.io) and [Bootstrap3](https://valor-software.com/ngx-bootstrap/).
+> You can use any of the plugins above to generate applications as well.
 
-[@rucken/todo](https://github.com/rucken/todo) - Core with UI for web todo application maked on [Angular7+](https://angular.io) and [Bootstrap3](https://valor-software.com/ngx-bootstrap/).
+When using Nx, you can create multiple applications and libraries in the same workspace.
 
-### Backend
-[@rucken/core-nestjs](https://github.com/rucken/core-nestjs) - A simple application demonstrating the basic usage of permissions with [NestJS](https://nestjs.com/) (JWT, Passport, Facebook, Google+, User, Group, Permission).
+## Generate a library
 
-[@rucken/todo-nestjs](https://github.com/rucken/todo-nestjs) - A simple todo application with [NestJS](https://nestjs.com/) (Projects, Tasks, Statuses).
+Run `ng g @nrwl/angular:lib my-lib` to generate a library.
 
-### Mobile
+> You can also use any of the plugins above to generate libraries as well.
 
-[@rucken/ionic](https://github.com/rucken/ionic) - Admin UI for [Ionic4](https://beta.ionicframework.com) with [Angular7+](https://angular.io) mobile application.
+Libraries are sharable across libraries and applications. They can be imported from `@rucken/mylib`.
 
-[@rucken/todo-ionic](https://github.com/rucken/todo-ionic) - Admin UI for [Ionic4](https://beta.ionicframework.com) with [Angular7+](https://angular.io) mobile todo application
+## Development server
 
-### Console
+Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 
-[@rucken/cli](https://github.com/rucken/cli) - Console tools to create and build [Angular7+](https://angular.io/) and [NestJS](https://nestjs.com/) application based on [Rucken](https://github.com/rucken) template
+## Code scaffolding
 
-## License
+Run `ng g component my-component --project=my-app` to generate a new component.
 
-MIT
+## Build
 
-[travis-image]: https://travis-ci.org/rucken/core.svg?branch=master
-[travis-url]: https://travis-ci.org/rucken/core
-[gitter-image]: https://img.shields.io/gitter/room/rucken/core.js.svg
-[gitter-url]: https://gitter.im/rucken/core
-[npm-image]: https://badge.fury.io/js/%40rucken%2Fcore.svg
-[npm-url]: https://npmjs.org/package/@rucken/core
-[dependencies-image]: https://david-dm.org/rucken/core/status.svg
-[dependencies-url]: https://david-dm.org/rucken/core
-[telegram-image]: https://img.shields.io/badge/chat-telegram-blue.svg?maxAge=2592000
-[telegram-url]: https://t.me/rucken
+Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+
+Run `nx affected:test` to execute the unit tests affected by a change.
+
+## Running end-to-end tests
+
+Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+
+Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+
+## Understand your workspace
+
+Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+
+## Further help
+
+Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
+
+## ☁ Nx Cloud
+
+### Computation Memoization in the Cloud
+
+<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+
+Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+
+Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+
+Visit [Nx Cloud](https://nx.app/) to learn more.
