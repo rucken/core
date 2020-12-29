@@ -4,5 +4,5 @@ export const environment: IEnvironment = {
   server: false,
   type: 'prod',
   production: true,
-  apiUrl: 'https://core-nestjs.rucken.io/api'
+  apiUrl: 'https://core-nestjs.rucken.ru/api'
 };

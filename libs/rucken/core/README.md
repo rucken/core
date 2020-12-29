@@ -32,7 +32,7 @@ npm run start:prod
 
 [https://rucken.github.io/core/](https://rucken.github.io/core/) - Static site on [GitHub Pages](https://pages.github.com/)
 
-[https://web.rucken.io](https://web.rucken.io) - Server-side rendering (SSR) on VPS with [Dokku](http://dokku.viewdocs.io/dokku/)
+[https://web.rucken.ru](https://web.rucken.ru) - Server-side rendering (SSR) on VPS with [Dokku](http://dokku.viewdocs.io/dokku/)
 
 ## Compodoc documentations
 

@@ -7,13 +7,13 @@
 [![Gitter][gitter-image]][gitter-url]
 [![Join the chat at telegram][telegram-image]][telegram-url]
 
-Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://rucken.io) template
+Core and Admin UI for [Angular7+](https://angular.io) web applications based on [Rucken](https://rucken.ru) template
 
 ## Screenshots
 <p>
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-account-profile.png" width="250" title="Profile page">
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users.png" width="250" title="Users page">
-  <img src="https://rucken.io/assets/rucken-core/web/rucken-web-entities-users-create.png" width="250" title="User create modal">
+  <img src="https://rucken.ru/assets/rucken-core/web/rucken-web-account-profile.png" width="250" title="Profile page">
+  <img src="https://rucken.ru/assets/rucken-core/web/rucken-web-entities-users.png" width="250" title="Users page">
+  <img src="https://rucken.ru/assets/rucken-core/web/rucken-web-entities-users-create.png" width="250" title="User create modal">
 </p>
 
 ## Features
@@ -43,7 +43,7 @@ npm run start:prod
 
 [https://rucken.github.io/core/](https://rucken.github.io/core/) - Static site on [GitHub Pages](https://pages.github.com/)
 
-[https://web.rucken.io](https://web.rucken.io) - Server-side rendering (SSR) on VPS with [Dokku](http://dokku.viewdocs.io/dokku/)
+[https://web.rucken.ru](https://web.rucken.ru) - Server-side rendering (SSR) on VPS with [Dokku](http://dokku.viewdocs.io/dokku/)
 
 ## Compodoc documentations
 
